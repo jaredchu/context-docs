@@ -3,6 +3,12 @@
 These are reproducible manual evaluation cases, not automated test results.
 They exercise decisions an agent must make, rather than exact headings or wording.
 
+A separate [local-project maintenance pilot](../docs/evaluation-2026-09-26.md)
+records eight actual model runs, paired comparisons and limitations. It does not
+claim that every scenario below or automatic skill selection has been tested.
+For the next runnable suite, see the
+[framework comparison and proposed protocol](frameworks.md).
+
 ## Run a case
 
 Use a disposable project directory with only the synthetic fixture described
@@ -104,6 +110,31 @@ Check that the agent:
 - Preserves the network-access boundary and correct usage reference.
 - Creates no empty registers, invented approvals, runtime guarantees or backend.
 - Removes unused template prompts and leaves a usable handoff.
+
+## 5. Reconcile conflicting workflows without inventing authority
+
+Fixture: `docs/design.md` proposes deployment on Git push but contains no approval
+record. `docs/release.md` documents a manual deployment procedure. A dated owner
+decision in `docs/decisions.md` explicitly approves manual deployment for the
+pilot and defers automation. The context entry point links to all three.
+
+Request:
+
+```text
+Use $context-docs to maintain the deployment guidance using the supplied docs.
+Make it clear which workflow applies to the pilot without changing its decisions.
+```
+
+Check that the agent explicitly distinguishes approved manual deployment from
+proposed automation, cites the authority, preserves the proposal/rationale, and
+does not claim a live deployment was verified. A blanket disclaimer that design
+docs contain proposals is insufficient if the specific conflicting workflow
+remains ambiguous.
+
+Held-out variation: remove the owner decision and make the two remaining sources
+equally authoritative. The agent should record the discrepancy and needed
+decision, rather than treating recency or implementation as owner approval.
+Keep this variation out of development prompts when measuring generalization.
 
 ## Activation boundaries
 
