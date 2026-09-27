@@ -124,6 +124,13 @@ and Click 8.2.1 corpora (143,604 and 102,647 source/test/doc words).
   both projects are in the Pallets ecosystem. The weak-docs study and private
   pilot miss remain visible. The skill stays v0.1.1 unchanged.
 
+A [README routing follow-up](../evals/routing/README.md) is prepared to separate
+README-first discovery from directed orientation reading. It reuses the four
+unchanged public handoffs, adds equivalent routing links in temporary README
+files, and plans 12 fresh reader sessions with model-visible exposure checks.
+Questions and criteria are reused, including the previous omission; this is not
+a held-out benchmark. Results are pending and the skill remains v0.1.1.
+
 ## Next actions
 
 1. Separate handoff discovery from consumption in the next evaluation: permit a
