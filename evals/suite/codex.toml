@@ -1,0 +1,14 @@
+# Shared by both conditions. Authentication is supplied privately by Harbor.
+model_reasoning_effort = "low"
+web_search = "disabled"
+project_doc_max_bytes = 0
+[features]
+apps = false
+plugins = false
+hooks = false
+multi_agent = false
+memories = false
+browser_use = false
+image_generation = false
+shell_snapshot = false
+skip_host_skill_discovery = true
