@@ -1,0 +1,101 @@
+{
+  "scope": "Supporting diagnostics only. Agent time excludes container setup; repeated stage time is summed for maintenance trials. Usage is observed, not billing or financial savings. Words are whitespace-separated across all Markdown files.",
+  "by_arm": {
+    "untreated": {
+      "maintenance": {
+        "trials": 0,
+        "sessions": 0,
+        "total_agent_seconds": 0,
+        "median_agent_seconds_per_trial": null,
+        "usage": {
+          "n_input_tokens": 0,
+          "n_cache_tokens": 0,
+          "n_output_tokens": 0
+        }
+      },
+      "reading": {
+        "trials": 12,
+        "sessions": 12,
+        "total_agent_seconds": 1025.3989080000001,
+        "median_agent_seconds_per_trial": 85.22964250000001,
+        "usage": {
+          "n_input_tokens": 733503,
+          "n_cache_tokens": 562048,
+          "n_output_tokens": 27095
+        }
+      },
+      "words_by_case": {
+        "kestrel-scattered": 146,
+        "kestrel-conflicting": 121,
+        "kestrel-absent": 32,
+        "oriole-scattered": 160,
+        "oriole-conflicting": 134,
+        "oriole-absent": 34
+      }
+    },
+    "ordinary": {
+      "maintenance": {
+        "trials": 6,
+        "sessions": 18,
+        "total_agent_seconds": 1145.167048,
+        "median_agent_seconds_per_trial": 190.3694655,
+        "usage": {
+          "n_input_tokens": 1035498,
+          "n_cache_tokens": 862976,
+          "n_output_tokens": 28900
+        }
+      },
+      "reading": {
+        "trials": 12,
+        "sessions": 12,
+        "total_agent_seconds": 998.323318,
+        "median_agent_seconds_per_trial": 83.24395100000001,
+        "usage": {
+          "n_input_tokens": 780811,
+          "n_cache_tokens": 615680,
+          "n_output_tokens": 26407
+        }
+      },
+      "words_by_case": {
+        "kestrel-scattered": 1032,
+        "kestrel-conflicting": 1125,
+        "kestrel-absent": 763,
+        "oriole-scattered": 1072,
+        "oriole-conflicting": 1054,
+        "oriole-absent": 747
+      }
+    },
+    "skill": {
+      "maintenance": {
+        "trials": 6,
+        "sessions": 18,
+        "total_agent_seconds": 1171.466169,
+        "median_agent_seconds_per_trial": 201.6459095,
+        "usage": {
+          "n_input_tokens": 1474937,
+          "n_cache_tokens": 1201280,
+          "n_output_tokens": 28420
+        }
+      },
+      "reading": {
+        "trials": 12,
+        "sessions": 12,
+        "total_agent_seconds": 964.370111,
+        "median_agent_seconds_per_trial": 81.7820465,
+        "usage": {
+          "n_input_tokens": 774010,
+          "n_cache_tokens": 668160,
+          "n_output_tokens": 25799
+        }
+      },
+      "words_by_case": {
+        "kestrel-scattered": 792,
+        "kestrel-conflicting": 890,
+        "kestrel-absent": 713,
+        "oriole-scattered": 780,
+        "oriole-conflicting": 807,
+        "oriole-absent": 663
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "task": "read-360378eb2eb8-reader",
+    "mode": "oracle",
+    "task_checksum": "4fa1cc8367a5726653bdde65e6001d0329352c5d41ccc0dd53075d3e7a78c725",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "read-c2d7f7af99d9-reader",
+    "mode": "oracle",
+    "task_checksum": "f4c5a09f4412e87c72a5508e634666391628456da8e71c4090559d8b80517a7b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "read-360378eb2eb8-reader",
+    "mode": "nop",
+    "task_checksum": "4fa1cc8367a5726653bdde65e6001d0329352c5d41ccc0dd53075d3e7a78c725",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      }
+    ]
+  },
+  {
+    "task": "read-c2d7f7af99d9-reader",
+    "mode": "nop",
+    "task_checksum": "f4c5a09f4412e87c72a5508e634666391628456da8e71c4090559d8b80517a7b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      }
+    ]
+  }
+]

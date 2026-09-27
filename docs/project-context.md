@@ -79,19 +79,37 @@ does not change the already executed studies or their frozen acceptance criteria
   scope/preservation prompts remain limitations; normal global-instruction use has
   not been evaluated.
 
-The [quality-first protocol](../evals/quality-protocol.md) defines the next study:
-matched unmaintained, ordinary-maintenance and Context Docs arms, with the same
-underlying evidence and fresh readers. It is a plan, not an executed evaluation.
-The README now leads with knowledge quality and separates historical maintenance
-checks from unmeasured reader benefits.
+The owner accepted execution of the [quality-first protocol](../evals/quality-protocol.md).
+The [completed study](evaluation-2026-09-27-quality.md) ran 12 three-stage
+maintenance trials and 36 fresh readers (72 model sessions, 216 answers) on two
+new synthetic projects with scattered, conflicting and absent-context starts.
+
+- Final required-knowledge coverage: unmaintained 12/54; ordinary maintenance
+  54/54; Context Docs v0.1.1 54/54. All stages of both maintained arms preserve
+  162/162 assessed items each, with no observed critical document error or
+  durability loss. Final no-change passes leave Markdown intact in all 12 trials.
+- All three reader arms score 72/72 supported correct answers and 36/36 correct
+  pairs. Readers can recover facts from common raw evidence; these small explicit
+  sources produce a ceiling, not evidence of a reader advantage or equivalence.
+- All 72 sessions pass recorded-input audits without host/global instruction
+  injection. Reference/no-op controls behave as expected. No scored run was
+  retried or discarded; all complete without Harbor execution exceptions.
+- Fixtures, questions and scoring were frozen in `64e059d`; author review is not
+  independent or fully blinded. Initial inputs contain 514–656 total words and
+  there is only one maintenance trial per scenario/arm. The skill stays v0.1.1.
+- README now leads with stored-knowledge quality and actual reader outcomes.
+  Saved artifacts include all stages, answers, explicit reviews, controls and
+  source hashes. Post-execution table presentation exposes existing metrics;
+  all summary and score values are unchanged by that formatting update.
 
 ## Next actions
 
-1. Implement the quality-first study on scattered, conflicting and absent-context
-   starting conditions. Freeze matched evidence, reader questions and critical
-   failures before running. Use independent or externally contributed fixtures
-   where available; measure stored knowledge and fresh-reader answers. Keep both
-   completed studies and the private pilot miss visible.
+1. Seek larger, independently authored project cases with natural continuation
+   questions and longer maintenance histories before further skill tuning.
+   Preserve equal raw-evidence access and the competent ordinary baseline; freeze
+   cases and questions before execution. Existing studies show preservation on
+   these fixtures, not an incremental skill accuracy advantage. Keep the private
+   pilot miss and all completed studies visible.
 2. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
    covers explicit use on one model and up to three passes.
@@ -104,6 +122,7 @@ checks from unmeasured reader benefits.
 - [README and installation](../README.md)
 - [Skill entry point](../skills/context-docs/SKILL.md)
 - [Evaluation scenarios](../evals/README.md)
+- [Completed quality and fresh-reader study](evaluation-2026-09-27-quality.md)
 - [Quality-first comparison protocol](../evals/quality-protocol.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)

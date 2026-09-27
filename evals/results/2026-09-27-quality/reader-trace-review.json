@@ -1,0 +1,9 @@
+{
+  "reviewer": "Authoring assistant",
+  "sessions_reviewed": 36,
+  "scope_violations_observed": 0,
+  "skill_reads": 0,
+  "raw_evidence_reads": 36,
+  "project_read_only_passes": 36,
+  "method": "Inspected submitted tool calls for all reader sessions. Readers inspected project files including the raw evidence, then wrote and validated /output/answers.json. No project mutations, external-service calls, credential reads, hidden-answer access or skill reads observed. Independent final byte/Git checks passed all sessions. Most readers read the tiny source set in a single batch, explaining why missing or incorrect maintained Markdown did not prevent correct answers. Recovered missing-python calls used python3 or shell output; no scored trial was retried."
+}

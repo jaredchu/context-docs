@@ -1,0 +1,206 @@
+[
+  {
+    "task": "kestrel-absent-ordinary",
+    "mode": "oracle",
+    "task_checksum": "902e6afc257f376abeabbcf726c2d3ea9b0213f505a4e4f70542de091858b20b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "kestrel-conflicting-ordinary",
+    "mode": "oracle",
+    "task_checksum": "be918eab411a5db7e32dc70beadfa3c6844a57bffeff2b19741aa19cd6f1085e",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "kestrel-scattered-ordinary",
+    "mode": "oracle",
+    "task_checksum": "e40e8dc77c60c24cdce68e7d6426f5efded797c59b15899ea9e435abe40e8c34",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-absent-ordinary",
+    "mode": "oracle",
+    "task_checksum": "ea6aab7119c69cb346f8d29d623c2508949cc2d712aa234727a44789a8af5571",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-conflicting-ordinary",
+    "mode": "oracle",
+    "task_checksum": "b0d94192fc392c13da33ec6f21fd6287dbd7bcc13414cf593bffa7e70444cc3e",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-scattered-ordinary",
+    "mode": "oracle",
+    "task_checksum": "703acef8bbafd04e51c419f326ea965512e431b379be688417c508ab7903a02a",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "kestrel-absent-ordinary",
+    "mode": "nop",
+    "task_checksum": "902e6afc257f376abeabbcf726c2d3ea9b0213f505a4e4f70542de091858b20b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "kestrel-conflicting-ordinary",
+    "mode": "nop",
+    "task_checksum": "be918eab411a5db7e32dc70beadfa3c6844a57bffeff2b19741aa19cd6f1085e",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "kestrel-scattered-ordinary",
+    "mode": "nop",
+    "task_checksum": "e40e8dc77c60c24cdce68e7d6426f5efded797c59b15899ea9e435abe40e8c34",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-absent-ordinary",
+    "mode": "nop",
+    "task_checksum": "ea6aab7119c69cb346f8d29d623c2508949cc2d712aa234727a44789a8af5571",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-conflicting-ordinary",
+    "mode": "nop",
+    "task_checksum": "b0d94192fc392c13da33ec6f21fd6287dbd7bcc13414cf593bffa7e70444cc3e",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "oriole-scattered-ordinary",
+    "mode": "nop",
+    "task_checksum": "703acef8bbafd04e51c419f326ea965512e431b379be688417c508ab7903a02a",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  }
+]

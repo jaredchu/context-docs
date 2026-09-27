@@ -74,6 +74,7 @@ same method. No forced directory migration or universal document-size limit.
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
 - [Before-and-after example](examples/maintenance.md)
 - [Behavioral evaluation scenarios](evals/README.md)
+- [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
 - [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
 - [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
 - [This project's own context](docs/project-context.md)
@@ -84,13 +85,40 @@ The primary goal is durable project knowledge: retain useful content, keep claim
 accurate, and make decisions and procedures consistent across documents and
 sessions. **Shorter files or faster editing do not establish that goal.**
 
-Our next evaluation compares the same project with scattered, stale or missing
-context, after ordinary documentation maintenance, and after Context Docs.
-Fresh readers will answer the same project questions. Primary measures are
-information retention, factual accuracy, cross-document consistency, correct
-handling of approvals/unknowns, and agreement with supported answers across
-sessions. See the [quality-first protocol](evals/quality-protocol.md).
-**That comparison has not run yet.**
+The [quality-first study](docs/evaluation-2026-09-27-quality.md) compared two
+synthetic projects with scattered, conflicting or absent context. It ran 12
+three-stage maintenance trials, followed by 36 fresh-reader sessions: **72 model
+sessions and 216 reader answers**, plus reference/no-op controls.
+
+<!-- quality-table:start -->
+| Final-artifact measure | Unmaintained | Ordinary maintenance | Context Docs v0.1.1 |
+| --- | ---: | ---: | ---: |
+| Required knowledge recorded | 12/54 | 54/54 | 54/54 |
+| Correct, supported reader answers | 72/72 | 72/72 | 72/72 |
+| Correct in both reader sessions | 36/36 | 36/36 | 36/36 |
+| Target-claim accuracy | 37.5% | 100.0% | 100.0% |
+| Missing required items | 22 | 0 | 0 |
+| Incorrect required items | 20 | 0 | 0 |
+| Critical document findings | 11 | 0 | 0 |
+| Conflicting required items | 0 | 0 | 0 |
+<!-- quality-table:end -->
+
+Both maintenance methods improved the stored record. **Context Docs did not
+outperform ordinary maintenance on these quality measures.** Readers could inspect
+the same small raw evidence set in every arm and all answered correctly, including
+with unmaintained docs. This reader ceiling establishes no accuracy advantage or
+general equivalence. Both maintenance arms retained all required items through an
+evidence update and made no edits in the final no-change pass.
+
+Coverage counts required knowledge captured accurately in maintained Markdown;
+raw-file survival alone does not count. Target-claim accuracy excludes missing
+items, which are shown separately. Incorrect current claims and unresolved
+operative conflicts are separate categories. The two projects contain only
+514–656 total input words, are author-created and author-reviewed, and have one
+maintenance trial per scenario/arm. This is a reproducible development study,
+not an independent benchmark. See the [method, per-project results and limits](docs/evaluation-2026-09-27-quality.md),
+[execution commands](evals/quality/README.md), and
+[snapshots and scored evidence](evals/results/2026-09-27-quality/README.md).
 
 Existing studies provide maintenance regression coverage:
 
@@ -137,8 +165,8 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Document quality and downstream reader accuracy on weak-documentation baselines
-remain next. Cloud
+Larger, independently authored cases and longer maintenance histories are next.
+Current results do not establish a skill-specific correctness advantage. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).

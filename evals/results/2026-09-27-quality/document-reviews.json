@@ -1,0 +1,3346 @@
+{
+  "reviewer": "Authoring assistant",
+  "method": "Manual ledger-based document review with specific evidence explanations; author-created fixtures, not independent or fully blinded judging. Missing includes absent material detail within a partially recorded item.",
+  "snapshots": {
+    "a7dd3338ac5f": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "missing",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Manual publication, Mira/DEC-101, optional CI and artifact review are recorded; automation is deferred with operator-effort rationale."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 30, versus current configuration 60. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Both pending work items and their needed inputs/actions are accurately present before the update."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "No Markdown records the sparse-file flag, restore path or storage-maintainer constraint from the uncommitted scratch note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Sample-only content approval and unresolved rights/update ownership for broader ingestion are recorded."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "f3ce62c39227": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "incorrect",
+        "open_work": "correct",
+        "constraint": "missing",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Manual publication, Mira/DEC-101, optional CI and artifact review are recorded; automation is deferred with operator-effort rationale."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 30, versus current configuration 45. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket incorrectly remains pending after the supplied completed test; the separate calibration/encoding item and its test-maintainer action remain correctly pending."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "No Markdown records the sparse-file flag, restore path or storage-maintainer constraint from the uncommitted scratch note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Sample-only content approval and unresolved rights/update ownership for broader ingestion are recorded."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "6f9889a8b560": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "incorrect",
+        "open_work": "correct",
+        "constraint": "missing",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Manual publication, Mira/DEC-101, optional CI and artifact review are recorded; automation is deferred with operator-effort rationale."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 30, versus current configuration 45. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket incorrectly remains pending after the supplied completed test; the separate calibration/encoding item and its test-maintainer action remain correctly pending."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "No Markdown records the sparse-file flag, restore path or storage-maintainer constraint from the uncommitted scratch note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Sample-only content approval and unresolved rights/update ownership for broader ingestion are recorded."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "a80c80e76fa1": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "incorrect",
+        "open_work": "incorrect",
+        "constraint": "missing",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current procedure elevates automatic Git publication and required CI from a demonstration into policy; the historical manual-owner note does not qualify that current command."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Both tickets are prematurely marked complete although both are open at this stage."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The sparse-file/path/storage-maintainer constraint is absent from maintained Markdown despite raw scratch survival."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Public uploads/external manuals are falsely approved, contrary to DEC-102."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Public/customer uploads and external ingestion are falsely approved."
+      ],
+      "additional_findings": []
+    },
+    "ee176e09fef1": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "missing",
+        "open_work": "incorrect",
+        "constraint": "missing",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current procedure elevates automatic Git publication and required CI from a demonstration into policy; the historical manual-owner note does not qualify that current command."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket happens to be marked complete but the required closure evidence is not recorded; the second is falsely complete despite the unresolved next action."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The sparse-file/path/storage-maintainer constraint is absent from maintained Markdown despite raw scratch survival."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Public uploads/external manuals are falsely approved, contrary to DEC-102."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Public/customer uploads and external ingestion are falsely approved."
+      ],
+      "additional_findings": []
+    },
+    "bc2d934bc64d": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "missing",
+        "open_work": "incorrect",
+        "constraint": "missing",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current procedure elevates automatic Git publication and required CI from a demonstration into policy; the historical manual-owner note does not qualify that current command."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket happens to be marked complete but the required closure evidence is not recorded; the second is falsely complete despite the unresolved next action."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The sparse-file/path/storage-maintainer constraint is absent from maintained Markdown despite raw scratch survival."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Public uploads/external manuals are falsely approved, contrary to DEC-102."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Public/customer uploads and external ingestion are falsely approved."
+      ],
+      "additional_findings": []
+    },
+    "e7827a0a5111": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "164f3a91a5aa": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "88da2c08369e": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "cc44950e4e04": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Lina/DEC-201 offline read-only CSV and disconnected-operation rationale are recorded; the hosted viewer remains a proposal for shared review. JSON is correctly still proposed at this stage."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 100, versus current configuration 200. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Both pending work items and their needed inputs/actions are accurately present before the update."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Composite opaque keys, case/zero preservation and avoiding merged records are correctly recorded."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Blank quantities remain unknown, the README preserves read-only human-review scope, and operations distinguishes correction authority from tool design."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "e0037474dfec": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "incorrect",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Lina/DEC-201 offline read-only CSV and disconnected-operation rationale are recorded; the hosted viewer remains a proposal for shared review. The unchanged note incorrectly keeps JSON proposed after DEC-203 approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 100, versus current configuration 125. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket incorrectly remains pending after the supplied completed test; the separate calibration/encoding item and its test-maintainer action remain correctly pending."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Composite opaque keys, case/zero preservation and avoiding merged records are correctly recorded."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Blank quantities remain unknown, the README preserves read-only human-review scope, and operations distinguishes correction authority from tool design."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [
+        "The record still calls JSON a proposal and presents only the earlier CSV approval after DEC-203 approved optional local JSON."
+      ],
+      "additional_findings": []
+    },
+    "12d8dbb874bd": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "correct",
+        "configured": "incorrect",
+        "runtime": "correct",
+        "closed_work": "incorrect",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md"
+          ],
+          "reason": "Lina/DEC-201 offline read-only CSV and disconnected-operation rationale are recorded; the hosted viewer remains a proposal for shared review. The unchanged note incorrectly keeps JSON proposed after DEC-203 approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The note incorrectly states 100, versus current configuration 125. It correctly leaves running/production state unverified."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket incorrectly remains pending after the supplied completed test; the separate calibration/encoding item and its test-maintainer action remain correctly pending."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Composite opaque keys, case/zero preservation and avoiding merged records are correctly recorded."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "README.md",
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Blank quantities remain unknown, the README preserves read-only human-review scope, and operations distinguishes correction authority from tool design."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The operational note explicitly leaves the relevant assignment unknown/unassigned rather than assigning the tool/project owner."
+        }
+      ],
+      "critical_errors": [
+        "The record still calls JSON a proposal and presents only the earlier CSV approval after DEC-203 approved optional local JSON."
+      ],
+      "additional_findings": []
+    },
+    "abdaeb042a83": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "incorrect",
+        "open_work": "incorrect",
+        "constraint": "incorrect",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current output note incorrectly treats the viewer mockup as hosted approval and claims CSV-only forever, overriding supported offline owner scope and, after the update, local JSON approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Both tickets are prematurely marked complete although both are open at this stage."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The operative matching procedure incorrectly normalizes identifiers numerically and uses only item_id; historical composite-key rationale does not qualify the current wrong instruction."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Blank quantities are wrongly zero and the report is wrongly granted authority to correct source exports."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Opaque composite identifiers are replaced by numeric item-only matching.",
+        "Unknown quantities are converted to zero.",
+        "A report is granted authority to change source exports."
+      ],
+      "additional_findings": [
+        "The unrestricted claim that CSV is the only format ever supported is unsupported; final-stage DEC-203 directly contradicts it."
+      ]
+    },
+    "49eb260a647b": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "missing",
+        "open_work": "incorrect",
+        "constraint": "incorrect",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current output note incorrectly treats the viewer mockup as hosted approval and claims CSV-only forever, overriding supported offline owner scope and, after the update, local JSON approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket happens to be marked complete but the required closure evidence is not recorded; the second is falsely complete despite the unresolved next action."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The operative matching procedure incorrectly normalizes identifiers numerically and uses only item_id; historical composite-key rationale does not qualify the current wrong instruction."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Blank quantities are wrongly zero and the report is wrongly granted authority to correct source exports."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Opaque composite identifiers are replaced by numeric item-only matching.",
+        "Unknown quantities are converted to zero.",
+        "A report is granted authority to change source exports."
+      ],
+      "additional_findings": [
+        "The unrestricted claim that CSV is the only format ever supported is unsupported; final-stage DEC-203 directly contradicts it."
+      ]
+    },
+    "4b1c9ba0e0cb": {
+      "statuses": {
+        "workflow": "incorrect",
+        "proposal": "incorrect",
+        "configured": "incorrect",
+        "runtime": "incorrect",
+        "closed_work": "missing",
+        "open_work": "incorrect",
+        "constraint": "incorrect",
+        "boundary": "incorrect",
+        "unknown_owner": "incorrect"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "The current output note incorrectly treats the viewer mockup as hosted approval and claims CSV-only forever, overriding supported offline owner scope and, after the update, local JSON approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The asserted live value differs from the configuration and has no production/running-installation evidence. The record fails to distinguish configured and running state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The first ticket happens to be marked complete but the required closure evidence is not recorded; the second is falsely complete despite the unresolved next action."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "The operative matching procedure incorrectly normalizes identifiers numerically and uses only item_id; historical composite-key rationale does not qualify the current wrong instruction."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Blank quantities are wrongly zero and the report is wrongly granted authority to correct source exports."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The record assigns the project/tool owner to a role the supplied evidence explicitly leaves unidentified."
+        }
+      ],
+      "critical_errors": [
+        "A contributor demonstration is treated as approval contrary to the owner decision.",
+        "Running/production state is asserted without evidence.",
+        "A person is assigned authority/responsibility absent from the evidence.",
+        "Opaque composite identifiers are replaced by numeric item-only matching.",
+        "Unknown quantities are converted to zero.",
+        "A report is granted authority to change source exports."
+      ],
+      "additional_findings": [
+        "The unrestricted claim that CSV is the only format ever supported is unsupported; final-stage DEC-203 directly contradicts it."
+      ]
+    },
+    "c1ba874a226f": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "3b3b9f73ab52": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "807527bfca48": {
+      "statuses": {
+        "workflow": "missing",
+        "proposal": "missing",
+        "configured": "missing",
+        "runtime": "missing",
+        "closed_work": "missing",
+        "open_work": "missing",
+        "constraint": "missing",
+        "boundary": "missing",
+        "unknown_owner": "missing"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "README gives purpose and raw-directory locations only. It does not record the required decisions, values, evidence limits, work states, detailed constraints or unassigned role; raw sources and scratch notes still exist but do not constitute a maintained account."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "cca7ac48146f": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 60; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is blocked on a volume followed by a recorded exercise; CAL-102 independently needs its approved leading-zero sample from the test maintainer. Neither is prematurely closed."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "e4c2fb17dab1": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 60; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is blocked on a volume followed by a recorded exercise; CAL-102 independently needs its approved leading-zero sample from the test maintainer. Neither is prematurely closed."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2e2b32b9ad2d": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 60; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is blocked on a volume followed by a recorded exercise; CAL-102 independently needs its approved leading-zero sample from the test maintainer. Neither is prematurely closed."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "ddeafe5140cb": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2eb3b7d603f8": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "90598c8e5ac2": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "03cf489c55b3": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2d014c1919bf": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "f3ad849851db": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "7c13eec0f91a": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 60, while production remains unverified. REST-101 remains blocked with volume/exercise actions; CAL-102 independently needs its approved sample. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "e1cd9f329de2": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 45, while production remains unverified. REST-101 closes on September 25 with restore-25 while CAL-102 still needs its approved leading-zero sample from the test maintainer. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "590f2d0572c9": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 60, while production remains unverified. REST-101 remains blocked with volume/exercise actions; CAL-102 independently needs its approved sample. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "8af5828524ac": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 45, while production remains unverified. REST-101 closes on September 25 with restore-25 while CAL-102 still needs its approved leading-zero sample from the test maintainer. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "45207e7104be": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 60; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is blocked on a volume followed by a recorded exercise; CAL-102 independently needs its approved leading-zero sample from the test maintainer. Neither is prematurely closed."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "6b9d3be5890c": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 45, while production remains unverified. REST-101 closes on September 25 with restore-25 while CAL-102 still needs its approved leading-zero sample from the test maintainer. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "0ad412b532eb": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry records Mira/DEC-101 manual publication with optional CI and artifact-review rationale; Git automation remains deferred with its original rationale and demonstration caveat. Configuration is 45, while production remains unverified. REST-101 closes on September 25 with restore-25 while CAL-102 still needs its approved leading-zero sample from the test maintainer. It preserves the sparse-file flag, exact restore path, storage-maintainer consultation and future applicability; DEC-102 source restrictions and rights/update-ownership prerequisite; and unassigned on-call responsibility without inventing Mira as the contact. Artifact retention and revision-specific review guidance also survive with source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2a798e47aec1": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "c378604b6fa3": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md"
+          ],
+          "reason": "DEC-101 manual publication, optional CI, Mira authority and artifact-review rationale are explicit. Git automation/mandatory CI stay deferred, with operator-effort/revision rationale and the demonstration distinguished from approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "Current checked-in timeout is 45; the document cites configuration and explicitly distinguishes local/staging evidence from unknown production state."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "REST-101 is closed with the September 25 restore-25 result after volume allocation, while CAL-102 still needs its approved leading-zero sample from the test maintainer. Closure is not generalized to the other ticket."
+        },
+        {
+          "items": [
+            "constraint"
+          ],
+          "paths": [
+            "notes/operations.md"
+          ],
+          "reason": "The actual ./data files/pilot.db path, sparse-file flag, quota rationale, storage-maintainer consultation and applicability to future restores are preserved from the uncommitted note."
+        },
+        {
+          "items": [
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md"
+          ],
+          "reason": "Mira/DEC-102 sample-only scope is explicit; broader uploads/ingestion remain unapproved pending rights and update ownership."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Production on-call staffing remains unassigned; Mira is explicitly not inferred to hold that role."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "60d5146447fa": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "Lina/DEC-201 approves offline read-only CSV for disconnected operators. Local JSON remains proposed, as does the hosted viewer; demo and contributor dates do not override owner approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 200, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 remains open pending an approved two-location sample and comparison. ENC-202 independently needs an approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2de329eb2dd6": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "Lina/DEC-201 approves offline read-only CSV for disconnected operators. Local JSON remains proposed, as does the hosted viewer; demo and contributor dates do not override owner approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 200, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 remains open pending an approved two-location sample and comparison. ENC-202 independently needs an approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "97487d503222": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "Lina/DEC-201 approves offline read-only CSV for disconnected operators. Local JSON remains proposed, as does the hosted viewer; demo and contributor dates do not override owner approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 200, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 remains open pending an approved two-location sample and comparison. ENC-202 independently needs an approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "22a5da714b7a": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "7e21689d2c45": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "2d2eb5d6da77": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "d7af28a6e1e3": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "4868ccac9090": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "f7d57e0194c4": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "cdedf870af85": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. JSON is still an unapproved downstream-analysis proposal; batch configuration is 200 and SAMPLE-201 still needs an approved two-location sample and comparison. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "0b8cce68abde": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. JSON is still an unapproved downstream-analysis proposal; batch configuration is 200 and SAMPLE-201 still needs an approved two-location sample and comparison. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "7588a16238dc": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "Lina/DEC-201 approves offline read-only CSV for disconnected operators. Local JSON remains proposed, as does the hosted viewer; demo and contributor dates do not override owner approval."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 200, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 remains open pending an approved two-location sample and comparison. ENC-202 independently needs an approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "459cdf614d7b": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. DEC-203 approves optional local JSON alongside CSV for downstream offline analysis without changing offline/read-only boundaries; configuration is 125 and SAMPLE-201 closes with the September 25 D201 result. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "1f9cb19ebab9": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "README.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. DEC-203 approves optional local JSON alongside CSV for downstream offline analysis without changing offline/read-only boundaries; configuration is 125 and SAMPLE-201 closes with the September 25 D201 result. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "a2568dc5608a": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. DEC-203 approves optional local JSON alongside CSV for downstream offline analysis without changing offline/read-only boundaries; configuration is 125 and SAMPLE-201 closes with the September 25 D201 result. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "5134b2d87f25": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "9bce46eed1ef": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal"
+          ],
+          "paths": [
+            "notes/release.md",
+            "notes/operations.md",
+            "notes/boundaries.md"
+          ],
+          "reason": "DEC-203 approves optional local JSON alongside CSV for downstream offline analysis; offline/read-only and DEC-202 remain intact. Hosted viewing still lacks approval despite the demonstration."
+        },
+        {
+          "items": [
+            "configured",
+            "runtime"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "The current checked-in batch is 125, supported by configuration; local synthetic checks do not establish any running installation or its effective settings."
+        },
+        {
+          "items": [
+            "closed_work",
+            "open_work"
+          ],
+          "paths": [
+            "notes/status.md"
+          ],
+          "reason": "SAMPLE-201 closes with the approved two-location sample and passing D201 comparison on September 25. ENC-202 independently still needs its approved non-ASCII location sample from the test maintainer."
+        },
+        {
+          "items": [
+            "constraint",
+            "boundary"
+          ],
+          "paths": [
+            "notes/boundaries.md",
+            "notes/operations.md"
+          ],
+          "reason": "Opaque composite item_id/location_id matching preserves case and leading zeros, with collision rationale and reviewer example. Blank quantity stays unknown, inputs remain read-only, and discrepancy output does not authorize warehouse corrections. Command, source retention, output safeguards and field ordering remain captured."
+        },
+        {
+          "items": [
+            "unknown_owner"
+          ],
+          "paths": [
+            "notes/status.md",
+            "notes/operations.md"
+          ],
+          "reason": "Warehouse correction approval authority remains unidentified; Lina\u2019s design-owner role and tool output do not confer that authority."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    },
+    "00bdb3961ee2": {
+      "statuses": {
+        "workflow": "correct",
+        "proposal": "correct",
+        "configured": "correct",
+        "runtime": "correct",
+        "closed_work": "correct",
+        "open_work": "correct",
+        "constraint": "correct",
+        "boundary": "correct",
+        "unknown_owner": "correct"
+      },
+      "evidence": [
+        {
+          "items": [
+            "workflow",
+            "proposal",
+            "configured",
+            "runtime",
+            "closed_work",
+            "open_work",
+            "constraint",
+            "boundary",
+            "unknown_owner"
+          ],
+          "paths": [
+            "context.md"
+          ],
+          "reason": "The entry preserves Lina/DEC-201 offline CSV approval and disconnected-operator rationale, read-only inputs, and unapproved hosted viewer/shared-review rationale. DEC-203 approves optional local JSON alongside CSV for downstream offline analysis without changing offline/read-only boundaries; configuration is 125 and SAMPLE-201 closes with the September 25 D201 result. ENC-202 separately needs its approved non-ASCII location sample from the test maintainer. Runtime remains unverified despite local tests. DEC-202 opaque composite matching retains case/leading zeros with the collision rationale and concrete reviewer example. Blank quantities stay unknown; report output never authorizes corrections, and the approver remains unidentified rather than inferred from Lina\u2019s tool-design role. Command, input retention, output overwrite protection and field ordering also survive with supporting source links."
+        }
+      ],
+      "critical_errors": [],
+      "additional_findings": []
+    }
+  }
+}

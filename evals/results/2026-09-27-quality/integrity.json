@@ -1,0 +1,10 @@
+{
+  "execution_commit": "64e059d04e1528e0b2acd3fef124681f7c0342ca",
+  "frozen_sources_unchanged_before_reading": true,
+  "snapshots": 54,
+  "matched_raw_evidence_groups": 6,
+  "actual_reader_snapshot_hashes": 36,
+  "skill_absent_from_reader_packages": 36,
+  "question_prompts_identical_across_arms": true,
+  "scope": "Source hashes and exact file contents, not a semantic correctness claim. Report/status documentation may be updated after execution; manifests retain the frozen hashes."
+}

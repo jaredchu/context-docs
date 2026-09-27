@@ -1,0 +1,150 @@
+{
+  "harbor_version": "0.23.0",
+  "codex_version": "0.158.0-alpha.2",
+  "model": "gpt-6-astra",
+  "effort": "low",
+  "task_count": 6,
+  "conditions": [
+    "ordinary",
+    "skill"
+  ],
+  "attempts": 1,
+  "skill_files": {
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "suite_files": {
+    "audit_isolation.py": "797962d0cf0f7e6df0dbf983b201f33fd12e1039a9a4944f7c077e1170e42fe9",
+    "build.py": "b8c78df3c32bd7552d6faf97d4327ff69a76bef94bf5d73d6fdfe60042f4f106",
+    "cases.py": "dd2d37d11b8daffd60d790ff5b00cb09743c0230ca67b1a8c35434a9e950f6e7",
+    "codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38",
+    "collect.py": "d8c7dee110edf24f2e4750afb124242ad82c23b9dac1d7c726d7d29a657b372f",
+    "report.py": "923db27c6c701f571dda3cf5ed818777cfcc761da1ea2ff8b2151a4e3fc93b70",
+    "run.py": "4be8cf99acd38996e524b105335c9a2cfa3a6090ed26f977cef8f9bbc809f6df",
+    "selftest.py": "5a4d340bd089b434ccd8fafd0596dd4b53c1a5a16436902711257aa85c5978b8",
+    "verify.py": "1351f31ef2b82fb2bcb5d4e713b103bdcca5b5f1c864f3c3acabd2db4484d1bd"
+  },
+  "packages": [
+    {
+      "name": "kestrel-scattered-ordinary",
+      "task": "kestrel-scattered",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "scattered"
+    },
+    {
+      "name": "kestrel-scattered-skill",
+      "task": "kestrel-scattered",
+      "arm": "skill",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "scattered"
+    },
+    {
+      "name": "kestrel-conflicting-ordinary",
+      "task": "kestrel-conflicting",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "conflicting"
+    },
+    {
+      "name": "kestrel-conflicting-skill",
+      "task": "kestrel-conflicting",
+      "arm": "skill",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "conflicting"
+    },
+    {
+      "name": "kestrel-absent-ordinary",
+      "task": "kestrel-absent",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "absent"
+    },
+    {
+      "name": "kestrel-absent-skill",
+      "task": "kestrel-absent",
+      "arm": "skill",
+      "steps": 3,
+      "world": "kestrel",
+      "condition": "absent"
+    },
+    {
+      "name": "oriole-scattered-ordinary",
+      "task": "oriole-scattered",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "scattered"
+    },
+    {
+      "name": "oriole-scattered-skill",
+      "task": "oriole-scattered",
+      "arm": "skill",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "scattered"
+    },
+    {
+      "name": "oriole-conflicting-ordinary",
+      "task": "oriole-conflicting",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "conflicting"
+    },
+    {
+      "name": "oriole-conflicting-skill",
+      "task": "oriole-conflicting",
+      "arm": "skill",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "conflicting"
+    },
+    {
+      "name": "oriole-absent-ordinary",
+      "task": "oriole-absent",
+      "arm": "ordinary",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "absent"
+    },
+    {
+      "name": "oriole-absent-skill",
+      "task": "oriole-absent",
+      "arm": "skill",
+      "steps": 3,
+      "world": "oriole",
+      "condition": "absent"
+    }
+  ],
+  "kind": "maintenance",
+  "execution_commit": "64e059d04e1528e0b2acd3fef124681f7c0342ca",
+  "quality_sources": {
+    "evals/quality/maintenance_verify.py": "163e7f4cb016c2a329cd3058ab243801b72d2a9907451e96b07c7bf176128a6a",
+    "evals/quality/reader_verify.py": "d3622727b197c943aa96bf2ba39e62be80dada03ed03b1de34f922e52599b543",
+    "evals/quality/report.py": "3cb6fe9deedc0d240ed3653cb4b2f6cf1c63d6bcc889c2fa0b32edafe8158c87",
+    "evals/quality/study.py": "20e6fdf3baa0962050b6fad9edfed9f36f1411eaf51b9d6038a4c4500fedf4c5",
+    "evals/quality/fixtures.py": "0b84597a58e5bf918d9dfc1a0048fe883a8af822aa7905fd9cd0d59a109f7a5a",
+    "evals/quality/README.md": "4bdb67a6d28c04a9e8f7cdb84692cef4dc60a788ed9d2850512384936d0454d8",
+    "evals/quality/semantic-controls.json": "125d40c8fb43b3d0d92f718b21f491c7ebf8f23d77b1a5b9beaeed68f76fe3f6",
+    "skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "evals/suite/build.py": "b8c78df3c32bd7552d6faf97d4327ff69a76bef94bf5d73d6fdfe60042f4f106",
+    "evals/suite/verify.py": "1351f31ef2b82fb2bcb5d4e713b103bdcca5b5f1c864f3c3acabd2db4484d1bd",
+    "evals/suite/codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38"
+  },
+  "concurrency": 3
+}

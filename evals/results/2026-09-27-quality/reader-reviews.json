@@ -1,0 +1,1446 @@
+{
+  "reviewer": "Authoring assistant",
+  "method": "Manual review of every answer and cited source content/source chain against the frozen questions and evidence ledger; not independent or fully blinded. Correctness covers the material conclusions requested by each question, not unrequested background facts.",
+  "steps": {
+    "702edb18fc88-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/operations.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "f8ffa268f222-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "f914c6b71306-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/operations.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt, notes/boundaries.md, notes/operations.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "bf1e683efd77-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md, notes/boundaries.md, scratch/reviewer.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, notes/boundaries.md, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, notes/boundaries.md, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/boundaries.md, notes/status.md."
+        }
+      }
+    },
+    "59057e64209b-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/07-update.txt, evidence/06-check.txt, evidence/01-design.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, evidence/06-check.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, notes/boundaries.md, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "e9f5dc62f254-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, evidence/03-review.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/07-update.txt, evidence/04-work.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: README.md, evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "056bfb1a5f2e-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml, README.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, README.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, README.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, README.md."
+        }
+      }
+    },
+    "b5f082f17e20-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md, notes/operations.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt, notes/operations.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md, README.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md, notes/status.md."
+        }
+      }
+    },
+    "78b9a87382ae-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "f37f4338d5d3-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "71f976bf2ffb-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt, README.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md, notes/status.md."
+        }
+      }
+    },
+    "499b5971bfec-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, context.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/07-update.txt, evidence/04-work.txt, scratch/operator.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "2e6c8914264e-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md, notes/status.md."
+        }
+      }
+    },
+    "d2a11459a0ae-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: README.md, evidence/01-design.txt, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "1600f0b0657e-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/01-design.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md, README.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "239bc0b30e12-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/03-review.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: README.md, evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "9ad84006c91b-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md, notes/operations.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md, README.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "6b2c904f427d-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: notes/release.md, notes/operations.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, notes/status.md, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: notes/status.md, evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: notes/boundaries.md, evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: notes/boundaries.md, notes/operations.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: notes/status.md, evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "491aa2395738-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt, notes/boundaries.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "c1e502f08225-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/06-build.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "b5ebacf1a4c6-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/03-review.txt, evidence/05-demo.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: README.md, evidence/02-owner.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "800426dd79e8-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt, notes/boundaries.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: README.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "7976e0cae0ce-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, README.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, scratch/operator.txt, README.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt, README.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, evidence/01-design.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, README.md."
+        }
+      }
+    },
+    "32cc7c4a40ee-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: README.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt, notes/boundaries.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, notes/boundaries.md, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "78f7e0081728-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: context.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, context.md, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, context.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, context.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, context.md."
+        }
+      }
+    },
+    "bdf71381641c-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: notes/release.md, notes/operations.md, evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, evidence/03-review.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/07-update.txt, evidence/04-work.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "05c37e0655d5-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "cefce1cbe5ac-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: context.md, evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/07-update.txt, evidence/06-check.txt, evidence/01-design.txt, context.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, context.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt, context.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, context.md."
+        }
+      }
+    },
+    "d206ef768c75-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/01-design.txt, evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/07-update.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    },
+    "e1f23ce3f3dc-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: notes/release.md, evidence/02-owner.txt, evidence/07-update.txt, evidence/05-proposal.txt, notes/operations.md, notes/status.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, notes/status.md, evidence/07-update.txt, evidence/06-check.txt, evidence/01-design.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: notes/status.md, evidence/07-update.txt, evidence/04-work.txt."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: notes/boundaries.md, evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: notes/boundaries.md, notes/operations.md, evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: notes/status.md, evidence/04-work.txt, evidence/07-update.txt, evidence/02-owner.txt."
+        }
+      }
+    },
+    "ee1c50430095-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/01-design.txt, evidence/05-demo.txt, evidence/03-review.txt, evidence/07-update.txt, context.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, context.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, evidence/07-update.txt, context.md."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, context.md, README.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, context.md."
+        }
+      }
+    },
+    "d817b43bef2b-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md, notes/operations.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "ba6cd6bf5b07-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: notes/release.md, notes/operations.md, evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/07-update.txt, evidence/06-build.txt, evidence/01-design.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/07-update.txt, evidence/04-work.txt, notes/status.md, notes/operations.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, notes/boundaries.md, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        }
+      }
+    },
+    "8279243f7743-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/01-design.txt, evidence/06-check.txt, evidence/07-update.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/04-work.txt, evidence/02-owner.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "703376f378d2-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly identifies Lina\u2019s CSV plus optional local JSON approval and offline-analysis rationale, retaining offline/read-only boundaries and rejecting hosted-viewer approval. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, evidence/05-proposal.txt, evidence/07-update.txt, config/report.yaml, README.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the 125-row repository batch from unknown effective running-installation settings. Cited support checked: config/report.yaml, evidence/07-update.txt, evidence/06-check.txt, evidence/01-design.txt."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes SAMPLE-201 using the synthetic two-location comparison/D201 evidence while preserving ENC-202 and its approved non-ASCII sample next action. Cited support checked: evidence/04-work.txt, evidence/06-check.txt, evidence/07-update.txt, README.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Uses the opaque composite item_id/location_id key, preserves case and leading zeros, and explains prevention of unintended record/location merging. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly treats blank quantity as unknown rather than zero and denies input-writing or correction-approval authority to the report/tool. Cited support checked: evidence/02-owner.txt, evidence/03-usage.txt, scratch/reviewer.txt, evidence/07-update.txt."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly leaves warehouse correction approval authority unidentified; Lina\u2019s tool-design role does not establish that authority. Cited support checked: evidence/02-owner.txt, evidence/04-work.txt, evidence/07-update.txt."
+        }
+      }
+    },
+    "653ef672281c-1": {
+      "answers": {
+        "q1": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Manual publication/optional CI, Mira\u2019s owner authority and artifact-review rationale are correct; the Git demonstration does not supersede approval. Cited support checked: evidence/02-owner.txt, evidence/05-demo.txt, evidence/07-update.txt, notes/release.md."
+        },
+        "q2": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly separates the current 45-second repository configuration from unknown production timeout, without promoting local or staging evidence to production. Cited support checked: config/service.yaml, evidence/01-design.txt, evidence/06-build.txt, evidence/07-update.txt, notes/status.md."
+        },
+        "q3": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly closes REST-101 on the supplied restore evidence while preserving CAL-102 and its approved leading-zero sample next action. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        },
+        "q4": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Preserves the exact restore-fixture path, sparse-file allocation property, future applicability and storage-maintainer consultation. Cited support checked: scratch/operator.txt, notes/operations.md, evidence/07-update.txt."
+        },
+        "q5": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Keeps sample-only scope and broader ingestion unapproved pending document rights and update ownership. Cited support checked: evidence/02-owner.txt, evidence/07-update.txt, notes/boundaries.md."
+        },
+        "q6": {
+          "correct": true,
+          "supported": true,
+          "critical_error": false,
+          "reason": "Correctly reports unassigned on-call ownership instead of inventing an assignment to Mira. Cited support checked: evidence/04-work.txt, evidence/07-update.txt, notes/operations.md."
+        }
+      }
+    }
+  }
+}

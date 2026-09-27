@@ -1,0 +1,575 @@
+{
+  "by_arm": {
+    "untreated": {
+      "document_snapshots": 6,
+      "required_knowledge_correct": 12,
+      "required_knowledge_total": 54,
+      "missing_items": 22,
+      "incorrect_items": 20,
+      "conflicting_items": 0,
+      "target_claim_accuracy": 0.375,
+      "critical_document_errors": 11,
+      "reader_answers_passed": 72,
+      "reader_answers_total": 72,
+      "reader_critical_errors": 0,
+      "consistent_correct_pairs": 36,
+      "reader_pairs": 36
+    },
+    "ordinary": {
+      "document_snapshots": 6,
+      "required_knowledge_correct": 54,
+      "required_knowledge_total": 54,
+      "missing_items": 0,
+      "incorrect_items": 0,
+      "conflicting_items": 0,
+      "target_claim_accuracy": 1.0,
+      "critical_document_errors": 0,
+      "reader_answers_passed": 72,
+      "reader_answers_total": 72,
+      "reader_critical_errors": 0,
+      "consistent_correct_pairs": 36,
+      "reader_pairs": 36
+    },
+    "skill": {
+      "document_snapshots": 6,
+      "required_knowledge_correct": 54,
+      "required_knowledge_total": 54,
+      "missing_items": 0,
+      "incorrect_items": 0,
+      "conflicting_items": 0,
+      "target_claim_accuracy": 1.0,
+      "critical_document_errors": 0,
+      "reader_answers_passed": 72,
+      "reader_answers_total": 72,
+      "reader_critical_errors": 0,
+      "consistent_correct_pairs": 36,
+      "reader_pairs": 36
+    }
+  },
+  "by_condition": {
+    "scattered": {
+      "untreated": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 12,
+        "required_knowledge_total": 18,
+        "missing_items": 1,
+        "incorrect_items": 5,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.7058823529411765,
+        "critical_document_errors": 1,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "ordinary": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "skill": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      }
+    },
+    "conflicting": {
+      "untreated": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 18,
+        "missing_items": 3,
+        "incorrect_items": 15,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.0,
+        "critical_document_errors": 10,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "ordinary": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "skill": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      }
+    },
+    "absent": {
+      "untreated": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 18,
+        "missing_items": 18,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": null,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "ordinary": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      },
+      "skill": {
+        "document_snapshots": 2,
+        "required_knowledge_correct": 18,
+        "required_knowledge_total": 18,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 24,
+        "reader_answers_total": 24,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 12,
+        "reader_pairs": 12
+      }
+    }
+  },
+  "by_case": {
+    "kestrel-scattered": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 6,
+        "required_knowledge_total": 9,
+        "missing_items": 1,
+        "incorrect_items": 2,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.75,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    },
+    "kestrel-conflicting": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 9,
+        "missing_items": 2,
+        "incorrect_items": 7,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.0,
+        "critical_document_errors": 4,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    },
+    "kestrel-absent": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 9,
+        "missing_items": 9,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": null,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    },
+    "oriole-scattered": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 6,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 3,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.6666666666666666,
+        "critical_document_errors": 1,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    },
+    "oriole-conflicting": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 9,
+        "missing_items": 1,
+        "incorrect_items": 8,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 0.0,
+        "critical_document_errors": 6,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    },
+    "oriole-absent": {
+      "untreated": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 0,
+        "required_knowledge_total": 9,
+        "missing_items": 9,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": null,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "ordinary": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      },
+      "skill": {
+        "document_snapshots": 1,
+        "required_knowledge_correct": 9,
+        "required_knowledge_total": 9,
+        "missing_items": 0,
+        "incorrect_items": 0,
+        "conflicting_items": 0,
+        "target_claim_accuracy": 1.0,
+        "critical_document_errors": 0,
+        "reader_answers_passed": 12,
+        "reader_answers_total": 12,
+        "reader_critical_errors": 0,
+        "consistent_correct_pairs": 6,
+        "reader_pairs": 6
+      }
+    }
+  },
+  "stages": {
+    "0": {
+      "untreated": {
+        "correct": 15,
+        "missing": 20,
+        "incorrect": 19,
+        "conflicting": 0,
+        "critical_errors": 10
+      },
+      "ordinary": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      },
+      "skill": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      }
+    },
+    "1": {
+      "untreated": {
+        "correct": 12,
+        "missing": 22,
+        "incorrect": 20,
+        "conflicting": 0,
+        "critical_errors": 11
+      },
+      "ordinary": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      },
+      "skill": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      }
+    },
+    "2": {
+      "untreated": {
+        "correct": 12,
+        "missing": 22,
+        "incorrect": 20,
+        "conflicting": 0,
+        "critical_errors": 11
+      },
+      "ordinary": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      },
+      "skill": {
+        "correct": 54,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0,
+        "critical_errors": 0
+      }
+    }
+  },
+  "durability_losses": [
+    {
+      "case": "kestrel-scattered",
+      "arm": "untreated",
+      "stage": 1,
+      "item": "closed_work",
+      "status": "incorrect"
+    },
+    {
+      "case": "oriole-scattered",
+      "arm": "untreated",
+      "stage": 1,
+      "item": "workflow",
+      "status": "incorrect"
+    },
+    {
+      "case": "oriole-scattered",
+      "arm": "untreated",
+      "stage": 1,
+      "item": "closed_work",
+      "status": "incorrect"
+    }
+  ],
+  "no_change_passes": {
+    "untreated": 6,
+    "ordinary": 6,
+    "skill": 6
+  }
+}

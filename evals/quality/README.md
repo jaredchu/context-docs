@@ -1,6 +1,8 @@
 # Quality and fresh-reader study
 
-Status: frozen execution plan; results pending. This implements the
+Status: completed September 27, 2026; see the [results](../../docs/evaluation-2026-09-27-quality.md).
+The execution plan below was frozen in `64e059d`; completion links and table
+presentation were updated afterward without changing scores. This implements the
 [quality-first protocol](../quality-protocol.md). Existing skill v0.1.1 remains
 unchanged throughout. No prompt tuning or favorable replacement runs.
 

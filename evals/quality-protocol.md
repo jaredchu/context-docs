@@ -1,7 +1,10 @@
 # Documentation quality evaluation
 
-Status: proposed next experiment, not executed. Direction clarified by the project
-owner on September 27, 2026. This protocol replaces speed and concision as the
+Status: first implementation completed September 27, 2026; see the
+[quality and reader report](../docs/evaluation-2026-09-27-quality.md) and
+[execution plan](quality/README.md). It covers two author-created projects, three
+stages and readers of final artifacts; independent cases and longer histories
+remain future work. Direction clarified by the project owner on September 27, 2026. This protocol replaces speed and concision as the
 focus of future comparisons; it does not change earlier criteria or scores.
 
 ## Question

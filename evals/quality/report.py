@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from fixtures import CASES,ARMS,QUESTIONS,ledger
 
-STATUSES={'correct','missing','incorrect','conflicting'}
+STATUSES=('correct','missing','incorrect','conflicting')
 
 
 def checked_document(snapshot,review):
@@ -67,6 +67,9 @@ def summarize(snapshots,document_reviews,readers,reader_reviews):
     table=['| Final-artifact measure | Unmaintained | Ordinary maintenance | Context Docs v0.1.1 |','| --- | ---: | ---: | ---: |']
     for label,n,d in [('Required knowledge recorded','required_knowledge_correct','required_knowledge_total'),('Correct, supported reader answers','reader_answers_passed','reader_answers_total'),('Correct in both reader sessions','consistent_correct_pairs','reader_pairs')]:
         table.append('| '+label+' | '+' | '.join(f"{result['by_arm'][a][n]}/{result['by_arm'][a][d]}" for a in ARMS)+' |')
+    table.append('| Target-claim accuracy | '+' | '.join(f"{result['by_arm'][a]['target_claim_accuracy']:.1%}" if result['by_arm'][a]['target_claim_accuracy'] is not None else 'Not defined' for a in ARMS)+' |')
+    for label,key in [('Missing required items','missing_items'),('Incorrect required items','incorrect_items'),('Critical document findings','critical_document_errors')]:
+        table.append('| '+label+' | '+' | '.join(str(result['by_arm'][a][key]) for a in ARMS)+' |')
     table.append('| Conflicting required items | '+' | '.join(str(result['by_arm'][a]['conflicting_items']) for a in ARMS)+' |')
     return result,'\n'.join(table)+'\n',docrows,readerrows
 

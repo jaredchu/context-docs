@@ -16,10 +16,13 @@ For the original runner selection and proposed protocol, see the
 
 ## Evaluation priority
 
-Retained content, factual accuracy and consistency are primary. The next
-[quality-first comparison](quality-protocol.md) tests scattered, stale or missing
-context against ordinary maintenance and Context Docs, then evaluates fresh-reader
-answers. That experiment has not run. The scenarios below remain maintenance
+Retained content, factual accuracy and consistency are primary. The completed
+[quality-first study](../docs/evaluation-2026-09-27-quality.md) compares scattered,
+conflicting and absent context against ordinary maintenance and Context Docs,
+then tests fresh readers. Both maintenance methods capture all required items;
+all reader arms reach perfect scores on these small fixtures. No incremental
+skill accuracy advantage is established. See the [runnable study](quality/README.md)
+and [broader protocol](quality-protocol.md). The scenarios below remain maintenance
 regression checks; their pass rates do not establish downstream usefulness.
 Speed, tokens and size are supporting diagnostics, not quality substitutes.
 

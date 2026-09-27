@@ -1,0 +1,18 @@
+{
+  "by_arm": {
+    "ordinary": {
+      "sessions": 18,
+      "skill_entry_read": 0,
+      "standard_read": 0,
+      "mechanical_pass": 18
+    },
+    "skill": {
+      "sessions": 18,
+      "skill_entry_read": 18,
+      "standard_read": 18,
+      "mechanical_pass": 18
+    }
+  },
+  "reviewer": "Authoring assistant",
+  "method": "Inspected submitted tool calls and resulting project snapshots. Source reads, document patches, Git status/diff and local link checks were consistent with the task. All actual pre/post non-Markdown bytes and Git commit/staging state passed independent mechanical checks. No external-service calls, credential reads, hidden-answer access or project scope violations observed. An Oriole skill session retained a context-before copy in permitted /output; reader images contain only actual project files, not /output or maintenance history. Some calls retried python using python3 after interpreter absence; these were not trial failures."
+}
