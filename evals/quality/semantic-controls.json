@@ -1,0 +1,11 @@
+{
+  "reviewer": "Authoring assistant",
+  "method": "Explicit pre-run review against the frozen ledger; not an automated or independent semantic judge.",
+  "controls": [
+    {"id": "lost-constraint", "world": "kestrel", "stage": 2, "artifact": "Otherwise correct context omits sparse-file preservation and the restore path, although scratch/operator.txt survives unlinked.", "expected": {"constraint": "missing"}, "reason": "Raw survival does not preserve that constraint in the maintained record; shortening the document cannot earn full coverage."},
+    {"id": "operative-contradiction", "world": "kestrel", "stage": 2, "artifact": "Context says manual publication is approved, while the current release procedure still says publish automatically on every push with mandatory CI, without qualification.", "expected": {"workflow": "conflicting"}, "critical_error": true, "reason": "DEC-101 selects manual publication with optional CI; an unqualified contrary procedure remains operative even if the entry point is correct."},
+    {"id": "invented-approval", "world": "oriole", "stage": 2, "artifact": "Lina approved hosting the viewer because its September 20 demo works.", "expected": {"proposal": "incorrect"}, "critical_error": true, "reason": "The demo is a contributor proposal. DEC-203 approves local JSON, explicitly leaving hosting unapproved."},
+    {"id": "confident-runtime", "world": "kestrel", "stage": 2, "answer": {"id": "q2", "answer": "Production is confirmed to use 45 seconds by staging preview sample-17.", "sources": ["config/service.yaml", "evidence/06-build.txt"]}, "expected": {"correct": false, "supported": false}, "critical_error": true, "reason": "Configuration and a staging-only receipt do not establish production state. Valid citation paths do not make the claim supported."},
+    {"id": "justified-unknown", "world": "oriole", "stage": 2, "answer": {"id": "q6", "answer": "The warehouse correction approver is unidentified; Lina's tool-design authority does not establish that role.", "sources": ["evidence/04-work.txt", "evidence/07-update.txt"]}, "expected": {"correct": true, "supported": true}, "critical_error": false, "reason": "Both source records leave correction authority unidentified; reporting that absence is correct rather than incomplete guessing."}
+  ]
+}
