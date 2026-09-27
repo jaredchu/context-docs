@@ -146,25 +146,42 @@ handoffs and the prior second question phrasing.
   remain unchanged. Routing and entry instructions both changed from the prior
   pilot, so do not attribute the exposure difference to a link alone.
 
-A [public decision-history study](../evals/history/README.md) is prepared: two
-externally authored Python policy histories, four maintenance passes per method,
-and 12 fresh readers (28 model sessions, 96 answers). It tests authority changes,
-version-specific requirements, historical rationale and authentic source conflicts.
-Questions and review remain author-created; two histories are from one project.
-Results are pending. Skill v0.1.1 remains unchanged.
+The [public decision-history study](evaluation-2026-09-27-history.md), frozen in
+`85936ea`, completed 28 model sessions and 96 reader answers. It replays three
+chronological source cutoffs and a no-new-evidence pass for two externally
+authored Python policy histories. Both histories are from one project; cases,
+questions and semantic judgments remain author-created and not blinded.
+
+- Ordinary and skill each retain 63/63 assessed items across stages, 16/16 in final
+  context; unmaintained README records 0/16 while retaining every raw source.
+  All four final no-change passes preserve Markdown bytes; no assessed knowledge
+  loss or critical factual document error was observed.
+- Readers score 32/32 in every arm, including raw-only, with all 12/12 receiving
+  full Markdown text before answers. No skill-specific accuracy advantage or
+  equivalence follows. Original PEPs are already structured raw evidence.
+- All project-file/Git checks and 28 recorded-input audits pass; eight controls
+  behave as expected. Actual stage continuity, source hashes, output export and
+  table reproduction are verified. No execution exceptions, retries or discarded runs.
+- Supplementary trace review found one skill pass briefly creating a backup at
+  `/output-context-backup.md` in its disposable container, then immediately moving
+  it into allowed `/output`. The project-file grader missed that temporary scope
+  violation. Report it separately from perfect content/mechanical scores; these
+  checks do not prove full filesystem confinement.
+- README links the report and complete evidence. Skill v0.1.1 is unchanged;
+  this study does not justify additional rules based on an isolated behavior.
 
 ## Next actions
 
-1. Shift the next quality evaluation to independently authored project decisions
-   and changing constraints across sessions, including knowledge not recoverable
-   from code alone. Keep verified context reading, equal raw-evidence access, a
-   competent ordinary baseline and frozen criteria. Measure preservation,
-   contradictions and supported future answers. Repeating these easy public
-   questions is unlikely to distinguish accuracy. Preserve all earlier results;
-   do not tune the skill merely to the single historical reader omission.
+1. Seek independently contributed histories from other projects and condition-blind
+   review before expanding correctness claims. Keep common raw-evidence access,
+   verified context reading, a competent ordinary baseline and frozen criteria.
+   Repeating the current searchable questions is unlikely to distinguish accuracy.
+   Include command-scope review alongside project-file checks; the temporary backup
+   violation shows those mechanical rewards do not establish full task compliance.
+   Preserve all earlier results and the original private-project miss.
 2. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
-   covers explicit use on one model and up to three passes.
+   covers explicit use on one model and up to four passes.
 3. Monitor v0.1.1 on real work before further prompt tuning. Avoid adding rules for
    isolated examples. Cloud adapters still need a concrete retrieval or cross-machine
    use case.
@@ -177,6 +194,7 @@ Results are pending. Skill v0.1.1 remains unchanged.
 - [Completed quality and fresh-reader study](evaluation-2026-09-27-quality.md)
 - [Larger public-source pilot](evaluation-2026-09-27-public.md)
 - [README routing and verified reading](evaluation-2026-09-27-routing.md)
+- [Public decision histories across sessions](evaluation-2026-09-27-history.md)
 - [Quality-first comparison protocol](../evals/quality-protocol.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)

@@ -1,0 +1,770 @@
+[
+  {
+    "trial_id": "110a7658f091",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Traces all Active/Process snapshots, original acceptance and subsequent dated updates from the final changelog, correctly separating revised policy from new approval."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Explicitly retains two-year/two-minor minimum and older-major alternative, distinguishes five-year preference, includes 3.10/3.15 example, indefinite/replacement retention and superseded two-major wording; cited originals and context support it."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately preserves existing/new-use distinction, documentation/testing/no enhancement, no warning/scheduled removal and no hard-deprecation credit, with appropriate sources."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately covers C/public behavior, private/underscore special-name/provisional exclusions and the undocumented-is-not-private clarification."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Names only steering council for extreme exceptions and no-warning consultation, and denies any actual waiver in the packet."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Includes main, intended release and feedback issue, Py_DEPRECATED, typeshed @deprecated when feasible and feedback review; supported by final source."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Preserves protection of existing applications, benefit/breakage and migration tradeoffs; examples and extra retention details match the cited final policy."
+  },
+  {
+    "trial_id": "110a7658f091",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly limits conclusions to upstream policy and names unverified downstream adoption, runtime and feature-specific authorization; no invented rollout."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly traces Active/Process throughout, initial acceptance and later source-changelog updates, separating discussion dates, snapshot cutoffs and acceptance."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Rejects mandatory-five-year interpretation, retains two-year/version exposure minimum, example, superseded two-major wording and longer-retention safeguards, with supporting source chain."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Includes safe existing use, discouraged new use, documentation/testing without enhancement, no warning/removal schedule and no shortcut for later hard deprecation."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately covers public C/behavior scope, excluded private/underscore except special names/provisional items and undocumented-not-private clarification."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly names council-only extreme exceptions, no-warning consultation and lack of individual waiver evidence."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Includes intended release, feedback issue/review, main, C Py_DEPRECATED and typeshed @deprecated when feasible; sources contain each requirement."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Preserves third-party protection, benefit/breakage and ease-of-migration rationale; additional examples and qualifications are supported."
+  },
+  {
+    "trial_id": "a9d4d3f9fc7d",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly limits evidence to historical upstream policy, identifies deployment/adoption/authorization gaps and does not infer approval or rejection."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Traces all three status/type headers and supplied delegate/Resolution metadata, without inventing a precise acceptance date; citations include all three originals."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly scopes 18/42 and 24/36 months, lifetime, installers/cadence, the stale LTS conflict and superseded monthly 12/48 draft; all originals cited."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Preserves 5/7/3/2 phases, annual October/Beta 1 overlap, draft 16/17 conflict, old 4+1 split and Fedora integration rationale with historical citations."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly treats calendar numbering as a separate PEP decision, citing the final Non-goals source."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Retains nine-month rejection reasons, early open LTS debate and later no-extended-LTS/five-year rationale, while qualifying stale support wording."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Retains all three dependent rules and Council plus Cabal approval, distinguishing the author's offer from approval; supported by supplied policy sections."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Explains smaller/earlier changes, predictable cadence, less rushing, optional user upgrades and no faster development; final and accepted sources support it."
+  },
+  {
+    "trial_id": "a265fc08e716",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Explicitly distinguishes policy from unverified downstream rollout, with evidence-index boundary and no fabricated approval or non-adoption conclusion."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly traces all Active/Process cutoffs and differentiates initial acceptance from subsequent specified revisions and historical metadata."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly preserves minimum/preference distinction, 3.10/3.15 example, prior two-major wording and longer/indefinite/replacement retention safeguards; sources and context support each."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Soft-deprecation answer retains safe existing use, no enhancements, documentation/testing, no warning or implied removal, and full later hard-deprecation rules."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct public/C behavior coverage, private and underscore/special-name/provisional exclusions, and explicit undocumented-not-private distinction."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Identifies council-only extreme exception authority and no-warning consultation, with no specific waiver or shortened schedule invented."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Answers requested warning contents, main, compiler Py_DEPRECATED and feasible typeshed @deprecated notification accurately; cites relevant versions."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct compatibility rationale and benefit-versus-breakage/ease-of-migration tradeoff, with source-qualified examples."
+  },
+  {
+    "trial_id": "c1e0caabbf02",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately separates upstream policy from downstream adoption, runtime and feature-removal approval; absence of records is not treated as proof of non-adoption."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "All three Active/Process cutoffs, original acceptance and final revisions are accurately distinguished with original source citations and source-changelog dates."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly distinguishes minimum versus five-year preference, includes required example, historical wording and longer-retention/replacement cases, with source-supported exceptions."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately describes safe existing use, documented/tested/no enhancement, no warning/removal schedule and full later hard-deprecation requirements."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly rejects undocumented-is-private and retains public/C coverage, underscore special-name exception and private/provisional exclusions."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly identifies council authority, extreme conditions and no-warning consultation; no specific waiver is invented."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Answers the requested warning contents and compiler/static-checker channels: target release, feedback issue, Py_DEPRECATED and typeshed @deprecated when feasible. The variant does not separately request a full removal procedure."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly states existing third-party protection and large benefit-to-breakage/easy-migration tradeoff; examples retain source qualifications."
+  },
+  {
+    "trial_id": "40b555e80e1d",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly distinguishes general upstream policy from unverified adoption and specific removal authorization, with appropriate source chain and no inference from missing records."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Traces Draft/Informational, Accepted/Informational and Active/Process plus delegate metadata without treating residual conditional wording as operative draft status."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly states 3.12 18/42 and 3.13+ 24/36, release formats/cadences and total lifetime, preserving the LTS conflict instead of silently discarding it. This variant does not ask for the initial draft support terms."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct current phases, overlap and annual October cadence; preserves rejected 4+1 split/Fedora rationale and draft 16/17 discrepancy, with supported historical details."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly rejects calendar-numbering authorization; explicitly identifies non-goal and separate PEP requirement."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Explains nine-month rejection and transition from open periodic LTS debate to no extended Python-2.7-style support, including five-year rationale and qualified stale duration wording."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Retains all dependent rules and joint Council/Cabal extension approval; distinguishes an offer from actual approval."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately describes intended smaller/earlier changes, predictability and less rushing; denies mandatory annual upgrades/faster development and qualifies outcomes as anticipated."
+  },
+  {
+    "trial_id": "980d16869969",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly says upstream policy and Fedora integration rationale do not prove fleet adoption or upgrade completion; index and context support the stated evidence limit."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly traces Active/Process at all supplied cutoffs and separates creation/discussion dates, initial acceptance and later changelog revisions; source citations support chronology."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct minimum/preference distinction, version exposure, 3.10/3.15 example, historical wording and longer-retention/replacement constraints, directly supported by raw sources."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct new/existing-use and maintenance semantics, no warning or implied removal, and no hard-deprecation credit, supported by 2023/final texts."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurate public/C/behavior coverage and exclusions, including special-name and provisional boundaries; correctly avoids treating all undocumented names as either private or automatically public."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Council authority, extreme conditions, no-warning consultation and absence of any particular waiver are all correct and cited."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Includes warning content, feedback process, main, Py_DEPRECATED and feasible typeshed @deprecated notification with appropriate source versions."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct rationale and benefit-to-breakage/easy-migration requirements; additional retention and procedure details remain qualified and supported."
+  },
+  {
+    "trial_id": "fae5a11488cc",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly restricts verified knowledge to policy history and explicitly leaves downstream rollout and specific authorization unknown."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct status/type sequence across all three snapshots, with no invented exact transition date or confusion from residual proposal wording."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately scopes 18/42 versus 24/36 support, cadence/formats and total lifetime, explicitly retains the LTS contradiction and superseded draft terms; all originals cited."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct nominal phase split, annual October/Beta 1 overlap, old 4+1 split and Fedora rationale; explicitly identifies draft 16/17 mismatch."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly distinguishes illustrative calendar names from approval and requires a separate PEP."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct nine-month rejection, initial LTS debate versus later rejection, five-year rationale and qualified stale support wording."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct two-release minimum, Council election cadence and Release Manager convention/joint extension authority, with offer distinguished from approval."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Supported smaller/earlier releases, predictable planning and reduced rushing; no compulsory yearly upgrades or faster development."
+  },
+  {
+    "trial_id": "26a5e67016de",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly leaves fleet adoption and upgrade completion unknown; upstream acceptance and Fedora rationale are not substituted for deployment records."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly traces status/type, delegate and supplied Resolution metadata, separating cutoffs from precise decision dates and downstream execution."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct version-specific support, formats/cadences, five-year total, qualified LTS inconsistency and historical 12/48 draft; additional documentation/practice tension is explicitly source-qualified."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct current phases, October/Beta 1 timing, Fedora rationale and superseded draft 16/17 and 4+1 differences; examples are not claimed as observed releases."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly reserves numbering for a separate PEP and denies that illustrative names or major-to-feature terminology authorize a numbering change."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct nine-month rejection, early open LTS debate versus final rejection, five-year rationale and qualifications on stale eighteen-month wording."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately retains deprecation, election and manager terms with Council AND Cabal extension approval and offer-versus-approval distinction."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Preserves intended smaller/earlier predictable changes, reduced rushing, no faster development and optional upgrades; extra claims remain supported and qualified."
+  },
+  {
+    "trial_id": "75a460139d51",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly leaves service rollout, adoption and specific approvals unknown and distinguishes policy metadata from runtime evidence."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct three-stage status/type progression, latest Active/Process and authority metadata; does not infer exact decision dates from cutoffs."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct 3.12 versus 3.13 support, release formats/cadences and five-year lifetime, explicitly qualifies stale LTS wording and preserves historical draft/accepted terms."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct current phases, annual timing/overlap, rejected 4+1 split and Fedora rationale; historical 16/17 discrepancy and remaining example tension are source-supported."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly rejects calendar-versioning approval and explains separate-PEP requirement and illustrative names."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct nine-month rejection rationale and draft debate versus later rejection of extended LTS; stale duration wording is qualified."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct deprecation, Council and manager rules, with both approving bodies and the offer-versus-approval distinction."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Supported rationale and tradeoffs, including optional upgrades and unchanged development velocity; benefits remain policy expectations, not measured outcomes."
+  },
+  {
+    "trial_id": "c12910d57cb9",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly leaves fleet adoption/upgrade completion unknown and distinguishes historical policy and illustrative schedules from deployment records."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly states Active/Process at each cutoff and distinguishes original acceptance from later warning, soft-deprecation and five-year-preference revisions."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct minimum/preference distinction, historical wording, version example and indefinite/replacement retention; raw-source citations support every material conclusion."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct safe existing/new-use distinction, documented/tested/no enhancements, no warning/scheduled removal and full later hard-deprecation process."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly rejects automatic private status for undocumented APIs and retains public/C behavior and relevant exclusions."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct council authority, extreme situations, no-warning consultation and no particular grant, with historical differences accurately described."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct requested warning contents, main, Py_DEPRECATED and additional feasible typeshed @deprecated channel, including supported chronology."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct protection-of-existing-code rationale, benefit/breakage tradeoff and ease of migration; source examples are qualified."
+  },
+  {
+    "trial_id": "a4203ec70391",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly separates upstream policy from unverified production adoption or individual removal approval; no unsupported inference from absent evidence."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q1",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct Draft/Informational to Accepted/Informational to Active/Process progression, authority metadata and evidence limits; no exact approval date invented."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q2",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct version-specific 18/42 and 24/36 support, release formats/cadences, five-year total and superseded 12/48 draft. Explicitly preserves and qualifies the stale LTS sentence."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q3",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct current phases, annual October/Beta 1 overlap, old phase split and Fedora rationale, and draft 16/17 discrepancy; examples remain illustrative."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q4",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correctly separates calendar-numbering decision from cadence acceptance and terminology changes, citing Non-goals."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q5",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct nine-month rejection, early LTS debate versus later no-extended-LTS decision, five-year rationale and qualification of outdated support wording."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q6",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct retained dependent rules and Council plus Cabal approval; the author offer and extra RC allowance are not turned into other approvals."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q7",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Correct intended benefits, no faster development and optional user upgrades; expectations and integration costs remain source-supported."
+  },
+  {
+    "trial_id": "dfa860696e50",
+    "id": "q8",
+    "correct": true,
+    "supported": true,
+    "critical": false,
+    "evidence": "Accurately states upstream policy cannot distinguish absent, planned, underway or completed downstream rollout; no unsupported operational claim."
+  }
+]

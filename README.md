@@ -83,6 +83,7 @@ same method. No forced directory migration or universal document-size limit.
 - [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
 - [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
 - [README routing and verified reading](docs/evaluation-2026-09-27-routing.md)
+- [Decision histories across four maintenance passes](docs/evaluation-2026-09-27-history.md)
 - [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
 - [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
 - [This project's own context](docs/project-context.md)
@@ -179,6 +180,32 @@ is present in the repeated answers. See [the unchanged criteria, exposure method
 and limitations](docs/evaluation-2026-09-27-routing.md) and
 [reproducible evidence](evals/results/2026-09-27-routing/README.md).
 
+A [decision-history follow-up](docs/evaluation-2026-09-27-history.md) replayed two
+externally authored Python policy histories through four maintenance passes:
+**28 model sessions and 96 reader answers**. It tests evolving requirements,
+authority, rationale and authentic source contradictions; both histories come
+from one project and the questions/review remain author-created.
+
+<!-- history-table:start -->
+| Outcome | Unmaintained | Ordinary maintenance | Context Docs v0.1.1 |
+| --- | ---: | ---: | ---: |
+| Required knowledge in final context | 0/16 | 16/16 | 16/16 |
+| Required knowledge across all stages | 0/63 | 63/63 | 63/63 |
+| Correct, supported reader answers | 32/32 | 32/32 | 32/32 |
+| Correct in both reader sessions | 16/16 | 16/16 | 16/16 |
+| Readers exposed to all Markdown | 4/4 | 4/4 | 4/4 |
+| Critical document findings across stages | 0 | 0 | 0 |
+<!-- history-table:end -->
+
+Both methods retained every assessed item and made no Markdown changes in the
+final no-new-evidence pass. **Reader accuracy tied**, including readers of raw
+history alone; those original PEPs remain accessible in every arm. Zero in the
+unmaintained column measures absent context summaries, not absent source facts.
+One skill session briefly wrote a backup outside the allowed directories, then
+corrected it; the project-file grader did not catch that. See the
+[scope finding and limits](docs/evaluation-2026-09-27-history.md) and
+[all artifacts and explicit judgments](evals/results/2026-09-27-history/README.md).
+
 Existing studies provide maintenance regression coverage:
 
 - **48 trials, v0.1.0 versus ordinary instructions:** both passed 24/24 under
@@ -224,9 +251,9 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Next evaluations should use longer maintenance histories and independently authored
-project decisions, questions and reviews, with verified context reading. Current
-results do not establish a skill-specific correctness advantage. Cloud
+Next evaluations should prioritize independently contributed histories from other
+projects and condition-blind review, with verified context reading. Current results
+do not establish a skill-specific correctness advantage. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).

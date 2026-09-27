@@ -1,0 +1,2702 @@
+{
+  "rows": [
+    {
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "final_correct": 0,
+      "final_items": 8,
+      "all_stage_correct": 0,
+      "all_stage_items": 31,
+      "final_status_counts": {
+        "correct": 0,
+        "missing": 8,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 15
+    },
+    {
+      "world": "compatibility",
+      "arm": "ordinary",
+      "final_correct": 8,
+      "final_items": 8,
+      "all_stage_correct": 31,
+      "all_stage_items": 31,
+      "final_status_counts": {
+        "correct": 8,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 1717
+    },
+    {
+      "world": "compatibility",
+      "arm": "skill",
+      "final_correct": 8,
+      "final_items": 8,
+      "all_stage_correct": 31,
+      "all_stage_items": 31,
+      "final_status_counts": {
+        "correct": 8,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 1778
+    },
+    {
+      "world": "releases",
+      "arm": "unmaintained",
+      "final_correct": 0,
+      "final_items": 8,
+      "all_stage_correct": 0,
+      "all_stage_items": 32,
+      "final_status_counts": {
+        "correct": 0,
+        "missing": 8,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 15
+    },
+    {
+      "world": "releases",
+      "arm": "ordinary",
+      "final_correct": 8,
+      "final_items": 8,
+      "all_stage_correct": 32,
+      "all_stage_items": 32,
+      "final_status_counts": {
+        "correct": 8,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 2441
+    },
+    {
+      "world": "releases",
+      "arm": "skill",
+      "final_correct": 8,
+      "final_items": 8,
+      "all_stage_correct": 32,
+      "all_stage_items": 32,
+      "final_status_counts": {
+        "correct": 8,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 16,
+      "answers": 16,
+      "correct_pairs": 8,
+      "pairs": 8,
+      "fully_exposed_readers": 2,
+      "readers": 2,
+      "unchanged_final_passes": 1,
+      "final_passes": 1,
+      "final_markdown_words": 2093
+    },
+    {
+      "world": "all",
+      "arm": "unmaintained",
+      "final_correct": 0,
+      "final_items": 16,
+      "all_stage_correct": 0,
+      "all_stage_items": 63,
+      "final_status_counts": {
+        "correct": 0,
+        "missing": 16,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 32,
+      "answers": 32,
+      "correct_pairs": 16,
+      "pairs": 16,
+      "fully_exposed_readers": 4,
+      "readers": 4,
+      "unchanged_final_passes": 2,
+      "final_passes": 2,
+      "final_markdown_words": 30
+    },
+    {
+      "world": "all",
+      "arm": "ordinary",
+      "final_correct": 16,
+      "final_items": 16,
+      "all_stage_correct": 63,
+      "all_stage_items": 63,
+      "final_status_counts": {
+        "correct": 16,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 32,
+      "answers": 32,
+      "correct_pairs": 16,
+      "pairs": 16,
+      "fully_exposed_readers": 4,
+      "readers": 4,
+      "unchanged_final_passes": 2,
+      "final_passes": 2,
+      "final_markdown_words": 4158
+    },
+    {
+      "world": "all",
+      "arm": "skill",
+      "final_correct": 16,
+      "final_items": 16,
+      "all_stage_correct": 63,
+      "all_stage_items": 63,
+      "final_status_counts": {
+        "correct": 16,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "critical_document_findings": 0,
+      "durability_losses": [],
+      "correct_answers": 32,
+      "answers": 32,
+      "correct_pairs": 16,
+      "pairs": 16,
+      "fully_exposed_readers": 4,
+      "readers": 4,
+      "unchanged_final_passes": 2,
+      "final_passes": 2,
+      "final_markdown_words": 3871
+    }
+  ],
+  "document_scores": [
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "scope",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "timing",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "exceptions",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "warning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "a1683065691a",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "scope",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "timing",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "exceptions",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "warning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "899fdc841bb7",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "soft",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "scope",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "timing",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "exceptions",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "warning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "69ba77cae242",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "soft",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "scope",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "timing",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "exceptions",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "warning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "090a70b7a419",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "soft",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "5dd04e3b9140",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "c83d6c27d42b",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "62b1e6a80189",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "7e5d9b29e1c1",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "57f376cde2e9",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 0,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a1421be197ad",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 1,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "b7464efb17ed",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 2,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "scope",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "timing",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "exceptions",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "warning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "f0b209a19099",
+      "world": "compatibility",
+      "arm": "skill",
+      "stage": 3,
+      "item": "soft",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "cadence",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "support",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "versioning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "alternatives",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "governance",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "3cc7ec0ca700",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 0,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "cadence",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "support",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "versioning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "alternatives",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "governance",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "f6325b473642",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 1,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "cadence",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "support",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "versioning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "alternatives",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "governance",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "95735c1f9f43",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 2,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "authority",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "cadence",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "support",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "rationale",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "versioning",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "alternatives",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "governance",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "ea2a3f51bf9f",
+      "world": "releases",
+      "arm": "unmaintained",
+      "stage": 3,
+      "item": "unknown",
+      "status": "missing",
+      "passed": false
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "4f04f37027cb",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 0,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "379c0dfb2b4d",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 1,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a18701229458",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 2,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "11a8944a5a02",
+      "world": "releases",
+      "arm": "ordinary",
+      "stage": 3,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "feddea6285b7",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 0,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "cbb4ceb53461",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 1,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "0d9bfe622389",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 2,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "authority",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "cadence",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "support",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "rationale",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "versioning",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "alternatives",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "governance",
+      "status": "correct",
+      "passed": true
+    },
+    {
+      "snapshot_id": "a07d8a130f44",
+      "world": "releases",
+      "arm": "skill",
+      "stage": 3,
+      "item": "unknown",
+      "status": "correct",
+      "passed": true
+    }
+  ],
+  "reader_scores": [
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "110a7658f091",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "a9d4d3f9fc7d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "a265fc08e716",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "c1e0caabbf02",
+      "world": "compatibility",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "40b555e80e1d",
+      "world": "compatibility",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "980d16869969",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "fae5a11488cc",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "26a5e67016de",
+      "world": "releases",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "75a460139d51",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "c12910d57cb9",
+      "world": "releases",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "a4203ec70391",
+      "world": "compatibility",
+      "arm": "unmaintained",
+      "variant": 0,
+      "question": "q8",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q7",
+      "passed": true
+    },
+    {
+      "trial_id": "dfa860696e50",
+      "world": "releases",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q8",
+      "passed": true
+    }
+  ]
+}

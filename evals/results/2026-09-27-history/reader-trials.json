@@ -1,0 +1,1356 @@
+[
+  {
+    "id": "110a7658f091",
+    "metadata": {
+      "name": "read-43534e6218ef-reader",
+      "task": "read-43534e6218ef",
+      "arm": "skill",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "f0b209a19099",
+      "files_sha256": "f0d43cea9f1574cd602ad9bc4fab5eca246ead933f7bab11b6fc9297cf439379"
+    },
+    "task_checksum": "26fffcce7622b9a1fd86ea6a8ddcedc34deb47077d8b18161eadcf75e23f6e36",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At the supplied cutoff of 2025-02-24, PEP 387 is an Active Process PEP by Benjamin Peterson; all three snapshots show that status. Created on 2009-06-18, its initial accepted version was 2020-07-20, according to the latest changelog. Later revisions clarified warning duration (2021-04-16), added explicit steering-council consultation notes (2022-04-04), made smaller updates and clarifications (2023-06-26), added soft deprecation (2023-07-03), added PEP 702 @deprecated notification (2023-11-14), and introduced a five-year preference (2025-01-27). These revised an already accepted policy. The 2020 header calls Brett Cannon BDFL-Delegate on behalf of the steering council; later headers call him PEP-Delegate. The latest header adds Replaces: 291, but PEP 291 and an exact replacement date are not supplied. Post-History dates, including 2009-06-19, 2020-06-12, 2022-12-19 and 2023-06-16, are discussion history, not independent proof of effective or acceptance dates. The 2025 snapshot supersedes 2023, which supersedes 2020 within this packet. Not every intermediate revision or exact date of each smaller change is supplied.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "The two-year rule was not replaced. The basic policy still requires at least two years of deprecation under annual releases, prohibits incompatible behavior changes between consecutive releases without the process, and forbids removal without notice. The 2025-01-27 update prefers five years before removal, exemplified by warning in 3.10 and removal in 3.15, matching the stated minor-release lifetime. It is neither a mandatory five-year minimum nor a removal deadline. Step 3 separately requires warning exposure in at least two minor versions of the same major version, or one minor version in an older major version; its example permits change after warning in 3.10.0 no earlier than 3.12 or 4.0. Low maintenance overhead and security risk permit indefinite retention. With a replacement, removal should generally wait until the last Python version without it reaches end of support. In 2020, step 3 said 'at least two major Python versions' and allowed longer waits, alongside the two-year basic rule. The changelog dates duration clarification to 2021-04-16; the 2023 snapshot contains the newer minor-version wording and retention/replacement guidance but no five-year preference. The old major-version wording is superseded. The elapsed-time and release-count requirements remain unreconciled, especially the older-major alternative. Authoritative clarification is needed before deriving an earliest removal date; the five-year preference does not resolve the conflict or approve a shorter interpretation.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2020-07-20.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Soft deprecation means the API should no longer be used in new code but remains safe for existing callers. It stays documented and tested, with no further enhancements. Notice appears only in documentation, which should explain why to avoid it and, if possible, suggest a replacement. There is no warning and no implied removal schedule. Subsequent hard deprecation must follow the full compatibility rules: time spent soft deprecated grants no exception or credit toward the required hard-deprecation warning period. This differs from PendingDeprecationWarning, an option within regular deprecation for extended coexistence. Soft deprecation was added on 2023-07-03 and retained at the cutoff.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2023-07-03.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "All public APIs are protected, including reference-manual syntax and behavior and the C API; function, class, module, attribute and method names/types; argument and return-value positions and expected types; return values, side effects and raised exceptions for given arguments; subclass behavior, including calls to overridden methods; documented exception semantics; and exceptions commonly raised in EAFP usage. Reasonable bug fixes are not precluded. Exclusions that can change or disappear at any time include underscore-prefixed names/types, including C-API names, except special names; publicly documented private APIs; imported modules unless explicitly documented as public API; internal-class inheritance patterns; and test suites. Importing bacon inside spam alone does not make spam.bacon public. Explicitly Provisional modules/APIs under PEP 411 are outside compatibility rules. Undocumented does not automatically mean private, explicitly clarified in 2023 and retained in 2025. Public C APIs and their behavior are therefore not categorically exempt.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2020-07-20.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The steering council may grant exceptions, including shorter deprecation periods, only for extreme situations such as dangerously broken or insecure features, or features nobody could reasonably depend on, such as completely obsolete platform support. These examples do not themselves approve any change or let a maintainer self-authorize an exception. When a change cannot provide a deprecation warning, both the basic policy and procedure require consulting the steering council; inability to warn is not an automatic waiver. Council exception authority appears throughout the supplied history; the latest changelog dates explicit consultation notes to 2022-04-04. This packet supplies no feature-specific exception approval and approves no particular early removal.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "Discuss the change through an appropriate tracker, mailing list or SIG, optionally a PEP or similar document, so affected users can comment. Add warnings on current main: old usage warns when behavior changes, and an API being removed warns whenever entered. Normally use DeprecationWarning; PendingDeprecationWarning may be used in special cases where old and new APIs coexist for many releases. The warning message should name the release when incompatibility is expected to become the default and link to an issue accepting user feedback. Review feedback after warning exposure, including from users absent from initial discussions, and reconsider if warranted. Complete the process and reach the declared version before making the change permanent and removing the old version and warning. For the C API, compiler warnings generated by Py_DEPRECATED are also acceptable; the 2020 wording broadly allowed compiler warnings. When feasible, additionally add @deprecated in typeshed under PEP 702, giving static type-checker users another notification channel. The changelog dates that addition to 2023-11-14; it supplements existing warnings.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2020-07-20.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "The rationale is to protect the millions of applications and libraries relying on Python's core language and standard library from breakage in new releases. Backwards incompatibility means preexisting code ceases to comparatively function after a change, an acknowledged non-concrete definition; uncertain cases may seek guidance from Python developers and/or the steering council. Incompatibilities should offer a large benefit relative to breakage and be easy to resolve in affected code. Adding a standard-library module whose name collides with a third-party package is generally unacceptable; adding a method or attribute that conflicts through inheritance is likely reasonable. Migration considerations include discussion with affected users, notice and feedback opportunities, potentially supplying a new function or method while old usage warns, and generally waiting until the last Python version lacking a replacement reaches end of support. Low maintenance overhead and security risk can justify indefinite retention. The retained timing constraints and five-year preference govern the gradual process, subject to the unresolved elapsed-time versus release-count tension.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No downstream deployment, adoption, runtime behavior, compliance, feature-specific removal schedule or exception authorization can be verified. This packet supplies upstream policy snapshots and an index of revisions and hashes, with 2025-02-24 as the latest historical cutoff. Active Process status establishes upstream policy authority, not downstream implementation or approval of a concrete change. Downstream adoption, affected feature scope, actual warning contents and exposure history, replacement availability and support dates, feedback handling, and any steering-council exception remain unestablished. Separate evidence is needed before claiming a downstream change complies. The elapsed-time versus release-count timing issue also remains unresolved, and policy after the supplied cutoff is outside the evidence.",
+              "sources": [
+                "evidence/index.txt",
+                "context.md",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 151.337108,
+        "usage": {
+          "n_input_tokens": 100416,
+          "n_cache_tokens": 83712,
+          "n_output_tokens": 4446
+        }
+      }
+    ]
+  },
+  {
+    "id": "a9d4d3f9fc7d",
+    "metadata": {
+      "name": "read-58cf4efeb147-reader",
+      "task": "read-58cf4efeb147",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "7e5d9b29e1c1",
+      "files_sha256": "79bd6ea9f6df0daeb048755812b785afccc3a6ed1d2734247b262d88c326260c"
+    },
+    "task_checksum": "252a5d3d2285551c2e75bdf7f4f3402860553e3890e2ff7ed6034b3cf82fd91c",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At the supplied 2025-02-24 cutoff, PEP 387 is an Active Process PEP by Benjamin Peterson with Brett Cannon as PEP-Delegate. All three snapshots show Active status; none shows a subsequent status transition. Creation on 2009-06-18 is distinct from initial acceptance, dated 2020-07-20 in the latest changelog. Later revisions were: 2021-04-16 warning-duration clarification; 2022-04-04 explicit steering council consultation notes; 2023-06-26 smaller updates and clarifications; 2023-07-03 soft-deprecation section; 2023-11-14 PEP 702 @deprecated notice; and 2025-01-27 five-year preference before removal. These are later revisions, not initial acceptance. The 2020 header calls Cannon BDFL-Delegate on behalf of the steering council; 2023/2025 use PEP-Delegate, and 2025 adds Replaces: 291. Post-History entries (2009-06-19, 2020-06-12, with 2023 adding 2023-06-16 and 2025 also listing 2022-12-19) mark discussions, not exact adoption dates. Version and Last-Modified are unexpanded placeholders in 2020/2023 and absent in 2025. The 2025 snapshot supersedes 2023 for this packet; the indexed cutoff is not an inferred adoption date. No intervening snapshots establish dates for other individual edits beyond the explicit changelog.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "The claim is incorrect: the latest snapshot retains the mandatory minimum of two years, citing yearly releases. The 2025-01-27 revision adds a preference to wait five years before removal (warn in 3.10, remove in 3.15), not a mandatory five-year rule. Incompatible behavior changes between consecutive releases require deprecation, and removal requires notice. Warning exposure remains at least two minor versions of the same major version, or one minor version in an older major version; the example allows a warning in 3.10.0 before a change no earlier than 3.12 or 4.0. The source does not explain how a shorter major-version transition would satisfy the two-year minimum. Do not infer an exception or a real removal date from version numbers alone: check both constraints and seek upstream clarification for unresolved schedules. Historically, 2020 said two major Python versions and then more than two releases, leaving units unclear. The changelog dates a warning-duration clarification to 2021-04-16; the 2023 snapshot supplies the minor-version/major-transition wording retained in 2025. Low-maintenance, low-security-risk behavior may remain indefinitely; a replaced feature should generally remain until the last Python version without its replacement reaches end of support. Five years is no automatic removal deadline. Feedback review, the declared version and completion of the process still matter, subject to council-granted exceptions.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "New code should avoid a soft-deprecated API, but existing code may safely continue using it. It remains documented and tested, with no further enhancements. Soft deprecation is documentation-only, issues no warning and does not imply scheduling removal. Documentation should explain why to avoid the API and propose a replacement if possible. Later regular (hard) deprecation must follow the full compatibility rules: prior soft deprecation grants no exception and no credit toward warning exposure or the hard-deprecation removal process. It is distinct from PendingDeprecationWarning, a special case in the regular warning process. The section was added on 2023-07-03 and retained in 2025; its absence in 2020 does not limit the later supplied definition.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Coverage includes reference-manual syntax and behavior; the public C API; function, class, module, attribute and method names and types; argument and return-value positions and expected types; return values, side effects and raised exceptions for given arguments, allowing reasonable bug fixes; subclass behavior including calls to overrides; documented exceptions and their triggering semantics; and exceptions commonly raised in EAFP usage. Thus public behavior, including C behavior, is protected as well as names. Exclusions that may change or disappear at any time include underscore-prefixed names and types, including C-API names, except special names; publicly documented private items; imported modules unless explicitly documented as public API; internal-class inheritance patterns; and test suites. Explicitly documented Provisional modules/APIs under PEP 411 are also outside these rules. Importing a module alone does not make it public in the importing module. Undocumented names are not automatically private, a clarification present by 2023 and retained in 2025. The packet establishes no particular feature classification and does not supply the full text of PEP 411.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The steering council may grant exceptions, including shortening the required deprecation period, only in extreme situations such as dangerously broken or insecure features or features no one could reasonably depend on, for example completely obsolete platforms. Those examples do not automatically authorize exceptions. Changes unable to raise a deprecation warning, or for which users cannot receive a warning, require consultation with the steering council; inability to warn is not a unilateral bypass. The changelog dates explicit consultation notes to 2022-04-04, and they appear in the 2023 and 2025 snapshots. Delegate metadata for Brett Cannon does not establish independent feature-specific approval. This packet supplies no approval for a particular early removal, only the upstream exception process.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "First discuss the change in a suitable forum, seek affected users’ input and consider a PEP or similar document. Add a warning to current main: for behavior changes, old usage should warn and a new function or method may provide the new behavior; for removal, warn whenever the API is entered. Usually use DeprecationWarning; PendingDeprecationWarning is allowed in special cases where old and new APIs coexist for many releases. The warning should identify the expected release when the incompatibility becomes default and link to an issue for user feedback. Review feedback, including from users absent from the original discussion, and reconsider if appropriate. After completing the process and reaching the declared version, make the change permanent and remove the old version and warning. A C-API compiler warning generated by Py_DEPRECATED is acceptable; 2020 had broadly accepted compiler warnings. When feasible, also add @deprecated in typeshed per PEP 702 so static type-checker users receive another notice. This addition, dated 2023-11-14, supplements rather than replaces the warning process. If warnings cannot be provided, consult the steering council.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "The core language and standard library support extensive existing third-party code, so new releases must carefully avoid breaking it. Backwards incompatibility means preexisting code ceases to comparatively function after a change; this is deliberately imprecise, with the Python development team and/or steering council available for guidance. Incompatibilities should offer a large benefit relative to breakage and be easy to resolve in affected code. Adding a standard-library module that shadows a third-party package is generally unacceptable, while adding a method or attribute that conflicts through inheritance is likely reasonable: these are qualified judgments, not blanket permissions. Migration considerations include discussing changes with users, providing alternatives where appropriate, giving notice and sufficient warning exposure, reviewing feedback, and generally waiting until the last Python version without a replacement reaches end of support before removing the old feature. Low maintenance overhead and security risk can justify indefinite retention, alongside the five-year removal preference. The packet contains no feature-specific evidence showing these judgments or migration conditions have been satisfied.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No downstream deployment, adoption, enforcement, runtime behavior or feature-specific authorization can be verified. The packet supplies upstream policy history only, with three indexed snapshots, upstream commit references and SHA-256 values, ending at the historical cutoff 2025-02-24. It supplies no downstream runtime access or feature-specific exception approvals. Unknowns include whether any downstream system adopted or enforces the policy, a feature’s public/private/provisional classification, warning start and target releases, actual warning exposure, feedback, replacement availability and end-of-support schedules, and council approvals. Missing evidence proves neither approval nor rejection. This packet does not authorize a particular deployment or early removal, and does not establish today’s policy. Full texts of referenced PEPs 411, 602 and 702, and replaced PEP 291, are absent; only local statements about them are supported.",
+              "sources": [
+                "README.md",
+                "evidence/index.txt",
+                "docs/policy-context.md",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 162.450156,
+        "usage": {
+          "n_input_tokens": 100642,
+          "n_cache_tokens": 75520,
+          "n_output_tokens": 4730
+        }
+      }
+    ]
+  },
+  {
+    "id": "a265fc08e716",
+    "metadata": {
+      "name": "read-6307ff6450c5-reader",
+      "task": "read-6307ff6450c5",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "ea2a3f51bf9f",
+      "files_sha256": "2b8b6b6f1c4bf65381eadac4126855ad8ebcdb1327d7182abe5577327ef8d9c7"
+    },
+    "task_checksum": "dda8700ad9905b8d1c43be94ae24174969cd36b1754c592bb7b9170f7302e3a6",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At the supplied cutoff, 2024-05-28, PEP 602 is Active / Process, not literally Status: Final. September 10, 2019 records Draft / Informational; November 7, 2019 records Accepted / Informational and names Brett Cannon as BDFL-Delegate on behalf of the steering council. The latest snapshot names Cannon as PEP-Delegate and supplies a Resolution link to a python-dev archive thread and a 09-Oct-2023 Post-History link. These headers establish the recorded status and authority progression; the linked correspondence itself is not supplied, so its contents and an exact acceptance date cannot independently be established here. The policy starts with Python 3.9.",
+              "sources": [
+                "evidence/index.txt",
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "The latest implementation assigns Python 3.9–3.12 eighteen months of full support plus forty-two months of security-only support; starting with 3.13, it assigns twenty-four plus thirty-six months. Both total five years after initial release, ending with a final source-only release. Full support provides bugfix updates and sources plus Windows/macOS installers approximately every other month. Security-only releases provide sources as needed, with no fixed cadence. The latest LTS section still says eighteen months of regular bug fixes, an internal inconsistency with the explicit 3.13+ implementation rule, apparently retained older wording; it should not override that version-specific rule. November consistently specified 18+42 months. September instead proposed twelve months of approximately monthly bugfix releases, a final 3.X.12 after the next feature release, and four more years of as-needed source-only security releases. That twelve-month draft is not the accepted or latest rule.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "The current supplied policy has about seventeen months of development: five unversioned months overlapping the previous version’s beta/RC stages, seven months of versioned alphas accepting features and fixes, three months containing four betas with no new features, and two months containing two release candidates (or more if necessary), ending in final release. The next feature version starts development at the current version’s Beta 1, allowing overlapping seventeen-month cycles and twelve-month intervals between October releases. Late-May beta timing follows PyCon US sprints; October follows the annual core sprint. September’s heading says seventeen months but its prose says around sixteen, while its 5+7+4+1 phase durations sum to seventeen: this is a draft inconsistency. November and the latest snapshot use 5+7+3+2. They reject four months of betas plus one month for RCs because that hindered timely Fedora integration. The adjusted schedule aims to let Fedora and Python integrate while both are being developed, detecting core and third-party regressions early and helping Day 1 support; this rationale does not establish actual downstream integration.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. Annual releases permit calendar versioning—the document illustrates calling Python 3.9 “Python 3.20”—but PEP 602 neither advocates nor rejects a numbering change. It decides the release calendar; version numbering is reserved for a separate PEP. Illustrative calendar names are not adopted version names.",
+              "sources": [
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month cadence attributed to PEP 596 was rejected as too irregular and too short: it would lose regular-calendar benefits while shortening development phases, especially beta and RC testing, which was considered dangerous. September left every-nth-release LTS open for debate as a possible remedy for its proposed twelve-month bugfix window. November and the latest snapshot instead say every Python release effectively has long-term support through its five-year lifetime and explicitly plan no extended support like Python 2.7. The latest LTS paragraph’s eighteen-month bugfix wording conflicts with the updated twenty-four-month rule for 3.13+, but not with the five-year total or the rejection of extra extended LTS.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. September flagged dependent policies for updating; November and the latest snapshot explicitly retain at least two releases before removing a deprecated feature or enabling a __future__ behavior by default (referencing PEP 387), election of a new Steering Council after each feature release (referencing PEP 13), and the convention that one release manager handles two feature releases. Extending the release manager’s term to additional releases requires approval from both the Steering Council and the Cabal of Release Managers. The author’s willingness to manage a third release does not itself establish approval. Annual timing changes elapsed terms, not the existence of these rules. No feature-specific exception approval evidence is supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Intended benefits include smaller releases, earlier delivery of features and fixes, more gradual upgrades with less change per release, predictable contributor scheduling, less rushing before Beta 1, synchronization with distributors such as Fedora, more useful explicit alpha snapshots, and a shorter implicit alpha-zero phase. The accepted/latest policy does not aim to decide numbering, shorten the documented support calendar, or accelerate development velocity: it does not promise faster accumulation of features or incompatibilities, only more gradual delivery. Users may upgrade faster but need not upgrade annually; upgrading every second release is described as similar to the preceding experience. Integrator changes and a testing matrix larger by one or two supported versions are acknowledged risks.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "The packet establishes upstream policy history through 2024-05-28, including recorded acceptance and the latest Active / Process status, but no operational rollout status for a downstream service. The index explicitly limits scope to upstream snapshots and supplies neither downstream adoption nor feature-specific exception approval evidence. Service runtime versions, migration plans or completion, deployments, compatibility tests, readiness, service-specific support commitments and approved exceptions remain unverified. Upstream policy and illustrative schedules are not service deployment records; the absence of adoption evidence establishes neither successful rollout nor failed rollout or non-adoption.",
+              "sources": [
+                "README.md",
+                "evidence/index.txt",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 125.895561,
+        "usage": {
+          "n_input_tokens": 108162,
+          "n_cache_tokens": 83712,
+          "n_output_tokens": 3525
+        }
+      }
+    ]
+  },
+  {
+    "id": "c1e0caabbf02",
+    "metadata": {
+      "name": "read-72f82c4fac3e-reader",
+      "task": "read-72f82c4fac3e",
+      "arm": "skill",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "f0b209a19099",
+      "files_sha256": "f0d43cea9f1574cd602ad9bc4fab5eca246ead933f7bab11b6fc9297cf439379"
+    },
+    "task_checksum": "c8cfa02a621b88a4e2d47f07b0d4e31d324f97d232f37fa9377d18de1e2fa6d9",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "PEP 387 is Active and a Process PEP at every supplied cutoff: 2020-07-20, 2023-07-03 and 2025-02-24. The final changelog records initial acceptance on 2020-07-20. By 2023, the text already clarified warning exposure, longer retention, undocumented APIs, main-branch and C API warnings, council consultation when warnings cannot be provided, and soft deprecation. The delegate title changed from BDFL-Delegate on behalf of the steering council to PEP-Delegate; exception authority remained the council. Relative to 2023, the final snapshot adds the five-year preference before removal (changelog date 2025-01-27), feasible typeshed @deprecated notices under PEP 702 (2023-11-14), Replaces: 291, a 2022-12-19 post-history entry, and a changelog. These update an already active policy, rather than newly approving the policy or any particular removal. The changelog also dates warning-duration clarification to 2021-04-16, explicit council consultation notes to 2022-04-04, smaller clarifications to 2023-06-26, and soft deprecation to 2023-07-03. Not every intermediate revision is supplied; post-history dates do not establish effective dates, and the packet does not date replacement of PEP 291. The final snapshot supersedes earlier wording within the packet; it establishes no policy after 2025-02-24.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "No. The final basic policy requires at least two years of deprecation under annual releases. Five years before removal is a preference, not a universal minimum or removal deadline: the example is warning in Python 3.10 and removal in 3.15, matching the stated minor-release lifetime. Separately, procedure step 3 requires warning exposure in at least two minor versions of the same major version, or one minor version in an older major version; its example permits a warning in 3.10.0 to precede a change no earlier than 3.12 or 4.0. Release exposure, especially the major-version alternative, does not necessarily establish two elapsed years. This unresolved tension requires authoritative clarification before deriving an earliest removal date; the five-year preference does not resolve it. In 2020 the procedure said 'at least two major Python versions' and allowed waiting more than two releases, alongside the two-year basic rule. In 2023 that wording was superseded by the minor-version formulation, with generic permission for longer waits; the final snapshot makes five years explicitly preferred. Both 2023 and 2025 allow indefinite retention, or retention until circumstances change, when maintenance overhead and security risk are small, such as an old function implemented through a replacement. Where a replacement exists, removal should generally wait until the last Python version without it reaches end of support. Council exceptions can shorten the period, but none is supplied.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Soft deprecation alone cannot bypass the normal hard-deprecation process. It means an API should not be used in new code but remains safe for existing code. It remains documented and tested, with no further enhancements. Soft deprecation implies no removal schedule and issues no warning; documentation should explain why to avoid the API and suggest a replacement if possible. Later regular deprecation must follow the full compatibility rules, with no exception because the API was already soft deprecated. This differs from PendingDeprecationWarning in special long-coexistence cases within the regular process. These semantics appear in 2023 and remain in 2025; the 2020 snapshot contains no soft-deprecation category. No specific council waiver is supplied.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. The 2023 and final snapshots explicitly say an undocumented API is not automatically private. Protection covers all public APIs: reference-manual syntax and behavior, the C API, function/class/module/attribute/method names and types, return values, side effects and raised exceptions for given arguments, argument and return-value positions and expected types, subclass behavior including calls to overrides, documented exceptions and their triggering semantics, and exceptions commonly raised in EAFP scenarios. Reasonable bug fixes are not precluded. Explicit exclusions, which may change or disappear at any time, include underscore-prefixed names and types except special names, publicly documented private items, imported modules unless explicitly documented as public API, internal-class inheritance patterns, and test suites. Importing bacon in spam alone does not make spam.bacon public. Modules or APIs explicitly documented as Provisional under PEP 411 are also exempt. The 2020 snapshot already lists these exclusions but lacks the explicit undocumented-API clarification.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The steering council may grant exceptions, including shorter deprecation periods, only in extreme situations such as dangerously broken or insecure features or features nobody could reasonably depend on, for example support for completely obsolete platforms. This authority is present at all three cutoffs; the PEP delegate is not given that authority. The 2023 and final snapshots explicitly require consultation with the council when a change cannot raise a deprecation warning or a warning cannot be provided to users. Inability to warn is not automatic approval to bypass the process. Illustrative exceptional situations are not specific waivers. The packet supplies no feature-specific exception, shortened schedule or waiver approval.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "At the final cutoff, add the warning to the current main branch and warn whenever the API slated for removal is entered. The message should identify the release when the incompatibility is expected to become the default and link to an issue where users can give feedback. DeprecationWarning is usual; PendingDeprecationWarning is allowed in special cases where old and new APIs coexist for many releases. For the C API, compiler warnings generated by Py_DEPRECATED are also acceptable. When feasible, also add @deprecated in typeshed under PEP 702 so static type-checker users receive another notice channel; this supplements the warning process. The 2020 text broadly accepted compiler warnings, 2023 specifically named Py_DEPRECATED for the C API, and the final changelog dates the static-checker addition to 2023-11-14. If a warning cannot be provided, consult the steering council.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Python's core language and standard library underpin millions of existing applications and libraries, so releases must take care not to break third-party code. The policy describes incompatibility as preexisting code ceasing to comparatively function after a change, acknowledges that this is not a concrete definition, and directs uncertain cases to Python developers or the steering council for guidance. Incompatible changes should offer a large benefit relative to breakage and be easy to accommodate in affected code. A new standard-library module colliding with a third-party package name is generally unacceptable; a new method or attribute conflicting through inheritance is likely reasonable. This tradeoff does not itself waive the deprecation and notice requirements. The rationale persists across all supplied snapshots.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. The files establish historical upstream policy and revisions, not adoption by a downstream production service, observed runtime compliance, or approval of a particular feature removal. The index explicitly supplies neither downstream adoption nor feature-specific exception approval evidence; the context also supplies no downstream runtime verification or feature-specific schedule. A generic policy example or the council's exception authority is not individual approval. Such claims require separate evidence of adoption, feature scope, warning history and schedule, completion of the applicable process, and any necessary council exception. Absence of evidence here does not establish that adoption or approval never occurred; these files cannot establish it.",
+              "sources": [
+                "evidence/index.txt",
+                "context.md",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 255.982619,
+        "usage": {
+          "n_input_tokens": 122085,
+          "n_cache_tokens": 91904,
+          "n_output_tokens": 4348
+        }
+      }
+    ]
+  },
+  {
+    "id": "40b555e80e1d",
+    "metadata": {
+      "name": "read-7e69e6ac7919-reader",
+      "task": "read-7e69e6ac7919",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "7e5d9b29e1c1",
+      "files_sha256": "79bd6ea9f6df0daeb048755812b785afccc3a6ed1d2734247b262d88c326260c"
+    },
+    "task_checksum": "b85b4cb3906b3481a675145d194556e8a531f934a3896b5b399c17bd2c3f84e5",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At all three supplied cutoffs—2020-07-20, 2023-07-03 and 2025-02-24—PEP 387 is Active and its type is Process, authored by Benjamin Peterson. The 2020 header names Brett Cannon as BDFL-Delegate on behalf of the steering council; the later headers name him PEP-Delegate. The final changelog dates initial acceptance to 2020-07-20, so the final snapshot is an update to an already accepted policy, not a new approval. By 2023, changes included clarified warning exposure, explicit council consultation when warnings cannot be provided, clarification that undocumented APIs are not automatically private, longer-retention guidance, and soft deprecation. Relative to 2023, the final snapshot adds typeshed @deprecated guidance (changelog: 2023-11-14) and a preferred five-year period before removal (2025-01-27), retaining the two-year minimum. Its header also records Replaces: 291 and adds a 2022-12-19 post-history entry; unexpanded Version/Last-Modified placeholders are gone. The latest changelog dates warning-duration clarification to 2021-04-16, exceptional-case consultation notes to 2022-04-04, smaller updates collectively to 2023-06-26, and soft deprecation to 2023-07-03. It does not separately date every wording change. Creation in 2009 and post-history entries are not proof of acceptance on those dates; 2025-02-24 is the supplied evidence cutoff, not an inferred adoption date or today's policy.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "No. For covered APIs, absent a council-granted exception, the final basic policy requires at least two years of deprecation and prohibits removal without notice between consecutive releases. Step 3 prefers five years before removal; it does not make five years a universal minimum or automatic removal deadline. Its example is warning from Python 3.10 and removal in 3.15, matching the stated minor-release lifetime. Warning exposure must also span at least two minor versions of the same major version, or one minor version in an older major version; the example permits a change after warning in 3.10.0 no earlier than 3.12 or 4.0. There is an unresolved internal tension: the major-transition alternative does not explain how the two-year minimum is met if that transition happens sooner. It is not an implicit waiver, and version numbers alone cannot establish a compliant date. Low maintenance overhead and security risk can justify retaining deprecated behavior indefinitely, or until circumstances change. Where a replacement exists, removal should generally wait until the last Python version without it reaches end of support. In 2020, the basic two-year minimum already existed, but step 3 said 'at least two major Python versions' and allowed 'more than two releases,' leaving the units unclear. By 2023 that wording was replaced by the minor-version/major-transition rule and explicit longer-retention cases; the five-year preference was added in 2025. Discussion, warnings, feedback review and reaching the declared release still matter; exclusions and authorized exceptions mean these are not universal rules for every possible removal.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Soft deprecation itself provides no shortcut to removal. It discourages new use but explicitly remains safe for existing code. The API stays documented and tested, with no further enhancements. Soft deprecation is documentation-only, issues no warning and does not imply scheduling removal; documentation should explain why to avoid the API and propose a replacement if possible. A subsequent regular ('hard') deprecation must follow the full backwards compatibility rules, with no exception merely because the API was soft-deprecated. Time in soft deprecation therefore does not count as warning exposure. It is distinct from PendingDeprecationWarning, a warning category available in special regular-deprecation cases. Only a separately authorized policy exception could alter the usual process; none is supplied. The 2020 snapshot did not define soft deprecation; the section was added on 2023-07-03 and retained in the final snapshot.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. The 2023 and final snapshots explicitly say that lack of documentation does not automatically make an API private; the 2020 text excluded items publicly documented as private without that explicit clarification. Public coverage includes reference-manual syntax and behavior; the C API; function, class, module, attribute and method names and types; return values, side effects and raised exceptions for given arguments, allowing reasonable bug fixes; argument and return positions and expected types; subclass behavior, including calls to overridden methods; documented exceptions and their triggering semantics; and exceptions commonly raised in EAFP usage. Excluded items may change or disappear at any time: underscore-prefixed names and types except special names, publicly documented private items, imported modules unless explicitly documented as public API, internal-class inheritance patterns, and test suites. Explicitly Provisional modules/APIs under PEP 411 are also outside these compatibility rules. Importing a module alone does not make it public API of the importer. These general rules do not establish any particular feature's classification in the absence of feature-specific evidence.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The steering council may grant exceptions, including shortening the required deprecation period. Exceptions are only for extreme situations, such as dangerously broken or insecure features, or features no one could reasonably depend on, exemplified by completely obsolete platforms. Those examples do not themselves grant an exception. When a change cannot raise a deprecation warning, or a warning cannot be provided to users, the final policy requires consulting the steering council; inability to warn is not automatic permission to bypass the process. Council exception authority exists in all three snapshots; the later snapshots add explicit consultation language, dated by the final changelog to 2022-04-04. Brett Cannon's delegate metadata does not establish an independent feature-specific waiver. No specific waiver or feature-specific exception approval is supplied.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "Add the warning to the current main branch and, for removal, warn whenever the API is entered. The warning message should identify the release in which the incompatibility is expected to become the default (for removal, the expected removal release) and link to an issue where users can give feedback. DeprecationWarning is usual; PendingDeprecationWarning is available in special cases where old and new APIs coexist for many releases. At the final cutoff, a compiler warning generated by Py_DEPRECATED is acceptable for the C API. When feasible, also add @deprecated to the API in typeshed, per PEP 702, to give static type-checker users another notice; this supplements the warning process rather than replacing it. The 2020 wording broadly accepted compiler warnings; by 2023 it specified the C API Py_DEPRECATED mechanism, while typeshed guidance was added on 2023-11-14 according to the final changelog. The packet references PEP 702 but does not supply its full text or establish support by particular checker products.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "docs/policy-context.md"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Python's core language and standard library underpin millions of applications and libraries, so new releases must be careful not to break existing third-party code. The policy treats backwards incompatibility as preexisting code ceasing to comparatively function after a change, while acknowledging that this is not a precise definition; uncertain cases can be taken to the Python development team and/or steering council. Incompatible changes should provide a large benefit relative to breakage and should be easy for affected code to accommodate. Adding a standard-library module that shadows a third-party package is generally unacceptable; adding a method or attribute that conflicts with third-party code through inheritance is likely reasonable. These are qualified tradeoff judgments, not blanket approvals or exemptions from the deprecation process.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. These files establish historical upstream policy through the supplied 2025-02-24 cutoff. The evidence index expressly supplies neither downstream service adoption evidence nor feature-specific exception approvals, and the context says no downstream runtime access is supplied. Active policy status, delegate metadata, general exception criteria and illustrative removal schedules do not prove production adoption, enforcement or approval of a particular removal. Establishing a specific removal's compliance would require evidence such as its public/provisional classification, warning start and target releases, elapsed time and warning exposure, feedback review, applicable replacement end-of-support dates and any council exception. Absence of those records proves neither that adoption or approval happened nor that it did not; it limits what this packet can establish.",
+              "sources": [
+                "evidence/index.txt",
+                "docs/policy-context.md",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 115.151604,
+        "usage": {
+          "n_input_tokens": 100440,
+          "n_cache_tokens": 84864,
+          "n_output_tokens": 3159
+        }
+      }
+    ]
+  },
+  {
+    "id": "980d16869969",
+    "metadata": {
+      "name": "read-892364a78426-reader",
+      "task": "read-892364a78426",
+      "arm": "skill",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "a07d8a130f44",
+      "files_sha256": "a99dcb980aa7be27808a7daceeccf839392f75ef047e03d3dd2e1818c281b803"
+    },
+    "task_checksum": "b3442366a7bc354faa3b6ddf4415477220bbd5b6f04cbad5aff59438cc1ac35d",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Status/type progress from Draft/Informational (2019-09-10), to Accepted/Informational (2019-11-07), to Active/Process (2024-05-28). The latest document is neither a draft nor merely informational. The accepted header names Brett Cannon as BDFL-Delegate on behalf of the Steering Council; the active header names him PEP-Delegate. Residual “proposes” and “if rejected” language does not override these statuses. Acceptance is established by November 7, not precisely dated. The latest Post-History and resolution link do not establish the exact date or rationale of the later support change: the linked material is not supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "At the 2024-05-28 cutoff, Python 3.12 retains the 3.9–3.12 rule: 18 months full support after 3.X.0, followed by 42 months security support. Starting with 3.13, this becomes 24 months full support followed by 36 months security support. Full support provides bugfix updates and full releases (sources and Windows/macOS installers) approximately every other month. Security-only support provides source-only releases as needed, with no fixed cadence. Both total five years, with a final source-only release five years after 3.X.0. The active LTS section still describes every version as receiving eighteen months of regular bug fixes and security updates. This agrees with 3.12 but conflicts with Implementation for 3.13 onward. Follow Implementation’s explicit version boundary for the applicable policy, while preserving the unreconciled conflict: authoritative clarification is needed. No rationale or precise approval date for the six-month reallocation is supplied. These rules do not establish actual release or end-of-support dates.",
+              "sources": [
+                "evidence/releases-2024-05-28.rst",
+                "evidence/releases-2019-11-07.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Accepted and active development lasts nominally 17 months: five unversioned months overlapping the preceding version’s beta/RC stages; seven months of versioned alphas accepting features and fixes; three months with four betas, permitting bug fixes but no new features; and two months with two RCs (more if necessary), ending in final release. Next-version development starts at the current version’s Beta 1. Starting with 3.9, feature finals recur every twelve months in October after the core sprint; the rationale places beta starts in late May after PyCon US sprints. The draft’s four beta months and one RC month were replaced by three and two to help Fedora integrate Python while both projects were developing, enabling earlier regression discovery and timely distribution. The accepted example moves betas 2–4 from June 15/July 13/August 17 to June 8/June 29/July 20, and RCs from September 14 plus optional September 21 to August 10 and September 14. Beta 1 (May 18) and final (October 5, 2020) remain unchanged. The draft heading said seventeen months but its sentence said sixteen, despite phases totaling 17 (5+7+4+1). Acceptance corrected the sentence; revised phases still total 17 (5+7+3+2). Separate unresolved tensions remain: all examples run June 4, 2019–October 5, 2020, roughly sixteen months, with roughly four rather than five initial unversioned months; May 18 also differs from “late May.” These are illustrative schedules, not observed releases.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. Calendar versioning is explicitly a non-goal. Python 3.20 for October 2020 and Python 3.23 for October 2023 illustrate possible names, not approved names. PEP 602 advocates neither for nor against renumbering and requires a separate PEP to address it. Acceptance of the annual calendar and the later change from “major” to “feature” terminology do not authorize calendar versioning; no separate approval is supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month alternative, attributed to PEP 596, was rejected as too irregular and too short: it would lose annual-calendar benefits and dangerously shorten development, especially beta/RC phases. The September draft proposed one year of approximately monthly bugfix releases, ending with 3.X.12 after the next version, plus four security-only years. It floated every n-th release as Python-2.7-style LTS to mitigate user inconvenience while limiting maintenance cost, explicitly leaving this open for debate. That was not approval. November replaced this with 18 months full support approximately every other month and 42 months security support, removed the final-3.X.12 requirement, and rejected extended LTS because every version already receives five years of support. The active text retains the decision that no extended Python-2.7-style support is planned; no n or special LTS terms were approved. Its LTS rationale still says eighteen months of regular bug fixes, conflicting with its newer 24/36 split for 3.13 onward. That inconsistency does not approve extended LTS.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "Accepted and active text retain at least two releases before removing a deprecated feature or enabling a __future__ behavior by default, described as PEP 387 policy. This is a minimum release count, not automatic removal on the second release or a new elapsed-time rule. They retain PEP 13’s election of a new Steering Council after each feature release and the previously undocumented convention of a Release Manager handling two feature releases. Extending the manager’s term requires approval from both the Steering Council and the Cabal of Release Managers. The author’s offer to handle a third release is willingness, not evidence of approval. These explicit terms supersede the draft’s unspecified list of policies requiring updates; other implicit dependencies remain possible. Referenced PEP texts and actual governance approvals are absent.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Annual releases aim to deliver smaller changes and features/fixes sooner, ease upgrades, make contributor scheduling predictable, reduce rushing before Beta 1, provide useful alpha snapshots and shorten the implicit alpha-0 phase. Distributor alignment, including Fedora, helps detect core and third-party regressions early and supports readiness from Day 1. The old eighteen-month cadence meant irregular dates, larger and riskier upgrades, delayed improvements and infrequent workflows left undocumented or unautomated. Users need not upgrade annually: upgrading every second release is offered as an experience similar to the preceding cadence. More frequent releases do not imply increased development resources, faster feature growth or faster incompatibility; features are released more gradually. The accepted text says documented bugfix/security support is not shortened. Integrators must adjust their practices, and supporting all active versions may add one or two versions to testing matrices. These are rationale and anticipated effects, not measured downstream outcomes.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. These snapshots establish upstream policy history through 2024-05-28, not adoption by a downstream fleet or completion of an upgrade. Fedora integration is an intended benefit; illustrative release dates are schedules, not verified events. No fleet inventory, deployment record, migration result or downstream acceptance evidence is supplied. Downstream adoption and completed upgrades remain unverified; the absence of evidence also does not prove they never occurred.",
+              "sources": [
+                "evidence/index.txt",
+                "context.md",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 75.37874,
+        "usage": {
+          "n_input_tokens": 111494,
+          "n_cache_tokens": 91520,
+          "n_output_tokens": 4021
+        }
+      }
+    ]
+  },
+  {
+    "id": "fae5a11488cc",
+    "metadata": {
+      "name": "read-a3c38233bbe5-reader",
+      "task": "read-a3c38233bbe5",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "090a70b7a419",
+      "files_sha256": "450c684989368970369e775ee39b4763c8d48a4ba1adc1b5737b3bdd8a29f283"
+    },
+    "task_checksum": "8bb080ed22be5e7b1da5ad4012d5afef219a69880e52f18a7aefdfce925d400f",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "PEP 387, Backwards Compatibility Policy, was created June 18, 2009; creation and Post-History discussion dates are not acceptance dates. The latest changelog identifies July 20, 2020 as the initial accepted version. All supplied snapshots (July 20, 2020; July 3, 2023; February 24, 2025) show Status: Active and Type: Process. Later revisions were April 16, 2021 (warning-duration clarification), April 4, 2022 (explicit Steering Council consultation notes), June 26, 2023 (smaller updates and clarifications), July 3, 2023 (soft deprecation), November 14, 2023 (PEP 702 @deprecated notification), and January 27, 2025 (preference for five years before removal). The latest header also says Replaces: 291. These are revisions of the accepted policy, not new initial acceptance or a demonstrated status transition. The supplied historical cutoff is February 24, 2025.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Five years is preferred, not mandatory; it did not replace the retained requirement that deprecation last at least two years. API behavior must not change incompatibly between consecutive releases without the deprecation process, and features cannot be removed without notice between consecutive releases. The latest procedure requires warnings in at least two minor versions of the same major version, or one minor version in an older major version: its example allows a warning starting in 3.10 to precede a change in 3.12 or 4.0. It then prefers five years before removal (3.10 to 3.15), coinciding with the stated minor-release lifetime. Low maintenance overhead and security risk can justify indefinite retention; replacement-based removal generally should wait until the last Python version without the replacement reaches end of support. The 2020 procedure instead said 'at least two major Python versions', while already retaining the two-year basic rule. The latest changelog records a 2021 clarification, and the 2023 and 2025 snapshots use minor-version wording. That historical discrepancy must not be silently rewritten. The latest calendar minimum and older-major-version alternative are both stated; the packet does not reconcile them if a major release occurs before two years. Exceptional shortening requires Steering Council authority.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Soft deprecation discourages using an API in new code while saying continued use in existing code remains safe. The API remains documented and tested but receives no enhancements. It does not imply scheduling removal and issues no warning: documentation alone announces it, explains why to avoid the API, and proposes a replacement if possible. It earns no exemption or credit toward hard-deprecation removal: any later regular deprecation must follow the normal backwards-compatibility rules, and elapsed soft-deprecation time alone does not satisfy the warning period. The section was added July 3, 2023.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "All public APIs are covered, including reference-manual syntax and behavior and the C API. Coverage includes function, class, module, attribute and method names and types; argument positions and expected argument/return types; return values, side effects and raised exceptions for given arguments; subclass behavior concerning calls to overridden methods; documented exception semantics; and exceptions commonly raised in EAFP use. Reasonable bug fixes are not precluded. Protection concerns behavior as well as names, including public C APIs. Exclusions that can change or disappear at any time include underscore-prefixed names and types (including C API names), except special names; publicly documented private interfaces; imported modules unless explicitly documented as public exports; internal-class inheritance patterns; and test suites. Explicitly provisional modules/APIs under PEP 411 are exempt. The 2023 and 2025 snapshots expressly clarify that an undocumented name is not automatically private; this does not by itself classify every undocumented name as public.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The Steering Council may grant policy exceptions, particularly shortening a feature's required deprecation period. Exceptions are limited to extreme situations, such as dangerously broken or insecure features or features no one could reasonably depend on, for example support for completely obsolete platforms. These examples are not automatic maintainer authorization. If a change cannot raise a deprecation warning, or a warning cannot be provided to users, consult the Council; inability to warn is not itself a waiver. The latest changelog dates explicit consultation notes to April 4, 2022. This packet provides general exception authority, not approval of any particular early removal. Its index expressly excludes feature-specific exception-approval evidence.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "Discuss the change first and seek affected users' input. Add a warning to the current main branch: old usage should warn for a behavior change, and an API being removed should warn whenever entered. DeprecationWarning is usual; PendingDeprecationWarning is available in special cases where old and new APIs coexist for many releases. The warning message should name the release when the incompatibility is expected to become default and link to an issue for user feedback. After the warning period, consider feedback, including from users absent from the original discussion, and potentially reconsider. Once the declared version and process requirements are reached, the change/removal may become permanent and the old version and warning can be removed. For C APIs, a compiler warning generated by Py_DEPRECATED is acceptable; the 2020 text accepted compiler warnings generically. When feasible, also add the PEP 702 @deprecated decorator in typeshed so static-type-checker users have another notification channel. The latest changelog dates that addition to November 14, 2023. It is additional notification, not a stated substitute for the normal warning process. If users cannot be warned, consult the Council.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Python's core language and standard library support millions of applications and libraries, so developers must take care not to break existing third-party code. Backwards incompatibility means preexisting code ceases to function comparatively after a change; the policy acknowledges this is not a precise definition and directs uncertainty to Python developers and/or the Steering Council. Incompatibilities should have a large benefit-to-breakage ratio and be easy to resolve in affected code. Adding a standard-library module with the name of a third-party package is generally unacceptable; a method or attribute collision through inheritance may be reasonable. Migration considerations include discussing the change with affected users, providing warnings and time, responding to feedback and potentially reconsidering, and generally waiting until the last Python version lacking a replacement is out of support. Five years before removal is preferred at the cutoff; low maintenance overhead and security risk may justify retaining deprecated behavior indefinitely. These policy requirements and preferences do not demonstrate that any particular migration was assessed or completed.",
+              "sources": [
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "Only upstream policy history through February 24, 2025 can be verified. No downstream deployment, service adoption, rollout, runtime configuration, migration completion, or feature-specific authorization is established. The index expressly limits the packet to upstream snapshots and excludes downstream service-adoption and feature-specific exception-approval evidence. An Active policy and general Council exception authority do not establish that a particular removal was approved or implemented. Whether downstream parties adopted the policy, whether a specific API met notice and timing requirements, and whether a particular exception was granted remain unknown. Absence of evidence in this packet does not prove those events never occurred.",
+              "sources": [
+                "README.md",
+                "evidence/index.txt",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 142.054714,
+        "usage": {
+          "n_input_tokens": 89090,
+          "n_cache_tokens": 72960,
+          "n_output_tokens": 4131
+        }
+      }
+    ]
+  },
+  {
+    "id": "26a5e67016de",
+    "metadata": {
+      "name": "read-d98f10360396-reader",
+      "task": "read-d98f10360396",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "ea2a3f51bf9f",
+      "files_sha256": "2b8b6b6f1c4bf65381eadac4126855ad8ebcdb1327d7182abe5577327ef8d9c7"
+    },
+    "task_checksum": "e6c1f2f00b4a083af7ca63e0e7501f8991a21cf7d3f4d77927f058c9ace480a6",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "On 2019-09-10 PEP 602 was Draft / Informational; on 2019-11-07 it was Accepted / Informational; at the latest supplied cutoff, 2024-05-28, it was Active / Process. The latest document is therefore neither still a draft nor merely informational. Residual “proposes” wording and the hypothetical rejection example do not override the explicit metadata. The snapshots establish these states, not the precise dates of intervening metadata changes.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "At the 2024-05-28 cutoff, the explicit implementation note gives Python 3.12, within the 3.9–3.12 group, 18 months of full support followed by 42 months of security-only support. Starting with 3.13, the rule is 24 months of full support followed by 36 months of security-only support. Both total five years from 3.X.0, with a final source-only release at five years. Full support includes bugfix and security updates, with full releases (sources and Windows/macOS installers) approximately every other month. Security-only releases contain sources only and occur as needed, with no fixed cadence. The latest LTS section still says every version permits regular bug fixes and security updates for “the first eighteen months.” This is an internal inconsistency for 3.13 onward, apparently retained from the accepted 2019 text. It agrees with 3.12, but the explicit newer implementation section and version-specific transition note support 24 months for 3.13; the residual sentence should not silently be erased or used to reduce that period. Historically, the draft proposed one year of roughly monthly bugfix updates plus four years of security fixes; acceptance changed that to 18 plus 42 months. These sources provide policy durations, not exact 3.12/3.13 release or end-of-support dates.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "The accepted and latest schedule develops a feature version over about 17 months: five unversioned months overlapping the preceding version’s beta/RC stages; seven months of versioned alphas accepting new features and fixes; three months containing four betas, with no new features but fixes allowed; and two months containing two release candidates (more if necessary), ending in the final release. The next version’s feature development starts at the current version’s Beta 1, so overlapping development produces annual feature releases, with October finals after the core sprint and beta starting in late May after PyCon US sprints. The draft allocated four months to beta and one to RC. Acceptance changed this to three and two to help external distributors such as Fedora integrate both projects while they are developing and ship the newest Python promptly; this was an intended benefit, not evidence of adoption. The draft heading said seventeen months but the prose said around 16, although its stages sum to 5 + 7 + 4 + 1 = 17. Acceptance corrected the total to 17; its revised stages also sum to 17.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. Calendar versioning is explicitly a non-goal in all three snapshots. Calling the October 2020 release “Python 3.20” instead of 3.9, or the October 2023 release “Python 3.23,” illustrates a possible naming scheme rather than an approved change. PEP 602 advocates neither for nor against changing version numbers and leaves that question to a separate PEP. Acceptance of the annual cadence did not authorize calendar versioning; no separate authorization is supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month cadence attributed to PEP 596 was rejected as too irregular and too short. The draft emphasized dangerous shortening of beta; the accepted and latest texts explain that it loses the benefits of a regular annual calendar and compresses all development phases, especially beta and RC. Extended LTS was merely open for debate in the draft: making every nth release an LTS like Python 2.7 was suggested as a possible remedy for the proposed twelve-month bugfix period. That discussion was not approval. The accepted and latest snapshots place LTS under Rejected Ideas, explaining that every release already receives five years of support and explicitly stating that no Python-2.7-style extended support is planned. Acceptance also lengthened ordinary full support to 18 months; the latest implementation extends it to 24 months starting with 3.13. Its retained eighteen-month LTS wording conflicts with that newer rule for 3.13 onward, but does not authorize a separate extended-LTS tier.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "The draft flagged dependent policies for updating; the accepted and latest snapshots explicitly retain at least two releases before removing a deprecated feature or enabling a __future__ behavior by default, referring to PEP 387. This is a minimum measured in releases, not automatic authorization to remove every feature after exactly two releases. They retain the PEP 13 rule electing a new Steering Council after each feature release and the convention that a Release Manager handles two feature releases. Extending that term requires approval from both the Steering Council and the Cabal of Release Managers. The author’s willingness to manage a third release is an offer, not proof of an approved extension. No feature-specific exception approval is supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "The annual cadence aims to deliver smaller releases, earlier features and fixes, and more gradual upgrades with a smaller change surface per release. Predictable October finals and late-May betas improve planning; a shorter wait for the next release reduces pressure to rush features before Beta 1. It lengthens the useful explicit alpha phase, shortens implicit alpha 0, and helps align regression testing and integration with distributors such as Fedora. Reasons for rejecting the old cadence also include irregular contribution scheduling, rarely exercised workflows, and larger, riskier point-zero releases. Users do not have to upgrade annually: the PEP explicitly says upgrading every second release can give an experience similar to the prior cadence. It does not promise faster development, faster accumulation of features, or faster incompatibility; features are released more gradually as they are developed. The accepted/latest text says support is not shortened, while acknowledging changes for integrators and a testing matrix potentially larger by one or two supported versions.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. The evidence index expressly limits this packet to upstream policy snapshots and says no downstream service-adoption evidence is supplied. References to Fedora describe historical help finding regressions and hoped-for benefits of synchronizing developing releases, not proof that a downstream fleet adopted the schedule or completed an upgrade. Neither PEP acceptance nor an example release calendar establishes deployment. Fleet adoption and upgrade completion remain unknown from this packet and would require downstream records.",
+              "sources": [
+                "evidence/index.txt",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 131.483069,
+        "usage": {
+          "n_input_tokens": 97272,
+          "n_cache_tokens": 72704,
+          "n_output_tokens": 3827
+        }
+      }
+    ]
+  },
+  {
+    "id": "75a460139d51",
+    "metadata": {
+      "name": "read-ddb210563cd8-reader",
+      "task": "read-ddb210563cd8",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "11a8944a5a02",
+      "files_sha256": "ea5293f2948966642dc821be5c7070d750a5e5eecadc1707af1e8e3c9f80bfbd"
+    },
+    "task_checksum": "9ed1baacf67ca910c9470b8a52f730a7d6ef5285e043c0251304057c3b0ebf60",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "The latest supplied cutoff is 2024-05-28, when PEP 602 is Active / Process. On 2019-09-10 it was Draft / Informational; by 2019-11-07 it was Accepted / Informational, naming Brett Cannon BDFL-Delegate on behalf of the Steering Council. The latest header names Cannon PEP-Delegate and retains author Łukasz Langa, creation date 2019-06-04 and applicability starting with Python 3.9. The snapshot headers establish these statuses; the index supplies upstream commit URLs and SHA-256 hashes as provenance. The latest header also supplies Resolution and 2023-10-09 Post-History links, but their contents are absent. Neither snapshot dates nor that Post-History entry establish exact decision dates for acceptance, reclassification or support changes. These are historical upstream policy records, not proof of downstream execution or today's policy.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "At the cutoff, Python 3.9–3.12 retain 18 months of full support followed by 42 months of security-only support; 3.13 onward gets 24 plus 36 months. Both total five years after 3.X.0, with a final source-only release at five years. Full support provides bugfix updates and sources plus Windows/macOS installers approximately every other month. Security-only releases are source-only, as needed, with no fixed cadence. The latest LTS rejection still says every version has eighteen months of regular updates, conflicting with Implementation for 3.13+. The explicit version-scoped Implementation governs; the packet does not explain the inconsistent paragraph. The extension references PEP 719, whose text is absent; its rationale and exact decision date are unknown. September's superseded draft instead proposed twelve months of approximately monthly bugfix releases, final 3.X.12 after the next feature final, then four security-only years, still five years total. It accepted shorter bugfix support as a user inconvenience to limit core maintenance costs. November replaced this with 18+42 and every-other-month full releases. November's retained claim that documented support is not shortened also contrasts with its account of uncodified extended bugfix support: PEP 101 allegedly required one final bugfix after the next feature final, while at least four prior versions in practice overlapped the next stable version by about six months. PEP 101 is absent, so preserve that documentation/practice tension without overriding the explicit schedule.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "The current rule at the historical cutoff is around seventeen months: five unversioned months overlapping the preceding version's beta/RC stages, seven months of versioned alphas accepting features and fixes, three months containing four betas accepting fixes but no new features, and two months containing two RCs, or more if necessary. Beta 1 freezes features for 3.X.0 and starts development of 3.(X+1).0, enabling overlapping development and twelve-month intervals between October finals, starting with 3.9. October follows the core sprint; the rationale places beta starts in late May after PyCon US sprints. Fedora synchronization aims to find regressions early in Python and third-party libraries and enable Day 1 support. The draft's four beta months plus one RC month was rejected despite its cleaner calendar because it hindered prompt distributor integration; more RC time aims to let Fedora and Python integrate while both are developing. September's heading and phase sum said seventeen (5+7+4+1), but its prose said around sixteen. November corrected the prose and adopted 5+7+3+2, retained in 2024. The retained June 4, 2019–October 5, 2020 example still spans roughly sixteen months, and its May 18 Beta 1 differs in precision from 'late May'; these remain unexplained. No fixed annual day/week rule is established. Examples are illustrative, not proof of execution; the rejected-PEP calendar is counterfactual.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. PEP 602 decides release cadence, not version numbering, and explicitly advocates neither for nor against a numbering change. Calling 3.9 '3.20' for October 2020 or using '3.23' for October 2023 illustrates possible calendar versioning; these are not approved names. Numbering requires a separate PEP, and no separate decision is supplied. Replacing 'major versions' with 'feature versions' in the latest text does not itself change numbering.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/decisions.md"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month proposal, attributed to PEP 596, was rejected as too irregular and too short: it loses a regular annual calendar's benefits while dangerously shortening development phases, especially beta and RC. September specifically emphasized beta shortening; November broadened the concern. September left every-n-th-release LTS analogous to Python 2.7 open for debate, with neither n nor an extended term specified. November rejected special extended Python 2.7-style support, and that remains the cutoff position: every version's five-year support is considered effectively LTS, with security fixes accepted and promptly released during security-only support. The early debate is no longer open. The retained LTS paragraph's eighteen-month full-support wording conflicts with the 3.13+ Implementation, but does not undo the rejection of extended support: operative splits are 18+42 months for 3.9–3.12 and 24+36 for 3.13 onward. PEP 596 itself is not supplied.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. September listed governance dependencies as needing updates; November supplied rules retained at the 2024 cutoff. Keep at least two releases before removing a deprecated feature or making a __future__ behavior default, described as PEP 387's policy. This is a minimum, not an exact removal deadline or an independently specified duration in months. Keep PEP 13's election of a new Steering Council after each feature release. Keep the previously undocumented convention that a Release Manager handles two feature releases. Extending that term requires approval from both the Steering Council and the Cabal of Release Managers. Langa's offer to manage a third release is not evidence of approved extension. PEPs 13 and 387 themselves and subsequent implementation are absent; other implicit cadence-dependent policies may remain unidentified. Extra RCs are allowed, but no feature-freeze waiver or feature-specific exception approval is evidenced.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Intended benefits are smaller feature sets per release with fixed development resources, earlier delivery of features and fixes, more gradual upgrades, predictable contribution planning, alignment with core/PyCon sprints and distributors, less pressure to rush before Beta 1, more useful explicit alpha snapshots and less low-value implicit alpha-zero overlap. Annual releases do not aim to accelerate development velocity, feature creation or incompatibility: work is released more gradually. Users can upgrade sooner but need not upgrade annually; the PEP describes upgrading every second release as similar to the prior experience. Changing numbering is a separate non-goal requiring another PEP. These are policy expectations, not measured outcomes. Integration still requires distributor release-process changes and may add one or two versions to testing matrices for maintainers supporting all active versions. The accepted text claims no shortening of documented bugfix/security support, subject to the unresolved documentation/practice tension and the latest explicit version-scoped support rules.",
+              "sources": [
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md",
+                "docs/decisions.md"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "This packet establishes only historical upstream policy status and requirements through 2024-05-28: acceptance by November 2019 and Active / Process status with version-scoped support rules at the latest snapshot. It cannot establish any downstream service's operational rollout status. No downstream runtime access, adoption records, integration results or feature-specific exception approvals are supplied. A service's deployed Python version, upgrade completion, compatibility tests, release-process changes, support arrangements and successful operation remain unverified; missing evidence does not prove non-adoption. Fedora synchronization is a rationale, not evidence of adoption. Illustrative schedules do not prove actual upstream release execution. Exact intervening decision dates, linked resolution/discussion details, referenced PEP texts and the two calendar/support-matrix images are unavailable. No conclusion about policy after the cutoff is supported.",
+              "sources": [
+                "README.md",
+                "evidence/index.txt",
+                "docs/context.md",
+                "docs/decisions.md",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 159.215729,
+        "usage": {
+          "n_input_tokens": 114212,
+          "n_cache_tokens": 67328,
+          "n_output_tokens": 4497
+        }
+      }
+    ]
+  },
+  {
+    "id": "c12910d57cb9",
+    "metadata": {
+      "name": "read-e7de301680a9-reader",
+      "task": "read-e7de301680a9",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "11a8944a5a02",
+      "files_sha256": "ea5293f2948966642dc821be5c7070d750a5e5eecadc1707af1e8e3c9f80bfbd"
+    },
+    "task_checksum": "9ff14e1b39b3a0d42e0b7e580cefbfcfa5a1e99d2c00f3be3c3b5e59427d0437",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "PEP 602 progresses from Draft / Informational on 2019-09-10 to Accepted / Informational on 2019-11-07 to Active / Process at the latest supplied cutoff, 2024-05-28. The latest document is therefore neither a draft nor merely Informational. It targets Python 3.9 onward. November names Brett Cannon BDFL-Delegate on behalf of the Steering Council; May uses PEP-Delegate and adds Resolution and 2023-10-09 Post-History links. The linked records are not supplied, so the snapshots establish status by each cutoff, not exact decision or effective dates. Retained conditional prose does not override the latest header.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "At 2024-05-28, 3.12 retains eighteen months of full support followed by forty-two months of security-only support, as do all versions 3.9–3.12. Starting with 3.13, full support lasts twenty-four months, followed by thirty-six months of security-only support. Full support provides bugfix updates with sources and Windows/macOS installers approximately every other month. Security support provides source-only releases as needed, with no fixed cadence. Both total five years from 3.X.0, with a final source-only release at five years. The latest LTS rejection paragraph still claims every version gets eighteen months of regular bugfix/security updates. This conflicts with Implementation for 3.13 onward: apply the explicit version-scoped Implementation rule while preserving the unexplained inconsistency. It does not extend 3.12 full support. September proposed twelve months of approximately monthly bugfix releases, a final 3.X.12 after the next final, then four security years; November replaced that with eighteen plus forty-two months. The packet gives neither the rationale nor precise decision date for the 3.13 extension; referenced PEP 719 is absent. The retained claim that documented support was not shortened also coexists with a discussion of uncodified practical bugfix overlap and a shorter PEP 101 rule. That historical documentation/practice tension does not override the explicit support schedule.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "The latest policy retains November’s approximately seventeen-month development cycle: five unversioned months overlapping the preceding version’s beta/RC stages; seven months of versioned alphas accepting features and fixes; three months containing four betas accepting fixes but no new features; and two months containing two RCs, with more if necessary, ending in final release. Beta 1 freezes features and begins development of the next feature version. Starting with 3.9, finals occur every twelve months in October after the annual core sprint; beta starts are described as late May after PyCon US sprints. September allocated four months to betas and one to RCs. November shifted a month to RCs to help distributors such as Fedora integrate Python while both projects were developing and deliver it promptly; the cleaner original calendar impeded that. September’s prose incorrectly said around sixteen months although its heading and phase sum, 5+7+4+1, said seventeen. November corrected the prose and used 5+7+3+2. An unresolved mismatch remains: the retained example spans June 4, 2019 to October 5, 2020, roughly sixteen months. Its May 18 Beta 1 also differs in precision from “late May”; no fixed day/week rule is established. Revised betas 2–4 are June 8, June 29 and July 20, with RCs August 10 and September 14, replacing June 15, July 13, August 17 and September 14 plus optional September 21. Example dates are illustrative, not execution evidence; the separate rejection calendar is counterfactual.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. All three snapshots explicitly leave version numbering outside this PEP’s goals and advocate neither for nor against changing it. Python 3.20 for October 2020 and 3.23 for October 2023 are illustrations, not approved names. Changing numbering requires a separate PEP, and no such decision is supplied. Acceptance of the cadence did not adopt calendar versioning. The latest terminology “feature versions” also does not change numbering.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month alternative, attributed to PEP 596, was rejected in September as too irregular and too short, with dangerously shortened beta testing. November and May retain the rejection and explain that development phases, especially beta plus RC, would shrink without the benefits of a regular annual calendar. September’s every-nth-release LTS idea was only open for debate, intended to mitigate the inconvenience of its proposed twelve-month bugfix period while avoiding increased core maintenance costs. Neither n nor an extended term was specified; draft discussion was not approval. By November, retained in May, special Python 2.7-style extended support is explicitly rejected: five years of support already makes every version effectively LTS, with regular fixes followed by promptly released security fixes. The retained LTS paragraph’s eighteen-month statement conflicts with May’s twenty-four-month full-support rule for 3.13 onward; that inconsistency does not reopen extended LTS.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "September listed dependent policies as needing updates. November established rules retained in May: keep at least two releases before removing a deprecated feature or making a __future__ behavior the default, described as the existing PEP 387 policy; retain PEP 13’s election of a new Steering Council after each feature release; and retain the previously undocumented convention that a Release Manager handles two feature releases. Extension to more releases requires approval from both the Steering Council and the Cabal of Release Managers. The author’s willingness to manage a third release is an offer, not an approved extension. “At least two” is a minimum, not an exact removal deadline or a separately specified duration in months. PEPs 13 and 387 themselves and any approved extension are not supplied; other implicit cadence-dependent policies may remain unidentified.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Annual releases aim to deliver smaller feature sets with fixed development resources, put features and fixes in users’ hands sooner, and provide more gradual upgrades. Predictable October finals and May beta starts align with core and PyCon US sprints, help contributors plan, reduce pressure to rush features rather than miss an eighteen-month window, and enable distributor synchronization and earlier regression detection. A longer explicit alpha phase provides useful progress snapshots while shortening the less useful implicit alpha-zero overlap. The old cadence also produced larger, riskier point-zero releases, delayed improvements, and infrequently exercised workflows. Users need not upgrade annually: upgrading every second release is presented as similar to the prior experience. The PEP explicitly does not accelerate development, feature accumulation or incompatibility; it changes delivery frequency. These are policy expectations, not measured outcomes. Costs remain: integrators must change release processes, and maintainers supporting all active versions may add one or two versions to their testing matrices.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "docs/decisions.md"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. These snapshots establish upstream policy history through 2024-05-28, not adoption by any downstream fleet or completion of an upgrade. Example dates are illustrative, and Fedora synchronization and Day 1 support are rationale or intended benefits rather than fleet implementation results. No downstream runtime access, deployment records, integration results, completed-upgrade evidence or feature-specific exception approvals are supplied. Adoption and upgrade completion therefore remain unknown. Historical acceptance also does not establish today’s policy.",
+              "sources": [
+                "README.md",
+                "evidence/index.txt",
+                "evidence/releases-2024-05-28.rst",
+                "docs/context.md"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 143.161157,
+        "usage": {
+          "n_input_tokens": 113484,
+          "n_cache_tokens": 91136,
+          "n_output_tokens": 4162
+        }
+      }
+    ]
+  },
+  {
+    "id": "a4203ec70391",
+    "metadata": {
+      "name": "read-f28a907a59af-reader",
+      "task": "read-f28a907a59af",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "090a70b7a419",
+      "files_sha256": "450c684989368970369e775ee39b4763c8d48a4ba1adc1b5737b3bdd8a29f283"
+    },
+    "task_checksum": "f35fa1c87dafd3b7891cf9df18680fab988f78da4fefdbb55d88cf399e19ac88",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At all three supplied cutoffs—2020-07-20, 2023-07-03, and 2025-02-24—PEP 387 has Status: Active and Type: Process. The final changelog identifies 2020-07-20 as the initial accepted version. By the 2023 snapshot, the policy includes clarified warning timing, explicit steering-council consultation when warnings cannot be supplied, clarification that undocumented does not automatically mean private, and soft deprecation. The final snapshot updates an already active policy: its changelog dates the typeshed @deprecated addition to 2023-11-14 and the five-year preference to 2025-01-27. It also records Replaces: 291. These are revisions, not evidence of initial or fresh approval on the final snapshot date. The latest supplied historical cutoff is 2025-02-24.",
+              "sources": [
+                "evidence/index.txt",
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "No. The final basic policy requires at least two years of deprecation under annual releases, subject to steering-council exceptions. The detailed procedure requires warnings in at least two minor versions of the same major version, or one minor version in an older major version; it gives warning in 3.10.0 followed by change in 3.12 or 4.0 as an example. That older-major-version alternative is not explicitly reconciled with the blanket two-year minimum; it should not silently be treated as a general elapsed-time waiver. Five years is expressly preferred, not mandatory for every removal: the example is warning in 3.10 and removal in 3.15, coinciding with the then-current minor-release lifetime. Deprecated behavior may stay indefinitely if maintenance overhead and security risk are small, or until circumstances change. Where a replacement exists, removal should generally wait until the last Python version without the replacement reaches end of support. In 2020 the same two-year basic minimum accompanied the literal procedural wording “at least two major Python versions,” with permission to wait more than two releases. The 2023 snapshot clarifies this to the minor-version/older-major-version formulation, says waiting more than two releases is fine, and includes both longer-retention cases. The final snapshot adds an explicit five-year preference in place of that permissive longer-wait sentence, not a universal five-year minimum.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "No bypass is authorized merely because an API is soft-deprecated. The 2023 and final snapshots explicitly require the normal backwards-compatibility rules if it is later hard-deprecated. Soft deprecation discourages new use while saying existing use remains safe. It does not imply scheduling removal and issues no warning; documentation should explain why to avoid the API and, if possible, propose a replacement. The API remains documented and tested but receives no further development/enhancements. Ordinary hard deprecation usually emits a runtime DeprecationWarning. Separate steering-council exception authority still exists, but no specific exception is supplied.",
+              "sources": [
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. The 2023 and final snapshots expressly say that an undocumented API is not automatically private; the 2020 snapshot lacks that explicit clarification. All public APIs are covered, including reference-manual syntax and behavior, the C API, function/class/module/attribute/method names and types, argument positions and expected types, returned values, side effects and raised exceptions for given arguments (allowing reasonable bug fixes), subclass behavior governing calls to overrides, documented exceptions and their triggering semantics, and exceptions commonly raised in EAFP scenarios. Exclusions include underscore-prefixed names/types except special names, items publicly documented as private, imported modules unless explicitly documented as public exports, internal-class inheritance patterns, and test suites. Modules or APIs explicitly documented as Provisional under PEP 411 are also outside the rules. Undocumented status alone therefore does not settle a particular API’s coverage.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The steering council may grant exceptions, including shortening the required deprecation period. All snapshots restrict these to extreme situations, such as dangerously broken or insecure features or features on which no one could reasonably depend, with completely obsolete platform support as an example. The 2023 and final snapshots explicitly require consultation with the council when a deprecation warning cannot be raised or provided to users; inability to warn is not an automatic waiver. The 2020 text has general exception authority but lacks that explicit consultation instruction. No specific waiver or feature-removal approval is supplied; the examples describe eligible circumstances, not actual grants.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst",
+                "evidence/index.txt"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "At the final cutoff, add the warning to the current main branch. Warn whenever an API slated for removal is entered; for behavior changes, old usage should warn. The warning message should identify the release in which the incompatibility is expected to become default and link to an issue where users can submit feedback. DeprecationWarning is usual; PendingDeprecationWarning may be used in special cases where old and new APIs coexist for many releases. A C API compiler warning generated by Py_DEPRECATED is acceptable. When feasible, also update typeshed with the PEP 702 @deprecated decorator so static type checkers provide another notification channel; this is additional guidance, not an unconditional substitute for runtime warnings. The 2020 text generally accepts compiler warnings, the 2023 text specifies Py_DEPRECATED, and the final changelog dates the static-checker addition to 2023-11-14.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Python’s core language and standard library support millions of applications and libraries, so new releases must take care not to break existing third-party code. The policy describes backwards incompatibility as preexisting code ceasing to comparatively function after a change, acknowledges that this is not a concrete definition, and directs uncertainty to the development team or steering council. Incompatible changes should have a large benefit-to-breakage ratio and be easy to resolve in affected code. Adding a standard-library module whose name collides with a third-party package is generally unacceptable; adding a method or attribute that conflicts through inheritance is more likely reasonable. That tradeoff accompanies, rather than replaces, the notice and deprecation requirements.",
+              "sources": [
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "No. The index explicitly limits the packet to upstream policy snapshots and states that no downstream service adoption or feature-specific exception approval evidence is supplied. These files establish historical policy text and revisions, not adoption by a production service or approval of any particular feature removal. Timing examples and descriptions of exception conditions are illustrative, not individual approvals. Adoption or approval remains unestablished by this evidence; the absence does not prove that neither occurred elsewhere.",
+              "sources": [
+                "evidence/index.txt",
+                "evidence/compatibility-2020-07-20.rst",
+                "evidence/compatibility-2023-07-03.rst",
+                "evidence/compatibility-2025-02-24.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 135.499526,
+        "usage": {
+          "n_input_tokens": 88870,
+          "n_cache_tokens": 67328,
+          "n_output_tokens": 3813
+        }
+      }
+    ]
+  },
+  {
+    "id": "dfa860696e50",
+    "metadata": {
+      "name": "read-f899d886b02e-reader",
+      "task": "read-f899d886b02e",
+      "arm": "skill",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "a07d8a130f44",
+      "files_sha256": "a99dcb980aa7be27808a7daceeccf839392f75ef047e03d3dd2e1818c281b803"
+    },
+    "task_checksum": "f170f83c71d1fdc867883f7d5113c71e6c2ac34ceade0928db58c2265062be9e",
+    "steps": [
+      {
+        "stage": 0,
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "At the supplied 2024-05-28 cutoff, PEP 602 is Active/Process. September 10, 2019 was Draft/Informational; November 7 was Accepted/Informational, naming Brett Cannon as BDFL-Delegate on behalf of the Steering Council. This establishes acceptance by November 7, not its exact date. The active header names Cannon as PEP-Delegate. Łukasz Langa authored the PEP, created June 4, 2019 and targeting Python 3.9. The evidence index supplies revision references and SHA-256 hashes. The active header includes a resolution link and October 9, 2023 Post-History entry, but their linked contents are absent: these do not establish the precise approval date or rationale for the later support change. Residual 'proposes' and 'if rejected' language does not override the recorded status.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "evidence/index.txt",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Active Implementation specifies 18 months of full support plus 42 months of security-only support for 3.9–3.12, versus 24 plus 36 months starting with 3.13. Both total five years after 3.X.0, ending with a final source-only release. Full support provides bugfix updates and sources plus Windows/macOS installers approximately every other month. Security support provides source-only releases as needed, without installers or a fixed cadence. November's general 18/42 rule remains applicable to 3.9–3.12; 24/36 is not retroactive. However, active Rejected Ideas still says every version receives eighteen months of regular bug fixes, conflicting with Implementation for 3.13+. The explicit version boundary governs this summary, but the conflicting rationale needs authoritative clarification; the packet supplies no explanation or precise approval date for the six-month reallocation. September's superseded draft proposed twelve months of roughly monthly bugfix releases, a final 3.X.12 after the next feature final, then four years of as-needed security releases. Neither twelve months nor the 3.X.12 requirement survives acceptance. Separately, accepted/active Risks reports that PEP 101 documented only one last bugfix release after the next feature release, while several prior versions reportedly overlapped the next stable release by about six months. This reported uncodified practice is not independently verified history or authority to infer extra support.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "The active nominal development cycle is about 17 months: five unversioned months overlapping the preceding release's beta/RC stages; seven months of versioned alphas accepting features and fixes; three months containing four betas accepting fixes but no new features; and two months containing two RCs, or more if necessary, ending in final. Development of 3.(X+1).0 begins at 3.X.0 Beta 1, so overlapping development cycles allow feature finals every twelve months in October, starting with 3.9. October follows the annual core sprint; the rationale places beta starts in late May after PyCon US sprints. September's heading said seventeen months, its sentence said around sixteen, and its phases totaled seventeen (5+7+4+1). Acceptance corrected the sentence and replaced four beta months plus one RC month with three plus two. The cleaner old split was rejected to let Fedora integrate the newest Python while both projects were developing, enabling early core and third-party regression discovery and prompt distribution with Day 1 community readiness. This is rationale, not evidence of actual adoption. Unresolved tensions remain: all examples run June 4, 2019 to October 5, 2020, roughly sixteen months, and their initial interval to October 14 is roughly four months rather than five. Example Beta 1 is May 18 despite the 'late May' rationale. These are illustrative schedules, not observed releases.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "No. PEP 602 decides the release calendar, not version numbering. Python 3.20 for October 2020 and 3.23 for October 2023 illustrate possible calendar names; they are not selected names. The PEP advocates neither for nor against renumbering and leaves that decision to a separate PEP. Acceptance of annual releases does not authorize calendar versioning. The later terminology change from 'major' to 'feature' versions is not a numbering decision.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "The nine-month cadence attributed to PEP 596 was rejected as too irregular and too short: it would lose the benefits of a regular annual calendar while shortening development phases, especially beta and RC testing, which was considered dangerous. September particularly highlighted beta shortening. September also left Python-2.7-style LTS for every n-th release open for debate to mitigate the inconvenience of twelve-month bugfix support while limiting core maintenance cost. Acceptance superseded that open option: each release already has five years of support, and no extended support in the vein of Python 2.7 is planned. No n or special LTS terms was approved. The active text retains this decision, but its eighteen-month regular-bugfix rationale conflicts with Implementation's 24 months from 3.13. The no-extended-LTS position is clear; that duration explanation remains unreconciled.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. The draft's unspecified update list was replaced by explicit retained rules. As PEP 602 describes PEP 387, at least two releases must precede removal of a deprecated feature or enabling a __future__ behavior by default. This is a minimum release count, not automatic removal at release two or a newly inferred elapsed-time rule. PEP 13's election of a new Steering Council after each feature release remains. A Release Manager retains the convention of handling two feature releases; extension to more requires approval from both the Steering Council and the Cabal of Release Managers. The author's willingness to manage a third release is not evidence of approval. Additional RCs are permitted if necessary, but do not waive Beta 1's feature freeze. Other implicit timing dependencies remain possible. Referenced PEP texts, actual governance practice and feature-specific exception approvals are absent.",
+              "sources": [
+                "evidence/releases-2019-09-10.rst",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q7",
+              "answer": "Intended benefits are smaller releases, earlier delivery of features and fixes, a more gradual upgrade path, predictable contributor scheduling, less pressure to rush before Beta 1, more meaningful explicit alpha snapshots, less implicit 'alpha 0' overlap, and distributor alignment that finds regressions early. The policy does not assume more development resources or accelerate development velocity: Python is not intended to gain features or incompatibilities faster; changes reach users more gradually. Users may upgrade faster but need not upgrade every release; upgrading every second release is offered as an experience similar to the preceding cadence. Version renumbering is a separate non-goal. The accepted text says documented bugfix and security support are not shortened; the active support split must nevertheless be read by version. These are stated intentions, not measured outcomes. Integrators must adjust their practices, and maintainers supporting all active versions eventually face one or two additional versions in their testing matrices.",
+              "sources": [
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst",
+                "context.md"
+              ]
+            },
+            {
+              "id": "q8",
+              "answer": "The packet establishes upstream policy history only: acceptance by November 7, 2019 and Active/Process status at May 28, 2024, with version-specific support rules. It establishes no downstream service rollout status: adoption could be planned, underway, complete or absent, and this evidence cannot distinguish them. No service deployment records, runtime behavior or versions, migration results, compatibility validation, actual release observations, or feature-specific exception approvals are supplied. Acceptance and illustrative schedules are not operational evidence. Linked discussions/resolution, referenced figures and other PEP texts are also absent. Service-specific evidence is required to verify rollout; policy and practice after this cutoff are unverified.",
+              "sources": [
+                "README.md",
+                "context.md",
+                "evidence/index.txt",
+                "evidence/releases-2019-11-07.rst",
+                "evidence/releases-2024-05-28.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 88.73272,
+        "usage": {
+          "n_input_tokens": 112061,
+          "n_cache_tokens": 89728,
+          "n_output_tokens": 4336
+        }
+      }
+    ]
+  }
+]

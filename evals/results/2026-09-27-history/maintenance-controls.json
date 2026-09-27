@@ -1,0 +1,82 @@
+[
+  {
+    "task": "compatibility-ordinary",
+    "mode": "oracle",
+    "task_checksum": "52fc5fd908133a18da3a9c0043679a338d49e9ee111155e12c883580b484de7b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "releases-ordinary",
+    "mode": "oracle",
+    "task_checksum": "542c412f5d2c80cbfbe1943fdc862be66206d044768370e97cb9fe738b30c86f",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "compatibility-ordinary",
+    "mode": "nop",
+    "task_checksum": "52fc5fd908133a18da3a9c0043679a338d49e9ee111155e12c883580b484de7b",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  },
+  {
+    "task": "releases-ordinary",
+    "mode": "nop",
+    "task_checksum": "542c412f5d2c80cbfbe1943fdc862be66206d044768370e97cb9fe738b30c86f",
+    "error": null,
+    "stage_rewards": [
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 0
+      },
+      {
+        "mechanical": 1
+      }
+    ]
+  }
+]

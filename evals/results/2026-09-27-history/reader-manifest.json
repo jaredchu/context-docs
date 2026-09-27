@@ -1,0 +1,184 @@
+{
+  "harbor_version": "0.23.0",
+  "codex_version": "0.158.0-alpha.2",
+  "model": "gpt-6-astra",
+  "effort": "low",
+  "task_count": 12,
+  "conditions": [
+    "reader"
+  ],
+  "attempts": 1,
+  "skill_files": {
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "suite_files": {
+    "audit_isolation.py": "797962d0cf0f7e6df0dbf983b201f33fd12e1039a9a4944f7c077e1170e42fe9",
+    "build.py": "b8c78df3c32bd7552d6faf97d4327ff69a76bef94bf5d73d6fdfe60042f4f106",
+    "cases.py": "dd2d37d11b8daffd60d790ff5b00cb09743c0230ca67b1a8c35434a9e950f6e7",
+    "codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38",
+    "collect.py": "d8c7dee110edf24f2e4750afb124242ad82c23b9dac1d7c726d7d29a657b372f",
+    "report.py": "923db27c6c701f571dda3cf5ed818777cfcc761da1ea2ff8b2151a4e3fc93b70",
+    "run.py": "4be8cf99acd38996e524b105335c9a2cfa3a6090ed26f977cef8f9bbc809f6df",
+    "selftest.py": "5a4d340bd089b434ccd8fafd0596dd4b53c1a5a16436902711257aa85c5978b8",
+    "verify.py": "1351f31ef2b82fb2bcb5d4e713b103bdcca5b5f1c864f3c3acabd2db4484d1bd"
+  },
+  "packages": [
+    {
+      "name": "read-f28a907a59af-reader",
+      "task": "read-f28a907a59af",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "090a70b7a419",
+      "files_sha256": "450c684989368970369e775ee39b4763c8d48a4ba1adc1b5737b3bdd8a29f283"
+    },
+    {
+      "name": "read-a3c38233bbe5-reader",
+      "task": "read-a3c38233bbe5",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "090a70b7a419",
+      "files_sha256": "450c684989368970369e775ee39b4763c8d48a4ba1adc1b5737b3bdd8a29f283"
+    },
+    {
+      "name": "read-7e69e6ac7919-reader",
+      "task": "read-7e69e6ac7919",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "7e5d9b29e1c1",
+      "files_sha256": "79bd6ea9f6df0daeb048755812b785afccc3a6ed1d2734247b262d88c326260c"
+    },
+    {
+      "name": "read-58cf4efeb147-reader",
+      "task": "read-58cf4efeb147",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "7e5d9b29e1c1",
+      "files_sha256": "79bd6ea9f6df0daeb048755812b785afccc3a6ed1d2734247b262d88c326260c"
+    },
+    {
+      "name": "read-72f82c4fac3e-reader",
+      "task": "read-72f82c4fac3e",
+      "arm": "skill",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 0,
+      "snapshot_id": "f0b209a19099",
+      "files_sha256": "f0d43cea9f1574cd602ad9bc4fab5eca246ead933f7bab11b6fc9297cf439379"
+    },
+    {
+      "name": "read-43534e6218ef-reader",
+      "task": "read-43534e6218ef",
+      "arm": "skill",
+      "steps": 1,
+      "world": "compatibility",
+      "variant": 1,
+      "snapshot_id": "f0b209a19099",
+      "files_sha256": "f0d43cea9f1574cd602ad9bc4fab5eca246ead933f7bab11b6fc9297cf439379"
+    },
+    {
+      "name": "read-d98f10360396-reader",
+      "task": "read-d98f10360396",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "ea2a3f51bf9f",
+      "files_sha256": "2b8b6b6f1c4bf65381eadac4126855ad8ebcdb1327d7182abe5577327ef8d9c7"
+    },
+    {
+      "name": "read-6307ff6450c5-reader",
+      "task": "read-6307ff6450c5",
+      "arm": "unmaintained",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "ea2a3f51bf9f",
+      "files_sha256": "2b8b6b6f1c4bf65381eadac4126855ad8ebcdb1327d7182abe5577327ef8d9c7"
+    },
+    {
+      "name": "read-e7de301680a9-reader",
+      "task": "read-e7de301680a9",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "11a8944a5a02",
+      "files_sha256": "ea5293f2948966642dc821be5c7070d750a5e5eecadc1707af1e8e3c9f80bfbd"
+    },
+    {
+      "name": "read-ddb210563cd8-reader",
+      "task": "read-ddb210563cd8",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "11a8944a5a02",
+      "files_sha256": "ea5293f2948966642dc821be5c7070d750a5e5eecadc1707af1e8e3c9f80bfbd"
+    },
+    {
+      "name": "read-892364a78426-reader",
+      "task": "read-892364a78426",
+      "arm": "skill",
+      "steps": 1,
+      "world": "releases",
+      "variant": 0,
+      "snapshot_id": "a07d8a130f44",
+      "files_sha256": "a99dcb980aa7be27808a7daceeccf839392f75ef047e03d3dd2e1818c281b803"
+    },
+    {
+      "name": "read-f899d886b02e-reader",
+      "task": "read-f899d886b02e",
+      "arm": "skill",
+      "steps": 1,
+      "world": "releases",
+      "variant": 1,
+      "snapshot_id": "a07d8a130f44",
+      "files_sha256": "a99dcb980aa7be27808a7daceeccf839392f75ef047e03d3dd2e1818c281b803"
+    }
+  ],
+  "kind": "reader",
+  "history_sources": {
+    "evals/history/provenance.json": "d6ce2a2a7fe5401d157ec90e5d13f9370001adf2182cb21cedcd4e72eb8235af",
+    "evals/history/THIRD-PARTY-NOTICES.md": "6b400f5f749b4e9f248cddaacf2bc515540421fdc52918d2ae633b19c73db45f",
+    "evals/history/README.md": "34d36de09373f161331c442ffbe7ba86729663c26ecfc076dfe4209e68dc07fc",
+    "evals/history/cases.json": "a1f2272ac1fa5b1050319a8d10f95c90ee33aeea66ca78d1febca2f494209413",
+    "evals/history/report.py": "6bc001888fa5361436602de579849df779a0e8d3e82a01fd0b800611ecd95aa1",
+    "evals/history/study.py": "2fa0a1f22db16da60469eb2345d1a7385a6b9a49d327e45d64b05fe9d50e0137",
+    "evals/history/sources/releases-2024-05-28.rst": "f0f2a39f75d4ae3d5707cc921c3ae2cf47cc44ac27d06de33a76c28dccb8666b",
+    "evals/history/sources/compatibility-2020-07-20.rst": "0f9e1159acfa60921e0455e22c06b9dfd4d4b0be000432b556990b1b09e8a83c",
+    "evals/history/sources/compatibility-2023-07-03.rst": "012a16be860defab954c358b68100823af1ebe0579ae62eae14cc587a1991663",
+    "evals/history/sources/compatibility-2025-02-24.rst": "78cdba3e011fe880b17713f7c10241f54e8332107970733a785977e167f8f36d",
+    "evals/history/sources/releases-2019-11-07.rst": "8dcd4235bc42ed3a5bf6a17a53d813ba3c218cc3a0e2455e0b7218cdf6414114",
+    "evals/history/sources/releases-2019-09-10.rst": "a54f4aa8931b50a2529a7f2db33d3a298d30a248c8b8458aac2762cfeaecf1fe",
+    "skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "evals/suite/build.py": "b8c78df3c32bd7552d6faf97d4327ff69a76bef94bf5d73d6fdfe60042f4f106",
+    "evals/suite/verify.py": "1351f31ef2b82fb2bcb5d4e713b103bdcca5b5f1c864f3c3acabd2db4484d1bd",
+    "evals/suite/collect.py": "d8c7dee110edf24f2e4750afb124242ad82c23b9dac1d7c726d7d29a657b372f",
+    "evals/suite/codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38",
+    "evals/suite/audit_isolation.py": "797962d0cf0f7e6df0dbf983b201f33fd12e1039a9a4944f7c077e1170e42fe9",
+    "evals/quality/maintenance_verify.py": "163e7f4cb016c2a329cd3058ab243801b72d2a9907451e96b07c7bf176128a6a",
+    "evals/quality/reader_verify.py": "d3622727b197c943aa96bf2ba39e62be80dada03ed03b1de34f922e52599b543",
+    "evals/routing/exposure.py": "6819aea4d8bac82641d116bd585acfda3a24c1913a8e0c86f3068c97e85903e1"
+  },
+  "execution_commit": "85936ea99025fb1d0e9ec12ac04d51242349a6bc",
+  "concurrency": 3,
+  "timeout_sec": 480
+}
