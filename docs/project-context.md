@@ -146,6 +146,13 @@ handoffs and the prior second question phrasing.
   remain unchanged. Routing and entry instructions both changed from the prior
   pilot, so do not attribute the exposure difference to a link alone.
 
+A [public decision-history study](../evals/history/README.md) is prepared: two
+externally authored Python policy histories, four maintenance passes per method,
+and 12 fresh readers (28 model sessions, 96 answers). It tests authority changes,
+version-specific requirements, historical rationale and authentic source conflicts.
+Questions and review remain author-created; two histories are from one project.
+Results are pending. Skill v0.1.1 remains unchanged.
+
 ## Next actions
 
 1. Shift the next quality evaluation to independently authored project decisions

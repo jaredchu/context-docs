@@ -1,0 +1,62 @@
+[
+  {
+    "world": "compatibility",
+    "date": "2020-07-20",
+    "revision": "c3ad544b139b7dbf70397b442e729ea204ce59fa",
+    "original_path": "pep-0387.txt",
+    "file": "sources/compatibility-2020-07-20.rst",
+    "url": "https://github.com/python/peps/blob/c3ad544b139b7dbf70397b442e729ea204ce59fa/pep-0387.txt",
+    "sha256": "0f9e1159acfa60921e0455e22c06b9dfd4d4b0be000432b556990b1b09e8a83c",
+    "words": 837
+  },
+  {
+    "world": "compatibility",
+    "date": "2023-07-03",
+    "revision": "57b1d94a4f8dee71bd96a8f1dbd0a5c6b010c851",
+    "original_path": "pep-0387.txt",
+    "file": "sources/compatibility-2023-07-03.rst",
+    "url": "https://github.com/python/peps/blob/57b1d94a4f8dee71bd96a8f1dbd0a5c6b010c851/pep-0387.txt",
+    "sha256": "012a16be860defab954c358b68100823af1ebe0579ae62eae14cc587a1991663",
+    "words": 1159
+  },
+  {
+    "world": "compatibility",
+    "date": "2025-02-24",
+    "revision": "65029b3f1f4e656a54395a9b04e8cfa06a569240",
+    "original_path": "peps/pep-0387.rst",
+    "file": "sources/compatibility-2025-02-24.rst",
+    "url": "https://github.com/python/peps/blob/65029b3f1f4e656a54395a9b04e8cfa06a569240/peps/pep-0387.rst",
+    "sha256": "78cdba3e011fe880b17713f7c10241f54e8332107970733a785977e167f8f36d",
+    "words": 1274
+  },
+  {
+    "world": "releases",
+    "date": "2019-09-10",
+    "revision": "b976876b79e9902b0700a639684ff1b06818fe11",
+    "original_path": "pep-0602.rst",
+    "file": "sources/releases-2019-09-10.rst",
+    "url": "https://github.com/python/peps/blob/b976876b79e9902b0700a639684ff1b06818fe11/pep-0602.rst",
+    "sha256": "a54f4aa8931b50a2529a7f2db33d3a298d30a248c8b8458aac2762cfeaecf1fe",
+    "words": 1244
+  },
+  {
+    "world": "releases",
+    "date": "2019-11-07",
+    "revision": "bd02107b77b23bdda573510ccba63bf4ca964596",
+    "original_path": "pep-0602.rst",
+    "file": "sources/releases-2019-11-07.rst",
+    "url": "https://github.com/python/peps/blob/bd02107b77b23bdda573510ccba63bf4ca964596/pep-0602.rst",
+    "sha256": "8dcd4235bc42ed3a5bf6a17a53d813ba3c218cc3a0e2455e0b7218cdf6414114",
+    "words": 1831
+  },
+  {
+    "world": "releases",
+    "date": "2024-05-28",
+    "revision": "1f3e7386ef695436beebc776270e5b6e3d240268",
+    "original_path": "peps/pep-0602.rst",
+    "file": "sources/releases-2024-05-28.rst",
+    "url": "https://github.com/python/peps/blob/1f3e7386ef695436beebc776270e5b6e3d240268/peps/pep-0602.rst",
+    "sha256": "f0f2a39f75d4ae3d5707cc921c3ae2cf47cc44ac27d06de33a76c28dccb8666b",
+    "words": 1840
+  }
+]

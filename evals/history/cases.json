@@ -1,0 +1,595 @@
+{
+  "compatibility": {
+    "sources": [
+      {
+        "world": "compatibility",
+        "date": "2020-07-20",
+        "revision": "c3ad544b139b7dbf70397b442e729ea204ce59fa",
+        "original_path": "pep-0387.txt",
+        "file": "sources/compatibility-2020-07-20.rst",
+        "url": "https://github.com/python/peps/blob/c3ad544b139b7dbf70397b442e729ea204ce59fa/pep-0387.txt",
+        "sha256": "0f9e1159acfa60921e0455e22c06b9dfd4d4b0be000432b556990b1b09e8a83c",
+        "words": 837
+      },
+      {
+        "world": "compatibility",
+        "date": "2023-07-03",
+        "revision": "57b1d94a4f8dee71bd96a8f1dbd0a5c6b010c851",
+        "original_path": "pep-0387.txt",
+        "file": "sources/compatibility-2023-07-03.rst",
+        "url": "https://github.com/python/peps/blob/57b1d94a4f8dee71bd96a8f1dbd0a5c6b010c851/pep-0387.txt",
+        "sha256": "012a16be860defab954c358b68100823af1ebe0579ae62eae14cc587a1991663",
+        "words": 1159
+      },
+      {
+        "world": "compatibility",
+        "date": "2025-02-24",
+        "revision": "65029b3f1f4e656a54395a9b04e8cfa06a569240",
+        "original_path": "peps/pep-0387.rst",
+        "file": "sources/compatibility-2025-02-24.rst",
+        "url": "https://github.com/python/peps/blob/65029b3f1f4e656a54395a9b04e8cfa06a569240/peps/pep-0387.rst",
+        "sha256": "78cdba3e011fe880b17713f7c10241f54e8332107970733a785977e167f8f36d",
+        "words": 1274
+      }
+    ],
+    "ledgers": [
+      [
+        {
+          "id": "authority",
+          "expected": "PEP 387 is Active, a Process PEP; the July 2020 snapshot is the accepted historical baseline, not a draft.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Compatibility protects existing third-party code used by millions of applications; incompatibilities need a large benefit relative to breakage and should be easy to resolve.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "scope",
+          "expected": "Public API coverage includes C API and observable behavior; underscore-prefixed names except special names, explicitly private APIs and explicitly provisional APIs are excluded.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "timing",
+          "expected": "The baseline requires at least two years with annual releases. Its detailed process literally says warnings in two major Python versions; preserve or flag that historical terminology rather than silently substituting later clarification.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "exceptions",
+          "expected": "Only the steering council can grant shortened periods in extreme situations such as dangerously broken/insecure features or obsolete platforms.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "warning",
+          "expected": "Warnings must identify the intended incompatible release and an issue for feedback; compiler warnings are acceptable. Discussion and review of feedback precede removal.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "No downstream application adoption, deployment or feature-specific removal approval is provided by this evidence packet.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "authority",
+          "expected": "PEP 387 remains Active and Process in July 2023; retain the dated 2020 baseline as historical.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst",
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Compatibility protects existing third-party code used by millions of applications; incompatibilities need a large benefit relative to breakage and should be easy to resolve.",
+          "sources": [
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "scope",
+          "expected": "C API and observable public behavior remain covered; explicit-private/underscore except special names/provisional exclusions remain. Lack of documentation alone does not make an API private.",
+          "sources": [
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "timing",
+          "expected": "At least two years; warnings in two minor versions of the same major, or one minor in an older major (3.10 to 3.12 or 4.0). This clarifies the 2020 two-major wording. Low-risk deprecated behavior may stay indefinitely; replacement removal generally waits until the last version without the replacement is unsupported.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst",
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "exceptions",
+          "expected": "Steering council grants extreme exceptions; consult it if a warning cannot be provided. No particular exception is granted in this packet.",
+          "sources": [
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "warning",
+          "expected": "Warning on main names intended incompatible release and feedback issue; Py_DEPRECATED compiler warnings are acceptable for C APIs. Discussion and review of feedback precede removal.",
+          "sources": [
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "No downstream application adoption, deployment or feature-specific removal approval is provided by this evidence packet.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        },
+        {
+          "id": "soft",
+          "expected": "Soft deprecation discourages new use, keeps existing use safe and documented/tested without enhancements, emits no warning, schedules no removal, and grants no shortcut for later hard deprecation.",
+          "sources": [
+            "evidence/compatibility-2023-07-03.rst"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "authority",
+          "expected": "PEP 387 remains Active/Process at the February 2025 cutoff; retain the accepted 2020 baseline and 2023 soft-deprecation update as dated history.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst",
+            "evidence/compatibility-2023-07-03.rst",
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Compatibility protects existing third-party code used by millions of applications; incompatibilities need a large benefit relative to breakage and should be easy to resolve.",
+          "sources": [
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "scope",
+          "expected": "C API and observable public behavior remain covered; explicit-private/underscore except special names/provisional exclusions remain. Lack of documentation alone does not make an API private.",
+          "sources": [
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "timing",
+          "expected": "The two-year/two-minor minimum remains; the January 2025 change prefers five years before removal (3.10 warning to 3.15 removal), not a universal mandatory five-year rule. Low-risk behavior may remain indefinitely; replacement removal generally waits until last release without replacement is unsupported. Preserve earlier two-major wording as superseded history, not current guidance.",
+          "sources": [
+            "evidence/compatibility-2020-07-20.rst",
+            "evidence/compatibility-2023-07-03.rst",
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "exceptions",
+          "expected": "Steering council grants extreme exceptions; consult it if a warning cannot be provided. No particular exception is granted in this packet.",
+          "sources": [
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "warning",
+          "expected": "Warning on main names intended incompatible release and feedback issue; Py_DEPRECATED is acceptable for C APIs. When feasible add typeshed @deprecated for static checkers. Review feedback before removal.",
+          "sources": [
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "No downstream application adoption, deployment or feature-specific removal approval is provided by this evidence packet.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        },
+        {
+          "id": "soft",
+          "expected": "Soft deprecation discourages new use, keeps existing use safe and documented/tested without enhancements, emits no warning, schedules no removal, and grants no shortcut for later hard deprecation.",
+          "sources": [
+            "evidence/compatibility-2025-02-24.rst"
+          ]
+        }
+      ]
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "items": [
+          "authority"
+        ],
+        "variants": [
+          "What is the policy status at each supplied cutoff, and what changed rather than being newly approved in the final snapshot?",
+          "Trace the supplied PEP status history and distinguish later revisions from initial acceptance."
+        ]
+      },
+      {
+        "id": "q2",
+        "items": [
+          "timing"
+        ],
+        "variants": [
+          "Does the final policy mandate five years for every removal? Explain minimum, preference, example, and cases for longer retention, including the earlier wording.",
+          "A maintainer says the two-year rule was replaced by a mandatory five-year rule. Correct that claim and explain retained constraints and historical wording."
+        ]
+      },
+      {
+        "id": "q3",
+        "items": [
+          "soft"
+        ],
+        "variants": [
+          "May a soft-deprecated API be removed without the usual hard-deprecation process? Explain warnings, removal scheduling, existing use and maintenance.",
+          "Explain what soft deprecation changes for new and existing callers and whether it earns credit toward hard-deprecation removal."
+        ]
+      },
+      {
+        "id": "q4",
+        "items": [
+          "scope"
+        ],
+        "variants": [
+          "Is an undocumented API automatically private? Explain public coverage and private/provisional exclusions.",
+          "Summarize the public-API boundary, including C behavior, underscore exceptions, provisional APIs and undocumented names."
+        ]
+      },
+      {
+        "id": "q5",
+        "items": [
+          "exceptions"
+        ],
+        "variants": [
+          "Who can shorten the process, under what conditions, and what happens when a warning cannot be provided? Is any specific waiver supplied?",
+          "Explain exception authority and limits, no-warning escalation and whether this packet approves a particular early removal."
+        ]
+      },
+      {
+        "id": "q6",
+        "items": [
+          "warning"
+        ],
+        "variants": [
+          "What must a removal warning communicate and which compiler/static-checker mechanisms are supported at the final cutoff?",
+          "List warning contents, feedback handling, C-API warning mechanism and the additional static-typing notification."
+        ]
+      },
+      {
+        "id": "q7",
+        "items": [
+          "rationale"
+        ],
+        "variants": [
+          "Why protect compatibility, and what tradeoff must justify incompatible changes?",
+          "State the policy rationale and the required benefit-versus-breakage and migration considerations."
+        ]
+      },
+      {
+        "id": "q8",
+        "items": [
+          "unknown"
+        ],
+        "variants": [
+          "Can these files establish that a downstream production service adopted the policy or that a particular feature removal was approved?",
+          "What downstream deployment or feature-specific authorization can be verified from this packet, and what remains unknown?"
+        ]
+      }
+    ]
+  },
+  "releases": {
+    "sources": [
+      {
+        "world": "releases",
+        "date": "2019-09-10",
+        "revision": "b976876b79e9902b0700a639684ff1b06818fe11",
+        "original_path": "pep-0602.rst",
+        "file": "sources/releases-2019-09-10.rst",
+        "url": "https://github.com/python/peps/blob/b976876b79e9902b0700a639684ff1b06818fe11/pep-0602.rst",
+        "sha256": "a54f4aa8931b50a2529a7f2db33d3a298d30a248c8b8458aac2762cfeaecf1fe",
+        "words": 1244
+      },
+      {
+        "world": "releases",
+        "date": "2019-11-07",
+        "revision": "bd02107b77b23bdda573510ccba63bf4ca964596",
+        "original_path": "pep-0602.rst",
+        "file": "sources/releases-2019-11-07.rst",
+        "url": "https://github.com/python/peps/blob/bd02107b77b23bdda573510ccba63bf4ca964596/pep-0602.rst",
+        "sha256": "8dcd4235bc42ed3a5bf6a17a53d813ba3c218cc3a0e2455e0b7218cdf6414114",
+        "words": 1831
+      },
+      {
+        "world": "releases",
+        "date": "2024-05-28",
+        "revision": "1f3e7386ef695436beebc776270e5b6e3d240268",
+        "original_path": "peps/pep-0602.rst",
+        "file": "sources/releases-2024-05-28.rst",
+        "url": "https://github.com/python/peps/blob/1f3e7386ef695436beebc776270e5b6e3d240268/peps/pep-0602.rst",
+        "sha256": "f0f2a39f75d4ae3d5707cc921c3ae2cf47cc44ac27d06de33a76c28dccb8666b",
+        "words": 1840
+      }
+    ],
+    "ledgers": [
+      [
+        {
+          "id": "authority",
+          "expected": "The September 2019 PEP 602 is Draft/Informational, proposing annual releases starting with Python 3.9; it is not accepted policy at this cutoff.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "cadence",
+          "expected": "The proposal is annual feature releases in October, with next-version work beginning at Beta 1. Development phase details have a real conflict: heading says 17 months, prose 16, phases 5+7+4+1 sum 17; preserve the unresolved discrepancy.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "support",
+          "expected": "Draft proposes one year of monthly bugfix releases and four years of as-needed source-only security releases, five years total; these are proposed terms, not accepted commitments.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Annual releases aim for smaller changes, gradual upgrades, quicker delivery and predictable scheduling with less rushed work before Beta 1; not faster development or compulsory yearly user upgrades.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "versioning",
+          "expected": "Calendar versioning is explicitly out of scope and neither approved nor rejected by adopting an annual release cycle; it needs a separate PEP.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "alternatives",
+          "expected": "Nine-month releases were rejected as irregular and too short, with a dangerously shortened beta; periodic LTS is still open for debate in this draft, not approved.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "governance",
+          "expected": "The draft lists deprecation, __future__, Steering Council and Release Manager terms as dependent policies needing updates; it has not specified later retained-term decisions.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "A policy proposal is not evidence that a downstream distribution or production fleet adopted the schedule; no such adoption evidence is supplied.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "authority",
+          "expected": "November 2019 snapshot is Accepted/Informational with Brett Cannon delegated on behalf of the steering council; September was Draft. Do not treat old draft status or terms as current.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "cadence",
+          "expected": "Annual October releases starting 3.9; next-version development starts at Beta 1. Accepted development is 17 months: 5 overlap +7 alpha +3 beta with four betas +2 RC with two RCs. The old 4+1 phase plan was rejected to help Fedora integrate/test while both projects develop; earlier 16-vs-17 draft discrepancy is historical.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "support",
+          "expected": "Accepted policy is 18 months full support with source/Windows/macOS releases approximately every other month, then 42 months as-needed source-only security, total five years; the draft 12+48 months was superseded.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Annual releases aim for smaller changes, gradual upgrades, quicker delivery and predictable scheduling with less rushed work before Beta 1; not faster development or compulsory yearly user upgrades.",
+          "sources": [
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "versioning",
+          "expected": "Calendar versioning is explicitly out of scope and neither approved nor rejected by adopting an annual release cycle; it needs a separate PEP.",
+          "sources": [
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "alternatives",
+          "expected": "Nine-month cadence is rejected as irregular/too short. Extended LTS like Python 2.7 is not planned; five-year per-version support is the rationale, superseding draft LTS debate.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "governance",
+          "expected": "Retain at least two releases for incompatible changes, Council election after each feature release, Release Manager convention two feature releases; extension requires Council and Cabal of Release Managers approval.",
+          "sources": [
+            "evidence/releases-2019-11-07.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "A policy proposal is not evidence that a downstream distribution or production fleet adopted the schedule; no such adoption evidence is supplied.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "authority",
+          "expected": "May 2024 PEP is Active/Process with acceptance Resolution link; September 2019 was Draft/Informational and November Accepted/Informational. Preserve that chronology.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst",
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "cadence",
+          "expected": "Annual October releases starting 3.9; next-version development starts at Beta 1. Accepted development is 17 months: 5 overlap +7 alpha +3 beta with four betas +2 RC with two RCs. The old 4+1 phase plan was rejected to help Fedora integrate/test while both projects develop; earlier 16-vs-17 draft discrepancy is historical.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst",
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "support",
+          "expected": "Current implementation says Python 3.13+ gets 24 months full support and 36 months security, while 3.9-3.12 keep 18+42; total remains five years. Full releases every other month include Windows/macOS installers; security releases as-needed source-only. The final source LTS section still says eighteen months generically: flag and qualify that stale/general wording against the explicit version-specific implementation rule. Historical 12+48 draft and 18+42 acceptance remain dated history.",
+          "sources": [
+            "evidence/releases-2019-09-10.rst",
+            "evidence/releases-2019-11-07.rst",
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "rationale",
+          "expected": "Annual releases aim for smaller changes, gradual upgrades, quicker delivery and predictable scheduling with less rushed work before Beta 1; not faster development or compulsory yearly user upgrades.",
+          "sources": [
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "versioning",
+          "expected": "Calendar versioning is explicitly out of scope and neither approved nor rejected by adopting an annual release cycle; it needs a separate PEP.",
+          "sources": [
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "alternatives",
+          "expected": "Nine-month cadence is rejected as irregular/too short. Extended LTS like Python 2.7 is not planned; five-year per-version support is the rationale, superseding draft LTS debate.",
+          "sources": [
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "governance",
+          "expected": "Retain at least two releases for incompatible changes, Council election after each feature release, Release Manager convention two feature releases; extension requires Council and Cabal of Release Managers approval.",
+          "sources": [
+            "evidence/releases-2024-05-28.rst"
+          ]
+        },
+        {
+          "id": "unknown",
+          "expected": "A policy proposal is not evidence that a downstream distribution or production fleet adopted the schedule; no such adoption evidence is supplied.",
+          "sources": [
+            "evidence/index.txt"
+          ]
+        }
+      ]
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "items": [
+          "authority"
+        ],
+        "variants": [
+          "Trace status and type across the three snapshots. Is the latest document still a draft or merely informational?",
+          "Distinguish the September draft, November acceptance and final status/type, including the supplied authority evidence."
+        ]
+      },
+      {
+        "id": "q2",
+        "items": [
+          "support"
+        ],
+        "variants": [
+          "At the latest cutoff, what full/security support applies to 3.12 and 3.13, in what release formats/cadences? Resolve the eighteen-month sentence in the LTS section without hiding it.",
+          "Compare 3.9-3.12 with 3.13+ support, total lifetime, installers and security cadence; explain the source inconsistency and historical 12-month draft."
+        ]
+      },
+      {
+        "id": "q3",
+        "items": [
+          "cadence"
+        ],
+        "variants": [
+          "What development stages and annual schedule apply, why did beta/RC timing change, and what was wrong with the initial draft total?",
+          "Explain the current 17-month phase split, yearly October cadence, Beta 1 overlap and Fedora rationale; distinguish the draft 16/17 discrepancy and 4+1 split."
+        ]
+      },
+      {
+        "id": "q4",
+        "items": [
+          "versioning"
+        ],
+        "variants": [
+          "Did acceptance authorize calendar versioning such as Python 3.20?",
+          "Does an annual cadence decide Python version numbering? State the decision boundary."
+        ]
+      },
+      {
+        "id": "q5",
+        "items": [
+          "alternatives"
+        ],
+        "variants": [
+          "What happened to the nine-month and extended-LTS alternatives, and why? Was draft LTS discussion approval?",
+          "Explain rejection of nine-month cadence and the final extended-LTS position, distinguishing the early open debate."
+        ]
+      },
+      {
+        "id": "q6",
+        "items": [
+          "governance"
+        ],
+        "variants": [
+          "Which deprecation and governance terms were retained and who approves an extended Release Manager term?",
+          "Does annual release timing mean council and release-manager terms or deprecation rules disappear? Give the retained rules and extension authority."
+        ]
+      },
+      {
+        "id": "q7",
+        "items": [
+          "rationale"
+        ],
+        "variants": [
+          "Why adopt the annual cadence, and must users upgrade annually or expect faster development?",
+          "State intended benefits and non-goals, including user upgrade frequency and development velocity."
+        ]
+      },
+      {
+        "id": "q8",
+        "items": [
+          "unknown"
+        ],
+        "variants": [
+          "Do these PEP snapshots prove any downstream fleet adopted the schedule or completed an upgrade?",
+          "What operational rollout status can this packet establish for a downstream service, and what is unverified?"
+        ]
+      }
+    ]
+  }
+}
