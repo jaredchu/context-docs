@@ -16,3 +16,9 @@
 - Use synthetic examples. Do not copy private project context into this repo.
 - Update current project context when behavior, scope or status changes.
 - Publication requires authorization from the task; these instructions grant none.
+
+## Context documentation
+
+Method: context-docs
+Adopted: 2026-09-27
+Entry point: docs/project-context.md

@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "input_files_retained": true,
+    "non_document_inputs_unchanged": true,
+    "only_document_files_created": true,
+    "preserved:ab3e3ce16d": true,
+    "preserved:7095493a04": true,
+    "preserved:5ef9c71775": true,
+    "preserved:79874f52f4": true,
+    "preserved:26a5e636b2": true,
+    "preserved:27c8905582": true,
+    "local_links_and_anchors": true,
+    "documentation_changed": true,
+    "no_agent_commits_or_staging": true
+  },
+  "mechanical_pass": true,
+  "link_errors": [],
+  "documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\n## Context Docs maintenance\n\nUse $context-docs for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions. Read the installed\nskill before maintenance. Start at [Current context](knowledge/state.md) and\npreserve the knowledge/ layout, project rules, document roles and decision statuses.\nUpdate affected canonical sections and check the diff, links and information\npreservation, including uncommitted material. Keep audit-only requests read-only;\nmake no bookkeeping edits when nothing durable changed.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nProject: Offline pilot. This entry point holds current decisions and blockers;\nsee [project instructions](../AGENTS.md) for publication and maintenance rules.\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "audit": null,
+  "word_count": 153,
+  "entry_words": 5,
+  "before_documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "before_sha256": "b634484005cac9fccbc9571d1ff50066919629f69c163d9b311362c13a4e601b",
+  "before_words": 56
+}

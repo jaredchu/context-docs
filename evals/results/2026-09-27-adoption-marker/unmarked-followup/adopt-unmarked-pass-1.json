@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "input_files_retained": true,
+    "non_document_inputs_unchanged": true,
+    "only_document_files_created": true,
+    "immutable:README.md": true,
+    "immutable:knowledge/state.md": true,
+    "preserved:f5a3febc94": true,
+    "preserved:b978c1f50b": true,
+    "preserved:27c8905582": true,
+    "local_links_and_anchors": true,
+    "documentation_changed": true,
+    "no_agent_commits_or_staging": true
+  },
+  "mechanical_pass": true,
+  "link_errors": [],
+  "documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n\nMethod: context-docs\nAdopted: unknown\nEntry point: knowledge/state.md\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "audit": null,
+  "word_count": 102,
+  "entry_words": 5,
+  "before_documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "before_sha256": "c75327cbb801db4ec0e3797db4dccb7c37311ba5d6709c9b5a0f507d68dd4382",
+  "before_words": 95
+}

@@ -1,0 +1,54 @@
+{
+  "reviewer": "authoring assistant; not blinded or independent",
+  "trials": [
+    {
+      "case": "adopt-unmarked",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Recognizes existing adoption from guidance and documents despite the absent marker; does not initialize another context file or duplicate instructions.",
+              "passed": true
+            },
+            {
+              "criterion": "Adds only one marker to AGENTS.md, retaining original guidance and using unknown for the undocumented adoption date.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Only the three-line marker is appended to AGENTS.md. Original maintenance wording, README and context remain byte-identical; original date stays unknown."
+        }
+      ]
+    },
+    {
+      "case": "audit-only",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+              "passed": true
+            },
+            {
+              "criterion": "Leaves every project file byte-identical and writes the audit report only to /output/audit.md.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Reports documented adoption with a missing marker, preserves unknown history and leaves all project files byte-identical."
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "n_completed_trials": 2,
+    "n_errored_trials": 0,
+    "n_retries": 0
+  },
+  "oracle_trials": 2,
+  "skill": "Final candidate; explicitly preserves equivalent guidance during marker-only adoption."
+}

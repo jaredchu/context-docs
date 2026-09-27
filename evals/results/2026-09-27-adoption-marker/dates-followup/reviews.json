@@ -1,0 +1,53 @@
+{
+  "reviewer": "authoring assistant; not blinded or independent",
+  "trials": [
+    {
+      "case": "adopt-empty-docs",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+              "passed": true
+            },
+            {
+              "criterion": "Adds ongoing context-docs maintenance guidance to project AGENTS.md; does not install skill copies or change code.",
+              "passed": true
+            },
+            {
+              "criterion": "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Creates source-backed README context and one marker with the explicit simulated date and actual README target."
+        },
+        {
+          "step": "pass-2",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Repeated adoption leaves the established documentation and instructions byte-identical; no duplicate rules or files.",
+              "passed": true
+            },
+            {
+              "criterion": "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "First-pass output equals second-pass input and output; original marker date preserved despite explicit next-day simulation."
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "n_completed_trials": 1,
+    "n_errored_trials": 0,
+    "n_retries": 0
+  },
+  "oracle_trials": 1,
+  "skill": "Initial candidate unchanged; only date wording clarified."
+}

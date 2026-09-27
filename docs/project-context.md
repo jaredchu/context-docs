@@ -40,11 +40,18 @@ does not change the already executed studies or their frozen acceptance criteria
 
 - Core skill supports audit, initialize and maintain operations.
 - Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
-  v0.1.0, applies the core method and merges ongoing maintenance into project
+  v0.1.1, applies the core method and merges ongoing maintenance into project
   `AGENTS.md`. Install it alongside `context-docs`; it is not standalone.
-  [Adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
+  Completed setup now records a small adoption marker with the original date and
+  actual entry point. Missing markers do not imply non-adoption; unrecorded dates
+  remain unknown, and audit-only requests never create markers.
+  The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
+  The [marker regression](../evals/results/2026-09-27-adoption-marker/README.md)
+  retains an initial equivalent-guidance rewrite and ambiguous test dates. Ten
+  sessions include targeted follow-ups; the final revision passed marker-only
+  adoption and read-only auditing on the two affected unmarked cases.
 - The [standard](../skills/context-docs/references/standard.md) defines document
   roles, evidence/decision distinctions and maintenance behavior.
 - Two templates, an authored example and five behavioral evaluation scenarios

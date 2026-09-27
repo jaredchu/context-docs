@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "input_files_retained": true,
+    "non_document_inputs_unchanged": true,
+    "only_document_files_created": true,
+    "immutable:README.md": true,
+    "immutable:AGENTS.md": true,
+    "immutable:knowledge/state.md": true,
+    "local_links_and_anchors": true,
+    "project_byte_identical": true,
+    "audit_report_exists": true,
+    "no_agent_commits_or_staging": true
+  },
+  "mechanical_pass": true,
+  "link_errors": [],
+  "documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "audit": "# Context Docs adoption audit\n\nAudit date: 2026-09-27. Scope: adoption only.\n\n## Verdict\n\n**Existing instructions and documents already follow the Context Docs method. Ongoing guidance is present; the explicit adoption marker is missing.** A missing marker is not evidence of non-adoption, and a marker would not establish accuracy or freshness.\n\n## Evidence and document roles\n\n- `AGENTS.md:3\u20135` preserves the `knowledge/` layout, requires owner approval for production publication, and specifies Approved, Proposed and Unknown decision statuses.\n- `AGENTS.md:7` provides equivalent ongoing guidance: use `$context-docs` after meaningful changes, read the skill before maintenance, preserve rules and decisions, check links and the diff, keep audits read-only, and avoid edits when nothing durable changed.\n- `README.md:1\u20133` identifies the Offline pilot and links to `knowledge/state.md`. The relative link resolves.\n- `knowledge/state.md:3` records the approved offline boundary and rationale: customer data must stay local.\n- `knowledge/state.md:4` distinguishes proposed cloud sync and explicitly notes that no owner approval is recorded.\n- `knowledge/state.md:6` preserves RESTORE-81 as unresolved and blocked on a missing test fixture.\n\nThe README provides navigation; the context document combines current context, decisions and unresolved work. This compact layout is valid under the core standard. Separate registers, procedures or empty template sections are not required for completeness. No conflicting decision statuses or duplicated factual summaries were found in the supplied documents.\n\n## Missing marker and recommendations\n\n`AGENTS.md` has no Method / Adopted / Entry point marker or equivalent adoption record. No marker was added because this is an audit-only request. If a future authorized maintenance task records the existing adoption, use the supported original date if available, otherwise:\n\n```text\nMethod: context-docs\nAdopted: unknown\nEntry point: knowledge/state.md\n```\n\nThe entry point is relative to `AGENTS.md` and exists. Do not substitute this audit's date for an unknown original adoption date. Existing ongoing guidance can be retained. Explicitly naming documentation audits as a `$context-docs` invocation trigger would be an optional clarification: the existing rule already requires read-only audits, but names only meaningful changes as the invocation trigger.\n\n## Traceability and verification limits\n\nThe offline decision includes rationale but does not identify its approving authority or source. RESTORE-81 includes a blocker but no linked evidence or recorded next check. These are traceability limitations, not evidence of non-adoption. Preserve the statuses and add sources or known next actions only when evidence supports them.\n\nReviewed the installed adoption skill, its linked core skill and the core document-role standard, plus all three supplied project documents. Checked the README link and suggested marker target. No implementation or live evidence was supplied to independently verify runtime behavior or the blocker; this audit evaluates documented adoption only.\n\nOnly `/output/audit.md` was written. All three project files were checked for unchanged content. No project edits, Git operations, external-service calls or live-environment access were performed. Existing layout and unique information were preserved. Ongoing guidance remains present and unchanged; the marker remains absent; the original adoption date remains unknown.\n",
+  "word_count": 95,
+  "entry_words": 5,
+  "before_documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "before_sha256": "c75327cbb801db4ec0e3797db4dccb7c37311ba5d6709c9b5a0f507d68dd4382",
+  "before_words": 95
+}

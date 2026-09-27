@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "input_files_retained": true,
+    "non_document_inputs_unchanged": true,
+    "only_document_files_created": true,
+    "immutable:README.md": true,
+    "immutable:AGENTS.md": true,
+    "immutable:knowledge/state.md": true,
+    "local_links_and_anchors": true,
+    "project_byte_identical": true,
+    "audit_report_exists": true,
+    "no_agent_commits_or_staging": true
+  },
+  "mechanical_pass": true,
+  "link_errors": [],
+  "documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "audit": "# Context Docs adoption audit\n\n**Conclusion:** The existing instructions and documents already follow the Context Docs method in substance. The adoption marker is missing; this is a recording gap, not evidence of non-adoption. No project edits or reinitialization are needed for this audit.\n\n## Evidence and findings\n\n- **Ongoing guidance exists:** `/workspace/AGENTS.md:7` explicitly invokes `$context-docs` after meaningful changes to facts, decisions, procedures, blockers or next actions. It requires reading the skill, preserving rules and decisions, checking links and the diff, keeping audits read-only, and avoiding edits when nothing durable changed. This is equivalent maintenance guidance; preserve its wording.\n- **Existing layout and navigation are suitable:** `/workspace/AGENTS.md:3` requires the `knowledge/` layout. `/workspace/README.md:3` links to `knowledge/state.md`; the relative link resolves to the existing context entry point. There is no reason to introduce another context file or templates.\n- **Decision status and rationale are preserved:** `/workspace/AGENTS.md:5` defines Approved, Proposed and Unknown. `/workspace/knowledge/state.md:3` records the approved offline pilot and its customer-data-locality rationale. Line 4 labels cloud sync Proposed and explicitly notes the absence of owner approval. Line 6 preserves RESTORE-81 and its missing-test-fixture blocker as Unknown. These statements distinguish intent, proposals and unresolved work without implying deployment or completion.\n- **Authority remains explicit:** `/workspace/AGENTS.md:4` requires owner approval for production publication. Adoption does not change that requirement.\n- **Only the adoption record is absent:** `/workspace/AGENTS.md` contains no Method/Adopted/Entry point marker or equivalent record. The supplied evidence does not establish the original adoption date. A marker would record adoption, not certify document accuracy or freshness.\n\n## Recommendation for a future authorized edit\n\nAdd only the following small marker beside the existing maintenance guidance in `/workspace/AGENTS.md`, preserving that guidance and the current layout:\n\n```text\nMethod: context-docs\nAdopted: unknown\nEntry point: knowledge/state.md\n```\n\nUse a supported original adoption date instead of `unknown` only if evidence becomes available. Do not use this audit's date as an invented adoption date. No marker was added during this audit.\n\n## Scope and verification\n\nRead the installed adoption skill at `/opt/context-docs/adopt-context-docs/SKILL.md`, its linked core skill at `/opt/context-docs/context-docs/SKILL.md`, and all three supplied project documents. Checked the context link and reviewed the instructions, decision statuses, rationale, authority and unresolved blocker for consistency. No conflicting guidance was found in the supplied documents.\n\nThis finding concerns documented adoption. The supplied documents do not independently establish actual maintenance practices, runtime behavior, or resolution of RESTORE-81; no live access was supplied or used. No external services, harness files, tests, solution files, logs or credentials were accessed. Project files, code, configuration and Git history were left unchanged. Only `/output/audit.md` was written; ongoing guidance was reused for the assessment and the marker remains absent.\n",
+  "word_count": 95,
+  "entry_words": 5,
+  "before_documents": {
+    "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+    "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+    "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+  },
+  "before_sha256": "c75327cbb801db4ec0e3797db4dccb7c37311ba5d6709c9b5a0f507d68dd4382",
+  "before_words": 95
+}

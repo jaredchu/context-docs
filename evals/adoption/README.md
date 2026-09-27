@@ -13,6 +13,9 @@ explicitly load the adoption skill; automatic selection is not tested.
 
 ## Reproduce
 
+For the exact published v0.1.0 run, use commit `d0febcf`. Current builds use the
+current installed-source package; historical results retain their frozen hashes.
+
 Requires the same Docker, uv and subscription-login setup as the
 [core suite](../suite/README.md). Choose fresh output directories for each run.
 
@@ -52,3 +55,5 @@ arm, downstream reader trial, audit-only adoption test, missing-dependency behav
 or cross-client compatibility is established by these two cases.
 
 Completed results: [September 27 adoption and repeat checks](../results/2026-09-27-adoption/README.md).
+
+Marker behavior has a separate [v0.1.1 regression](marker.md), including already-adopted but unmarked projects and audit-only requests.

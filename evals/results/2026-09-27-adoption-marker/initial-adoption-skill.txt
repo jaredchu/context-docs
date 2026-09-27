@@ -46,10 +46,7 @@ Use the actual context entry point, relative to that AGENTS.md; a README section
 is also valid. For new adoption, use the current date. Preserve an existing
 adoption date and equivalent marker rather than adding another. When adding a
 marker to previously adopted guidance, use a supported original date or `unknown`
-if none is recorded; do not invent the history. If equivalent maintenance guidance
-and context already exist, add only the missing marker. Preserve the guidance's
-wording; a missing marker alone is not a reason to reinitialize or rewrite it.
-Update the entry point only when
+if none is recorded; do not invent the history. Update the entry point only when
 its canonical location changes. Do not mark incomplete setup as adopted or add a
 marker during an audit-only request. Existing projects without markers may still
 follow the method; the marker records adoption, not document accuracy or freshness.

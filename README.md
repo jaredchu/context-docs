@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.1; adoption skill v0.1.0.** The package contains instructions only.
+**Status: experimental, core skill v0.1.1; adoption skill v0.1.1.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
@@ -19,8 +19,20 @@ $adopt-context-docs
 ```
 
 This applies the core method and adds or merges a maintenance rule in the project's
-`AGENTS.md`. Existing equivalent guidance is reused. For routine audits and
-maintenance, use `$context-docs` directly:
+`AGENTS.md`. After checking the setup, it records a small marker beside that rule:
+
+```text
+Method: context-docs
+Adopted: YYYY-MM-DD
+Entry point: path/to/context.md
+```
+
+The path reflects the project's actual entry point. Repeat runs preserve the
+original adoption date and reuse equivalent guidance. When retrofitting a marker,
+an undocumented original adoption date stays `unknown`. Audit-only runs do not
+write markers. The marker records workflow adoption; it is not an accuracy or
+freshness certificate, and its absence alone does not prove non-adoption.
+For routine audits and maintenance, use `$context-docs` directly:
 
 
 ```text
@@ -38,9 +50,14 @@ Use $context-docs to establish a minimal context entry point for this project.
 Use existing docs and code as evidence; mark anything you cannot verify.
 ```
 
-The adoption shortcut passed [two adoption-and-repeat regression cases](evals/results/2026-09-27-adoption/README.md)
+Adoption v0.1.0 passed [two adoption-and-repeat regression cases](evals/results/2026-09-27-adoption/README.md)
 (four model sessions). Both repeat passes left project files unchanged. These are
 small author-reviewed checks, not evidence of general reliability.
+The [v0.1.1 marker regression](evals/results/2026-09-27-adoption-marker/README.md)
+retains an initial guidance-rewrite failure and date-test ambiguity. Targeted
+follow-ups passed marker-only adoption, read-only auditing and explicit-date
+preservation. Ten sessions across initial and revised conditions are reported
+separately; the final revision was tested on the two affected unmarked cases.
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.

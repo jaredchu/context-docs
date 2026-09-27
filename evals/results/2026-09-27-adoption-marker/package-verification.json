@@ -1,0 +1,47 @@
+{
+  "check_timing": "Post-execution verification of retained generated package files; not a pre-execution manifest.",
+  "checks": [
+    {
+      "suite": "adoption-marker-suite",
+      "task": "adopt-empty-docs-skill",
+      "adoption_skill_sha256": "d7639669d597c24aab4b79288e02cb458347b3e5f734fcc124ad86c5f5434347",
+      "matches": "initial-adoption-skill.txt"
+    },
+    {
+      "suite": "adoption-marker-suite",
+      "task": "adopt-existing-skill",
+      "adoption_skill_sha256": "d7639669d597c24aab4b79288e02cb458347b3e5f734fcc124ad86c5f5434347",
+      "matches": "initial-adoption-skill.txt"
+    },
+    {
+      "suite": "adoption-marker-suite",
+      "task": "adopt-unmarked-skill",
+      "adoption_skill_sha256": "d7639669d597c24aab4b79288e02cb458347b3e5f734fcc124ad86c5f5434347",
+      "matches": "initial-adoption-skill.txt"
+    },
+    {
+      "suite": "adoption-marker-suite",
+      "task": "audit-only-skill",
+      "adoption_skill_sha256": "d7639669d597c24aab4b79288e02cb458347b3e5f734fcc124ad86c5f5434347",
+      "matches": "initial-adoption-skill.txt"
+    },
+    {
+      "suite": "adoption-marker-dates-suite",
+      "task": "adopt-empty-docs-skill",
+      "adoption_skill_sha256": "d7639669d597c24aab4b79288e02cb458347b3e5f734fcc124ad86c5f5434347",
+      "matches": "initial-adoption-skill.txt"
+    },
+    {
+      "suite": "adoption-marker-unmarked-suite",
+      "task": "adopt-unmarked-skill",
+      "adoption_skill_sha256": "cc1a2cb678afdac7ae0fdeabf192939e0e269514d400b6fa03442769a2102dc9",
+      "matches": "published adoption skill"
+    },
+    {
+      "suite": "adoption-marker-unmarked-suite",
+      "task": "audit-only-skill",
+      "adoption_skill_sha256": "cc1a2cb678afdac7ae0fdeabf192939e0e269514d400b6fa03442769a2102dc9",
+      "matches": "published adoption skill"
+    }
+  ]
+}

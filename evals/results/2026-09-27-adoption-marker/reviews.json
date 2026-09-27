@@ -1,0 +1,135 @@
+{
+  "reviewer": "authoring assistant; not blinded or independent",
+  "trials": [
+    {
+      "case": "adopt-empty-docs",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+              "passed": true
+            },
+            {
+              "criterion": "Adds ongoing context-docs maintenance guidance to project AGENTS.md; does not install skill copies or change code.",
+              "passed": true
+            },
+            {
+              "criterion": "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy.",
+              "passed": false
+            }
+          ],
+          "semantic_pass": false,
+          "evidence": "Useful source-backed context and one marker were created. The marker uses the actual environment date 2026-09-27 rather than the supplied evaluation date 2026-10-01. The frozen date criterion fails; the prompt did not explicitly override the environment date."
+        },
+        {
+          "step": "pass-2",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Repeated adoption leaves the established documentation and instructions byte-identical; no duplicate rules or files.",
+              "passed": true
+            },
+            {
+              "criterion": "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker.",
+              "passed": false
+            }
+          ],
+          "semantic_pass": false,
+          "evidence": "All documents are byte-identical to pass 1, including its actual date 2026-09-27. No duplicate marker. The frozen criterion specifically requires 2026-10-01, which remains unmet."
+        }
+      ]
+    },
+    {
+      "case": "adopt-existing",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Preserves layout, original instructions, Approved offline rationale, Proposed cloud status and uncommitted restore blocker.",
+              "passed": true
+            },
+            {
+              "criterion": "Adds one effective ongoing context-docs maintenance rule in AGENTS.md; no competing context files or copied skills.",
+              "passed": true
+            },
+            {
+              "criterion": "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Preserves original policy, Approved offline rationale, Proposed cloud status and uncommitted RESTORE-81. Adds maintenance guidance, marker dated 2026-10-01 and useful context navigation without losing information."
+        },
+        {
+          "step": "pass-2",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Repeated adoption preserves all files byte for byte, including prior uncommitted work and maintenance guidance.",
+              "passed": true
+            },
+            {
+              "criterion": "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Input equals pass-1 output and all output documents are unchanged; the 2026-10-01 marker date survives the supplied next-day request."
+        }
+      ]
+    },
+    {
+      "case": "adopt-unmarked",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": false,
+          "criteria": [
+            {
+              "criterion": "Recognizes existing adoption from guidance and documents despite the absent marker; does not initialize another context file or duplicate instructions.",
+              "passed": true
+            },
+            {
+              "criterion": "Adds only one marker to AGENTS.md, retaining original guidance and using unknown for the undocumented adoption date.",
+              "passed": false
+            }
+          ],
+          "semantic_pass": false,
+          "evidence": "Recognizes the existing setup and uses Adopted: unknown with the correct target, but rewrites equivalent maintenance wording. The protected-string check and marker-only semantic criterion fail. README and context remain unchanged."
+        }
+      ]
+    },
+    {
+      "case": "audit-only",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "criteria": [
+            {
+              "criterion": "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+              "passed": true
+            },
+            {
+              "criterion": "Leaves every project file byte-identical and writes the audit report only to /output/audit.md.",
+              "passed": true
+            }
+          ],
+          "semantic_pass": true,
+          "evidence": "Reports existing workflow adoption despite the missing marker and unknown original date. Project files remain byte-identical; the report distinguishes adoption from freshness and identifies evidence limits."
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "n_completed_trials": 4,
+    "n_errored_trials": 0,
+    "n_retries": 0
+  },
+  "oracle_trials": 4
+}

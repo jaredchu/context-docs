@@ -1,0 +1,10 @@
+{
+  "trials": 4,
+  "sessions": 6,
+  "expected_task_messages": 6,
+  "environment_messages": 6,
+  "unexpected_user_messages": 0,
+  "injected_agents_messages": 0,
+  "missing_sessions": 0,
+  "passed": true
+}
