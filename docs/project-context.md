@@ -5,8 +5,9 @@ Last reviewed: 2026-09-27.
 ## Purpose and scope
 
 Context Docs provides a reusable skill and Markdown convention for project
-continuity across AI sessions. It addresses inconsistent document structures and
-maintenance drift while adapting to existing project layouts.
+continuity across AI sessions. Its primary goal is retaining useful content and
+improving documentation accuracy and consistency. It addresses inconsistent
+structures and maintenance drift while adapting to existing project layouts.
 
 The public package contains instructions, references, templates and synthetic
 examples. A hosted memory service, automatic scheduler and retrieval backend are
@@ -28,6 +29,12 @@ owner quotes.
 On September 27 the owner accepted the proposed eight-task, two-condition,
 three-attempt evaluation. Harbor is the selected execution framework; evaluation
 dependencies are separate from the instruction-only skill package.
+
+On September 27 the owner clarified that retained content, documentation accuracy
+and consistency are the product goals. Speed and concision are secondary diagnostics.
+Future comparisons should include scattered, stale or missing documentation and
+measure the resulting record and fresh readers' supported answers. This clarification
+does not change the already executed studies or their frozen acceptance criteria.
 
 ## Current state
 
@@ -72,11 +79,19 @@ dependencies are separate from the instruction-only skill package.
   scope/preservation prompts remain limitations; normal global-instruction use has
   not been evaluated.
 
+The [quality-first protocol](../evals/quality-protocol.md) defines the next study:
+matched unmaintained, ordinary-maintenance and Context Docs arms, with the same
+underlying evidence and fresh readers. It is a plan, not an executed evaluation.
+The README now leads with knowledge quality and separates historical maintenance
+checks from unmeasured reader benefits.
+
 ## Next actions
 
-1. Test a fresh reader's project answers after maintenance, using independent or
-   externally contributed fixtures. Keep both completed studies and the private
-   pilot miss visible; new author-created fixtures are not independent holdouts.
+1. Implement the quality-first study on scattered, conflicting and absent-context
+   starting conditions. Freeze matched evidence, reader questions and critical
+   failures before running. Use independent or externally contributed fixtures
+   where available; measure stored knowledge and fresh-reader answers. Keep both
+   completed studies and the private pilot miss visible.
 2. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
    covers explicit use on one model and up to three passes.
@@ -89,6 +104,7 @@ dependencies are separate from the instruction-only skill package.
 - [README and installation](../README.md)
 - [Skill entry point](../skills/context-docs/SKILL.md)
 - [Evaluation scenarios](../evals/README.md)
+- [Quality-first comparison protocol](../evals/quality-protocol.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)
 - [Concision comparison and v0.1.1 adoption](evaluation-2026-09-27-concise.md)

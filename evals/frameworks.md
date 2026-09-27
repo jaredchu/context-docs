@@ -8,6 +8,11 @@ Follow-up, 2026-09-27: the [Harbor suite](suite/README.md) is implemented and it
 passed 24/24 trials; the report records resource overhead and limitations. The
 protocol below is the original proposal, not a substitute for the executed method.
 
+The owner subsequently clarified the evaluation priority: retained content,
+accuracy and consistency, with weak or missing documentation as matched starting
+conditions. The [quality-first protocol](quality-protocol.md) is the current
+next-study design; the runner research and historical proposal below are retained.
+
 ## Recommendation
 
 Use Harbor for a small public context-maintenance task suite, and use SkillsBench

@@ -8,6 +8,11 @@ Keep the skill short and its references portable. Preserve existing project
 layouts, decision authority and evidence. Favor an instruction change over a new
 script unless deterministic tooling provides a clear, repeatable benefit.
 
+Evaluate knowledge retention, accuracy and consistency before speed or file size.
+For claims about reader benefit, use the [quality-first protocol](evals/quality-protocol.md)
+with matched weak-documentation baselines. Maintenance pass rates alone do not
+establish better downstream answers.
+
 For a skill change:
 
 1. Identify the affected [evaluation scenario](evals/README.md), or add one that

@@ -14,6 +14,15 @@ claim that every scenario below or automatic skill selection has been tested.
 For the original runner selection and proposed protocol, see the
 [framework comparison and proposed protocol](frameworks.md).
 
+## Evaluation priority
+
+Retained content, factual accuracy and consistency are primary. The next
+[quality-first comparison](quality-protocol.md) tests scattered, stale or missing
+context against ordinary maintenance and Context Docs, then evaluates fresh-reader
+answers. That experiment has not run. The scenarios below remain maintenance
+regression checks; their pass rates do not establish downstream usefulness.
+Speed, tokens and size are supporting diagnostics, not quality substitutes.
+
 ## Run a case
 
 Use a disposable project directory with only the synthetic fixture described

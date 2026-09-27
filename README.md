@@ -1,6 +1,6 @@
 # Context Docs
 
-Keep project context consistent, current and useful across AI sessions.
+Preserve project knowledge and maintain accurate, consistent documentation across AI sessions.
 
 Context Docs is an open-source convention and reusable agent skill for maintaining
 Markdown project knowledge. It adapts to existing documentation, preserves
@@ -80,36 +80,30 @@ same method. No forced directory migration or universal document-size limit.
 
 ## Evaluation results
 
-**Latest: concise skill v0.1.1**, tested in 12 trials on three new synthetic
-projects of 572–676 words. Original and candidate both passed 6/6 trials under
-mechanical checks and author-reviewed semantic criteria. The candidate met the
-[predeclared acceptance rule](evals/concise/plan.md) and was adopted.
+The primary goal is durable project knowledge: retain useful content, keep claims
+accurate, and make decisions and procedures consistent across documents and
+sessions. **Shorter files or faster editing do not establish that goal.**
 
-| Median net Markdown growth | Original v0.1.0 | Concise v0.1.1 |
-| --- | ---: | ---: |
-| Release guidance | +322.5 words | +184 words |
-| Initialization | +211 words | +181 words |
-| Repeated maintenance | 0 words | 0 words |
+Our next evaluation compares the same project with scattered, stale or missing
+context, after ordinary documentation maintenance, and after Context Docs.
+Fresh readers will answer the same project questions. Primary measures are
+information retention, factual accuracy, cross-document consistency, correct
+handling of approvals/unknowns, and agreement with supported answers across
+sessions. See the [quality-first protocol](evals/quality-protocol.md).
+**That comparison has not run yet.**
 
-The skill entry point shrank from 645 to 417 words. Initialization was shorter
-only on the two-attempt median, not in both attempts. The candidate was slower
-(79.8 vs 65.4 seconds median) and used more output tokens. These are small,
-author-created cases, not independent evidence of general superiority. Host
-global instructions were excluded and recorded inputs checked.
-See the [full comparison, variation and limitations](docs/evaluation-2026-09-27-concise.md)
-and [reproduction commands](evals/concise/README.md).
+Existing studies provide maintenance regression coverage:
 
-The earlier **ordinary instructions versus v0.1.0** study remains below.
-
-**Public custom suite, run with Harbor 0.23.0 on September 27, 2026.** Eight
-synthetic tasks × two conditions × three attempts: **48 trials**. Model:
-`gpt-6-astra`, low effort; Codex CLI `0.158.0-alpha.2`; unchanged skill v0.1.0.
-The repeated-maintenance task has three stages, totaling 60 agent invocations.
-
-Both conditions passed every mechanical check and author-reviewed semantic
-criterion. **No correctness advantage was observed; the skill used more time and
-tokens in this suite.** This is regression coverage on small fixtures, not proof
-of general superiority or an external benchmark score.
+- **48 trials, v0.1.0 versus ordinary instructions:** both passed 24/24 under
+  mechanical checks and author-reviewed semantic criteria. No correctness
+  advantage was observed on these small fixtures. All audits preserved project
+  bytes and final no-change passes preserved Markdown.
+- **12 trials, v0.1.0 versus concise v0.1.1:** both passed 6/6. The candidate met
+  its frozen preservation/concision rule and was adopted. This was a prompt
+  refinement test, not evidence of better knowledge retention or reader answers.
+- The [earlier local-project pilot](docs/evaluation-2026-09-26.md) includes a
+  workflow contradiction the skill missed. Passing synthetic cases does not
+  erase that miss.
 
 <!-- evaluation-table:start -->
 | Task | Ordinary instructions | With Context Docs |
@@ -125,29 +119,17 @@ of general superiority or an external benchmark score.
 | **Total trials** | **24/24** | **24/24** |
 <!-- evaluation-table:end -->
 
-| Resource metric | Ordinary instructions | With Context Docs |
-| --- | ---: | ---: |
-| Median agent time per trial | 40.2 s | 45.3 s |
-| Uncached input tokens, all trials | 306,778 | 326,395 |
-| Output tokens, all trials | 17,436 | 24,525 |
+The 48-trial table is generated from recorded trials and explicit reviews. Its
+fixtures contain only 19–87 Markdown words; the follow-up fixtures contain
+572–676. Both studies use author-created cases and author review, not independent
+held-out projects. Global instructions were excluded and recorded inputs checked.
 
-All audit trials preserved project bytes, and all final no-change maintenance
-passes left Markdown unchanged. Document growth varied by task: median workflow
-additions were +230/+323 words and initialization additions +53/+117 words
-(ordinary/skill). These results do not establish general compression or cost savings.
-
-The fixtures start with only 19–87 Markdown words. They are development cases,
-not held-out projects, and semantic review was by the authoring assistant rather
-than an independent judge. Three repeats do not create three new tasks.
-
-See the [full report and limitations](docs/evaluation-2026-09-27.md),
-[reproduction instructions](evals/suite/README.md), and
-[machine-readable evidence](evals/results/2026-09-27-harbor/trials.json).
-The table is generated from recorded trials and explicit reviews.
-
-The [earlier eight-run private-project pilot](docs/evaluation-2026-09-26.md)
-remains documented, including the workflow conflict the skill missed. Passing
-the smaller synthetic regression does not erase that result.
+Full results retain all observations, including document growth, slower runs and
+resource overhead. These are secondary diagnostics, not the product's success
+criteria: [48-trial report](docs/evaluation-2026-09-27.md),
+[v0.1.1 comparison](docs/evaluation-2026-09-27-concise.md),
+[reproduction commands](evals/suite/README.md), and
+[machine-readable results](evals/results/2026-09-27-harbor/trials.json).
 
 ## Limits and direction
 
@@ -155,7 +137,8 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Independent fixtures and downstream reader accuracy remain next. Cloud
+Document quality and downstream reader accuracy on weak-documentation baselines
+remain next. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
