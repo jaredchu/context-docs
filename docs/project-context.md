@@ -102,6 +102,14 @@ new synthetic projects with scattered, conflicting and absent-context starts.
   source hashes. Post-execution table presentation exposes existing metrics;
   all summary and score values are unchanged by that formatting update.
 
+A [public-source handoff pilot](../evals/public/README.md) is prepared for frozen
+execution on pinned Flask 3.1.1 and Click 8.2.1 sources. It preserves upstream docs,
+compares added ordinary/skill handoffs with upstream alone, and uses 12 fresh
+reader sessions (72 answers) after four maintenance sessions. Source authorship
+is external; questions and review remain author-created. This complements the
+weak-documentation study and does not evaluate a longer maintenance history.
+Results are pending; the skill remains unchanged.
+
 ## Next actions
 
 1. Seek larger, independently authored project cases with natural continuation

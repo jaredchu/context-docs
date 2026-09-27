@@ -1,0 +1,210 @@
+{
+  "flask": {
+    "repository": "https://github.com/pallets/flask.git",
+    "revision": "7fff56f5172c48b6f3aedf17ee14ef5c2533dfd1",
+    "release": "3.1.1",
+    "focus": "async/background work, proxy deployment, streaming responses, session-key rotation, application-context resources, and request-size limits",
+    "questions": [
+      {
+        "id": "q1",
+        "variants": [
+          "We want to return immediately from an async view while an asyncio task keeps processing a job. How should we implement this on our usual WSGI deployment?",
+          "Our async route schedules a slow job and returns, but the job stops. What architecture should we use?"
+        ],
+        "required": [
+          "A WSGI async view's event loop stops when the view finishes, cancelling unfinished tasks.",
+          "Use a task queue for background work. A continuously running loop with an ASGI server and WsgiToAsgi is an acceptable documented alternative, but must not be attributed to default WSGI."
+        ],
+        "sources": [
+          "docs/async-await.rst",
+          "docs/deploying/asgi.rst"
+        ]
+      },
+      {
+        "id": "q2",
+        "variants": [
+          "Our app generates HTTP links and sees the proxy's address behind a reverse proxy. What should we change, and which settings can we determine from this checkout?",
+          "How do we make Flask use the original scheme and client address behind our proxy? Give the configuration we can justify here."
+        ],
+        "required": [
+          "Wrap app.wsgi_app with Werkzeug ProxyFix and configure the relevant forwarded-header trust counts.",
+          "Actual proxy topology/counts are not supplied; do not infer them from the example. Only trust headers from the correct number of proxies that actually set them, since clients can forge headers."
+        ],
+        "sources": [
+          "docs/deploying/proxy_fix.rst"
+        ]
+      },
+      {
+        "id": "q3",
+        "variants": [
+          "A generator response reads request.args after our view returns and raises RuntimeError. How should we fix the response?",
+          "Our streamed CSV generator needs values from the request, but runs after the view returns. What is the supported way to keep it working?"
+        ],
+        "required": [
+          "The request context is normally inactive after the view returns; use stream_with_context around the generator or as its decorator (or capture needed request values while active).",
+          "If continuing to read request inside the generator, keep context active for iteration with the wrapper; capturing needed values before returning is also valid. Do not imply request context normally survives the returned view."
+        ],
+        "sources": [
+          "docs/patterns/streaming.rst",
+          "src/flask/helpers.py"
+        ]
+      },
+      {
+        "id": "q4",
+        "variants": [
+          "We are rotating SECRET_KEY without logging everyone out. Which key signs new cookies, and will this preserve tokens from every extension too?",
+          "How should we rotate signing keys on this release while keeping existing sessions valid? What are the compatibility limits?"
+        ],
+        "required": [
+          "Set the new active SECRET_KEY and retain old keys in SECRET_KEY_FALLBACKS for verification; the active key signs new cookies on this release.",
+          "Built-in secure cookie sessions support fallbacks, but extensions may not. Treat old keys as temporary compatibility, not a guarantee for all extension tokens."
+        ],
+        "sources": [
+          "docs/config.rst",
+          "src/flask/sessions.py",
+          "CHANGES.rst",
+          "tests/test_basic.py"
+        ]
+      },
+      {
+        "id": "q5",
+        "variants": [
+          "Can we keep a database connection on g and reuse it across requests and a standalone maintenance script? Show the intended lifetime and cleanup approach.",
+          "A maintenance script gets 'working outside of application context'. We also want g.db to cache a connection permanently. How should this be designed?"
+        ],
+        "required": [
+          "g is scoped to an application context, not a process-wide cache across requests. Use an explicit with app.app_context() for standalone work needing current_app/g.",
+          "Lazily create/cache the connection on g during the context and close it in teardown_appcontext, safely handling a missing resource. Cross-request persistent data belongs in another storage mechanism."
+        ],
+        "sources": [
+          "docs/appcontext.rst",
+          "docs/cli.rst",
+          "examples/tutorial/flaskr/db.py"
+        ]
+      },
+      {
+        "id": "q6",
+        "variants": [
+          "We set MAX_CONTENT_LENGTH=None, yet multipart submissions still get 413 errors. What limits should we inspect on this release, and can one endpoint differ?",
+          "Uploads with many form fields fail even though we did not set a total-body limit. Which defaults and per-view controls matter?"
+        ],
+        "required": [
+          "MAX_CONTENT_LENGTH controls total bytes and defaults to None; MAX_FORM_MEMORY_SIZE defaults to 500000 bytes per non-file field and MAX_FORM_PARTS to 1000 multipart fields/parts. These are distinct limits that can cause 413.",
+          "Flask 3.1 allows per-request max_content_length, max_form_memory_size and max_form_parts overrides as well as app config. Unknown real proxy/server limits must not be invented or treated as ruled out."
+        ],
+        "sources": [
+          "docs/config.rst",
+          "src/flask/wrappers.py",
+          "src/flask/app.py",
+          "tests/test_request.py"
+        ]
+      }
+    ]
+  },
+  "click": {
+    "repository": "https://github.com/pallets/click.git",
+    "revision": "fd183b2ced1cb5857784fe7fb22f4982f671f098",
+    "release": "8.2.1",
+    "focus": "environment-driven flags, chained-command resource lifetimes, interactive defaults, CliRunner output compatibility, file opening, and context cleanup",
+    "questions": [
+      {
+        "id": "q1",
+        "variants": [
+          "For an option declared is_flag=True, flag_value=10, type=int, envvar='LEVEL', what reaches the callback when LEVEL=8 or LEVEL=0 and no command-line flag is passed? Explain this release's behavior.",
+          "Our integer flag uses flag_value=10 and envvar='LEVEL'. On this checkout, does setting LEVEL to '8' or '0' pass that number through? Assume is_flag=True and type=int."
+        ],
+        "required": [
+          "Both nonempty explicit environment values activate the flag and yield integer 10 in this pinned release; do not apply later-release boolean-string parsing to claim '0' disables it.",
+          "The 8.2 change uses flag_value rather than the raw envvar value; trace explicit envvar resolution and type handling, supported by code/changelog/tests rather than only generic current-version knowledge."
+        ],
+        "sources": [
+          "src/click/core.py",
+          "CHANGES.rst",
+          "tests/test_defaults.py",
+          "tests/test_options.py"
+        ],
+        "motivation": "https://github.com/pallets/click/issues/2746"
+      },
+      {
+        "id": "q2",
+        "variants": [
+          "A chained subcommand accepts click.File and returns a processor closure. In the group's result callback the processor finds the file closed. How should we structure the pipeline?",
+          "Why can't our returned pipeline processors read a click.File opened by each subcommand, and how should the resource be managed instead?"
+        ],
+        "required": [
+          "Click closes each command's context after its callback, so a file owned by that context is already closed when the returned processor runs in the group result callback.",
+          "Open/manage the file for the processing lifetime instead (documented open_file approach), and close it afterward. Do not assume the result callback extends the subcommand context's lifetime."
+        ],
+        "sources": [
+          "docs/commands.rst",
+          "docs/utils.rst",
+          "src/click/core.py"
+        ]
+      },
+      {
+        "id": "q3",
+        "variants": [
+          "We added default_map and auto_envvar_prefix but prompt=True no longer asks users to confirm a username. How can an environment value be suggested while still prompting?",
+          "Our environment-provided username skips the interactive prompt. We want it displayed as an editable default, not silently accepted. What pattern should we use?"
+        ],
+        "required": [
+          "Values supplied by default_map or an automatic environment variable override the prompt rather than merely supplying its displayed default.",
+          "Use a callable option default that reads the environment together with prompt=True; avoid supplying the same option through the overriding envvar/default_map mechanism. Explain default evaluation and user confirmation."
+        ],
+        "sources": [
+          "docs/prompts.rst",
+          "src/click/core.py"
+        ]
+      },
+      {
+        "id": "q4",
+        "variants": [
+          "After moving to this release our CliRunner(mix_stderr=False) tests break. How should we construct the runner and assert stdout, stderr and terminal-style output?",
+          "How do we migrate tests using CliRunner's mix_stderr switch and result.output when commands write to both streams?"
+        ],
+        "required": [
+          "Remove mix_stderr: it was removed in 8.2. stdout and stderr are captured separately; stderr access is available without the old disabling behavior.",
+          "Use result.stdout/result.stderr for separate assertions and result.output for the mixed terminal-order stream, not stdout alone or simple concatenation."
+        ],
+        "sources": [
+          "src/click/testing.py",
+          "CHANGES.rst",
+          "tests/test_testing.py"
+        ]
+      },
+      {
+        "id": "q5",
+        "variants": [
+          "A CLI rewrites a config file that another process reads. Would lazy=True alone avoid readers seeing partially written output? Explain the supported file modes.",
+          "We need to replace a config file without exposing intermediate writes. What do Click's lazy and atomic options each guarantee?"
+        ],
+        "required": [
+          "Lazy opening delays opening/truncating a write file until first IO; it is not atomic replacement and does not prevent readers seeing partial writes.",
+          "atomic=True writes a separate file in the same directory and replaces the target upon close/completion. Do not claim it provides application-level transactions, locks or general rollback."
+        ],
+        "sources": [
+          "docs/handling-files.rst",
+          "src/click/types.py",
+          "src/click/_compat.py"
+        ]
+      },
+      {
+        "id": "q6",
+        "variants": [
+          "Our command registers call_on_close callbacks and a with_resource context manager, then calls ctx.exit(). Should those cleanups run on this release, and where should we register resources?",
+          "Does ctx.exit() bypass resources registered on the context? We need dependable shutdown of a connection managed by with_resource."
+        ],
+        "required": [
+          "In 8.2 ctx.exit calls close before raising Exit, so call_on_close callbacks and with_resource-managed context managers run on that exit path.",
+          "Register resources/callbacks on the context whose lifetime should own them; with_resource enters the manager and cleanup occurs on context close. Do not promise cleanup for forced process termination."
+        ],
+        "sources": [
+          "src/click/core.py",
+          "docs/complex.rst",
+          "CHANGES.rst",
+          "tests/test_context.py"
+        ]
+      }
+    ]
+  }
+}
