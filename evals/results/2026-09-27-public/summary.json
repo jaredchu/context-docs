@@ -1,0 +1,702 @@
+{
+  "rows": [
+    {
+      "world": "flask",
+      "arm": "upstream",
+      "correct": 12,
+      "answers": 12,
+      "correct_pairs": 6,
+      "pairs": 6,
+      "handoff_items": null,
+      "additional_findings": null
+    },
+    {
+      "world": "flask",
+      "arm": "ordinary",
+      "correct": 11,
+      "answers": 12,
+      "correct_pairs": 5,
+      "pairs": 6,
+      "handoff_items": {
+        "accurate": 12,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    },
+    {
+      "world": "flask",
+      "arm": "skill",
+      "correct": 12,
+      "answers": 12,
+      "correct_pairs": 6,
+      "pairs": 6,
+      "handoff_items": {
+        "accurate": 12,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    },
+    {
+      "world": "click",
+      "arm": "upstream",
+      "correct": 12,
+      "answers": 12,
+      "correct_pairs": 6,
+      "pairs": 6,
+      "handoff_items": null,
+      "additional_findings": null
+    },
+    {
+      "world": "click",
+      "arm": "ordinary",
+      "correct": 12,
+      "answers": 12,
+      "correct_pairs": 6,
+      "pairs": 6,
+      "handoff_items": {
+        "accurate": 12,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    },
+    {
+      "world": "click",
+      "arm": "skill",
+      "correct": 12,
+      "answers": 12,
+      "correct_pairs": 6,
+      "pairs": 6,
+      "handoff_items": {
+        "accurate": 12,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    },
+    {
+      "world": "all",
+      "arm": "upstream",
+      "correct": 24,
+      "answers": 24,
+      "correct_pairs": 12,
+      "pairs": 12,
+      "handoff_items": null,
+      "additional_findings": null
+    },
+    {
+      "world": "all",
+      "arm": "ordinary",
+      "correct": 23,
+      "answers": 24,
+      "correct_pairs": 11,
+      "pairs": 12,
+      "handoff_items": {
+        "accurate": 24,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    },
+    {
+      "world": "all",
+      "arm": "skill",
+      "correct": 24,
+      "answers": 24,
+      "correct_pairs": 12,
+      "pairs": 12,
+      "handoff_items": {
+        "accurate": 24,
+        "missing": 0,
+        "incorrect": 0,
+        "conflicting": 0
+      },
+      "additional_findings": 0
+    }
+  ],
+  "answer_scores": [
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "88909e465a1f",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "9dfc91157c99",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "f95c162ef906",
+      "world": "click",
+      "arm": "upstream",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "aee40752b7a7",
+      "world": "flask",
+      "arm": "upstream",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q5",
+      "passed": false
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "question": "q6",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "stage": "maint",
+    "mode": "oracle",
+    "task": "click-ordinary",
+    "task_checksum": "81fc35ecbdf97f280a0f7a33251e406a30ac70059ddbfaaf9e46feda57697e89",
+    "rewards": {
+      "mechanical": 1
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "maint",
+    "mode": "oracle",
+    "task": "flask-ordinary",
+    "task_checksum": "7d42b6ca1c94eb55ddf1e1c4e036d2a12c64d97e04f439a73b91479d671a5d9f",
+    "rewards": {
+      "mechanical": 1
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "maint",
+    "mode": "nop",
+    "task": "click-ordinary",
+    "task_checksum": "81fc35ecbdf97f280a0f7a33251e406a30ac70059ddbfaaf9e46feda57697e89",
+    "rewards": {
+      "mechanical": 0
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "maint",
+    "mode": "nop",
+    "task": "flask-ordinary",
+    "task_checksum": "7d42b6ca1c94eb55ddf1e1c4e036d2a12c64d97e04f439a73b91479d671a5d9f",
+    "rewards": {
+      "mechanical": 0
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "reader",
+    "mode": "oracle",
+    "task": "read-056c20272e15-reader",
+    "task_checksum": "f07948af8e1f9a25c3abb82a451ad824191529d03f09cd1718a5fda3fe8808a3",
+    "rewards": {
+      "mechanical": 1
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "reader",
+    "mode": "oracle",
+    "task": "read-76f044748797-reader",
+    "task_checksum": "0334776641ac54053f57e64a09fd367c13104534202a6ba71fbc67ed7850a67c",
+    "rewards": {
+      "mechanical": 1
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "reader",
+    "mode": "nop",
+    "task": "read-056c20272e15-reader",
+    "task_checksum": "f07948af8e1f9a25c3abb82a451ad824191529d03f09cd1718a5fda3fe8808a3",
+    "rewards": {
+      "mechanical": 0
+    },
+    "execution_error": null
+  },
+  {
+    "stage": "reader",
+    "mode": "nop",
+    "task": "read-76f044748797-reader",
+    "task_checksum": "0334776641ac54053f57e64a09fd367c13104534202a6ba71fbc67ed7850a67c",
+    "rewards": {
+      "mechanical": 0
+    },
+    "execution_error": null
+  }
+]

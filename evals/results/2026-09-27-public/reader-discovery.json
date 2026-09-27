@@ -1,0 +1,173 @@
+{
+  "kind": "post-hoc diagnostic, not a preregistered score",
+  "method": "Inspect recorded command strings and outputs for explicit added-file paths, filename-prefixed search matches, document first headings and answer citations. Retain source commands for inspection; not a system-call audit.",
+  "rows": [
+    {
+      "trial_id": "fdd8d5528ed3",
+      "world": "click",
+      "arm": "skill",
+      "variant": 1,
+      "added_files": [
+        "CONTEXT.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd && rg --files -g 'AGENTS.md' -g '*testing*' -g '*termui*' -g '*core*' -g '*utils*' -g '*options*' -g '*commands*' -g '*advanced*' -g '*changes*' -g 'CHANGES*' -g '*context*'\"",
+        "/bin/bash -lc \"rg -n 'flag_value|value_from_envvar|def exit|with_resource|def close|def __exit__' src/click/core.py; rg -n 'mix_stderr|output|stderr' src/click/testing.py docs/testing.md CHANGES.rst; rg -n 'pipeline|processors|file|resource' docs/commands.rst docs/commands-and-groups.rst docs/advanced.rst; rg -n 'editable|prompt|environ|atomic|lazy' docs/options.md docs/utils.rst src/click/types.py src/click/utils.py\"",
+        "/bin/bash -lc \"sed -n '2940,3035p' src/click/core.py; sed -n '570,630p' src/click/core.py; sed -n '705,725p' src/click/core.py; rg -n 'dynamic|auto_envvar|lambda|default.*prompt' docs/prompts.rst docs/*prompt* tests/test_prompts.py; rg -n 'flag_value|envvar' tests/test_flags.py; rg -n 'atomic|class _AtomicFile' src/click/_compat.py tests/test_utils.py tests/test_types.py; rg -n 'with_resource|exit.*close|close.*exit' tests/test_context.py; rg -n 'stderr|mix' tests/test_testing.py\"",
+        "/bin/bash -lc \"sed -n '120,165p' docs/prompts.rst; sed -n '267,280p' docs/commands.rst; sed -n '710,735p' src/click/types.py; sed -n '376,480p' src/click/_compat.py; sed -n '110,185p' src/click/utils.py; sed -n '2350,2387p' src/click/core.py; sed -n '240,275p' tests/test_context.py; sed -n '400,435p' tests/test_context.py; rg -n 'flag_value=10|flag_value.*envvar|envvar.*flag_value|atomic|lazy' tests/test_options.py tests/test_types.py tests/test_basic.py; rg --files tests | rg 'prompt|option|file'\"",
+        "/bin/bash -lc \"sed -n '475,490p' src/click/_compat.py; rg -n 'flag_value|envvar' tests/test_options.py | tail -45; sed -n '775,805p' src/click/types.py; sed -n '340,370p' tests/test_testing.py; sed -n '395,415p' docs/advanced.rst; rg -n 'prompt.*default|default.*lambda|USER' tests/test_termui.py\""
+      ]
+    },
+    {
+      "trial_id": "cb59d41e76f7",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 1,
+      "added_files": [
+        "CONTEXT.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd; rg --files -g 'AGENTS.md' -g '*async*' -g '*proxy*' -g '*stream*' -g '*config*' -g '*appcontext*' -g '*session*' -g '*request*' -g 'CHANGES*' -g 'pyproject.toml'\"",
+        "/bin/bash -lc 'rg --files -g AGENTS.md; cat docs/async-await.rst docs/deploying/proxy_fix.rst docs/patterns/streaming.rst docs/appcontext.rst'",
+        "/bin/bash -lc \"rg -n 'SECRET_KEY_FALLBACKS|MAX_CONTENT_LENGTH|MAX_FORM_MEMORY_SIZE|MAX_FORM_PARTS|TRUSTED_HOSTS' docs/config.rst src/flask/app.py src/flask/wrappers.py src/flask/sessions.py CHANGES.rst; cat pyproject.toml\"",
+        "/bin/bash -lc \"sed -n '1,55p' CHANGES.rst; sed -n '110,155p' docs/config.rst; sed -n '320,375p' docs/config.rst; sed -n '50,148p' src/flask/wrappers.py; sed -n '305,405p' src/flask/sessions.py; sed -n '60,145p' src/flask/helpers.py; cat docs/deploying/asgi.rst; sed -n '1,135p' docs/patterns/celery.rst\"",
+        "/bin/bash -lc \"sed -n '1,90p' docs/web-security.rst; sed -n '225,260p' docs/config.rst; sed -n '240,265p' src/flask/sessions.py; rg -n 'PREFERRED_URL_SCHEME' docs/config.rst\""
+      ]
+    },
+    {
+      "trial_id": "d0b03ff385f4",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 1,
+      "added_files": [
+        "HANDOFF.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd && rg --files -g 'AGENTS.md' -g '*testing*' -g '*termui*' -g '*core*' -g '*utils*' -g '*.rst' -g '*compat*' -g '*types*' -g '*parser*'\"",
+        "/bin/bash -lc \"rg -n 'flag_value|value_from_envvar|def exit|def close|with_resource|mix_stderr|output|atomic|lazy|Dynamic Defaults|auto_envvar_prefix|file.*closed|context.*closed' src/click/core.py src/click/testing.py src/click/types.py src/click/utils.py src/click/_compat.py docs/options* docs/prompts.rst docs/commands.rst docs/advanced.rst docs/handling-files.rst CHANGES.rst\"",
+        "/bin/bash -lc \"sed -n '2948,3005p' src/click/core.py\nsed -n '560,630p' src/click/core.py\nsed -n '705,724p' src/click/core.py\nsed -n '185,295p' docs/commands.rst\nsed -n '120,155p' docs/prompts.rst\nsed -n '150,260p' src/click/testing.py\nsed -n '720,815p' src/click/types.py\nsed -n '376,483p' src/click/_compat.py\"",
+        "/bin/bash -lc \"rg -n 'flag_value.*10|envvar|mix_stderr|stderr|with_resource|ctx.exit|atomic|dynamic_default' tests/test_options.py tests/test_testing.py tests/test_context.py tests/test_utils.py tests/test_types.py tests/test_termui.py\nsed -n '2348,2389p' src/click/core.py\nsed -n '2998,3045p' src/click/core.py\"",
+        "/bin/bash -lc \"rg -n 'flag_value|atomic|lazy' tests/test_flags.py tests/test_file.py\nsed -n '344,370p' tests/test_testing.py\nsed -n '410,429p' tests/test_context.py\nsed -n '365,395p' tests/test_context.py\nsed -n '110,184p' src/click/utils.py\""
+      ]
+    },
+    {
+      "trial_id": "d3b021abbc78",
+      "world": "flask",
+      "arm": "skill",
+      "variant": 0,
+      "added_files": [
+        "CONTEXT.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd; rg --files -g 'AGENTS.md' -g '*async*' -g '*proxy*' -g '*stream*' -g '*config*' -g '*appcontext*' -g '*request*' -g '*session*' -g '*upload*' -g 'pyproject.toml'\"",
+        "/bin/bash -lc 'cat docs/async-await.rst docs/deploying/proxy_fix.rst docs/patterns/streaming.rst docs/appcontext.rst'",
+        "/bin/bash -lc \"rg -n 'SECRET_KEY_FALLBACKS|MAX_CONTENT_LENGTH|MAX_FORM_MEMORY_SIZE|MAX_FORM_PARTS|TRUSTED_HOSTS|PREFERRED_URL_SCHEME|SERVER_NAME' docs/config.rst src/flask/app.py src/flask/wrappers.py src/flask/sessions.py; rg --files -g 'AGENTS.md' -g '*asgi*' -g '*security*' -g '*celery*' -g '*CHANGES*'\"",
+        "/bin/bash -lc \"sed -n '110,151p' docs/config.rst; sed -n '264,373p' docs/config.rst; sed -n '305,345p' src/flask/sessions.py; sed -n '45,149p' src/flask/wrappers.py; cat docs/deploying/asgi.rst; rg -n 'fallback|rotation|max_form|max_content|stream_with_context' tests/test_config.py tests/test_session_interface.py tests/test_request.py tests/test_helpers.py; cat examples/tutorial/flaskr/db.py; sed -n '1,105p' docs/patterns/celery.rst\"",
+        "/bin/bash -lc \"rg -n 'SECRET_KEY_FALLBACKS|test_session_key' tests; sed -n '1,65p' tests/test_request.py; sed -n '229,274p' tests/test_helpers.py; sed -n '1,82p' docs/web-security.rst; sed -n '1,65p' CHANGES.rst; sed -n '60,141p' src/flask/helpers.py; rg --files -g '*proxy*' -g '*nginx*' -g '*apache*' -g '*gunicorn*' -g '*docker*'\"",
+        "/bin/bash -lc \"sed -n '360,411p' tests/test_basic.py; cat docs/deploying/nginx.rst; sed -n '165,195p' docs/patterns/celery.rst\""
+      ]
+    },
+    {
+      "trial_id": "6eb456c3b2c7",
+      "world": "click",
+      "arm": "skill",
+      "variant": 0,
+      "added_files": [
+        "CONTEXT.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd && rg --files -g '\"'!*.lock'\"' -g 'AGENTS.md' -g '*core*' -g '*testing*' -g '*termui*' -g '*utils*' -g '*types*' -g '*commands*' -g '*options*' -g '*advanced*' -g '*changes*' -g '*CHANGES*' -g 'pyproject.toml'\"",
+        "/bin/bash -lc \"rg -n 'flag_value|value_from_envvar|def exit|with_resource|call_on_close' src/click/core.py; rg -n 'mix_stderr|output_bytes|stdout_bytes|stderr_bytes|class CliRunner' src/click/testing.py CHANGES.rst docs/testing.md; rg -n 'pipeline|closed|result_callback|lazy|atomic|dynamic|default_map|auto_envvar_prefix|confirmation' docs/commands.rst docs/options.md docs/parameter-types.rst docs/advanced.rst docs/utils.rst\"",
+        "/bin/bash -lc \"sed -n '1,90p' CHANGES.rst; sed -n '2940,3045p' src/click/core.py; sed -n '2240,2305p' src/click/core.py; sed -n '210,280p' docs/commands.rst; rg -n 'Dynamic|dynamic|auto_envvar|default_map|lambda|atomic|lazy' docs/options.md docs/parameter-types.rst src/click/types.py src/click/utils.py; sed -n '330,415p' docs/advanced.rst; sed -n '700,725p' src/click/core.py\"",
+        "/bin/bash -lc \"rg -n 'Dynamic Defaults|default_map|auto_envvar_prefix|USER|atomic|lazy' docs -g '*.rst' -g '*.md'; rg -n 'atomic|class _AtomicFile' src/click/_compat.py; sed -n '710,815p' src/click/types.py; sed -n '145,265p' src/click/testing.py; sed -n '2350,2378p' src/click/core.py; sed -n '2600,2630p' src/click/core.py; rg -n 'flag_value.*10|mix_stderr|with_resource|call_on_close|atomic' tests/test_options.py tests/test_testing.py tests/test_context.py tests/test_utils.py tests/test_types.py\"",
+        "/bin/bash -lc \"sed -n '120,165p' docs/prompts.rst; sed -n '375,412p' src/click/_compat.py; sed -n '452,480p' src/click/_compat.py; rg -n 'stderr|flag_value|envvar' tests/test_testing.py tests/test_flags.py | head -65; sed -n '220,275p' tests/test_context.py; sed -n '571,625p' src/click/core.py\""
+      ]
+    },
+    {
+      "trial_id": "777e1a535c3f",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 0,
+      "added_files": [
+        "CONTRIBUTOR_HANDOFF.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": false,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd; rg --files -g 'AGENTS.md' -g '*async*' -g '*proxy*' -g '*stream*' -g '*config*' -g '*appcontext*' -g '*session*' -g 'pyproject.toml' -g 'CHANGES*'\"",
+        "/bin/bash -lc 'rg --files -g AGENTS.md; cat docs/async-await.rst docs/deploying/proxy_fix.rst docs/patterns/streaming.rst docs/appcontext.rst'",
+        "/bin/bash -lc \"rg -n 'SECRET_KEY_FALLBACKS|MAX_CONTENT_LENGTH|MAX_FORM_MEMORY_SIZE|MAX_FORM_PARTS|PREFERRED_URL_SCHEME|SERVER_NAME|APPLICATION_ROOT' docs/config.rst src/flask/app.py src/flask/wrappers.py src/flask/sessions.py tests/test_basic.py tests/test_request.py tests/test_session_interface.py; cat docs/deploying/asgi.rst; sed -n '1,120p' CHANGES.rst; sed -n '300,350p' src/flask/sessions.py; sed -n '55,165p' src/flask/wrappers.py\"",
+        "/bin/bash -lc \"sed -n '112,150p' docs/config.rst; sed -n '279,372p' docs/config.rst; cat tests/test_request.py; sed -n '365,410p' tests/test_basic.py; rg -n 'stream_with_context|def ensure_sync|def async_to_sync' src/flask/helpers.py src/flask/app.py; sed -n '1,90p' docs/web-security.rst; cat examples/tutorial/flaskr/db.py; rg --files docs/patterns | rg celery\"",
+        "/bin/bash -lc \"sed -n '1,70p' docs/patterns/celery.rst; sed -n '100,135p' src/flask/helpers.py; rg -n 'delay|202|request' docs/patterns/celery.rst\""
+      ]
+    },
+    {
+      "trial_id": "4a7589d5167a",
+      "world": "flask",
+      "arm": "ordinary",
+      "variant": 1,
+      "added_files": [
+        "CONTRIBUTOR_HANDOFF.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": true,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd && rg --files -g 'AGENTS.md' -g 'pyproject.toml' -g '*async*' -g '*proxy*' -g '*stream*' -g '*context*' -g '*config*' -g '*session*' -g '*request*' -g '*security*' -g '*celery*'\"",
+        "/bin/bash -lc 'ls -a && cat docs/async-await.rst docs/deploying/proxy_fix.rst docs/patterns/streaming.rst docs/appcontext.rst'",
+        "/bin/bash -lc \"rg -n 'SECRET_KEY_FALLBACKS|MAX_CONTENT_LENGTH|MAX_FORM_MEMORY_SIZE|MAX_FORM_PARTS|3\\\\.1|itsdangerous' docs/config.rst docs/web-security.rst src/flask/app.py src/flask/wrappers.py src/flask/sessions.py CHANGES.rst pyproject.toml && cat docs/deploying/asgi.rst docs/patterns/celery.rst && sed -n '1,245p' src/flask/wrappers.py && sed -n '290,410p' src/flask/sessions.py\"",
+        "/bin/bash -lc \"sed -n '110,150p' docs/config.rst && sed -n '215,245p' docs/config.rst && sed -n '320,370p' docs/config.rst && sed -n '1,52p' CHANGES.rst && sed -n '1,60p' docs/web-security.rst && sed -n '60,145p' src/flask/helpers.py && rg -n 'stream|session' docs/reqcontext.rst | head -25\""
+      ]
+    },
+    {
+      "trial_id": "4def63cbd134",
+      "world": "click",
+      "arm": "ordinary",
+      "variant": 0,
+      "added_files": [
+        "HANDOFF.md"
+      ],
+      "explicit_handoff_path_commands": [],
+      "handoff_search_matches_seen": false,
+      "handoff_header_seen": false,
+      "handoff_filename_seen_in_output": true,
+      "handoff_cited": false,
+      "source_commands": [
+        "/bin/bash -lc \"pwd && rg --files -g '\"'!*.lock'\"' -g '\"'!*vendor*'\"' | head -70\"",
+        "/bin/bash -lc \"rg -n 'flag_value|value_from_envvar|def exit|def with_resource|def call_on_close' src/click/core.py; rg -n 'mix_stderr|output_bytes|stdout_bytes|stderr_bytes|class CliRunner|class StreamMixer' src/click/testing.py; rg -n 'pipeline|closed|open_file|default_map|auto_envvar_prefix|callable' docs/commands.rst docs/options.md docs/prompts.rst; rg -n 'lazy|atomic' docs/handling-files.rst src/click/types.py; head -90 CHANGES.rst\"",
+        "/bin/bash -lc \"sed -n '2940,3045p' src/click/core.py; sed -n '2605,2630p' src/click/core.py; sed -n '565,625p' src/click/core.py; sed -n '700,730p' src/click/core.py; sed -n '205,280p' docs/commands.rst; sed -n '118,155p' docs/prompts.rst; sed -n '185,265p' src/click/testing.py; rg -n 'atomic|def open_stream' src/click/_compat.py; rg -n 'with_resource|call_on_close' docs/advanced.rst; sed -n '715,735p' src/click/types.py; sed -n '775,815p' src/click/types.py\"",
+        "/bin/bash -lc \"sed -n '2350,2379p' src/click/core.py; sed -n '371,415p' src/click/_compat.py; sed -n '460,500p' src/click/_compat.py; sed -n '345,415p' docs/advanced.rst; sed -n '2248,2290p' src/click/core.py; rg -n 'with sub_ctx|_process_result|rv.append' src/click/core.py; rg -n '\"'^version'\"' pyproject.toml; rg -n 'def open_file' src/click/utils.py\""
+      ]
+    }
+  ]
+}

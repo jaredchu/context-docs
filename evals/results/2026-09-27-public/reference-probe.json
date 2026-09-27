@@ -1,0 +1,16 @@
+[
+  {
+    "environment": {
+      "LEVEL": "8"
+    },
+    "output": "10:int\n",
+    "exit_code": 0
+  },
+  {
+    "environment": {
+      "LEVEL": "0"
+    },
+    "output": "10:int\n",
+    "exit_code": 0
+  }
+]

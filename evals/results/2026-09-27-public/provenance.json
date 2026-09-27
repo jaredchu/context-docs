@@ -1,0 +1,50 @@
+[
+  {
+    "trial_id": "481a2f4e355d",
+    "world": "click",
+    "arm": "ordinary",
+    "upstream_revision": "fd183b2ced1cb5857784fe7fb22f4982f671f098",
+    "container_snapshot_commits": [
+      "b6c8e841138ac6fe48aafbfe8c145fd5b88dc8ac"
+    ],
+    "added_files": {
+      "HANDOFF.md": 1011
+    }
+  },
+  {
+    "trial_id": "38ccdad067b9",
+    "world": "click",
+    "arm": "skill",
+    "upstream_revision": "fd183b2ced1cb5857784fe7fb22f4982f671f098",
+    "container_snapshot_commits": [
+      "b6c8e841138ac6fe48aafbfe8c145fd5b88dc8ac"
+    ],
+    "added_files": {
+      "CONTEXT.md": 990
+    }
+  },
+  {
+    "trial_id": "6088b40c52ce",
+    "world": "flask",
+    "arm": "ordinary",
+    "upstream_revision": "7fff56f5172c48b6f3aedf17ee14ef5c2533dfd1",
+    "container_snapshot_commits": [
+      "68e21c0aa6d423a695e00bddcc6e3fef79c3822a"
+    ],
+    "added_files": {
+      "CONTRIBUTOR_HANDOFF.md": 1275
+    }
+  },
+  {
+    "trial_id": "a33ad478481b",
+    "world": "flask",
+    "arm": "skill",
+    "upstream_revision": "7fff56f5172c48b6f3aedf17ee14ef5c2533dfd1",
+    "container_snapshot_commits": [
+      "68e21c0aa6d423a695e00bddcc6e3fef79c3822a"
+    ],
+    "added_files": {
+      "CONTEXT.md": 1211
+    }
+  }
+]

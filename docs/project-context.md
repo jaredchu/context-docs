@@ -102,22 +102,36 @@ new synthetic projects with scattered, conflicting and absent-context starts.
   source hashes. Post-execution table presentation exposes existing metrics;
   all summary and score values are unchanged by that formatting update.
 
-A [public-source handoff pilot](../evals/public/README.md) is prepared for frozen
-execution on pinned Flask 3.1.1 and Click 8.2.1 sources. It preserves upstream docs,
-compares added ordinary/skill handoffs with upstream alone, and uses 12 fresh
-reader sessions (72 answers) after four maintenance sessions. Source authorship
-is external; questions and review remain author-created. This complements the
-weak-documentation study and does not evaluate a longer maintenance history.
-Results are pending; the skill remains unchanged.
+The [public-source handoff pilot](evaluation-2026-09-27-public.md), frozen in
+`a2442c6`, completed 16 model sessions and 72 reader answers on pinned Flask 3.1.1
+and Click 8.2.1 corpora (143,604 and 102,647 source/test/doc words).
+
+- Both methods covered 24/24 handoff criteria and preserved all upstream text.
+- Readers: upstream 24/24, ordinary 23/24, skill 24/24. One ordinary reader omitted
+  the required missing-resource cleanup guard, although its handoff contained it.
+- Post-hoc recorded-command inspection found no handoff-content reading in all
+  eight maintained-artifact readers. Two only saw a filename listing. This does
+  not establish an effect of consuming the handoff or a skill accuracy advantage.
+- The protocol prohibited all upstream edits, including README routing links, and
+  readers searched freely. Discovery is a harness limitation to address next,
+  not a demonstrated skill defect. Temporary commit IDs in generated documents
+  are mapped to real upstream pins in the published provenance.
+- All 16 sessions passed scope/isolation checks, no execution errors or retries;
+  eight reference/no-op controls behaved as expected. Published reviews retain
+  the one omission and three minor lazy-default wording imprecisions.
+- This is one initialization pass with one maintainer sample per arm/project.
+  Source authorship is external, while questions/review remain author-created;
+  both projects are in the Pallets ecosystem. The weak-docs study and private
+  pilot miss remain visible. The skill stays v0.1.1 unchanged.
 
 ## Next actions
 
-1. Seek larger, independently authored project cases with natural continuation
-   questions and longer maintenance histories before further skill tuning.
-   Preserve equal raw-evidence access and the competent ordinary baseline; freeze
-   cases and questions before execution. Existing studies show preservation on
-   these fixtures, not an incremental skill accuracy advantage. Keep the private
-   pilot miss and all completed studies visible.
+1. Separate handoff discovery from consumption in the next evaluation: permit a
+   project entry-point link and verify actual handoff reading under equal reader
+   instructions. Then add longer maintenance histories and independently authored
+   questions/reviews. Keep equal raw-evidence access, a competent ordinary baseline,
+   frozen cases, the private pilot miss and all completed results. Do not tune the
+   skill to the one public-reader omission: that reader never read its handoff.
 2. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
    covers explicit use on one model and up to three passes.
@@ -131,6 +145,7 @@ Results are pending; the skill remains unchanged.
 - [Skill entry point](../skills/context-docs/SKILL.md)
 - [Evaluation scenarios](../evals/README.md)
 - [Completed quality and fresh-reader study](evaluation-2026-09-27-quality.md)
+- [Larger public-source pilot](evaluation-2026-09-27-public.md)
 - [Quality-first comparison protocol](../evals/quality-protocol.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)

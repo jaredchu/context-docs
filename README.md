@@ -75,6 +75,7 @@ same method. No forced directory migration or universal document-size limit.
 - [Before-and-after example](examples/maintenance.md)
 - [Behavioral evaluation scenarios](evals/README.md)
 - [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
+- [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
 - [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
 - [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
 - [This project's own context](docs/project-context.md)
@@ -119,6 +120,34 @@ maintenance trial per scenario/arm. This is a reproducible development study,
 not an independent benchmark. See the [method, per-project results and limits](docs/evaluation-2026-09-27-quality.md),
 [execution commands](evals/quality/README.md), and
 [snapshots and scored evidence](evals/results/2026-09-27-quality/README.md).
+
+A [larger public-source pilot](docs/evaluation-2026-09-27-public.md) used pinned
+Flask and Click releases containing 143,604 and 102,647 source/test/doc words.
+It completed four handoffs and 12 fresh readers: **16 sessions, 72 answers**.
+Existing upstream documentation stayed intact; this complements the weak-docs
+comparison above.
+
+<!-- public-table:start -->
+| Reader outcome | Upstream docs/code | Ordinary handoff | Context Docs v0.1.1 |
+| --- | ---: | ---: | ---: |
+| Flask | 12/12 | 11/12 | 12/12 |
+| Click | 12/12 | 12/12 | 12/12 |
+| **Total** | 24/24 | 23/24 | 24/24 |
+| Correct in both phrasings | 12/12 | 11/12 | 12/12 |
+<!-- public-table:end -->
+
+Both handoff methods covered 24/24 required items. The one ordinary-reader miss
+omitted a required cleanup guard. **No skill-specific accuracy advantage is
+established:** recorded traces show that none of the eight readers given handoffs
+opened their content; they answered from upstream sources. The ordinary handoff
+already contained the omitted guard. The protocol also prohibited adding a link
+from the upstream README, limiting discovery. This tests handoff availability,
+not the effect of confirmed handoff consumption.
+
+Sources were externally authored, but questions and reviews were not independent.
+There was one maintenance attempt per method/project, and both projects belong
+to the same ecosystem. See [the discovery finding, exact miss and limits](docs/evaluation-2026-09-27-public.md)
+and [all outputs and judgments](evals/results/2026-09-27-public/README.md).
 
 Existing studies provide maintenance regression coverage:
 
@@ -165,8 +194,9 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Larger, independently authored cases and longer maintenance histories are next.
-Current results do not establish a skill-specific correctness advantage. Cloud
+Next evaluations should verify handoff discovery and consumption, then use longer
+maintenance histories and independently authored questions/reviews. Current results
+do not establish a skill-specific correctness advantage. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
