@@ -7,11 +7,12 @@ from pathlib import Path
 from cases import CASES
 
 
-def summarize(trials, reviews):
-    cases = {c['id']: c for c in CASES}
-    assert len(trials) == 48, 'Expected 48 trials; report incomplete experiments separately.'
+def summarize(trials, reviews, case_list=CASES, conditions=('baseline', 'skill'), attempts=3):
+    cases = {c['id']: c for c in case_list}
+    assert len(conditions) == 2
+    assert len(trials) == len(cases) * len(conditions) * attempts, 'Incomplete experiment; report separately.'
     assert {(t['task'], t['arm'], t['attempt']) for t in trials} == {
-        (name, arm, attempt) for name in cases for arm in ['baseline', 'skill'] for attempt in [1, 2, 3]}
+        (name, arm, attempt) for name in cases for arm in conditions for attempt in range(1, attempts + 1)}
     for t in trials:
         complete = len(t['steps']) == t['expected_steps']
         t['mechanical_pass'] = complete and all(s['mechanical_pass'] and not s['execution_error'] for s in t['steps'])
@@ -30,15 +31,16 @@ def summarize(trials, reviews):
         initial_words = sum(len(s.split()) for p, s in initial.items() if p.endswith('.md'))
         t['word_delta'] = final['word_count'] - initial_words if final else None
         t['third_pass_unchanged'] = (t['steps'][1]['observed']['documents'] == final['documents']
-                                     if t['task'] == 'repeated-maintenance' and complete and final and t['steps'][1]['observed'] else None)
-    table = ['| Task | Ordinary instructions | With Context Docs |', '| --- | ---: | ---: |']
-    for case in CASES:
-        counts = [sum(t['success'] for t in trials if t['task'] == case['id'] and t['arm'] == arm) for arm in ['baseline', 'skill']]
-        table.append(f"| {case['id']} | {counts[0]}/3 | {counts[1]}/3 |")
-    totals = [sum(t['success'] for t in trials if t['arm'] == arm) for arm in ['baseline', 'skill']]
-    table.append(f'| **Total trials** | **{totals[0]}/24** | **{totals[1]}/24** |')
+                                     if len(cases[t['task']]['steps']) == 3 and complete and final and t['steps'][1]['observed'] else None)
+    labels = {'baseline': 'Ordinary instructions', 'skill': 'With Context Docs', 'original': 'Original v0.1.0', 'candidate': 'Concise candidate'}
+    table = [f'| Task | {labels[conditions[0]]} | {labels[conditions[1]]} |', '| --- | ---: | ---: |']
+    for case in case_list:
+        counts = [sum(t['success'] for t in trials if t['task'] == case['id'] and t['arm'] == arm) for arm in conditions]
+        table.append(f"| {case['id']} | {counts[0]}/{attempts} | {counts[1]}/{attempts} |")
+    totals = [sum(t['success'] for t in trials if t['arm'] == arm) for arm in conditions]
+    table.append(f'| **Total trials** | **{totals[0]}/{len(cases) * attempts}** | **{totals[1]}/{len(cases) * attempts}** |')
     summary = {}
-    for arm in ['baseline', 'skill']:
+    for arm in conditions:
         group = [t for t in trials if t['arm'] == arm]
         times = [t['agent_seconds'] for t in group if t['agent_seconds'] is not None]
         delta = [t['word_delta'] for t in group if t['word_delta'] is not None]
@@ -55,7 +57,7 @@ def summarize(trials, reviews):
     summary['by_task'] = {}
     for name in cases:
         summary['by_task'][name] = {}
-        for arm in ['baseline', 'skill']:
+        for arm in conditions:
             group = [t for t in trials if t['task'] == name and t['arm'] == arm]
             summary['by_task'][name][arm] = dict(success=sum(t['success'] for t in group),
                 median_word_delta=statistics.median(t['word_delta'] for t in group if t['word_delta'] is not None),

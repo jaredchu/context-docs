@@ -14,8 +14,8 @@ def seconds(timing):
             datetime.fromisoformat(timing['started_at'].replace('Z', '+00:00'))).total_seconds()
 
 
-def collect(jobs, prefix):
-    cases = {c['id']: c for c in CASES}
+def collect(jobs, prefix, case_list=CASES, conditions=('baseline', 'skill')):
+    cases = {c['id']: c for c in case_list}
     trials, packets = [], []
     for job in sorted(jobs.glob(prefix + '-model-*')):
         if not job.is_dir():
@@ -23,7 +23,7 @@ def collect(jobs, prefix):
         for result_path in sorted(job.glob('*/result.json')):
             data = json.loads(result_path.read_text())
             task, arm = data['task_name'].rsplit('-', 1)
-            if task not in cases or arm not in {'baseline', 'skill'}:
+            if task not in cases or arm not in conditions:
                 raise ValueError('Unexpected task: ' + data['task_name'])
             trial_id = hashlib.sha256((job.name + '/' + data['trial_name']).encode()).hexdigest()[:12]
             steps = []

@@ -27,10 +27,25 @@ def spec_for(case, step, before):
                 allow_noop=step == 2, entry=entry, rubric=case['steps'][step]['rubric'])
 
 
-def build(destination):
+def capture_script():
+    # Outside the project and verifier log directory, which Harbor resets.
+    # This is trusted-task instrumentation, not tamper-proof against container root.
+    return '''python3 - <<'PY'
+import json
+from pathlib import Path
+root = Path('/workspace')
+files = {str(p.relative_to(root)): p.read_text() for p in sorted(root.rglob('*'))
+         if p.is_file() and '.git' not in p.relative_to(root).parts}
+Path('/tmp/context-docs-input.json').write_text(json.dumps(files))
+PY
+'''
+
+
+def build(destination, cases=CASES, variants=None, attempts=3):
+    variants = variants or {'baseline': None, 'skill': ROOT / 'skills/context-docs'}
     destination.mkdir(parents=True, exist_ok=False)
     manifest = dict(harbor_version='0.23.0', codex_version=CLI_VERSION, model='gpt-6-astra',
-                    effort='low', task_count=8, conditions=['baseline', 'skill'], attempts=3,
+                    effort='low', task_count=len(cases), conditions=list(variants), attempts=attempts,
                     skill_files={}, suite_files={}, packages=[])
     for p in sorted((ROOT / 'skills/context-docs').rglob('*')):
         if p.is_file():
@@ -39,8 +54,8 @@ def build(destination):
         if p.suffix not in {'.py', '.toml'}:
             continue
         manifest['suite_files'][p.name] = hashlib.sha256(p.read_bytes()).hexdigest()
-    for case in CASES:
-        for arm in ['baseline', 'skill']:
+    for case in cases:
+        for arm, skill in variants.items():
             task = destination / (case['id'] + '-' + arm)
             initial = {**case['files'], **case['uncommitted']}
             for name, body in case['files'].items():
@@ -55,8 +70,10 @@ RUN git init -q && git config user.name "Fixture Author" && git config user.emai
 COPY uncommitted.sh /tmp/uncommitted.sh
 RUN bash /tmp/uncommitted.sh && rm /tmp/uncommitted.sh && mkdir /output
 '''
-            if arm == 'skill':
-                shutil.copytree(ROOT / 'skills/context-docs', task / 'environment/skill')
+            write(task / 'environment/capture.sh', capture_script())
+            dockerfile += 'COPY capture.sh /opt/context-docs-capture.sh\nRUN bash /opt/context-docs-capture.sh\n'
+            if skill is not None:
+                shutil.copytree(skill, task / 'environment/skill')
                 dockerfile += 'COPY skill/ /opt/context-docs/\n'
             write(task / 'environment/Dockerfile', dockerfile)
             config = '''schema_version = "1.4"
@@ -86,10 +103,11 @@ storage_mb = 2048
                           'Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. '
                           'Do not change code/configuration or Git history. Preserve existing project layout and unique information. '
                           'No live environment access is supplied. Complete the task autonomously using the available evidence.\n\n')
-                if arm == 'skill':
+                if skill is not None:
                     common += 'Use the context-docs skill at /opt/context-docs/SKILL.md and its relevant references.\n\n'
                 write(folder / 'instruction.md', common + step['request'] + '\n')
                 spec = spec_for(case, i, before)
+                spec['input_snapshot'] = '/tmp/context-docs-input.json'
                 write(folder / 'tests/spec.json', json.dumps(spec, indent=2) + '\n')
                 shutil.copy2(HERE / 'verify.py', folder / 'tests/verify.py')
                 write(folder / 'tests/test.sh', '#!/bin/bash\nset -euo pipefail\npython3 /tests/verify.py /tests/spec.json\n')
@@ -98,7 +116,7 @@ storage_mb = 2048
                 write(folder / 'solution/solve.sh', '#!/bin/bash\nset -euo pipefail\n' + writer_script(oracle, '/workspace') + writer_script(output, '/output'))
                 if multi:
                     # Prior-step graders must not remain visible to the next agent.
-                    write(folder / 'workdir/setup.sh', '#!/bin/bash\nset -euo pipefail\nrm -rf /tests /solution\n' + writer_script(step['updates'], '/workspace') + 'rm /workspace/setup.sh\n')
+                    write(folder / 'workdir/setup.sh', '#!/bin/bash\nset -euo pipefail\nrm -rf /tests /solution\n' + writer_script(step['updates'], '/workspace') + 'rm /workspace/setup.sh\nbash /opt/context-docs-capture.sh\n')
                 before.update(oracle)
             manifest['packages'].append(dict(name=task.name, task=case['id'], arm=arm, steps=len(case['steps'])))
     write(destination.parent / (destination.name + '-manifest.json'), json.dumps(manifest, indent=2) + '\n')

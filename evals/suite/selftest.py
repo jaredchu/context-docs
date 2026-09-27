@@ -3,7 +3,7 @@ import tempfile
 from pathlib import Path
 from build import spec_for
 from cases import CASES
-from verify import grade, link_errors
+from verify import grade, link_errors, snapshot
 
 
 def put(root, files):
@@ -46,7 +46,27 @@ def main():
                 before.update(edits)
     assert not link_errors({'a.md': '# A\n[Go](b.md#hello-world)\n', 'b.md': '# Hello world\n'})
     assert link_errors({'a.md': '[Go](b.md#wrong)', 'b.md': '# Hello world\n'})
-    print(f'{n + 2} reference/control assertions passed across 8 tasks and 10 steps.')
+    # A valid alternative first-pass output differs from the reference. This used
+    # to let a subsequent no-op pass the edit check. Capture its actual input.
+    case = CASES[-1]
+    with tempfile.TemporaryDirectory() as temp:
+        root, output = Path(temp) / 'project', Path(temp) / 'output'
+        root.mkdir(); output.mkdir()
+        before = {**case['files'], **case['steps'][0]['oracle'], **case['steps'][1]['updates']}
+        put(root, before)
+        p = root / 'context.md'
+        p.write_text(p.read_text() + '\nAdditional valid operator note.\n')
+        (root / 'operator.md').write_text('Unique work carried from the previous pass.\n')
+        actual = snapshot(root)
+        spec = spec_for(case, 1, before)
+        assert grade(spec, root, output)['checks']['documentation_changed']
+        assert not grade(spec, root, output, actual)['checks']['documentation_changed']
+        p.write_text(p.read_text().replace('60 seconds', '45 seconds'))
+        assert grade(spec, root, output, actual)['mechanical_pass']
+        assert grade(spec, root, output, actual)['before_documents']['operator.md'] == actual['operator.md']
+        (root / 'operator.md').unlink()
+        assert not grade(spec, root, output, actual)['checks']['input_files_retained']
+    print(f'{n + 7} reference/control assertions passed, including actual multi-pass inputs.')
 
 
 if __name__ == '__main__':

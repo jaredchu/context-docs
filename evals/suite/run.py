@@ -15,6 +15,9 @@ def main():
     parser.add_argument('--mode', choices=['oracle', 'nop', 'model'], required=True)
     parser.add_argument('--prefix', required=True)
     args = parser.parse_args()
+    manifest = json.loads((args.suite.parent / (args.suite.name + '-manifest.json')).read_text())
+    case_ids = list(dict.fromkeys(p['task'] for p in manifest['packages']))
+    conditions = manifest['conditions']
     args.jobs.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ)
     if args.mode == 'model':
@@ -29,16 +32,16 @@ def main():
             config=str(HERE / 'codex.toml')))
     else:
         agent = dict(name=args.mode)
-    for repeat in range(3 if args.mode == 'model' else 1):
+    for repeat in range(manifest['attempts'] if args.mode == 'model' else 1):
         name = f'{args.prefix}-{args.mode}-{repeat+1}'
         if (args.jobs / name).exists():
             raise SystemExit(f'Refusing to overwrite existing job {name}. Choose a new prefix; do not discard failed attempts.')
         tasks = []
-        for index, case in enumerate(CASES):
-            arms = ['baseline', 'skill'] if (repeat + index) % 2 == 0 else ['skill', 'baseline']
+        for index, case_id in enumerate(case_ids):
+            arms = conditions if (repeat + index) % 2 == 0 else conditions[::-1]
             if args.mode != 'model':
-                arms = ['baseline']
-            tasks += [dict(path=str((args.suite / (case['id'] + '-' + arm)).resolve())) for arm in arms]
+                arms = [conditions[0]]
+            tasks += [dict(path=str((args.suite / (case_id + '-' + arm)).resolve())) for arm in arms]
         config = dict(job_name=name, jobs_dir=str(args.jobs.resolve()), agents=[agent], tasks=tasks,
                       n_attempts=1, n_concurrent_trials=2, retry=dict(max_retries=0))
         path = args.jobs / (name + '.json')
