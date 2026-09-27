@@ -74,47 +74,59 @@ same method. No forced directory migration or universal document-size limit.
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
 - [Before-and-after example](examples/maintenance.md)
 - [Behavioral evaluation scenarios](evals/README.md)
-- [Local-project benchmark and limitations](docs/evaluation-2026-09-26.md)
+- [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
+- [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
 - [This project's own context](docs/project-context.md)
 
 ## Evaluation results
 
-**Local pilot, not an external benchmark score.** Eight fresh agent runs compared
-v0.1.0 with ordinary maintenance instructions on temporary documentation copies
-from three projects. Model: `gpt-6-astra`, low reasoning effort; date: September
-26, 2026. There was one attempt per condition and the authoring assistant reviewed
-the outputs. These results do not establish general accuracy or cost advantages.
+**Public custom suite, run with Harbor 0.23.0 on September 27, 2026.** Eight
+synthetic tasks × two conditions × three attempts: **48 trials**. Model:
+`gpt-6-astra`, low effort; Codex CLI `0.158.0-alpha.2`; unchanged skill v0.1.0.
+The repeated-maintenance task has three stages, totaling 60 agent invocations.
 
-Six runs covered the same controlled update in three different project layouts:
+Both conditions passed every mechanical check and author-reviewed semantic
+criterion. **No correctness advantage was observed; the skill used more time and
+tokens in this suite.** This is regression coverage on small fixtures, not proof
+of general superiority or an external benchmark score.
 
-| Metric | Ordinary instructions | With Context Docs |
+<!-- evaluation-table:start -->
+| Task | Ordinary instructions | With Context Docs |
 | --- | ---: | ---: |
-| Preservation and correctness rubric checks | 30/30 | 30/30 |
-| Total documentation growth | +210 words | +82 words |
-| Total elapsed time | 159.3 s | 137.4 s |
-| Uncached input tokens | 60,447 | 64,098 |
+| stale-config | 3/3 | 3/3 |
+| workflow-conflict | 3/3 | 3/3 |
+| decision-status | 3/3 | 3/3 |
+| uncommitted-work | 3/3 | 3/3 |
+| links-and-fences | 3/3 | 3/3 |
+| audit-only | 3/3 | 3/3 |
+| initialize | 3/3 | 3/3 |
+| repeated-maintenance | 3/3 | 3/3 |
+| **Total trials** | **24/24** | **24/24** |
+<!-- evaluation-table:end -->
 
-The 30 checks are ten criteria across three tasks, not 30 independent tasks.
-Both conditions preserved the tested decisions, proposal status, blockers and
-formatting. Smaller additions did not mean a smaller total corpus or lower cost.
-
-The other two runs cleaned up original documentation without injected problems:
-
-| Metric | Ordinary instructions | With Context Docs |
+| Resource metric | Ordinary instructions | With Context Docs |
 | --- | ---: | ---: |
-| Entry-point words, starting from 1,251 | 973 | 1,011 |
-| Total documentation growth | +141 words | +72 words |
-| Explicitly reconciled the observed deployment-workflow conflict | Yes | No |
+| Median agent time per trial | 40.2 s | 45.3 s |
+| Uncached input tokens, all trials | 306,778 | 326,395 |
+| Output tokens, all trials | 17,436 | 24,525 |
 
-The missed conflict is a known limitation: the skill added a general qualification
-but left specific conflicting deployment descriptions unresolved. Private source
-documents and raw outputs are not published. See the
-[full method, results and limitations](docs/evaluation-2026-09-26.md).
+All audit trials preserved project bytes, and all final no-change maintenance
+passes left Markdown unchanged. Document growth varied by task: median workflow
+additions were +230/+323 words and initialization additions +53/+117 words
+(ordinary/skill). These results do not establish general compression or cost savings.
 
-**Next:** a public, repeatable task suite using an established runner, with
-deterministic preservation checks and separate semantic review. Harbor is the
-recommended runner; the integration has not been implemented or run. See the
-[framework comparison and evaluation plan](evals/frameworks.md).
+The fixtures start with only 19–87 Markdown words. They are development cases,
+not held-out projects, and semantic review was by the authoring assistant rather
+than an independent judge. Three repeats do not create three new tasks.
+
+See the [full report and limitations](docs/evaluation-2026-09-27.md),
+[reproduction instructions](evals/suite/README.md), and
+[machine-readable evidence](evals/results/2026-09-27-harbor/trials.json).
+The table is generated from recorded trials and explicit reviews.
+
+The [earlier eight-run private-project pilot](docs/evaluation-2026-09-26.md)
+remains documented, including the workflow conflict the skill missed. Passing
+the smaller synthetic regression does not erase that result.
 
 ## Limits and direction
 

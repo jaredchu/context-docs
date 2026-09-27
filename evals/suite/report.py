@@ -1,6 +1,7 @@
 """Derive report tables from exported trials plus explicit semantic reviews."""
 import argparse
 import json
+import re
 import statistics
 from pathlib import Path
 from cases import CASES
@@ -9,7 +10,8 @@ from cases import CASES
 def summarize(trials, reviews):
     cases = {c['id']: c for c in CASES}
     assert len(trials) == 48, 'Expected 48 trials; report incomplete experiments separately.'
-    assert len({(t['task'], t['arm'], t['attempt']) for t in trials}) == 48
+    assert {(t['task'], t['arm'], t['attempt']) for t in trials} == {
+        (name, arm, attempt) for name in cases for arm in ['baseline', 'skill'] for attempt in [1, 2, 3]}
     for t in trials:
         complete = len(t['steps']) == t['expected_steps']
         t['mechanical_pass'] = complete and all(s['mechanical_pass'] and not s['execution_error'] for s in t['steps'])
@@ -27,6 +29,8 @@ def summarize(trials, reviews):
         initial = {**cases[t['task']]['files'], **cases[t['task']]['uncommitted']}
         initial_words = sum(len(s.split()) for p, s in initial.items() if p.endswith('.md'))
         t['word_delta'] = final['word_count'] - initial_words if final else None
+        t['third_pass_unchanged'] = (t['steps'][1]['observed']['documents'] == final['documents']
+                                     if t['task'] == 'repeated-maintenance' and complete and final and t['steps'][1]['observed'] else None)
     table = ['| Task | Ordinary instructions | With Context Docs |', '| --- | ---: | ---: |']
     for case in CASES:
         counts = [sum(t['success'] for t in trials if t['task'] == case['id'] and t['arm'] == arm) for arm in ['baseline', 'skill']]
@@ -47,17 +51,33 @@ def summarize(trials, reviews):
             summary[arm][key] = sum(values) if all(v is not None for v in values) else None
         if summary[arm]['n_input_tokens'] is not None and summary[arm]['n_cache_tokens'] is not None:
             summary[arm]['uncached_input_tokens'] = summary[arm]['n_input_tokens'] - summary[arm]['n_cache_tokens']
+        summary[arm]['unchanged_third_passes'] = sum(t['third_pass_unchanged'] is True for t in group)
+    summary['by_task'] = {}
+    for name in cases:
+        summary['by_task'][name] = {}
+        for arm in ['baseline', 'skill']:
+            group = [t for t in trials if t['task'] == name and t['arm'] == arm]
+            summary['by_task'][name][arm] = dict(success=sum(t['success'] for t in group),
+                median_word_delta=statistics.median(t['word_delta'] for t in group if t['word_delta'] is not None),
+                median_agent_seconds=statistics.median(t['agent_seconds'] for t in group if t['agent_seconds'] is not None))
     return summary, '\n'.join(table)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('results', type=Path)
+    parser.add_argument('--readme', type=Path, help='Update an existing evaluation-table marker block.')
     args = parser.parse_args()
     trials = json.loads((args.results / 'trials.json').read_text())
     reviews = json.loads((args.results / 'reviews.json').read_text())
     summary, table = summarize(trials, reviews['steps'])
     (args.results / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     (args.results / 'table.md').write_text(table + '\n')
+    if args.readme:
+        body = args.readme.read_text()
+        pattern = r'<!-- evaluation-table:start -->.*?<!-- evaluation-table:end -->'
+        assert len(re.findall(pattern, body, re.S)) == 1, 'README must contain exactly one evaluation-table marker block.'
+        body = re.sub(pattern, lambda _: '<!-- evaluation-table:start -->\n' + table + '\n<!-- evaluation-table:end -->', body, flags=re.S)
+        args.readme.write_text(body)
     print(table)
     print(json.dumps(summary, indent=2))

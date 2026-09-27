@@ -10,7 +10,8 @@ from cases import CASES
 def seconds(timing):
     if not timing or not timing.get('finished_at'):
         return None
-    return (datetime.fromisoformat(timing['finished_at']) - datetime.fromisoformat(timing['started_at'])).total_seconds()
+    return (datetime.fromisoformat(timing['finished_at'].replace('Z', '+00:00')) -
+            datetime.fromisoformat(timing['started_at'].replace('Z', '+00:00'))).total_seconds()
 
 
 def collect(jobs, prefix):

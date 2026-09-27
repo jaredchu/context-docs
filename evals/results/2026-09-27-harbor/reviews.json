@@ -1,0 +1,486 @@
+{
+  "reviewer": "authoring assistant",
+  "method": "Manual review of synthetic outputs against the published rubric; packets omit condition labels, but reviewer is not independent and tool traces can reveal condition. No separate model judge.",
+  "steps": {
+    "245a17943344-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "context.md states configured timeout 20 with config/service.yaml and timeout_seconds; live timeout explicitly unverified; RESTORE-17 still blocked."
+    },
+    "bf9cf9e2eebe-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "context.md links config/service.yaml for 20; labels 10 as a previous claim and deployed value unverified; RESTORE-17 retained unresolved."
+    },
+    "138155807480-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "design.md explicitly calls both Git-push automation and CI the September 1 plan superseded by DEC-07. release.md specifies manual Wrangler/no mandatory CI. Operator-work rationale remains, and context/release disclaim live verification."
+    },
+    "220d37872576-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "design.md marks the specific Git/CI plan deferred and points to DEC-07 and release.md. Manual Wrangler procedure is current; repetitive-operator-work rationale retained. No live or post-pilot approval invented."
+    },
+    "5372f534e92b-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Repeated storage sentences replaced by working DEC-21 anchor; original decision/rationale retained. QUOTA-9, larger-volume next action and exact YAML preserved. Trace inspects Git diff then replaces only duplicated bytes; no commit/reset/staging."
+    },
+    "57d653068e79-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context cites DEC-12 owner-approved SQLite and single-file backup rationale. PostgreSQL explicitly proposed/not decided; scaling rationale and unresolved BLOCK-32 retained."
+    },
+    "5c75008d31a3-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context distinguishes approved September 4 SQLite/backup decision from unapproved September 20 PostgreSQL scaling proposal. BLOCK-32 remains unresolved; no implementation/live verification invented."
+    },
+    "08319ff4e27f-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Two storage sentences replaced by DEC-21 anchor, preserving approval and backup rationale in decisions.md. QUOTA-9 and next action/YAML stay exact. Trace reads uncommitted diff and edits only duplicate bytes; no Git mutation."
+    },
+    "5d30d615292f-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context is reduced to a working restore-steps link. Runbook command, exact YAML and external anchor are unchanged; SIGNOFF-8 remains outstanding in linked runbook."
+    },
+    "dcef78f76ee8-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context replaces both duplicate commands with a restore-steps link and mentions outstanding sign-off. Canonical command, YAML, anchor and unresolved SIGNOFF-8 are preserved unchanged."
+    },
+    "5eea98295a22-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "audit.md cites context.md:3, decisions.md:3 and config/database.yaml:1; identifies the mismatch while correctly allowing distinct pilot/production scopes. Config/approval/runtime remain separate, with deployment mapping and owner evidence requested. Project bytes unchanged."
+    },
+    "bc8c93be6702-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Audit table cites the exact PostgreSQL claim, SQLite pilot approval and SQLite setting. It treats environment scope as unresolved, requests offline configuration/deployment/decision evidence and makes no live-state claim. Project bytes unchanged."
+    },
+    "00084b2ae5ff-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links a compact PROJECT_CONTEXT.md with offline conversion purpose, exact command, field-order constraint and source links. It marks unspecified implementation/build/testing rather than inventing them; no empty registers or placeholders."
+    },
+    "25fc6fee48b4-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Adds a discoverable Project context section in README, reuses usage.md for command/field ordering, and keeps offline scope. Unspecified parsing/output details and unverified runtime are clearly unknown; no invented architecture or approvals."
+    },
+    "a0a162d807cf-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Updates configured polling to 60 with config/poll.yaml link, without claiming deployment. DEC-41 rationale/proposal status remain in linked decisions.md; RESTORE-44 and reserve-volume next action remain. One current interval, no session log."
+    },
+    "a0a162d807cf-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Replaces current 60 with sourced configured 45. DEC-41 approval/rationale and unapproved cloud status remain, with a context summary link; restore blocker/action preserved. No second current interval or session log."
+    },
+    "a0a162d807cf-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "All project Markdown matches pass 2 exactly: configured 45, DEC-41 status/rationale and RESTORE-44 action remain. No review-date churn or added status."
+    },
+    "b2b13ec15c10-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "One current configured interval of 60 linked to config/poll.yaml; runtime explicitly unverified. DEC-41/local-storage rationale/cloud proposal intact in decisions.md; restore blocker and reserve-volume action preserved."
+    },
+    "b2b13ec15c10-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Only the configured interval changes from 60 to 45. Source and verification caveat, decision authority/rationale and open restore work remain; no added session notes."
+    },
+    "b2b13ec15c10-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Project Markdown matches pass 2 exactly. Configured 45 remains unverified at runtime; decisions and RESTORE-44 next action survive with no bookkeeping edit."
+    },
+    "2ead39e1c1de-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context links timeout_seconds in config/service.yaml for configured 20, marks 10 as previous and production value unverified, and retains unresolved RESTORE-17."
+    },
+    "7934d058004b-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current configured timeout is 20 with exact config source/value; production runtime explicitly unverified. RESTORE-17 remains blocked."
+    },
+    "4ce55d85c2a3-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Design explicitly labels Git deployment and mandatory CI deferred and cites DEC-07. Restructured decision retains owner/date/pilot scope and launch-setup rationale. Release retains manual Wrangler/no-CI, preserves automation rationale and leaves deployment unverified."
+    },
+    "ad243639fbce-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Design source marks both original Git-push and CI requirements deferred, citing DEC-07. Context/release identify manual Wrangler/no-CI as approved pilot workflow. Operator-work rationale retained; no verified deployment or post-pilot approval claimed."
+    },
+    "85fb526ee171-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "DEC-12 SQLite owner approval and single-file backup rationale are current. Newer PostgreSQL scaling proposal explicitly unapproved; BLOCK-32 unresolved and live/implementation state unverified."
+    },
+    "614b6c8c6b58-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context records DEC-12 approved SQLite with owner/date and backup rationale. September 20 PostgreSQL scaling proposal remains proposed, not approved; restore BLOCK-32 remains pending."
+    },
+    "e4a30d41d837-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Replaces duplicate storage text with an approved DEC-21 link retaining backup rationale. QUOTA-9, reserve-volume action and YAML survive byte-for-byte. Reviewed trace shows scoped byte replacement, diff checks, and no Git commit/reset/staging."
+    },
+    "e5b7bb76cb88-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Duplicate storage text becomes a decision-anchor link; canonical approval and rationale remain. Uncommitted blocker/action and YAML are exact. Trace inspects existing diff and edits only duplicate block; no Git history/staging mutation."
+    },
+    "210a4566a59e-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context replaces duplicate commands with canonical restore-steps link and explicitly mentions outstanding SIGNOFF-8. Runbook command, exact YAML and external heading anchor are unchanged."
+    },
+    "ad79edab82be-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "One canonical restore-steps link replaces repeated command text. Runbook is unchanged, preserving command/YAML, external anchor and unresolved operator sign-off."
+    },
+    "4d03756f2663-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links context.md describing supported offline CSV conversion and canonical usage/field-order constraint. It clearly separates documented intent from missing implementation evidence, with concrete next checks and no empty templates or invented decisions."
+    },
+    "bb99593dd92b-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links concise PROJECT_CONTEXT.md with supported offline purpose, command and field-order requirement. Missing implementation/runtime evidence is explicit; no approvals, deployment or backend invented."
+    },
+    "9e06f4dad3c7-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Audit cites all three conflicting engine/scope sources with line references. It correctly leaves environment mapping unresolved and preserves recorded DEC-30 approval while requesting provenance and deployment evidence. No runtime claim or project edit."
+    },
+    "c7d8bfdb84fd-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Audit identifies PostgreSQL documentation versus SQLite configuration and pilot decision; distinguishes a conditional mismatch from proven production misconfiguration. Requests configuration mapping, dated deployment and decision provenance; project bytes unchanged."
+    },
+    "88353fb87f62-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Updates current interval to configured 60 with config/poll.yaml source. Configured state only; no runtime claim. Original DEC-41 approval/rationale/cloud proposal and RESTORE-44 reserve-volume action remain; no duplicate current-state notes."
+    },
+    "88353fb87f62-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Replaces current 60 with sourced configured 45. Configured state only; no runtime claim. Decision document and restore blocker/action remain unchanged; no session diary."
+    },
+    "88353fb87f62-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "All project Markdown is identical to pass 2. Configured 45 and all decision/blocker information remain; no added date, session log or duplicate status."
+    },
+    "fcc975d274ce-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Updates current interval to configured 60 with config/poll.yaml source. Live behavior explicitly unverified. Original DEC-41 approval/rationale/cloud proposal and RESTORE-44 reserve-volume action remain; no duplicate current-state notes."
+    },
+    "fcc975d274ce-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Replaces current 60 with sourced configured 45. Live behavior explicitly unverified. Decision document and restore blocker/action remain unchanged; no session diary."
+    },
+    "fcc975d274ce-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "All project Markdown is identical to pass 2. Configured 45 and all decision/blocker information remain; no added date, session log or duplicate status."
+    },
+    "0259f37e7ecf-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Configured 20 replaces the stale claim with config/service.yaml source; production deployment/runtime explicitly unverified. RESTORE-17 remains blocked."
+    },
+    "6dd888b00176-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context states configured 20 with config/service.yaml reference, keeps live production value unverified and retains blocked RESTORE-17."
+    },
+    "3d546904c6d1-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Design marks the Git/CI plan deferred and cites DEC-07 current manual pilot authority. Release preserves Wrangler/no mandatory CI and launch-setup rationale; original automation rationale retained and readiness unverified."
+    },
+    "10938d648d20-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context cites DEC-12 SQLite pilot approval with backup rationale. PostgreSQL scaling remains a newer unapproved proposal; BLOCK-32 remains unresolved and live implementation is not claimed."
+    },
+    "563328526afe-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "SQLite owner approval and backup rationale retained with DEC-12 source. Contributor PostgreSQL scaling proposal remains proposed/not committed. Restore BLOCK-32 and pending owner decision retained."
+    },
+    "4fce9d8fe389-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Design explicitly supersedes both Git-push and CI instructions for the pilot with DEC-07. Decision/release retain manual Wrangler/no-CI approval, owner/date and setup rationale. Automation rationale remains; no deployment/readiness claimed."
+    },
+    "2ab23e0203ef-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Duplicate approvals become a working DEC-21 anchor with canonical rationale retained. QUOTA-9, next action and exact YAML remain. Trace reads existing diff and replaces only repeated bytes, with no commit/reset/staging."
+    },
+    "4fc881918448-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "One canonical restore-steps link replaces duplicate context commands. Runbook remains unchanged, including exact command/YAML, external heading anchor and outstanding SIGNOFF-8."
+    },
+    "78fe14cf8631-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context links restore-steps for command, configuration and outstanding sign-off. Canonical runbook command, YAML indentation, anchor and unresolved SIGNOFF-8 are unchanged."
+    },
+    "b69fabed96fd-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Removes one repeated storage sentence; remaining statement plus README-linked DEC-21 retain approval/rationale. QUOTA-9 next action and exact YAML stay intact. Trace inspects uncommitted diff and applies only duplicate deletion, without Git mutation. A new decision link is not required by this rubric."
+    },
+    "0dda16e2ef29-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Audit cites exact PostgreSQL context, SQLite config and DEC-30 pilot approval locations, preserving their distinct scope. It requests deployment/environment mapping and approval provenance without inferring runtime or revoking recorded approval. Project bytes unchanged."
+    },
+    "d8dc0be1e520-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Audit identifies engine mismatch with source lines, explains unresolved production applicability and limited pilot approval, and requests configuration/deployment/decision evidence. It neither chooses a runtime engine nor edits project files."
+    },
+    "787a035441ba-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links a small context document with offline scope, canonical usage and field-order constraint. Missing implementation/test evidence is explicit; no invented working behavior, approvals, backend or empty registers."
+    },
+    "78863b8c291e-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links concise PROJECT_CONTEXT.md retaining offline purpose, command and field order with sources. Unspecified implementation/build/tests stay unspecified; no invented approvals or placeholders."
+    },
+    "0414a08b2918-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "One configured interval of 60 with source link replaces 30. Uses configured wording without asserting runtime. DEC-41 authority/rationale and unapproved cloud proposal remain; RESTORE-44 and reserve-volume action intact."
+    },
+    "0414a08b2918-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Only current interval changes from 60 to sourced configured 45. Uses configured wording without asserting runtime. Original decisions and open restore work are preserved without duplicate session notes."
+    },
+    "0414a08b2918-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Project Markdown matches pass 2 exactly. Configured 45, original decision/rationale/proposal status and restore blocker/action remain; no bookkeeping-only edits."
+    },
+    "fdeb9dbd26db-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "One configured interval of 60 with source link replaces 30. Explicitly states live behavior is unverified. DEC-41 authority/rationale and unapproved cloud proposal remain; RESTORE-44 and reserve-volume action intact."
+    },
+    "fdeb9dbd26db-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Only current interval changes from 60 to sourced configured 45. Explicitly states live behavior is unverified. Original decisions and open restore work are preserved without duplicate session notes."
+    },
+    "fdeb9dbd26db-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Project Markdown matches pass 2 exactly. Configured 45, original decision/rationale/proposal status and restore blocker/action remain; no bookkeeping-only edits."
+    }
+  }
+}

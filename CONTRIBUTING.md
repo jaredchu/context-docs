@@ -12,8 +12,11 @@ For a skill change:
 
 1. Identify the affected [evaluation scenario](evals/README.md), or add one that
    demonstrates the missing behavior without prescribing exact output wording.
-2. Run it in a disposable directory and review the resulting diff. Record the
-   agent/model, inputs, outcome, verification limits and any lost information.
+2. Use the [public Harbor suite](evals/suite/README.md) for repeatable comparisons,
+   or run the scenario in a disposable directory. Validate reference and failing
+   controls before model runs. Record the agent/model, inputs, outcome,
+   verification limits and any lost information. Report semantic review separately
+   from mechanical checks, and retain failed trials.
 3. Check relative links and that the skill works when copied without the rest of
    this repository. Use your client's skill validator if available.
 4. Describe what changed, why, and what was actually tested in the pull request.

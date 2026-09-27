@@ -1,0 +1,103 @@
+{
+  "reference_and_nop_controls": [
+    {
+      "task": "uncommitted-work",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "5ec41ce18758c3cd93521bfd6abd83dece4aeb7e91ed535de9fb14a072ae7119"
+    },
+    {
+      "task": "initialize",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "135c7f1569203c9b444fa72e092c5efaf25cfc0c769fcf90d724f03d5ba317a1"
+    },
+    {
+      "task": "workflow-conflict",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "b4ff8fa9c17626b27f33962e6e1abc5fb49dd27928cb8b04dc94e48e8e8be429"
+    },
+    {
+      "task": "stale-config",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "05d84f66e498819b3a2a9bcc05bcb2652bf33e0275935680307bf1b07f87631a"
+    },
+    {
+      "task": "decision-status",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "ad6b6bca71ba6132d229a34908104809e9fe12bae872965ddce7516c45c185e3"
+    },
+    {
+      "task": "audit-only",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "058613a20aaaeb3e4089f8c9b2e484cca62c59aec2fdd0c0bdf8b161a8d1616b"
+    },
+    {
+      "task": "links-and-fences",
+      "control": "oracle",
+      "mechanical_reward": 1,
+      "task_checksum": "a6b308a5d9f4081df17d7ef468e6853d7064abd91dc60166b194283c87145391"
+    },
+    {
+      "task": "repeated-maintenance",
+      "control": "oracle",
+      "mechanical_reward": 1.0,
+      "task_checksum": "c67c26ab8f6800545104fd1b2599be0a9e3b78caf12c31419547e5dadd371e15"
+    },
+    {
+      "task": "workflow-conflict",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "b4ff8fa9c17626b27f33962e6e1abc5fb49dd27928cb8b04dc94e48e8e8be429"
+    },
+    {
+      "task": "decision-status",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "ad6b6bca71ba6132d229a34908104809e9fe12bae872965ddce7516c45c185e3"
+    },
+    {
+      "task": "links-and-fences",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "a6b308a5d9f4081df17d7ef468e6853d7064abd91dc60166b194283c87145391"
+    },
+    {
+      "task": "uncommitted-work",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "5ec41ce18758c3cd93521bfd6abd83dece4aeb7e91ed535de9fb14a072ae7119"
+    },
+    {
+      "task": "audit-only",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "058613a20aaaeb3e4089f8c9b2e484cca62c59aec2fdd0c0bdf8b161a8d1616b"
+    },
+    {
+      "task": "stale-config",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "05d84f66e498819b3a2a9bcc05bcb2652bf33e0275935680307bf1b07f87631a"
+    },
+    {
+      "task": "initialize",
+      "control": "nop",
+      "mechanical_reward": 0,
+      "task_checksum": "135c7f1569203c9b444fa72e092c5efaf25cfc0c769fcf90d724f03d5ba317a1"
+    },
+    {
+      "task": "repeated-maintenance",
+      "control": "nop",
+      "mechanical_reward": 0.6666666666666666,
+      "task_checksum": "c67c26ab8f6800545104fd1b2599be0a9e3b78caf12c31419547e5dadd371e15"
+    }
+  ],
+  "local_assertions": 41,
+  "authentication_probe": "passed; one unscored model invocation",
+  "preflight_repair": "Harbor left setup.sh inside repeated-maintenance workspace; fixed before scored runs. All affected controls rerun."
+}

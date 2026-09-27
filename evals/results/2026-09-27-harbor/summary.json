@@ -1,0 +1,142 @@
+{
+  "baseline": {
+    "success": 24,
+    "mechanical_pass": 24,
+    "semantic_pass": 24,
+    "median_agent_seconds": 40.1877845,
+    "agent_seconds_range": [
+      24.187996,
+      76.149623
+    ],
+    "total_agent_seconds": 976.247327,
+    "median_word_delta": 16.0,
+    "word_delta_range": [
+      -14,
+      269
+    ],
+    "n_input_tokens": 1341914,
+    "n_cache_tokens": 1035136,
+    "n_output_tokens": 17436,
+    "uncached_input_tokens": 306778,
+    "unchanged_third_passes": 3
+  },
+  "skill": {
+    "success": 24,
+    "mechanical_pass": 24,
+    "semantic_pass": 24,
+    "median_agent_seconds": 45.308690999999996,
+    "agent_seconds_range": [
+      31.194975,
+      93.01453900000001
+    ],
+    "total_agent_seconds": 1215.705547,
+    "median_word_delta": 15.0,
+    "word_delta_range": [
+      -9,
+      346
+    ],
+    "n_input_tokens": 1748347,
+    "n_cache_tokens": 1421952,
+    "n_output_tokens": 24525,
+    "uncached_input_tokens": 326395,
+    "unchanged_third_passes": 3
+  },
+  "by_task": {
+    "stale-config": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 16,
+        "median_agent_seconds": 31.838448
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 33,
+        "median_agent_seconds": 33.222334
+      }
+    },
+    "workflow-conflict": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 230,
+        "median_agent_seconds": 42.357871
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 323,
+        "median_agent_seconds": 58.579008
+      }
+    },
+    "decision-status": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 54,
+        "median_agent_seconds": 26.352614
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 71,
+        "median_agent_seconds": 35.997891
+      }
+    },
+    "uncommitted-work": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": -8,
+        "median_agent_seconds": 39.97003
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": -9,
+        "median_agent_seconds": 44.68656
+      }
+    },
+    "links-and-fences": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": -4,
+        "median_agent_seconds": 46.535116
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": -4,
+        "median_agent_seconds": 45.445402
+      }
+    },
+    "audit-only": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 0,
+        "median_agent_seconds": 45.99149
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 0,
+        "median_agent_seconds": 58.548042
+      }
+    },
+    "initialize": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 53,
+        "median_agent_seconds": 27.721366
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 117,
+        "median_agent_seconds": 42.515839
+      }
+    },
+    "repeated-maintenance": {
+      "baseline": {
+        "success": 3,
+        "median_word_delta": 2,
+        "median_agent_seconds": 69.524373
+      },
+      "skill": {
+        "success": 3,
+        "median_word_delta": 14,
+        "median_agent_seconds": 84.590889
+      }
+    }
+  }
+}

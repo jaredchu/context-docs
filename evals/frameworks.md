@@ -1,7 +1,12 @@
 # Evaluation framework research and next protocol
 
-Reviewed: 2026-09-26. Status: recommendation and proposed protocol. No framework
-integration or new model evaluation was performed as part of this research.
+Reviewed: 2026-09-26. Status: historical recommendation and proposed protocol.
+No framework integration or model evaluation was performed during that research.
+
+Follow-up, 2026-09-27: the [Harbor suite](suite/README.md) is implemented and its
+[48-trial evaluation](../docs/evaluation-2026-09-27.md) is complete. Both conditions
+passed 24/24 trials; the report records resource overhead and limitations. The
+protocol below is the original proposal, not a substitute for the executed method.
 
 ## Recommendation
 

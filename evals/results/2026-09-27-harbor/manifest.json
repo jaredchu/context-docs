@@ -1,0 +1,153 @@
+{
+  "harbor_version": "0.23.0",
+  "codex_version": "0.158.0-alpha.2",
+  "model": "gpt-6-astra",
+  "effort": "low",
+  "task_count": 8,
+  "conditions": [
+    "baseline",
+    "skill"
+  ],
+  "attempts": 3,
+  "skill_files": {
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "f984f37019600e4b735bd04f27d46e609b3fee7c0e7244578d77291a964c6640",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "suite_files": {
+    "evals/suite/README.md": "50a7fdbe86ae68fa67547a1eff154db90bca46970ab8531f0ac0451c118c5788",
+    "evals/suite/build.py": "ef3cb6bd407313056ad7ece1285157409207ab6c9bb57955f5d58cddc96d2600",
+    "evals/suite/cases.py": "dd2d37d11b8daffd60d790ff5b00cb09743c0230ca67b1a8c35434a9e950f6e7",
+    "evals/suite/codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38",
+    "evals/suite/collect.py": "2ca1b6dc0d8d192c7a444c3639c5435d78a40691712b193f771f50e457ce7859",
+    "evals/suite/report.py": "b1bf6b74aeb64a746dbee856ec619226abd18cdc105f60a8a6c9beb9ab5abbc4",
+    "evals/suite/run.py": "b5c719491c2f6c29bcf49e0fd0a7a8a0a24a0de3a7d6bfaf192e27caae2a26f2",
+    "evals/suite/selftest.py": "d6ade25a2e57f5133f20094fd8e3d28810c3e321641140f14f277fd3be6bc77f",
+    "evals/suite/verify.py": "3465d3a5e6df648cd775b57994a46dc46cd871b8ed7696c7bdc1783d9dd9ec16"
+  },
+  "packages": [
+    {
+      "name": "stale-config-baseline",
+      "task": "stale-config",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "stale-config-skill",
+      "task": "stale-config",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "workflow-conflict-baseline",
+      "task": "workflow-conflict",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "workflow-conflict-skill",
+      "task": "workflow-conflict",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "decision-status-baseline",
+      "task": "decision-status",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "decision-status-skill",
+      "task": "decision-status",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "uncommitted-work-baseline",
+      "task": "uncommitted-work",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "uncommitted-work-skill",
+      "task": "uncommitted-work",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "links-and-fences-baseline",
+      "task": "links-and-fences",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "links-and-fences-skill",
+      "task": "links-and-fences",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "audit-only-baseline",
+      "task": "audit-only",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "audit-only-skill",
+      "task": "audit-only",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "initialize-baseline",
+      "task": "initialize",
+      "arm": "baseline",
+      "steps": 1
+    },
+    {
+      "name": "initialize-skill",
+      "task": "initialize",
+      "arm": "skill",
+      "steps": 1
+    },
+    {
+      "name": "repeated-maintenance-baseline",
+      "task": "repeated-maintenance",
+      "arm": "baseline",
+      "steps": 3
+    },
+    {
+      "name": "repeated-maintenance-skill",
+      "task": "repeated-maintenance",
+      "arm": "skill",
+      "steps": 3
+    }
+  ],
+  "suite_commit": "f308aa1b6c20d2d3d6e3138afaa416eaa10c9aad",
+  "date": "2026-09-27",
+  "scored_trials": 48,
+  "scored_agent_invocations": 60,
+  "conditions_explicit_skill_reads": {
+    "baseline": 0,
+    "skill": 30
+  },
+  "execution_errors": 0,
+  "retries": 0,
+  "semantic_reviewer": "authoring assistant; not independent or fully blinded",
+  "docker_version": "29.4.0",
+  "uv_version": "0.12.9",
+  "reporting_files": {
+    "evals/suite/collect.py": "b7d135163531581eb049d39cfd60ef94983bc15381223d07fa93b0f4f1d62293",
+    "evals/suite/report.py": "becf825c52cb14b9afeb46282132df4d7f016447b0e10ade98ffae3b1d038bd3"
+  },
+  "notes": [
+    "Rubrics, fixtures, skill and execution configuration stayed fixed during scored runs.",
+    "Timestamp parsing and summary/README reporting were adjusted after execution began; graders were unchanged.",
+    "Raw Harbor logs, system messages, local host paths and authentication are excluded.",
+    "Tool traces were screened for common prohibited operations; all six uncommitted-edit traces were also read manually. This is not an adversarial scope proof.",
+    "No observed monetary cost is reported; Harbor estimates are excluded."
+  ]
+}

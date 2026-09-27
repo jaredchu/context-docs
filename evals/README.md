@@ -3,10 +3,15 @@
 These are reproducible manual evaluation cases, not automated test results.
 They exercise decisions an agent must make, rather than exact headings or wording.
 
+The [public Harbor suite](suite/README.md) now provides eight runnable synthetic
+tasks, reference controls, mechanical graders and separate semantic review.
+See its [48-trial evaluation](../docs/evaluation-2026-09-27.md) and published
+evidence. Automatic skill selection remains a separate, untested question.
+
 A separate [local-project maintenance pilot](../docs/evaluation-2026-09-26.md)
 records eight actual model runs, paired comparisons and limitations. It does not
 claim that every scenario below or automatic skill selection has been tested.
-For the next runnable suite, see the
+For the original runner selection and proposed protocol, see the
 [framework comparison and proposed protocol](frameworks.md).
 
 ## Run a case

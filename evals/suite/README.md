@@ -58,6 +58,14 @@ and ordinary heading anchors are supported; this is not a complete Markdown
 parser. Whole-input-file retention is intentional for these fixtures, not a
 universal restriction on documentation maintenance.
 
+Later maintenance steps compare document-change checks with the published
+reference-stage input, not a captured copy of the agent's preceding output.
+Consequently a no-op agent can earn partial mechanical reward in those steps.
+The full no-op trial is rejected, and semantic review checks actual progression
+and compares successive outputs. Harbor's mean mechanical reward must not be
+presented as task accuracy. Capturing actual per-step input snapshots is a
+future harness improvement.
+
 Each generated test writes `observed.json` with document contents, checks and
 counts. Review every rubric item against these outputs and original evidence.
 Record pass/fail, a supporting reason and reviewer identity separately. Overall
@@ -78,7 +86,8 @@ Submitted condition order alternates by task and block; concurrency means actual
 completion order varies. Each trial uses a fresh container. The repeated task
 has three fresh agent sessions over the same evolving files, with configuration
 updates injected between passes; other tasks have one session. Thus there are
-48 trials and 60 agent invocations. Model caching is not controlled.
+48 trials and 60 agent invocations. Model caching is not controlled. Authentication
+probes and oracle/no-op control runs are separate and excluded from these counts.
 
 Grading criteria and skill stay fixed before scored runs. These fixtures were
 authored with knowledge of the skill; they are a public development/regression
@@ -88,9 +97,39 @@ claiming statistical superiority. The suite does not yet measure separate-reader
 answer accuracy, automatic activation or cross-model generalization.
 
 Docker provides filesystem separation from the user's source projects. No host
-project directories are mounted. Network access is available for authentication;
+source directories are mounted. Network access is available for authentication;
 the agent is instructed not to contact services and web search is disabled.
 This is a trusted synthetic-task evaluation, not an adversarial isolation test.
+
+## Export and review
+
+```sh
+python3 evals/suite/collect.py .local/harbor-jobs .local/review-export --prefix evaluation
+```
+
+The collector exports allowlisted metrics, synthetic documents and agent tool
+calls into `trials.json`; it omits raw logs, system prompts and authentication.
+Inspect exports before publication. `review-packets.json` omits condition labels
+and orders packets by opaque ID to support semantic review. This does not by
+itself make the authoring assistant an independent or fully blinded reviewer.
+
+Write `reviews.json` with reviewer/method metadata and a `steps` object keyed by
+each `review_id`. Each entry needs `criteria` (three Boolean rubric outcomes) and
+`reason` (specific supporting evidence or a failure explanation). Inspect tool
+calls as well as documents for scope and Git-history requirements. Then run:
+
+```sh
+python3 evals/suite/report.py .local/review-export
+```
+
+The report requires all 48 trials and their reviews, and derives `summary.json`
+and `table.md`. Add `--readme README.md` to replace its existing evaluation-table
+marker block from those same scores. Incomplete or errored experiments must remain explicitly labeled;
+do not replace them with favorable retries. Runtime is agent-phase time, excluding
+container build/setup. Repeated-task time and token usage sum all three sessions.
+Harbor's estimated dollar figures are not treated as observed subscription cost.
+Word counts cover project Markdown only; the audit report outside the project is
+excluded. Report lengths remain available in the published audit text.
 
 Runner references: [Harbor tasks](https://docs.harborframework.com/core-concepts/tasks/overview)
 and [Codex skill evaluation guidance](https://developers.openai.com/blog/eval-skills).
