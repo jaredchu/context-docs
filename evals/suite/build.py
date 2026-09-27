@@ -98,7 +98,7 @@ storage_mb = 2048
                 write(folder / 'solution/solve.sh', '#!/bin/bash\nset -euo pipefail\n' + writer_script(oracle, '/workspace') + writer_script(output, '/output'))
                 if multi:
                     # Prior-step graders must not remain visible to the next agent.
-                    write(folder / 'workdir/setup.sh', '#!/bin/bash\nset -euo pipefail\nrm -rf /tests /solution\n' + writer_script(step['updates'], '/workspace'))
+                    write(folder / 'workdir/setup.sh', '#!/bin/bash\nset -euo pipefail\nrm -rf /tests /solution\n' + writer_script(step['updates'], '/workspace') + 'rm /workspace/setup.sh\n')
                 before.update(oracle)
             manifest['packages'].append(dict(name=task.name, task=case['id'], arm=arm, steps=len(case['steps'])))
     write(destination.parent / (destination.name + '-manifest.json'), json.dumps(manifest, indent=2) + '\n')

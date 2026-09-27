@@ -32,10 +32,14 @@ def collect(jobs, prefix):
                 observed = json.loads(observed_path.read_text()) if observed_path.exists() else None
                 review_id = trial_id + f'-{i+1}'
                 error = step.get('exception_info') or data.get('exception_info')
+                trajectory_path = folder / 'agent/trajectory.json'
+                trace = json.loads(trajectory_path.read_text()) if trajectory_path.exists() else {}
+                calls = [dict(function_name=c['function_name'], arguments=c.get('arguments'))
+                         for event in trace.get('steps', []) for c in event.get('tool_calls', [])]
                 steps.append(dict(review_id=review_id, mechanical_pass=observed['mechanical_pass'] if observed else False,
                                   execution_seconds=seconds(step.get('agent_execution')),
                                   execution_error=error.get('exception_type', 'unknown') if error else None,
-                                  observed=observed))
+                                  observed=observed, tool_calls=calls))
                 packets.append(dict(review_id=review_id, task=task, step=i+1,
                                     rubric=cases[task]['steps'][i]['rubric'], observed=observed))
             usage_parts = [s.get('agent_result') or {} for s in (data.get('step_results') or [data])]

@@ -48,6 +48,12 @@ def main():
         result = json.loads((args.jobs / name / 'result.json').read_text())
         if result['stats']['n_errored_trials']:
             raise SystemExit(f'Infrastructure errors recorded in {name}; inspect before starting another block.')
+        if args.mode != 'model':
+            for trial in (args.jobs / name).glob('*/result.json'):
+                data = json.loads(trial.read_text())
+                reward = data['verifier_result']['rewards']['mechanical']
+                if (args.mode == 'oracle' and reward != 1) or (args.mode == 'nop' and reward == 1):
+                    raise SystemExit(f'Control failed in {trial}; fix the harness before model runs.')
 
 
 if __name__ == '__main__':
