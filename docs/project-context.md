@@ -38,7 +38,13 @@ does not change the already executed studies or their frozen acceptance criteria
 
 ## Current state
 
-- Skill supports audit, initialize and maintain operations.
+- Core skill supports audit, initialize and maintain operations.
+- Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
+  v0.1.0, applies the core method and merges ongoing maintenance into project
+  `AGENTS.md`. Install it alongside `context-docs`; it is not standalone.
+  [Adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
+  projects passed adoption and unchanged repeat passes across four fresh sessions.
+  These author-reviewed cases do not establish automatic selection or general reliability.
 - The [standard](../skills/context-docs/references/standard.md) defines document
   roles, evidence/decision distinctions and maintenance behavior.
 - Two templates, an authored example and five behavioral evaluation scenarios

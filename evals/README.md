@@ -172,3 +172,10 @@ approval, lost unique information, unauthorized edits in audit mode and overwrit
 user changes as failures regardless of how short or polished the output becomes.
 File size or word count alone is not a quality score. Real-world maintenance cost
 and retrieval/answer accuracy remain separate measurements.
+
+## Optional adoption skill
+
+Use the [adoption regression](adoption/README.md) for `adopt-context-docs` changes.
+It checks initial adoption and repeated use on projects with no documentation and
+with existing rules, a custom layout and uncommitted work. Core maintenance studies
+do not establish the adoption wrapper's behavior.

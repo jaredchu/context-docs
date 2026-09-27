@@ -1,0 +1,59 @@
+{
+  "reviewer": "authoring assistant; not blinded or independent",
+  "trials": [
+    {
+      "case": "adopt-empty-docs",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "rubric": [
+            "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+            "Adds ongoing context-docs maintenance guidance to project AGENTS.md; does not install skill copies or change code."
+          ],
+          "semantic_pass": true,
+          "evidence": "Generated README/context/AGENTS describe only supplied CSV behavior and establish ongoing maintenance."
+        },
+        {
+          "step": "pass-2",
+          "mechanical_pass": true,
+          "rubric": [
+            "Repeated adoption leaves the established documentation and instructions byte-identical; no duplicate rules or files."
+          ],
+          "semantic_pass": true,
+          "evidence": "Actual captured input and output documents are identical; non-document and Git preservation checks also pass."
+        }
+      ]
+    },
+    {
+      "case": "adopt-existing",
+      "steps": [
+        {
+          "step": "pass-1",
+          "mechanical_pass": true,
+          "rubric": [
+            "Preserves layout, original instructions, Approved offline rationale, Proposed cloud status and uncommitted restore blocker.",
+            "Adds one effective ongoing context-docs maintenance rule in AGENTS.md; no competing context files or copied skills."
+          ],
+          "semantic_pass": true,
+          "evidence": "Only AGENTS.md gains maintenance guidance; original layout, authority, decision states, rationale and blocker remain intact."
+        },
+        {
+          "step": "pass-2",
+          "mechanical_pass": true,
+          "rubric": [
+            "Repeated adoption preserves all files byte for byte, including prior uncommitted work and maintenance guidance."
+          ],
+          "semantic_pass": true,
+          "evidence": "Actual captured input and output documents are identical; non-document and Git preservation checks also pass."
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "n_completed_trials": 2,
+    "n_errored_trials": 0,
+    "n_retries": 0
+  },
+  "oracle_trials": 2
+}

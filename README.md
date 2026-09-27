@@ -6,13 +6,22 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, skill v0.1.1.** The package contains instructions only.
+**Status: experimental, core skill v0.1.1; adoption skill v0.1.0.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
 ## Use it
 
-With the skill installed, ask your agent:
+With both skills installed, adopt a new or existing project with:
+
+```text
+$adopt-context-docs
+```
+
+This applies the core method and adds or merges a maintenance rule in the project's
+`AGENTS.md`. Existing equivalent guidance is reused. For routine audits and
+maintenance, use `$context-docs` directly:
+
 
 ```text
 Use $context-docs to audit this project's context documents. Report the gaps
@@ -29,6 +38,10 @@ Use $context-docs to establish a minimal context entry point for this project.
 Use existing docs and code as evidence; mark anything you cannot verify.
 ```
 
+The adoption shortcut passed [two adoption-and-repeat regression cases](evals/results/2026-09-27-adoption/README.md)
+(four model sessions). Both repeat passes left project files unchanged. These are
+small author-reviewed checks, not evidence of general reliability.
+
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
@@ -44,15 +57,24 @@ initialization workflow.
 Ask the built-in installer:
 
 ```text
-Use $skill-installer to install the context-docs skill from
-https://github.com/jaredchu/context-docs/tree/main/skills/context-docs
+Use $skill-installer to install both skills from jaredchu/context-docs:
+- skills/context-docs
+- skills/adopt-context-docs
+Install them together in ~/.agents/skills/ for use across my projects.
+If context-docs is already installed, preserve it and install only the missing
+adoption skill; report any version mismatch before upgrading.
 ```
 
-Or clone this repository and copy `skills/context-docs` into your project's
-`.agents/skills/` directory. For personal use across repositories, copy it into
-`~/.agents/skills/`. Check for an existing `context-docs` folder first and review
-changes when upgrading. Copy the whole skill folder, including references and
-assets. Codex normally detects changes automatically; restart if it does not.
+The adoption skill requires `context-docs` as a sibling folder. It is a small
+setup wrapper, not a standalone replacement for the core skill. The core skill
+can be installed and used by itself.
+
+Alternatively, clone this repository and copy both complete folders from `skills/`
+into `~/.agents/skills/`. For a repository-scoped installation, copy both into
+`.agents/skills/` at the project root instead. Use one scope to avoid duplicate
+skill entries. Check existing folders and review changes before upgrading; retain
+references, assets, metadata and licenses. Codex normally detects changes
+automatically; restart if they do not appear.
 See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
@@ -74,7 +96,8 @@ same method. No forced directory migration or universal document-size limit.
 
 ## Contents
 
-- [Reusable skill](skills/context-docs/SKILL.md)
+- [Core maintenance skill](skills/context-docs/SKILL.md)
+- [Project adoption shortcut](skills/adopt-context-docs/SKILL.md)
 - [Context standard](skills/context-docs/references/standard.md)
 - [Optional context template](skills/context-docs/assets/project-context.md)
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
