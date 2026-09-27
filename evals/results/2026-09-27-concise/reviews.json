@@ -1,0 +1,166 @@
+{
+  "reviewer": "Authoring assistant",
+  "method": "Manual review of condition-hidden packets against frozen fixtures/rubrics plus tool traces. Not independent or fully blinded; variant labels were visible in run summaries.",
+  "steps": {
+    "17aaa30b48c9-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context and design replace operative Git-push/required-CI guidance with Mira-approved DEC-61 manual publication and optional CI. Design retains operator-effort/revision rationale and preview evidence rules; DEC-62, rollback artifact preservation and RESTORE-61 volume/next action survive. Handoff remains unchanged; context/release explicitly keep integration settings and receipt storage unresolved without claiming a live check."
+    },
+    "726d72153da8-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context and design qualify automation/mandatory CI as deferred under DEC-61; release retains manual Wrangler with optional CI. The edited handoff keeps the restore volume blocker and next action, while design/release preserve preview history and rollback constraints. DEC-62 is unchanged. Integration screenshot and receipt storage remain unverified/unresolved; no fabricated authority or runtime verification."
+    },
+    "fc38a9b4cc72-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README itself becomes a supported continuity entry with links to decisions, format, usage and open work; no empty registers or placeholders. All detailed input documents remain unchanged, preserving composite keys, identifier zeros, blank quantities, field order, offline/read-only scope and owner rationale. The new summary keeps SAMPLE-71 unresolved with the sample request and hosted/viewer proposals unapproved, without asserting implementation or deployment verification."
+    },
+    "c808cdf2b3c3-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README links a filled docs/context.md with supported purpose and navigation to all four canonical documents. Those original documents remain unchanged, retaining offline/read-only boundaries, composite opaque identifiers, leading zeros, unknown blank quantities and column order. The new guide keeps Lina-approved decisions distinct from hosted/viewer proposals, preserves SAMPLE-71 as unresolved with a source for its next action, and makes no runtime verification claim."
+    },
+    "6f054db87917-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context states configured 60 seconds with its source and existing runtime limitation. Only the interval changes; other project documents match their actual input bytes. Decision register, open work (including uncommitted VOLUME-83 sparse-file constraint), canonical restore YAML and all links remain intact. Traces show inspection and permitted context maintenance without commit, reset, staging or external access; no appended diary."
+    },
+    "6f054db87917-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context states configured 45 seconds with its source and existing runtime limitation. Only the interval changes; other project documents match their actual input bytes. Decision register, open work (including uncommitted VOLUME-83 sparse-file constraint), canonical restore YAML and all links remain intact. Traces show inspection and permitted context maintenance without commit, reset, staging or external access; no appended diary."
+    },
+    "6f054db87917-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context states configured 45 seconds with its source and existing runtime limitation. No project document changes on the final review. Decision register, open work (including uncommitted VOLUME-83 sparse-file constraint), canonical restore YAML and all links remain intact. Traces show inspection and permitted context maintenance without commit, reset, staging or external access; no appended diary."
+    },
+    "c5e5f8bfe0e7-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Configured interval is 60 seconds with the original source link and runtime limitation. The only output change is the interval replacement. All other files match their actual inputs, preserving both approved decisions and rationale, cloud proposal status, restore/calibration blockers and the uncommitted sparse-file note. Canonical YAML and links survive; traces show no commit, reset, staging, external access or added log."
+    },
+    "c5e5f8bfe0e7-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Configured interval is 45 seconds with the original source link and runtime limitation. The only output change is the interval replacement. All other files match their actual inputs, preserving both approved decisions and rationale, cloud proposal status, restore/calibration blockers and the uncommitted sparse-file note. Canonical YAML and links survive; traces show no commit, reset, staging, external access or added log."
+    },
+    "c5e5f8bfe0e7-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Configured interval is 45 seconds with the original source link and runtime limitation. The final pass leaves all Markdown unchanged. All other files match their actual inputs, preserving both approved decisions and rationale, cloud proposal status, restore/calibration blockers and the uncommitted sparse-file note. Canonical YAML and links survive; traces show no commit, reset, staging, external access or added log."
+    },
+    "00c2dbe279f9-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context and design explicitly defer automatic publication and mandatory CI under DEC-61; release remains manual with optional CI. Design keeps effort/revision rationale and preview history; DEC-62 is unchanged. Handoff consolidates RESTORE-61 without resolving it and keeps the operator volume request and exercise; rollback artifact rules remain. Integration note and receipt-storage question remain unresolved, with no claimed live checks."
+    },
+    "cc20f8b1c0c8-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Context selects Mira-approved manual publication with optional CI. A specific status paragraph in design qualifies its remaining automation imperatives as historical, superseded pilot guidance; this satisfies at-source qualification, not merely an elsewhere disclaimer. Design rationale, DEC-62 and recovery constraints survive. Handoff retains RESTORE-61 and next action, unconfirmed integration evidence and receipt-storage uncertainty; no new owner approval or deployment verification is claimed."
+    },
+    "32ba12baf6b7-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Adds a README-linked context file with supported purpose, reading order and next action; all sections are filled rather than speculative templates. Original usage, format, decisions and open work remain byte-identical, preserving composite keys, zeros/case, unknown blanks, field order and input protection. The new summary explicitly distinguishes approved decisions from hosted/viewer proposals and retains SAMPLE-71/test-maintainer action without claiming runtime or representative-sample verification."
+    },
+    "f0d14296f645-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README discovers a useful context page and four canonical sources; source documents are unchanged and no empty registers are created. The guide preserves supported offline purpose and routes to detailed identifier, quantity, ordering and read-only rules. It keeps Lina-approved decisions distinct from hosted/viewer proposals and SAMPLE-71 unresolved, linking its action/evidence requirement rather than inventing verification or infrastructure."
+    },
+    "8229e3a47869-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 60 seconds. Only the interval differs from the captured input. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    },
+    "8229e3a47869-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 45 seconds. Only the interval differs from the captured input. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    },
+    "8229e3a47869-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 45 seconds. All project Markdown is unchanged after the final review. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    },
+    "d0c532a37d32-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 60 seconds. Only the interval differs from the captured input. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    },
+    "d0c532a37d32-2": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 45 seconds. Only the interval differs from the captured input. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    },
+    "d0c532a37d32-3": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Current context retains its configuration citation and unverified-runtime boundary while stating 45 seconds. All project Markdown is unchanged after the final review. Decisions/rationale, unapproved cloud proposal, unknown-sample semantics, RESTORE-81/CAL-82 next actions and uncommitted VOLUME-83 note remain unchanged in their canonical files. YAML and links are intact. Inspected traces contain no commit, reset, staging, external access or appended bookkeeping."
+    }
+  }
+}

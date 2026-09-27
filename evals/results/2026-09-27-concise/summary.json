@@ -1,0 +1,89 @@
+{
+  "original": {
+    "success": 6,
+    "mechanical_pass": 6,
+    "semantic_pass": 6,
+    "median_agent_seconds": 65.43159,
+    "agent_seconds_range": [
+      44.367875,
+      133.261475
+    ],
+    "total_agent_seconds": 476.79416699999996,
+    "median_word_delta": 203.5,
+    "word_delta_range": [
+      0,
+      371
+    ],
+    "n_input_tokens": 737604,
+    "n_cache_tokens": 635520,
+    "n_output_tokens": 11115,
+    "uncached_input_tokens": 102084,
+    "unchanged_third_passes": 2
+  },
+  "candidate": {
+    "success": 6,
+    "mechanical_pass": 6,
+    "semantic_pass": 6,
+    "median_agent_seconds": 79.822688,
+    "agent_seconds_range": [
+      50.550036,
+      142.18268999999998
+    ],
+    "total_agent_seconds": 549.303246,
+    "median_word_delta": 171.0,
+    "word_delta_range": [
+      0,
+      203
+    ],
+    "n_input_tokens": 727237,
+    "n_cache_tokens": 645120,
+    "n_output_tokens": 12106,
+    "uncached_input_tokens": 82117,
+    "unchanged_third_passes": 2
+  },
+  "by_task": {
+    "wide-release": {
+      "original": {
+        "success": 2,
+        "median_word_delta": 322.5,
+        "median_agent_seconds": 63.8653235
+      },
+      "candidate": {
+        "success": 2,
+        "median_word_delta": 184.0,
+        "median_agent_seconds": 79.822688
+      }
+    },
+    "mature-init": {
+      "original": {
+        "success": 2,
+        "median_word_delta": 211.0,
+        "median_agent_seconds": 50.572874
+      },
+      "candidate": {
+        "success": 2,
+        "median_word_delta": 181.0,
+        "median_agent_seconds": 54.2367775
+      }
+    },
+    "long-maintenance": {
+      "original": {
+        "success": 2,
+        "median_word_delta": 0.0,
+        "median_agent_seconds": 123.95888599999999
+      },
+      "candidate": {
+        "success": 2,
+        "median_word_delta": 0.0,
+        "median_agent_seconds": 140.59215749999998
+      }
+    }
+  },
+  "adoption_gate": {
+    "all_trials_pass": true,
+    "tasks_with_lower_candidate_growth": 2,
+    "no_task_over_50_extra_words": true,
+    "final_passes_unchanged": true,
+    "passed": true
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "harbor_version": "0.23.0",
+  "codex_version": "0.158.0-alpha.2",
+  "model": "gpt-6-astra",
+  "effort": "low",
+  "task_count": 3,
+  "conditions": [
+    "original",
+    "candidate"
+  ],
+  "attempts": 2,
+  "skill_files": {
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "f984f37019600e4b735bd04f27d46e609b3fee7c0e7244578d77291a964c6640",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "suite_files": {
+    "build.py": "b8c78df3c32bd7552d6faf97d4327ff69a76bef94bf5d73d6fdfe60042f4f106",
+    "cases.py": "dd2d37d11b8daffd60d790ff5b00cb09743c0230ca67b1a8c35434a9e950f6e7",
+    "codex.toml": "9d6eb77f5bcc094926b5284e01516c3df3b4c2721f2a360cf771540825736b38",
+    "collect.py": "d8c7dee110edf24f2e4750afb124242ad82c23b9dac1d7c726d7d29a657b372f",
+    "report.py": "923db27c6c701f571dda3cf5ed818777cfcc761da1ea2ff8b2151a4e3fc93b70",
+    "run.py": "4be8cf99acd38996e524b105335c9a2cfa3a6090ed26f977cef8f9bbc809f6df",
+    "selftest.py": "5a4d340bd089b434ccd8fafd0596dd4b53c1a5a16436902711257aa85c5978b8",
+    "verify.py": "1351f31ef2b82fb2bcb5d4e713b103bdcca5b5f1c864f3c3acabd2db4484d1bd"
+  },
+  "packages": [
+    {
+      "name": "wide-release-original",
+      "task": "wide-release",
+      "arm": "original",
+      "steps": 1
+    },
+    {
+      "name": "wide-release-candidate",
+      "task": "wide-release",
+      "arm": "candidate",
+      "steps": 1
+    },
+    {
+      "name": "mature-init-original",
+      "task": "mature-init",
+      "arm": "original",
+      "steps": 1
+    },
+    {
+      "name": "mature-init-candidate",
+      "task": "mature-init",
+      "arm": "candidate",
+      "steps": 1
+    },
+    {
+      "name": "long-maintenance-original",
+      "task": "long-maintenance",
+      "arm": "original",
+      "steps": 3
+    },
+    {
+      "name": "long-maintenance-candidate",
+      "task": "long-maintenance",
+      "arm": "candidate",
+      "steps": 3
+    }
+  ],
+  "candidate_freeze_commit": "136bd31",
+  "execution_commit": "1e4caf9640e448b140891f9a1b6d516baefc01dc",
+  "variant_files": {
+    "original": {
+      "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "SKILL.md": "f984f37019600e4b735bd04f27d46e609b3fee7c0e7244578d77291a964c6640",
+      "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+    },
+    "candidate": {
+      "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+      "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+    }
+  },
+  "study_files": {
+    "original-SKILL.md": "f984f37019600e4b735bd04f27d46e609b3fee7c0e7244578d77291a964c6640",
+    "candidate-SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    "plan.md": "a37d47147dcd1fb28c637936cd83d0dbbbacbc0b3a97bf635a88ef416f276b0b",
+    "study.py": "5f62afadc63ea0b656d5ed46969801c80de20213d4159d405d4771bbd1c73f0d",
+    "fixtures.py": "a8bbd042e6c9ac5bc9ed881735e44e3d96753f88c4a77b330cb18c9f0adfc7d1"
+  },
+  "initial_words": {
+    "wide-release": 676,
+    "mature-init": 581,
+    "long-maintenance": 572
+  },
+  "postprocessing_files": {
+    "evals/concise/study.py": "b6fa09c97e9854496028bae23b7b368d792e7979f009c7b8377aa29ccbdbfa4c",
+    "evals/suite/collect.py": "d8c7dee110edf24f2e4750afb124242ad82c23b9dac1d7c726d7d29a657b372f",
+    "evals/suite/report.py": "923db27c6c701f571dda3cf5ed818777cfcc761da1ea2ff8b2151a4e3fc93b70",
+    "evals/suite/audit_isolation.py": "797962d0cf0f7e6df0dbf983b201f33fd12e1039a9a4944f7c077e1170e42fe9"
+  },
+  "postprocessing_note": "After scored execution was frozen, study.py gained control export and actual-input continuity assertions; audit_isolation.py was added. Candidate, fixtures, generated packages, runner and graders were unchanged during scored runs.",
+  "outcome": "Candidate accepted as experimental skill v0.1.1 under the frozen plan. The standard and supporting resources remain v0.1.0."
+}

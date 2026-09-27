@@ -21,8 +21,9 @@ Approved by the project owner in the founding request on September 26, 2026:
 - Keep Markdown/Git authoritative and cloud integrations optional for later.
 
 Initial implementation choices: MIT license; skill at `skills/context-docs`;
-experimental version 0.1.0; no runtime dependencies. These are choices made while
-implementing the authorized first version, not additional attributed owner quotes.
+experimental version 0.1.0 at launch; no runtime dependencies. These are choices
+made while implementing the authorized first version, not additional attributed
+owner quotes.
 
 On September 27 the owner accepted the proposed eight-task, two-condition,
 three-attempt evaluation. Harbor is the selected execution framework; evaluation
@@ -52,22 +53,36 @@ dependencies are separate from the instruction-only skill package.
   more time/tokens and added more words in five of eight task categories.
   See [results, reproducible evidence and limits](evaluation-2026-09-27.md).
 - Public fixtures are small development cases, not held-out projects. No general
-  superiority or equivalence is established. The README table is generated from
+  superiority or equivalence is established. The 48-trial README table is generated from
   recorded trials/reviews and retains the earlier natural-cleanup miss.
-- Controls passed before scored runs. Later multi-step mechanical change checks
-  compare against reference-stage input; actual input capture remains a harness
-  improvement. Full task scoring also requires semantic review of progression.
+- The [concision follow-up](evaluation-2026-09-27-concise.md) completed 12 trials /
+  20 sessions on new 572–676-word synthetic projects. Original and candidate both
+  passed 6/6 trials; candidate median growth was lower for release guidance and
+  initialization, unchanged for repeated maintenance. It met the frozen acceptance
+  rule and is adopted as experimental skill v0.1.1. Supporting resources and the
+  standard remain v0.1.0. This is an implementation choice supported by these tests.
+- v0.1.1 has a shorter entry point (417 vs 645 words), but was slower and emitted
+  more output tokens in the follow-up. Initialization did not shrink in every
+  attempt. No general speed, cost or correctness advantage is established.
+- The harness now captures actual input before each pass and verifies continuity
+  against actual prior output. Reference/no-op controls and preservation checks
+  passed. The earlier 48-trial scores remain unchanged with their original limits.
+- Recorded-input audits passed for all 80 sessions across the two public studies:
+  no host global instructions were injected. Authoring/review influence and shared
+  scope/preservation prompts remain limitations; normal global-instruction use has
+  not been evaluated.
 
 ## Next actions
 
-1. Capture actual per-step input snapshots and add larger held-out fixtures with
-   dispersed/ambiguous evidence; keep the completed baseline intact.
-2. Evaluate a fresh reader's answers, automatic selection, other models and longer
-   maintenance sequences. The current study covers explicit use on one model.
-3. Test any verbosity reduction as a separate skill candidate, especially for
-   workflow guidance and initialization. Do not add more instructions merely
-   because the private pilot missed one conflict. Cloud adapters still require a
-   concrete retrieval or cross-machine need.
+1. Test a fresh reader's project answers after maintenance, using independent or
+   externally contributed fixtures. Keep both completed studies and the private
+   pilot miss visible; new author-created fixtures are not independent holdouts.
+2. Evaluate automatic selection, other models, normal global-instruction setups
+   and longer maintenance sequences when those become relevant. Current evidence
+   covers explicit use on one model and up to three passes.
+3. Monitor v0.1.1 on real work before further prompt tuning. Avoid adding rules for
+   isolated examples. Cloud adapters still need a concrete retrieval or cross-machine
+   use case.
 
 ## Canonical references
 
@@ -76,4 +91,5 @@ dependencies are separate from the instruction-only skill package.
 - [Evaluation scenarios](../evals/README.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)
+- [Concision comparison and v0.1.1 adoption](evaluation-2026-09-27-concise.md)
 - [Contribution guidance](../CONTRIBUTING.md)

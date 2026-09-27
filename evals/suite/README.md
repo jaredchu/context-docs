@@ -1,10 +1,16 @@
 # Public context-maintenance suite
 
-Eight synthetic tasks compare ordinary instructions with the unchanged Context
-Docs skill. These are custom tasks run by **Harbor 0.23.0**, not a SkillsBench
+Eight synthetic tasks compare ordinary instructions with Context Docs. The
+published 48-trial study used the unchanged v0.1.0 skill; current builds use the
+package in `skills/context-docs`. These are custom tasks run by **Harbor 0.23.0**, not a SkillsBench
 leaderboard submission or an external benchmark score.
 
 ## Reproduce
+
+For the exact published 48-trial setup, use execution commit `f308aa1` (or
+`f51dabf` for its completed reporting tools). Current main includes the input
+snapshot fix below. The [separate concision experiment](../concise/README.md)
+uses that fix with larger fixtures and two skill variants.
 
 Requires Python 3.9+, uv, Docker, and an existing Codex login in `auth.json`.
 Harbor's adapter uploads that login into disposable local containers and removes
@@ -58,13 +64,15 @@ and ordinary heading anchors are supported; this is not a complete Markdown
 parser. Whole-input-file retention is intentional for these fixtures, not a
 universal restriction on documentation maintenance.
 
-Later maintenance steps compare document-change checks with the published
-reference-stage input, not a captured copy of the agent's preceding output.
-Consequently a no-op agent can earn partial mechanical reward in those steps.
-The full no-op trial is rejected, and semantic review checks actual progression
-and compares successive outputs. Harbor's mean mechanical reward must not be
-presented as task accuracy. Capturing actual per-step input snapshots is a
-future harness improvement.
+Current builds capture actual project files immediately before each agent pass,
+after any fixture update. Change and retention checks use that snapshot, including
+files created in earlier passes; original immutable constraints remain separate.
+The snapshot lives outside the project and is recorded in `observed.json` as
+Markdown input plus a full-input hash. Missing snapshots fail verification.
+The published 48-trial experiment predates this fix: its later change checks used
+reference-stage input and could give partial no-op reward. Its scores have not
+been rewritten. Overall accuracy always requires full-trial semantic review;
+Harbor's mean mechanical reward is not task accuracy.
 
 Each generated test writes `observed.json` with document contents, checks and
 counts. Review every rubric item against these outputs and original evidence.
@@ -100,6 +108,15 @@ Docker provides filesystem separation from the user's source projects. No host
 source directories are mounted. Network access is available for authentication;
 the agent is instructed not to contact services and web search is disabled.
 This is a trusted synthetic-task evaluation, not an adversarial isolation test.
+Snapshots are not hardened against deliberate modification by a root agent.
+
+Host global instructions and personal configuration are not copied to the test
+containers. The shared committed configuration disables project-instruction
+injection and host skill discovery. A recorded-input audit of all 60 published
+sessions found exactly the expected task/environment user messages and no
+injected `AGENTS.md` messages. See the [count-only audit](../results/2026-09-27-harbor/isolation.json).
+This does not remove authoring/review bias or measure the skill alongside a user's
+usual global instructions. Both conditions also share explicit preservation rules.
 
 ## Export and review
 

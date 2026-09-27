@@ -1,0 +1,226 @@
+[
+  {
+    "task": "long-maintenance-original",
+    "mode": "oracle",
+    "task_checksum": "1d6d61d602f921ed84b96f133fd449519719e92cef86e39cc90ef99e82a65d47",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "1e601227f24ed6332b309ae68d4d02b21f44cc9c5dc4d044a2033db2f7fe1aab"
+      },
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "7fa64c8034e82525c06e54861667379ec5bb319b511f51a8ef394ff3a78d7b11"
+      },
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "6e008ffe1ba6f854c303525366e19bf1f663bc48a2b328bd28e14251f8d234da"
+      }
+    ]
+  },
+  {
+    "task": "mature-init-original",
+    "mode": "oracle",
+    "task_checksum": "5223dde5e1e416d0c488813b1b8f34179b637c80800843e041f99664332b5bb1",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "preserved:1b3f7a0500": true,
+          "preserved:81a15b668a": true,
+          "preserved:0368eef023": true,
+          "preserved:138676bfbb": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "7c12af8c90d035cb1eccd4ed2fd8114ed4e0f8a363b0b868d3e6e7592f72ce32"
+      }
+    ]
+  },
+  {
+    "task": "wide-release-original",
+    "mode": "oracle",
+    "task_checksum": "b81368585054df9401ed068839a40f43171bf9bc47a92066726ad739dceb83b1",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "preserved:de7ebfee16": true,
+          "preserved:a8dbf739f8": true,
+          "preserved:b006c0eb6a": true,
+          "preserved:40030743d9": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "28f6efe5310a6288e0d7eb32ab3b81a20600da8a0b3d374227a2ac3d9690c3bf"
+      }
+    ]
+  },
+  {
+    "task": "long-maintenance-original",
+    "mode": "nop",
+    "task_checksum": "1d6d61d602f921ed84b96f133fd449519719e92cef86e39cc90ef99e82a65d47",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": false,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": false,
+        "before_sha256": "1e601227f24ed6332b309ae68d4d02b21f44cc9c5dc4d044a2033db2f7fe1aab"
+      },
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": false,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": false,
+        "before_sha256": "b381c512fb5a4d4da2cce05873e56d2000600802522b2415cb5822a9dc01d314"
+      },
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:config/poll.yaml": true,
+          "preserved:a25671fd9c": true,
+          "preserved:0a75c673c0": true,
+          "preserved:8daa5d51ab": true,
+          "preserved:56937b9893": true,
+          "preserved:39856b6dab": true,
+          "preserved:694ee2661f": true,
+          "local_links_and_anchors": true,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": true,
+        "before_sha256": "b381c512fb5a4d4da2cce05873e56d2000600802522b2415cb5822a9dc01d314"
+      }
+    ]
+  },
+  {
+    "task": "mature-init-original",
+    "mode": "nop",
+    "task_checksum": "5223dde5e1e416d0c488813b1b8f34179b637c80800843e041f99664332b5bb1",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "preserved:1b3f7a0500": true,
+          "preserved:81a15b668a": true,
+          "preserved:0368eef023": true,
+          "preserved:138676bfbb": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": false,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": false,
+        "before_sha256": "7c12af8c90d035cb1eccd4ed2fd8114ed4e0f8a363b0b868d3e6e7592f72ce32"
+      }
+    ]
+  },
+  {
+    "task": "wide-release-original",
+    "mode": "nop",
+    "task_checksum": "b81368585054df9401ed068839a40f43171bf9bc47a92066726ad739dceb83b1",
+    "execution_error": null,
+    "steps": [
+      {
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "preserved:de7ebfee16": true,
+          "preserved:a8dbf739f8": true,
+          "preserved:b006c0eb6a": true,
+          "preserved:40030743d9": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": false,
+          "no_agent_commits_or_staging": true
+        },
+        "mechanical_pass": false,
+        "before_sha256": "28f6efe5310a6288e0d7eb32ab3b81a20600da8a0b3d374227a2ac3d9690c3bf"
+      }
+    ]
+  }
+]

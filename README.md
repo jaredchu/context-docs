@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, v0.1.0.** The first version is an instruction-only skill.
+**Status: experimental, skill v0.1.1.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
@@ -80,6 +80,27 @@ same method. No forced directory migration or universal document-size limit.
 
 ## Evaluation results
 
+**Latest: concise skill v0.1.1**, tested in 12 trials on three new synthetic
+projects of 572–676 words. Original and candidate both passed 6/6 trials under
+mechanical checks and author-reviewed semantic criteria. The candidate met the
+[predeclared acceptance rule](evals/concise/plan.md) and was adopted.
+
+| Median net Markdown growth | Original v0.1.0 | Concise v0.1.1 |
+| --- | ---: | ---: |
+| Release guidance | +322.5 words | +184 words |
+| Initialization | +211 words | +181 words |
+| Repeated maintenance | 0 words | 0 words |
+
+The skill entry point shrank from 645 to 417 words. Initialization was shorter
+only on the two-attempt median, not in both attempts. The candidate was slower
+(79.8 vs 65.4 seconds median) and used more output tokens. These are small,
+author-created cases, not independent evidence of general superiority. Host
+global instructions were excluded and recorded inputs checked.
+See the [full comparison, variation and limitations](docs/evaluation-2026-09-27-concise.md)
+and [reproduction commands](evals/concise/README.md).
+
+The earlier **ordinary instructions versus v0.1.0** study remains below.
+
 **Public custom suite, run with Harbor 0.23.0 on September 27, 2026.** Eight
 synthetic tasks × two conditions × three attempts: **48 trials**. Model:
 `gpt-6-astra`, low effort; Codex CLI `0.158.0-alpha.2`; unchanged skill v0.1.0.
@@ -134,7 +155,7 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Repeated held-out tests and downstream reader accuracy remain next. Cloud
+Independent fixtures and downstream reader accuracy remain next. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).

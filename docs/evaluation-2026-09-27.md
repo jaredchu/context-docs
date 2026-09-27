@@ -120,6 +120,13 @@ answers. If reducing repeated caveats or guidance in the skill, evaluate that as
 a separate candidate against this baseline and unseen tasks. Cross-model results,
 automatic activation, long-term maintenance and real cost remain unmeasured.
 
+A subsequent [input audit](../evals/results/2026-09-27-harbor/isolation.json) checked
+all 60 recorded sessions: each contained the exact generated task request and
+container environment message, with no injected `AGENTS.md` user messages.
+Host preferences can still influence the authoring assistant's design and review.
+The common preservation rules in both arms also limit the incremental effect this
+comparison can attribute to the skill. These observations do not alter the scores.
+
 ## Reproduce and inspect
 
 - [Suite instructions and reproducible commands](../evals/suite/README.md)

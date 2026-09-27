@@ -78,6 +78,25 @@ def selftest():
     print(f'{n} new-fixture control assertions passed.')
 
 
+def control_results(jobs, prefix):
+    controls = []
+    for mode in ('oracle', 'nop'):
+        job = jobs / f'{prefix}-{mode}-1'
+        for path in sorted(job.glob('*/result.json')):
+            data = json.loads(path.read_text())
+            steps = []
+            for step in data.get('step_results') or [data]:
+                folder = path.parent / 'steps' / step['step_name'] if 'step_name' in step else path.parent
+                observed = json.loads((folder / 'verifier/observed.json').read_text())
+                steps.append(dict(checks=observed['checks'], mechanical_pass=observed['mechanical_pass'],
+                                  before_sha256=observed['before_sha256']))
+            controls.append(dict(task=data['task_name'], mode=mode, task_checksum=data['task_checksum'],
+                                 execution_error=data.get('exception_info'), steps=steps))
+    assert len(controls) == len(CASES) * 2
+    assert all(not c['execution_error'] and all(s['mechanical_pass'] for s in c['steps']) == (c['mode'] == 'oracle') for c in controls)
+    return controls
+
+
 def main():
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest='command', required=True)
@@ -95,10 +114,16 @@ def main():
         args.output.mkdir(parents=True, exist_ok=True)
         (args.output / 'trials.json').write_text(json.dumps(trials, indent=2) + '\n')
         (args.output / 'review-packets.json').write_text(json.dumps(packets, indent=2) + '\n')
+        (args.output / 'controls.json').write_text(json.dumps(control_results(args.jobs, args.prefix), indent=2) + '\n')
         print(f'Collected {len(trials)} trials and {len(packets)} step review packets.')
     else:
         trials = json.loads((args.output / 'trials.json').read_text())
         reviews = json.loads((args.output / 'reviews.json').read_text())
+        # These fixtures inject configuration only between passes. Each later
+        # Markdown input must therefore match the actual preceding output exactly.
+        for trial in trials:
+            for previous, current in zip(trial['steps'], trial['steps'][1:]):
+                assert current['observed']['before_documents'] == previous['observed']['documents'], 'Input continuity mismatch'
         summary, table = summarize(trials, reviews['steps'], CASES, CONDITIONS, attempts=2)
         quality = all(t['success'] for t in trials)
         lower = sum(summary['by_task'][c['id']]['candidate']['median_word_delta'] < summary['by_task'][c['id']]['original']['median_word_delta'] for c in CASES)
