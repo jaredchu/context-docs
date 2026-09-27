@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.1; adoption skill v0.1.1.** The package contains instructions only.
+**Status: experimental, core skill v0.1.1; adoption skill v0.1.2.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
@@ -26,6 +26,9 @@ Method: context-docs
 Adopted: YYYY-MM-DD
 Entry point: path/to/context.md
 ```
+
+New maintenance sections preferably use a `Context maintenance` heading, then the
+marker, then maintenance instructions. Existing equivalent layouts are preserved.
 
 The path reflects the project's actual entry point. Repeat runs preserve the
 original adoption date and reuse equivalent guidance. When retrofitting a marker,
@@ -58,6 +61,8 @@ retains an initial guidance-rewrite failure and date-test ambiguity. Targeted
 follow-ups passed marker-only adoption, read-only auditing and explicit-date
 preservation. Ten sessions across initial and revised conditions are reported
 separately; the final revision was tested on the two affected unmarked cases.
+Adoption v0.1.2 adds only the preferred layout for new sections. Metadata, package
+links and existing static controls were checked; no new model evaluation was run.
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.

@@ -42,6 +42,11 @@ Adopted: YYYY-MM-DD
 Entry point: path/to/context.md
 ```
 
+When creating a new maintenance section, prefer a `Context maintenance` heading,
+followed by the adoption marker, then maintenance instructions. Preserve existing
+equivalent sections and marker positions; do not rearrange them solely for
+formatting consistency.
+
 Use the actual context entry point, relative to that AGENTS.md; a README section
 is also valid. For new adoption, use the current date. Preserve an existing
 adoption date and equivalent marker rather than adding another. When adding a
