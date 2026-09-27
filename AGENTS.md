@@ -1,6 +1,8 @@
 # Working on Context Docs
 
 - Read `README.md` and `docs/project-context.md` first.
+- For context audits, initialization or maintenance, read and apply
+  [this project's skill](skills/context-docs/SKILL.md). An audit leaves files unchanged.
 - Keep the installable skill self-contained under `skills/context-docs`.
   References used by the skill belong there, not only in repository docs.
 - The standard is canonical in `skills/context-docs/references/standard.md`.
