@@ -1,0 +1,794 @@
+[
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit nonempty envvar values both yield integer 10 through str(flag_value) and integer conversion; accurately separates code inference from string-valued test coverage."
+  },
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Child-context cleanup closes the captured File; path-based managed processing or group ownership preserve correct lifetime. Source supports warning that open_file alone does not register cleanup."
+  },
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable os.environ default with prompt=True, removes overriding envvar/default_map and applicable autoenv; correct accept/replace and CLI precedence."
+  },
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Removes switch; stdout/stderr separate from capture-order output, with empty stderr and byte/text behavior supported by testing implementation and test."
+  },
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Lazy delays open only; atomic sibling temp publishes on close not flush, with precise w-mode defaults and no rollback/durability promise. Implementation and atomic-file test support it."
+  },
+  {
+    "trial_id": "36078b571c7b",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Close-before-Exit invokes both cleanup forms, ownership follows required lifetime, callback fallback and exception-forwarding caveat supported by core/context tests."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Both nonempty explicit env values yield integer 10 via flag_value substitution then int conversion; checkout-specific core path and cited release/test sources support it."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Subcommand File cleanup precedes processors; path plus manually managed full iteration or longer-lived group ownership are valid solutions supported by command/resource/type sources."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable environment default plus prompt=True, disabling applicable automatic env lookup and removing explicit envvar/default_map overrides; correct displayed-default confirmation behavior."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Removes mix_stderr, separates stdout/stderr and mixed write-order output, with available empty stderr and byte captures; testing.py and regression test support it."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Lazy opening does not hide incremental writes; atomic sibling-file replacement on close with exact w-mode defaults, no rollback/fsync guarantee and mode limitations matches source."
+  },
+  {
+    "trial_id": "d6b7086e121a",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ctx.exit closes ExitStack before Exit, invoking callbacks and with_resource cleanup; explains group ownership and limits on abrupt termination, supported by core/resource docs/tests."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Both explicit strings produce integer 10; traces envvar substitution before conversion and states related tests do not execute these exact integer examples."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explains closed subcommand resource and valid manual processing scope or group ownership; no false extension of the subcommand lifetime."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable environment default prompts, removes higher-priority envvar/default_map sources and disables applicable autoenv; source-supported confirmation behavior."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Removes mix_stderr, separate assertions and mixed-order output, always available stderr; testing.py/tests/history support all material claims."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Correct lazy/atomic distinction, exact w-mode default, sibling-file replace on close, and no rollback/fsync overclaim. Cited file implementations support it."
+  },
+  {
+    "trial_id": "4a2f22490b30",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ctx.exit closes ExitStack before Exit, both callback/manager cleanup and group lifetime explained. Correctly limits cleanup success and exception-aware rollback."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Task queue, separate workers and serializable inputs with WSGI task cancellation; ASGI continuing-loop alternative and durability limits supported by async/ASGI/Celery guides."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ProxyFix trust counts per header, single-proxy example explicitly conditional, deployment unknown and header spoofing bounded. Extra external-URL/host-validation distinctions match cited config/history."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active-view stream_with_context or captured values; iteration lifetime and cleanup, session/header timing and sync iterator limitation match cited implementation and guides."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Current key signs after fallbacks, old signatures verified with expiry; separate extension checks and finite retention, with version fix and refresh behavior supported by sources."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit app context and context-local lazy g.db; states g.pop(db,None), closes if present, and explicitly handles never-opened connections. Both required criteria met, including the prior omission."
+  },
+  {
+    "trial_id": "0ec4cca25738",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact independent limits/defaults and correct request properties, documentation typo and None sentinel resolved from implementation; no invented deployed cause."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Both explicit env values become integer 10 through truthy flag_value substitution and int conversion; no false-string parsing assumption."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Subcommand resource closes before returned processing; manual managed full consumption or group ownership covers the actual lifetime, supported by source."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable env-derived prompt default; removes overriding direct/automatic envvar and default_map sources, correct accept/replace behavior."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Removes mix_stderr, separates stdout/stderr and mixed captured order, with always-available stderr and byte properties supported by testing.py/tests/changelog."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Lazy delays opening but exposes writes; atomic same-directory replacement on close and no rollback/fsync guarantee, with w-mode/standard-stream restrictions supported by source."
+  },
+  {
+    "trial_id": "d97d6ea61893",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ctx.exit closes ExitStack before Exit, both cleanup registrations run on owning context, limits on cleanup failure/forced termination stated correctly."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Queue with separate workers resolves cancelled WSGI tasks; ASGI continuing loop is an alternative with bounded durability. Sources substantiate it."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicitly conditional ProxyFix trust counts with unknown topology and header handling; extra host/outside-request URL facts supported by config/history."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Request context retained during generator iteration via active-view wrapper or capture values first; cleanup, session timing and synchronous-body limitation source-supported."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active key signs and fallbacks verify, version selection fix and expiry/refresh limits preserved, no extension/deployment guarantee. Cited implementation/config/tests support it."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Uses app.app_context or CLI, lazy context-local g.db, g.pop(db,None) and close-if-present on teardown; rejects permanent context/cache and separates pooling."
+  },
+  {
+    "trial_id": "a250d575d4b8",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact form/total limits and defaults, all three correct overrides, None fallback and typo corrected with source/tests; unknown server cause retained."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Both nonempty explicit strings produce integer 10 via flag substitution before int conversion; differentiates code inference from existing string-value tests."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Subcommand File context closes before processors; group-owned or manually opened full-iteration resource is valid, with correct cleanup ownership and consumption boundary."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable environment default, prompt=True and disabled autoenv with direct envvar/default_map absent; displayed-default confirmation and CLI precedence supported by docs/core."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Removes mix_stderr, separate stdout/stderr versus mixed capture-order output, empty stderr and byte/text differences; end-of-invocation flushing and buffering caveat match testing implementation."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Lazy postpones opening, not partial writes; atomic sibling temporary replaces on close, with correct w defaults and no rollback/fsync claim. Supported by file implementations."
+  },
+  {
+    "trial_id": "42ecb2bf8ebd",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exit explicitly closes context before raising; both registrations and owning-context lifetime, reverse cleanup order and exception-forwarding limit supported by core/tests."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Separate task queue, minimal serialized inputs and worker context; explains WSGI cancellation and ASGI continuing-loop alternative without a durability guarantee. Supported by cited guides/app."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ProxyFix wraps app.wsgi_app with conditional per-header counts, no assumed topology; correct host-validation and outside-request URL distinction supported by config/app/history."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active-view wrapper keeps context through synchronous iteration, with capture-values alternative; cleanup, headers/session timing and async-typing limitation match sources."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active SECRET_KEY signs while fallbacks verify; version fix, finite window, session expiration/refresh and extension limits accurately source-supported."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit app context/CLI and lazy context-local g.db; g.pop(db,None) with close-if-present explicitly handles unused resources and exceptions. No permanent cache claim."
+  },
+  {
+    "trial_id": "cd089c5bed8b",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact independent limits/defaults, correct per-request overrides and typo/None fallback behavior, before-parsing requirement and unknown ingress limits. Cited sources support it."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Queue and separate worker with optional app context; correct WSGI task cancellation and ASGI continuing-loop alternative with no durability overclaim."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ProxyFix header trust counts explicitly conditional on actual topology, forged-header risk preserved; PREFERRED_URL_SCHEME distinction source-supported."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active-request stream_with_context wrapper/decorator plus captured values, with iteration lifetime and generator cleanup supported by guide/helpers/tests."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "New key signs, old keys verify; exact release fix, expiry and extension restrictions plus current-key requirement supported by cited source and tests."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit app context/CLI, lazy g cache and missing-safe g.pop(db,None)/close-if-present teardown; separates longer-lived pool/data from g lifetime."
+  },
+  {
+    "trial_id": "7c6e9eb87216",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact multipart/total defaults and overrides, typo/None sentinel resolved from implementation/tests; retains uncertainty about actual request/proxy failure."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Both explicit nonempty env values become integer 10 through flag substitution before int conversion; code-derived cases distinguished from related string-valued tests."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Child context closes captured File too soon; manually managed result-callback scope or group-owned resource covers full consumption. Sources support ownership and cleanup warning."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Callable environment prompt default with overriding envvar/default_map sources removed and autoenv disabled; show_default and CLI precedence caveats supported by docs/core/tests."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Switch removed, stdout/stderr separate from mixed-order output, always-available stderr and correct byte/text/flushing detail supported by testing sources."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Lazy does not conceal writes; atomic sibling temp replaces on close not flush, exact w-mode defaults and no rollback/fsync guarantee supported by implementation/tests."
+  },
+  {
+    "trial_id": "e383847cd28d",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Registers manager/callback on ctx, close-before-Exit and normal teardown invoke cleanup; reset stack and exception-forwarding caveats match core/tests. No forced-success guarantee."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Task queue and separate worker for cancelled WSGI spawned tasks; correct ASGI alternative and durability limit supported by guides."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ProxyFix wraps app.wsgi_app with per-header trust and conditional counts; unknown topology and spoofing risk preserved, outside-request scheme distinguished."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active-context wrapper/decorator keeps request during generator iteration, with captured-values alternative and cleanup supported by streaming guide/helpers."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Current key signs, fallbacks verify, release fix/expiry/refresh and separate extension compatibility accurately supported by source/config/history."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit app context or CLI, lazy context-local cache, teardown closes if present. The presence guard is stated in prose; separates permanent storage/pooling from g lifetime."
+  },
+  {
+    "trial_id": "daa883d35ac0",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact independent default limits and setters, typo and None sentinel resolved using implementation; no invented deployed failure diagnosis."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q1",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Task queue/separate worker architecture, WSGI cancellation and ASGI continuing-loop alternative correctly scoped with deployment durability unknown. Guides/app support it."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q2",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "ProxyFix uses per-header trust with strictly conditional counts, unknown topology and spoofing risk preserved. Host and outside-request URL details source-supported."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q3",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Active-view wrapper/decorator or capture plain values, context lifetime through synchronous iteration and cleanup, session/header timing and async-body limitation supported by cited source."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q4",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Current key signs and fallbacks verify, current-key requirement, expiry/refresh, finite overlap and release fix all supported; extensions and deployment remain conditional."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q5",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Explicit app context/CLI, lazy context-local connection, g.pop(db,None)/close-if-present and tolerance of partial initialization; supported by guide/context/tutorial/test."
+  },
+  {
+    "trial_id": "840e8671c777",
+    "id": "q6",
+    "criteria": [
+      true,
+      true
+    ],
+    "supported": true,
+    "material_error": false,
+    "evidence": "Exact independent defaults and correct overrides before parsing; typo/None sentinel and limited resource guarantees supported by source/tests, actual deployed cause left open."
+  }
+]

@@ -124,21 +124,37 @@ and Click 8.2.1 corpora (143,604 and 102,647 source/test/doc words).
   both projects are in the Pallets ecosystem. The weak-docs study and private
   pilot miss remain visible. The skill stays v0.1.1 unchanged.
 
-A [README routing follow-up](../evals/routing/README.md) is prepared to separate
-README-first discovery from directed orientation reading. It reuses the four
-unchanged public handoffs, adds equivalent routing links in temporary README
-files, and plans 12 fresh reader sessions with model-visible exposure checks.
-Questions and criteria are reused, including the previous omission; this is not
-a held-out benchmark. Results are pending and the skill remains v0.1.1.
+The [README routing follow-up](evaluation-2026-09-27-routing.md), frozen in
+`a02cade`, completed 12 fresh reader sessions and 72 answers using unchanged
+handoffs and the prior second question phrasing.
+
+- Temporary README prefixes provide equivalent orientation links; readers either
+  start at README and choose sources or must read its linked orientation in full.
+  This is harness-authored routing, not a new maintenance-agent result.
+- Full handoff text reached all 8/8 maintained-artifact readers before answers;
+  all 12/12 read README. Discovery: ordinary/skill 2/2 each, upstream index 1/2.
+  Directed reading: all targets 6/6. Exposure uses model-visible tool output,
+  not self-report or raw execution logs, and does not prove comprehension.
+- All 72 answers pass: every arm scores 12/12 in each mode. All Flask readers
+  include safe missing-resource cleanup. No accuracy advantage or equivalence
+  is established, and this is a known-case follow-up, not held-out evaluation.
+- All 12 scope/isolation checks pass; no execution errors, retries or discarded
+  runs. Four reference/no-op controls behaved as expected; decoder and report
+  controls passed. Frozen hashes and unmodified output publication verified.
+- README usage now explains entry-point links and fresh-session reading. This
+  already exists in skill initialization guidance; skill v0.1.1 and standard
+  remain unchanged. Routing and entry instructions both changed from the prior
+  pilot, so do not attribute the exposure difference to a link alone.
 
 ## Next actions
 
-1. Separate handoff discovery from consumption in the next evaluation: permit a
-   project entry-point link and verify actual handoff reading under equal reader
-   instructions. Then add longer maintenance histories and independently authored
-   questions/reviews. Keep equal raw-evidence access, a competent ordinary baseline,
-   frozen cases, the private pilot miss and all completed results. Do not tune the
-   skill to the one public-reader omission: that reader never read its handoff.
+1. Shift the next quality evaluation to independently authored project decisions
+   and changing constraints across sessions, including knowledge not recoverable
+   from code alone. Keep verified context reading, equal raw-evidence access, a
+   competent ordinary baseline and frozen criteria. Measure preservation,
+   contradictions and supported future answers. Repeating these easy public
+   questions is unlikely to distinguish accuracy. Preserve all earlier results;
+   do not tune the skill merely to the single historical reader omission.
 2. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
    covers explicit use on one model and up to three passes.
@@ -153,6 +169,7 @@ a held-out benchmark. Results are pending and the skill remains v0.1.1.
 - [Evaluation scenarios](../evals/README.md)
 - [Completed quality and fresh-reader study](evaluation-2026-09-27-quality.md)
 - [Larger public-source pilot](evaluation-2026-09-27-public.md)
+- [README routing and verified reading](evaluation-2026-09-27-routing.md)
 - [Quality-first comparison protocol](../evals/quality-protocol.md)
 - [September 26 local-project benchmark](evaluation-2026-09-26.md)
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)

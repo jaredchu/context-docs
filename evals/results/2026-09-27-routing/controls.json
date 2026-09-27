@@ -1,0 +1,38 @@
+[
+  {
+    "task": "route-4f8f3f732248-reader",
+    "mode": "oracle",
+    "task_checksum": "0036e86a44ebd843708c4540f0caa4d49d43ebb30be5e67a188f946c6fdd622e",
+    "error": null,
+    "rewards": {
+      "mechanical": 1
+    }
+  },
+  {
+    "task": "route-c74417d7eb05-reader",
+    "mode": "oracle",
+    "task_checksum": "fba944c605eb843609ae2b01aed61eb835dee1d364601d06217c8c98ce3cbb7d",
+    "error": null,
+    "rewards": {
+      "mechanical": 1
+    }
+  },
+  {
+    "task": "route-4f8f3f732248-reader",
+    "mode": "nop",
+    "task_checksum": "0036e86a44ebd843708c4540f0caa4d49d43ebb30be5e67a188f946c6fdd622e",
+    "error": null,
+    "rewards": {
+      "mechanical": 0
+    }
+  },
+  {
+    "task": "route-c74417d7eb05-reader",
+    "mode": "nop",
+    "task_checksum": "fba944c605eb843609ae2b01aed61eb835dee1d364601d06217c8c98ce3cbb7d",
+    "error": null,
+    "rewards": {
+      "mechanical": 0
+    }
+  }
+]

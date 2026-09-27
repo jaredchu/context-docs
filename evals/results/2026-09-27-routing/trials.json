@@ -1,0 +1,1288 @@
+[
+  {
+    "id": "36078b571c7b",
+    "metadata": {
+      "name": "route-294947b52219-reader",
+      "task": "route-294947b52219",
+      "arm": "skill",
+      "steps": 1,
+      "world": "click",
+      "target": "CONTEXT.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTEXT.md)\n\n---\n\n",
+      "parent_trial_id": "38ccdad067b9",
+      "original_snapshot_sha256": "ab20c9309560704bedb16adacdf169cf321b7a0deea10be6daf6bd4666e092b8",
+      "routed_snapshot_sha256": "4760bc871ba03a95a39a8b618f4a786606fcf27f149f1b2311805563a3b24f36",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "4760bc871ba03a95a39a8b618f4a786606fcf27f149f1b2311805563a3b24f36"
+    },
+    "task_checksum": "e98a274718372342bb032103234c1943413c820ded6f4cdfe7e82da17cdd65c2",
+    "steps": [
+      {
+        "review_id": "36078b571c7b",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. Assuming no command-line override, both LEVEL='8' and LEVEL='0' yield integer 10. Both are nonempty strings, and this checkout's Option.resolve_envvar_value replaces an explicit environment value with str(flag_value) when is_flag and flag_value are truthy; type=int then converts '10' to 10. '0' does not disable this flag. Empty or unset LEVEL falls through to defaults. The exact integer cases follow from code; the existing environment-flag test demonstrates substitution with arbitrary text and a string flag_value.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Each chained subcommand's context closes before the group's result callback runs the returned processors. click.File registers its opened file for cleanup on that subcommand context, so a captured file is already closed. Pass paths instead and open them with managed with click.open_file(...) blocks during pipeline execution, consuming all lazy processing before leaving those blocks. Alternatively, put a shared file parameter or ctx.with_resource(...) registration on the group context, which stays active through the result callback. Calling open_file alone does not register context cleanup.",
+              "sources": [
+                "docs/commands.rst",
+                "src/click/core.py",
+                "src/click/types.py",
+                "src/click/utils.py"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use a callable default with prompting: @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user'), with os imported and USER replaced by your variable name. Remove the option's direct envvar binding, disable automatic environment lookup with allow_from_autoenv=False if applicable, and avoid setting this option through default_map. Those higher-precedence sources bypass prompting even with a callable default. When the option is omitted, the callable supplies an editable prompt default; an explicit command-line value still bypasses the prompt.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction: the switch was removed. result.output now contains stdout and stderr mixed in captured write order, rather than being an alias for stdout. Migrate stdout-only assertions to result.stdout, diagnostics assertions to result.stderr, and keep result.output for combined interaction assertions. The test's alternating writes 1/3 to stdout and 2/4 to stderr produce output ordered 1,2,3,4, while stdout contains only 1,3 and stderr only 2,4. Empty stderr returns ''. For raw bytes use stdout_bytes, stderr_bytes, or output_bytes; text properties decode with replacement and normalize CRLF.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True defers the real open until first access/IO, avoiding premature creation or truncation of unused output files. It does not hide intermediate writes once opened. Lazy reads briefly open for validation. click.File defaults to lazy for modes containing 'w', and eager for reads and standard streams; click.open_file defaults to lazy=False. Use atomic=True with 'w' mode for config replacement, for example with click.open_file(path, 'w', atomic=True) as f: ... . Writes go to a temporary file in the same directory, and close publishes it with os.replace; flush alone does not publish it, as the atomic-file test verifies. Atomic mode rejects append/exclusive-create modes and is ignored for standard streams. Material caveat: this checkout replaces even on exceptional context exit because _AtomicFile.close ignores its delete argument. Atomic publication therefore does not guarantee rollback on failure or crash durability. If failed generation must preserve the original, finish generation first or manage a temporary file with replacement only on success.",
+              "sources": [
+                "docs/handling-files.rst",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py",
+                "tests/test_arguments.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. ctx.exit(code) explicitly calls ctx.close() before raising Exit(code). close() closes the ExitStack, invoking __exit__ for resources entered with with_resource and running call_on_close callbacks in reverse registration order. Register your connection's context manager on the context that owns its required lifetime; cleanup runs on ctx.exit() and normal context teardown. For a connection without context-manager support, register ctx.call_on_close(connection.close). This ensures cleanup is invoked on Click's exit path, not that a failing cleanup operation succeeds. Since cleanup uses ExitStack.close(), resource managers should not depend on receiving the command's exception in __exit__ to decide shutdown behavior.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_context.py"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 120.474645,
+        "usage": {
+          "n_input_tokens": 140006,
+          "n_cache_tokens": 111744,
+          "n_output_tokens": 3209
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "d6b7086e121a",
+    "metadata": {
+      "name": "route-4f8f3f732248-reader",
+      "task": "route-4f8f3f732248",
+      "arm": "upstream",
+      "steps": 1,
+      "world": "click",
+      "target": "docs/index.rst",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](docs/index.rst)\n\n---\n\n",
+      "parent_trial_id": null,
+      "original_snapshot_sha256": "affae26286f36874b75c152b6e15a5cebe5566146a2db732a25d35dab8ad15b0",
+      "routed_snapshot_sha256": "4c9ac62201fbef4603881d1d64f1b2eec7c9050a270c3c90c1acef102420c1e2",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "4c9ac62201fbef4603881d1d64f1b2eec7c9050a270c3c90c1acef102420c1e2"
+    },
+    "task_checksum": "0036e86a44ebd843708c4540f0caa4d49d43ebb30be5e67a188f946c6fdd622e",
+    "steps": [
+      {
+        "review_id": "d6b7086e121a",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. Both LEVEL='8' and LEVEL='0' produce integer 10 with these settings. Both strings are nonempty, and the explicit envvar path replaces them with str(flag_value) before type=int converts it. '0' does not disable the flag. Unset or empty LEVEL supplies no environment value. To pass arbitrary integers through, use a value-taking integer option instead of a flag. This answer is specific to this checkout and the explicit envvar path.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Click closes each subcommand context when its callback finishes, before the returned processors run in the group's result callback. click.File registers cleanup on that context, so a captured file is already closed. Accept a filename or click.Path and manually open it with click.open_file in a with block that includes all processing. For a generator processor, keep the with block around the yielding loop. Alternatively, own the files in the group's result callback and fully consume the pipeline before leaving its resource scope, or register shared resources on the longer-lived group context. Do not tie delayed-use resources to the finished subcommand context.",
+              "sources": [
+                "docs/commands.rst",
+                "src/click/types.py",
+                "docs/advanced.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use a callable default: @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user', allow_from_autoenv=False), with import os and your actual environment variable name. Remove the explicit envvar setting and avoid a default_map entry for this option, since those sources suppress prompting. When --username is absent, the environment-derived default is displayed and the user can type a replacement or press Enter to accept it. This is a displayed default, not prefilled editable text. An explicit command-line value still skips the prompt.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction; the switch was removed. Capture is always separate: use result.stdout for stdout assertions and result.stderr for stderr assertions; absent stderr is an empty string. result.output now combines both streams in write order. Thus former mix_stderr=False tests that used result.output for stdout should use result.stdout; use result.output only for the combined transcript. The byte equivalents are stdout_bytes, stderr_bytes, and output_bytes. The repository's test_stderr verifies alternating writes and separate captures.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True defers opening a normal writable file until first I/O, avoiding creation/truncation if it is unused. Once opened it does not hide intermediate writes. click.File normally uses lazy opening for w modes, immediate opening for reads and standard streams; explicitly lazy reads still briefly open for validation. atomic=True in w mode writes to a temporary file in the same directory and replaces the destination with os.replace on close, keeping intermediate writes out of the destination path. Combine them, for example: with click.open_file(path, 'w', lazy=True, atomic=True) as f: ... . Ensure all writes finish before closing. Material limits: atomic is not rollback-on-error here: _AtomicFile.close ignores its delete argument, so exceptional context-manager exit also replaces the destination. There is no fsync-based crash-durability guarantee. Atomic mode rejects append and exclusive-create modes and is ignored for standard streams ('-').",
+              "sources": [
+                "docs/handling-files.rst",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. ctx.exit(code) calls ctx.close() before raising Exit(code). close() closes the ExitStack, running call_on_close callbacks and exiting context managers registered with with_resource. Use conn = ctx.with_resource(connect_db(...)), where the context manager closes the connection in __exit__ or a finally block. Register it on the group context if subcommands share it. Cleanup before exit is documented as an 8.2 change. The explicit close applies to the context on which exit is called; enclosing contexts clean up as normal invocation unwinds. Dependable cleanup still requires a correctly implemented resource manager and normal process execution, rather than abrupt termination.",
+              "sources": [
+                "src/click/core.py",
+                "docs/advanced.rst",
+                "tests/test_context.py",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 115.812049,
+        "usage": {
+          "n_input_tokens": 170070,
+          "n_cache_tokens": 139904,
+          "n_output_tokens": 3013
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "4a2f22490b30",
+    "metadata": {
+      "name": "route-557105506703-reader",
+      "task": "route-557105506703",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "click",
+      "target": "HANDOFF.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](HANDOFF.md)\n\n---\n\n",
+      "parent_trial_id": "481a2f4e355d",
+      "original_snapshot_sha256": "854169cc69de4fb6002fc3ae04d74080925dfb3d076e59dc3a5a6c6688a109b2",
+      "routed_snapshot_sha256": "696f544967cf0770516cee09319bf35ee41a4a31a852d4d73667f6d419a56952",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "696f544967cf0770516cee09319bf35ee41a4a31a852d4d73667f6d419a56952"
+    },
+    "task_checksum": "878851738e3a7e6fb1fdd3d7de5a95f23ef39887c238a4d34ce082b6146b5606",
+    "steps": [
+      {
+        "review_id": "4a2f22490b30",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. With is_flag=True, flag_value=10, type=int and explicit envvar='LEVEL', both LEVEL='8' and LEVEL='0' produce integer 10 when the environment supplies the value. Both strings are nonempty, so Option.resolve_envvar_value substitutes str(flag_value) before integer conversion. '0' does not disable the flag. Unset or empty values fall through to defaults; command-line values take precedence. This follows from the implementation; the related environment test covers arbitrary text with a string flag_value, rather than these exact integer cases.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py",
+                "tests/test_options.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Each chained subcommand context closes after its callback returns, before the group result callback runs the returned processors. click.File registers cleanup on that subcommand context, so its opened file is already closed. Pass a path and open it inside the processor using with click.open_file(path) as f, keeping the block active throughout consumption, including generator iteration. Alternatively, make the file group-owned or register it with the group context's with_resource: that context remains open through result processing. Merely using open_file does not arrange cleanup; a with block inside the subcommand callback still ends too early.",
+              "sources": [
+                "src/click/core.py",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "docs/commands.rst",
+                "docs/advanced.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use prompt=True with a callable default, for example @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user'), with os imported. This offers the environment-derived value as a prompt default that the user can accept or replace. Remove the explicit envvar binding, disable automatic environment lookup for this option with allow_from_autoenv=False if applicable, and avoid a default_map entry for it. Those higher-priority sources otherwise still bypass prompting. An explicit command-line value also bypasses the prompt as expected.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction; the switch was removed. Use result.stdout for stdout-only assertions and result.stderr for diagnostics. Change result.output assertions that previously meant stdout alone to result.stdout. Keep result.output for the combined transcript: it contains both streams in capture order, not stdout concatenated with stderr. The repository test asserts alternating stdout/stderr messages in output while each separate property contains only its own messages. Empty stderr returns an empty string. Use stdout_bytes, stderr_bytes or output_bytes for exact bytes; text properties decode with replacement and normalize CRLF.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True delays opening a regular output file until first use, avoiding creation or truncation if unused; it does not hide intermediate writes once opened. click.File defaults to lazy for modes containing 'w', except standard streams; click.open_file defaults to lazy=False. Lazy reads still briefly open and close for validation. atomic=True writes into a temporary file in the destination directory and replaces the destination with os.replace on close, keeping intermediate writes out of the destination. Use click.File('w', atomic=True) or with click.open_file(path, 'w', atomic=True) as f; lazy and atomic can be combined. Atomic regular-file writes require 'w', reject 'a' and 'x', and standard streams ignore atomic. Crucially, this checkout replaces on close even when the writing block exits with an exception: it does not guarantee rollback and may publish incomplete application output. There is no fsync/crash-durability guarantee in this implementation, and platform/filesystem behavior was not runtime-verified.",
+              "sources": [
+                "docs/handling-files.rst",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. ctx.exit(code) explicitly calls ctx.close() before raising Click's Exit exception, a behavior documented as changed in 8.2. close() drains the ExitStack, invoking registered callbacks and the __exit__ methods of managers entered through with_resource. Use conn = ctx.with_resource(connection_manager), on the group context if the connection must survive subcommands. Cleanup runs on normal teardown and ctx.exit(); for a resource without a context manager, register ctx.call_on_close(conn.close). Tests cover cleanup before early exit and with_resource teardown. This ensures cleanup is invoked, not that the connection's cleanup cannot fail. ExitStack.close does not forward an active exception to the manager, so do not infer exception-aware transactional rollback.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_context.py",
+                "docs/advanced.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 119.223987,
+        "usage": {
+          "n_input_tokens": 159662,
+          "n_cache_tokens": 137728,
+          "n_output_tokens": 3226
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "0ec4cca25738",
+    "metadata": {
+      "name": "route-65e1dd43a5db-reader",
+      "task": "route-65e1dd43a5db",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "flask",
+      "target": "CONTRIBUTOR_HANDOFF.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTRIBUTOR_HANDOFF.md)\n\n---\n\n",
+      "parent_trial_id": "6088b40c52ce",
+      "original_snapshot_sha256": "be1598f94c2e0cac54776eae76be3e967b6ceef7ae628ef323fa07f02400cd41",
+      "routed_snapshot_sha256": "43ec60554b6f049cdbaaf6190506b9d7a17065f4b58b469634ef42fdc52186c4",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "43ec60554b6f049cdbaaf6190506b9d7a17065f4b58b469634ef42fdc52186c4"
+    },
+    "task_checksum": "a853e44c69292fae5b4a0454eb912f0c5a0ec9e6606399b48cdc05d1c1644ec1",
+    "steps": [
+      {
+        "review_id": "0ec4cca25738",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue such as the documented Celery integration, with a broker and separate workers, for a slow job that must outlive the request. Enqueue minimal serializable data or IDs, return a task ID immediately, and poll for results instead of waiting in the route. Recreate resources in the worker; the example wraps tasks in app.app_context(). In ordinary WSGI serving, Flask stops the async view's event loop when it completes, cancelling unfinished tasks such as asyncio.create_task jobs. An async view still occupies one worker per request. For in-process asyncio tasks, the documented alternative is asgiref.wsgi.WsgiToAsgi(app) served by an ASGI server, providing a continuously running event loop. This alone is not durable job storage or a retry policy. Consider Quart for a predominantly async application needing long-running requests or websockets. Your deployment, broker, persistence, and retry requirements are not established here.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/deploying/asgi.rst",
+                "docs/patterns/celery.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Use Werkzeug ProxyFix around app.wsgi_app, trusting each forwarded header according to the actual proxy chain. Conditional example for exactly one trusted proxy supplying original X-Forwarded-For and X-Forwarded-Proto values: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). This provides Flask the forwarded client address and scheme. Enable host/prefix forwarding only when the real deployment warrants it. The guide's x_for=1, x_proto=1, x_host=1, x_prefix=1 is an example, not evidence of your topology. Establish which proxies set each header and prevent untrusted clients from injecting trusted values or bypassing the proxy; wrong trust counts permit spoofing. No unconditional numeric configuration is justified by this checkout, and Werkzeug's implementation is not included. PREFERRED_URL_SCHEME is for external URL generation outside requests, not correction of incoming requests; outside-request URLs also need the actual SERVER_NAME and APPLICATION_ROOT as appropriate. Separately use TRUSTED_HOSTS to validate incoming hosts (default None accepts all); SERVER_NAME no longer restricts incoming hosts in 3.1.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Wrap the synchronous CSV generator while the request context is active: return Response(stream_with_context(generate()), mimetype='text/csv'), importing Response and stream_with_context from flask. Alternatively decorate generate with @stream_with_context and call it inside the view. Ordinary body iteration occurs after the view returns and otherwise loses request access. The wrapper retains the request context during iteration and closes the underlying iterator if it supports close; exhaust or close the response to allow cleanup. If only a few values are needed, another option is to capture them in the view and pass plain values into the generator. Set headers, status, and session changes before returning: Flask saves the session before body iteration, so retaining session access does not persist generator-time mutations in cookies. Read session values before returning when they must affect Vary: Cookie. Use a synchronous iterator; the 3.1.1 AsyncIterable typing change is for Quart compatibility, not Flask runtime support. Actual incremental delivery can be affected by middleware or server buffering.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py",
+                "src/flask/app.py",
+                "src/flask/sessions.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "On this Flask 3.1.1 checkout, configure the built-in secure-cookie session with SECRET_KEY=new_key and SECRET_KEY_FALLBACKS=[oldest_key, previous_key], using strong random keys and preferably ordering old keys oldest to newest. New cookies are signed with the current key; fallbacks verify old signatures subject to normal expiration. Version 3.1 added fallbacks, and 3.1.1 fixes signing-key selection order: the serializer receives old keys first, current key last. Do not assume older Flask releases support this or 3.1.0 has the fix. Extensions using SECRET_KEY and custom session backends need separate compatibility checks. Rotation does not automatically rewrite every cookie: normally a session must be modified or permanent with SESSION_REFRESH_EACH_REQUEST enabled (default True). Loading checks signature age against PERMANENT_SESSION_LIFETIME (default 31 days), including non-permanent sessions. Keep old keys for the chosen acceptance window, then retire them; unverifiable cookies load as empty sessions. Coordinate accepted keys across all instances before switching signers so old instances can verify newly signed cookies. The project supplies no deployment-specific overlap or retirement window, and rotation cannot preserve already expired sessions.",
+              "sources": [
+                "docs/config.rst",
+                "src/flask/sessions.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Create or obtain the application and run maintenance work inside with app.app_context():, or register an @app.cli.command() command, which receives an application context automatically. This enables current_app and g but does not create an HTTP request or session. Cache a connection only for that application context: get_db() creates g.db if absent and returns it; an @app.teardown_appcontext handler performs db = g.pop('db', None), then db.close() if present. Cleanup must handle a connection never opened and exception paths. g is not permanent or cross-request storage: it lives for the application context, normally one request or CLI operation, although a manually retained context can last longer. Do not retain a context merely to keep one connection forever. For reuse across operations, use a separately managed database connection pool and acquire/release connections per context; persist shared data in an appropriate database or store. Pool configuration and database-specific concurrency requirements are not established by this project.",
+              "sources": [
+                "docs/appcontext.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "MAX_CONTENT_LENGTH defaults to None (no Flask total-byte limit), but multipart parsing has independent defaults: MAX_FORM_MEMORY_SIZE=500_000 bytes for a non-file form field and MAX_FORM_PARTS=1_000 multipart fields/parts. Exceeding limits raises RequestEntityTooLarge (413) during reading/parsing. Therefore too many parts or an oversized non-file field can fail without a total-body limit; your exact failure cannot be determined without the request and deployment configuration. Configure application defaults with these keys. In 3.1, per-view/request controls are request.max_content_length, request.max_form_memory_size, and request.max_form_parts. Assign suitable integer limits before any hook/view reads or parses the body, including request.form or request.files. The config guide's max_form_memory_parts reference is a typo; the actual property is max_form_memory_size. These getters use per-request None as a fallback to application config, so assigning None does not disable a finite app limit. App-level None disables the corresponding Flask limit. These are distinct limits, not interchangeable per-file upload limits or complete process-memory budgets. If the total limit is None, Content-Length is absent, and the WSGI server does not indicate stream termination, no data is read to avoid an unbounded stream. Proxy/server limits may also apply; detailed parsing is delegated to Werkzeug, whose source is not included.",
+              "sources": [
+                "src/flask/wrappers.py",
+                "src/flask/app.py",
+                "docs/config.rst",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 148.251739,
+        "usage": {
+          "n_input_tokens": 175445,
+          "n_cache_tokens": 151296,
+          "n_output_tokens": 4254
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "d97d6ea61893",
+    "metadata": {
+      "name": "route-6d60d6fee0a7-reader",
+      "task": "route-6d60d6fee0a7",
+      "arm": "upstream",
+      "steps": 1,
+      "world": "click",
+      "target": "docs/index.rst",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](docs/index.rst)\n\n---\n\n",
+      "parent_trial_id": null,
+      "original_snapshot_sha256": "affae26286f36874b75c152b6e15a5cebe5566146a2db732a25d35dab8ad15b0",
+      "routed_snapshot_sha256": "4c9ac62201fbef4603881d1d64f1b2eec7c9050a270c3c90c1acef102420c1e2",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "4c9ac62201fbef4603881d1d64f1b2eec7c9050a270c3c90c1acef102420c1e2"
+    },
+    "task_checksum": "76e613296f3bdc555b6ff1fc01459af9f025ca337a876545b308249d8dd476de",
+    "steps": [
+      {
+        "review_id": "d97d6ea61893",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. With no command-line override, both LEVEL='8' and LEVEL='0' yield integer 10. The explicit envvar resolver accepts either nonempty string, then substitutes str(flag_value) because is_flag and flag_value=10 are truthy. type=int converts that to 10; '0' does not deactivate the flag. An unset or empty variable supplies no environment value. To accept arbitrary integers, use a value-taking integer option with is_flag=False and no flag_value.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Each chained subcommand context closes after its callback returns, before the group result callback executes the returned processors. click.File registers cleanup on that context, so a processor's captured opened file is already closed. Accept a filename/path and manually open it with click.open_file instead. Keep a with block or ExitStack alive around the entire processing and consumption of the pipeline, closing resources afterward, including on errors. Alternatively, shared input can belong to the group context, which remains alive during its result callback. Do not attach deferred-use resources to the finished subcommand context.",
+              "sources": [
+                "docs/commands.rst",
+                "src/click/core.py",
+                "src/click/types.py",
+                "src/click/utils.py"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use a callable default: @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user'). Substitute your environment variable for USER. Remove the direct envvar binding; if auto_envvar_prefix is enabled, set allow_from_autoenv=False for this option, and avoid a default_map entry overriding it. Direct environment/config values bypass prompting; a callable default supplies the displayed value that users can accept or replace. An explicit --username still bypasses the prompt.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction; the switch was removed. Both streams are always captured independently. Use result.stdout for stdout-only assertions and result.stderr for stderr-only assertions; absent stderr is an empty string, not an exception. result.output now contains the combined transcript in captured write order, rather than aliasing stdout. Tests previously using mix_stderr=False and result.output for stdout must switch those assertions to result.stdout. Tests expecting a combined transcript can retain result.output. Byte equivalents are stdout_bytes, stderr_bytes and output_bytes.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True delays opening a regular output file until first access/IO, avoiding creation or truncation when unused; it does not hide intermediate writes after opening. click.File defaults to lazy for regular files in w mode, and immediate opening for reading and standard streams. Explicit lazy reading still briefly opens the file for validation. atomic=True writes to a temporary file in the same directory and replaces the destination with os.replace on close. Readers opening the destination see the old contents until replacement, even after flushing the temporary stream. Use click.File('w', lazy=True, atomic=True), or a with block around click.open_file(path, 'w', atomic=True), ensuring closure. Atomic mode requires w mode, rejects append/exclusive modes, and is ignored for standard streams. It is not a success-only transaction: this checkout's _AtomicFile.close ignores its delete argument, so exception-driven closure also replaces the destination. There is no explicit fsync-based crash-durability guarantee.",
+              "sources": [
+                "docs/handling-files.rst",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py",
+                "tests/test_arguments.py",
+                "tests/test_basic.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. ctx.exit(code) explicitly calls ctx.close() before raising Click's Exit exception. close() closes the ExitStack, invoking call_on_close callbacks and __exit__ on managers registered with with_resource. Register connection = ctx.with_resource(connection_manager) on the context whose lifetime should own the connection, and implement shutdown in the manager's __exit__ (or finally for a generator context manager). Normal ctx.exit() therefore cleans up before exiting; this behavior is documented as changed in 8.2. Cleanup exceptions can still propagate, and forced process termination is outside this guarantee.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_context.py",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 127.417738,
+        "usage": {
+          "n_input_tokens": 202254,
+          "n_cache_tokens": 177152,
+          "n_output_tokens": 2991
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "a250d575d4b8",
+    "metadata": {
+      "name": "route-757dd35088e3-reader",
+      "task": "route-757dd35088e3",
+      "arm": "skill",
+      "steps": 1,
+      "world": "flask",
+      "target": "CONTEXT.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTEXT.md)\n\n---\n\n",
+      "parent_trial_id": "a33ad478481b",
+      "original_snapshot_sha256": "1ed3d419c6a9360c3d834940271b005e144b0830bf56a831a714035bc74ea22c",
+      "routed_snapshot_sha256": "87757ff26031b0324c2287f91b9f512a2e1596355ba410042f7f5b1344c6a417",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "87757ff26031b0324c2287f91b9f512a2e1596355ba410042f7f5b1344c6a417"
+    },
+    "task_checksum": "363011ee17b56c55c5d86095bc87dae0198b488a16c4d9097b95c2a5909cf4fa",
+    "steps": [
+      {
+        "review_id": "a250d575d4b8",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue with separate workers, such as the documented Celery integration. With ordinary WSGI handling, Flask stops the async view's event loop when the view completes, cancelling unfinished asyncio.create_task jobs. Async views still occupy one request worker. Enqueue work with serializable IDs/data, return a task ID immediately, and poll for results if needed. Initialize Celery in the app factory and run tasks inside app.app_context() when they need Flask resources; reacquire resources in the worker. Alternatively, serving WsgiToAsgi(app) with an ASGI server supplies a continuing event loop that permits spawned tasks, but does not establish durability across process failure. For a predominantly async application the docs suggest considering Quart. Your broker, delivery guarantees and deployed worker configuration cannot be determined from this checkout.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/patterns/celery.rst",
+                "docs/deploying/asgi.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Use Werkzeug ProxyFix around app.wsgi_app, with the trusted proxy supplying X-Forwarded-Proto and X-Forwarded-For. ONLY if exactly one trusted proxy sets each of those headers, the conditional configuration is: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). Determine trust counts separately per header from the actual proxy chain and its handling of client-supplied headers; incorrect trust permits spoofing. Enable forwarded host, port or prefix only if independently justified. The guide's all-ones example is illustrative, and this checkout supplies no deployment evidence establishing actual counts. PREFERRED_URL_SCHEME controls URL generation outside requests, together with SERVER_NAME and APPLICATION_ROOT; it does not restore the incoming scheme or client address. Use TRUSTED_HOSTS with actual allowed hosts if host validation is needed: SERVER_NAME no longer restricts incoming hosts in 3.1. ProxyFix is a Werkzeug dependency whose implementation is not included here.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst",
+                "CHANGES.rst",
+                "pyproject.toml"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Wrap the synchronous CSV generator while the request is active: return Response(stream_with_context(generate()), mimetype='text/csv'), importing Response and stream_with_context from flask. Alternatively decorate the generator with @stream_with_context and invoke it in the view. Ordinary iteration occurs after the view returns, when request would otherwise be unavailable. The wrapper retains the request context until exhaustion or close and closes the underlying iterator; associated resources can therefore live as long as the stream. If only a few values are needed, capture ordinary values before returning instead. Set headers and modify sessions before returning: session saving occurs before body iteration, so retaining context does not make later session changes persist to a cookie. Use a synchronous iterator: this release's AsyncIterable typing change does not add async-generator response support. Middleware may interfere with streaming delivery.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py",
+                "src/flask/app.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "This checkout is Flask 3.1.1. Set SECRET_KEY to the new strong random key and SECRET_KEY_FALLBACKS to retained old keys, for example app.config.update(SECRET_KEY=new_key, SECRET_KEY_FALLBACKS=[oldest_key, previous_key]). Built-in secure-cookie sessions accept old signatures; newly saved cookies use the current key because the serializer receives fallbacks followed by SECRET_KEY. Coordinate serving instances so cookies signed during rollout remain readable. Retire old keys after an overlap appropriate to session lifetime and rollout needs; each adds verification overhead. Reading an old cookie does not necessarily reissue it: normal session modification/permanent-session refresh rules apply. PERMANENT_SESSION_LIFETIME still limits signature age; invalid or expired cookies produce an empty session. Fallbacks do not replace a missing current key. Compatibility limits: fallback support began in 3.1, and 3.1.0 had a signing-key selection bug fixed in 3.1.1. Extensions and custom session interfaces need independent fallback support. This release requires Python >=3.9, ItsDangerous >=2.2 and Werkzeug >=3.1; installed deployment versions and extension compatibility are unknown.",
+              "sources": [
+                "pyproject.toml",
+                "docs/config.rst",
+                "src/flask/sessions.py",
+                "tests/test_basic.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Create/load the Flask app and run the maintenance operation inside with app.app_context():, or register it as an @app.cli.command() command, which receives an application context automatically. This enables current_app and g, but does not provide a request/session context. g belongs to one application context, not permanent process storage or storage across requests. Follow the documented database pattern: get_db() opens a connection only when 'db' is absent from g and returns g.db; a teardown_appcontext handler does db = g.pop('db', None) and closes it if present. This reuses the connection within the context and releases it on exit, including error paths. Do not keep an application context open forever to retain g.db. If connections must be reused across activities, use a separately managed connection pool with an appropriate lifecycle and borrow/release connections per context; persistent data belongs in the database. The supplied example implements context-scoped connections, not a permanent pool.",
+              "sources": [
+                "docs/appcontext.rst",
+                "examples/tutorial/flaskr/db.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "MAX_CONTENT_LENGTH defaults to None, but independent multipart limits still apply: MAX_FORM_MEMORY_SIZE defaults to 500_000 bytes for a non-file multipart field, and MAX_FORM_PARTS defaults to 1_000 multipart parts. Too many fields can therefore cause 413 RequestEntityTooLarge even without a total-body limit; oversized non-file fields can also fail. Configure these keys globally or set request.max_content_length, request.max_form_memory_size and request.max_form_parts per request/view before any body/form parsing, including access in earlier hooks. The config guide's Request.max_form_memory_parts is a typo: implementation and tests use max_form_memory_size. Assigning None to a request property clears its override and falls back to app config in this release; it does not disable a configured limit. App-level None is documented as omitting a limit. The form config keys and per-request total-length control were added in 3.1. If no total-length limit or Content-Length header exists and the WSGI server does not indicate stream termination, no data is read to avoid an infinite stream. Form limits do not replace total upload limits or server/proxy resource controls. Parsing is delegated to Werkzeug, and this checkout cannot establish the precise cause of your deployed failure.",
+              "sources": [
+                "docs/config.rst",
+                "src/flask/wrappers.py",
+                "src/flask/app.py",
+                "tests/test_request.py",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 147.796543,
+        "usage": {
+          "n_input_tokens": 159505,
+          "n_cache_tokens": 107136,
+          "n_output_tokens": 4110
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "42ecb2bf8ebd",
+    "metadata": {
+      "name": "route-8e510425f3c2-reader",
+      "task": "route-8e510425f3c2",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "click",
+      "target": "HANDOFF.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](HANDOFF.md)\n\n---\n\n",
+      "parent_trial_id": "481a2f4e355d",
+      "original_snapshot_sha256": "854169cc69de4fb6002fc3ae04d74080925dfb3d076e59dc3a5a6c6688a109b2",
+      "routed_snapshot_sha256": "696f544967cf0770516cee09319bf35ee41a4a31a852d4d73667f6d419a56952",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "696f544967cf0770516cee09319bf35ee41a4a31a852d4d73667f6d419a56952"
+    },
+    "task_checksum": "4b70fe5024309d64a769619b6db1239b37f614211299cb83e179171dc7bd511d",
+    "steps": [
+      {
+        "review_id": "42ecb2bf8ebd",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. With is_flag=True, type=int, flag_value=10 and explicit envvar='LEVEL', both LEVEL='8' and LEVEL='0' produce integer 10 when the environment supplies the option. Option.resolve_envvar_value replaces any nonempty explicit environment value with str(flag_value) when is_flag and flag_value are truthy; integer conversion then produces 10. The string '0' is nonempty, so it does not disable the flag. Unset or empty LEVEL falls through to defaults, and an explicit command-line value takes precedence. To accept an environment-provided number, use a value-taking integer option (is_flag=False, without flag_value). This conclusion follows from this checkout's implementation; the existing environment flag test covers arbitrary text with a string flag_value, not these exact integer cases.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py",
+                "tests/test_options.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "In a chained pipeline, each subcommand context closes after that subcommand returns, before the group's result callback runs the returned processors. click.File registers its cleanup on the parsing context, so a regular file opened by a subcommand is already closed. Put a shared click.File option on the group, whose context remains open through result processing, or register an explicitly opened context manager with that group context using ctx.with_resource. Alternatively, accept a click.Path and open it inside the returned processor with 'with click.open_file(path) as f:', keeping that scope alive through all iteration/consumption. Merely replacing click.File with open_file does not establish cleanup ownership, and opening in a local with block in the subcommand closes too early. Consume the pipeline while the owning resource scope is still active.",
+              "sources": [
+                "src/click/core.py",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "tests/test_chain.py"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use a callable default that reads the environment, together with prompt=True, for example: @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user', allow_from_autoenv=False). Import os and substitute your actual environment variable name. Remove the option's explicit envvar binding and avoid providing username through default_map; those higher-priority sources bypass prompting. Disabling automatic environment lookup prevents an auto_envvar_prefix from doing the same. With no command-line username, the callable supplies the displayed prompt default: Enter accepts it, or the user can type a replacement. This is a displayed default, not a prefilled line-editing buffer. An explicit command-line username still bypasses the prompt.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction; this checkout removed that parameter. Both streams are always captured separately: assert result.stdout for standard output and result.stderr for diagnostics. Replace old result.output assertions that meant stdout-only with result.stdout. Keep result.output when asserting the combined stdout/stderr transcript in capture order; do not construct that transcript by concatenating stdout and stderr, which loses interleaving. Empty stderr now returns ''. For byte-exact assertions use stdout_bytes, stderr_bytes or output_bytes; text properties decode with replacement and normalize CRLF. The runner flushes both streams at invocation end, including unflushed stderr, although application buffering can affect capture order.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True defers the actual file opening until access, avoiding creation or truncation of an unused write target; it does not hide intermediate writes once writing starts. Lazy reads still do an initial open/close validation, and later opening can fail. click.File defaults to lazy for modes containing 'w' except standard streams; click.open_file defaults to lazy=False. atomic=True writes to a temporary file in the destination directory, then uses os.replace on close so the destination is replaced without exposing the intermediate writes through that path. For a config replacement use, for example, 'with click.open_file(path, 'w', atomic=True) as f:' and write the complete content in that scope; lazy=True can be combined with atomic=True. Atomic regular-file writes require a mode containing 'w', reject append/exclusive modes, and are ignored for standard streams. Crucially, this implementation replaces on close even if the with block exits with an exception: it is not rollback-on-error. Prepare and validate content before writing if necessary. The code does not fsync, so this is not a crash-durability guarantee, and actual replacement guarantees depend on the underlying filesystem.",
+              "sources": [
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. On this checkout, ctx.exit(code) explicitly calls ctx.close() before raising Click's Exit exception, a behavior documented as changed in 8.2. close() drains the ExitStack, invoking context managers registered with ctx.with_resource and callbacks registered with ctx.call_on_close. Register the connection manager on the context that owns its intended lifetime, for example ctx.obj = ctx.with_resource(connect_db(...)); its __exit__ will run during that context's shutdown, including ctx.exit(). For a connection without a context manager, register connection.close with call_on_close. Cleanup is in reverse registration order. Dependable connection shutdown still requires that manager's __exit__ actually close the connection and handle its own failures. Do not infer transaction rollback from this: Click closes the ExitStack without forwarding the active exception to the registered managers. Existing tests cover cleanup before exit and with_resource cleanup separately; this is source review, not executed verification.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_context.py"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 108.12045,
+        "usage": {
+          "n_input_tokens": 160875,
+          "n_cache_tokens": 140800,
+          "n_output_tokens": 2465
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "cd089c5bed8b",
+    "metadata": {
+      "name": "route-92e64452f3d3-reader",
+      "task": "route-92e64452f3d3",
+      "arm": "ordinary",
+      "steps": 1,
+      "world": "flask",
+      "target": "CONTRIBUTOR_HANDOFF.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTRIBUTOR_HANDOFF.md)\n\n---\n\n",
+      "parent_trial_id": "6088b40c52ce",
+      "original_snapshot_sha256": "be1598f94c2e0cac54776eae76be3e967b6ceef7ae628ef323fa07f02400cd41",
+      "routed_snapshot_sha256": "43ec60554b6f049cdbaaf6190506b9d7a17065f4b58b469634ef42fdc52186c4",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "43ec60554b6f049cdbaaf6190506b9d7a17065f4b58b469634ef42fdc52186c4"
+    },
+    "task_checksum": "0b347038534fb9036ca114b5605236d652cfe86c2341485c77cb5e754e528168",
+    "steps": [
+      {
+        "review_id": "cd089c5bed8b",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue with a separate worker process, such as the documented Celery integration. Under normal Flask WSGI serving, the async view's event loop stops when the view completes, cancelling unfinished asyncio.create_task jobs. Each async request still occupies one worker. Enqueue serializable data or IDs, recreate resources in the worker, and return a task ID for polling rather than waiting for results. The documented Celery Task wrapper runs tasks within app.app_context(). Configure broker, persistence, retries and result retention for your requirements; this checkout does not establish those deployment choices. Serving WsgiToAsgi(app) with an ASGI server is a documented alternative providing a continuously running loop for asyncio tasks, but that alone does not make jobs durable across process failure. For a predominantly async application, the guide suggests considering Quart.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/deploying/asgi.rst",
+                "docs/patterns/celery.rst",
+                "src/flask/app.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Wrap app.wsgi_app with Werkzeug ProxyFix, setting trust counts separately for each forwarded header according to the actual proxy chain. Conditional example ONLY for one trusted proxy correctly setting/sanitizing X-Forwarded-For and X-Forwarded-Proto: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). This uses the forwarded client address and scheme. Enable host, port or prefix trust only when justified by the corresponding header's chain. The checkout does not establish your actual counts or sanitization, and incorrect trust permits spoofing. The guide's example enabling x_host and x_prefix is not universal. Separately, set TRUSTED_HOSTS to actual allowed hostnames if host validation is needed (default None accepts all; invalid hosts produce 400). SERVER_NAME does not restrict incoming hosts in 3.1. For external URLs outside requests, configure SERVER_NAME, APPLICATION_ROOT and PREFERRED_URL_SCHEME for the deployment; PREFERRED_URL_SCHEME does not fix the incoming request scheme. ProxyFix is implemented in Werkzeug, whose implementation is not supplied here.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst",
+                "src/flask/app.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Wrap the synchronous CSV generator while the request is active: return Response(stream_with_context(generate()), mimetype='text/csv'), importing Response and stream_with_context from flask. Alternatively decorate the generator with @stream_with_context and invoke it in the view. Normal response iteration occurs after the view returns, when request would otherwise be unavailable. The wrapper retains the request context until exhaustion/close and closes an underlying iterator with a close method; consume or close responses to release retained resources. If only a few values are required, reading them in the view and passing plain values into the generator is another option. Set status, headers and session changes before returning: session saving happens before body iteration, so later session changes do not update the cookie. Read session data before returning when it must affect Vary: Cookie. Use a synchronous iterator yielding strings/bytes, not an async generator: the 3.1.1 AsyncIterable typing change is for Quart, not Flask runtime support. Middleware/proxy buffering can affect actual incremental delivery.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py",
+                "src/flask/app.py",
+                "src/flask/sessions.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "For this Flask 3.1.1 checkout's built-in secure-cookie sessions, configure SECRET_KEY=new_key and SECRET_KEY_FALLBACKS=[oldest_key, ..., previous_key], using actual long random secret values. New signatures use the current key; fallbacks verify old signatures. Oldest-to-newest fallback order is recommended for efficient checking. Retain old keys for your chosen acceptance/rollout window, then remove them. Coordinate instances so cookies signed during rollout remain verifiable; there is no universal retirement interval or supplied deployment topology. Rotation does not automatically rewrite every cookie: normally cookies are set when sessions are modified, or when permanent sessions have SESSION_REFRESH_EACH_REQUEST enabled (default true). Signature age is checked against PERMANENT_SESSION_LIFETIME (default 31 days); fallbacks do not bypass expiration. Invalid/expired signatures load empty sessions. Compatibility: fallback support was added in 3.1; 3.1.1 fixes signing-key selection order, so do not assume 3.1.0 has this corrected behavior or older versions support the setting. Extensions using SECRET_KEY and custom session backends need separate compatibility checks. Metadata requires Python >=3.9, ItsDangerous >=2.2 and Werkzeug >=3.1, but does not prove installed deployment versions.",
+              "sources": [
+                "src/flask/sessions.py",
+                "docs/config.rst",
+                "CHANGES.rst",
+                "pyproject.toml"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Create/load the application and run maintenance inside with app.app_context(): maintain(). Alternatively register it with @app.cli.command(), which automatically provides an application context. This enables current_app and g, not an HTTP request or session. g.db caches a connection for one application context, not permanently across requests. Use lazy get_db(): if 'db' not in g, set g.db = connect_to_database(); return g.db. Register @app.teardown_appcontext cleanup accepting the exception argument, obtain db = g.pop('db', None), and close it if present. This handles unused resources and exception paths. Cleanup happens at the final context pop; a retained outer context or streaming response can extend resource lifetime. For long-lived database infrastructure, use an appropriately managed database pool/extension and acquire/release connections per context; durable data belongs in the database. Holding a context open forever merely to preserve g.db is not the documented resource design.",
+              "sources": [
+                "docs/appcontext.rst",
+                "src/flask/ctx.py",
+                "src/flask/helpers.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No total-body limit does not disable multipart limits. Defaults are MAX_CONTENT_LENGTH=None (total request bytes read), MAX_FORM_MEMORY_SIZE=500_000 bytes (documented maximum non-file multipart field size), and MAX_FORM_PARTS=1_000 (multipart part/field count). Many fields can therefore trigger RequestEntityTooLarge, HTTP 413, independently of the total-body limit; large non-file fields can too. Set app-wide config or per-view integer overrides on request.max_content_length, request.max_form_memory_size and request.max_form_parts before anything reads/parses the body, including earlier hooks or middleware. Choose values from actual requirements; this checkout cannot identify which limit your upload hit. The configuration guide's Request.max_form_memory_parts is a typo; max_form_memory_size is the implemented attribute. Assigning None to a per-request property means fall back to app config, not disable a finite app limit. App-level None represents no Flask limit for that setting. Version 3.1 adds per-request content-length overrides and app configuration for form limits. These are distinct controls, not complete file-size limits or aggregate memory guarantees. Parsing is delegated to Werkzeug; proxy/server limits and timeouts may also apply. With no content-length limit, no Content-Length header and no server indication that the stream terminates, no data is read to avoid an infinite stream.",
+              "sources": [
+                "src/flask/wrappers.py",
+                "src/flask/app.py",
+                "docs/config.rst",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 176.895343,
+        "usage": {
+          "n_input_tokens": 189222,
+          "n_cache_tokens": 128640,
+          "n_output_tokens": 4239
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "7c6e9eb87216",
+    "metadata": {
+      "name": "route-b569038c33c4-reader",
+      "task": "route-b569038c33c4",
+      "arm": "upstream",
+      "steps": 1,
+      "world": "flask",
+      "target": "docs/index.rst",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](docs/index.rst)\n\n---\n\n",
+      "parent_trial_id": null,
+      "original_snapshot_sha256": "da8b8ef00713c0455d093a35baabd83ae85c0371f2da89a9533464300a3eca4e",
+      "routed_snapshot_sha256": "c81aac811e13244fef8985c46ec03f6a8cca51320ab5d94e82c357b9d20ff8ab",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "c81aac811e13244fef8985c46ec03f6a8cca51320ab5d94e82c357b9d20ff8ab"
+    },
+    "task_checksum": "72cd2f00b61fa2843069a50b26daf3d7d1af171eaff1cab2794a7e9de21bd70a",
+    "steps": [
+      {
+        "review_id": "7c6e9eb87216",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue such as Celery with a separate worker process. Enqueue the job with minimal serializable inputs, return a job ID, and retrieve progress/results separately. Run tasks that need Flask services within the worker's app.app_context(). Ordinary Flask WSGI async views run an event loop until the view completes; unfinished asyncio.create_task tasks are then cancelled. Async views still occupy one request worker. A documented alternative is to serve asgiref.wsgi.WsgiToAsgi(app) using an ASGI server, giving asyncio tasks a continuous loop, but that does not establish durable execution. For a mainly async application the docs suggest considering Quart. The task queue is the recommended architecture for slow work that must outlive the request.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/patterns/celery.rst",
+                "docs/deploying/asgi.rst",
+                "src/flask/app.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Use Werkzeug ProxyFix around app.wsgi_app. For exactly one trusted proxy setting X-Forwarded-For and X-Forwarded-Proto: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). This enables the forwarded client address and scheme. The checkout does not establish your proxy topology: counts of 1 are conditional, not verified deployment settings. Set each header's trust count to the actual number of trusted proxies supplying it, and ensure the trusted proxy supplies trustworthy values. Enable host/port/prefix forwarding only when the deployment justifies it; the documentation's example is not a universal configuration. Incorrect trust enables header spoofing. PREFERRED_URL_SCHEME affects external URL generation outside requests, not incoming request scheme.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Inside the view, return Response(stream_with_context(generate()), mimetype='text/csv'), importing Response and stream_with_context from flask. Alternatively use @stream_with_context on the generator and invoke it while the request is active. The wrapper keeps the request context active during iteration after the view returns, allowing request.args and other request-bound access. Without it, request access normally raises RuntimeError. The implementation requires an active request context when wrapping and closes the underlying generator during cleanup; tests cover request access, the decorator, and closing. If only a few request values are needed, reading them in the view and passing ordinary values into the generator also avoids later context access.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py",
+                "tests/test_helpers.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "This checkout is Flask 3.1.1. Configure SECRET_KEY with the new strong random key and SECRET_KEY_FALLBACKS with retained old keys, preferably oldest to newest. The built-in secure-cookie serializer appends the current key after fallbacks so it signs with the current key and can verify old signatures. Tests demonstrate that retaining the previous key restores access to an old session. Keep old keys for the desired acceptance period, then remove them; each retained key adds verification overhead. Rotation does not bypass signature expiration: open_session enforces PERMANENT_SESSION_LIFETIME, which defaults to 31 days. Coordinate keys across serving instances so they can verify each other's cookies. Fallback support was added in 3.1; older versions cannot be assumed to honor it. Version 3.1.1 specifically fixes signing-key selection order with fallbacks, so do not assume 3.1.0 signs with the intended new key. Support is established here for Flask's built-in sessions; extensions, custom session backends, and application signing code must explicitly support rotation. Fallbacks alone do not enable signing without a current SECRET_KEY.",
+              "sources": [
+                "pyproject.toml",
+                "CHANGES.rst",
+                "docs/config.rst",
+                "src/flask/sessions.py",
+                "src/flask/app.py",
+                "tests/test_basic.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Register maintenance work with @app.cli.command(), which automatically supplies an application context, or load/create the app in a standalone script and run the operation inside with app.app_context():. This enables current_app and g, not an HTTP request context. Implement get_db() to connect only if 'db' not in g, cache as g.db, and return it. Register a teardown_appcontext handler that removes it using db = g.pop('db', None) and closes it when present. g belongs to the application context and is lost when it ends; it is not a permanent application-wide cache. For reuse across operations, use an explicitly managed database pool/engine appropriate to the database library, borrowing and releasing connections per operation/context. Store durable data in a database, or session where appropriate. Do not keep a context open forever to preserve g.db. The checkout does not establish the application's database/pool implementation.",
+              "sources": [
+                "docs/appcontext.rst",
+                "src/flask/ctx.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "An unset total-body limit does not disable multipart limits. Defaults are MAX_CONTENT_LENGTH=None, MAX_FORM_MEMORY_SIZE=500_000 bytes per non-file multipart field, and MAX_FORM_PARTS=1_000 multipart fields/parts. Exceeding limits raises 413 RequestEntityTooLarge; many parts can therefore fail without a total-body cap. Configure appropriate app-wide limits or set request.max_content_length, request.max_form_memory_size, and request.max_form_parts per request before any body parsing, including parsing by earlier hooks. For example, set request.max_form_parts = 2000 before accessing request.form or request.files if the view requires that many parts. Per-request total limits and the form configuration options were added in 3.1. The correct property is max_form_memory_size; the max_form_memory_parts reference in docs/config.rst is a typo contradicted by code and tests. In this implementation, setting a request property to None falls back to app configuration rather than disabling a configured limit; app-level None is documented to remove the corresponding Flask limit. With no Content-Length and no WSGI indication of a terminating stream, an unset total limit still causes no body to be read. Proxy/server limits apply independently. Without the failing request and response, the part limit is a plausible cause, not a confirmed diagnosis.",
+              "sources": [
+                "src/flask/app.py",
+                "src/flask/wrappers.py",
+                "tests/test_request.py",
+                "docs/config.rst",
+                "docs/web-security.rst",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 144.21283,
+        "usage": {
+          "n_input_tokens": 187664,
+          "n_cache_tokens": 155264,
+          "n_output_tokens": 3977
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "e383847cd28d",
+    "metadata": {
+      "name": "route-b664eff849f7-reader",
+      "task": "route-b664eff849f7",
+      "arm": "skill",
+      "steps": 1,
+      "world": "click",
+      "target": "CONTEXT.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTEXT.md)\n\n---\n\n",
+      "parent_trial_id": "38ccdad067b9",
+      "original_snapshot_sha256": "ab20c9309560704bedb16adacdf169cf321b7a0deea10be6daf6bd4666e092b8",
+      "routed_snapshot_sha256": "4760bc871ba03a95a39a8b618f4a786606fcf27f149f1b2311805563a3b24f36",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "4760bc871ba03a95a39a8b618f4a786606fcf27f149f1b2311805563a3b24f36"
+    },
+    "task_checksum": "69cbf2ba304d5791f3f4a6f28ae474c15b0eadf81a66e43984740f28f538dc53",
+    "steps": [
+      {
+        "review_id": "e383847cd28d",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "No. Assuming no command-line override, both LEVEL='8' and LEVEL='0' produce integer 10. For an explicit envvar, Option.resolve_envvar_value substitutes str(flag_value) whenever the environment string is nonempty and is_flag and flag_value are truthy; type=int then converts '10'. The string '0' does not deactivate this flag. Empty or unset LEVEL falls through to other value sources. Use a normal value-taking integer option (is_flag=False, without flag_value) to accept the environment's number. These exact integer cases follow from the code; the existing envvar flag test covers arbitrary text with a string flag_value.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_arguments.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "A chained subcommand's context closes after its callback returns, before the group's result callback consumes the returned processors. A click.File opened and owned by that subcommand is therefore already closed. Pass paths and open resources inside the result callback using with click.open_file(path) as f, fully consuming the pipeline inside that block. Alternatively, use a group-level click.File parameter or register a newly opened resource with the group context's with_resource; the group stays active through its result callback. Registering on the subcommand context still closes too soon. Calling open_file alone does not register cleanup.",
+              "sources": [
+                "src/click/core.py",
+                "src/click/types.py",
+                "src/click/utils.py",
+                "docs/commands.rst",
+                "tests/test_chain.py"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Use a callable default: @click.option('--username', prompt=True, default=lambda: os.environ.get('USER', ''), show_default='current user'), with import os and your chosen environment variable. Remove the direct envvar mapping; if automatic environment lookup is configured, set allow_from_autoenv=False on this option. Also avoid providing username through default_map if it must prompt: these higher-precedence sources bypass prompting. When no command-line value is supplied, the callable provides a displayed default the user can accept or replace. An explicit --username value still skips the prompt. show_default describes the callable in help; show_default=False would hide the prompt default on this checkout.",
+              "sources": [
+                "docs/prompts.rst",
+                "src/click/core.py",
+                "tests/test_options.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "Remove mix_stderr from CliRunner construction; the switch is no longer supported. Assert result.stdout for stdout-only content, result.stderr for diagnostics (empty stderr is ''), and result.output for the combined terminal interaction in captured write order. Existing output assertions intended to check stdout alone must change to stdout. For stdout A, stderr B, stdout C, output contains A, B, C while stdout contains A, C and stderr contains B; concatenating the separate streams loses ordering. stdout_bytes, stderr_bytes and output_bytes support byte assertions; text properties decode with replacement and normalize CRLF. invoke flushes both streams before collecting results, including buffered stderr. Buffering can affect when writes reach the mixed capture.",
+              "sources": [
+                "src/click/testing.py",
+                "tests/test_testing.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "lazy=True delays opening until access, avoiding premature creation/truncation of unused output files; once opened it does not hide intermediate writes. click.File defaults to lazy for modes containing 'w', and eager for reads and standard streams; explicit lazy reads still briefly open for validation. click.open_file defaults to lazy=False. atomic=True writes to a temporary sibling and replaces the destination with os.replace on close, so intermediate writes are not exposed at the destination. flush alone does not publish the replacement. Use click.File('w', atomic=True) with context cleanup, or with click.open_file(path, 'w', atomic=True) as f. Atomic mode requires 'w', rejects 'a' and 'x', and is ignored for standard streams. Crucially, this checkout replaces even on exceptional context-manager exit because _AtomicFile.close ignores its delete argument. This is not rollback on failure or a guarantee that content generation completed; there is no explicit fsync durability guarantee either. If replacement must occur only after successful generation, manage a temporary file and success-only replacement explicitly.",
+              "sources": [
+                "src/click/types.py",
+                "src/click/utils.py",
+                "src/click/_compat.py",
+                "tests/test_arguments.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "No. ctx.exit(code) explicitly calls ctx.close() before raising Exit(code). close unwinds the ExitStack, invoking resources' __exit__ methods and registered close callbacks in reverse registration order. Register the connection context manager through ctx.with_resource and implement shutdown in its __exit__ or a contextmanager's finally block. If the connection only has close(), use contextlib.closing or ctx.call_on_close(connection.close). Normal context teardown also cleans up; closing resets the stack so subsequent teardown does not repeat those registrations. Cleanup uses ExitStack.close(), so resource managers receive no command exception information and should not depend on it for shutdown. This guarantees cleanup is invoked under this exit path, not that a cleanup operation which itself fails will succeed.",
+              "sources": [
+                "src/click/core.py",
+                "tests/test_context.py"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 118.164464,
+        "usage": {
+          "n_input_tokens": 151042,
+          "n_cache_tokens": 121728,
+          "n_output_tokens": 3293
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "daa883d35ac0",
+    "metadata": {
+      "name": "route-c74417d7eb05-reader",
+      "task": "route-c74417d7eb05",
+      "arm": "upstream",
+      "steps": 1,
+      "world": "flask",
+      "target": "docs/index.rst",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](docs/index.rst)\n\n---\n\n",
+      "parent_trial_id": null,
+      "original_snapshot_sha256": "da8b8ef00713c0455d093a35baabd83ae85c0371f2da89a9533464300a3eca4e",
+      "routed_snapshot_sha256": "c81aac811e13244fef8985c46ec03f6a8cca51320ab5d94e82c357b9d20ff8ab",
+      "mode": "discovery",
+      "variant": 1,
+      "files_sha256": "c81aac811e13244fef8985c46ec03f6a8cca51320ab5d94e82c357b9d20ff8ab"
+    },
+    "task_checksum": "fba944c605eb843609ae2b01aed61eb835dee1d364601d06217c8c98ce3cbb7d",
+    "steps": [
+      {
+        "review_id": "daa883d35ac0",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue such as Celery with a separate worker process. Enqueue the necessary job data in the route and return immediately, optionally returning a task ID for polling. Use the documented FlaskTask wrapper to give tasks an application context when they need Flask services. Under normal Flask WSGI handling, an async view runs in a request-specific event loop that stops when the view completes, cancelling unfinished asyncio.create_task tasks. Async views still occupy one worker per request. The documented alternative for an ongoing asyncio loop is to wrap Flask in asgiref.wsgi.WsgiToAsgi and serve that with an ASGI server. For a mainly async application, consider Quart. The recommendation for background jobs remains a task queue; the documentation does not promise durable job execution from ASGI alone.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/patterns/celery.rst",
+                "docs/deploying/asgi.rst"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Use Werkzeug ProxyFix and configure the trusted proxy to set X-Forwarded-For and X-Forwarded-Proto. Assuming exactly one trusted proxy supplies each header: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). This is a conditional configuration, not a finding about your deployment: the supplied project does not establish your proxy topology. Set the number of trusted proxies separately for each header, and ensure untrusted clients cannot supply the trusted values or bypass the proxy. Enable forwarded host, port, or prefix only when justified by your deployment. The documentation's example also trusts one host and prefix header, but that does not establish that you should. PREFERRED_URL_SCHEME controls external URL generation outside a request context; it does not fix incoming scheme or client address.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Inside the view, return Response(stream_with_context(generate()), mimetype='text/csv'), importing Response and stream_with_context from flask. Alternatively decorate the generator with @stream_with_context and instantiate it in the view. The wrapper keeps the current request context active while the generator runs, so request values remain available after the view returns. Without it, accessing request during streaming normally raises RuntimeError. Wrapping must occur while a request context is already active; the implementation also closes the underlying generator during cleanup. If only a few values are needed, you can instead capture ordinary values in the view and pass them to the generator.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "This checkout is Flask 3.1.1. Set SECRET_KEY to the new long random string or bytes key and SECRET_KEY_FALLBACKS to retained old keys, preferably oldest to newest: app.config.update(SECRET_KEY=new_key, SECRET_KEY_FALLBACKS=[oldest_key, previous_key]). The built-in secure-cookie session interface validates old signatures with fallbacks and signs newly written cookies with SECRET_KEY. Remove fallbacks once their cookies no longer need to validate; each adds verification overhead. Rotation does not bypass signature expiry: PERMANENT_SESSION_LIFETIME is checked and defaults to 31 days. Merely reading an old cookie does not necessarily rewrite it: normal writes occur on modification or permanent-session refresh. Fallback support was added in 3.1, and 3.1.1 fixes signing-key selection order, so do not assume 3.1.0 behaves like this checkout. Older releases lack this built-in feature. Extensions, custom session backends, and other signing code must explicitly support rotation; arbitrary SECRET_KEY uses are not automatically covered. Keep signing/serialization settings compatible. During rolling deployment, all serving instances must accept keys used by the others. The declared dependency is ItsDangerous >=2.2.0; no particular extension's compatibility is established here.",
+              "sources": [
+                "pyproject.toml",
+                "CHANGES.rst",
+                "docs/config.rst",
+                "src/flask/sessions.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Register maintenance work with @app.cli.command(), which automatically pushes an application context, or create/load the application in the standalone script and run the work inside with app.app_context():. This enables current_app and g, but does not create an HTTP request. Cache the connection on g only for that application context: get_db() connects if 'db' is absent, stores g.db, and returns it. Register @app.teardown_appcontext to pop g.db and close it if present. Repeated calls within the context reuse the connection, and teardown releases it. g is context-local and loses its data when the context ends, so it cannot provide permanent cross-request storage. Store durable data in a database. For cross-request connection reuse, use a separately managed database pool with per-context acquisition/release, rather than keeping g or a context alive forever; this project does not prescribe a pool implementation.",
+              "sources": [
+                "docs/appcontext.rst"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "The defaults are MAX_CONTENT_LENGTH=None (no Flask total-body limit), MAX_FORM_MEMORY_SIZE=500_000 bytes for a non-file multipart/form-data field, and MAX_FORM_PARTS=1_000 multipart parts/fields. Form limits still apply without a total-body limit and can raise 413 RequestEntityTooLarge; many small fields can exceed the part count. Set application config or customize request.max_content_length, request.max_form_memory_size, and request.max_form_parts per request/view before any body parsing, including parsing in earlier hooks. For example, request.max_form_parts = 2000 increases that request's part allowance; choose appropriate resource limits for your upload. These controls are available in 3.1. The implemented property is max_form_memory_size; the max_form_memory_parts reference in docs/config.rst is a typo. An implementation caveat: assigning None to a per-request limit falls back to application config, so it does not disable a non-None global limit. The global config can be None. With no total-body limit, no Content-Length header, and no server indication that the input stream terminates, no data is read to avoid an infinite stream. Server/proxy limits can apply independently. The exact failure requires payload/error details; parsing is delegated to Werkzeug, whose parser source is not supplied here.",
+              "sources": [
+                "src/flask/app.py",
+                "src/flask/wrappers.py",
+                "docs/config.rst",
+                "docs/web-security.rst",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 138.06639,
+        "usage": {
+          "n_input_tokens": 173470,
+          "n_cache_tokens": 149632,
+          "n_output_tokens": 3908
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  },
+  {
+    "id": "840e8671c777",
+    "metadata": {
+      "name": "route-d2d11d092df8-reader",
+      "task": "route-d2d11d092df8",
+      "arm": "skill",
+      "steps": 1,
+      "world": "flask",
+      "target": "CONTEXT.md",
+      "route_prefix": "## Contributor orientation\n\n[Project orientation](CONTEXT.md)\n\n---\n\n",
+      "parent_trial_id": "a33ad478481b",
+      "original_snapshot_sha256": "1ed3d419c6a9360c3d834940271b005e144b0830bf56a831a714035bc74ea22c",
+      "routed_snapshot_sha256": "87757ff26031b0324c2287f91b9f512a2e1596355ba410042f7f5b1344c6a417",
+      "mode": "directed",
+      "variant": 1,
+      "files_sha256": "87757ff26031b0324c2287f91b9f512a2e1596355ba410042f7f5b1344c6a417"
+    },
+    "task_checksum": "5ec64b697627e981e7e83741a666ea14b0711cc17c37f3e08f52da81cdb9939c",
+    "steps": [
+      {
+        "review_id": "840e8671c777",
+        "observed": {
+          "checks": {
+            "project_byte_identical": true,
+            "answer_schema": true,
+            "citation_paths_exist": true,
+            "git_unchanged": true
+          },
+          "mechanical_pass": true,
+          "answers": [
+            {
+              "id": "q1",
+              "answer": "Use a task queue with a separate worker process, such as the documented Celery integration. Under normal Flask WSGI handling, the async view's event loop stops when the view completes and unfinished spawned tasks are cancelled. asyncio.create_task therefore cannot reliably run this job after the response. Enqueue serializable data or IDs, return a task ID, and poll for results instead of waiting in the route. Initialize Celery through the app factory and run tasks inside app.app_context() when they need Flask resources; reacquire connections in the task. Async views still occupy one WSGI worker and mainly help concurrent I/O within a request. Serving WsgiToAsgi(app) with an ASGI server is a documented alternative with a continuing event loop that permits spawned tasks, but that alone does not provide persistence across process loss or queue delivery guarantees. Broker, retry and delivery requirements are deployment choices not established here. The guide suggests considering Quart for predominantly async applications.",
+              "sources": [
+                "docs/async-await.rst",
+                "docs/patterns/celery.rst",
+                "docs/deploying/asgi.rst",
+                "src/flask/app.py"
+              ]
+            },
+            {
+              "id": "q2",
+              "answer": "Use Werkzeug ProxyFix around app.wsgi_app, configuring trusted counts separately for each forwarded header. ONLY if exactly one trusted proxy supplies and sanitizes X-Forwarded-For and X-Forwarded-Proto, the justified conditional example is: from werkzeug.middleware.proxy_fix import ProxyFix; app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=0, x_port=0, x_prefix=0). This restores client address and scheme. Enable host, port and prefix forwarding only when the corresponding trusted proxy behavior is established. The repository's all-ones example does not establish your actual hop counts, sanitization or protection against direct untrusted access; forged headers make incorrect trust settings unsafe. Set TRUSTED_HOSTS to the actual allowed hosts if host validation is needed; its default None allows all hosts. SERVER_NAME no longer restricts incoming hosts in 3.1. SERVER_NAME, APPLICATION_ROOT and PREFERRED_URL_SCHEME configure external URL generation outside requests, not restoration of incoming proxy values. ProxyFix belongs to Werkzeug; its implementation is not in this checkout.",
+              "sources": [
+                "docs/deploying/proxy_fix.rst",
+                "docs/config.rst",
+                "src/flask/app.py"
+              ]
+            },
+            {
+              "id": "q3",
+              "answer": "Wrap the synchronous generator while the request is active: from flask import Response, stream_with_context; return Response(stream_with_context(generate_csv()), mimetype='text/csv'). The generator can then read request values during later iteration. Decorating it with stream_with_context and invoking it in the view is also supported. Without the wrapper, the request context normally ends before body iteration. Alternatively, extract needed values in the view and pass plain data to the generator. The wrapper retains context until exhaustion/close and closes the underlying iterator, so context resources may live for the whole stream. Set headers and modify sessions before returning: session saving happens before body iteration, so later generator session mutations do not persist to the cookie. Use a synchronous iterator yielding strings/bytes; the 3.1.1 AsyncIterable typing change does not add Flask runtime support for async-generator bodies. Middleware/proxy buffering may affect delivery timing.",
+              "sources": [
+                "docs/patterns/streaming.rst",
+                "src/flask/helpers.py",
+                "src/flask/app.py",
+                "CHANGES.rst"
+              ]
+            },
+            {
+              "id": "q4",
+              "answer": "This checkout declares Flask 3.1.1. Configure SECRET_KEY with the new strong random key and SECRET_KEY_FALLBACKS with retained old keys, preferably oldest to newest: app.config.update(SECRET_KEY=new_key, SECRET_KEY_FALLBACKS=[oldest_key, previous_key]). Built-in secure-cookie sessions accept old signatures; the serializer puts the current key after fallbacks so newly saved cookies use the current key. A current SECRET_KEY is still required. Coordinate instances so every instance can verify keys other instances use during rollout. Retire old keys after an application-specific overlap period; every retained key adds verification work. Fallbacks do not bypass the PERMANENT_SESSION_LIFETIME signature-age check: expired or invalid signatures yield empty sessions. Reading an old cookie does not automatically reissue it; ordinary session modification and permanent-session refresh rules still apply. Fallback support was added in 3.1, and 3.1.0 had a signing-key selection bug fixed in 3.1.1, so do not assume identical rotation behavior across those releases or support in older releases. Extensions and custom session interfaces require independent compatibility checks. Metadata requires ItsDangerous >=2.2, but installed versions and the deployment's overlap policy are unknown.",
+              "sources": [
+                "pyproject.toml",
+                "CHANGES.rst",
+                "docs/config.rst",
+                "src/flask/sessions.py",
+                "tests/test_basic.py"
+              ]
+            },
+            {
+              "id": "q5",
+              "answer": "Create/load the app in the maintenance script and execute the work inside with app.app_context():, or register an @app.cli.command() command, which receives an app context automatically. This provides current_app and g, but does not provide request or session. Cache a connection lazily on g for that application context only: get_db() opens a connection if 'db' is absent and returns g.db. Register teardown_appcontext cleanup that does db = g.pop('db', None) and closes it if present. Cleanup runs on context exit, including exceptional exit, and should tolerate partial initialization. The tutorial test verifies same-context reuse and closure after exit. g is not permanent or process-wide storage. If cross-context connection reuse is required, use a separately managed database pool appropriate to the driver, acquiring and releasing connections per unit of work; this project's example does not establish a pooling implementation. Do not keep an app context alive indefinitely just to retain g.db.",
+              "sources": [
+                "docs/appcontext.rst",
+                "src/flask/ctx.py",
+                "examples/tutorial/flaskr/db.py",
+                "examples/tutorial/tests/test_db.py"
+              ]
+            },
+            {
+              "id": "q6",
+              "answer": "MAX_CONTENT_LENGTH defaults to None, meaning no Flask total-body cap, but independent multipart defaults still apply: MAX_FORM_MEMORY_SIZE=500_000 bytes for a non-file form field and MAX_FORM_PARTS=1_000 multipart parts. Exceeding a limit during reading/parsing raises 413, so many fields can hit the part-count limit. Set request.max_content_length, request.max_form_memory_size and request.max_form_parts per request before any body/form/files access, including access by earlier hooks. Example chosen values: request.max_content_length = 20 * 1024 * 1024; request.max_form_memory_size = 1_000_000; request.max_form_parts = 2_000. Actual values should reflect application requirements. The config guide's max_form_memory_parts is a typo; the implementation uses max_form_memory_size. Assigning None to these request properties clears the override and falls back to app config; it does not disable a configured limit. App-level None is the documented way to omit a limit. Per-request content-length control and the form config keys were added in 3.1. With no total limit, no Content-Length header and no server indication of a terminated stream, no body is read to avoid an infinite stream. Form limits do not bound total file uploads or process memory. Parsing is delegated to Werkzeug and ingress server/proxy limits may also apply; the checkout cannot identify the exact cause of your failure without request and deployment details.",
+              "sources": [
+                "src/flask/app.py",
+                "src/flask/wrappers.py",
+                "docs/config.rst",
+                "tests/test_request.py",
+                "CHANGES.rst"
+              ]
+            }
+          ],
+          "parse_error": null
+        },
+        "execution_error": null,
+        "seconds": 153.614577,
+        "usage": {
+          "n_input_tokens": 176414,
+          "n_cache_tokens": 150016,
+          "n_output_tokens": 4355
+        }
+      }
+    ],
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    }
+  }
+]

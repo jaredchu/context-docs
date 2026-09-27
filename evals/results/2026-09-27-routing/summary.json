@@ -1,0 +1,762 @@
+{
+  "rows": [
+    {
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 0
+    },
+    {
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "all",
+      "arm": "upstream",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 1
+    },
+    {
+      "mode": "discovery",
+      "world": "all",
+      "arm": "ordinary",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 2
+    },
+    {
+      "mode": "discovery",
+      "world": "all",
+      "arm": "skill",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 2
+    },
+    {
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "correct": 6,
+      "answers": 6,
+      "sessions": 1,
+      "readme_exposed": 1,
+      "target_exposed": 1
+    },
+    {
+      "mode": "directed",
+      "world": "all",
+      "arm": "upstream",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 2
+    },
+    {
+      "mode": "directed",
+      "world": "all",
+      "arm": "ordinary",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 2
+    },
+    {
+      "mode": "directed",
+      "world": "all",
+      "arm": "skill",
+      "correct": 12,
+      "answers": 12,
+      "sessions": 2,
+      "readme_exposed": 2,
+      "target_exposed": 2
+    }
+  ],
+  "answer_scores": [
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "36078b571c7b",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "skill",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "d6b7086e121a",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "4a2f22490b30",
+      "mode": "discovery",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "0ec4cca25738",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "d97d6ea61893",
+      "mode": "directed",
+      "world": "click",
+      "arm": "upstream",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "a250d575d4b8",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "42ecb2bf8ebd",
+      "mode": "directed",
+      "world": "click",
+      "arm": "ordinary",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "cd089c5bed8b",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "ordinary",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "7c6e9eb87216",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "e383847cd28d",
+      "mode": "directed",
+      "world": "click",
+      "arm": "skill",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "daa883d35ac0",
+      "mode": "discovery",
+      "world": "flask",
+      "arm": "upstream",
+      "question": "q6",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q1",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q2",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q3",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q4",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q5",
+      "passed": true
+    },
+    {
+      "trial_id": "840e8671c777",
+      "mode": "directed",
+      "world": "flask",
+      "arm": "skill",
+      "question": "q6",
+      "passed": true
+    }
+  ]
+}

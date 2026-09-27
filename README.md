@@ -33,6 +33,12 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
+Make the context entry point discoverable: link it from the project README or
+documentation index. For a fresh session, ask the agent to start there and read
+the linked context before working. A context file's presence alone does not ensure
+that an agent will read it. This routing is already part of the skill's
+initialization workflow.
+
 ## Install in Codex
 
 Ask the built-in installer:
@@ -76,6 +82,7 @@ same method. No forced directory migration or universal document-size limit.
 - [Behavioral evaluation scenarios](evals/README.md)
 - [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
 - [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
+- [README routing and verified reading](docs/evaluation-2026-09-27-routing.md)
 - [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
 - [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
 - [This project's own context](docs/project-context.md)
@@ -149,6 +156,29 @@ There was one maintenance attempt per method/project, and both projects belong
 to the same ecosystem. See [the discovery finding, exact miss and limits](docs/evaluation-2026-09-27-public.md)
 and [all outputs and judgments](evals/results/2026-09-27-public/README.md).
 
+A [routing follow-up](docs/evaluation-2026-09-27-routing.md) then reused those
+handoffs unchanged, added equivalent orientation links to temporary READMEs,
+and compared README-first discovery with explicitly directed reading. It ran
+**12 fresh sessions and 72 answers**, using one previously tested phrasing.
+
+<!-- routing-table:start -->
+| Reader mode and outcome | Upstream orientation | Ordinary handoff | Context Docs handoff |
+| --- | ---: | ---: | ---: |
+| README-first discovery: supported answers | 12/12 | 12/12 | 12/12 |
+| README-first discovery: full orientation text exposed | 1/2 | 2/2 | 2/2 |
+| Directed reading: supported answers | 12/12 | 12/12 | 12/12 |
+| Directed reading: full orientation text exposed | 2/2 | 2/2 | 2/2 |
+<!-- routing-table:end -->
+
+All eight handoff readers received the complete document before answer-writing,
+verified from model-visible tool output. All 12 readers saw the complete README.
+**Accuracy remains tied:** the original sources also support every answer. This
+checks reading under the new routing/instructions; it does not establish a skill
+advantage, unguided discovery or equivalence. The earlier omitted cleanup guard
+is present in the repeated answers. See [the unchanged criteria, exposure method
+and limitations](docs/evaluation-2026-09-27-routing.md) and
+[reproducible evidence](evals/results/2026-09-27-routing/README.md).
+
 Existing studies provide maintenance regression coverage:
 
 - **48 trials, v0.1.0 versus ordinary instructions:** both passed 24/24 under
@@ -194,9 +224,9 @@ The skill guides an agent; it cannot guarantee factual correctness, conflict-fre
 edits or decision preservation. Review consequential changes. It neither captures
 every conversation nor grants permission to publish documents or alter systems.
 
-Next evaluations should verify handoff discovery and consumption, then use longer
-maintenance histories and independently authored questions/reviews. Current results
-do not establish a skill-specific correctness advantage. Cloud
+Next evaluations should use longer maintenance histories and independently authored
+project decisions, questions and reviews, with verified context reading. Current
+results do not establish a skill-specific correctness advantage. Cloud
 retrieval can be an optional integration later; no backend is required or included.
 
 Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).

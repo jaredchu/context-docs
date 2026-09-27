@@ -1,0 +1,6 @@
+{
+  "identical_package_file_count": 2300,
+  "package_files_sha256": "a5c9a473ce7d319e44f159d99e5d5c211af996f5c2eb8d2738fb207fbb9e9a20",
+  "identical": true,
+  "note": "Control packages were built before the freeze commit. All 2300 generated files are byte-identical to scored packages. Exposure/report self-tests added before freezing do not change these packages."
+}
