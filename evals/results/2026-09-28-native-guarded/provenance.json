@@ -1,0 +1,18 @@
+{
+  "protocol_sha256": "54b622396e2426545a36068b6c4f29aa959c213d8ffc1b7478891444bae07967",
+  "raw_stream_sha256": {
+    "boundary-probe.jsonl": "e6f7d18220f0a6ae7c39750975041047dfe063239440718c0ecb55a890b9eeba",
+    "delimited-records.jsonl": "52126d5a346d3251f91a65349753637bb1fb109d22696256d7d63fb8e126e7a6",
+    "fresh-rule-audit.jsonl": "46dbc287bb7f5aa3be897ba3727c91ef73d0b78b9bdc1aac68b56c256a957d67",
+    "front-door-refresh.jsonl": "ec808afaba767758b6b00777a9623d35d5ae42475b650a5c03f6d987e182333b"
+  },
+  "frozen_protocol_commit": "d07f40d",
+  "harness_commit": "e8a041d",
+  "normalization": "Fixture paths replaced with /fixture, client scratch directories with /scratchpad, and the home prefix with /home/evaluator. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally. Hook session identifiers are omitted; tool IDs remain for call/decision correlation. The frozen protocol retains its original disposable absolute control paths so its bytes and hashes remain unchanged.",
+  "raw_hook_event_sha256": {
+    "boundary-probe.events.jsonl": "a56d9b5e2b9f77f8bedad65d95adfb98fd40b030b0c1436c2ab9115f58e1089b",
+    "delimited-records.events.jsonl": "6a29d55eabbb85ac35981ad165e0cf5a4079c4389b63c87d2998b416c3ec2c4e",
+    "fresh-rule-audit.events.jsonl": "b8480b4d33577a7072716089dbc9c4cd0e464135c59fc40a1f24713c9a80cc44",
+    "front-door-refresh.events.jsonl": "b808b72ad85ceacfddc8d3c80f911024699c5e1ceeab358c75112dc6983c8f38"
+  }
+}

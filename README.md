@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.1; adoption skill v0.1.2.** The package contains instructions only.
+**Status: experimental, core skill v0.1.2; adoption skill v0.1.4.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
@@ -18,8 +18,9 @@ With both skills installed, adopt a new or existing project with:
 $adopt-context-docs
 ```
 
-This applies the core method and adds or merges a maintenance rule in the project's
-`AGENTS.md`. After checking the setup, it records a small marker beside that rule:
+This applies the core method and adds or merges a maintenance rule in the
+instruction file the project's agent actually loads, such as `AGENTS.md` or
+`CLAUDE.md`. After checking the setup, it records a small marker beside that rule:
 
 ```text
 Method: context-docs
@@ -63,6 +64,18 @@ preservation. Ten sessions across initial and revised conditions are reported
 separately; the final revision was tested on the two affected unmarked cases.
 Adoption v0.1.2 adds only the preferred layout for new sections. Metadata, package
 links and existing static controls were checked; no new model evaluation was run.
+Adoption v0.1.3 routes the rule and marker to the instruction file a client loads
+and drops client-specific invocation wording. Its
+[instruction-file cases](evals/adoption/instructions.py) pass ten static grader
+controls. The [v0.1.3 merge review](evals/results/2026-09-28-adoption-v013/README.md)
+ran nine model sessions: eight met frozen acceptance, with a split-file failure
+involving an immutable heading and an installed-skill link. Routing rubrics passed,
+but the original result is not a full regression pass. A
+[separately frozen follow-up](evals/results/2026-09-28-adoption-v013-followup/README.md)
+passed four routing/repeat sessions after making file constraints explicit and
+validating installed references consistently. The skills are unchanged; the
+initial failure remains recorded.
+Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
@@ -99,9 +112,55 @@ references, assets, metadata and licenses. Codex normally detects changes
 automatically; restart if they do not appear.
 See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
+## Install in Claude Code
+
+Copy both folders into a skills directory Claude Code reads: `~/.claude/skills/`
+for every project, or `.claude/skills/` inside one repository. Use one scope.
+
+```sh
+mkdir -p ~/.claude/skills
+cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
+```
+
+Keep both folders side by side: the adoption skill reads its sibling core skill.
+Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
+and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
+is ignored here.
+
+Direct `AGENTS.md` loading requires Claude Code v2.1.277 or later with its built-in
+`agents-md` plugin enabled. By default, it loads `AGENTS.md` only when no
+`CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the working directory
+or its ancestors; user-level `~/.claude/CLAUDE.md` and managed instructions do not
+disable that fallback. The Project instructions setting can instead load both
+file types, only Claude files, or only managed instructions at launch. Older or
+otherwise unsupported sessions can import `AGENTS.md` from `CLAUDE.md`.
+
+Adoption v0.1.3 targets the instructions actually loaded in the session. Confirm
+the result: the rule should be in a loaded file, or included through that file's
+supported import. Check `/context` and the Project instructions setting rather
+than inferring loading solely from filenames. See the
+[Claude Code skill](https://code.claude.com/docs/en/skills) and
+[memory](https://code.claude.com/docs/en/memory) documentation.
+
+**Native support remains experimental.** The
+[guarded follow-up](evals/results/2026-09-28-native-guarded/README.md) passes four
+loading/boundary checks, including a denied outside-project write and a fresh
+read-only session loading the newly added maintenance rule. This clears those
+integration gates and supports an experimental merge recommendation. The guard
+is evaluation tooling with a restricted tool set; installing the skills does not
+install a sandbox or enforce write confinement.
+
+Factual limitations remain: the CSV response still overclaims value types. The
+[eight-session paired study](evals/results/2026-09-28-native-paired/README.md)
+reproduced that error with and without the skills, while both conditions corrected
+stale documentation. These author-reviewed runs on Claude Code 2.1.234 with Claude
+Opus 5 establish neither a skill-specific accuracy advantage nor general reliability.
+Earlier failures and scores remain recorded; file checks, execution and semantic
+review are reported separately.
+
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](skills/context-docs/references/standard.md) directly.
-Client-specific installation and behavior outside Codex have not been tested.
+Behavior on clients other than Codex and Claude Code has not been evaluated.
 
 ## What is standardized?
 
@@ -125,6 +184,8 @@ same method. No forced directory migration or universal document-size limit.
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
 - [Before-and-after example](examples/maintenance.md)
 - [Behavioral evaluation scenarios](evals/README.md)
+- [Static repository checks](evals/checks/static_checks.py)
+- [Per-version changelog](CHANGELOG.md)
 - [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
 - [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
 - [README routing and verified reading](docs/evaluation-2026-09-27-routing.md)

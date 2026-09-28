@@ -6,7 +6,8 @@ They exercise decisions an agent must make, rather than exact headings or wordin
 The [public Harbor suite](suite/README.md) now provides eight runnable synthetic
 tasks, reference controls, mechanical graders and separate semantic review.
 See its [48-trial evaluation](../docs/evaluation-2026-09-27.md) and published
-evidence. Automatic skill selection remains a separate, untested question.
+evidence. Automatic selection was not tested in that comparative suite; the native smoke
+studies below observe unnamed selection separately from output quality.
 
 A separate [local-project maintenance pilot](../docs/evaluation-2026-09-26.md)
 records eight actual model runs, paired comparisons and limitations. It does not
@@ -172,6 +173,23 @@ approval, lost unique information, unauthorized edits in audit mode and overwrit
 user changes as failures regardless of how short or polished the output becomes.
 File size or word count alone is not a quality score. Real-world maintenance cost
 and retrieval/answer accuracy remain separate measurements.
+
+## Other clients
+
+The comparative studies above used one client and one model. The
+[native Claude Code smoke test](claude-code/README.md) runs the shared adoption
+fixtures through the Claude Code CLI to check skill discovery, rule placement in
+Claude-only and mixed instruction projects, repeat preservation and audit-only
+read-only behavior. The [paired native study](results/2026-09-28-native-paired/README.md)
+adds eight sessions on fresh cases with identical requests and an ordinary baseline.
+CSV overclaims occur in both conditions; stale-state updates pass in both. Some
+loading confirmations cannot be independently verified from the recorded stream,
+and scratch writes violate scope in three sessions across both conditions. The
+[guarded follow-up](results/2026-09-28-native-guarded/README.md) then clears loading
+and write-boundary integration gates across four sessions, supporting an experimental
+merge recommendation with factual limitations. Its restricted tools do not establish
+unrestricted-client reliability. Prior attempts retain their original criteria and
+scores; no skill-specific cause of the original errors is established.
 
 ## Optional adoption skill
 

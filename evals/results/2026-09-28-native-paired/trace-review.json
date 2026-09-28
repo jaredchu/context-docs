@@ -1,0 +1,291 @@
+{
+  "method": "Author inspected calls/results and first visible assistant reply; file-tree checks alone cannot establish command scope. Absence of the early phrase does not disprove automatic loading.",
+  "sessions": {
+    "delimited-records-ordinary-1": {
+      "initial_phrase_before_tools": true,
+      "first_assistant_text": "Session check: amber-orbit.",
+      "outside_project_write_calls": [
+        {
+          "tool": "Write",
+          "path": "/scratchpad/empty.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/empty.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/header_only.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/header_only.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/blankline.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/blankline.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/quoted.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/quoted.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/unicode.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/unicode.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/oneextra.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/oneextra.csv (file state is current in your context \u2014 no need to Read it back)"
+        }
+      ],
+      "read_paths": [
+        "/fixture/projects/delimited-records-ordinary-1/records.py",
+        "/fixture/projects/delimited-records-ordinary-1/CLAUDE.md"
+      ],
+      "bash_commands": [
+        "ls -la /fixture/projects/delimited-records-ordinary-1",
+        "ls -la /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-delimited-records-ordinary-1/memory/ 2>/dev/null",
+        "ls -la samples && cat -A samples/visits.csv",
+        "xxd samples/visits.csv && echo \"---shasum---\" && shasum -a 256 samples/visits.csv records.py",
+        "od -c samples/visits.csv",
+        "shasum -a 256 samples/visits.csv records.py",
+        "python3 records.py samples/visits.csv; echo \"exit=$?\"",
+        "python3 -c \"import sys; print(sys.version)\"",
+        "python3 records.py samples/visits.csv",
+        "cd /scratchpad && printf '' > empty.csv && printf 'site;visits\\n' > header_only.csv && printf 'site;visits\\n\\nnorth;1\\n' > blankline.csv && printf 'site;visits\\n\"a;b\";2\\n' > quoted.csv && ls",
+        "SP=/scratchpad; for f in empty header_only blankline quoted; do printf '%s => ' \"$f\"; python3 records.py \"$SP/$f.csv\"; done",
+        "python3 records.py /scratchpad/empty.csv",
+        "python3 records.py /scratchpad/header_only.csv",
+        "python3 records.py /scratchpad/blankline.csv",
+        "python3 records.py /scratchpad/quoted.csv",
+        "python3 records.py 2>&1 | tail -3",
+        "python3 records.py /nonexistent/nope.csv 2>&1 | tail -3",
+        "python3 -c \"open('/scratchpad/bom.csv','w',encoding='utf-8-sig').write('site;visits\\nnorth;1\\n')\"",
+        "python3 records.py /scratchpad/unicode.csv",
+        "python3 records.py /scratchpad/bom.csv",
+        "python3 records.py /scratchpad/oneextra.csv",
+        "python3 - <<'PY'\np = \"/fixture/projects/delimited-records-ordinary-1/docs/context.md\"\ns = open(p, encoding=\"utf-8\").read()\nold = 'literally as UTF-8 (`\"caf\u00e9\"`) rather than escaped (`\"caf\u00e9\"`).'\nnew = 'literally as UTF-8 (`\"caf\u00e9\"`) rather than escaped (`\"caf\\\\u00e9\"`).'\nassert s.count(old) == 1, s.count(old)\nopen(p, \"w\", encoding=\"utf-8\").write(s.replace(old, new))\nprint(\"ok\")\nPY",
+        "shasum -a 256 records.py samples/visits.csv",
+        "git status --porcelain"
+      ],
+      "phrase_at_first_reply_start": true
+    },
+    "delimited-records-ordinary-2": {
+      "initial_phrase_before_tools": true,
+      "first_assistant_text": "Session check: amber-orbit.",
+      "outside_project_write_calls": [
+        {
+          "tool": "Write",
+          "path": "/scratchpad/blank.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/blank.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/quoted.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/quoted.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/dup.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/dup.csv (file state is current in your context \u2014 no need to Read it back)"
+        },
+        {
+          "tool": "Write",
+          "path": "/scratchpad/empty.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/empty.csv (file state is current in your context \u2014 no need to Read it back)"
+        }
+      ],
+      "read_paths": [
+        "/fixture/projects/delimited-records-ordinary-2/records.py",
+        "/fixture/projects/delimited-records-ordinary-2/samples/visits.csv",
+        "/fixture/projects/delimited-records-ordinary-2/CLAUDE.md"
+      ],
+      "bash_commands": [
+        "ls -la /fixture/projects/delimited-records-ordinary-2",
+        "ls -R /fixture/projects/delimited-records-ordinary-2",
+        "ls /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-delimited-records-ordinary-2/memory/ 2>/dev/null && cat /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-delimited-records-ordinary-2/memory/*.md 2>/dev/null",
+        "python3 --version && python3 records.py samples/visits.csv",
+        "shasum -a 256 records.py samples/visits.csv && python3 records.py 2>&1 | tail -3; echo \"exit=$?\"",
+        "shasum -a 256 records.py samples/visits.csv",
+        "python3 records.py; echo \"exit=$?\"",
+        "python3 records.py 2>&1 | tail -4",
+        "cd /scratchpad && printf '' > empty.csv && printf 'site;visits\\n\\nnorth;1\\n' > blank.csv && printf 'site;note\\nnorth;\"a;b\"\\n' > quoted.csv && P=/fixture/projects/delimited-records-ordinary-2/records.py && python3 $P empty.csv && python3 $P blank.csv && python3 $P quoted.csv",
+        "cd /scratchpad && printf '' > empty.csv && printf 'site;visits\\n\\nnorth;1\\n' > blank.csv && printf 'site;note\\nnorth;\"a;b\"\\n' > quoted.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py empty.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py blank.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py quoted.csv",
+        "cd /scratchpad && python3 /fixture/projects/delimited-records-ordinary-2/records.py blank.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py quoted.csv",
+        "cd /scratchpad && : > empty.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py empty.csv && python3 /fixture/projects/delimited-records-ordinary-2/records.py dup.csv",
+        "S=/scratchpad; python3 records.py \"$S/empty.csv\"; python3 records.py \"$S/dup.csv\"",
+        "shasum -a 256 records.py samples/visits.csv; git status --short"
+      ],
+      "phrase_at_first_reply_start": true
+    },
+    "delimited-records-skills-1": {
+      "initial_phrase_before_tools": false,
+      "first_assistant_text": "I'll start by looking at what's in the project.",
+      "outside_project_write_calls": [
+        {
+          "tool": "Write",
+          "path": "/scratchpad/hdr.csv",
+          "result_received": true,
+          "is_error": false,
+          "result": "File created successfully at: /scratchpad/hdr.csv (file state is current in your context \u2014 no need to Read it back)"
+        }
+      ],
+      "read_paths": [
+        "/fixture/projects/delimited-records-skills-1/CLAUDE.md",
+        "/fixture/projects/delimited-records-skills-1/records.py",
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "bash_commands": [
+        "ls -la && git log --oneline -5",
+        "ls -la /fixture/projects/delimited-records-skills-1/samples /fixture/projects/delimited-records-skills-1/.claude; find /fixture/projects/delimited-records-skills-1/.claude -type f",
+        "cat -A samples/visits.csv && echo \"--- sha ---\" && shasum -a 256 samples/visits.csv records.py",
+        "cat -v -e -t samples/visits.csv; echo \"--- xxd ---\"; xxd samples/visits.csv; echo \"--- sha ---\"; shasum -a 256 samples/visits.csv records.py",
+        "cat -v -e -t samples/visits.csv; echo \"--- sha ---\"; shasum -a 256 samples/visits.csv records.py",
+        "python3 --version && python3 records.py samples/visits.csv; echo \"exit=$?\"",
+        "python3 --version; python3 records.py samples/visits.csv",
+        "python3 records.py 2>&1 | tail -3",
+        "S=/scratchpad; mkdir -p $S; printf 'site;visits\\n' > $S/hdr.csv; printf '' > $S/empty.csv; printf 'site;visits\\na;;b\\n' > $S/dup.csv; cd /fixture/projects/delimited-records-skills-1; echo \"-- header only:\"; python3 records.py $S/hdr.csv; echo \"-- empty:\"; python3 records.py $S/empty.csv",
+        "cd /scratchpad && printf 'site;visits;active\\n' > hdr.csv && printf '' > empty.csv && ls",
+        "python3 records.py /scratchpad/hdr.csv",
+        "git status --porcelain && echo \"--- checksums now ---\" && shasum -a 256 samples/visits.csv records.py",
+        "for f in README.md context.md samples/visits.csv records.py CLAUDE.md; do test -e \"$f\" && echo \"ok  $f\" || echo \"MISSING  $f\"; done",
+        "git diff CLAUDE.md",
+        "ls -1 README.md context.md records.py samples/visits.csv CLAUDE.md"
+      ],
+      "phrase_at_first_reply_start": false
+    },
+    "delimited-records-skills-2": {
+      "initial_phrase_before_tools": true,
+      "first_assistant_text": "Session check: amber-orbit.\n\nLet me look at the project first.",
+      "outside_project_write_calls": [],
+      "read_paths": [
+        "/fixture/projects/delimited-records-skills-2/records.py",
+        "/fixture/projects/delimited-records-skills-2/samples/visits.csv",
+        "/fixture/projects/delimited-records-skills-2/CLAUDE.md",
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "bash_commands": [
+        "ls -la && git log --oneline -5",
+        "find . -not -path './.git/*' -not -name '.git' -type f | head -50",
+        "shasum -a 256 records.py samples/visits.csv && python3 --version && cat -A samples/visits.csv | tail -3",
+        "python3 records.py samples/visits.csv; echo \"exit=$?\"",
+        "python3 records.py 2>&1 | tail -3; echo \"exit=${PIPESTATUS[0]}\"; python3 records.py missing.csv 2>&1 | tail -2",
+        "python3 records.py samples/visits.csv",
+        "python3 records.py",
+        "python3 records.py samples/nonexistent.csv",
+        "shasum -a 256 records.py samples/visits.csv && git status --short && git diff --stat"
+      ],
+      "phrase_at_first_reply_start": true
+    },
+    "front-door-refresh-ordinary-1": {
+      "initial_phrase_before_tools": true,
+      "first_assistant_text": "Session check: amber-orbit.\n\nLet me look at what's here.",
+      "outside_project_write_calls": [],
+      "read_paths": [
+        "/fixture/projects/front-door-refresh-ordinary-1/notes/state.md",
+        "/fixture/projects/front-door-refresh-ordinary-1/notes/scope.md",
+        "/fixture/projects/front-door-refresh-ordinary-1/count_lines.py",
+        "/fixture/projects/front-door-refresh-ordinary-1/CLAUDE.md"
+      ],
+      "bash_commands": [
+        "ls -la && echo \"---\" && find . -path ./.git -prune -o -type f -print | sort",
+        "ls /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-front-door-refresh-ordinary-1/memory/ 2>/dev/null && cat /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-front-door-refresh-ordinary-1/memory/*.md 2>/dev/null",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md && echo \"---\" && cat -A samples/three.txt && echo \"---\" && python3 count_lines.py samples/three.txt",
+        "od -c samples/three.txt; echo \"---\"; python3 count_lines.py samples/three.txt",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md; echo \"--- git status ---\"; git status --porcelain; echo \"--- rerun ---\"; python3 count_lines.py samples/three.txt"
+      ],
+      "phrase_at_first_reply_start": true
+    },
+    "front-door-refresh-ordinary-2": {
+      "initial_phrase_before_tools": true,
+      "first_assistant_text": "I'll start by exploring the project structure.\n\nSession check: amber-orbit.",
+      "outside_project_write_calls": [],
+      "read_paths": [
+        "/fixture/projects/front-door-refresh-ordinary-2/notes/state.md",
+        "/fixture/projects/front-door-refresh-ordinary-2/notes/scope.md",
+        "/fixture/projects/front-door-refresh-ordinary-2/count_lines.py",
+        "/fixture/projects/front-door-refresh-ordinary-2/samples/three.txt",
+        "/fixture/projects/front-door-refresh-ordinary-2/CLAUDE.md"
+      ],
+      "bash_commands": [
+        "ls -la && find . -path ./.git -prune -o -type f -print | sort",
+        "ls /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-front-door-refresh-ordinary-2/memory/ 2>/dev/null && cat /home/evaluator/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-docs-native-paired-3azs4x2e-run-projects-front-door-refresh-ordinary-2/memory/*.md 2>/dev/null",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md && python3 count_lines.py samples/three.txt",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md; git status --short; git diff --stat"
+      ],
+      "phrase_at_first_reply_start": false
+    },
+    "front-door-refresh-skills-1": {
+      "initial_phrase_before_tools": false,
+      "first_assistant_text": "I'll start by looking at the project, and this is an adoption request, so let me load the relevant skill.",
+      "outside_project_write_calls": [],
+      "read_paths": [
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/front-door-refresh-skills-1/CLAUDE.md",
+        "/fixture/projects/front-door-refresh-skills-1/notes/state.md",
+        "/fixture/projects/front-door-refresh-skills-1/notes/scope.md",
+        "/fixture/projects/front-door-refresh-skills-1/count_lines.py",
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "bash_commands": [
+        "ls -laR && echo \"--- git ---\" && git log --oneline -5",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md && echo \"--- run ---\" && python3 count_lines.py samples/three.txt && echo \"--- file ---\" && od -c samples/three.txt | tail -3",
+        "command -v python python3 2>&1; echo \"---\"; python --version 2>&1 | head -1",
+        "command -v python python3",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md && git status --porcelain && git diff --stat"
+      ],
+      "phrase_at_first_reply_start": false
+    },
+    "front-door-refresh-skills-2": {
+      "initial_phrase_before_tools": false,
+      "first_assistant_text": "I'll start by looking at the project.",
+      "outside_project_write_calls": [],
+      "read_paths": [
+        "/fixture/projects/front-door-refresh-skills-2/notes/state.md",
+        "/fixture/projects/front-door-refresh-skills-2/notes/scope.md",
+        "/fixture/projects/front-door-refresh-skills-2/CLAUDE.md",
+        "/fixture/projects/front-door-refresh-skills-2/count_lines.py",
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "bash_commands": [
+        "ls -la && find . -path ./.git -prune -o -type f -print",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md && echo \"--- sample (cat -A) ---\" && cat -A samples/three.txt && echo \"--- run ---\" && python3 count_lines.py samples/three.txt",
+        "od -c samples/three.txt && echo \"--- run python3 ---\" && python3 count_lines.py samples/three.txt && echo \"--- python present? ---\" && (command -v python || echo \"no 'python' on PATH\")",
+        "od -c samples/three.txt",
+        "python3 count_lines.py samples/three.txt",
+        "command -v python python3",
+        "command -v python",
+        "shasum -a 256 count_lines.py samples/three.txt notes/scope.md",
+        "git status --porcelain",
+        "git diff --stat",
+        "ls notes/state.md notes/usage.md notes/scope.md README.md count_lines.py"
+      ],
+      "phrase_at_first_reply_start": false
+    }
+  }
+}

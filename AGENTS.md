@@ -12,7 +12,10 @@
 - Keep guidance applicable to varied project layouts. Do not add a universal
   rule for an isolated example without a demonstrated need.
 - Validate skill metadata, packaged reference links and affected evaluation
-  scenarios. Report static checks separately from actual agent evaluations.
+  scenarios with `python3 evals/checks/static_checks.py`; CI runs it on every push.
+  Report static checks separately from actual agent evaluations.
+- Record each skill change in `CHANGELOG.md` with the version it lands in and what
+  was actually tested. Keep each skill's `VERSION` file in step with it.
 - Use synthetic examples. Do not copy private project context into this repo.
 - Update current project context when behavior, scope or status changes.
 - Publication requires authorization from the task; these instructions grant none.

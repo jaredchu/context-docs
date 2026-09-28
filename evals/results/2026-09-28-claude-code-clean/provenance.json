@@ -1,0 +1,17 @@
+{
+  "protocol_sha256": "8910aac8a6418a3b7c23894e50f6368c83ddfc7ad11a3778cd1a2c79bd872811",
+  "raw_stream_sha256": {
+    "audit-only-pass-1.jsonl": "7671a08c0bb530312d2c9ab9b48785fbe3b098b141bdc1125fbbe3ee11bc015b",
+    "claude-instructions-pass-1.jsonl": "6e9e3bc38a491acddf9c57434bb4f726de52fc827b9c788978e2a6cb3c17a867",
+    "claude-instructions-pass-2.jsonl": "3d0c7ae07046dbb589bea900421947b72fe43d616a73c2f672749c13401f1837",
+    "split-instructions-pass-1.jsonl": "0ec0a86548b49e4d31931ac37116a2f920696bcd2f5dc9297015391ae6b9730c",
+    "split-instructions-pass-2.jsonl": "3b0d15fefdd13a3b3663259f8a4359bc0dd89058e9f0886733868620e18ceb61"
+  },
+  "frozen_protocol_commit": "e676300",
+  "harness_commit": "27ea769",
+  "normalization": "Fixture paths replaced with /fixture and the home prefix with /home/evaluator. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally.",
+  "audit_recovery": {
+    "parser_commit": "b473c65",
+    "method": "Reparse original completed audit stream; reconstruct before snapshot only after complete final tree hashes equal frozen initial_tree. Subprocess exit_code/stderr/seconds were not retained and are null. Permission-denied failure remains scored. The four earlier trial records are unchanged."
+  }
+}

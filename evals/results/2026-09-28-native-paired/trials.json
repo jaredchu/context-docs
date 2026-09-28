@@ -1,0 +1,954 @@
+[
+  {
+    "id": "delimited-records-ordinary-1",
+    "case": "delimited-records",
+    "arm": "ordinary",
+    "repeat": 1,
+    "initial_tree": {
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "prompt": "Set up ongoing project context documentation for this small utility. Explain its invocation and data behavior from the supplied source and sample, provide a README entry point, and put a concise maintenance rule in the project instructions. Keep records.py and samples/visits.csv byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README navigation leads to useful context and a correct python records.py samples/visits.csv invocation.",
+      "Context accurately explains the supplied irregular records: missing active becomes null/None and surplus fields become a list; it does not claim all output values are strings.",
+      "The resulting context and final response agree with the resulting files; no unqualified current assertion that README or maintenance guidance is absent after creating it.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and code/data preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 138.7
+    },
+    "observed": {
+      "skill_calls": [],
+      "skill_names": [],
+      "installed_reads": [],
+      "invoked": false,
+      "final_message": "Done.\n\n**What changed** (3 files, all docs; nothing committed):\n- `README.md` (new) \u2014 entry point: purpose, file layout, invocation, a real sample run, and a four-bullet behavior summary pointing at the detailed doc.\n- `docs/context.md` (new) \u2014 ongoing context doc: invocation contract (one positional path, no flags, stdout JSON, tracebacks on failure), the three `DictReader` choices that drive behavior (`delimiter=\";\"`, `restkey=\"surplus\"`, `newline=\"\"`), data behavior keyed to the three row shapes in `samples/visits.csv`, other edge cases, and an explicit \"uncertain\" section.\n- `CLAUDE.md` \u2014 appended a short `## Maintenance` section: update `docs/context.md` (and `README.md` when invocation or the summary is affected) in the same change that alters invocation or row\u2192JSON mapping; verify by running, and paste example output from a real run.\n\n**What I verified** (Python 3.9.6, macOS; scratch inputs were written outside the project):\n- `python3 records.py samples/visits.csv` output, copied verbatim into both docs \u2014 including `\"active\": null` for the short row and `\"surplus\": [\"manual\", \"checked\"]` for the long one.\n- All values stay strings; no type inference.\n- `surplus` is a list even with one extra field; a skipped middle field shifts positionally (`east;;2` \u2192 `{\"site\":\"east\",\"visits\":\"\",\"surplus\":[\"2\"]}`).\n- Empty file and header-only file both print `[]`; blank body lines produce no record.\n- Quoted values may contain `;` and embedded newlines.\n- Non-ASCII prints literally (`ensure_ascii=False`); a UTF-8 BOM is *not* stripped and glues onto the first header key.\n- Missing argument \u2192 `IndexError`; missing file \u2192 `FileNotFoundError`.\n- `records.py` and `samples/visits.csv` are byte-identical (SHA-256 unchanged: `55a4d08d\u2026`, `05e0cdf2\u2026`), `git status` shows only the modified `CLAUDE.md` plus the two new untracked doc paths, and no commit was made.\n\n**What remains uncertain:**\n- No tests, dependency manifest, or packaging metadata, so the supported Python range is unstated \u2014 I verified only on 3.9.6 and noted the code uses nothing newer than 3.6.\n- The downstream consumer of the JSON is unknown, so whether `null` fields and `surplus` lists are meant to be tolerated permanently or eventually validated is a judgment I couldn't make from the source; I recorded it as open rather than guessing.\n- A header column literally named `surplus` would collide with the overflow key. No sample exercises this and I didn't test it, so I documented it as a latent collision, not as observed behavior.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 38,
+        "duration_ms": 137923,
+        "total_cost_usd": 0.6655495
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:records.py": true,
+      "immutable:samples/visits.csv": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      "CLAUDE.md": "16e77f9cb98c5d26389523d7ed63263afd617f769414eecd0fec127abe7fb80a",
+      "README.md": "9b4a1da1a1b856720fa6beefd286d868fdadd4645da6691b5cecd39459cabbc4",
+      "docs/context.md": "3ed6bf6d2122a39fb36386d97a0713b3e96f1d59f4b7cc9e9910d2d227fbf6fa",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Maintenance\n\nWhen a change alters how `records.py` is invoked or how it turns input rows into\nJSON, update `docs/context.md` in the same change, and `README.md` too if the\ninvocation or the short behavior summary is affected. Verify documented behavior\nby running the utility rather than by reading the code alone, and keep example\noutput copied from a real run.\n",
+      "README.md": "# records\n\nA single-file utility that reads a semicolon-delimited CSV file and prints its\nrows as a JSON array of objects on stdout.\n\n## Layout\n\n| Path | Purpose |\n| --- | --- |\n| `records.py` | The whole utility: `read_records(path)` plus a small CLI entry point. |\n| `samples/visits.csv` | Sample input exercising the well-formed, short, and over-long row cases. |\n| `docs/context.md` | Project context: invocation contract and data behavior in detail. |\n\n## Invocation\n\n```\npython3 records.py <path-to-csv>\n```\n\nThe path is required and positional; there are no flags. Output is one line of\nJSON on stdout, and nothing is written back to the input file.\n\nRun it against the bundled sample:\n\n```\n$ python3 records.py samples/visits.csv\n[{\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"}, {\"site\": \"south\", \"visits\": \"8\", \"active\": null}, {\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\", \"surplus\": [\"manual\", \"checked\"]}]\n```\n\n## Behavior in brief\n\n- The delimiter is `;`, not `,`. The first line is the header and names the keys.\n- Every value is emitted as a JSON string; no numbers or booleans are inferred.\n- A row with too few fields gets `null` for the missing keys.\n- A row with too many fields gets the surplus values as a list under `\"surplus\"`.\n\n`docs/context.md` covers these cases, the error behavior, and the encoding\nassumptions in full.\n",
+      "docs/context.md": "# Project context\n\nWorking notes on what `records.py` does and why its output looks the way it\ndoes. Everything below was checked by running the utility under Python 3.9.6 on\nmacOS against `samples/visits.csv` and against throwaway inputs outside the\nproject.\n\n## Invocation contract\n\n```\npython3 records.py <path-to-csv>\n```\n\n- Exactly one positional argument: the path to the input file. There are no\n  options, no flags, and no stdin mode.\n- On success the utility prints a single line of JSON to stdout and exits 0.\n- The input file is opened read-only; the utility never writes to it.\n\nFailures surface as uncaught Python tracebacks with a non-zero exit, not as\nfriendly messages:\n\n- No argument at all raises `IndexError: list index out of range` from\n  `sys.argv[1]`.\n- A path that does not exist raises `FileNotFoundError`.\n\nThe whole file is parsed into a list before anything is printed, so memory use\nscales with input size. That is fine at the sample's scale and worth\nremembering before pointing it at a large export.\n\n## Reading side\n\n`read_records(path)` opens the file with `newline=\"\"` and `encoding=\"utf-8\"`,\nthen wraps it in `csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\")`.\nThree choices in that line drive all of the interesting behavior:\n\n- **`delimiter=\";\"`** \u2014 records are semicolon-separated. A comma is an ordinary\n  character inside a value, so a comma-separated file parses as a single column.\n- **`restkey=\"surplus\"`** \u2014 values beyond the last header column are not\n  dropped; they are collected under the key `\"surplus\"`.\n- **`newline=\"\"`** \u2014 required by the `csv` module so that quoted values may\n  contain embedded newlines. Such a value comes through as one string with a\n  `\\n` inside it.\n\nThe header is the first line of the file and supplies the keys, in file order.\nStandard CSV quoting applies, so `\"a;b\"` is one value containing a semicolon.\n\n## Data behavior\n\nEvery value stays a string. `csv` performs no type inference and the script adds\nnone, so `12` becomes `\"12\"` and `true` becomes `\"true\"`. Any consumer that\nwants numbers or booleans has to convert them itself.\n\nRow-shape mismatches are tolerated rather than rejected, and the three cases are\nexactly what `samples/visits.csv` demonstrates against the header\n`site;visits;active`:\n\n| Sample row | Shape | Result |\n| --- | --- | --- |\n| `north;12;true` | matches the header | `{\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"}` |\n| `south;8` | one field short | `{\"site\": \"south\", \"visits\": \"8\", \"active\": null}` |\n| `west;4;false;manual;checked` | two fields long | `{\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\", \"surplus\": [\"manual\", \"checked\"]}` |\n\nNotes on those cases:\n\n- Missing trailing fields become JSON `null`, because `DictReader`'s default\n  `restval` is `None`. A `null` therefore means \"the row was short\", while `\"\"`\n  means \"the field was present and empty\" \u2014 the two are distinguishable.\n- `\"surplus\"` is always a list, even when there is exactly one extra field.\n- Because surplus values are positional leftovers, a row that merely skips a\n  middle field shifts everything after it; `east;;2` under a two-column header\n  yields `{\"site\": \"east\", \"visits\": \"\", \"surplus\": [\"2\"]}`. Nothing validates\n  that a row is well-formed.\n- A header column named `surplus` would collide with the overflow key. No\n  current sample does this.\n\nOther observed edge cases:\n\n- An empty file and a header-only file both print `[]`.\n- Blank lines in the body are skipped by `csv` and produce no record.\n- `json.dumps(..., ensure_ascii=False)` means non-ASCII characters are printed\n  literally as UTF-8 (`\"caf\u00e9\"`) rather than escaped (`\"caf\\u00e9\"`).\n- The file is read as `utf-8`, not `utf-8-sig`. A UTF-8 BOM is not stripped and\n  ends up glued to the first header name, producing a key like `\"\ufeffsite\"`.\n  Inputs exported from spreadsheet tools are the likely way to hit this.\n\n## Uncertain / not established\n\n- There is no test suite, no dependency manifest, and no packaging metadata, so\n  the supported Python versions are unstated. The code uses nothing newer than\n  Python 3.6 and was exercised here on 3.9.6.\n- The intended downstream consumer of the JSON is unknown, so it is unclear\n  whether `null` fields and `surplus` lists are meant to be tolerated\n  indefinitely or to be caught and reported later.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    }
+  },
+  {
+    "id": "delimited-records-skills-1",
+    "case": "delimited-records",
+    "arm": "skills",
+    "repeat": 1,
+    "initial_tree": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "prompt": "Set up ongoing project context documentation for this small utility. Explain its invocation and data behavior from the supplied source and sample, provide a README entry point, and put a concise maintenance rule in the project instructions. Keep records.py and samples/visits.csv byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README navigation leads to useful context and a correct python records.py samples/visits.csv invocation.",
+      "Context accurately explains the supplied irregular records: missing active becomes null/None and surplus fields become a list; it does not claim all output values are strings.",
+      "The resulting context and final response agree with the resulting files; no unqualified current assertion that README or maintenance guidance is absent after creating it.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and code/data preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 115.8
+    },
+    "observed": {
+      "skill_calls": [
+        {
+          "skill": "adopt-context-docs"
+        }
+      ],
+      "skill_names": [
+        "adopt-context-docs"
+      ],
+      "installed_reads": [
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "invoked": true,
+      "final_message": "Done. Context Docs is adopted for this project.\n\n## What changed\n\n- **`context.md`** (new) \u2014 the context entry point. Purpose/scope, verified invocation and data behavior, constraints, open questions, canonical references.\n- **`README.md`** (new) \u2014 short entry point: one-line invocation, a note that the sample is deliberately ragged, and a pointer to `context.md`. The detailed behavior lives canonically in `context.md` rather than being duplicated here.\n- **`CLAUDE.md`** (modified, appended only) \u2014 a new `## Context maintenance` section with the adoption marker (`Method: context-docs`, `Adopted: 2026-09-28`, `Entry point: context.md`) and a concise maintenance rule. The three pre-existing instruction lines are byte-for-byte untouched.\n\nI reused the installed `.claude/skills` packages; no skill files, global instructions, or files outside this project were touched, and nothing was committed.\n\n## What I verified\n\n- **Behavior by execution, not by reading.** Ran `python3 records.py samples/visits.csv` under CPython 3.9.6 and recorded the actual output: values stay strings (`\"12\"`, not `12`), the short `south` row yields `\"active\": null`, and the long `west` row collects `[\"manual\", \"checked\"]` under `\"surplus\"`. Also confirmed a header-only file returns `[]`, and that a missing argument raises `IndexError` from line 10 rather than printing usage \u2014 I tested that instead of assuming it.\n- **Fixtures unchanged.** SHA-256 of `records.py` and `samples/visits.csv` are identical before and after (`55a4d08d\u2026` and `05e0cdf2\u2026`); `git status` shows only `CLAUDE.md` modified plus the two new untracked files.\n- **Links.** All five repository-relative link targets exist.\n- **Instruction loading is confirmed, not assumed.** `CLAUDE.md` was delivered to this session as project instructions in the system context, so the rule is in a file this client actually loads \u2014 the marker isn't sitting in a dead file.\n\n## What remains uncertain\n\n- **Whether ragged rows are intended or merely unhandled.** The utility tolerates both short and long rows silently and the fixture enshrines them, but nothing records intent. This blocks any future validation work, so I logged it as an owner decision rather than guessing.\n- **Whether `\"surplus\"` is safe as a reserved key** if a header column were named `surplus`. I did not test this and made no claim about it.\n- **The delimiter, overflow-key name, and string-preservation choices have no recorded rationale or author.** I documented them as observed in source and explicitly flagged that they are *not* approved design intent, so a later session doesn't cite them as decisions someone made deliberately.\n\nOne judgment call worth surfacing: I excluded the `Session check` phrase from the documentation, since `CLAUDE.md` states it is not project knowledge to document.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 27,
+        "duration_ms": 115041,
+        "total_cost_usd": 0.73834
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:records.py": true,
+      "immutable:samples/visits.csv": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/LICENSE": true,
+      "external_reference:.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/context-docs/VERSION": true,
+      "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-1/.claude/skills/context-docs/references/standard.md": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "98c2a4c84144aca2c3be81c2cde2a4296763a3981c00a3267d488d6f5f6dc563",
+      "README.md": "b30271dfa7de5d912bc3e27e6579f59c5f9d6f85f3e1ad16c4d24a0b11abfe3f",
+      "context.md": "1c9295425b1175e9a84f5c75c362e8d3934be3fb2c0ccddb89de68adebfeac4e",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-09-28\nEntry point: context.md\n\nUse the context-docs skill for documentation audits and after meaningful changes\nto this project's behavior, decisions, procedures, blockers or next actions. Read\nthe skill before maintenance. Keep the rules above intact, preserve decision\nstatus and authority, update the affected canonical sections of `context.md` in\nplace, and check the diff and links afterwards. Audit-only requests stay\nread-only: make no bookkeeping edits when nothing durable changed.\n",
+      "README.md": "# delimited-records\n\nA single-file utility that reads a semicolon-delimited record file and prints it\nto stdout as one JSON array.\n\n```sh\npython3 records.py samples/visits.csv\n```\n\nThe path argument is required and positional. The bundled\n[`samples/visits.csv`](samples/visits.csv) is deliberately ragged: it contains a\nrow shorter than the header and a row longer than it, so it exercises the\nutility's handling of both.\n\n## Where to start\n\n[`context.md`](context.md) is the project context entry point. It documents the\nverified invocation and data behavior, the constraints on this project, and the\nopen questions. Read it before changing `records.py` or the sample.\n",
+      "context.md": "# Project context\n\n## Purpose and scope\n\n`records.py` converts one semicolon-delimited text file into a single JSON array\non stdout. It is the whole project: there is no package, no configuration file,\nno test suite and no dependency beyond the Python standard library\n(`csv`, `json`, `sys`).\n\nOut of scope, as far as the supplied source shows: writing files, validating or\ncoercing field values, reporting data problems, and reading from stdin.\n\n## Current state\n\nObserved on 2026-09-28 by running the utility against the bundled sample under\nCPython 3.9.6 on macOS. This is code-and-local-run evidence; there is no\ndeployment, packaging or CI in this project to describe.\n\n### Invocation\n\n```sh\npython3 records.py <path>\n```\n\n- One positional argument, read directly as `sys.argv[1]`. There is no argument\n  parser, no flags, and no `--help`.\n- Called with no argument, it raises `IndexError` from line 10 and exits with a\n  traceback rather than a usage message.\n- Output is one JSON array on a single line, printed with `ensure_ascii=False`,\n  so non-ASCII characters are emitted literally rather than escaped.\n- The input is opened with `newline=\"\"` and `encoding=\"utf-8\"`.\n\n### Data behavior\n\n`read_records` wraps `csv.DictReader` with `delimiter=\";\"` and\n`restkey=\"surplus\"`, and materializes the result with `list(...)`, so the entire\nfile is held in memory at once.\n\n- The first row is the header and supplies the JSON object keys.\n- **Every value stays a string.** There is no type coercion: `12` becomes\n  `\"12\"` and `true` becomes `\"true\"`.\n- **Short rows** \u2014 fields the row does not supply become `null`. `restval` is\n  left at its default of `None`, so the key is present with a null value rather\n  than omitted.\n- **Long rows** \u2014 values past the last header column are collected into a list\n  under the extra key `\"surplus\"`. That key appears only on rows that overflow.\n- A header-only file produces `[]`.\n\nThe bundled sample covers all three row shapes:\n\n```\nsite;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n```\n\nproduces, reformatted here for reading (actual output is one line):\n\n```json\n[{\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"},\n {\"site\": \"south\", \"visits\": \"8\", \"active\": null},\n {\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\",\n  \"surplus\": [\"manual\", \"checked\"]}]\n```\n\n## Decisions and constraints\n\n**Approved \u2014 `records.py` and `samples/visits.csv` must stay byte-identical.**\nAuthority: the project instructions in `CLAUDE.md` (\"Preserve supplied code and\nsample data\") and the task request that established this documentation. The\nsample is a fixture whose exact ragged shape is what makes it useful; editing it\nto look tidy would destroy the coverage described above.\n\n**Approved \u2014 do not commit.** Authority: `CLAUDE.md`. Changes are left in the\nworking tree for the user to review and commit themselves.\n\nThe implementation choices below are *observed in the source*, not recorded\ndecisions. No rationale for them is documented anywhere in this project, and the\nauthor is not identified:\n\n- semicolon rather than comma as the delimiter;\n- `\"surplus\"` as the overflow key name;\n- strings preserved rather than parsed into numbers or booleans.\n\nTreat them as load-bearing until an owner says otherwise \u2014 a downstream consumer\nmay depend on any of them \u2014 but do not cite them as approved design intent.\n\n## Open questions and next actions\n\n- **Are ragged rows valid input or a data defect?** The utility accepts both\n  short and long rows silently, and the sample enshrines them, but nothing\n  records whether that tolerance is intentional or merely unhandled. This\n  matters before anyone adds validation: the answer decides whether a short row\n  should stay `null` or become an error. Needs an owner decision.\n- **Is the `\"surplus\"` key name reserved?** Behavior when a header column is\n  itself named `surplus` has not been tested. Unknown; check before relying on\n  the key's uniqueness.\n- No next actions are outstanding. Nothing in this project is blocked.\n\n## Canonical references\n\n- [`README.md`](README.md) \u2014 entry point and the invocation example.\n- [`records.py`](records.py) \u2014 the full implementation, 11 lines.\n- [`samples/visits.csv`](samples/visits.csv) \u2014 the ragged fixture.\n- [`CLAUDE.md`](CLAUDE.md) \u2014 project instructions and the context maintenance rule.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    }
+  },
+  {
+    "id": "delimited-records-skills-2",
+    "case": "delimited-records",
+    "arm": "skills",
+    "repeat": 2,
+    "initial_tree": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "prompt": "Set up ongoing project context documentation for this small utility. Explain its invocation and data behavior from the supplied source and sample, provide a README entry point, and put a concise maintenance rule in the project instructions. Keep records.py and samples/visits.csv byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README navigation leads to useful context and a correct python records.py samples/visits.csv invocation.",
+      "Context accurately explains the supplied irregular records: missing active becomes null/None and surplus fields become a list; it does not claim all output values are strings.",
+      "The resulting context and final response agree with the resulting files; no unqualified current assertion that README or maintenance guidance is absent after creating it.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and code/data preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 247.2
+    },
+    "observed": {
+      "skill_calls": [
+        {
+          "skill": "adopt-context-docs"
+        }
+      ],
+      "skill_names": [
+        "adopt-context-docs"
+      ],
+      "installed_reads": [
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "invoked": true,
+      "final_message": "Verified: fixture hashes match their pre-session values, nothing is committed, and no file outside this project was touched.\n\n## What changed\n\n- **`context.md`** (new) \u2014 the context entry point. Purpose and scope, invocation, data behavior, constraints, open questions, canonical references.\n- **`README.md`** (new) \u2014 short entry point: one-line description, a runnable invocation, and a pointer to `context.md`.\n- **`CLAUDE.md`** (+13 lines) \u2014 appended a `Context maintenance` section with the adoption marker (`Method: context-docs`, `Adopted: 2026-09-28`, `Entry point: context.md`) and a concise maintenance rule. Existing rules preserved verbatim above it.\n- `records.py` and `samples/visits.csv` \u2014 unmodified, SHA-256 unchanged.\n\n## What I verified\n\nBehavior is documented from reading the source and actually running it under Python 3.9.6 on macOS:\n\n- `python3 records.py samples/visits.csv` \u2192 one line of JSON on stdout.\n- Short row (`south;8`) \u2192 `\"active\": null`, since `restval` is left at its default.\n- Long row (`west;4;false;manual;checked`) \u2192 header fields kept plus `\"surplus\": [\"manual\", \"checked\"]`; that key is absent from other rows, so objects in one array don't share a key set.\n- No type coercion \u2014 `12` stays `\"12\"`.\n- Missing argument \u2192 `IndexError`, exit 1; missing file \u2192 `FileNotFoundError`, exit 1. Both are unhandled tracebacks.\n\nAlso checked: all relative links in the two new docs resolve, and the JSON sample in `context.md` matches real output.\n\n## What remains uncertain\n\n- The intended consumer of the output is unknown, so I could not judge whether the inconsistent `surplus` key, the `null` values, and the traceback-on-error behavior are features or defects. I recorded them as observed behavior plus open questions rather than deciding.\n- The fixture only covers well-formed, short and long rows. Quoted fields, embedded delimiters or newlines, empty/header-only files, duplicate header names and non-UTF-8 bytes are noted in `context.md` as not exercised \u2014 I didn't test them, since that would mean adding input files I wasn't asked for.\n- Whether this client auto-loads `CLAUDE.md` is **confirmed** here: the project instructions arrived in my session context before I read the file, including the `amber-orbit` check. So the maintenance rule sits in a file that is in effect.\n- No record exists of who chose the semicolon delimiter or the `surplus` restkey, so I documented them as fixed properties of supplied code rather than attributing a decision.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 21,
+        "duration_ms": 246473,
+        "total_cost_usd": 0.452048
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:records.py": true,
+      "immutable:samples/visits.csv": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/LICENSE": true,
+      "external_reference:.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/context-docs/VERSION": true,
+      "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/delimited-records-skills-2/.claude/skills/context-docs/references/standard.md": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "ed5468d9891ead8a42a4ab3e82c62df655d844a52ed3eac0d6b78b65ffb9935b",
+      "README.md": "325311224bfa6dd05a6494791d653cc9c475b64eb8b2122c0742379a16273bd3",
+      "context.md": "b7225d9cb6e04470c80ac2690dadc2e81ae297737146fa4170e30e7ab2efa620",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-09-28\nEntry point: context.md\n\nInvoke the `context-docs` skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\nthe skill before maintaining. Preserve the rules above, document roles and\ndecision status. Update the affected canonical sections of `context.md` and check\nthe diff, links and information preservation. Keep audit-only requests\nread-only; make no bookkeeping edits when nothing durable changed.\n",
+      "README.md": "# records.py\n\nReads a semicolon-delimited file with a header row and prints its rows as a JSON\narray of objects on stdout.\n\n```text\npython3 records.py samples/visits.csv\n```\n\nStart with [`context.md`](context.md) for the invocation details, the parsing\nbehavior for short and long rows, project constraints and the open questions.\n",
+      "context.md": "# Project context\n\n## Purpose and scope\n\nA single-file utility, [`records.py`](records.py), that reads a semicolon-delimited\ntext file with a header row and prints the rows as a JSON array of objects on\nstdout. [`samples/visits.csv`](samples/visits.csv) is the supplied fixture used to\nexercise the parsing edge cases below.\n\nScope boundaries: there is no test suite, packaging, dependency manifest, CLI\nargument parser, or output-file handling in the project. The utility performs no\ntype conversion and no validation; every parsed value is a string, `null`, or a\nlist of strings.\n\n## Current state\n\nObserved on 2026-09-28 by reading `records.py` and running it under Python 3.9.6\non macOS. No deployment or packaged release of this utility was examined, so its\ndistribution state is unknown.\n\n### Invocation\n\n```text\npython3 records.py <path>\n```\n\nThe path is read positionally from `sys.argv[1]`; there are no flags or options.\nThe file is opened with `newline=\"\"` and `encoding=\"utf-8\"`. Output is a single\nline of JSON written to stdout with `ensure_ascii=False`, so non-ASCII characters\nare emitted literally rather than escaped. The whole file is materialized into a\nlist in memory before anything is printed.\n\nError behavior is unhandled exceptions with exit status 1 and a traceback on\nstderr \u2014 `IndexError` when no path argument is given, and `FileNotFoundError`\nwhen the path does not exist (both observed).\n\n### Data behavior\n\nParsing uses `csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\")`. The first\nline is consumed as the header and supplies the object keys. The consequences,\neach demonstrated by a row of the sample fixture:\n\n- **Short rows** get `None` for the missing trailing columns, because `restval` is\n  left at its default. Emitted as JSON `null`, not as an empty string or a\n  dropped key.\n- **Long rows** keep the header-named fields and collect every surplus value into\n  a list under the key `surplus`. That key is absent from rows that are not long,\n  so the objects in one output array are not guaranteed to share a key set.\n- **No type coercion:** `12` stays `\"12\"` and `true` stays `\"true\"`.\n\nRunning the utility against the fixture produces (reformatted here for reading;\nthe real output is one line):\n\n```json\n[\n  {\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"},\n  {\"site\": \"south\", \"visits\": \"8\", \"active\": null},\n  {\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\",\n   \"surplus\": [\"manual\", \"checked\"]}\n]\n```\n\nThe fixture covers the well-formed, short and long cases only. Behavior for\nquoted fields, embedded delimiters or newlines, an empty file, a header-only\nfile, duplicate header names and non-UTF-8 bytes follows from `csv.DictReader`\nand Python's defaults but has not been exercised here.\n\n## Decisions and constraints\n\n- **Constraint (owner instruction, [CLAUDE.md](CLAUDE.md)):** `records.py` and\n  `samples/visits.csv` are supplied material and must be preserved byte-for-byte.\n  Document the observed behavior instead of \"fixing\" it. Do not commit, and do\n  not change files outside this project.\n- The semicolon delimiter and the `surplus` restkey are properties of the\n  supplied code as given; no record identifies who chose them or why, so treat\n  them as fixed inputs rather than as a decision open to revision here.\n\n## Open questions and next actions\n\n- Unknown: the intended consumer of the JSON output, and whether the\n  inconsistent `surplus` key and `null` values are acceptable to it or need\n  normalizing. This determines whether the parsing quirks above are features or\n  defects; no next action is possible without the owner's answer.\n- Unknown: whether the exit-1-with-traceback error behavior is acceptable, or\n  whether the utility is expected to report a usage message for a missing\n  argument.\n- No test suite exists. Adding one is proposed, not approved, and would need to\n  live outside the two preserved files.\n\n## Canonical references\n\n- [`records.py`](records.py) \u2014 the entire implementation, 11 lines.\n- [`samples/visits.csv`](samples/visits.csv) \u2014 fixture covering the parsing cases.\n- [`README.md`](README.md) \u2014 short entry point pointing here.\n- [`CLAUDE.md`](CLAUDE.md) \u2014 project instructions and the context maintenance rule.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    }
+  },
+  {
+    "id": "delimited-records-ordinary-2",
+    "case": "delimited-records",
+    "arm": "ordinary",
+    "repeat": 2,
+    "initial_tree": {
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "prompt": "Set up ongoing project context documentation for this small utility. Explain its invocation and data behavior from the supplied source and sample, provide a README entry point, and put a concise maintenance rule in the project instructions. Keep records.py and samples/visits.csv byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README navigation leads to useful context and a correct python records.py samples/visits.csv invocation.",
+      "Context accurately explains the supplied irregular records: missing active becomes null/None and surplus fields become a list; it does not claim all output values are strings.",
+      "The resulting context and final response agree with the resulting files; no unqualified current assertion that README or maintenance guidance is absent after creating it.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and code/data preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 110.6
+    },
+    "observed": {
+      "skill_calls": [],
+      "skill_names": [],
+      "installed_reads": [],
+      "invoked": false,
+      "final_message": "Done. No commit made.\n\n**What changed**\n- `README.md` (new) \u2014 entry point: one-line description, quick-start invocation with the sample's actual output, and links to the context doc, the script, and the sample.\n- `docs/context.md` (new) \u2014 the ongoing context document: invocation contract (`python3 records.py <path>`, stdout JSON, traceback-on-error), parsing rules from the `csv.DictReader(delimiter=\";\", restkey=\"surplus\")` call, and a section on row shape explaining why the sample's three rows produce heterogeneous objects.\n- `CLAUDE.md` \u2014 appended a short \"Documentation maintenance\" rule: update `docs/context.md` in the same change as any invocation or data-behavior change, and verify documented output by running the utility.\n\n**What I verified**\n- Ran `python3 records.py samples/visits.csv`; the output quoted in both docs is copied from that run. Short row `south;8` \u2192 `\"active\": null`; long row `west;4;false;manual;checked` \u2192 `\"surplus\": [\"manual\", \"checked\"]` as a list.\n- Ran the script with no argument: `IndexError: list index out of range`, as documented.\n- Probed blank lines, quoted fields containing `;`, an empty file, and a duplicate header using throwaway fixtures in the scratchpad \u2014 never in the project directory.\n- `records.py` and `samples/visits.csv` SHA-256 hashes are unchanged from before I started (`55a4d08d\u2026`, `05e0cdf2\u2026`). `git status` shows only the modified `CLAUDE.md` and the two new untracked doc paths.\n\n**What remains uncertain**\n- The downstream consumer of the JSON is unknown, so I can't say whether the `null` fills and the `surplus` list are intended affordances or latent bugs. I documented them as observed behavior without recommending a change.\n- Likewise for the stringly-typed values (`\"12\"`, `\"true\"`) \u2014 whether callers are meant to coerce types themselves isn't established.\n- Duplicate headers and empty input behave predictably in my scratchpad probes, but no fixture in the project pins that down; I noted this in the doc's uncertainties section rather than adding fixtures, since that would mean new sample data you didn't ask for.\n- Only the system `python3` (3.9.6) was available to test against; the script uses nothing version-sensitive, but that's inference, not a multi-version test.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 26,
+        "duration_ms": 109881,
+        "total_cost_usd": 0.5119945000000001
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:records.py": true,
+      "immutable:samples/visits.csv": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      "CLAUDE.md": "f2b828a052b3358b73f02278455475793aeea8cd7b724c2d05d607de173f5718",
+      "README.md": "da21ccc4f3364927b2e3a3260091c088df4ea38567737135885c8bace2f22256",
+      "docs/context.md": "3325beb6099291b1151bcf32a43d1455d8a87850fc235651238dc4f4a4a8c53b",
+      "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+      "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Documentation maintenance\n\n`docs/context.md` is the project's context document and `README.md` is its entry point.\nWhenever a change alters how `records.py` is invoked or how it parses or emits data,\nupdate `docs/context.md` in the same change, and verify any example output there by\nrunning the utility rather than reasoning about it.\n",
+      "README.md": "# records\n\nA small utility that reads a semicolon-delimited CSV file and prints its rows as a\nJSON array of objects on stdout.\n\n## Quick start\n\n```\npython3 records.py samples/visits.csv\n```\n\nOutput for the supplied sample:\n\n```json\n[{\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"}, {\"site\": \"south\", \"visits\": \"8\", \"active\": null}, {\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\", \"surplus\": [\"manual\", \"checked\"]}]\n```\n\n## Where to look next\n\n- [`docs/context.md`](docs/context.md) \u2014 invocation contract, parsing rules, and the\n  row-shape behavior the sample is designed to demonstrate.\n- [`records.py`](records.py) \u2014 the whole implementation (about ten lines).\n- [`samples/visits.csv`](samples/visits.csv) \u2014 the reference input. It is intentionally\n  irregular; see the context document before changing anything that reads it.\n",
+      "docs/context.md": "# Project context\n\nWorking notes on how `records.py` is invoked and how it treats input data. Everything\nbelow was checked against the current `records.py` and `samples/visits.csv` by running\nthe utility; the observed output is quoted verbatim.\n\n## Invocation\n\n```\npython3 records.py <path-to-csv>\n```\n\n- The input path is read from `sys.argv[1]`. It is the only input the program takes;\n  there are no flags, no environment variables, and no configuration file.\n- Result: a single line of JSON on stdout \u2014 an array of one object per data row \u2014\n  followed by a newline from `print`. Nothing is written to stderr on success, and\n  nothing is written to disk.\n- `json.dumps(..., ensure_ascii=False)` means non-ASCII characters are emitted as\n  literal UTF-8 rather than `\\uXXXX` escapes.\n- Error behavior is whatever Python raises. Running with no argument raises\n  `IndexError: list index out of range`; a missing file raises `FileNotFoundError`.\n  Both surface as a traceback and a non-zero exit status. There is no argument\n  validation or friendly error message, by design of the current script.\n\n## Parsing rules\n\nThe file is opened with `newline=\"\"` and `encoding=\"utf-8\"` and handed to\n`csv.DictReader` with `delimiter=\";\"` and `restkey=\"surplus\"`. That fixes the\nfollowing behavior:\n\n- **Semicolons, not commas, separate fields.** A comma is an ordinary character in a\n  field.\n- **The first line is the header** and supplies the object keys. Keys are used exactly\n  as written \u2014 no trimming, lowercasing, or renaming.\n- **Every value is a string.** `\"12\"` stays a string; nothing is coerced to a number,\n  and `true` / `false` stay as text, not JSON booleans.\n- **Standard CSV quoting applies.** Double quotes group a field, so `north;\"a;b\"`\n  yields `{\"site\": \"north\", \"note\": \"a;b\"}`.\n- **Blank lines are skipped** by `csv.DictReader` and produce no object.\n- **`newline=\"\"`** lets the `csv` module handle line endings itself, so `\\r\\n` input is\n  parsed correctly rather than leaving stray `\\r` in the last field.\n- The whole file is materialized with `list(...)`, so memory use is proportional to\n  input size. Fine for samples; worth knowing before pointing it at a large export.\n\n## Row shape: the part that surprises people\n\nRows are not required to match the header width, and the two mismatch directions behave\ndifferently. `samples/visits.csv` exists to pin down both:\n\n```\nsite;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n```\n\nproduces\n\n```json\n[{\"site\": \"north\", \"visits\": \"12\", \"active\": \"true\"},\n {\"site\": \"south\", \"visits\": \"8\", \"active\": null},\n {\"site\": \"west\", \"visits\": \"4\", \"active\": \"false\", \"surplus\": [\"manual\", \"checked\"]}]\n```\n\n- **Short row (`south`).** Missing trailing fields are filled with `DictReader`'s\n  default `restval`, which is `None`, and serialize as JSON `null`. The key is still\n  present. Consumers must distinguish \"key absent\" from \"value is null\" \u2014 here it is\n  always the latter.\n- **Long row (`west`).** Fields beyond the header are collected into a list under the\n  `restkey`, `\"surplus\"`. So that one object has a key the others do not, and its value\n  is an **array of strings**, not a string. Any consumer that assumes uniform keys or\n  `str` values across records will break on this row.\n- **Objects are therefore heterogeneous.** The JSON array is not a rectangular table.\n  Treat the header keys as \"usually present, possibly null\" and `surplus` as\n  \"occasionally present, always a list\".\n\n`samples/visits.csv` is a fixture, not example data: each of its three rows covers one\ncase (exact width, short, long). Keep it byte-identical unless a behavior change\nrequires otherwise, and update this document in the same change if it does.\n\n## Environment\n\nVerified with the system `python3` (3.9.6 on this machine). The script uses only the\nstandard library \u2014 `csv`, `json`, `sys` \u2014 and no features newer than that, so any\nsupported Python 3 should behave the same.\n\n## Known uncertainties\n\n- Intended downstream consumer of the JSON is unknown, so whether `null` values and the\n  `surplus` list are convenient or a problem for that consumer is an open question.\n- The stringly-typed output (`\"12\"`, `\"true\"`) is recorded as observed behavior; whether\n  callers are expected to coerce types themselves has not been confirmed.\n- Duplicate header names and an empty input file behave predictably when tried outside\n  this project \u2014 the last duplicate column wins (`site;site` / `a;b` yields\n  `[{\"site\": \"b\"}]`), and an empty file yields `[]` \u2014 but no fixture here exercises\n  them, so nothing guards against a future change to that behavior.\n",
+      "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+      "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+    }
+  },
+  {
+    "id": "front-door-refresh-ordinary-1",
+    "case": "front-door-refresh",
+    "arm": "ordinary",
+    "repeat": 1,
+    "initial_tree": {
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "prompt": "Set up ongoing context documentation maintenance using the existing notes. Create a concise README front door, move the usage instructions into notes/usage.md, and keep notes/state.md as the current-state entry point. Add a concise maintenance rule to the project instructions. Preserve the scope decision and unresolved question. Keep count_lines.py, samples/three.txt and notes/scope.md byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README links to notes/state.md; state links to notes/usage.md, which has the correct invocation.",
+      "The unresolved trailing-line question and approved local-only scope survive; proposed network ingestion is not promoted to approval.",
+      "Current state and the final response reconcile the newly created README, usage guide and maintenance rule; old absence/only-here claims are removed or explicitly historical.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and immutable files preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 42.0
+    },
+    "observed": {
+      "skill_calls": [],
+      "skill_names": [],
+      "installed_reads": [],
+      "invoked": false,
+      "final_message": "Done.\n\n**What changed**\n- **`README.md` (new)** \u2014 concise front door: one-line description, the run command, and links to the three notes files with a word on what each is for.\n- **`notes/usage.md` (new)** \u2014 the usage instructions moved out of `state.md`: the command, the expected output for the bundled sample, and a note that counting uses `splitlines()` so one trailing newline doesn't add a line.\n- **`notes/state.md` (rewritten)** \u2014 now a current-state entry point only. It points at the README and usage doc instead of carrying command details, and states that the docs front door and the maintenance rule now exist (replacing the stale \"there is no README\" / \"no maintenance rule\" lines). The unresolved trailing-empty-lines question and the link to `scope.md` are preserved verbatim in substance.\n- **`CLAUDE.md`** \u2014 appended a short \"Documentation maintenance\" section saying that changes touching how the project is run, its current state, or an open question must update the docs in the same change, with each file's role named. Existing instructions were left untouched, and the session-check phrase was not documented anywhere.\n\n**What I verified**\n- SHA-256 of `count_lines.py`, `samples/three.txt`, and `notes/scope.md` are identical before and after the edits (`6ced8c3d\u2026`, `4fdbc441\u2026`, `3d3c3971\u2026`).\n- `python3 count_lines.py samples/three.txt` still prints `3`; I confirmed from `od -c` that the sample ends in a single `\\n`, which is what the usage note describes.\n- `git status` shows only `CLAUDE.md` and `notes/state.md` modified plus the two new files, all inside the project. Nothing was committed and nothing outside the project was touched.\n\n**What remains uncertain**\n- The trailing-empty-lines question is still open \u2014 I carried it forward without deciding it. The observed behavior (a single trailing newline doesn't count) is documented as behavior, not as a ruling.\n- The README says `python`, matching the existing note; I ran `python3` locally because that's what's on this machine. If `python` isn't on the intended path for others, that command line may need adjusting.\n- Whether the maintenance rule belongs in `CLAUDE.md` versus a contributing doc is a judgment call; I put it in the project instructions as asked.",
+      "execution_error": null,
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 14,
+        "duration_ms": 41273,
+        "total_cost_usd": 0.22503599999999999
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:count_lines.py": true,
+      "immutable:samples/three.txt": true,
+      "immutable:notes/scope.md": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": true
+    },
+    "mechanical_pass": true,
+    "link_errors": [],
+    "tree_after": {
+      "CLAUDE.md": "a8c4bce32b8a9f34549ff4c4137ea57da4c6532ef7bc0fa8444c982dd9e5c735",
+      "README.md": "072cd0cc982e22b80f10bae1b70ee33b8b55afef8a15f19fdfb45cee1e0e47ea",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "33225458cb05d4d7622438341123105d13a94cb8e4b255b8a1496913586d455f",
+      "notes/usage.md": "dc8e35fa8425024045bc0b3aa18b3869dd999d4d570985d3183f49beceb66fbc",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. Run `python count_lines.py samples/three.txt`.\n\nThere is no README or documentation front door. Command details live only in this file.\nNo ongoing documentation maintenance rule exists in the project instructions.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Documentation maintenance\n\nWhen a change affects how the project is run, its current state, or an open\nquestion, update the docs in the same change: `README.md` is the front door,\n`notes/usage.md` covers commands, and `notes/state.md` is the current-state\nentry point. Record scope decisions in `notes/scope.md`.\n",
+      "README.md": "# count_lines\n\nA local line-counting utility for plain text files.\n\n```\npython count_lines.py samples/three.txt\n```\n\n## Documentation\n\n- [notes/usage.md](notes/usage.md) \u2014 how to run the tool and what it outputs.\n- [notes/state.md](notes/state.md) \u2014 current state, open questions, and the entry point for what is happening now.\n- [notes/scope.md](notes/scope.md) \u2014 the approved scope boundary.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. See [README](../README.md) for the front\ndoor and [usage](usage.md) for how to run it.\n\nDocumentation is now organised as a README front door plus these notes, and the\nproject instructions carry an ongoing maintenance rule that keeps this file\ncurrent.\n\nAn unresolved question is whether empty trailing lines should count; no decision\nhas been made.\n\nSee [scope](scope.md) for the approved boundary.\n",
+      "notes/usage.md": "# Usage\n\nRun the utility with a single path to a local text file:\n\n```\npython count_lines.py samples/three.txt\n```\n\nIt prints the number of lines to standard output. For the bundled sample\n`samples/three.txt`, the output is `3`.\n\nCounting uses Python's `str.splitlines()`, so a single trailing newline at the\nend of a file does not add a line. Whether empty trailing lines should count is\nstill unresolved \u2014 see [state](state.md).\n\nInput is limited to local text files; see [scope](scope.md).\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    }
+  },
+  {
+    "id": "front-door-refresh-skills-1",
+    "case": "front-door-refresh",
+    "arm": "skills",
+    "repeat": 1,
+    "initial_tree": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "prompt": "Set up ongoing context documentation maintenance using the existing notes. Create a concise README front door, move the usage instructions into notes/usage.md, and keep notes/state.md as the current-state entry point. Add a concise maintenance rule to the project instructions. Preserve the scope decision and unresolved question. Keep count_lines.py, samples/three.txt and notes/scope.md byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README links to notes/state.md; state links to notes/usage.md, which has the correct invocation.",
+      "The unresolved trailing-line question and approved local-only scope survive; proposed network ingestion is not promoted to approval.",
+      "Current state and the final response reconcile the newly created README, usage guide and maintenance rule; old absence/only-here claims are removed or explicitly historical.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and immutable files preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 71.3
+    },
+    "observed": {
+      "skill_calls": [
+        {
+          "skill": "adopt-context-docs"
+        }
+      ],
+      "skill_names": [
+        "adopt-context-docs"
+      ],
+      "installed_reads": [
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "invoked": true,
+      "final_message": "Session check: amber-orbit. (That belonged at the start of my first reply; I missed it there.)\n\n## What changed\n\n- **`README.md`** (new) \u2014 concise front door: one-line identification of the utility plus links to current state, usage, and the scope decision.\n- **`notes/usage.md`** (new) \u2014 the run instructions moved out of `state.md`, with a dated observation of the sample run and a pointer to the scope boundary.\n- **`notes/state.md`** (updated) \u2014 stays the current-state entry point. Removed the three claims my own work made stale (\"no README or documentation front door\", \"command details live only in this file\", \"no ongoing documentation maintenance rule\"); it now links to usage, README, and the rule. The unresolved trailing-empty-line question and the link to the scope decision are preserved verbatim.\n- **`CLAUDE.md`** (updated) \u2014 added a `Context maintenance` section with the adoption marker (`Method: context-docs`, `Adopted: 2026-09-28`, `Entry point: README.md`) and a concise maintenance rule naming each document's role. Existing project rules were left untouched above it.\n\n## What I verified\n\n- `count_lines.py`, `samples/three.txt`, `notes/scope.md` are byte-identical \u2014 SHA-256 taken before and after all edits, unchanged.\n- `python3 count_lines.py samples/three.txt` prints `3`.\n- Every relative link in the four documents resolves to an existing file.\n- `git status` shows only the two modified and two new files above; nothing committed, nothing touched outside this project.\n- Instruction loading is confirmed, not assumed: `CLAUDE.md` was supplied to this session as project instructions, and the session-check phrase it defines was present in my context.\n\n## Uncertain / left open\n\n- Whether a bare `python` exists on PATH here \u2014 the documented command uses `python`, I ran `python3`, and the check to confirm the plain `python` alias wasn't approved. `notes/usage.md` states this limit rather than silently rewriting the documented command.\n- The trailing-empty-line question remains undecided; I preserved it as an open question rather than settling it from reading `splitlines()`.\n- Network ingestion remains a proposal in `notes/scope.md`; nothing in this change touches that status.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 19,
+        "duration_ms": 70540,
+        "total_cost_usd": 0.5293964999999999
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:count_lines.py": true,
+      "immutable:samples/three.txt": true,
+      "immutable:notes/scope.md": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/LICENSE": true,
+      "external_reference:.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/context-docs/VERSION": true,
+      "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-1/.claude/skills/context-docs/references/standard.md": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "7280f2863869cddc9576abc164c82f2f874d55ffd931f0e581811a933e8da083",
+      "README.md": "3d888bd5b752847a2f52fcce825d3b0084cdf6ca8720d46738fb19de9138b917",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "3425b17028fb2f1ed2c93cf084a40dad560a0ae27ac68a18b07d1813e4f28ba4",
+      "notes/usage.md": "68e86d483bf6cd0dbfb9b067e531c6c821d922e8a36f07cb5297efbe81296578",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. Run `python count_lines.py samples/three.txt`.\n\nThere is no README or documentation front door. Command details live only in this file.\nNo ongoing documentation maintenance rule exists in the project instructions.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-09-28\nEntry point: README.md\n\nUse the context-docs skill for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions; read the skill before\nmaintenance. Keep [README.md](README.md) as the front door, [notes/state.md](notes/state.md)\nas the current-state entry point, [notes/usage.md](notes/usage.md) for how to run things,\nand [notes/scope.md](notes/scope.md) for the approved scope decision. Preserve decision\nstatus and unresolved questions, update the affected canonical section rather than\nduplicating it, and check the diff and links. Keep audit-only requests read-only.\n\n",
+      "README.md": "# Line counter\n\nA local utility that prints the number of lines in a text file\n([`count_lines.py`](count_lines.py)), with a sample input in\n[`samples/three.txt`](samples/three.txt).\n\n## Where to start\n\n- [Current state](notes/state.md) \u2014 what is true now, active work and open questions.\n- [Usage](notes/usage.md) \u2014 how to run the utility.\n- [Scope decision](notes/scope.md) \u2014 the approved boundary for this pilot.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. See [usage](usage.md) for how to run it, and\nthe [README](../README.md) for the documentation front door.\n\nDocumentation is maintained with the context-docs method; the rule lives in\n[CLAUDE.md](../CLAUDE.md).\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "notes/usage.md": "# Usage\n\nRun the utility against a local text file:\n\n```sh\npython count_lines.py samples/three.txt\n```\n\nIt prints the line count of the file named as the first argument.\n\nObserved 2026-09-28: the sample command prints `3` for\n[`samples/three.txt`](../samples/three.txt), run as `python3` in this environment.\nWhether a bare `python` is on PATH here was not verified.\n\nInput types are limited to local text files; see the [scope decision](scope.md).\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    }
+  },
+  {
+    "id": "front-door-refresh-skills-2",
+    "case": "front-door-refresh",
+    "arm": "skills",
+    "repeat": 2,
+    "initial_tree": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "prompt": "Set up ongoing context documentation maintenance using the existing notes. Create a concise README front door, move the usage instructions into notes/usage.md, and keep notes/state.md as the current-state entry point. Add a concise maintenance rule to the project instructions. Preserve the scope decision and unresolved question. Keep count_lines.py, samples/three.txt and notes/scope.md byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README links to notes/state.md; state links to notes/usage.md, which has the correct invocation.",
+      "The unresolved trailing-line question and approved local-only scope survive; proposed network ingestion is not promoted to approval.",
+      "Current state and the final response reconcile the newly created README, usage guide and maintenance rule; old absence/only-here claims are removed or explicitly historical.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and immutable files preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 67.7
+    },
+    "observed": {
+      "skill_calls": [
+        {
+          "skill": "adopt-context-docs"
+        }
+      ],
+      "skill_names": [
+        "adopt-context-docs"
+      ],
+      "installed_reads": [
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/SKILL.md",
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/references/standard.md",
+        "/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/project-context.md"
+      ],
+      "invoked": true,
+      "final_message": "All link targets resolve (README \u2192 `notes/*`; `notes/usage.md` \u2192 `state.md`; `notes/state.md` \u2192 `../README.md`, `usage.md`, `scope.md`).\n\n## What changed\n\n- **`README.md` (new)** \u2014 concise front door: what the utility does, the scope boundary, and links to the three notes.\n- **`notes/usage.md` (new)** \u2014 the run command moved out of `state.md`, plus what the counting actually does.\n- **`notes/state.md` (updated)** \u2014 remains the current-state entry point. The two stale claims (\"no README or documentation front door\", \"no maintenance rule exists\") are replaced in place rather than appended to. The unresolved trailing-line question is preserved verbatim in substance and the `scope.md` link is intact.\n- **`CLAUDE.md` (updated)** \u2014 appended a `Context maintenance` section with the adoption marker (`Method: context-docs`, `Adopted: 2026-09-28`, `Entry point: notes/state.md`) and a concise rule naming this project's canonical sections. Existing instructions were left untouched.\n\n## What I verified\n\n- **Byte-identity**: SHA-256 of `count_lines.py`, `samples/three.txt`, and `notes/scope.md` are unchanged before and after (`6ced8c3d\u2026`, `4fdbc441\u2026`, `3d3c3971\u2026`).\n- **Behavior**: `python3 count_lines.py samples/three.txt` printed `3`; `od -c` confirms the sample is three newline-terminated lines.\n- **Rule loading**: confirmed for this session \u2014 `CLAUDE.md`'s contents were delivered to me as project instructions at session start, so the file this client loads is the one carrying the rule. This project keeps no `AGENTS.md`, so there's no second file to cross-reference.\n- **Scope**: `git status` shows only the four intended files, all inside the project. Nothing committed.\n\n## What remains uncertain\n\n- **Whether trailing blank lines should count** is still open by design \u2014 I recorded the *observed* `splitlines()` behavior on the one sample without turning it into an approved decision, and files with multiple trailing blank lines were not tested.\n- **Whether a bare `python` resolves to an interpreter here** is unverified; checking `command -v python` needed approval I didn't have, so `notes/usage.md` keeps the documented `python` command and states the limit explicitly rather than silently rewriting it to `python3`.\n- **The network-ingestion proposal** stays a proposal; nothing in this work touched that status.",
+      "execution_error": "permission_denied",
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 25,
+        "duration_ms": 66955,
+        "total_cost_usd": 0.4681624999999999
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:count_lines.py": true,
+      "immutable:samples/three.txt": true,
+      "immutable:notes/scope.md": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/LICENSE": true,
+      "external_reference:.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:.claude/skills/context-docs/VERSION": true,
+      "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/LICENSE": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/SKILL.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/VERSION": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/agents/openai.yaml": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/decision-record.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/assets/project-context.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/references/standard.md": true,
+      "external_reference:/fixture/projects/front-door-refresh-skills-2/.claude/skills/context-docs/references/standard.md": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": false
+    },
+    "mechanical_pass": false,
+    "link_errors": [],
+    "tree_after": {
+      ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+      ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+      ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+      ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+      ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+      ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+      "CLAUDE.md": "8522fdc57a1f0362a7ee0bfe4ed0e6b55e9f1133b351f95c74e777d5bf158b9f",
+      "README.md": "a22f52f577f5aa0fcc2aefa75d16d4b7fdeb1d8f76314fac8c3600dfc769795c",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "7a0fc6b23b8722119fae26aa248184aafb241e791a3e38bb21f38cc5feca8ff0",
+      "notes/usage.md": "a207208b96776573d9c4484370e7a7f697c53d118bcef6531caeed56683c10b3",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. Run `python count_lines.py samples/three.txt`.\n\nThere is no README or documentation front door. Command details live only in this file.\nNo ongoing documentation maintenance rule exists in the project instructions.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-09-28\nEntry point: notes/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Preserve project rules, document roles and decision status. Update the\naffected canonical section \u2014 `README.md` for navigation, `notes/state.md` for current\nstate, `notes/usage.md` for commands, `notes/scope.md` for the approved boundary \u2014 and\ncheck the diff, links and information preservation. Keep audit-only requests read-only;\nmake no bookkeeping edits when nothing durable changed.\n",
+      "README.md": "# count_lines\n\nA local line-counting utility for text files. `count_lines.py` reads the file\nnamed by its first argument and prints the number of lines.\n\nScope is limited to local text files; see [notes/scope.md](notes/scope.md) for the\napproved boundary.\n\n## Documentation\n\n- [notes/state.md](notes/state.md) \u2014 current state, entry point for what is true now\n- [notes/usage.md](notes/usage.md) \u2014 how to run the utility\n- [notes/scope.md](notes/scope.md) \u2014 approved scope decision\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. See [usage](usage.md) for how to run it.\n\n[README](../README.md) is the documentation front door and links to this file as\nthe current-state entry point. The project instructions in `CLAUDE.md` carry the\nongoing context-docs maintenance rule, added on 2026-09-28.\n\nAn unresolved question is whether empty trailing lines should count; no decision\nhas been made. The current implementation uses `str.splitlines()`, so a single\ntrailing newline does not add a line \u2014 observed on 2026-09-28 against\n`samples/three.txt`, which returned `3`. Behavior on files with additional blank\ntrailing lines has not been tested, and the question of what the count *should* be\nremains open regardless.\n\nSee [scope](scope.md) for the approved boundary.\n",
+      "notes/usage.md": "# Usage\n\nRun the utility with a single file path argument:\n\n```sh\npython count_lines.py samples/three.txt\n```\n\nThe command prints the line count to standard output. Checked on 2026-09-28 with\n`python3` on this machine, that command printed `3` for `samples/three.txt`, which\nholds three newline-terminated lines. Whether a bare `python` command resolves to\nan interpreter here was not verified.\n\nCounting uses Python's `str.splitlines()`. How trailing blank lines should be\ncounted is still unresolved; see [state](state.md).\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    }
+  },
+  {
+    "id": "front-door-refresh-ordinary-2",
+    "case": "front-door-refresh",
+    "arm": "ordinary",
+    "repeat": 2,
+    "initial_tree": {
+      "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "prompt": "Set up ongoing context documentation maintenance using the existing notes. Create a concise README front door, move the usage instructions into notes/usage.md, and keep notes/state.md as the current-state entry point. Add a concise maintenance rule to the project instructions. Preserve the scope decision and unresolved question. Keep count_lines.py, samples/three.txt and notes/scope.md byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+    "rubric": [
+      "README links to notes/state.md; state links to notes/usage.md, which has the correct invocation.",
+      "The unresolved trailing-line question and approved local-only scope survive; proposed network ingestion is not promoted to approval.",
+      "Current state and the final response reconcile the newly created README, usage guide and maintenance rule; old absence/only-here claims are removed or explicitly historical.",
+      "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+      "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and immutable files preserved."
+    ],
+    "execution": {
+      "exit_code": 0,
+      "stderr": "",
+      "seconds": 51.9
+    },
+    "observed": {
+      "skill_calls": [],
+      "skill_names": [],
+      "installed_reads": [],
+      "invoked": false,
+      "final_message": "Done.\n\n**What changed**\n- **`README.md`** (new) \u2014 concise front door: one-line description of the utility plus links to `notes/usage.md`, `notes/state.md`, and `notes/scope.md`, pointing readers at `notes/state.md` first.\n- **`notes/usage.md`** (new) \u2014 the run command `python count_lines.py samples/three.txt`, its output, and a pointer to the scope boundary.\n- **`notes/state.md`** \u2014 remains the current-state entry point. Removed the now-false lines (\"There is no README or documentation front door\", \"Command details live only in this file\", \"No ongoing documentation maintenance rule exists\"), replaced them with links to the README and usage notes. Preserved the unresolved question about empty trailing lines verbatim and the link to `scope.md`.\n- **`CLAUDE.md`** \u2014 appended a short \"Documentation maintenance\" rule: update docs in the same change, with which file covers what, and that `notes/scope.md` changes only on owner approval.\n\n**What I verified**\n- `count_lines.py`, `samples/three.txt`, and `notes/scope.md` are byte-identical \u2014 SHA-256 sums taken before and after match.\n- `python3 count_lines.py samples/three.txt` prints `3`, matching the documented behavior.\n- `git status` shows only the four intended files (two modified, two untracked); nothing outside the project was touched and nothing was committed.\n\n**What remains uncertain**\n- Whether trailing empty lines should count is still undecided; I recorded it, didn't resolve it. Note `str.splitlines()` currently drops a single trailing newline, so `samples/three.txt` counts as 3 \u2014 that's the de facto behavior, not a decision.\n- I documented the command as `python` to match the existing note, but verified with `python3`; on this machine `python` may not be on PATH. Say the word and I'll switch the docs to `python3`.",
+      "execution_error": null,
+      "event_types": [
+        "assistant",
+        "rate_limit_event",
+        "result",
+        "system",
+        "user"
+      ],
+      "usage": {
+        "num_turns": 14,
+        "duration_ms": 51176,
+        "total_cost_usd": 0.22466750000000002
+      },
+      "model": "claude-opus-5"
+    },
+    "checks": {
+      "input_files_retained": true,
+      "non_document_inputs_unchanged": true,
+      "only_document_files_created": true,
+      "immutable:count_lines.py": true,
+      "immutable:samples/three.txt": true,
+      "immutable:notes/scope.md": true,
+      "preserved:8cfcd5fdb5": true,
+      "preserved:c764ff1352": true,
+      "preserved:b52b762320": true,
+      "local_links_and_anchors": true,
+      "documentation_changed": true,
+      "no_agent_commits_or_staging": true,
+      "immutable_bytes": true,
+      "packages_unchanged": true,
+      "no_execution_error": true
+    },
+    "mechanical_pass": true,
+    "link_errors": [],
+    "tree_after": {
+      "CLAUDE.md": "66faff31b83fd0e6b326003eeaa20043be27ac8b14f94fefc4cd438130a4bedc",
+      "README.md": "d6a509d8317719dca8317cd530c20e034b8ff353cc9302c423ab10fee7b0ea31",
+      "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+      "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+      "notes/state.md": "2ca265b053e3345e75e854997bd3e9d5962de2bd4636c33d3af803a9484033e0",
+      "notes/usage.md": "6fdb6ac0b782a4b387b8278bcc2fc1392181c50e711cd85808b4fa7851cbb6fe",
+      "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+    },
+    "files_before": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. Run `python count_lines.py samples/three.txt`.\n\nThere is no README or documentation front door. Command details live only in this file.\nNo ongoing documentation maintenance rule exists in the project instructions.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    },
+    "files_after": {
+      "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n\n## Documentation maintenance\n\nWhen a change affects how the project is used or where it stands, update the docs in\nthe same change: `notes/usage.md` for command changes, `notes/state.md` for current\nstate and open questions, `notes/scope.md` only when the owner approves a new boundary,\nand `README.md` when the set of documents changes.\n",
+      "README.md": "# Line-counting utility\n\nA small local utility that prints the number of lines in a text file.\n`count_lines.py` is the whole implementation; `samples/` holds example input.\n\n## Documentation\n\n- [notes/usage.md](notes/usage.md) \u2014 how to run the utility.\n- [notes/state.md](notes/state.md) \u2014 current state, including open questions.\n- [notes/scope.md](notes/scope.md) \u2014 the approved boundary for this pilot.\n\nStart with `notes/state.md` when you need to know where the project stands.\n",
+      "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+      "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n",
+      "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. See [usage](usage.md) for how to run it.\n\n[README.md](../README.md) is the documentation front door and links to these notes.\nThe project instructions carry a maintenance rule that keeps this file current.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+      "notes/usage.md": "# Usage\n\nRun the utility with a path to a local text file:\n\n```\npython count_lines.py samples/three.txt\n```\n\nIt prints a single number: the count of lines in the file. For the bundled\nsample, the output is `3`.\n\nInput is limited to local text files; see [scope](scope.md).\n",
+      "samples/three.txt": "alpha\nbeta\ngamma\n"
+    }
+  }
+]

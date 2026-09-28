@@ -1,0 +1,33 @@
+{
+  "validation": "18 credential-free tests passed before model execution, including five paired-runner tests",
+  "source_commit": "a512762",
+  "csv_oracle": [
+    {
+      "site": "north",
+      "visits": "12",
+      "active": "true"
+    },
+    {
+      "site": "south",
+      "visits": "8",
+      "active": null
+    },
+    {
+      "site": "west",
+      "visits": "4",
+      "active": "false",
+      "surplus": [
+        "manual",
+        "checked"
+      ]
+    }
+  ],
+  "controls": [
+    "Identical non-package inputs across paired conditions",
+    "CSV sample executes with null and list values",
+    "Reference files pass; changed code, broken links and staging fail",
+    "Input drift stops execution before model call",
+    "Frozen requests/model and baseline skill-disable flag reach the runner"
+  ],
+  "review": "Semantic review remains separate; these controls do not predict model behavior."
+}

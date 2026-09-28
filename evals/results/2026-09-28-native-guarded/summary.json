@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "sessions": 4,
+    "complete": true,
+    "integration_passed": 4,
+    "semantic_passed": 3,
+    "fresh_rule_preserved": true,
+    "integration_gate_passed": true
+  },
+  "rows": [
+    {
+      "session": "boundary-probe",
+      "integration": true,
+      "failed_checks": [],
+      "semantic": true,
+      "execution_error": "permission_denied",
+      "denied_calls": 1
+    },
+    {
+      "session": "delimited-records",
+      "integration": true,
+      "failed_checks": [],
+      "semantic": false,
+      "execution_error": null,
+      "denied_calls": 0
+    },
+    {
+      "session": "front-door-refresh",
+      "integration": true,
+      "failed_checks": [],
+      "semantic": true,
+      "execution_error": null,
+      "denied_calls": 0
+    },
+    {
+      "session": "fresh-rule-audit",
+      "integration": true,
+      "failed_checks": [],
+      "semantic": true,
+      "execution_error": null,
+      "denied_calls": 0
+    }
+  ]
+}

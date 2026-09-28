@@ -1,0 +1,10 @@
+| Session | Mechanical | Semantic | Criteria |
+| --- | --- | --- | --- |
+| delimited-records-ordinary-1 | fail | fail | 3/5 |
+| delimited-records-skills-1 | fail | fail | 3/5 |
+| delimited-records-skills-2 | fail | pass | 5/5 |
+| delimited-records-ordinary-2 | fail | fail | 3/5 |
+| front-door-refresh-ordinary-1 | pass | pass | 5/5 |
+| front-door-refresh-skills-1 | fail | fail | 4/5 |
+| front-door-refresh-skills-2 | fail | fail | 4/5 |
+| front-door-refresh-ordinary-2 | pass | pass | 5/5 |

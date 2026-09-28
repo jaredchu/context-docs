@@ -1,0 +1,55 @@
+{
+  "reviewer": "Codex author review; not independent or blinded",
+  "sessions": {
+    "claude-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "evidence": "Only CLAUDE.md changed; one marker/rule was appended with the original instructions preserved, and no AGENTS.md was created. Wording is client-neutral. The stricter final-response criterion fails the claim that knowledge/state.md and CLAUDE.md are both at repository root: the former is inside knowledge/. Its actual relative target resolves. This is a reporting precision failure, distinct from correctly preserved project documents. Optional md5 commands were denied and remain execution failures."
+    },
+    "claude-instructions-pass-2": {
+      "criteria": [
+        true,
+        false
+      ],
+      "evidence": "Complete before/after tree hashes match and the single original adoption date is retained. The final response says it left the pre-existing edits staged as-is, but the repository has no staged changes; those files are unstaged. This fails the added final-response factual criterion despite correct byte preservation. A hash command was denied."
+    },
+    "split-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "evidence": "CLAUDE.md holds the single rule and marker; AGENTS.md has a relative pointer, both original bodies survive, and the final response explains this arrangement. The added factual criterion fails its same-directory parenthetical: knowledge/state.md is inside knowledge/, not at repository root beside CLAUDE.md. Link resolution itself is correct."
+    },
+    "split-instructions-pass-2": {
+      "criteria": [
+        true,
+        false
+      ],
+      "evidence": "Whole-tree hashes and date are unchanged. The final response again incorrectly describes knowledge/state.md and CLAUDE.md as both at repository root. This narrow report error fails the newly frozen factual criterion; the actual marker target resolves and no project file was changed."
+    },
+    "audit-only-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "evidence": "No files changed. The response distinguishes adoption from a missing marker, recommends unknown for an unsupported original date, reports the inspected installed versions as 0.1.2/0.1.4, and explicitly leaves automatic AGENTS.md loading unconfirmed because it was only read with a tool. This addresses the prior loading error. A denied compound inspection command still fails execution acceptance."
+    },
+    "discovery-pass-1": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "evidence": "An unnamed request triggered Skill(adopt-context-docs). README.md now links to context.md, with one rule/marker in CLAUDE.md and unchanged convert.py/skills. Correct installed versions were read and recorded, no absent-remote publication conclusion was made, and loading was qualified. Grounded-content/factual criteria still fail the unqualified claim that csv.DictReader produces every value as a string: short rows can yield None and long rows an overflow list. Those counterexamples were reproduced by the reviewer. Its directory link to .claude/skills/context-docs/ is real; the old grader wrongly rejected it. The old link failure and command denials remain recorded rather than being rescored."
+    }
+  }
+}

@@ -22,10 +22,15 @@ For a skill change:
    controls before model runs. Record the agent/model, inputs, outcome,
    verification limits and any lost information. Report semantic review separately
    from mechanical checks, and retain failed trials.
-3. Check relative links and that the skill works when copied without the rest of
-   this repository. Use your client's skill validator if available.
+3. Run `python3 evals/checks/static_checks.py` for packaging, links, declared
+   versions and agreement between README tables and published results. GitHub
+   Actions runs it with the container-free study self-tests on every push. Also
+   check that the skill works when copied without the rest of this repository, and
+   use your client's skill validator if available.
 4. Describe what changed, why, and what was actually tested in the pull request.
 
 An authored example or static metadata check is not an independent behavioral
-evaluation. Keep those claims separate. Contributions are provided under the
+evaluation. Keep those claims separate, including in the
+[changelog](CHANGELOG.md): record the version a change lands in and what was
+actually executed for it. A version whose only evidence is static checks says so. Contributions are provided under the
 repository's MIT license.

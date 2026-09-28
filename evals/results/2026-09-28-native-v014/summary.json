@@ -1,0 +1,72 @@
+{
+  "summary": {
+    "sessions": 6,
+    "mechanical_passed": 2,
+    "invoked": 6,
+    "execution_errors": 4,
+    "trajectories": 4,
+    "semantic_reviewed": 6,
+    "semantic_passed": 1
+  },
+  "rows": [
+    {
+      "session": "claude-instructions-pass-1",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": false
+    },
+    {
+      "session": "claude-instructions-pass-2",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": false
+    },
+    {
+      "session": "split-instructions-pass-1",
+      "mechanical_pass": true,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [],
+      "semantic": false
+    },
+    {
+      "session": "split-instructions-pass-2",
+      "mechanical_pass": true,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [],
+      "semantic": false
+    },
+    {
+      "session": "audit-only-pass-1",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": true
+    },
+    {
+      "session": "discovery-pass-1",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [
+        "adopt-context-docs"
+      ],
+      "failed_checks": [
+        "local_links_and_anchors",
+        "no_execution_error"
+      ],
+      "semantic": false
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "65807d226b0e6b6f176d0388d6d728b772b931c27d2e563624c0298ab923530c",
+  "raw_stream_sha256": {
+    "discovery-pass-1.jsonl": "7d238642ff262df0aa8c554ba0e562a8f302b5e23e3df600f7ebb9be6c237b77"
+  },
+  "frozen_protocol_commit": "a8481f1",
+  "harness_commit": "6772889",
+  "normalization": "Fixture paths replaced with /fixture and the home prefix with /home/evaluator. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally."
+}

@@ -1,0 +1,133 @@
+[
+  {
+    "trajectory": "discovery",
+    "invocation": "unnamed",
+    "case": "adopt-empty-docs",
+    "steps": [
+      {
+        "pass_number": 1,
+        "prompt": "Set up ongoing context documentation maintenance for this project, so later sessions keep its project knowledge accurate and know where to start. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: convert.py.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 235.6
+        },
+        "observed": {
+          "skill_names": [
+            "adopt-context-docs"
+          ],
+          "installed_reads": [
+            "/fixture/projects/discovery/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/discovery/.claude/skills/context-docs/references/standard.md",
+            "/fixture/projects/discovery/.claude/skills/context-docs/assets/project-context.md",
+            "/fixture/projects/discovery/.claude/skills/adopt-context-docs/agents/openai.yaml",
+            "/fixture/projects/discovery/.claude/skills/context-docs/agents/openai.yaml"
+          ],
+          "invoked": true,
+          "final_message": "Adoption is complete. Three new files; `convert.py` untouched.\n\n**Created**\n\n- `context.md` \u2014 the entry point, covering purpose/scope, current state, decisions, open questions and canonical references in one document (the standard's suggested shape for a small project).\n- `README.md` \u2014 short orientation with the usage line, pointing to `context.md`.\n- `CLAUDE.md` \u2014 a `Context maintenance` section with the adoption marker (`Method: context-docs`, `Adopted: 2026-10-01`, `Entry point: context.md`) and the maintenance rule, plus a line telling sessions to start at `context.md`.\n\n**Verification**\n\n- `git diff --stat HEAD` is empty and `git status --short` lists only the three files as untracked, so `convert.py` is byte-identical to `2975f72` (still 188 bytes).\n- All relative links in `context.md` and `README.md` resolve to existing paths.\n- I reused the installed skills and changed nothing global.\n\n**What I documented, and the limits I recorded**\n\nI only read `convert.py`; running it needed an approval I didn't have, so `context.md` labels its behavioral claims as source-based and lists \"no executed verification\" as an open next action. I did not invent project intent: there's no README, docstring or explanatory commit here, so scope beyond the script is recorded as **unknown**, and no approved decisions are recorded \u2014 the stdlib-only, two-positional-argument design is marked as observed implementation state, not an owner decision. The `Python 3.9.6` I found is noted as the local interpreter, not a project requirement.\n\n**Two things to flag**\n\n1. **Loading is unconfirmed.** I placed the rule in `CLAUDE.md` on documented Claude Code behavior for a project-root instruction file. Because the project had no instruction file when this session started, nothing in this session's evidence shows such a file being loaded here \u2014 confirmation would be a later session showing `CLAUDE.md` in its context. If it doesn't load, the rule silently does nothing.\n2. **No `AGENTS.md`.** Both skill packages ship an `agents/openai.yaml` interface, which suggests the method is used with an OpenAI-family client elsewhere \u2014 but that's the upstream package's own multi-client packaging, not evidence about this project, so I didn't create a second instruction file. If you do use a client here that loads `AGENTS.md`, say so and I'll add one that references `CLAUDE.md` rather than duplicating the rule.",
+          "execution_error": "permission_denied",
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 25,
+            "duration_ms": 234835,
+            "total_cost_usd": 0.7987699999999999
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [
+          {
+            "skill": "adopt-context-docs"
+          }
+        ],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:convert.py": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "skill_selected_unnamed": true,
+          "no_execution_error": false
+        },
+        "mechanical_pass": false,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "8684ad01363a6c9e64baddc3b26a64fab905dbd6d50fe351ebe429c2b599203c",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "8684ad01363a6c9e64baddc3b26a64fab905dbd6d50fe351ebe429c2b599203c",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "e9a62a46b9edf8f4f1f0fff0765b43267795e04024c7b03e62d837fdf4af567b",
+          "README.md": "b781e14c7329d8ee11a30a28c94a10c8f923cfdec7c82a2fcfac76506c2c9bda",
+          "context.md": "200f4931f89595adc729512333182040c617f3f6d7104c94150a68e2b3e8d95f",
+          "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+        },
+        "files_before": {
+          "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n"
+        },
+        "files_after": {
+          "CLAUDE.md": "# Project instructions\n\nStart each session by reading [`context.md`](context.md) \u2014 it is the entry point for\nthis project's knowledge (current state, constraints, open questions).\n\n## Context maintenance\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: context.md\n```\n\nUse the `context-docs` skill \u2014 invoke it as `/context-docs` \u2014 for documentation\naudits and after meaningful changes to project facts, decisions, procedures,\nblockers or next actions. Read the skill before maintenance. Preserve project rules,\ndocument roles and decision status. Update the affected canonical sections of\n`context.md`, then check the diff, links and information preservation. Keep\naudit-only requests read-only; make no bookkeeping edits when nothing durable\nchanged.\n",
+          "README.md": "# discovery\n\nA single Python script, `convert.py`, that reads a CSV file and writes its rows to\na JSON file:\n\n```sh\npython3 convert.py input.csv output.json\n```\n\nProject knowledge lives in [`context.md`](context.md) \u2014 start there for current\nstate, constraints and open questions.\n",
+          "context.md": "# Project context\n\nEntry point for this repository's project knowledge. Start here.\n\n## Purpose and scope\n\nThe repository contains one Python script, `convert.py`, which reads a CSV file and\nwrites its rows to a JSON file.\n\nThe project's wider intent is **unknown**. No README, design note, docstring or\ncommit message in the repository states a goal, audience or roadmap beyond that\nscript; the only commit is `2975f72 \"Initial synthetic fixture\"`. Do not infer a\nbroader mission or scope until an owner records one.\n\n## Current state\n\nObserved 2026-10-01 by reading `convert.py` (8 lines). **Verification limit:** the\nscript was not executed or tested during that review, so the points below describe\nthe source, not confirmed runtime behavior.\n\n- It takes two positional arguments: `sys.argv[1]` is opened for reading and\n  `sys.argv[2]` is opened for writing.\n- Rows are parsed with `csv.DictReader` using the module's default dialect, and\n  `list(...)` materializes every row in memory before anything is written.\n- Output is produced by `json.dump` with no `indent`, so the JSON is written on a\n  single line. `csv.DictReader` yields string fields and the script applies no type\n  coercion, so numeric-looking CSV values become JSON strings.\n- Neither `open()` call passes `encoding=`, so both files use the default encoding\n  of the environment that runs the script.\n- The script contains no argument validation, `--help` handling, or error handling\n  around the file operations.\n- Imports are standard library only (`csv`, `json`, `sys`). The repository has no\n  dependency manifest, lockfile, packaging metadata, tests, CI configuration or\n  linter configuration.\n- No Python version is pinned by the project. `python3 --version` reported 3.9.6 in\n  the environment used on 2026-10-01; that is the local interpreter present, not a\n  project requirement.\n\nNo work is in progress. The working tree was clean at `2975f72` on 2026-10-01.\n\n## Decisions and constraints\n\nNo approved decisions are recorded in this repository: there is no decision record,\nREADME or explanatory commit message. The standard-library-only implementation and\nthe two-positional-argument interface are **observed implementation state**, not\nchoices an owner has documented \u2014 treat them as open to change until one is recorded.\n\nThe context documentation convention was adopted on 2026-10-01 at the user's\nrequest (see the `Context maintenance` section of `CLAUDE.md`). The particular\nlayout \u2014 this file as the entry point, with a short `README.md` pointing to it \u2014\nwas chosen by the assistant performing that setup and is not an owner decision.\n\n## Open questions and next actions\n\n- **Intended scope.** Is `convert.py` the finished project or the first piece of\n  something larger? Needs an owner statement; until then the Purpose and scope\n  section above cannot say more.\n- **Supported Python versions.** Unrecorded. Next step: an owner decides, then\n  record it here (and in packaging metadata if the project gains any).\n- **Input assumptions.** It is unrecorded whether non-default encodings, inputs\n  larger than available memory, or non-default CSV dialects must be supported. The\n  current source leaves these unaddressed rather than deliberately rejecting them.\n- **Failure behavior.** It is unrecorded whether the script should report a usable\n  message when arguments are missing or a path cannot be opened.\n- **No executed verification.** Running `convert.py` against a sample CSV, or adding\n  a test, would turn the source-based claims in Current state into observed behavior.\n  Not yet done.\n\n## Canonical references\n\n- [`convert.py`](convert.py) \u2014 the script itself; canonical source for its behavior.\n- [`README.md`](README.md) \u2014 short orientation pointing here.\n- [`CLAUDE.md`](CLAUDE.md) \u2014 project instructions, including the context\n  maintenance rule and adoption marker.\n- [`.claude/skills/context-docs/`](.claude/skills/context-docs/) \u2014 the maintenance\n  method, including [the standard](.claude/skills/context-docs/references/standard.md).\n",
+          "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n"
+        },
+        "rubric": [
+          "Claude selects a context-docs skill from its description, without the skill being named in the request.",
+          "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+          "Adds ongoing maintenance guidance to the instruction file this client loads; does not install skill copies or change code.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented.",
+          "The context entry point is discoverable through a README or documentation index, using supported content without requiring an invented project mission."
+        ]
+      }
+    ]
+  }
+]

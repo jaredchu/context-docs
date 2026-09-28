@@ -1,0 +1,40 @@
+{
+  "reviewer": "Codex author review; not independent or blinded",
+  "sessions": {
+    "claude-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "evidence": "The only changed project file is CLAUDE.md. Its original layout and publication rules remain verbatim; the appended Context maintenance section has one marker dated 2026-10-01, knowledge/state.md as its target, and client-neutral context-docs wording. No AGENTS.md or other instruction file was created. The pre-existing RESTORE-81 edit survives unchanged. Transcript records reading the installed core skill, the fixture and the standard, one CLAUDE.md edit, and diff review."
+    },
+    "claude-instructions-pass-2": {
+      "criteria": [
+        true
+      ],
+      "evidence": "Complete project SHA-256 maps before and after are equal, including installed skills. CLAUDE.md retains exactly one rule/marker and the 2026-10-01 date. Transcript has reads and inspection commands but no write/edit call; final response explains preservation of the original date despite the next-day request."
+    },
+    "split-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "evidence": "CLAUDE.md directly holds the single rule and marker. Both original instruction-file bodies remain intact; AGENTS.md adds only a relative link to the CLAUDE.md maintenance section and keeps its pytest instruction. README.md and knowledge/state.md are unchanged. The final response identifies CLAUDE.md as the rule location and AGENTS.md as the cross-reference. No rule or marker is duplicated."
+    },
+    "split-instructions-pass-2": {
+      "criteria": [
+        true
+      ],
+      "evidence": "Complete before/after SHA-256 maps match. The single CLAUDE.md marker still reads Adopted: 2026-10-01; AGENTS.md remains a reference only. Transcript records reads, marker/link checks and no mutation, and final response explicitly preserves the original date. It also correctly limits plain-link behavior for other clients."
+    },
+    "audit-only-pass-1": {
+      "criteria": [
+        true,
+        true
+      ],
+      "evidence": "Final response distinguishes adoption in substance from the absent marker, says the historical date is unrecorded, and recommends Adopted: unknown rather than inventing a date. Complete final project hashes equal the frozen initial hashes, including .claude; transcript contains no write/edit calls. The read-only shasum command was denied and the original parser crashed on that event, so semantic criteria pass but execution acceptance fails. Audit data was recovered from the retained terminal stream and unchanged initial tree, without rerunning the model."
+    }
+  }
+}

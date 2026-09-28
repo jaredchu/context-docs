@@ -1,6 +1,7 @@
 """Mechanical checks only. Semantic rubric review is separate from these rewards."""
 import hashlib
 import json
+import posixpath
 import re
 import subprocess
 import sys
@@ -24,22 +25,41 @@ def anchors(text):
     return result
 
 
-def link_errors(files):
+def reference_error(name, dest, sources):
+    part, _, anchor = unquote(dest).partition('#')
+    target = posixpath.normpath(str(Path(name).parent / part)) if part else name
+    if target not in sources:
+        # A directory containing a known source is a valid navigation target.
+        # Do not infer directory anchors or accept arbitrary existing host paths.
+        if not anchor and any(target == str(parent) for source in sources
+                              for parent in Path(source).parents):
+            return None
+        return f'{name}: missing {dest}'
+    if anchor and anchor not in anchors(sources[target]):
+        return f'{name}: missing anchor {dest}'
+    return None
+
+
+def link_errors(files, external_files=None, external_roots=()):
+    # External sources are supplied by the verifier only after hash validation.
+    sources = {**(external_files or {}), **files}
     errors = []
     for name, body in files.items():
         if not name.endswith('.md'):
             continue
         # Fixtures use inline Markdown links and ordinary heading anchors.
-        for dest in re.findall(r'\[[^\]]*\]\(([^)]+)\)', body):
+        targets = re.findall(r'\[[^\]]*\]\(([^)]+)\)', body)
+        # Check supplied installation paths in prose and code spans as well as
+        # links. This is a bounded fixture check, not a general Markdown parser.
+        for root in external_roots:
+            targets += [m.rstrip('.,;:') for m in re.findall(
+                re.escape(root.rstrip('/') + '/') + r'''[^\s`'"<>()\[\]{}]+''', body)]
+        for dest in dict.fromkeys(targets):
             if re.match(r'[a-zA-Z]+:', dest):
                 continue
-            part, _, anchor = unquote(dest).partition('#')
-            import posixpath
-            target = posixpath.normpath(str(Path(name).parent / part)) if part else name
-            if target not in files:
-                errors.append(f'{name}: missing {dest}')
-            elif anchor and anchor not in anchors(files[target]):
-                errors.append(f'{name}: missing anchor {dest}')
+            error = reference_error(name, dest, sources)
+            if error:
+                errors.append(error)
     return errors
 
 
@@ -57,7 +77,15 @@ def grade(spec, root, output, before=None):
         checks['immutable:' + p] = files.get(p) == spec['before'][p]
     for token in spec['protected']:
         checks['preserved:' + hashlib.sha256(token.encode()).hexdigest()[:10]] = token in text
-    errors = link_errors(files)
+    external_files = {}
+    for name, digest in spec.get('external_references', {}).items():
+        path = Path(name)
+        body = path.read_bytes() if path.is_file() else None
+        valid = body is not None and hashlib.sha256(body).hexdigest() == digest
+        checks['external_reference:' + name] = valid
+        if valid:
+            external_files[name] = body.decode()
+    errors = link_errors(files, external_files, spec.get('external_reference_roots', []))
     checks['local_links_and_anchors'] = not errors
     if spec['id'] == 'links-and-fences':
         checks['external_anchor_preserved'] = 'restore-steps' in anchors(files.get('docs/runbook.md', ''))

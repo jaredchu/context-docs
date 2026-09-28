@@ -1,6 +1,6 @@
 ---
 name: adopt-context-docs
-description: Adopt Context Docs in a new or existing project and add its ongoing maintenance rule to the project AGENTS.md. Use for project setup or adoption requests; use context-docs directly for routine maintenance or audits.
+description: Adopt Context Docs in a new or existing project and add its ongoing maintenance rule to the project's agent instruction file, such as AGENTS.md or CLAUDE.md. Use for project setup or adoption requests; use context-docs directly for routine maintenance or audits.
 ---
 
 # Adopt Context Docs
@@ -16,25 +16,34 @@ context or maintain existing documents using the skill. Preserve useful layouts,
 approved decisions, rationale, source evidence, unresolved work and concurrent edits.
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
-Add or update a concise rule in the project's applicable AGENTS.md, merging with
-existing guidance rather than duplicating it. Adapt this wording to local terms:
+Add or update a concise rule in the instruction file this project's agent actually
+loads, merging with existing guidance rather than duplicating it. Establish loading
+from explicit session evidence or documented behavior for the observed client
+version and settings. A file's presence, or reading it with a tool, does not prove
+automatic loading. Distinguish an existing maintenance rule from verified loading;
+report loading as unconfirmed when that evidence is absent, including during audits.
+`AGENTS.md` and `CLAUDE.md` are both common; clients can load different files. When the
+project keeps several, add the rule to the one in effect and make it reachable
+from the others by their supported reference or import, instead of maintaining
+separate copies. A rule placed in an unloaded file silently does nothing.
+Adapt this wording to local terms and to how this client invokes skills:
 
-> Use $context-docs for documentation audits and after meaningful changes to
-> project facts, decisions, procedures, blockers or next actions. Read the skill
+> Use the context-docs skill for documentation audits and after meaningful changes
+> to project facts, decisions, procedures, blockers or next actions. Read the skill
 > before maintenance. Preserve project rules, document roles and decision status.
 > Update affected canonical sections and check the diff, links and information
 > preservation. Keep audit-only requests read-only; make no bookkeeping edits
 > when nothing durable changed.
 
 Reuse the installed skills; do not create duplicate packages or change global
-instructions. If the user requests audit-only, report adoption
-recommendations without editing AGENTS.md or documents. Existing equivalent setup
+instructions. If the user requests audit-only, report adoption recommendations
+without editing instruction files or documents. Existing equivalent setup
 may require no changes. This workflow adds no authority to publish, deploy or
 schedule work; follow the project's existing authorization.
 
 Review the resulting diff, affected links and information preservation before
 recording adoption. Once the setup is complete, add or reuse one small marker beside
-the maintenance rule in AGENTS.md:
+the maintenance rule in that instruction file:
 
 ```text
 Method: context-docs
@@ -47,17 +56,17 @@ followed by the adoption marker, then maintenance instructions. Preserve existin
 equivalent sections and marker positions; do not rearrange them solely for
 formatting consistency.
 
-Use the actual context entry point, relative to that AGENTS.md; a README section
-is also valid. For new adoption, use the current date. Preserve an existing
+Use the actual context entry point, relative to that instruction file; a README
+section is also valid. For new adoption, use the current date. Preserve an existing
 adoption date and equivalent marker rather than adding another. When adding a
 marker to previously adopted guidance, use a supported original date or `unknown`
 if none is recorded; do not invent the history. If equivalent maintenance guidance
 and context already exist, add only the missing marker. Preserve the guidance's
 wording; a missing marker alone is not a reason to reinitialize or rewrite it.
-Update the entry point only when
-its canonical location changes. Do not mark incomplete setup as adopted or add a
-marker during an audit-only request. Existing projects without markers may still
-follow the method; the marker records adoption, not document accuracy or freshness.
+Update the entry point only when its canonical location changes. Do not mark
+incomplete setup as adopted or add a marker during an audit-only request. Existing
+projects without markers may still follow the method; the marker records adoption,
+not document accuracy or freshness.
 
 Review the marker and its target along with the final diff. Report changes,
 verification and unresolved questions, including whether ongoing guidance and

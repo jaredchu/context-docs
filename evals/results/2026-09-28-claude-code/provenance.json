@@ -1,0 +1,11 @@
+{
+  "protocol_sha256": "b0f3d785f06b192689d5481deea5c92769641ecce5bd3f50fcaa52b4475a74d3",
+  "raw_stream_sha256": "adb07ba8799cbfe5fb53323603099c53d506851021ef7c70b56daf41b8562d57",
+  "normalization": "trials.json: temporary fixture root replaced with /fixture. Stream: only event, model, response and execution fields retained; host paths, session IDs and local customization metadata omitted.",
+  "frozen_protocol_commit": "336a414",
+  "harness_commit": "bedc176",
+  "planned_sessions": 6,
+  "attempted_sessions": 1,
+  "completed_model_sessions": 0,
+  "unattempted_sessions": 5
+}

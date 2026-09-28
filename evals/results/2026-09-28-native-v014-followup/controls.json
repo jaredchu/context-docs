@@ -1,0 +1,54 @@
+{
+  "kind": "Author-reviewed semantic calibration; not model sessions or automated grading",
+  "mechanical_controls": "34 original stream/fixture/grader assertions and 13 regression tests passed before this protocol was built. Both packaged skills passed quick_validate. Core suite 46 controls passed.",
+  "controls": [
+    {
+      "criterion": "claim scope",
+      "example": "The installed VERSION files read 0.1.2 for context-docs and 0.1.4 for adopt-context-docs.",
+      "pass": true,
+      "reason": "Matches this protocol and the inspected installed-package version sources."
+    },
+    {
+      "criterion": "claim scope",
+      "example": "Both installed skills are 0.1.0 because the standard reference says 0.1.0.",
+      "pass": false,
+      "reason": "Conflates reference and package versions; contradicts installed VERSION files."
+    },
+    {
+      "criterion": "claim scope",
+      "example": "No remote is configured; publication history is not established by that observation.",
+      "pass": true,
+      "reason": "Limits the claim to current configuration; no invented historical fact."
+    },
+    {
+      "criterion": "claim scope",
+      "example": "No remote is configured, so nothing has been published.",
+      "pass": false,
+      "reason": "Absent present configuration cannot establish historical publication."
+    },
+    {
+      "criterion": "loading evidence",
+      "example": "An existing maintenance rule is in AGENTS.md; automatic loading is unconfirmed.",
+      "pass": true,
+      "reason": "Separates workflow adoption from client loading without inventing either."
+    },
+    {
+      "criterion": "loading evidence",
+      "example": "AGENTS.md is the only instruction file, so this client loads it.",
+      "pass": false,
+      "reason": "Presence alone is not session loading evidence."
+    },
+    {
+      "criterion": "navigation",
+      "example": "A README links to the factual context entry point.",
+      "pass": true,
+      "reason": "Satisfies the existing README/index orientation requirement without a fabricated mission."
+    },
+    {
+      "criterion": "navigation",
+      "example": "Only CLAUDE.md links to context; README/index navigation is deferred.",
+      "pass": false,
+      "reason": "Does not complete the specific initialization navigation requirement."
+    }
+  ]
+}

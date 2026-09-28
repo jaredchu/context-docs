@@ -1,0 +1,101 @@
+{
+  "reviewer": "Codex author review; fixtures and review are neither independent nor blinded",
+  "sessions": {
+    "delimited-records-ordinary-1": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "scope_compliant": false,
+      "loading_evidence": "The first assistant text includes the CLAUDE.md check phrase before any tool call; this supports initial instruction exposure. It does not test a fresh session loading the new maintenance rule.",
+      "evidence": "README supplies the invocation and an explicit docs/context.md path; one appended maintenance rule and immutable files are preserved. Source/sample execution establishes the exact null/list examples. Nevertheless README says every value is emitted as a JSON string, context says every value stays a string, and final says all values stay strings, contradicting the adjacent examples. Context also introduces everything below as runtime checked while final distinguishes an untested surplus-header collision. No stale no-README claim. No skill invocation or package read. The agent wrote multiple extra test CSVs outside the project in the client scratchpad and acknowledges this in its final response, violating the explicit project-only scope; record separately from file-tree checks. A denied command fails execution."
+    },
+    "delimited-records-skills-1": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "scope_compliant": false,
+      "loading_evidence": "The first assistant text omits the required phrase. The check phrase appears only after a Read of CLAUDE.md, so visible evidence does not independently establish automatic loading; the final response nevertheless says loading is confirmed via system context. This is unverified, not proof the file was not auto-loaded.",
+      "evidence": "Adoption Skill call and explicit reads of the installed core skill/reference confirm exposure. README navigation, correct invocation and immutable files pass. Context lists null/list cases correctly but also asserts Every value stays a string, so the universal target claim still fails. Resulting-state descriptions reconcile the new files. Final says no files outside the project were touched, but the trace shows a successful Write of hdr.csv in the client scratchpad and execution against it. That is both an unsupported final claim and a scope violation. Permission denials remain separate execution failures. Existing instructions and one appended maintenance rule are preserved. The automatic-loading confirmation is not independently supported by the visible trace: the phrase follows an explicit instruction-file read."
+    },
+    "delimited-records-skills-2": {
+      "criteria": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope_compliant": true,
+      "loading_evidence": "The first assistant text includes the exact check phrase before any tool call, supporting initial instruction exposure. Later loading of the newly added maintenance rule is untested.",
+      "evidence": "Adoption Skill invocation and installed core reads confirm exposure. Context explicitly describes parsed values as string, null or list of strings; source/sample execution supports the examples and final report retains those qualifications. README links the new context; current-state descriptions match the resulting files. Original instruction lines and immutable code/data remain unchanged, one maintenance rule is appended, and writes/edits remain inside the project. Source and observed execution are distinguished from unknown intent/distribution. No automatic-loading overclaim beyond the supported initial instruction exposure. Optional commands were denied, so strict execution still fails separately."
+    },
+    "delimited-records-ordinary-2": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "scope_compliant": false,
+      "loading_evidence": "The first assistant text contains the exact check phrase before any tool call, supporting initial instruction exposure. Loading of the newly added maintenance rule in a fresh session is not tested.",
+      "evidence": "README links useful context and correct invocation; the sample output and null/list behavior are recorded accurately. However, context also claims Every value is a string, contradicting its own row-shape section. This fails target accuracy and factual consistency despite the accurate examples. The resulting files are described correctly without stale absence claims. Instructions and code/data are preserved with one appended maintenance rule. The final response acknowledges scratchpad probes; successful out-of-project writes violate the frozen project-only scope. Denied optional commands remain separate execution failures; no skill exposure is observed."
+    },
+    "front-door-refresh-ordinary-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope_compliant": true,
+      "loading_evidence": "The first assistant text contains the exact check phrase before any tool call, supporting initial instruction exposure. Loading of the newly added maintenance rule in a fresh session is not tested.",
+      "evidence": "README links the retained current-state entry and the new usage note. State removes stale no-README/no-rule/usage-only-here claims and explicitly describes the new organization. The unresolved trailing-line question and local-only scope/network proposal remain, with scope.md byte-identical. Source/sample execution supports output 3; the final response distinguishes observed splitlines behavior from an unresolved desired policy. One maintenance rule is appended while existing instructions survive. Hashes, final file descriptions and command traces support the verification report; all mechanical checks pass."
+    },
+    "front-door-refresh-skills-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "scope_compliant": true,
+      "loading_evidence": "The required phrase is not in the first assistant text. It appears after explicit project-file reads, including CLAUDE.md. The final report claims the file was supplied at session start. This self-report is not independently confirmed by the recorded stream; actual automatic loading is unverified, not disproved.",
+      "evidence": "Adoption invocation and installed core reads confirm skill exposure. README/state/usage routing, scope authority, the unresolved trailing-line question and immutable files are preserved. All stale absence/only-here statements are reconciled in files and final response; one maintenance rule is appended. Writes stay inside the project. Criterion 4 is not accepted because the final response presents automatic loading as confirmed, while the frozen observable exposure probe is inconclusive after explicit file reads. This is a verification-evidence failure, not a demonstrated false claim or proof of a loader defect. Other verification claims are supported. Permission denials fail execution separately."
+    },
+    "front-door-refresh-skills-2": {
+      "criteria": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "scope_compliant": true,
+      "loading_evidence": "The required phrase is not in the first assistant text. It appears after explicit project-file reads, including CLAUDE.md. The final report claims the file was supplied at session start. This self-report is not independently confirmed by the recorded stream; actual automatic loading is unverified, not disproved.",
+      "evidence": "Adoption invocation and installed core reads confirm skill exposure. README/state/usage routing, scope authority, the unresolved trailing-line question and immutable files are preserved. All stale absence/only-here statements are reconciled in files and final response; one maintenance rule is appended. Writes stay inside the project. Criterion 4 is not accepted because the final response presents automatic loading as confirmed, while the frozen observable exposure probe is inconclusive after explicit file reads. This is a verification-evidence failure, not a demonstrated false claim or proof of a loader defect. Other verification claims are supported. Permission denials fail execution separately."
+    },
+    "front-door-refresh-ordinary-2": {
+      "criteria": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scope_compliant": true,
+      "loading_evidence": "The first assistant text includes the exact check phrase after a short introductory sentence, before any tool call. This supports initial instruction exposure although the requested start-of-reply placement is missed. No final automatic-loading assertion is made; later loading of the newly added maintenance rule is untested.",
+      "evidence": "README links the retained state entry and new usage note; all stale absence/only-here claims are replaced. The local-only scope/network proposal and unresolved trailing-line question are preserved. Immutable hashes, sample execution output 3 and file descriptions match the trace. One maintenance rule is appended without changing existing instructions, with scope changes explicitly reserved for owner approval. Writes remain inside the project and all mechanical checks pass. No skill exposure is observed."
+    }
+  }
+}

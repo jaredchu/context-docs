@@ -1,0 +1,72 @@
+name: Static checks
+
+# Repository checks only: packaging, links, published-table agreement and the
+# study self-tests that need no container, model or credentials. These establish
+# nothing about agent behavior; model evaluations stay manual and are reported
+# separately, as CONTRIBUTING.md requires.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Packaging, links and published tables
+        run: python3 evals/checks/static_checks.py
+
+      - name: Static checker regression tests
+        run: python3 -m unittest discover -s evals/checks -p 'test_*.py'
+
+      - name: Core suite self-test
+        run: python3 selftest.py
+        working-directory: evals/suite
+
+      - name: Verifier regression tests
+        run: python3 -m unittest discover -s evals/suite -p 'test_*.py'
+
+      - name: Quality study self-test
+        run: python3 study.py selftest
+        working-directory: evals/quality
+
+      - name: Claude Code smoke-test selftest
+        run: |
+          python3 evals/claude-code/smoke.py selftest
+          python3 -m unittest discover -s evals/claude-code -p 'test_*.py'
+
+      - name: Adoption grader controls
+        run: |
+          python3 evals/adoption/build.py "$RUNNER_TEMP/adoption-suite"
+          python3 evals/adoption/marker.py "$RUNNER_TEMP/adoption-marker-suite"
+          python3 evals/adoption/instructions.py "$RUNNER_TEMP/adoption-instructions-suite"
+
+      - name: Published reports regenerate from published evidence
+        run: |
+          set -eu
+          copy() { rm -rf "$RUNNER_TEMP/$2"; cp -r "evals/results/$1" "$RUNNER_TEMP/$2"; }
+          copy 2026-09-27-quality quality
+          (cd evals/quality && python3 report.py "$RUNNER_TEMP/quality" > /dev/null)
+          diff "$RUNNER_TEMP/quality/table.md" evals/results/2026-09-27-quality/table.md
+          copy 2026-09-27-history history
+          (cd evals/history && python3 report.py "$RUNNER_TEMP/history" > /dev/null)
+          diff "$RUNNER_TEMP/history/table.md" evals/results/2026-09-27-history/table.md
+          (cd evals/routing && python3 report.py \
+            "$GITHUB_WORKSPACE/evals/results/2026-09-27-routing/trials.json" \
+            "$GITHUB_WORKSPACE/evals/results/2026-09-27-routing/reviews.json" \
+            "$GITHUB_WORKSPACE/evals/results/2026-09-27-routing/exposure.json" \
+            "$RUNNER_TEMP/routing" > /dev/null)
+          diff "$RUNNER_TEMP/routing/table.md" evals/results/2026-09-27-routing/table.md
+          copy 2026-09-28-native-guarded guarded
+          python3 evals/claude-code/guarded_report.py "$RUNNER_TEMP/guarded" > /dev/null
+          diff "$RUNNER_TEMP/guarded/table.md" evals/results/2026-09-28-native-guarded/table.md
+          diff "$RUNNER_TEMP/guarded/summary.json" evals/results/2026-09-28-native-guarded/summary.json

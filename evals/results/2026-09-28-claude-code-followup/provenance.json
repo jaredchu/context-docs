@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "c18fd855aaa81abbcb17c2815beb9330a3e49f303042eee192e8ff749f4af5a3",
+  "raw_stream_sha256": {
+    "audit-only-pass-1.jsonl": "aa823dbc26a17b47892aa047823d6cd91a2d96771a73767d79cebb2e073bc899",
+    "discovery-pass-1.jsonl": "f445ccdc51e86387c1111e7837773c789704cb852c15d4ad4663af2aa942f2c2"
+  },
+  "frozen_protocol_commit": "b8e40b1",
+  "harness_commit": "b473c65",
+  "normalization": "Fixture paths replaced with /fixture and the home prefix with /home/evaluator. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally."
+}

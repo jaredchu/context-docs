@@ -64,6 +64,16 @@ and ordinary heading anchors are supported; this is not a complete Markdown
 parser. Whole-input-file retention is intentional for these fixtures, not a
 universal restriction on documentation maintenance.
 
+Fixtures that supply installed skills outside the project can declare exact
+`external_references` paths and SHA-256 hashes in their verifier specifications.
+The verifier checks those files' presence and integrity before using them as
+valid link targets, without adding them to project snapshots. References under
+declared `external_reference_roots` are checked in links, prose and code spans,
+so formatting cannot hide a missing installed file. Undeclared or changed files
+still fail, as do broken project links and edits to immutable project files.
+This bounded path check does not attempt to parse every Markdown or shell form.
+Without those optional fields, existing project-only link checks are unchanged.
+
 Current builds capture actual project files immediately before each agent pass,
 after any fixture update. Change and retention checks use that snapshot, including
 files created in earlier passes; original immutable constraints remain separate.

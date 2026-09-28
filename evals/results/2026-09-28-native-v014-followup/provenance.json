@@ -1,0 +1,14 @@
+{
+  "protocol_sha256": "00216123297a2887e774a33d5090ed7c489073dcb4ffee7e1e010611156c7940",
+  "raw_stream_sha256": {
+    "audit-only-pass-1.jsonl": "4cb526709b6dc790c723f01d38ea61678a8f491254685ffd5194f5a0d70ee62f",
+    "claude-instructions-pass-1.jsonl": "815f9b0a7399f838df050a87232006e5bbee9316310de13e5fa02343574f1a12",
+    "claude-instructions-pass-2.jsonl": "a6bb782b0cfae261127f4112810cf40e7cc046daf1a427f7954d8459920929d0",
+    "discovery-pass-1.jsonl": "a64d20185d75d9cc9520b5a76b36adb21b41ee765b6cf7fb4f21ccd2480edb90",
+    "split-instructions-pass-1.jsonl": "5e8e65a4574db45e92025526bd5c779cceab91f0faa52da4d5c883a27360ce98",
+    "split-instructions-pass-2.jsonl": "af3e8429f443303bf24e33361298acf3e0beb5f4b94c555e9809cde413769a93"
+  },
+  "frozen_protocol_commit": "1024fa5",
+  "harness_commit": "dce1a47",
+  "normalization": "Fixture paths replaced with /fixture and the home prefix with /home/evaluator. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally."
+}

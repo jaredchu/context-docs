@@ -1,4 +1,4 @@
 interface:
   display_name: "Adopt Context Docs"
   short_description: "Set up ongoing project context maintenance"
-  default_prompt: "Use $adopt-context-docs to apply Context Docs to this project and establish ongoing maintenance in its AGENTS.md."
+  default_prompt: "Use $adopt-context-docs to apply Context Docs to this project and establish ongoing maintenance in the instruction file this client loads."
