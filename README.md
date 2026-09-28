@@ -142,18 +142,21 @@ than inferring loading solely from filenames. See the
 [Claude Code skill](https://code.claude.com/docs/en/skills) and
 [memory](https://code.claude.com/docs/en/memory) documentation.
 
-**Native testing has mixed results; the merge recommendation remains on hold.**
-The unreleased core v0.1.2 / adoption v0.1.4 tighten evidence scope and loading
-verification. A [paired native study](evals/results/2026-09-28-native-paired/README.md)
-ran eight sessions with identical requests, with and without the unchanged skills.
-The CSV overclaim appeared in both conditions; all four documentation-update
-sessions corrected stale absence claims. Some skill responses confidently reported
-automatic loading without independently observable support, and three sessions
-across both conditions wrote outside the requested project boundary. The study
-cannot establish a skill-specific cause for the original failures or reliable
-support. Earlier attempts remain recorded. These are small, author-reviewed runs
-on Claude Code 2.1.234 with Claude Opus 5; file checks, execution and semantic
-acceptance are reported separately.
+**Native support remains experimental.** The
+[guarded follow-up](evals/results/2026-09-28-native-guarded/README.md) passes four
+loading/boundary checks, including a denied outside-project write and a fresh
+read-only session loading the newly added maintenance rule. This clears those
+integration gates and supports an experimental merge recommendation. The guard
+is evaluation tooling with a restricted tool set; installing the skills does not
+install a sandbox or enforce write confinement.
+
+Factual limitations remain: the CSV response still overclaims value types. The
+[eight-session paired study](evals/results/2026-09-28-native-paired/README.md)
+reproduced that error with and without the skills, while both conditions corrected
+stale documentation. These author-reviewed runs on Claude Code 2.1.234 with Claude
+Opus 5 establish neither a skill-specific accuracy advantage nor general reliability.
+Earlier failures and scores remain recorded; file checks, execution and semantic
+review are reported separately.
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](skills/context-docs/references/standard.md) directly.

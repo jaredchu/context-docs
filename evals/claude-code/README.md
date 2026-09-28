@@ -1,17 +1,18 @@
 # Native Claude Code smoke test
 
-Status: **native evaluation completed with mixed results; merge recommendation
-on hold.** The [eight-session paired comparison](../results/2026-09-28-native-paired/README.md)
-finds CSV overclaims in both ordinary and skills conditions, with stale-state
-updates passing in both. It does not establish a skill-specific cause for the
-original errors. Some loading confirmations remain unverified, and command traces
-show out-of-project scratch writes in both conditions. The report distinguishes
-those findings from preserved files and optional command denials.
+Status: **loading and write-boundary integration gates cleared in the restricted
+follow-up; experimental merge recommended with factual limitations.** The
+[four-session guarded evaluation](../results/2026-09-28-native-guarded/README.md)
+observes initial instruction loading directly, blocks an outside-project write,
+and confirms fresh-session loading of the installed rule with all bytes preserved.
+The CSV semantic failure remains. The guard is evaluation-only and not an OS sandbox.
 
-The earlier [second unreleased candidate](../results/2026-09-28-native-v014-followup/README.md)
-passes five of six semantic sessions; [targeted discovery](../results/2026-09-28-native-state-followup/README.md)
-retains a CSV overclaim and stale README summary. All earlier authentication,
-input-contamination, parser and factual failures remain recorded without rescoring.
+The earlier [paired comparison](../results/2026-09-28-native-paired/README.md)
+finds CSV overclaims in both ordinary and skills conditions, with stale-state
+updates passing in both. Its unverified loading confirmations and out-of-project
+scratch writes retain their original scores. New observations do not retroactively
+prove what earlier sessions loaded. Earlier authentication, input-contamination,
+parser and factual failures also remain recorded without rescoring.
 
 This is a smoke test, not a comparison: there is no ordinary-maintenance arm, no
 reader phase and one attempt per session. It can show that the skill loads and
@@ -22,6 +23,10 @@ The completed [bounded paired comparison](paired-protocol.md) tests two fresh ca
 and without the unchanged skills, using identical requests and two attempts per
 condition. Its frozen decision rule separates a repeatable adverse association
 from shared model errors. This adds a baseline absent from the smoke runs.
+
+For observed loading and a restricted file-tool policy, use the separate
+[guarded runner and frozen protocol](guarded-protocol.md). It intentionally removes
+shell execution and cannot be pooled numerically with these broader-tool runs.
 
 ## What it checks
 

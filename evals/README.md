@@ -185,9 +185,11 @@ adds eight sessions on fresh cases with identical requests and an ordinary basel
 CSV overclaims occur in both conditions; stale-state updates pass in both. Some
 loading confirmations cannot be independently verified from the recorded stream,
 and scratch writes violate scope in three sessions across both conditions. The
-merge recommendation remains on hold without a claim that the skills caused the
-original factual errors. Prior attempts retain their original criteria and scores.
-These author-reviewed development cases do not establish cross-client reliability.
+[guarded follow-up](results/2026-09-28-native-guarded/README.md) then clears loading
+and write-boundary integration gates across four sessions, supporting an experimental
+merge recommendation with factual limitations. Its restricted tools do not establish
+unrestricted-client reliability. Prior attempts retain their original criteria and
+scores; no skill-specific cause of the original errors is established.
 
 ## Optional adoption skill
 

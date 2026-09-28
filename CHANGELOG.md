@@ -25,6 +25,21 @@ not a demonstrated accuracy gain.
   evaluations. These repository-only changes do not alter installable skills;
   separate skill changes are recorded below.
 
+## Native loading observer and file-tool guard — 2026-09-28
+
+- Add evaluation-only InstructionsLoaded observation and a PreToolUse guard for
+  six file/skill tools. Record loading hashes and correlate tool calls with guard
+  decisions; exclude shell/delegation/network tools. No packaged skill changed.
+- Seven new guard/observer controls join the eighteen existing native tests;
+  twenty-five credential-free tests pass. CI also regenerates the new result summary.
+- [Four actual native sessions](evals/results/2026-09-28-native-guarded/README.md)
+  pass all loading/boundary gates, including a blocked outside write and fresh
+  read-only loading of the newly installed rule. Three semantic reviews pass;
+  the CSV response retains the known universal string-value error.
+- Recommend experimental merge with factual limits. This clears the restricted
+  integration gates only, not unrestricted-client reliability. The guard is not
+  installed with the skills and is not an OS sandbox. Earlier scores are unchanged.
+
 ## Native paired evaluation — 2026-09-28
 
 - Add a bounded ordinary-versus-skills comparison with matched requests, fresh

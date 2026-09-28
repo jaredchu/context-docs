@@ -102,7 +102,9 @@ records the implementation choices and decision rule. It does not authorize a me
   standard-input contamination and a crash on textual permission events; both are
   repaired, and read-only hash/inspection checks are preapproved. The 34 self-test
   assertions and 13 smoke-runner regression tests pass. Five paired-runner tests
-  cover matched inputs, the executable CSV oracle, failure controls and frozen execution. Twelve shared-verifier tests
+  cover matched inputs, the executable CSV oracle, failure controls and frozen
+  execution. Seven observer/guard tests cover path escapes, protected writes, loading
+  event hashes and call/decision correlation. Twelve shared-verifier tests
   include directory links containing known sources, unknown directories and
   directory anchors. Protocols freeze inputs and requests; completed responses
   with denied commands retain execution failures but allow later sessions to run.
@@ -133,9 +135,21 @@ records the implementation choices and decision rule. It does not authorize a me
   versus 1/4 skills, but two skills failures are solely unverified loading
   confirmations, not demonstrated false assertions. The missing early check phrase
   cannot prove non-loading. Scope review finds scratch writes in two ordinary and
-  one skills session. **Current recommendation: hold the merge for verification
-  evidence and scope limits; a skill-specific cause of the original errors is not
-  established.** No prompt tuning or extra runs followed the bounded comparison.
+  one skills session. That study retained the hold for verification evidence and
+  scope limits without establishing a skill-specific cause of the original errors.
+  The owner then requested the next integration step; this is a separately frozen
+  condition, not extra retries of the paired study.
+  The [guarded follow-up](../evals/results/2026-09-28-native-guarded/README.md) passes
+  all four integration sessions. Native InstructionsLoaded events confirm startup
+  loading with matching hashes, including the newly adopted rule in a fresh audit.
+  The outside write probe is denied, the inside probe succeeds, and every tool call
+  is covered by the guard. The audit preserves all bytes. CSV semantic review still
+  fails on the universal string-value claim; the other three reviews pass, including
+  the boundary control. **Current recommendation: experimental merge, with factual
+  limits and no unrestricted-client reliability claim.** The evaluation-only guard
+  exposes six file/skill tools, excludes shell execution, and is not an OS sandbox.
+  Installing the instruction-only skills does not install this guard. No skill
+  revision or merge was performed during the follow-up.
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Clients beyond Codex and Claude Code remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
@@ -181,13 +195,12 @@ records the implementation choices and decision rule. It does not authorize a me
 5. Preserve the initial v0.1.3 failure, passing Codex follow-up and mixed native
    results as separate evidence. Installed-path portability across machines remains
    untested. Do not promote these small studies into reliable-support claims.
-6. The accepted paired comparison is complete. Keep the merge recommendation on
-   hold while loading confirmations lack directly observable delivery evidence and
-   the client allows writes outside the requested project boundary. The comparison
-   does not establish that the skills caused the original CSV/stale-state failures.
-   Direct initial-context instrumentation and an enforced write boundary would be
-   more useful than further tuning on these fixtures. Preserve all attempts and
-   distinguish unverified claims, demonstrated errors and execution denials.
+6. The paired study and guarded follow-up are complete. The restricted integration
+   gates now pass; the branch is recommended for experimental merge with its
+   factual limitations retained. Preserve earlier scores and avoid further tuning
+   on these fixtures. Use the observer and boundary checks for future native
+   evaluations; adding executable tools requires a new confinement design and
+   validation. General reliability still needs varied projects and independent review.
 
 ## Canonical references
 

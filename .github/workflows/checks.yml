@@ -66,3 +66,7 @@ jobs:
             "$GITHUB_WORKSPACE/evals/results/2026-09-27-routing/exposure.json" \
             "$RUNNER_TEMP/routing" > /dev/null)
           diff "$RUNNER_TEMP/routing/table.md" evals/results/2026-09-27-routing/table.md
+          copy 2026-09-28-native-guarded guarded
+          python3 evals/claude-code/guarded_report.py "$RUNNER_TEMP/guarded" > /dev/null
+          diff "$RUNNER_TEMP/guarded/table.md" evals/results/2026-09-28-native-guarded/table.md
+          diff "$RUNNER_TEMP/guarded/summary.json" evals/results/2026-09-28-native-guarded/summary.json
