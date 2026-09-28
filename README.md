@@ -63,6 +63,7 @@ preservation. Ten sessions across initial and revised conditions are reported
 separately; the final revision was tested on the two affected unmarked cases.
 Adoption v0.1.2 adds only the preferred layout for new sections. Metadata, package
 links and existing static controls were checked; no new model evaluation was run.
+Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
@@ -125,6 +126,8 @@ same method. No forced directory migration or universal document-size limit.
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
 - [Before-and-after example](examples/maintenance.md)
 - [Behavioral evaluation scenarios](evals/README.md)
+- [Static repository checks](evals/checks/static_checks.py)
+- [Per-version changelog](CHANGELOG.md)
 - [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
 - [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
 - [README routing and verified reading](docs/evaluation-2026-09-27-routing.md)
