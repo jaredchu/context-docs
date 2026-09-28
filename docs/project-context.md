@@ -42,6 +42,11 @@ covers contribution mechanics; it does not approve new product claims. Changes
 made under it are recorded as ordinary implementation choices, and proposals
 still need owner acceptance.
 
+On September 28 the owner accepted a bounded paired native comparison: fresh
+CSV/state-update cases, identical requests with and without the skills, and two
+attempts per condition. The [frozen design](../evals/claude-code/paired-protocol.md)
+records the implementation choices and decision rule. It does not authorize a merge.
+
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
@@ -96,7 +101,8 @@ still need owner acceptance.
   rejecting valid absolute installed links. Live execution then exposed inherited
   standard-input contamination and a crash on textual permission events; both are
   repaired, and read-only hash/inspection checks are preapproved. The 34 self-test
-  assertions and 13 native regression tests pass. Twelve shared-verifier tests
+  assertions and 13 smoke-runner regression tests pass. Five paired-runner tests
+  cover matched inputs, the executable CSV oracle, failure controls and frozen execution. Twelve shared-verifier tests
   include directory links containing known sources, unknown directories and
   directory anchors. Protocols freeze inputs and requests; completed responses
   with denied commands retain execution failures but allow later sessions to run.

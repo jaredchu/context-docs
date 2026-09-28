@@ -112,12 +112,14 @@ class SmokeTests(unittest.TestCase):
     def test_cli_receives_frozen_settings(self):
         protocol = json.loads((self.destination / 'protocol.json').read_text())
         protocol['allowed_tools'] = ['Read']
+        protocol['extra_args'] = ['--disable-slash-commands']
         with patch.object(smoke.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, stderr='')) as called:
             smoke.run_session(self.project, 'frozen request', self.destination / 'log.jsonl', protocol)
         command = called.call_args.args[0]
         self.assertEqual(command[command.index('--model') + 1], 'frozen-model')
         self.assertEqual(command[command.index('--allowedTools') + 1], 'Read')
         self.assertNotIn('Edit', command)
+        self.assertIn('--disable-slash-commands', command)
         # Claude -p appends piped stdin to the prompt. A heredoc used to launch
         # this harness must never become part of the frozen model request.
         self.assertEqual(called.call_args.kwargs['stdin'], subprocess.DEVNULL)

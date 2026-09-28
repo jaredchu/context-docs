@@ -18,6 +18,11 @@ reader phase and one attempt per session. It can show that the skill loads and
 behaves acceptably on this client, or that it does not. It cannot establish
 accuracy, reliability or any advantage.
 
+A [bounded paired comparison](paired-protocol.md) now tests two fresh cases with
+and without the unchanged skills, using identical requests and two attempts per
+condition. Its frozen decision rule separates a repeatable adverse association
+from shared model errors. This adds a baseline absent from the smoke runs.
+
 ## What it checks
 
 | Question | How it is checked |

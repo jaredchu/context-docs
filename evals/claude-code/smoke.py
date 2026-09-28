@@ -260,6 +260,7 @@ def run_session(project, prompt, log, protocol):
                '--strict-mcp-config', '--allowedTools', *protocol['allowed_tools']]
     if protocol['model'] != 'client default':
         command += ['--model', protocol['model']]
+    command += protocol.get('extra_args', [])
     environment = {k: v for k, v in os.environ.items() if not k.startswith('CLAUDE_CODE_')}
     environment['CLAUDE_CODE_ENTRYPOINT'] = 'context-docs-smoke'
     started = time.time()
