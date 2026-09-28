@@ -47,6 +47,10 @@ CSV/state-update cases, identical requests with and without the skills, and two
 attempts per condition. The [frozen design](../evals/claude-code/paired-protocol.md)
 records the implementation choices and decision rule. It does not authorize a merge.
 
+On September 28 the owner approved merging PR #1 after reviewing the guarded
+follow-up and its experimental-support recommendation. The merge retains the
+documented factual limitations and does not establish general reliability.
+
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
@@ -74,7 +78,7 @@ records the implementation choices and decision rule. It does not authorize a me
   validating declared installed references by hash across links, code spans and
   prose. Both repeats preserved bytes and dates. Skills and the original failed
   result remain unchanged. That review recommended merging within the experimental
-  scope; the later native review below now recommends holding the merge.
+  scope; a later native review held the merge until the guarded follow-up below.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
@@ -153,8 +157,8 @@ records the implementation choices and decision rule. It does not authorize a me
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Clients beyond Codex and Claude Code remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
-- Experimental Claude Code changes are available for review in
-  [draft PR #1](https://github.com/jaredchu/context-docs/pull/1); the branch is unmerged.
+- Experimental Claude Code changes were merged into `main` on September 28 in
+  [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
 - Current package: experimental core skill v0.1.2; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
 - Completed studies cover initialization, stale/conflicting guidance, decision
@@ -198,8 +202,8 @@ records the implementation choices and decision rule. It does not authorize a me
    results as separate evidence. Installed-path portability across machines remains
    untested. Do not promote these small studies into reliable-support claims.
 6. The paired study and guarded follow-up are complete. The restricted integration
-   gates now pass; the branch is recommended for experimental merge with its
-   factual limitations retained. Preserve earlier scores and avoid further tuning
+   gates pass, and PR #1 is merged with its factual limitations retained.
+   Preserve earlier scores and avoid further tuning
    on these fixtures. Use the observer and boundary checks for future native
    evaluations; adding executable tools requires a new confinement design and
    validation. General reliability still needs varied projects and independent review.
