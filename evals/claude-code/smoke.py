@@ -1,4 +1,4 @@
-"""Native Claude Code smoke test for adoption v0.1.3 and the core skill.
+"""Native Claude Code smoke test for the installed adoption and core skills.
 
 Codex studies cover one client. This runs the same routing fixtures through the
 Claude Code CLI to check four things on that client: whether the skill is found
@@ -135,6 +135,10 @@ def trajectories():
     for trajectory in result:
         for step in trajectory['steps']:
             step['prompt'] += constraints(trajectory['case'])
+            step['rubric'] = [*step['rubric'],
+                'Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented.']
+            if trajectory['id'] == 'discovery':
+                step['rubric'].append('The context entry point is discoverable through a README or documentation index, using supported content without requiring an invented project mission.')
     return result
 
 
@@ -360,7 +364,9 @@ def run(destination, model=None):
                               tree_before=before_hashes, tree_after=after_hashes,
                               files_before=before, files_after=after, rubric=step['rubric']))
             (destination / 'trials.json').write_text(json.dumps(trials, indent=2) + '\n')
-            if not checks['no_execution_error']:
+            # A denied optional command can be followed by a completed response.
+            # Preserve its failing check but continue independent model coverage.
+            if execution['exit_code'] != 0 or observed['execution_error'] not in (None, 'permission_denied'):
                 print(f'Execution failed in {trajectory["id"]} pass {index + 1}; partial results retained.')
                 return
             before_tree, before = after_tree, after

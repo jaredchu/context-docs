@@ -17,9 +17,12 @@ approved decisions, rationale, source evidence, unresolved work and concurrent e
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
 Add or update a concise rule in the instruction file this project's agent actually
-loads, merging with existing guidance rather than duplicating it. Identify that
-file from the project rather than assuming one name: `AGENTS.md` and `CLAUDE.md`
-are both common, and some clients load only one of them by default. When the
+loads, merging with existing guidance rather than duplicating it. Establish loading
+from explicit session evidence or documented behavior for the observed client
+version and settings. A file's presence, or reading it with a tool, does not prove
+automatic loading. Distinguish an existing maintenance rule from verified loading;
+report loading as unconfirmed when that evidence is absent, including during audits.
+`AGENTS.md` and `CLAUDE.md` are both common; clients can load different files. When the
 project keeps several, add the rule to the one in effect and make it reachable
 from the others by their supported reference or import, instead of maintaining
 separate copies. A rule placed in an unloaded file silently does nothing.

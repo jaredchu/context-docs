@@ -83,8 +83,10 @@ protocols without frozen inputs require a new build. The model reported in the
 client's initialization event is retained separately when available.
 
 Use a new destination for each run: existing trials or logs are never overwritten.
-Results are saved after each session; an execution error stops the remaining
-sessions, with the failed attempt retained. Each session has a ten-minute timeout.
+Results are saved after each session; authentication failures, missing terminal
+results and nonzero CLI exits stop the remaining sessions. A completed response
+with denied commands keeps its failing execution check but no longer prevents
+coverage of later sessions. Each session has a ten-minute timeout.
 The subprocess receives empty standard input so parent launch scripts cannot be
 appended to requests. For targeted follow-ups, repeat `--trajectory <id>` at build
 time; freeze that selection before execution. Read-only `shasum` is preapproved,
@@ -109,6 +111,11 @@ must be supplied in a `reviews.json` of the form
 with one boolean per rubric item and a specific explanation. Mechanical rewards are
 not correctness, and invocation is not comprehension: a session can invoke the skill
 and still place the rule wrongly.
+
+New protocols also score factual claims in documents and final responses, including
+the scope of version, publication and automatic-loading evidence. Discovery must
+provide README/index navigation. These criteria strengthen the review after the
+retained failures; they do not retroactively change earlier scores or requests.
 
 Record the CLI version, model, session count, every failure and the review method.
 Author-created fixtures with author review are not independent validation, and one

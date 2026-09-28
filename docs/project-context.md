@@ -46,7 +46,7 @@ still need owner acceptance.
 
 - Core skill supports audit, initialize and maintain operations.
 - Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
-  v0.1.3, applies the core method and merges ongoing maintenance into the project's
+  v0.1.4, applies the core method and merges ongoing maintenance into the project's
   loaded agent instruction file. Install it alongside `context-docs`; it is not standalone.
   Completed setup now records a small adoption marker with the original date and
   actual entry point. Missing markers do not imply non-adoption; unrecorded dates
@@ -106,12 +106,16 @@ still need owner acceptance.
   Its denied commands remain execution failures. Audit also overclaimed automatic
   AGENTS.md loading from filenames alone, outside its narrow passing rubric.
   **Current recommendation: hold the merge pending these factual findings.**
-  Skills and all earlier scores are unchanged. Authentication and contaminated
+  Core v0.1.2 now tightens claim/source scope, final-report checking and minimal
+  README navigation. Adoption v0.1.4 requires evidence for automatic loading,
+  including during audits. The new regression will retain the same requests and
+  add explicit factual-grounding/navigation criteria before execution. Earlier
+  scores and versions are unchanged. Authentication and contaminated
   attempts are retained separately; see the linked reports for provenance.
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Other clients remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
-- Current package: experimental skill v0.1.1; standard/resources remain v0.1.0.
+- Current package: experimental core skill v0.1.2; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
 - Completed studies cover initialization, stale/conflicting guidance, decision
   preservation, uncommitted work, links, audit-only behavior and repeated maintenance.

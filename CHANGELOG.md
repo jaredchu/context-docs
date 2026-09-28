@@ -24,6 +24,26 @@ not a demonstrated accuracy gain.
 - Twelve checker regression tests passed. These are static checks, not model
   evaluations. Installable skill contents and versions are unchanged.
 
+## context-docs 0.1.2 — unreleased
+
+- Tighten the existing evidence check: verify the exact claim and retain the
+  source's scope in both documents and final reports. Distinguish installed
+  package versions from reference versions, and local configuration from runtime
+  behavior or publication history. Omit unverified incidental details.
+- Clarify that creating a minimal README link does not require inventing project
+  intent when a project has no README or index.
+- Addresses the retained [native discovery failures](evals/results/2026-09-28-claude-code-followup/README.md).
+  Behavioral regression pending; prior results retain their original versions.
+
+## adopt-context-docs 0.1.4 — unreleased
+
+- Require evidence for automatic instruction loading rather than inferring it
+  from file presence or an explicit file read. Keep existing workflow adoption
+  distinct from verified loading, including during audits.
+- Addresses the unsupported loading claim in the
+  [native audit](evals/results/2026-09-28-claude-code-followup/README.md).
+  Behavioral regression pending; prior results retain their original versions.
+
 ## adopt-context-docs 0.1.3 — unreleased
 
 - Route the ongoing maintenance rule and adoption marker to the instruction file

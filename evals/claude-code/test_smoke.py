@@ -162,6 +162,27 @@ class SmokeTests(unittest.TestCase):
             smoke.build(destination, 'frozen-model', ['does-not-exist'])
         self.assertFalse(destination.exists())
 
+    def test_completed_permission_denial_stays_failed_but_does_not_stop_coverage(self):
+        path = self.destination / 'protocol.json'
+        protocol = json.loads(path.read_text())
+        protocol['trajectories'][0]['steps'] *= 2
+        path.write_text(json.dumps(protocol))
+
+        def session(project, prompt, log, protocol):
+            events = [{'type': 'system', 'subtype': 'permission_denied', 'message': 'Denied.'},
+                      {'type': 'result', 'is_error': False, 'result': 'Audit complete.'}]
+            log.write_text('\n'.join(json.dumps(e) for e in events) + '\n')
+            return dict(exit_code=0, stderr='', seconds=0)
+
+        with patch.object(smoke, 'run_session', side_effect=session) as called, \
+                contextlib.redirect_stdout(io.StringIO()):
+            smoke.run(self.destination)
+        self.assertEqual(called.call_count, 2)
+        steps = json.loads((self.destination / 'trials.json').read_text())[0]['steps']
+        self.assertEqual(len(steps), 2)
+        self.assertTrue(all(not s['checks']['no_execution_error'] for s in steps))
+        self.assertTrue(all(not s['mechanical_pass'] for s in steps))
+
 
 if __name__ == '__main__':
     unittest.main()
