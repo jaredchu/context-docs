@@ -1,6 +1,6 @@
 # Project context
 
-Last reviewed: 2026-09-27.
+Last reviewed: 2026-09-28.
 
 ## Purpose and scope
 
@@ -36,18 +36,31 @@ Future comparisons should include scattered, stale or missing documentation and
 measure the resulting record and fresh readers' supported answers. This clarification
 does not change the already executed studies or their frozen acceptance criteria.
 
+On September 28 the owner delegated authority to contribute changes to this
+repository directly, including commits and pushes to branches. That delegation
+covers contribution mechanics; it does not approve new product claims. Changes
+made under it are recorded as ordinary implementation choices, and proposals
+still need owner acceptance.
+
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
 - Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
-  v0.1.2, applies the core method and merges ongoing maintenance into project
-  `AGENTS.md`. Install it alongside `context-docs`; it is not standalone.
+  v0.1.3, applies the core method and merges ongoing maintenance into the project's
+  loaded agent instruction file. Install it alongside `context-docs`; it is not standalone.
   Completed setup now records a small adoption marker with the original date and
   actual entry point. Missing markers do not imply non-adoption; unrecorded dates
   remain unknown, and audit-only requests never create markers.
   New sections prefer a `Context maintenance` heading, marker, then instructions;
   existing equivalent layouts stay intact. This v0.1.2 presentation preference
   received static validation only; model results below cover earlier versions.
+  v0.1.3 places the rule and marker in the instruction file the client actually
+  loads, rather than assuming `AGENTS.md`, and states the rule without a
+  client-specific invocation prefix. Observed on 2026-09-28 from Claude Code's
+  documentation: it reads `AGENTS.md` only when no `CLAUDE.md` exists at or above
+  the working directory, so the earlier wording could place a rule in a file that
+  client never loads. Its [instruction-file cases](../evals/adoption/instructions.py)
+  pass ten static grader controls; no model session has been run for v0.1.3.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
@@ -59,6 +72,12 @@ does not change the already executed studies or their frozen acceptance criteria
   roles, evidence/decision distinctions and maintenance behavior.
 - Two templates, an authored example and five behavioral evaluation scenarios
   are included. Templates are optional.
+- Packaging, links, published-table agreement and the container-free study
+  self-tests run as [static repository checks](../evals/checks/static_checks.py)
+  in GitHub Actions since 2026-09-28. They are mechanical repository checks and
+  establish nothing about agent behavior.
+- Installation into Claude Code is documented and its packaging validated;
+  no evaluation has been executed on any client other than Codex.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Current package: experimental skill v0.1.1; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
@@ -91,6 +110,16 @@ does not change the already executed studies or their frozen acceptance criteria
 3. Evaluate automatic selection, other models, normal global-instruction setups
    and longer maintenance sequences when those become relevant. Current evidence
    covers explicit use on one model and up to four passes.
+4. Proposed, not yet approved: address the three conditions that hold reader and
+   document scores at a ceiling before running further comparisons. The shared
+   task prompts already state much of the skill's guidance to both arms, the
+   fixture evidence labels its own approval and observation status, and the
+   question sets stay answerable from small raw inputs. Until those change, a tie
+   is the expected result and cannot distinguish the methods. See the
+   [discrimination protocol](../evals/discrimination-protocol.md).
+5. Proposed, not yet approved: run the untested adoption v0.1.3 instruction-file
+   cases, and one evaluation on a second client, before describing cross-client
+   behavior as supported.
 
 ## Canonical references
 
@@ -106,3 +135,5 @@ does not change the already executed studies or their frozen acceptance criteria
 - [September 27 public Harbor evaluation](evaluation-2026-09-27.md)
 - [Concision comparison and v0.1.1 adoption](evaluation-2026-09-27-concise.md)
 - [Contribution guidance](../CONTRIBUTING.md)
+- [Per-version changelog](../CHANGELOG.md)
+- [Proposed discrimination protocol](../evals/discrimination-protocol.md)
