@@ -57,3 +57,29 @@ or cross-client compatibility is established by these two cases.
 Completed results: [September 27 adoption and repeat checks](../results/2026-09-27-adoption/README.md).
 
 Marker behavior has a separate [v0.1.1 regression](marker.md), including already-adopted but unmarked projects and audit-only requests.
+
+## Instruction-file routing (v0.1.3)
+
+A maintenance rule only takes effect in the instruction file the client loads.
+[instructions.py](instructions.py) adds two cases on that boundary: a project whose
+instructions live in `CLAUDE.md` with no loaded `AGENTS.md`, and a project holding
+both files where only one is loaded and guidance must not be duplicated. The
+fixtures state which file is in effect in the request; detecting a client's loading
+rules is outside these cases.
+
+```sh
+python3 evals/adoption/instructions.py .local/adoption-instructions-suite
+python3 evals/suite/run.py .local/adoption-instructions-suite .local/adoption-instructions-jobs --mode oracle --prefix instructions
+python3 evals/suite/run.py .local/adoption-instructions-suite .local/adoption-instructions-jobs --mode model --prefix instructions
+```
+
+The builder runs ten static controls: a passing reference, rejected unchanged first
+pass, accepted no-change repeat, rejected broken link and rejected removed marker
+for each case, with the last asserted to fail on the marker preservation token
+rather than incidentally. **Those controls are all that has been executed. No model
+session has been run for these cases, so they establish no v0.1.3 behavior.**
+
+Review placement semantically: the rule must be in the loaded file or reachable from
+it through that file's own reference or import mechanism, both original instruction
+files must keep their content, and the rule and marker must not be copied into both.
+The mechanical verifier cannot tell a loaded file from an unloaded one.

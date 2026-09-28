@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.1; adoption skill v0.1.2.** The package contains instructions only.
+**Status: experimental, core skill v0.1.1; adoption skill v0.1.3.** The package contains instructions only.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or runtime dependency. Git remains available for history and review.
 
@@ -18,8 +18,9 @@ With both skills installed, adopt a new or existing project with:
 $adopt-context-docs
 ```
 
-This applies the core method and adds or merges a maintenance rule in the project's
-`AGENTS.md`. After checking the setup, it records a small marker beside that rule:
+This applies the core method and adds or merges a maintenance rule in the
+instruction file the project's agent actually loads, such as `AGENTS.md` or
+`CLAUDE.md`. After checking the setup, it records a small marker beside that rule:
 
 ```text
 Method: context-docs
@@ -63,7 +64,11 @@ preservation. Ten sessions across initial and revised conditions are reported
 separately; the final revision was tested on the two affected unmarked cases.
 Adoption v0.1.2 adds only the preferred layout for new sections. Metadata, package
 links and existing static controls were checked; no new model evaluation was run.
-Per-version history is in the [changelog](CHANGELOG.md).
+Adoption v0.1.3 routes the rule and marker to the instruction file a client loads
+and drops client-specific invocation wording. Its
+[instruction-file cases](evals/adoption/instructions.py) pass ten static grader
+controls; **no model session has been run for that version.** Per-version history
+is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
@@ -100,9 +105,36 @@ references, assets, metadata and licenses. Codex normally detects changes
 automatically; restart if they do not appear.
 See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
+## Install in Claude Code
+
+Copy both folders into a skills directory Claude Code reads: `~/.claude/skills/`
+for every project, or `.claude/skills/` inside one repository. Use one scope.
+
+```sh
+mkdir -p ~/.claude/skills
+cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
+```
+
+Keep both folders side by side: the adoption skill reads its sibling core skill.
+Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
+and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
+is ignored here.
+
+Claude Code reads a project's `AGENTS.md` only when no `CLAUDE.md` exists in the
+working directory or above it, so a maintenance rule written to `AGENTS.md` beside
+a `CLAUDE.md` is never loaded. Adoption v0.1.3 therefore targets the file in
+effect. Confirm the result: the rule should be in the loaded file, or reachable
+from it through that file's own import. See the
+[Claude Code skill](https://code.claude.com/docs/en/skills) and
+[memory](https://code.claude.com/docs/en/memory) documentation.
+
+**Only packaging and metadata have been checked on this client.** Every published
+model evaluation ran on Codex with one model; no Claude Code session is included
+in any result below.
+
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](skills/context-docs/references/standard.md) directly.
-Client-specific installation and behavior outside Codex have not been tested.
+Behavior outside Codex has not been evaluated.
 
 ## What is standardized?
 

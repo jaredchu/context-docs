@@ -10,6 +10,19 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
+## adopt-context-docs 0.1.3 — unreleased
+
+- Route the ongoing maintenance rule and adoption marker to the instruction file
+  the client actually loads, instead of assuming `AGENTS.md`. Both `AGENTS.md` and
+  `CLAUDE.md` are common, and a client may load only one of them; a rule written to
+  an unloaded file silently does nothing. When a project keeps several, the rule
+  belongs in the one in effect and stays reachable from the others by reference or
+  import rather than being duplicated.
+- State the maintenance rule without a client-specific invocation prefix, so the
+  wording written into a project is valid wherever the skill is installed.
+- Add [instruction-file routing cases](evals/adoption/instructions.py) with ten
+  static grader controls. **No model session has been run for this version.**
+
 ## adopt-context-docs 0.1.2 — 2026-09-27 (`eed23ed`)
 
 - Prefer a `Context maintenance` heading, then the marker, then instructions when
