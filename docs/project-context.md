@@ -224,7 +224,13 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 - Current package: experimental core skill v0.1.3 and adoption v0.1.5; standard
   remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
   maintenance needs no runtime. There is no background maintenance or sync.
-- The owner-authorized [v0.1.3 release](releases/v0.1.3.md) is being prepared.
+- The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)
+  is published at `b4233576db78`, including the merged Claude work. The
+  [release notes](releases/v0.1.3.md) retain evaluation limits and the initial CI
+  failure; the repaired commit passed the complete GitHub Actions suite.
+  Local global Codex and Claude skill copies now match core 0.1.3/adoption 0.1.5;
+  previous Codex copies were backed up. Both installed helpers passed a read-only
+  journal check. No other project's logging settings were changed.
   Logging is enabled for this repository in `.context/events`, preserving the
   original adoption date, entry point and historical records. CLAUDE.md imports
   AGENTS.md so both clients can share the settings; live automatic loading in
