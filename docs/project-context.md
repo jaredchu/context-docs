@@ -108,7 +108,8 @@ CLAUDE.md importing that file; other projects keep their existing settings.
   clarification then passed no-history-access in both Codex and explicit native
   Claude Skill invocation. All project/package bytes were preserved. Native
   slash-only and automatic selection reliability remain unestablished. The
-  [v0.1.4 prerelease draft](releases/v0.1.4.md) is being prepared; it is unpublished.
+  [v0.1.4 prerelease draft](releases/v0.1.4.md) is prepared on GitHub at candidate
+  `3b5b1ca12e33`, with the complete CI suite passing. It remains unpublished.
 - A [six-session global-installation check](../evals/results/2026-09-28-global-journal/README.md)
   used the released packages in fresh Codex and Claude sessions. Both captured a
   synthetic failure without an extra logging reminder; repeats and audits preserved
