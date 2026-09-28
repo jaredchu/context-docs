@@ -1,0 +1,242 @@
+{
+  "kind": "native-paired-v1",
+  "model": "claude-opus-5",
+  "permission_mode": "acceptEdits",
+  "setting_sources": "project",
+  "session_timeout_seconds": 600,
+  "allowed_tools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Skill",
+    "TodoWrite",
+    "Bash(git status:*)",
+    "Bash(git diff:*)",
+    "Bash(git log:*)",
+    "Bash(ls:*)",
+    "Bash(cat:*)",
+    "Bash(shasum:*)",
+    "Bash(md5:*)",
+    "Bash(git hash-object:*)",
+    "Bash(git ls-files:*)",
+    "Bash(git rev-parse:*)",
+    "Bash(python3:*)"
+  ],
+  "common_extra_args": [
+    "--no-session-persistence",
+    "--tools",
+    "Read,Write,Edit,Glob,Grep,Skill,Bash"
+  ],
+  "cli_version": "2.1.234 (Claude Code)",
+  "source_commit": "a5127621fc39871c1d6ecf1f993cf6b9324f8fd9",
+  "skills": {
+    "context-docs": "0.1.2",
+    "adopt-context-docs": "0.1.4"
+  },
+  "installed_files": {
+    ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+    ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+    ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+    ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+    ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "user_claude_md_present": false,
+  "cases": [
+    {
+      "id": "delimited-records",
+      "files": {
+        "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+        "records.py": "import csv\nimport json\nimport sys\n\ndef read_records(path):\n    with open(path, newline=\"\", encoding=\"utf-8\") as stream:\n        return list(csv.DictReader(stream, delimiter=\";\", restkey=\"surplus\"))\n\nif __name__ == \"__main__\":\n    print(json.dumps(read_records(sys.argv[1]), ensure_ascii=False))\n",
+        "samples/visits.csv": "site;visits;active\nnorth;12;true\nsouth;8\nwest;4;false;manual;checked\n"
+      },
+      "immutable": [
+        "records.py",
+        "samples/visits.csv"
+      ],
+      "entry": "README.md",
+      "prompt": "Set up ongoing project context documentation for this small utility. Explain its invocation and data behavior from the supplied source and sample, provide a README entry point, and put a concise maintenance rule in the project instructions. Keep records.py and samples/visits.csv byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+      "expected": [
+        "README navigation leads to useful context and a correct python records.py samples/visits.csv invocation.",
+        "Context accurately explains the supplied irregular records: missing active becomes null/None and surplus fields become a list; it does not claim all output values are strings.",
+        "The resulting context and final response agree with the resulting files; no unqualified current assertion that README or maintenance guidance is absent after creating it.",
+        "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+        "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and code/data preserved."
+      ]
+    },
+    {
+      "id": "front-door-refresh",
+      "files": {
+        "CLAUDE.md": "# Project instructions\n\nWork only in this project. Preserve supplied code and sample data. Do not commit.\nAt the start of your first reply, include the exact phrase: Session check: amber-orbit.\nThis phrase checks instruction exposure; it is not project knowledge to document.\n",
+        "count_lines.py": "import sys\nfrom pathlib import Path\nprint(len(Path(sys.argv[1]).read_text().splitlines()))\n",
+        "samples/three.txt": "alpha\nbeta\ngamma\n",
+        "notes/state.md": "# Current project state\n\nThis is a local line-counting utility. Run `python count_lines.py samples/three.txt`.\n\nThere is no README or documentation front door. Command details live only in this file.\nNo ongoing documentation maintenance rule exists in the project instructions.\n\nAn unresolved question is whether empty trailing lines should count; no decision has been made.\nSee [scope](scope.md) for the approved boundary.\n",
+        "notes/scope.md": "# Scope decision\n\nThe owner approved local text files only for this pilot on 2026-09-12.\nNetwork ingestion remains a proposal, not an approved feature.\n"
+      },
+      "immutable": [
+        "count_lines.py",
+        "samples/three.txt",
+        "notes/scope.md"
+      ],
+      "entry": "README.md",
+      "prompt": "Set up ongoing context documentation maintenance using the existing notes. Create a concise README front door, move the usage instructions into notes/usage.md, and keep notes/state.md as the current-state entry point. Add a concise maintenance rule to the project instructions. Preserve the scope decision and unresolved question. Keep count_lines.py, samples/three.txt and notes/scope.md byte-identical. Do not commit or change files outside this project. Report what changed, what you verified, and what remains uncertain.",
+      "expected": [
+        "README links to notes/state.md; state links to notes/usage.md, which has the correct invocation.",
+        "The unresolved trailing-line question and approved local-only scope survive; proposed network ingestion is not promoted to approval.",
+        "Current state and the final response reconcile the newly created README, usage guide and maintenance rule; old absence/only-here claims are removed or explicitly historical.",
+        "All factual and authority claims stay within evidence: no invented owner approvals, execution verification, version, publication or automatic-loading claims.",
+        "One reachable ongoing maintenance rule exists in CLAUDE.md, with supplied instructions and immutable files preserved."
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "delimited-records-ordinary-1",
+      "case": "delimited-records",
+      "arm": "ordinary",
+      "repeat": 1,
+      "initial_tree": {
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+        "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+      }
+    },
+    {
+      "id": "delimited-records-skills-1",
+      "case": "delimited-records",
+      "arm": "skills",
+      "repeat": 1,
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+        "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+      }
+    },
+    {
+      "id": "delimited-records-skills-2",
+      "case": "delimited-records",
+      "arm": "skills",
+      "repeat": 2,
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+        "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+      }
+    },
+    {
+      "id": "delimited-records-ordinary-2",
+      "case": "delimited-records",
+      "arm": "ordinary",
+      "repeat": 2,
+      "initial_tree": {
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "records.py": "55a4d08d3df630e0bb099aefa5e0636062ddf2950c764e143edc876706f1ae2c",
+        "samples/visits.csv": "05e0cdf2621a906884241591becf3d2c6266c1706fefe056a19172aeb8bb49e8"
+      }
+    },
+    {
+      "id": "front-door-refresh-ordinary-1",
+      "case": "front-door-refresh",
+      "arm": "ordinary",
+      "repeat": 1,
+      "initial_tree": {
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+        "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+        "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+        "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+      }
+    },
+    {
+      "id": "front-door-refresh-skills-1",
+      "case": "front-door-refresh",
+      "arm": "skills",
+      "repeat": 1,
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+        "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+        "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+        "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+      }
+    },
+    {
+      "id": "front-door-refresh-skills-2",
+      "case": "front-door-refresh",
+      "arm": "skills",
+      "repeat": 2,
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "ad3770255772fce3d7f4ba464e0743063c7c30b598aad1019629b26575c2f564",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+        "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+        "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+        "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+      }
+    },
+    {
+      "id": "front-door-refresh-ordinary-2",
+      "case": "front-door-refresh",
+      "arm": "ordinary",
+      "repeat": 2,
+      "initial_tree": {
+        "CLAUDE.md": "c352ad96d77d8d11fb7a4d709263b51d8085a62ac58143378f352f2c7658de62",
+        "count_lines.py": "6ced8c3d296710c3cdfebfd00713c14a667d72e1023ebc07ec91efaff068bb5e",
+        "notes/scope.md": "3d3c3971fd6a573db58af5bc955d7a90b96d387b8fbcae48978224004e62bc27",
+        "notes/state.md": "e7675f8bc8fce0c795e51e3d0358962c5d38e99f428cb82ff7bb2b8e7a74db2f",
+        "samples/three.txt": "4fdbc441ea7b546100e086ac1e4fc5ae6749b7314311c99db05be450eca12996"
+      }
+    }
+  ],
+  "decision_rule": "A same-case semantic criterion failing in both skill attempts and passing in both ordinary attempts is a repeatable adverse association requiring investigation, not causal proof. Mixed or shared failures are inconclusive; no skill-specific regression observed permits consideration of experimental merge with limitations, not a reliability claim. Missing skill exposure, contamination or incomplete execution makes the affected comparison inconclusive. No prompt tuning or extra model runs within this study."
+}
