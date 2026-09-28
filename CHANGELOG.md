@@ -11,9 +11,10 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-Release contents and validation are summarized in the [v0.1.3 release notes](docs/releases/v0.1.3.md).
+Release contents and validation are summarized in the [v0.1.4 release notes](docs/releases/v0.1.4.md)
+and earlier [v0.1.3 release notes](docs/releases/v0.1.3.md).
 
-## context-docs 0.1.4 — unreleased
+## context-docs 0.1.4 — 2026-09-28 (tag `v0.1.4`)
 
 - Decide whether historical evidence is needed before accessing the journal.
   No-change maintenance checks current context and supplied evidence, then stops
@@ -39,7 +40,7 @@ Release contents and validation are summarized in the [v0.1.3 release notes](doc
   Codex and explicit native Claude checks then avoid all journal access and writes.
   Preserve the earlier failures and distinct candidate hashes. All 90 local
   regression tests, study controls, metadata and static checks pass separately.
-  The [v0.1.4 draft notes](docs/releases/v0.1.4.md) retain invocation limits.
+  The [v0.1.4 release notes](docs/releases/v0.1.4.md) retain invocation limits.
 
 ## Global installation evaluation — 2026-09-28 (after v0.1.3)
 

@@ -89,7 +89,7 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
-- Unreleased core 0.1.4 adds an explicit journal read decision: no-change
+- Core 0.1.4 adds an explicit journal read decision: no-change
   maintenance stops after current context and supplied evidence unless new work,
   a contradiction or an uncertain write needs history. Enabled settings and history
   links alone do not trigger journal access. The helper/schema and adoption 0.1.5
@@ -108,8 +108,10 @@ CLAUDE.md importing that file; other projects keep their existing settings.
   clarification then passed no-history-access in both Codex and explicit native
   Claude Skill invocation. All project/package bytes were preserved. Native
   slash-only and automatic selection reliability remain unestablished. The
-  [v0.1.4 prerelease draft](releases/v0.1.4.md) is prepared on GitHub at candidate
-  `3b5b1ca12e33`, with the complete CI suite passing. It remains unpublished.
+  [v0.1.4 release notes](releases/v0.1.4.md) retain those limits. The owner
+  authorized continuing with publication of the prepared experimental prerelease.
+  Candidate `3b5b1ca12e33` passed the complete CI suite; documentation is being
+  finalized before publishing the existing GitHub draft.
 - A [six-session global-installation check](../evals/results/2026-09-28-global-journal/README.md)
   used the released packages in fresh Codex and Claude sessions. Both captured a
   synthetic failure without an extra logging reminder; repeats and audits preserved
@@ -251,7 +253,7 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current working package: experimental core skill v0.1.4 (unreleased) and adoption v0.1.5; standard
+- Current working package: experimental core skill v0.1.4 and adoption v0.1.5; standard
   remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
   maintenance needs no runtime. There is no background maintenance or sync.
 - The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)
