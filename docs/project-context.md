@@ -108,10 +108,11 @@ CLAUDE.md importing that file; other projects keep their existing settings.
   clarification then passed no-history-access in both Codex and explicit native
   Claude Skill invocation. All project/package bytes were preserved. Native
   slash-only and automatic selection reliability remain unestablished. The
-  [v0.1.4 release notes](releases/v0.1.4.md) retain those limits. The owner
-  authorized continuing with publication of the prepared experimental prerelease.
-  Candidate `3b5b1ca12e33` passed the complete CI suite; documentation is being
-  finalized before publishing the existing GitHub draft.
+  [v0.1.4 release notes](releases/v0.1.4.md) retain those limits. The owner-authorized
+  [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.4)
+  is published at `bf292ef4fd74`, whose [complete CI suite](https://github.com/jaredchu/context-docs/actions/runs/36442131106)
+  passed. Both local global installations match the tagged packages; logging
+  remains enabled only for this repository, with existing records preserved.
 - A [six-session global-installation check](../evals/results/2026-09-28-global-journal/README.md)
   used the released packages in fresh Codex and Claude sessions. Both captured a
   synthetic failure without an extra logging reminder; repeats and audits preserved
@@ -287,11 +288,11 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 Keep logging optional and preserve the [integration findings and limits](../evals/results/2026-09-28-journal-integration/README.md).
 The bounded upgrade/capture/repeat/audit/disable checks are complete, including a
 focused durable-gap repair. Use explicit native skill invocation for Claude when
-evaluating this candidate; initial skipped requests remain evidence. Further
+evaluating the released skills; initial skipped requests remain evidence. Further
 expansion needs a concrete use case and varied real-project histories, not more
 format comparisons on these fixtures. Customized package merges, other platforms,
 high event volumes and natural recording effort remain outside the completed tests.
-The read-gating candidate addresses unnecessary journal reads in the focused
+The v0.1.4 read-gating guidance addresses unnecessary journal reads in the focused
 conditions above, now including explicit native selection of the updated global
 Claude skill. Retain the failed slash-only request and broader invocation limits
 when reviewing the prerelease; varied-project efficiency remains unmeasured.
