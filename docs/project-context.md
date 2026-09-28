@@ -56,10 +56,10 @@ still need owner acceptance.
   received static validation only; model results below cover earlier versions.
   v0.1.3 places the rule and marker in the instruction file the client actually
   loads, rather than assuming `AGENTS.md`, and states the rule without a
-  client-specific invocation prefix. Observed on 2026-09-28 from Claude Code's
-  documentation: it reads `AGENTS.md` only when no `CLAUDE.md` exists at or above
-  the working directory, so the earlier wording could place a rule in a file that
-  client never loads. Its [instruction-file cases](../evals/adoption/instructions.py)
+  client-specific invocation prefix. Claude Code loading depends on version,
+  configuration and local instruction files; the [installation guidance](../README.md#install-in-claude-code)
+  records the documented defaults and exceptions checked on 2026-09-28.
+  Its [instruction-file cases](../evals/adoption/instructions.py)
   pass ten static grader controls; no model session has been run for v0.1.3.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
@@ -74,8 +74,11 @@ still need owner acceptance.
   are included. Templates are optional.
 - Packaging, links, published-table agreement and the container-free study
   self-tests run as [static repository checks](../evals/checks/static_checks.py)
-  in GitHub Actions since 2026-09-28. They are mechanical repository checks and
-  establish nothing about agent behavior.
+  in GitHub Actions since 2026-09-28. Package checks enforce boundaries including
+  nested references and the adoption skill's declared sibling dependency; version
+  checks compare current README status and latest per-skill changelog entries.
+  Regression controls cover escaped package links and stale version declarations.
+  These mechanical repository checks establish nothing about agent behavior.
 - Installation into Claude Code is documented and its packaging validated;
   no evaluation has been executed on any client other than Codex.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).

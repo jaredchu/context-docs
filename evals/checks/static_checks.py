@@ -6,13 +6,15 @@ behavior; model evaluations remain separate and are reported separately.
 import argparse
 import json
 import re
-import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[2]
 SKILLS = {'context-docs': ['references/standard.md', 'assets/project-context.md',
                            'assets/decision-record.md', 'LICENSE', 'VERSION'],
           'adopt-context-docs': ['LICENSE', 'VERSION']}
+SKILL_DEPENDENCIES = {'adopt-context-docs': ['context-docs']}
+README_VERSION_LABELS = {'context-docs': 'core skill', 'adopt-context-docs': 'adoption skill'}
 # Frozen skill copies used as evaluation fixtures. Their relative resource links
 # resolve only after a study builder assembles a complete package, as recorded in
 # evals/concise/README.md. Keep this list exact rather than skipping a directory.
@@ -33,7 +35,10 @@ FRONTMATTER_FIELDS = {'name', 'description'}
 
 
 def markdown_files():
-    return [p for p in sorted(ROOT.rglob('*.md')) if '.git' not in p.parts]
+    # .local is the repository's gitignored scratch area for generated studies.
+    return [p for p in sorted(ROOT.rglob('*.md'))
+            if '.git' not in p.relative_to(ROOT).parts
+            and p.relative_to(ROOT).parts[0] != '.local']
 
 
 def slugs(text):
@@ -102,28 +107,41 @@ def check_skills(failures):
         version = (skill / 'VERSION')
         if version.is_file() and not re.fullmatch(r'\d+\.\d+\.\d+\n', version.read_text()):
             failures.append(f'skills/{name}: VERSION must hold one semantic version line')
-        # The installable folder must not depend on repository-only paths.
-        for match in re.finditer(r'\[[^\]]*\]\(([^)#]+)', text):
-            target = match.group(1).strip()
-            if target.startswith(('http', 'mailto')):
-                continue
-            if not (document.parent / target).exists():
-                failures.append(f'skills/{name}: SKILL.md link {target} does not resolve inside the package')
+        # Check nested references too. Only adoption may depend on the sibling core.
+        allowed_roots = [skill.resolve()] + [
+            (ROOT / 'skills' / dependency).resolve()
+            for dependency in SKILL_DEPENDENCIES.get(name, [])]
+        for source in sorted(skill.rglob('*.md')):
+            for match in re.finditer(r'\[[^\]]*\]\(([^)]+)\)', source.read_text()):
+                target = match.group(1).strip()
+                if target.startswith(('http://', 'https://', 'mailto:', '#')):
+                    continue
+                path = Path(unquote(target.partition('#')[0]))
+                resolved = (source.parent / path).resolve()
+                if (path.is_absolute() or not resolved.exists()
+                        or not any(resolved.is_relative_to(root) for root in allowed_roots)):
+                    failures.append(f'{source.relative_to(ROOT)}: link {target} must resolve '
+                                    'inside the package or a declared sibling dependency')
     return f'{len(SKILLS)} installable skill packages'
 
 
 def check_versions(failures):
     readme = (ROOT / 'README.md').read_text()
-    changelog = (ROOT / 'CHANGELOG.md')
+    changelog = ROOT / 'CHANGELOG.md'
+    history = changelog.read_text() if changelog.is_file() else ''
+    status = re.search(r'^\*\*Status: (.*?)\*\*', readme, re.M)
     for name in SKILLS:
         version = (ROOT / 'skills' / name / 'VERSION')
         if not version.is_file():
             continue
         declared = version.read_text().strip()
-        if changelog.is_file() and f'{name} {declared}' not in changelog.read_text():
-            failures.append(f'CHANGELOG.md: no entry for {name} {declared}')
-        if declared not in readme:
-            failures.append(f'README.md: does not state {name} version {declared}')
+        latest = re.search(r'^## ' + re.escape(name) + r' (\d+\.\d+\.\d+)\b', history, re.M)
+        if latest is None or latest.group(1) != declared:
+            failures.append(f'CHANGELOG.md: latest entry for {name} must match VERSION {declared}')
+        current = re.search(re.escape(README_VERSION_LABELS[name]) + r' v(\d+\.\d+\.\d+)\b',
+                            status.group(1) if status else '')
+        if current is None or current.group(1) != declared:
+            failures.append(f'README.md: current status for {name} must match VERSION {declared}')
     return f'{len(SKILLS)} declared package versions'
 
 

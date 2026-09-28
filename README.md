@@ -120,11 +120,18 @@ Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
 and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
 is ignored here.
 
-Claude Code reads a project's `AGENTS.md` only when no `CLAUDE.md` exists in the
-working directory or above it, so a maintenance rule written to `AGENTS.md` beside
-a `CLAUDE.md` is never loaded. Adoption v0.1.3 therefore targets the file in
-effect. Confirm the result: the rule should be in the loaded file, or reachable
-from it through that file's own import. See the
+Direct `AGENTS.md` loading requires Claude Code v2.1.277 or later with its built-in
+`agents-md` plugin enabled. By default, it loads `AGENTS.md` only when no
+`CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the working directory
+or its ancestors; user-level `~/.claude/CLAUDE.md` and managed instructions do not
+disable that fallback. The Project instructions setting can instead load both
+file types, only Claude files, or only managed instructions at launch. Older or
+otherwise unsupported sessions can import `AGENTS.md` from `CLAUDE.md`.
+
+Adoption v0.1.3 targets the instructions actually loaded in the session. Confirm
+the result: the rule should be in a loaded file, or included through that file's
+supported import. Check `/context` and the Project instructions setting rather
+than inferring loading solely from filenames. See the
 [Claude Code skill](https://code.claude.com/docs/en/skills) and
 [memory](https://code.claude.com/docs/en/memory) documentation.
 

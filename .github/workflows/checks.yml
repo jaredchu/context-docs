@@ -25,6 +25,9 @@ jobs:
       - name: Packaging, links and published tables
         run: python3 evals/checks/static_checks.py
 
+      - name: Static checker regression tests
+        run: python3 -m unittest discover -s evals/checks -p 'test_*.py'
+
       - name: Core suite self-test
         run: python3 selftest.py
         working-directory: evals/suite

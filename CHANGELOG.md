@@ -10,6 +10,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
+## Repository checks and installation guidance — unreleased
+
+- Enforce package boundaries for skill links and nested references, allowing the
+  adoption package's declared dependency on its sibling core. Reject repository-only,
+  absolute and escaping symlink targets. Exclude gitignored `.local/` study output
+  from repository link checks.
+- Compare `VERSION` files against the current README status and latest changelog
+  entry for each skill, so historical mentions cannot hide a stale declaration.
+- Correct Claude Code installation guidance for version requirements, local
+  instruction files and configurable loading behavior; keep that detail canonical
+  in the README.
+- Twelve checker regression tests passed. These are static checks, not model
+  evaluations. Installable skill contents and versions are unchanged.
+
 ## adopt-context-docs 0.1.3 — unreleased
 
 - Route the ongoing maintenance rule and adoption marker to the instruction file
