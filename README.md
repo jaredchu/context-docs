@@ -67,8 +67,11 @@ links and existing static controls were checked; no new model evaluation was run
 Adoption v0.1.3 routes the rule and marker to the instruction file a client loads
 and drops client-specific invocation wording. Its
 [instruction-file cases](evals/adoption/instructions.py) pass ten static grader
-controls; **no model session has been run for that version.** Per-version history
-is in the [changelog](CHANGELOG.md).
+controls. The [v0.1.3 merge review](evals/results/2026-09-28-adoption-v013/README.md)
+ran nine model sessions: eight met frozen acceptance, with a split-file failure
+involving an immutable heading and an installed-skill link. Routing rubrics passed,
+but fixture limitations remain unresolved; this is not a full regression pass.
+Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.

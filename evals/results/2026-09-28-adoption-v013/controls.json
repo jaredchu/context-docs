@@ -1,0 +1,266 @@
+[
+  {
+    "job": "marker-nop-1",
+    "task": "adopt-empty-docs-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "marker-nop-1",
+    "task": "adopt-existing-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "marker-nop-1",
+    "task": "adopt-unmarked-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0
+    },
+    "steps": []
+  },
+  {
+    "job": "marker-nop-1",
+    "task": "audit-only-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0
+    },
+    "steps": []
+  },
+  {
+    "job": "marker-oracle-1",
+    "task": "adopt-empty-docs-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "marker-oracle-1",
+    "task": "adopt-existing-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "marker-oracle-1",
+    "task": "adopt-unmarked-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1
+    },
+    "steps": []
+  },
+  {
+    "job": "marker-oracle-1",
+    "task": "audit-only-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1
+    },
+    "steps": []
+  },
+  {
+    "job": "routing-nop-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "routing-nop-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0
+    },
+    "steps": []
+  },
+  {
+    "job": "routing-oracle-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "routing-oracle-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1
+    },
+    "steps": []
+  },
+  {
+    "job": "routing-v2-nop-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "routing-v2-nop-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0
+    },
+    "steps": []
+  },
+  {
+    "job": "routing-v2-oracle-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "routing-v2-oracle-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1
+    },
+    "steps": []
+  }
+]

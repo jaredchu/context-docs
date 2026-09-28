@@ -1,0 +1,235 @@
+{
+  "instructions-suite-v2/adopt-claude-instructions-skill/steps/pass-1": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse the adopt-context-docs skill to adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This project keeps its agent instructions in CLAUDE.md; no AGENTS.md is loaded here. For this test, treat the current date as 2026-10-01, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-claude-instructions",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Production publication requires owner approval.",
+        "Approved: keep the pilot offline because customer data must stay local.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "immutable": [
+        "README.md"
+      ],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "Places the ongoing maintenance rule and marker in the loaded CLAUDE.md, preserving its existing instructions.",
+        "Does not create an unloaded AGENTS.md, or a second instruction file holding the only copy of the rule.",
+        "References the skill in wording valid for this client instead of another client's invocation syntax."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "instructions-suite-v2/adopt-claude-instructions-skill/steps/pass-2": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse the adopt-context-docs skill to adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. No new project evidence or decisions have been supplied. This project keeps its agent instructions in CLAUDE.md; no AGENTS.md is loaded here.\n",
+    "spec": {
+      "id": "adopt-claude-instructions",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\nUse the context-docs skill after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Production publication requires owner approval.",
+        "Approved: keep the pilot offline because customer data must stay local.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "immutable": [
+        "README.md"
+      ],
+      "allow_noop": true,
+      "entry": "README.md",
+      "rubric": [
+        "Repeated adoption leaves instructions and documents byte-identical, with one rule and one marker."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "instructions-suite-v2/adopt-split-instructions-skill": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse the adopt-context-docs skill to adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This client loads CLAUDE.md only; AGENTS.md is kept for another tool. Do not duplicate guidance between them. For this test, treat the current date as 2026-10-01, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-split-instructions",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Run `python3 -m pytest` before proposing a change.",
+        "Approved: keep the pilot offline because customer data must stay local."
+      ],
+      "immutable": [
+        "README.md",
+        "knowledge/state.md"
+      ],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "The rule is reachable from the loaded CLAUDE.md, by placement or an explicit reference to the file that holds it.",
+        "Both existing instruction files keep their original content; the rule and marker are not copied into both.",
+        "Reports which file now carries the rule and how the loaded file reaches it."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/adopt-empty-docs-skill/steps/pass-1": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to adopt Context Docs in this project, including its ongoing AGENTS.md maintenance rule. For this test, treat the current date as 2026-10-01, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-empty-docs",
+      "before": {
+        "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n"
+      },
+      "protected": [],
+      "immutable": [
+        "convert.py"
+      ],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+        "Adds ongoing context-docs maintenance guidance to project AGENTS.md; does not install skill copies or change code.",
+        "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/adopt-empty-docs-skill/steps/pass-2": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to adopt Context Docs in this project, including its ongoing AGENTS.md maintenance rule. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-empty-docs",
+      "before": {
+        "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n",
+        "README.md": "# CSV conversion utility\n\n[Context](context.md).\n",
+        "context.md": "# Context\n\nThe local script reads CSV rows and writes a JSON array.\nRun `python3 convert.py input.csv output.json`; see [source](convert.py).\n",
+        "AGENTS.md": "# Project instructions\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: context.md\n"
+      },
+      "protected": [],
+      "immutable": [
+        "convert.py"
+      ],
+      "allow_noop": true,
+      "entry": "context.md",
+      "rubric": [
+        "Repeated adoption leaves the established documentation and instructions byte-identical; no duplicate rules or files.",
+        "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/adopt-existing-skill/steps/pass-1": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to adopt Context Docs in this project, including its ongoing AGENTS.md maintenance rule. For this test, treat the current date as 2026-10-01, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-existing",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Production publication requires owner approval.",
+        "Use Approved, Proposed and Unknown as decision statuses.",
+        "Approved: keep the pilot offline because customer data must stay local.",
+        "Proposed: cloud sync; no owner approval recorded.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "immutable": [],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "Preserves layout, original instructions, Approved offline rationale, Proposed cloud status and uncommitted restore blocker.",
+        "Adds one effective ongoing context-docs maintenance rule in AGENTS.md; no competing context files or copied skills.",
+        "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/adopt-existing-skill/steps/pass-2": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to adopt Context Docs in this project, including its ongoing AGENTS.md maintenance rule. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\n",
+    "spec": {
+      "id": "adopt-existing",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Production publication requires owner approval.",
+        "Use Approved, Proposed and Unknown as decision statuses.",
+        "Approved: keep the pilot offline because customer data must stay local.",
+        "Proposed: cloud sync; no owner approval recorded.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "immutable": [],
+      "allow_noop": true,
+      "entry": "README.md",
+      "rubric": [
+        "Repeated adoption preserves all files byte for byte, including prior uncommitted work and maintenance guidance.",
+        "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/adopt-unmarked-skill": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to adopt Context Docs in this project, including its ongoing AGENTS.md maintenance rule. For this test, treat the current date as 2026-10-01, regardless of the environment date. No original adoption date has been recorded.\n",
+    "spec": {
+      "id": "adopt-unmarked",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [
+        "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.",
+        "Use $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "immutable": [
+        "README.md",
+        "knowledge/state.md"
+      ],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "Recognizes existing adoption from guidance and documents despite the absent marker; does not initialize another context file or duplicate instructions.",
+        "Adds only one marker to AGENTS.md, retaining original guidance and using unknown for the undocumented adoption date."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  },
+  "marker-suite/audit-only-skill": {
+    "instruction": "Work only in /workspace and /output. This is a synthetic project; use only its supplied evidence. Do not contact external services or inspect harness files, /tests, /solution, /logs or credentials. Do not change code/configuration or Git history. Preserve existing project layout and unique information. No live environment access is supplied. Complete the task autonomously using the available evidence.\n\nRead the adoption skill at /opt/context-docs/adopt-context-docs/SKILL.md and its linked core skill. These are installed outside the project; read them there.\n\nUse $adopt-context-docs to audit adoption only. Do not edit project files. Report whether existing instructions and documents already follow the method, and distinguish a missing marker from non-adoption. Write your report to /output/audit.md.\n",
+    "spec": {
+      "id": "audit-only",
+      "before": {
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "protected": [],
+      "immutable": [
+        "README.md",
+        "AGENTS.md",
+        "knowledge/state.md"
+      ],
+      "allow_noop": false,
+      "entry": "README.md",
+      "rubric": [
+        "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+        "Leaves every project file byte-identical and writes the audit report only to /output/audit.md."
+      ],
+      "input_snapshot": "/tmp/context-docs-input.json"
+    }
+  }
+}

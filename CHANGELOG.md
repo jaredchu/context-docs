@@ -35,7 +35,14 @@ not a demonstrated accuracy gain.
 - State the maintenance rule without a client-specific invocation prefix, so the
   wording written into a project is valid wherever the skill is installed.
 - Add [instruction-file routing cases](evals/adoption/instructions.py) with ten
-  static grader controls. **No model session has been run for this version.**
+  static grader controls. Before model evaluation, remove their inherited AGENTS.md
+  destination and restate the client condition in the fresh repeat session.
+- [September 28 merge review](evals/results/2026-09-28-adoption-v013/README.md):
+  nine model sessions, eight accepted; all three repeats and the audit preserved
+  bytes. The split-file case passed routing rubrics but failed frozen immutable-file
+  and external-link checks. Fixture limitations are retained with that failure;
+  the review recommends holding merge for a targeted follow-up. No native Claude
+  Code evaluation was run, and the skill contents were not tuned after this result.
 
 ## adopt-context-docs 0.1.2 — 2026-09-27 (`eed23ed`)
 

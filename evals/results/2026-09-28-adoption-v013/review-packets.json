@@ -1,0 +1,361 @@
+[
+  {
+    "review_id": "31c836a7a62f-1",
+    "task": "adopt-claude-instructions",
+    "step": 1,
+    "rubric": [
+      "Places the ongoing maintenance rule and marker in the loaded CLAUDE.md, preserving its existing instructions.",
+      "Does not create an unloaded AGENTS.md, or a second instruction file holding the only copy of the rule.",
+      "References the skill in wording valid for this client instead of another client's invocation syntax."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:79874f52f4": true,
+        "preserved:27c8905582": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\n`/opt/context-docs/context-docs/SKILL.md` before maintenance. Preserve project rules,\nthe existing knowledge/ layout, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation. Keep\naudit-only requests read-only; make no bookkeeping edits when nothing durable\nchanged.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 119,
+      "entry_words": 5,
+      "before_documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "3f240e5aee56c8dcd22a931e0c3edb82747fb360ab9f6a5cc573cb481f954fe9",
+      "before_words": 48
+    }
+  },
+  {
+    "review_id": "31c836a7a62f-2",
+    "task": "adopt-claude-instructions",
+    "step": 2,
+    "rubric": [
+      "Repeated adoption leaves instructions and documents byte-identical, with one rule and one marker."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:79874f52f4": true,
+        "preserved:27c8905582": true,
+        "local_links_and_anchors": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\n`/opt/context-docs/context-docs/SKILL.md` before maintenance. Preserve project rules,\nthe existing knowledge/ layout, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation. Keep\naudit-only requests read-only; make no bookkeeping edits when nothing durable\nchanged.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 119,
+      "entry_words": 5,
+      "before_documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\n`/opt/context-docs/context-docs/SKILL.md` before maintenance. Preserve project rules,\nthe existing knowledge/ layout, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation. Keep\naudit-only requests read-only; make no bookkeeping edits when nothing durable\nchanged.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "289941f40ec82c7d8ba6857c31b1f9bd9fa2ea3605aefd882c75d328a1f893ff",
+      "before_words": 119
+    }
+  },
+  {
+    "review_id": "71a0cfc60e7f-1",
+    "task": "adopt-split-instructions",
+    "step": 1,
+    "rubric": [
+      "The rule is reachable from the loaded CLAUDE.md, by placement or an explicit reference to the file that holds it.",
+      "Both existing instruction files keep their original content; the rule and marker are not copied into both.",
+      "Reports which file now carries the rule and how the loaded file reaches it."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "immutable:knowledge/state.md": false,
+        "preserved:ab3e3ce16d": true,
+        "preserved:f3e232751e": true,
+        "preserved:79874f52f4": true,
+        "local_links_and_anchors": false,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": false,
+      "link_errors": [
+        "CLAUDE.md: missing /opt/context-docs/context-docs/SKILL.md"
+      ],
+      "documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nSee [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance) for the shared documentation maintenance rule.\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the [context-docs skill](/opt/context-docs/context-docs/SKILL.md) for documentation audits and after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Start at [current context](knowledge/state.md) and preserve the existing knowledge/ layout, project rules, document roles and decision status. Update affected canonical sections and check the diff, links and information preservation. Keep audit-only requests read-only; make no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context: Offline pilot\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "audit": null,
+      "word_count": 139,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "before_sha256": "5083213129e9684a5c91258d79c50cd80244483d5da5fdc77ad9207738bb61e1",
+      "before_words": 50
+    }
+  },
+  {
+    "review_id": "3d768f308970-1",
+    "task": "audit-only",
+    "step": 1,
+    "rubric": [
+      "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+      "Leaves every project file byte-identical and writes the audit report only to /output/audit.md."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "immutable:AGENTS.md": true,
+        "immutable:knowledge/state.md": true,
+        "local_links_and_anchors": true,
+        "project_byte_identical": true,
+        "audit_report_exists": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": "# Context Docs adoption audit\n\nAudit date: 2026-09-28. Scope: adoption only; project files left unchanged.\n\n**Finding: the project already follows Context Docs in substance. Its adoption marker is missing; this is a recording gap, not evidence of non-adoption.** No reinitialization, layout migration or guidance rewrite is warranted.\n\n## Evidence\n\n| Source | Assessment |\n| --- | --- |\n| `/workspace/AGENTS.md:3\u20135` | Preserves the existing `knowledge/` layout, requires owner approval for production publication, and defines Approved, Proposed and Unknown statuses. |\n| `/workspace/AGENTS.md:7` | Provides equivalent ongoing maintenance guidance: invoke `$context-docs` after meaningful changes, read the skill, preserve rules and decisions, check links and the diff, keep audits read-only, and avoid bookkeeping edits. |\n| `/workspace/README.md:1\u20133` | Identifies the offline pilot and links to the existing context entry point, `knowledge/state.md`. The relative link resolves to the supplied document. |\n| `/workspace/knowledge/state.md:3\u20136` | Combines decision and current-state roles appropriately for a small project. Retains the approved offline constraint and its customer-data rationale, distinguishes unapproved cloud sync as Proposed, and preserves RESTORE-81 and its missing-fixture blocker as Unknown. |\n\nThe method does not require a particular directory name, separate files for every document role, or additional templates. The existing compact layout is suitable. `AGENTS.md` is the supplied project instruction file; actual client loading behavior was not independently demonstrated.\n\n## Missing record and evidence limits\n\nNo Method/Adopted/Entry point marker appears beside the maintenance rule in `AGENTS.md`. If a later editing request authorizes recording adoption, the smallest appropriate change is a marker there, preserving the existing guidance verbatim:\n\n```text\nMethod: context-docs\nAdopted: unknown\nEntry point: knowledge/state.md\n```\n\nNo original adoption date is supplied, so the audit date must not be substituted for adoption history. No marker was added during this audit.\n\nThe approved offline decision has a rationale but no named approving authority or source (`knowledge/state.md:3`). RESTORE-81 has a concrete blocker but no linked supporting evidence (`knowledge/state.md:6`). These limit traceability and independent verification; they do not negate adoption. Preserve their existing statuses and details. Add provenance only when evidence becomes available, without inventing approval, history or resolution.\n\n## Verification and outcome\n\nApplied `/opt/context-docs/adopt-context-docs/SKILL.md`, its linked core skill `/opt/context-docs/context-docs/SKILL.md`, and the core document-role standard. Read the supplied instructions, README and context document, and checked the README's context link. No live environment was supplied or accessed; this audit does not certify implementation, deployment, document freshness or blocker resolution.\n\nOnly `/output/audit.md` was created. Project instructions, documents, code, configuration and Git history were not changed. Ongoing guidance already exists; the adoption marker remains absent by design for this audit-only request.\n",
+      "word_count": 95,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "c75327cbb801db4ec0e3797db4dccb7c37311ba5d6709c9b5a0f507d68dd4382",
+      "before_words": 95
+    }
+  },
+  {
+    "review_id": "566ba81e285e-1",
+    "task": "adopt-empty-docs",
+    "step": 1,
+    "rubric": [
+      "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+      "Adds ongoing context-docs maintenance guidance to project AGENTS.md; does not install skill copies or change code.",
+      "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:convert.py": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\n## Context maintenance\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: README.md#project-context\n```\n\nUse the installed `context-docs` skill for documentation audits and after\nmeaningful changes to project facts, decisions, procedures, blockers or next\nactions. Read `/opt/context-docs/context-docs/SKILL.md` before maintenance.\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections in [the project context](README.md#project-context) and check\nthe diff, links and information preservation. Keep audit-only requests read-only;\nmake no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# CSV to JSON converter\n\n## Project context\n\nThis project contains a Python script, [convert.py](convert.py), that reads a CSV\nfile and writes its rows as a JSON array of objects.\n\n### Current behavior\n\nSource reviewed on 2026-10-01. The script uses Python's standard-library `csv`,\n`json`, and `sys` modules. `csv.DictReader` uses the first CSV row as field names;\nordinary field values remain strings. The script loads all rows into memory\nbefore writing JSON. It opens the destination in write mode, overwriting an\nexisting file, and does not implement argument validation or error handling.\nThese observations come from the source; execution has not been verified.\n\n### Usage\n\nWith Python 3 available, run from the project directory:\n\n```sh\npython3 convert.py input.csv output.json\n```\n\nThe first argument is the source CSV path and the second is the destination JSON\npath. Choose a destination whose existing contents can be overwritten, separate\nfrom the source.\n\n### Documentation maintenance\n\nThis section is the canonical context entry point. Ongoing agent guidance is in\n[AGENTS.md](AGENTS.md#context-maintenance).\n"
+      },
+      "audit": null,
+      "word_count": 241,
+      "entry_words": 165,
+      "before_documents": {},
+      "before_sha256": "c265627182d1a92bb257cdc77143745c6b997d83bb29eb298464587452cd6159",
+      "before_words": 0
+    }
+  },
+  {
+    "review_id": "566ba81e285e-2",
+    "task": "adopt-empty-docs",
+    "step": 2,
+    "rubric": [
+      "Repeated adoption leaves the established documentation and instructions byte-identical; no duplicate rules or files.",
+      "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:convert.py": true,
+        "local_links_and_anchors": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\n## Context maintenance\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: README.md#project-context\n```\n\nUse the installed `context-docs` skill for documentation audits and after\nmeaningful changes to project facts, decisions, procedures, blockers or next\nactions. Read `/opt/context-docs/context-docs/SKILL.md` before maintenance.\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections in [the project context](README.md#project-context) and check\nthe diff, links and information preservation. Keep audit-only requests read-only;\nmake no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# CSV to JSON converter\n\n## Project context\n\nThis project contains a Python script, [convert.py](convert.py), that reads a CSV\nfile and writes its rows as a JSON array of objects.\n\n### Current behavior\n\nSource reviewed on 2026-10-01. The script uses Python's standard-library `csv`,\n`json`, and `sys` modules. `csv.DictReader` uses the first CSV row as field names;\nordinary field values remain strings. The script loads all rows into memory\nbefore writing JSON. It opens the destination in write mode, overwriting an\nexisting file, and does not implement argument validation or error handling.\nThese observations come from the source; execution has not been verified.\n\n### Usage\n\nWith Python 3 available, run from the project directory:\n\n```sh\npython3 convert.py input.csv output.json\n```\n\nThe first argument is the source CSV path and the second is the destination JSON\npath. Choose a destination whose existing contents can be overwritten, separate\nfrom the source.\n\n### Documentation maintenance\n\nThis section is the canonical context entry point. Ongoing agent guidance is in\n[AGENTS.md](AGENTS.md#context-maintenance).\n"
+      },
+      "audit": null,
+      "word_count": 241,
+      "entry_words": 0,
+      "before_documents": {
+        "AGENTS.md": "# Project instructions\n\n## Context maintenance\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: README.md#project-context\n```\n\nUse the installed `context-docs` skill for documentation audits and after\nmeaningful changes to project facts, decisions, procedures, blockers or next\nactions. Read `/opt/context-docs/context-docs/SKILL.md` before maintenance.\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections in [the project context](README.md#project-context) and check\nthe diff, links and information preservation. Keep audit-only requests read-only;\nmake no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# CSV to JSON converter\n\n## Project context\n\nThis project contains a Python script, [convert.py](convert.py), that reads a CSV\nfile and writes its rows as a JSON array of objects.\n\n### Current behavior\n\nSource reviewed on 2026-10-01. The script uses Python's standard-library `csv`,\n`json`, and `sys` modules. `csv.DictReader` uses the first CSV row as field names;\nordinary field values remain strings. The script loads all rows into memory\nbefore writing JSON. It opens the destination in write mode, overwriting an\nexisting file, and does not implement argument validation or error handling.\nThese observations come from the source; execution has not been verified.\n\n### Usage\n\nWith Python 3 available, run from the project directory:\n\n```sh\npython3 convert.py input.csv output.json\n```\n\nThe first argument is the source CSV path and the second is the destination JSON\npath. Choose a destination whose existing contents can be overwritten, separate\nfrom the source.\n\n### Documentation maintenance\n\nThis section is the canonical context entry point. Ongoing agent guidance is in\n[AGENTS.md](AGENTS.md#context-maintenance).\n"
+      },
+      "before_sha256": "076617fb2dbe3406bbfd76eff927eea0248c98de965dee3252a5fd70bad4c624",
+      "before_words": 241
+    }
+  },
+  {
+    "review_id": "930584ed4c43-1",
+    "task": "adopt-unmarked",
+    "step": 1,
+    "rubric": [
+      "Recognizes existing adoption from guidance and documents despite the absent marker; does not initialize another context file or duplicate instructions.",
+      "Adds only one marker to AGENTS.md, retaining original guidance and using unknown for the undocumented adoption date."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "immutable:knowledge/state.md": true,
+        "preserved:f5a3febc94": true,
+        "preserved:b978c1f50b": true,
+        "preserved:27c8905582": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n\nMethod: context-docs\nAdopted: unknown\nEntry point: knowledge/state.md\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 102,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "c75327cbb801db4ec0e3797db4dccb7c37311ba5d6709c9b5a0f507d68dd4382",
+      "before_words": 95
+    }
+  },
+  {
+    "review_id": "e7dd06eff848-1",
+    "task": "adopt-existing",
+    "step": 1,
+    "rubric": [
+      "Preserves layout, original instructions, Approved offline rationale, Proposed cloud status and uncommitted restore blocker.",
+      "Adds one effective ongoing context-docs maintenance rule in AGENTS.md; no competing context files or copied skills.",
+      "Records one completed-adoption marker with the supplied adoption date and actual context entry point; no claim of certified accuracy."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:5ef9c71775": true,
+        "preserved:79874f52f4": true,
+        "preserved:26a5e636b2": true,
+        "preserved:27c8905582": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\nthe skill before maintenance. Start at [Current context](knowledge/state.md).\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation.\nKeep audit-only requests read-only; make no bookkeeping edits when nothing\ndurable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 128,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "b634484005cac9fccbc9571d1ff50066919629f69c163d9b311362c13a4e601b",
+      "before_words": 56
+    }
+  },
+  {
+    "review_id": "e7dd06eff848-2",
+    "task": "adopt-existing",
+    "step": 2,
+    "rubric": [
+      "Repeated adoption preserves all files byte for byte, including prior uncommitted work and maintenance guidance.",
+      "Preserves the original 2026-10-01 adoption date on the next day and does not duplicate the marker."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:5ef9c71775": true,
+        "preserved:79874f52f4": true,
+        "preserved:26a5e636b2": true,
+        "preserved:27c8905582": true,
+        "local_links_and_anchors": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\nthe skill before maintenance. Start at [Current context](knowledge/state.md).\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation.\nKeep audit-only requests read-only; make no bookkeeping edits when nothing\ndurable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 128,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed context-docs skill for documentation audits and after meaningful\nchanges to project facts, decisions, procedures, blockers or next actions. Read\nthe skill before maintenance. Start at [Current context](knowledge/state.md).\nPreserve project rules, document roles and decision status. Update affected\ncanonical sections and check the diff, links and information preservation.\nKeep audit-only requests read-only; make no bookkeeping edits when nothing\ndurable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "4ae9ddf635738df9356f705a20d5bcb24eb2eb97fa6c109ae2a7e56c3430b7ca",
+      "before_words": 128
+    }
+  }
+]

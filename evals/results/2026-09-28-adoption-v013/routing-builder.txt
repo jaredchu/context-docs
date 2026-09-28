@@ -6,8 +6,8 @@ project holding both files, where the loaded one must reach the rule without a
 second copy. Client loading rules are external behavior: these fixtures state
 which file is in effect in the request, rather than detecting a client.
 
-This builder runs static grader controls only. Model sessions and semantic
-review must be executed and reported separately.
+Static grader controls run here. No model session has been executed for these
+cases; do not report them as passing agent evaluations.
 """
 import argparse
 import hashlib

@@ -1,0 +1,27 @@
+{
+  "trajectories": 6,
+  "sessions": 9,
+  "accepted_trajectories": 5,
+  "accepted_sessions": 8,
+  "execution_errors": 0,
+  "semantic_criteria_passed": 21,
+  "semantic_criteria_total": 21,
+  "repeat_checks": [
+    {
+      "task": "adopt-claude-instructions",
+      "input_equals_prior_output": true,
+      "output_equals_input": true
+    },
+    {
+      "task": "adopt-empty-docs",
+      "input_equals_prior_output": true,
+      "output_equals_input": true
+    },
+    {
+      "task": "adopt-existing",
+      "input_equals_prior_output": true,
+      "output_equals_input": true
+    }
+  ],
+  "recommendation": "Hold merge pending resolution of split-file fixture constraints and installed-skill link validation, followed by a newly frozen targeted evaluation. Preserve this failed result. No skill regression or cross-client reliability claim is established."
+}

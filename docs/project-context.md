@@ -59,8 +59,13 @@ still need owner acceptance.
   client-specific invocation prefix. Claude Code loading depends on version,
   configuration and local instruction files; the [installation guidance](../README.md#install-in-claude-code)
   records the documented defaults and exceptions checked on 2026-09-28.
-  Its [instruction-file cases](../evals/adoption/instructions.py)
-  pass ten static grader controls; no model session has been run for v0.1.3.
+  Its [instruction-file cases](../evals/adoption/instructions.py) pass ten static
+  grader controls. The [v0.1.3 merge review](../evals/results/2026-09-28-adoption-v013/README.md)
+  ran nine model sessions across routing and older marker cases: eight met frozen
+  acceptance. All repeats and the audit preserved bytes. Split-file routing passed
+  semantic review but failed immutable-heading and installed-link checks; fixture
+  limitations prevent a clean regression conclusion. The reviewer recommends
+  holding merge pending a targeted follow-up; this is not an owner decision.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
@@ -120,9 +125,10 @@ still need owner acceptance.
    question sets stay answerable from small raw inputs. Until those change, a tie
    is the expected result and cannot distinguish the methods. See the
    [discrimination protocol](../evals/discrimination-protocol.md).
-5. Proposed, not yet approved: run the untested adoption v0.1.3 instruction-file
-   cases, and one evaluation on a second client, before describing cross-client
-   behavior as supported.
+5. Resolve the v0.1.3 split-file fixture's edit constraints and installed-skill link
+   policy before a newly frozen targeted follow-up. Preserve the initial failed
+   outcome; do not tune the skill solely to an isolated fixture. Native Claude Code
+   behavior remains untested and must not be described as evaluated support.
 
 ## Canonical references
 

@@ -76,8 +76,15 @@ python3 evals/suite/run.py .local/adoption-instructions-suite .local/adoption-in
 The builder runs ten static controls: a passing reference, rejected unchanged first
 pass, accepted no-change repeat, rejected broken link and rejected removed marker
 for each case, with the last asserted to fail on the marker preservation token
-rather than incidentally. **Those controls are all that has been executed. No model
-session has been run for these cases, so they establish no v0.1.3 behavior.**
+rather than incidentally. These controls establish no model behavior.
+
+The [September 28 v0.1.3 merge review](../results/2026-09-28-adoption-v013/README.md)
+ran these cases with explicit dates, plus the older marker regressions: eight of
+nine sessions met frozen acceptance. The split-file case routed correctly but
+failed immutable-file and external-link checks; the report preserves that failure
+and its fixture limitations. Before model execution, routing requests were made
+client-neutral and the CLAUDE-only condition was repeated in the fresh repeat
+session, removing inherited instructions to write an unloaded `AGENTS.md`.
 
 Review placement semantically: the rule must be in the loaded file or reachable from
 it through that file's own reference or import mechanism, both original instruction

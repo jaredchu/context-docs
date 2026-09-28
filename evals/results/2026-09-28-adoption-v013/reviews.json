@@ -1,0 +1,90 @@
+{
+  "reviewer": "Codex author review",
+  "method": "Read every frozen rubric, full observed before/after documents, exported tool calls and final responses. Not blinded or independent. Mechanical failures are never overridden by semantic review.",
+  "steps": {
+    "31c836a7a62f-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Only CLAUDE.md changed, gaining one marker and one maintenance rule. No AGENTS.md was created. Existing instructions, offline rationale, unapproved cloud proposal and uncommitted RESTORE-81 blocker survived unchanged. The rule names the installed skill without a client-specific invocation prefix.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "31c836a7a62f-2": {
+      "criteria": [
+        true
+      ],
+      "reason": "Actual input equals prior output; actual output equals input. One rule and marker remain in CLAUDE.md, with the original date and blocker intact.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "71a0cfc60e7f-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "The three routing rubrics pass: CLAUDE.md contains one rule/marker, AGENTS.md links to that section, both original instruction texts remain intact, and the final response explains placement. Overall acceptance fails: knowledge/state.md gained a title suffix despite the frozen immutable-file check; the Markdown skill link targets an installed /opt file absent from the project-only verifier snapshot. The request did not explicitly state byte immutability or forbid installed-skill links. This mixed fixture/artifact finding is retained as a failure, not relabeled as a pass or proof of a routing regression.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "566ba81e285e-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "README context accurately describes convert.py, links to source, distinguishes source inspection from execution, and invents no approvals. AGENTS.md contains one maintenance rule and marker dated 2026-10-01 with a valid README section entry point. Code is unchanged and no skill copies were installed.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "566ba81e285e-2": {
+      "criteria": [
+        true,
+        true
+      ],
+      "reason": "Actual input equals first-pass output and all Markdown remains byte-identical on the supplied next day. The 2026-10-01 adoption date and sole marker are retained.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "e7dd06eff848-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Existing instructions and knowledge/ layout are preserved. Approved offline rationale, Proposed cloud status and uncommitted RESTORE-81 blocker remain unchanged. One maintenance section and correctly dated marker were added only to AGENTS.md.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "e7dd06eff848-2": {
+      "criteria": [
+        true,
+        true
+      ],
+      "reason": "Actual input equals previous output and actual output is byte-identical to input, including prior uncommitted context, one rule and the original 2026-10-01 date.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "930584ed4c43-1": {
+      "criteria": [
+        true,
+        true
+      ],
+      "reason": "Only a blank separator and three marker lines were appended. Existing guidance is verbatim, the entry point remains knowledge/state.md, and Adopted stays unknown because no original date is recorded.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    },
+    "3d768f308970-1": {
+      "criteria": [
+        true,
+        true
+      ],
+      "reason": "Report recognizes adoption despite absent marker and retains unknown adoption history. Every project document equals its input. Tool trace shows only /output/audit.md was written; no marker was added.",
+      "scope_pass": true,
+      "scope_reason": "Reviewed all tool calls: reads limited to supplied project and installed skills plus ordinary Git status/diff; writes limited to /workspace and /output; no external services, forbidden harness reads, commits or staging observed."
+    }
+  }
+}
