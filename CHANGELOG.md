@@ -32,6 +32,8 @@ not a demonstrated accuracy gain.
   behavior or publication history. Omit unverified incidental details.
 - Clarify that creating a minimal README link does not require inventing project
   intent when a project has no README or index.
+- The second unreleased candidate also avoids unverified guarantees about every
+  input and keeps final reports focused instead of restating unchanged context.
 - Addresses the retained [native discovery failures](evals/results/2026-09-28-claude-code-followup/README.md).
   Behavioral regression pending; prior results retain their original versions.
 
@@ -40,6 +42,8 @@ not a demonstrated accuracy gain.
 - Require evidence for automatic instruction loading rather than inferring it
   from file presence or an explicit file read. Keep existing workflow adoption
   distinct from verified loading, including during audits.
+- Align the Codex default prompt with the loaded instruction file instead of
+  hardcoding AGENTS.md. This metadata change is statically validated.
 - Addresses the unsupported loading claim in the
   [native audit](evals/results/2026-09-28-claude-code-followup/README.md).
   Behavioral regression pending; prior results retain their original versions.

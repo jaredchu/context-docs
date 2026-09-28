@@ -29,6 +29,11 @@ def reference_error(name, dest, sources):
     part, _, anchor = unquote(dest).partition('#')
     target = posixpath.normpath(str(Path(name).parent / part)) if part else name
     if target not in sources:
+        # A directory containing a known source is a valid navigation target.
+        # Do not infer directory anchors or accept arbitrary existing host paths.
+        if not anchor and any(target == str(parent) for source in sources
+                              for parent in Path(source).parents):
+            return None
         return f'{name}: missing {dest}'
     if anchor and anchor not in anchors(sources[target]):
         return f'{name}: missing anchor {dest}'

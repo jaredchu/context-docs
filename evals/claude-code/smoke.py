@@ -81,7 +81,9 @@ AUDIT = ('Audit this project for Context Docs adoption only. Do not edit, create
 DISCOVER = ('Set up ongoing context documentation maintenance for this project, so later'
             ' sessions keep its project knowledge accurate and know where to start.' + FIRST_DATE)
 TOOLS = ['Read', 'Write', 'Edit', 'Glob', 'Grep', 'Skill', 'TodoWrite', 'Bash(git status:*)',
-         'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(ls:*)', 'Bash(cat:*)', 'Bash(shasum:*)']
+         'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(ls:*)', 'Bash(cat:*)', 'Bash(shasum:*)',
+         'Bash(md5:*)', 'Bash(git hash-object:*)', 'Bash(git ls-files:*)',
+         'Bash(git rev-parse:*)']
 
 
 def constraints(case):

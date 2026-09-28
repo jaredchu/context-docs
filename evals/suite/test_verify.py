@@ -88,6 +88,23 @@ class ExternalReferenceTests(unittest.TestCase):
     def test_external_files_are_not_assumed_without_declaration(self):
         self.assertTrue(link_errors({'AGENTS.md': f'[skill]({self.skill})'}))
 
+    def test_declared_installed_directory_is_valid_but_integrity_still_required(self):
+        self.assertTrue(self.use(f'[package]({self.installed}/)')['mechanical_pass'])
+        self.skill.write_text('tampered\n')
+        result = self.use(f'[package]({self.installed}/)')
+        self.assertFalse(result['mechanical_pass'])
+        self.assertFalse(result['checks']['external_reference:' + str(self.skill)])
+
+    def test_project_directory_links_require_known_contents(self):
+        files = {'README.md': '[Docs](docs/)\n', 'docs/context.md': '# Context\n'}
+        self.assertEqual([], link_errors(files))
+        files['README.md'] = '[Missing](missing/)\n'
+        self.assertTrue(link_errors(files))
+
+    def test_directory_anchor_is_not_assumed(self):
+        result = self.use(f'[package]({self.installed}/#context-docs)')
+        self.assertFalse(result['checks']['local_links_and_anchors'])
+
 
 if __name__ == '__main__':
     unittest.main()
