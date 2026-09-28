@@ -34,6 +34,8 @@ not a demonstrated accuracy gain.
   intent when a project has no README or index.
 - The second unreleased candidate also avoids unverified guarantees about every
   input and keeps final reports focused instead of restating unchanged context.
+- A targeted refinement attributes agent-chosen methods/layouts to their actual
+  decision maker and preserves document qualifications in final summaries.
 - Addresses the retained [native discovery failures](evals/results/2026-09-28-claude-code-followup/README.md).
   Behavioral regression pending; prior results retain their original versions.
 
