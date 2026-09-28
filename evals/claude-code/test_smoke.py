@@ -146,6 +146,22 @@ class SmokeTests(unittest.TestCase):
         path.write_text(json.dumps(smoke.POSITIVE_STREAM[0]) + '\n')
         self.assertEqual(smoke.parse_stream(path)['execution_error'], 'missing_terminal_result')
 
+    def test_permission_event_with_text_message_is_retained_as_failure(self):
+        path = self.destination / 'denial.jsonl'
+        events = [{'type': 'system', 'subtype': 'permission_denied',
+                   'message': 'This command needs approval.'},
+                  {'type': 'result', 'is_error': False, 'result': 'Audit complete.'}]
+        path.write_text('\n'.join(json.dumps(e) for e in events) + '\n')
+        parsed = smoke.parse_stream(path)
+        self.assertEqual(parsed['execution_error'], 'permission_denied')
+        self.assertEqual(parsed['final_message'], 'Audit complete.')
+
+    def test_unknown_followup_trajectory_rejected_before_creating_files(self):
+        destination = self.destination / 'bad-selection'
+        with self.assertRaisesRegex(SystemExit, 'trajectory selection'):
+            smoke.build(destination, 'frozen-model', ['does-not-exist'])
+        self.assertFalse(destination.exists())
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -81,7 +81,7 @@ AUDIT = ('Audit this project for Context Docs adoption only. Do not edit, create
 DISCOVER = ('Set up ongoing context documentation maintenance for this project, so later'
             ' sessions keep its project knowledge accurate and know where to start.' + FIRST_DATE)
 TOOLS = ['Read', 'Write', 'Edit', 'Glob', 'Grep', 'Skill', 'TodoWrite', 'Bash(git status:*)',
-         'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(ls:*)', 'Bash(cat:*)']
+         'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(ls:*)', 'Bash(cat:*)', 'Bash(shasum:*)']
 
 
 def constraints(case):
@@ -208,10 +208,17 @@ def parse_stream(path):
         except ValueError:
             error = error or 'unparsable_stream_line'
             continue
+        if not isinstance(event, dict):
+            error = error or 'invalid_stream_event'
+            continue
         events.append(event.get('type'))
         if event.get('type') == 'system' and event.get('subtype') == 'init':
             model = event.get('model')
         message = event.get('message') or {}
+        if not isinstance(message, dict):
+            message = {}
+        if event.get('type') == 'system' and event.get('subtype') == 'permission_denied':
+            error = error or 'permission_denied'
         for block in message.get('content') or []:
             if not isinstance(block, dict):
                 continue
@@ -263,7 +270,10 @@ def run_session(project, prompt, log, protocol):
                 seconds=round(time.time() - started, 1))
 
 
-def build(destination, model=None):
+def build(destination, model=None, trajectory_ids=None):
+    selected = [t for t in trajectories() if trajectory_ids is None or t['id'] in trajectory_ids]
+    if not selected or (trajectory_ids and set(trajectory_ids) - {t['id'] for t in selected}):
+        raise SystemExit('Unknown or empty trajectory selection.')
     if destination.exists():
         raise SystemExit('Destination exists; choose a new path to preserve prior runs.')
     destination.mkdir(parents=True)
@@ -277,7 +287,7 @@ def build(destination, model=None):
                     user_claude_md_present=(Path.home() / '.claude/CLAUDE.md').exists(),
                     user_agents_md_present=(Path.home() / 'AGENTS.md').exists(),
                     trajectories=[])
-    for trajectory in trajectories():
+    for trajectory in selected:
         project = destination / 'projects' / trajectory['id']
         materialize(project, trajectory['case'])
         protocol['trajectories'].append(dict(
@@ -482,6 +492,9 @@ def main():
         step = sub.add_parser(name)
         step.add_argument('destination', type=Path)
         step.add_argument('--model', default=None, help='pin a model, e.g. opus or sonnet')
+        if name == 'build':
+            step.add_argument('--trajectory', action='append', dest='trajectory_ids',
+                              help='select a trajectory for a separately frozen follow-up; repeatable')
     published = sub.add_parser('report')
     published.add_argument('destination', type=Path)
     published.add_argument('--reviews', type=Path, default=None)
@@ -489,7 +502,7 @@ def main():
     if args.command == 'selftest':
         selftest()
     elif args.command == 'build':
-        build(args.destination.resolve(), args.model)
+        build(args.destination.resolve(), args.model, args.trajectory_ids)
     elif args.command == 'run':
         run(args.destination.resolve(), args.model)
     else:
