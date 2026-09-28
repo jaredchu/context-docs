@@ -39,6 +39,9 @@ jobs:
         run: python3 study.py selftest
         working-directory: evals/quality
 
+      - name: Claude Code smoke-test selftest
+        run: python3 evals/claude-code/smoke.py selftest
+
       - name: Adoption grader controls
         run: |
           python3 evals/adoption/build.py "$RUNNER_TEMP/adoption-suite"

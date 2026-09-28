@@ -88,6 +88,13 @@ still need owner acceptance.
   checks compare current README status and latest per-skill changelog entries.
   Regression controls cover escaped package links and stale version declarations.
   These mechanical repository checks establish nothing about agent behavior.
+- A [native Claude Code smoke test](../evals/claude-code/README.md) exists for skill
+  discovery and invocation, rule placement in Claude-only and mixed instruction
+  projects, repeat preservation and audit-only read-only behavior. It reuses the
+  shared adoption fixtures, and its harness and static controls pass. Observed on
+  2026-09-28: no model session has been executed, because the Claude Code CLI
+  available here could not authenticate, so the harness records six execution
+  failures rather than behavior. Client behavior stays unestablished until it runs.
 - Installation into Claude Code is documented and its packaging validated;
   no evaluation has been executed on any client other than Codex.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
@@ -133,6 +140,10 @@ still need owner acceptance.
    follow-up under explicit file constraints. Native Claude Code behavior and
    installed-path portability across machines remain untested; do not describe
    either as evaluated support.
+6. Execute the native Claude Code smoke test on a CLI that can authenticate, then
+   publish its sessions, failures and explicit review. Freeze the built protocol
+   first. Six sessions on one client with one attempt each would be a smoke test,
+   not a comparison: no accuracy or reliability claim follows from it.
 
 ## Canonical references
 
@@ -150,3 +161,4 @@ still need owner acceptance.
 - [Contribution guidance](../CONTRIBUTING.md)
 - [Per-version changelog](../CHANGELOG.md)
 - [Proposed discrimination protocol](../evals/discrimination-protocol.md)
+- [Native Claude Code smoke test](../evals/claude-code/README.md)

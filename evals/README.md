@@ -173,6 +173,15 @@ user changes as failures regardless of how short or polished the output becomes.
 File size or word count alone is not a quality score. Real-world maintenance cost
 and retrieval/answer accuracy remain separate measurements.
 
+## Other clients
+
+Every executed study used one client and one model. The
+[native Claude Code smoke test](claude-code/README.md) runs the shared adoption
+fixtures through the Claude Code CLI to check skill discovery, rule placement in
+Claude-only and mixed instruction projects, repeat preservation and audit-only
+read-only behavior. Its harness and static controls are complete; no model session
+has been executed, so it establishes no behavior on that client yet.
+
 ## Optional adoption skill
 
 Use the [adoption regression](adoption/README.md) for `adopt-context-docs` changes.

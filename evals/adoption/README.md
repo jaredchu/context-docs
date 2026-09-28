@@ -86,6 +86,10 @@ and its fixture limitations. Before model execution, routing requests were made
 client-neutral and the CLAUDE-only condition was repeated in the fresh repeat
 session, removing inherited instructions to write an unloaded `AGENTS.md`.
 
+These fixtures are also reused, unchanged, by the
+[native Claude Code smoke test](../claude-code/README.md), so both clients exercise
+the same projects and constraints.
+
 Review placement semantically: the rule must be in the loaded file or reachable from
 it through that file's own reference or import mechanism, both original instruction
 files must keep their content, and the rule and marker must not be copied into both.
