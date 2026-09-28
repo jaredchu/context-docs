@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "d1dc39dcf798433a3cad68e274a8da8c43a16bec9f638492c699b8c3d1f70e1b",
+  "raw_stream_sha256": {
+    "claude-instructions-pass-1.jsonl": "c57b47bc1e7736192b37d314ea86c8fe289b3c64d3f22e92b52e73cb6281ffbc",
+    "claude-instructions-pass-2.jsonl": "dd81f410b053c0a0ef05a121dd167fc0244002a0bf75998b92838d35676b5746"
+  },
+  "frozen_protocol_commit": "9540074",
+  "harness_commit": "bedc176",
+  "normalization": "Fixture paths replaced with /fixture. Stream excerpts retain assistant text, tool calls/results and execution metadata; omit thinking, host customization metadata and session identifiers. Original streams retained locally."
+}

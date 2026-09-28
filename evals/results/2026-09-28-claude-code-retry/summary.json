@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "sessions": 2,
+    "mechanical_passed": 1,
+    "invoked": 2,
+    "execution_errors": 1,
+    "trajectories": 1,
+    "semantic_reviewed": 0,
+    "semantic_passed": 0
+  },
+  "rows": [
+    {
+      "session": "claude-instructions-pass-1",
+      "mechanical_pass": true,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [],
+      "semantic": null
+    },
+    {
+      "session": "claude-instructions-pass-2",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": null
+    }
+  ]
+}

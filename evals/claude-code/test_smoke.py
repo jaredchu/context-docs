@@ -118,6 +118,9 @@ class SmokeTests(unittest.TestCase):
         self.assertEqual(command[command.index('--model') + 1], 'frozen-model')
         self.assertEqual(command[command.index('--allowedTools') + 1], 'Read')
         self.assertNotIn('Edit', command)
+        # Claude -p appends piped stdin to the prompt. A heredoc used to launch
+        # this harness must never become part of the frozen model request.
+        self.assertEqual(called.call_args.kwargs['stdin'], subprocess.DEVNULL)
 
     def test_execution_failure_is_saved_and_stops_remaining_sessions(self):
         path = self.destination / 'protocol.json'

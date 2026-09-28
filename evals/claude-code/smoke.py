@@ -253,7 +253,8 @@ def run_session(project, prompt, log, protocol):
     with log.open('w') as stream:
         try:
             completed = subprocess.run(command, cwd=project, stdout=stream,
-                                       stderr=subprocess.PIPE, text=True, env=environment,
+                                       stdin=subprocess.DEVNULL, stderr=subprocess.PIPE,
+                                       text=True, env=environment,
                                        timeout=protocol['session_timeout_seconds'])
         except subprocess.TimeoutExpired:
             return dict(exit_code=124, stderr='Session timed out.',
