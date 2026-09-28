@@ -153,6 +153,8 @@ records the implementation choices and decision rule. It does not authorize a me
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Clients beyond Codex and Claude Code remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
+- Experimental Claude Code changes are available for review in
+  [draft PR #1](https://github.com/jaredchu/context-docs/pull/1); the branch is unmerged.
 - Current package: experimental core skill v0.1.2; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
 - Completed studies cover initialization, stale/conflicting guidance, decision
