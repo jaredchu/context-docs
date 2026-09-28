@@ -1,0 +1,98 @@
+[
+  {
+    "job": "followup-nop-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "followup-nop-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 0.5
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 0
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "followup-oracle-1",
+    "task": "adopt-claude-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  },
+  {
+    "job": "followup-oracle-1",
+    "task": "adopt-split-instructions-skill",
+    "execution_error": null,
+    "rewards": {
+      "mechanical": 1.0
+    },
+    "steps": [
+      {
+        "name": "pass-1",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      },
+      {
+        "name": "pass-2",
+        "execution_error": null,
+        "rewards": {
+          "mechanical": 1
+        }
+      }
+    ]
+  }
+]

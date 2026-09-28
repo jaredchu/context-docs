@@ -1,0 +1,212 @@
+[
+  {
+    "review_id": "76a26fb1030f-1",
+    "task": "adopt-claude-instructions",
+    "step": 1,
+    "rubric": [
+      "Places the ongoing maintenance rule and marker in the loaded CLAUDE.md, preserving its existing instructions.",
+      "Does not create an unloaded AGENTS.md, or a second instruction file holding the only copy of the rule.",
+      "References the skill in wording valid for this client instead of another client's invocation syntax."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:79874f52f4": true,
+        "preserved:27c8905582": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+        "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+        "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 126,
+      "entry_words": 5,
+      "before_documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "3f240e5aee56c8dcd22a931e0c3edb82747fb360ab9f6a5cc573cb481f954fe9",
+      "before_words": 48
+    }
+  },
+  {
+    "review_id": "76a26fb1030f-2",
+    "task": "adopt-claude-instructions",
+    "step": 2,
+    "rubric": [
+      "Repeated adoption leaves instructions and documents byte-identical, with one rule and one marker."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:7095493a04": true,
+        "preserved:79874f52f4": true,
+        "preserved:27c8905582": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+        "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+        "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+        "local_links_and_anchors": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "audit": null,
+      "word_count": 126,
+      "entry_words": 5,
+      "before_documents": {
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+      },
+      "before_sha256": "8460f6f16c8881a6d71951be7d4e0c4b30d9bac2fe92c258e4ad71524c1b8f8e",
+      "before_words": 126
+    }
+  },
+  {
+    "review_id": "afa0dcc4a2ec-1",
+    "task": "adopt-split-instructions",
+    "step": 1,
+    "rubric": [
+      "The rule is reachable from the loaded CLAUDE.md, by placement or an explicit reference to the file that holds it.",
+      "Both existing instruction files keep their original content; the rule and marker are not copied into both.",
+      "Reports which file now carries the rule and how the loaded file reaches it."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "immutable:knowledge/state.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:f3e232751e": true,
+        "preserved:79874f52f4": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+        "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+        "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+        "local_links_and_anchors": true,
+        "documentation_changed": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "audit": null,
+      "word_count": 137,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "before_sha256": "5083213129e9684a5c91258d79c50cd80244483d5da5fdc77ad9207738bb61e1",
+      "before_words": 50
+    }
+  },
+  {
+    "review_id": "afa0dcc4a2ec-2",
+    "task": "adopt-split-instructions",
+    "step": 2,
+    "rubric": [
+      "Repeated adoption preserves all project files byte-identically, including one rule and marker with the original date."
+    ],
+    "observed": {
+      "checks": {
+        "input_files_retained": true,
+        "non_document_inputs_unchanged": true,
+        "only_document_files_created": true,
+        "immutable:README.md": true,
+        "immutable:knowledge/state.md": true,
+        "preserved:ab3e3ce16d": true,
+        "preserved:f3e232751e": true,
+        "preserved:79874f52f4": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+        "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+        "external_reference:/opt/context-docs/context-docs/VERSION": true,
+        "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+        "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+        "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+        "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+        "local_links_and_anchors": true,
+        "no_agent_commits_or_staging": true
+      },
+      "mechanical_pass": true,
+      "link_errors": [],
+      "documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "audit": null,
+      "word_count": 137,
+      "entry_words": 5,
+      "before_documents": {
+        "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+        "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+        "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+        "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+      },
+      "before_sha256": "a8e618d21a6e16319d3081c673779e6ca2daae5987d5750318d88af906affacd",
+      "before_words": 137
+    }
+  }
+]

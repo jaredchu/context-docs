@@ -1,0 +1,360 @@
+[
+  {
+    "id": "76a26fb1030f",
+    "task": "adopt-claude-instructions",
+    "arm": "skill",
+    "attempt": 1,
+    "task_checksum": "fe8d86049cc5080848928b5dcc43b584d0ff2bbb8724964a319dcc68752ee1e2",
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    },
+    "expected_steps": 2,
+    "usage": {
+      "n_input_tokens": 136387,
+      "n_cache_tokens": 106496,
+      "n_output_tokens": 1760
+    },
+    "steps": [
+      {
+        "review_id": "76a26fb1030f-1",
+        "mechanical_pass": true,
+        "execution_seconds": 45.652571,
+        "execution_error": null,
+        "observed": {
+          "checks": {
+            "input_files_retained": true,
+            "non_document_inputs_unchanged": true,
+            "only_document_files_created": true,
+            "immutable:README.md": true,
+            "preserved:ab3e3ce16d": true,
+            "preserved:7095493a04": true,
+            "preserved:79874f52f4": true,
+            "preserved:27c8905582": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+            "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+            "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+            "local_links_and_anchors": true,
+            "documentation_changed": true,
+            "no_agent_commits_or_staging": true
+          },
+          "mechanical_pass": true,
+          "link_errors": [],
+          "documents": {
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+          },
+          "audit": null,
+          "word_count": 126,
+          "entry_words": 5,
+          "before_documents": {
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+          },
+          "before_sha256": "3f240e5aee56c8dcd22a931e0c3edb82747fb360ab9f6a5cc573cb481f954fe9",
+          "before_words": 48
+        },
+        "tool_calls": [
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/adopt-context-docs/SKILL.md\",\"max_output_tokens\":12000}));\ntext(await tools.exec_command({cmd:\"pwd && rg --files -g '!node_modules' -g '!vendor' -g '!tests/**' -g '!logs/**' -g '!solution/**' -g '!.*'\",\"workdir\":\"/workspace\",\"max_output_tokens\":12000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "const results=await Promise.allSettled([\ntools.exec_command({cmd:\"cat /opt/context-docs/context-docs/SKILL.md\",\"max_output_tokens\":20000}),\ntools.exec_command({cmd:\"cat CLAUDE.md README.md knowledge/state.md && sha256sum README.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":20000})\n]);for(let i=0;i<results.length;i++)text({i,result:results[i]});\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/context-docs/references/standard.md && git status --short && git diff -- CLAUDE.md knowledge/state.md README.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":12000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: /workspace/CLAUDE.md\\n@@\\n Production publication requires owner approval.\\n+\\n+## Context maintenance\\n+\\n+Use the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\\n+for documentation audits and after meaningful changes to project facts,\\n+decisions, procedures, blockers or next actions. Read the skill before\\n+maintenance. Start at [current context](knowledge/state.md) and use the existing\\n+knowledge/ layout. Preserve project rules, document roles and decision status.\\n+Update affected canonical sections and check the diff, links and information\\n+preservation. Keep audit-only requests read-only; make no bookkeeping edits when\\n+nothing durable changed.\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"git diff --check && git diff -- CLAUDE.md knowledge/state.md README.md && sha256sum README.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":5000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: /workspace/CLAUDE.md\\n@@\\n ## Context maintenance\\n \\n+Method: context-docs\\n+Adopted: 2026-10-01\\n+Entry point: knowledge/state.md\\n+\\n Use the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"git diff --check && git diff -- CLAUDE.md && sha256sum README.md && cat knowledge/state.md && test -f knowledge/state.md && test -f /opt/context-docs/context-docs/SKILL.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":4000}));\n"
+            }
+          }
+        ]
+      },
+      {
+        "review_id": "76a26fb1030f-2",
+        "mechanical_pass": true,
+        "execution_seconds": 42.255711,
+        "execution_error": null,
+        "observed": {
+          "checks": {
+            "input_files_retained": true,
+            "non_document_inputs_unchanged": true,
+            "only_document_files_created": true,
+            "immutable:README.md": true,
+            "preserved:ab3e3ce16d": true,
+            "preserved:7095493a04": true,
+            "preserved:79874f52f4": true,
+            "preserved:27c8905582": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+            "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+            "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+            "local_links_and_anchors": true,
+            "no_agent_commits_or_staging": true
+          },
+          "mechanical_pass": true,
+          "link_errors": [],
+          "documents": {
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+          },
+          "audit": null,
+          "word_count": 126,
+          "entry_words": 5,
+          "before_documents": {
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts,\ndecisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Start at [current context](knowledge/state.md) and use the existing\nknowledge/ layout. Preserve project rules, document roles and decision status.\nUpdate affected canonical sections and check the diff, links and information\npreservation. Keep audit-only requests read-only; make no bookkeeping edits when\nnothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+          },
+          "before_sha256": "8460f6f16c8881a6d71951be7d4e0c4b30d9bac2fe92c258e4ad71524c1b8f8e",
+          "before_words": 126
+        },
+        "tool_calls": [
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/adopt-context-docs/SKILL.md\",max_output_tokens:12000}));\ntext(await tools.exec_command({cmd:\"pwd; rg --files -g '!node_modules' -g '!.git' -g '!tests/**' -g '!logs/**' -g '!solution/**'\",\"workdir\":\"/workspace\",\"max_output_tokens\":12000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "const results = await Promise.allSettled([\ntools.exec_command({cmd:\"cat /opt/context-docs/context-docs/SKILL.md\",max_output_tokens:18000}),\ntools.exec_command({cmd:\"cat CLAUDE.md README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":18000}),\ntools.exec_command({cmd:\"git status --short; sha256sum README.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":2000})\n]);for (let i=0;i<results.length;i++)text({i,...results[i]});\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"git diff -- CLAUDE.md knowledge/state.md README.md; git diff --check; python - <<'PY'\\nfrom pathlib import Path\\nimport hashlib\\nimport re\\nfor name in ('CLAUDE.md', 'README.md', 'knowledge/state.md'):\\n    p = Path(name)\\n    for target in re.findall(r'\\\\]\\\\(([^)]+)\\\\)', p.read_text()):\\n        resolved = p.parent / target\\n        print(f'{name}: {target}: {\\\"exists\\\" if resolved.is_file() else \\\"MISSING\\\"}')\\np = Path('README.md')\\nassert hashlib.sha256(p.read_bytes()).hexdigest() == 'abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9'\\nassert Path('knowledge/state.md').is_file()\\nprint('README.md checksum unchanged; marker target exists.')\\nPY\",\"workdir\":\"/workspace\",\"max_output_tokens\":5000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport hashlib\\nimport re\\nfor name in ('CLAUDE.md', 'README.md', 'knowledge/state.md'):\\n    p = Path(name)\\n    for target in re.findall(r'\\\\]\\\\(([^)]+)\\\\)', p.read_text()):\\n        resolved = p.parent / target\\n        assert resolved.is_file(), target\\n        print(f'{name}: {target}: exists')\\nassert hashlib.sha256(Path('README.md').read_bytes()).hexdigest() == 'abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9'\\nassert Path('knowledge/state.md').is_file()\\nprint('README.md checksum unchanged; marker target exists.')\\nPY\\n git diff --check\",\"workdir\":\"/workspace\",\"max_output_tokens\":2000}));\n"
+            }
+          }
+        ]
+      }
+    ],
+    "total_trial_seconds": 138.976685,
+    "suite": "followup"
+  },
+  {
+    "id": "afa0dcc4a2ec",
+    "task": "adopt-split-instructions",
+    "arm": "skill",
+    "attempt": 1,
+    "task_checksum": "489f3569a17c0b8eaf76a1871a10237f44e37cf7cedc503a94d2c81d3b7113a6",
+    "agent_info": {
+      "name": "codex",
+      "version": "0.158.0-alpha.2",
+      "model_info": {
+        "name": "gpt-6-astra",
+        "provider": "openai"
+      }
+    },
+    "expected_steps": 2,
+    "usage": {
+      "n_input_tokens": 123593,
+      "n_cache_tokens": 81280,
+      "n_output_tokens": 1923
+    },
+    "steps": [
+      {
+        "review_id": "afa0dcc4a2ec-1",
+        "mechanical_pass": true,
+        "execution_seconds": 58.368336,
+        "execution_error": null,
+        "observed": {
+          "checks": {
+            "input_files_retained": true,
+            "non_document_inputs_unchanged": true,
+            "only_document_files_created": true,
+            "immutable:README.md": true,
+            "immutable:knowledge/state.md": true,
+            "preserved:ab3e3ce16d": true,
+            "preserved:f3e232751e": true,
+            "preserved:79874f52f4": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+            "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+            "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+            "local_links_and_anchors": true,
+            "documentation_changed": true,
+            "no_agent_commits_or_staging": true
+          },
+          "mechanical_pass": true,
+          "link_errors": [],
+          "documents": {
+            "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+          },
+          "audit": null,
+          "word_count": 137,
+          "entry_words": 5,
+          "before_documents": {
+            "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n",
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+          },
+          "before_sha256": "5083213129e9684a5c91258d79c50cd80244483d5da5fdc77ad9207738bb61e1",
+          "before_words": 50
+        },
+        "tool_calls": [
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/adopt-context-docs/SKILL.md\",\"max_output_tokens\":12000}));\ntext(await tools.exec_command({cmd:\"pwd && rg --files -g '!node_modules' -g '!vendor' -g '!tests/**' -g '!logs/**' -g '!solution/**' -g '!.*'\",\"workdir\":\"/workspace\",\"max_output_tokens\":6000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/context-docs/SKILL.md\",\"max_output_tokens\":16000}));\ntext(await tools.exec_command({cmd:\"cat CLAUDE.md AGENTS.md README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":14000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/context-docs/references/standard.md\",\"max_output_tokens\":10000}));\ntext(await tools.exec_command({cmd:\"git status --short && git diff -- CLAUDE.md AGENTS.md README.md knowledge/state.md && sha256sum README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":5000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: /workspace/CLAUDE.md\\n@@\\n Production publication requires owner approval.\\n+\\n+## Context maintenance\\n+\\n+Use the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\\n+for documentation audits and after meaningful changes to project facts, decisions,\\n+procedures, blockers or next actions. Read the skill before maintenance and start\\n+with [the current context](knowledge/state.md). Preserve project rules, the existing\\n+knowledge/ layout, document roles and decision status. Update affected canonical\\n+sections and check the diff, links and information preservation. Keep audit-only\\n+requests read-only; make no bookkeeping edits when nothing durable changed.\\n*** Update File: /workspace/AGENTS.md\\n@@\\n Run `python3 -m pytest` before proposing a change.\\n+\\n+For Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"git diff --check && git diff -- CLAUDE.md AGENTS.md && sha256sum README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":5000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: /workspace/CLAUDE.md\\n@@\\n ## Context maintenance\\n \\n+Method: context-docs\\n+Adopted: 2026-10-01\\n+Entry point: knowledge/state.md\\n+\\n Use the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"git diff --check && git diff --stat && git diff -- CLAUDE.md AGENTS.md && python3 - <<'PY'\\nfrom pathlib import Path\\nimport hashlib\\nexpected = {'README.md': 'abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9', 'knowledge/state.md': '3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56'}\\nfor name, digest in expected.items():\\n    assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest, name\\nassert Path('knowledge/state.md').is_file()\\nassert '## Context maintenance' in Path('CLAUDE.md').read_text()\\nprint('Protected files byte-identical; local entry point and reference anchor verified.')\\nPY\",\"workdir\":\"/workspace\",\"max_output_tokens\":5000}));\n"
+            }
+          }
+        ]
+      },
+      {
+        "review_id": "afa0dcc4a2ec-2",
+        "mechanical_pass": true,
+        "execution_seconds": 34.552556,
+        "execution_error": null,
+        "observed": {
+          "checks": {
+            "input_files_retained": true,
+            "non_document_inputs_unchanged": true,
+            "only_document_files_created": true,
+            "immutable:README.md": true,
+            "immutable:knowledge/state.md": true,
+            "preserved:ab3e3ce16d": true,
+            "preserved:f3e232751e": true,
+            "preserved:79874f52f4": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/adopt-context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/LICENSE": true,
+            "external_reference:/opt/context-docs/context-docs/SKILL.md": true,
+            "external_reference:/opt/context-docs/context-docs/VERSION": true,
+            "external_reference:/opt/context-docs/context-docs/agents/openai.yaml": true,
+            "external_reference:/opt/context-docs/context-docs/assets/decision-record.md": true,
+            "external_reference:/opt/context-docs/context-docs/assets/project-context.md": true,
+            "external_reference:/opt/context-docs/context-docs/references/standard.md": true,
+            "local_links_and_anchors": true,
+            "no_agent_commits_or_staging": true
+          },
+          "mechanical_pass": true,
+          "link_errors": [],
+          "documents": {
+            "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+          },
+          "audit": null,
+          "word_count": 137,
+          "entry_words": 5,
+          "before_documents": {
+            "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nFor Context Docs maintenance, follow [Context maintenance in CLAUDE.md](CLAUDE.md#context-maintenance).\n",
+            "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the installed [context-docs skill](/opt/context-docs/context-docs/SKILL.md)\nfor documentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers or next actions. Read the skill before maintenance and start\nwith [the current context](knowledge/state.md). Preserve project rules, the existing\nknowledge/ layout, document roles and decision status. Update affected canonical\nsections and check the diff, links and information preservation. Keep audit-only\nrequests read-only; make no bookkeeping edits when nothing durable changed.\n",
+            "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+            "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+          },
+          "before_sha256": "a8e618d21a6e16319d3081c673779e6ca2daae5987d5750318d88af906affacd",
+          "before_words": 137
+        },
+        "tool_calls": [
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"cat /opt/context-docs/adopt-context-docs/SKILL.md\",\"max_output_tokens\":12000}));\ntext(await tools.exec_command({cmd:\"pwd && rg --files -g '!node_modules' -g '!vendor' -g '!tests/**' -g '!logs/**' -g '!solution/**' -g '!.*'\",\"workdir\":\"/workspace\",\"max_output_tokens\":8000}));\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "const results = await Promise.allSettled([\ntools.exec_command({cmd:\"cat /opt/context-docs/context-docs/SKILL.md\",max_output_tokens:14000}),\ntools.exec_command({cmd:\"cat CLAUDE.md AGENTS.md README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":12000}),\ntools.exec_command({cmd:\"git status --short && sha256sum README.md knowledge/state.md\",\"workdir\":\"/workspace\",\"max_output_tokens\":2000})\n]);for(let i=0;i<results.length;i++)text({i,...results[i]});\n"
+            }
+          },
+          {
+            "function_name": "exec",
+            "arguments": {
+              "input": "text(await tools.exec_command({cmd:\"git diff -- AGENTS.md CLAUDE.md README.md knowledge/state.md && python3 - <<'PY'\\nfrom pathlib import Path\\nimport hashlib\\nroot = Path('/workspace')\\nclaude = (root / 'CLAUDE.md').read_text()\\nagents = (root / 'AGENTS.md').read_text()\\nassert '## Context maintenance' in claude\\nassert 'Adopted: 2026-10-01' in claude\\nassert 'Entry point: knowledge/state.md' in claude\\nassert (root / 'knowledge/state.md').is_file()\\nassert '(CLAUDE.md#context-maintenance)' in agents\\nassert Path('/opt/context-docs/context-docs/SKILL.md').is_file()\\nexpected = {'README.md': 'abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9', 'knowledge/state.md': '3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56'}\\nfor name, digest in expected.items():\\n    assert hashlib.sha256((root / name).read_bytes()).hexdigest() == digest\\nprint('Verified maintenance links, existing adoption marker, and byte-identical protected files.')\\nPY\",\"workdir\":\"/workspace\",\"max_output_tokens\":4000}));\n"
+            }
+          }
+        ]
+      }
+    ],
+    "total_trial_seconds": 142.585405,
+    "suite": "followup"
+  }
+]

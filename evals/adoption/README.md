@@ -90,3 +90,17 @@ Review placement semantically: the rule must be in the loaded file or reachable 
 it through that file's own reference or import mechanism, both original instruction
 files must keep their content, and the rule and marker must not be copied into both.
 The mechanical verifier cannot tell a loaded file from an unloaded one.
+
+Current routing builds state every immutable-file constraint in each request and
+declare the supplied installed-skill files and hashes for link validation. Those
+installed paths are checked consistently in links, prose and code spans; they are
+not considered missing merely because they live outside the project snapshot.
+Both cases now include a next-day repeat with explicit simulated dates (four model
+sessions total). These fixture changes follow the September 28 failure; they do
+not change its recorded outcome or alter the installable skill.
+
+The [separately frozen follow-up](../results/2026-09-28-adoption-v013-followup/README.md)
+passed all four sessions, including both unchanged next-day repeats. Nine verifier
+regression tests cover valid, missing, changed and undeclared installed references
+without weakening protected-file or project-link checks. Native Claude Code
+loading remains outside these Codex-executed cases.

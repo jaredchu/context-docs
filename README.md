@@ -70,7 +70,11 @@ and drops client-specific invocation wording. Its
 controls. The [v0.1.3 merge review](evals/results/2026-09-28-adoption-v013/README.md)
 ran nine model sessions: eight met frozen acceptance, with a split-file failure
 involving an immutable heading and an installed-skill link. Routing rubrics passed,
-but fixture limitations remain unresolved; this is not a full regression pass.
+but the original result is not a full regression pass. A
+[separately frozen follow-up](evals/results/2026-09-28-adoption-v013-followup/README.md)
+passed four routing/repeat sessions after making file constraints explicit and
+validating installed references consistently. The skills are unchanged; the
+initial failure remains recorded.
 Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical

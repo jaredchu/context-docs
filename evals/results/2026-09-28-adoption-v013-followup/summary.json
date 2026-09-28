@@ -1,0 +1,24 @@
+{
+  "trajectories": 2,
+  "sessions": 4,
+  "accepted_trajectories": 2,
+  "accepted_sessions": 4,
+  "execution_errors": 0,
+  "semantic_criteria_passed": 8,
+  "semantic_criteria_total": 8,
+  "repeat_checks": [
+    {
+      "task": "adopt-claude-instructions",
+      "input_equals_prior_output": true,
+      "output_equals_input": true,
+      "original_date_retained": true
+    },
+    {
+      "task": "adopt-split-instructions",
+      "input_equals_prior_output": true,
+      "output_equals_input": true,
+      "original_date_retained": true
+    }
+  ],
+  "recommendation": "Merge-ready within the documented experimental scope. The explicit-constraint and installed-reference follow-up resolves the initial validation hold without changing the skill or rescoring the original 8/9 run. Native Claude Code behavior and cross-machine path portability remain unestablished."
+}

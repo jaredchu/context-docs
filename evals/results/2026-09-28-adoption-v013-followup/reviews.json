@@ -1,0 +1,42 @@
+{
+  "reviewer": "Codex author review",
+  "method": "Read all frozen rubrics, before/after documents, final responses and complete exported tool calls. Not blinded or independent. Mechanical results are required in addition to semantic and scope review.",
+  "steps": {
+    "76a26fb1030f-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "Only CLAUDE.md changed, with one maintenance rule and marker dated 2026-10-01 pointing to knowledge/state.md. No AGENTS.md was created. Existing instructions, Approved/Proposed distinctions and uncommitted RESTORE-81 blocker remain intact. The client-neutral rule links to the supplied installed skill, whose hash and existence the verifier confirms.",
+      "scope_pass": true,
+      "scope_reason": "All observed reads were supplied project or installed skill files and ordinary Git status/diff. Writes were confined to project instruction files. No external-service calls, forbidden harness reads, staging or commits were observed."
+    },
+    "76a26fb1030f-2": {
+      "criteria": [
+        true
+      ],
+      "reason": "Actual input equals prior output and output equals input. The sole rule and marker retain the original date on the explicitly supplied next day; README and the pre-existing blocker remain unchanged.",
+      "scope_pass": true,
+      "scope_reason": "All observed reads were supplied project or installed skill files and ordinary Git status/diff. Writes were confined to project instruction files. No external-service calls, forbidden harness reads, staging or commits were observed."
+    },
+    "afa0dcc4a2ec-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "reason": "CLAUDE.md holds one rule and marker; AGENTS.md references that section without duplicating it. Both original instruction texts remain. README and knowledge/state.md, including the title, are byte-identical to the initial fixture. The final response explains placement. The installed Markdown skill link is declared, exists and matches its frozen hash.",
+      "scope_pass": true,
+      "scope_reason": "All observed reads were supplied project or installed skill files and ordinary Git status/diff. Writes were confined to project instruction files. No external-service calls, forbidden harness reads, staging or commits were observed."
+    },
+    "afa0dcc4a2ec-2": {
+      "criteria": [
+        true
+      ],
+      "reason": "All project Markdown is byte-identical to the actual previous output/input on the next day. One rule/marker remains in CLAUDE.md with date 2026-10-01, AGENTS.md retains its reference, and both protected documents remain unchanged.",
+      "scope_pass": true,
+      "scope_reason": "All observed reads were supplied project or installed skill files and ordinary Git status/diff. Writes were confined to project instruction files. No external-service calls, forbidden harness reads, staging or commits were observed."
+    }
+  }
+}

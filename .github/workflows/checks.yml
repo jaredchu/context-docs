@@ -32,6 +32,9 @@ jobs:
         run: python3 selftest.py
         working-directory: evals/suite
 
+      - name: Verifier regression tests
+        run: python3 -m unittest discover -s evals/suite -p 'test_*.py'
+
       - name: Quality study self-test
         run: python3 study.py selftest
         working-directory: evals/quality

@@ -63,9 +63,13 @@ still need owner acceptance.
   grader controls. The [v0.1.3 merge review](../evals/results/2026-09-28-adoption-v013/README.md)
   ran nine model sessions across routing and older marker cases: eight met frozen
   acceptance. All repeats and the audit preserved bytes. Split-file routing passed
-  semantic review but failed immutable-heading and installed-link checks; fixture
-  limitations prevent a clean regression conclusion. The reviewer recommends
-  holding merge pending a targeted follow-up; this is not an owner decision.
+  semantic review but failed immutable-heading and installed-link checks. A
+  [separate follow-up](../evals/results/2026-09-28-adoption-v013-followup/README.md)
+  passed four routing/repeat sessions after making constraints explicit and
+  validating declared installed references by hash across links, code spans and
+  prose. Both repeats preserved bytes and dates. Skills and the original failed
+  result remain unchanged. The reviewer now recommends merging within the
+  documented experimental scope; this is not an owner merge decision.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
@@ -125,10 +129,10 @@ still need owner acceptance.
    question sets stay answerable from small raw inputs. Until those change, a tie
    is the expected result and cannot distinguish the methods. See the
    [discrimination protocol](../evals/discrimination-protocol.md).
-5. Resolve the v0.1.3 split-file fixture's edit constraints and installed-skill link
-   policy before a newly frozen targeted follow-up. Preserve the initial failed
-   outcome; do not tune the skill solely to an isolated fixture. Native Claude Code
-   behavior remains untested and must not be described as evaluated support.
+5. Preserve the distinction between the initial v0.1.3 failure and the passing
+   follow-up under explicit file constraints. Native Claude Code behavior and
+   installed-path portability across machines remain untested; do not describe
+   either as evaluated support.
 
 ## Canonical references
 

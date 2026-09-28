@@ -43,6 +43,13 @@ not a demonstrated accuracy gain.
   and external-link checks. Fixture limitations are retained with that failure;
   the review recommends holding merge for a targeted follow-up. No native Claude
   Code evaluation was run, and the skill contents were not tuned after this result.
+- [Separately frozen routing follow-up](evals/results/2026-09-28-adoption-v013-followup/README.md):
+  four sessions passed after exposing immutable-file constraints in requests and
+  checking declared installed references by hash in links, code spans and prose.
+  Both next-day repeats preserved bytes and dates. Nine new verifier regression
+  tests and existing static checks passed. The reviewer now considers the branch
+  ready to merge within its experimental scope. The original failure is retained;
+  neither skill changed, and native Claude Code behavior remains untested.
 
 ## adopt-context-docs 0.1.2 — 2026-09-27 (`eed23ed`)
 
