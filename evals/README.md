@@ -175,14 +175,16 @@ and retrieval/answer accuracy remain separate measurements.
 
 ## Other clients
 
-Every executed study used one client and one model. The
+The comparative studies above used one client and one model. The
 [native Claude Code smoke test](claude-code/README.md) runs the shared adoption
 fixtures through the Claude Code CLI to check skill discovery, rule placement in
 Claude-only and mixed instruction projects, repeat preservation and audit-only
-read-only behavior. Its repaired harness and static controls pass. The
-[frozen native attempt](results/2026-09-28-claude-code/README.md) stopped after one
-authentication failure, leaving five sessions unattempted. No completed model
-session establishes behavior on that client yet.
+read-only behavior. The [clean native run](results/2026-09-28-claude-code-clean/README.md)
+passed four routing/repeat sessions; its audit encountered a permission denial and
+parser crash. A [targeted follow-up](results/2026-09-28-claude-code-followup/README.md)
+passed auditing and observed unnamed selection, but discovery failed grounded-content
+review and command permissions. Earlier failed attempts remain recorded. These
+small author-reviewed cases do not establish general cross-client reliability.
 
 ## Optional adoption skill
 

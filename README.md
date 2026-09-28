@@ -142,13 +142,18 @@ than inferring loading solely from filenames. See the
 [Claude Code skill](https://code.claude.com/docs/en/skills) and
 [memory](https://code.claude.com/docs/en/memory) documentation.
 
-**Only packaging and metadata have been checked on this client.** Every published
-model evaluation ran on Codex with one model; no Claude Code session is included
-in any result below.
+**Native testing has mixed results.** A
+[Claude Code smoke test](evals/results/2026-09-28-claude-code-clean/README.md)
+passed four routing/repeat sessions. A
+[separate follow-up](evals/results/2026-09-28-claude-code-followup/README.md)
+passed read-only auditing and observed unnamed skill selection, but discovery
+recorded incorrect package versions and an unsupported publication claim.
+Permission and harness failures are retained separately. These small, author-reviewed
+runs on Claude Code 2.1.234 with Claude Opus 5 do not establish reliable support.
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](skills/context-docs/references/standard.md) directly.
-Behavior outside Codex has not been evaluated.
+Behavior on clients other than Codex and Claude Code has not been evaluated.
 
 ## What is standardized?
 

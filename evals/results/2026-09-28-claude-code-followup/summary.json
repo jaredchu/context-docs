@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "sessions": 2,
+    "mechanical_passed": 1,
+    "invoked": 2,
+    "execution_errors": 1,
+    "trajectories": 2,
+    "semantic_reviewed": 2,
+    "semantic_passed": 1
+  },
+  "rows": [
+    {
+      "session": "audit-only-pass-1",
+      "mechanical_pass": true,
+      "invoked": true,
+      "skills": [],
+      "failed_checks": [],
+      "semantic": true
+    },
+    {
+      "session": "discovery-pass-1",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [
+        "adopt-context-docs"
+      ],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": false
+    }
+  ]
+}

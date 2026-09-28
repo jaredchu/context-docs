@@ -1,12 +1,14 @@
 # Native Claude Code smoke test
 
-Status: **harness repaired and statically validated; native evaluation blocked by
-CLI authentication.** The [retained attempt](../results/2026-09-28-claude-code/README.md)
-stopped after the first authentication error; five sessions were not attempted.
-Every published result so far ran on Codex with one model, and the
-[v0.1.3 follow-up](../results/2026-09-28-adoption-v013-followup/README.md) records
-native Claude Code behavior as unestablished. This checks the four questions raised
-in that review on the other client, with the same fixtures and criteria.
+Status: **native evaluation completed with mixed results; merge recommendation
+on hold.** The [clean run](../results/2026-09-28-claude-code-clean/README.md) passed
+four routing/repeat sessions. The
+[audit/discovery follow-up](../results/2026-09-28-claude-code-followup/README.md)
+passed auditing and observed unnamed selection, but discovery failed factual review
+and encountered command permission denials. Earlier authentication, inherited-input
+and parser failures are retained. This checks the questions raised by the
+[Codex v0.1.3 review](../results/2026-09-28-adoption-v013-followup/README.md) on the
+native client with shared fixtures and criteria.
 
 This is a smoke test, not a comparison: there is no ordinary-maintenance arm, no
 reader phase and one attempt per session. It can show that the skill loads and
@@ -83,6 +85,10 @@ client's initialization event is retained separately when available.
 Use a new destination for each run: existing trials or logs are never overwritten.
 Results are saved after each session; an execution error stops the remaining
 sessions, with the failed attempt retained. Each session has a ten-minute timeout.
+The subprocess receives empty standard input so parent launch scripts cannot be
+appended to requests. For targeted follow-ups, repeat `--trajectory <id>` at build
+time; freeze that selection before execution. Read-only `shasum` is preapproved,
+but other commands can still be denied and must remain recorded as failures.
 
 `selftest` needs no credentials and no network. It checks stream parsing on
 recorded positive, negative and error streams, that each fixture materializes with
@@ -91,7 +97,8 @@ reference output while rejecting an unrequested edit to an immutable file, a bro
 project link, a missing installed file and a tampered installed skill. Additional
 unit tests exercise protocol/model drift, changed initial inputs, whole-tree byte
 identity (including `.claude/` and newline changes), absolute and relative
-installed references, incomplete streams and retained execution failures. Installed
+installed references, incomplete streams, textual permission events and retained
+execution failures. Installed
 absolute links are validated for this machine; that does not establish portability.
 
 ## Review

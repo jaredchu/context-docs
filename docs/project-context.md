@@ -68,8 +68,8 @@ still need owner acceptance.
   passed four routing/repeat sessions after making constraints explicit and
   validating declared installed references by hash across links, code spans and
   prose. Both repeats preserved bytes and dates. Skills and the original failed
-  result remain unchanged. The reviewer now recommends merging within the
-  documented experimental scope; this is not an owner merge decision.
+  result remain unchanged. That review recommended merging within the experimental
+  scope; the later native review below now recommends holding the merge.
   The earlier v0.1.0 [adoption regression](../evals/results/2026-09-27-adoption/README.md): two synthetic
   projects passed adoption and unchanged repeat passes across four fresh sessions.
   These author-reviewed cases do not establish automatic selection or general reliability.
@@ -93,15 +93,23 @@ still need owner acceptance.
   projects, repeat preservation and audit-only read-only behavior. It reuses the
   shared adoption fixtures. Review found and repaired three harness defects:
   ignoring frozen requests/model, excluding `.claude/` from read-only checks, and
-  rejecting valid absolute installed links. The original 34 assertions and ten
-  new regression tests pass. Runs now validate frozen initial inputs, retain
-  partial results and stop on execution errors. A
-  [separately frozen native attempt](../evals/results/2026-09-28-claude-code/README.md)
-  then failed CLI authentication on its first session; five sessions were not
-  attempted. The failed attempt is retained. No completed native session is
-  established yet; the earlier contributor's six failures remain a separate report.
-- Installation into Claude Code is documented and its packaging validated;
-  no evaluation has been executed on any client other than Codex.
+  rejecting valid absolute installed links. Live execution then exposed inherited
+  standard-input contamination and a crash on textual permission events; both are
+  repaired, and read-only hash checks are preapproved. The 34 self-test assertions
+  and 12 regression tests pass. Protocols freeze inputs and requests; runs retain
+  completed attempts and stop on execution errors.
+  The [clean native run](../evals/results/2026-09-28-claude-code-clean/README.md)
+  passed four routing/repeat sessions and completed a read-only audit with an
+  execution failure. A [separate audit/discovery follow-up](../evals/results/2026-09-28-claude-code-followup/README.md)
+  passed auditing and observed unnamed adoption-skill selection, but discovery
+  recorded wrong installed versions and an unsupported publication-history claim.
+  Its denied commands remain execution failures. Audit also overclaimed automatic
+  AGENTS.md loading from filenames alone, outside its narrow passing rubric.
+  **Current recommendation: hold the merge pending these factual findings.**
+  Skills and all earlier scores are unchanged. Authentication and contaminated
+  attempts are retained separately; see the linked reports for provenance.
+- Installation and native behavior have been tested on Claude Code 2.1.234 with
+  Claude Opus 5, with mixed results. Other clients remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Current package: experimental skill v0.1.1; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
@@ -115,9 +123,10 @@ still need owner acceptance.
 - Retain the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
   and [history-study temporary out-of-scope backup](evaluation-2026-09-27-history.md)
   when assessing reliability; perfect content scores do not prove full compliance.
-- Automatic skill selection, cross-client behavior and long-term maintenance
-  remain unestablished. Prior controlled model runs excluded host/global
-  instructions; authoring and review were not independent or fully blinded.
+- Unnamed selection was observed once on Claude Code; reliable automatic selection,
+  general cross-client behavior and long-term maintenance remain unestablished.
+  Prior controlled Codex runs excluded host/global instructions; native smoke tests
+  have weaker local isolation. Authoring and review were not independent or blinded.
 
 ## Next actions
 
@@ -131,9 +140,9 @@ still need owner acceptance.
    Include command-scope review alongside project-file checks; the temporary backup
    violation shows those mechanical rewards do not establish full task compliance.
    Preserve all earlier results and the original private-project miss.
-3. Evaluate automatic selection, other models, normal global-instruction setups
-   and longer maintenance sequences when those become relevant. Current evidence
-   covers explicit use on one model and up to four passes.
+3. Evaluate selection reliability, other models, normal global-instruction setups
+   and longer maintenance sequences when relevant. Native evidence now includes
+   one unnamed selection but does not establish reliable cross-client behavior.
 4. Proposed, not yet approved: address the three conditions that hold reader and
    document scores at a ceiling before running further comparisons. The shared
    task prompts already state much of the skill's guidance to both arms, the
@@ -141,16 +150,13 @@ still need owner acceptance.
    question sets stay answerable from small raw inputs. Until those change, a tie
    is the expected result and cannot distinguish the methods. See the
    [discrimination protocol](../evals/discrimination-protocol.md).
-5. Preserve the distinction between the initial v0.1.3 failure and the passing
-   follow-up under explicit file constraints. Native Claude Code behavior and
-   installed-path portability across machines remain untested; do not describe
-   either as evaluated support.
-6. Refresh Claude Code CLI authentication, then build and freeze a new smoke-test
-   destination, preserving the blocked September 28 attempt. Execute all six
-   sessions on a CLI that can authenticate, then
-   publish its sessions, failures and explicit review. Freeze the built protocol
-   first. Six sessions on one client with one attempt each would be a smoke test,
-   not a comparison: no accuracy or reliability claim follows from it.
+5. Preserve the initial v0.1.3 failure, passing Codex follow-up and mixed native
+   results as separate evidence. Installed-path portability across machines remains
+   untested. Do not promote these small studies into reliable-support claims.
+6. Address the native grounded-content and instruction-loading findings using
+   existing guidance where possible, then freeze a targeted regression before
+   reconsidering the merge. Retain all attempts and keep execution failures
+   distinct from model factual errors; do not silently repair scored artifacts.
 
 ## Canonical references
 
