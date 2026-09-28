@@ -1,0 +1,55 @@
+{
+  "reviewer": "Codex author review; not independent or blinded",
+  "sessions": {
+    "claude-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "evidence": "Only CLAUDE.md changed, retaining both original rules and adding one 2026-10-01 marker plus client-neutral maintenance guidance. No AGENTS.md or duplicate skill was created; README and the uncommitted blocker are preserved. The final report correctly describes the relative path and approved/proposed status, avoiding the prior parent-directory error. The denied git -C diff call was followed by permitted git diff; its execution failure remains scored."
+    },
+    "claude-instructions-pass-2": {
+      "criteria": [
+        true,
+        true
+      ],
+      "evidence": "Complete tree hashes are identical and the original date is retained. Final response calls the edits uncommitted, not staged, and correctly describes the marker as relative to root CLAUDE.md. It preserves the existing decision and blocker and introduces no unsupported version or publication claim."
+    },
+    "split-instructions-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "evidence": "One rule/marker lives in CLAUDE.md; AGENTS.md references it with original instructions preserved. README/state are unchanged. Final response identifies the files and grounds loading in the explicit request rather than inferring it from filename presence. Relative paths are described correctly, and the unapproved cloud-sync proposal stays unapproved."
+    },
+    "split-instructions-pass-2": {
+      "criteria": [
+        true,
+        true
+      ],
+      "evidence": "All tree hashes and the original marker date match. No write/edit call occurred. The response correctly states that CLAUDE.md is at the root and the target is knowledge/state.md, treats existing edits as uncommitted, and limits the plain-link/loading claim for other clients."
+    },
+    "audit-only-pass-1": {
+      "criteria": [
+        true,
+        true,
+        true
+      ],
+      "evidence": "All project hashes remain identical; only reads and inspection commands were used. Final response distinguishes adopted workflow from an absent marker, recommends unknown rather than inventing adoption history, and explicitly leaves automatic AGENTS.md loading unconfirmed because its content was read through a tool."
+    },
+    "discovery-pass-1": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "evidence": "Unnamed request selects Skill(adopt-context-docs). README links context.md, one maintenance rule/marker is in CLAUDE.md, and existing code/packages remain unchanged. Correct package versions and qualified automatic loading are retained. Grounded-content/factual review fails: context.md labels the agent-chosen Context Docs method and file layout as Approved (user request), though the request authorizes general ongoing documentation maintenance without naming that method or those paths. The final summary also says all values are left as strings, strengthening the document description despite its irregular-CSV caveats. Relative links now pass. Compound shell commands were denied and remain execution failures."
+    }
+  }
+}

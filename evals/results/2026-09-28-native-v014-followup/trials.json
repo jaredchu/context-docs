@@ -1,0 +1,750 @@
+[
+  {
+    "trajectory": "claude-instructions",
+    "invocation": "named",
+    "case": "adopt-claude-instructions",
+    "steps": [
+      {
+        "pass_number": 1,
+        "prompt": "/adopt-context-docs Adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This project keeps its agent instructions in CLAUDE.md; no AGENTS.md is loaded here. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 76.8
+        },
+        "observed": {
+          "skill_names": [],
+          "installed_reads": [
+            "/fixture/projects/claude-instructions/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/claude-instructions/.claude/skills/context-docs/references/standard.md"
+          ],
+          "invoked": true,
+          "final_message": "Adoption complete. One file changed.\n\n**Changed: `CLAUDE.md`** \u2014 appended a `## Context maintenance` section with the adoption marker (`Method: context-docs` / `Adopted: 2026-10-01` / `Entry point: knowledge/state.md`) followed by the maintenance rule, worded to defer to the two rules already in the file rather than restate them.\n\n**Not changed, deliberately:**\n- `README.md` \u2014 byte-identical as required; `git status` shows it unmodified. It already links to `knowledge/state.md`, so the entry point is reachable without touching it.\n- `knowledge/state.md` \u2014 the existing `knowledge/` layout is the project's convention (per its own instruction), and it already covers the entry-point, current-state, decision and open-question roles with supported content: an approved decision with rationale, a proposal explicitly marked as lacking owner approval, and an unknown. Nothing durable changed in this session, so editing it would have been a bookkeeping edit. The uncommitted `RESTORE-81` line was present when I started and is preserved untouched.\n- No new skill packages, no global instruction changes.\n\n**Verification:**\n- Loading of `CLAUDE.md` is **confirmed** for this session, not assumed: its contents were injected into my context at session start in the project-instructions block, labeled as checked-in project instructions. That is session evidence of automatic loading, not merely the file's presence.\n- No `AGENTS.md` exists in the repo (`find` over all non-`.git` files), so there is no second instruction file needing a cross-reference \u2014 the rule sits in the only loaded file.\n- Entry-point path in the marker is relative to `CLAUDE.md` and resolves to the real file; `README.md`'s existing link to it still resolves.\n- Final diff reviewed above; the only additions are the ones described.\n\n**Notes and unresolved items** (carried from the existing docs, not introduced or resolved by this adoption):\n- Cloud sync remains *proposed* with no owner approval recorded, and the project requires owner approval for production publication. This workflow granted no such authority.\n- `RESTORE-81` is still blocked on a missing test fixture.\n- I used 2026-10-01 for the adoption date as you instructed, overriding the environment date of 2026-09-28.",
+          "execution_error": "permission_denied",
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 11,
+            "duration_ms": 75970,
+            "total_cost_usd": 0.38594900000000004
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:README.md": true,
+          "preserved:ab3e3ce16d": true,
+          "preserved:7095493a04": true,
+          "preserved:79874f52f4": true,
+          "preserved:27c8905582": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "no_execution_error": false
+        },
+        "mechanical_pass": false,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "341f4c04895f1a7d9205b53ac52c2d14ffebf58b8ad0d5a7161c99f18a48f78d",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "ad8935eea4a7efc4e39571a2e87d87f8d8e8aa3004e99bae2c9131db1d3b39b4",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "files_before": {
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "files_after": {
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes\nto project facts, decisions, procedures, blockers or next actions. Read the skill\nbefore maintenance. Keep the rules above, the roles each document plays and the\ndecision status of each item (approved, proposed, unknown) intact. Update the\naffected canonical sections under `knowledge/` and check the diff, links and\ninformation preservation. Keep audit-only requests read-only; make no bookkeeping\nedits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "rubric": [
+          "Places the ongoing maintenance rule and marker in the loaded CLAUDE.md, preserving its existing instructions.",
+          "Does not create an unloaded AGENTS.md, or a second instruction file holding the only copy of the rule.",
+          "References the skill in wording valid for this client instead of another client's invocation syntax.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+        ]
+      },
+      {
+        "pass_number": 2,
+        "prompt": "/adopt-context-docs Adopt Context Docs in this project. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\nKeep these project files byte-identical: README.md.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 39.2
+        },
+        "observed": {
+          "skill_names": [],
+          "installed_reads": [
+            "/fixture/projects/claude-instructions/.claude/skills/context-docs/SKILL.md"
+          ],
+          "invoked": true,
+          "final_message": "Setup is already complete and correct \u2014 I made no file changes.\n\n## What I verified\n\n**Instruction file in effect:** `CLAUDE.md`. Loading is confirmed by explicit session evidence: this session's context lists it as \"project instructions, checked into the codebase.\" No `AGENTS.md` exists, so there's no second file needing a cross-reference.\n\n**Maintenance rule** (`CLAUDE.md:12-18`): already present, already adapted to local terms \u2014 it names the `knowledge/` layout, the project's `approved / proposed / unknown` status vocabulary, and the read-only rule for audits. It merges with the existing rules rather than duplicating them, so I left the wording untouched.\n\n**Marker** (`CLAUDE.md:8-10`): complete and well-formed.\n```\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n```\nI kept `2026-10-01`. The instruction to treat today as 2026-10-02 applies to *new* adoption; an existing supported date is preserved rather than overwritten or duplicated.\n\n**Entry point:** `knowledge/state.md` exists with real content \u2014 an approved decision with its rationale (offline pilot, customer data stays local), a proposal explicitly marked as lacking owner approval, and an open unknown (RESTORE-81 blocked on a missing fixture). Supported context, not an empty template.\n\n**Links:** `README.md:3` \u2192 `knowledge/state.md` resolves; the marker's path resolves relative to `CLAUDE.md` at the repo root. `README.md` is byte-identical as required \u2014 it needed no edit anyway, since it already points at the entry point.\n\n**Skills:** both `context-docs` and `adopt-context-docs` are installed under `.claude/skills/`; I reused them and created no duplicates.\n\n## Why nothing was edited\n\nThe uncommitted changes to `CLAUDE.md` and `knowledge/state.md` are concurrent edits that already constitute a valid adoption. You supplied no new project evidence or decisions, so there was nothing durable to record in `knowledge/state.md` \u2014 writing there would have been a bookkeeping edit the method forbids. The proposed cloud sync stays marked as unapproved; this workflow carries no authority to advance it, and your instructions require owner approval for production publication.\n\n## Unresolved\n\nTwo items are open in the context itself, not blockers on adoption: RESTORE-81's missing test fixture, and the cloud-sync proposal awaiting an owner decision. Neither has evidence in this session to resolve it.\n\nAdoption status: **complete** \u2014 guidance and marker both reused as-is, nothing incomplete.",
+          "execution_error": null,
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 7,
+            "duration_ms": 38484,
+            "total_cost_usd": 0.2609025
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:README.md": true,
+          "preserved:ab3e3ce16d": true,
+          "preserved:7095493a04": true,
+          "preserved:79874f52f4": true,
+          "preserved:27c8905582": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/claude-instructions/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "project_byte_identical": true,
+          "original_date_retained": true,
+          "no_execution_error": true
+        },
+        "mechanical_pass": true,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "ad8935eea4a7efc4e39571a2e87d87f8d8e8aa3004e99bae2c9131db1d3b39b4",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "ad8935eea4a7efc4e39571a2e87d87f8d8e8aa3004e99bae2c9131db1d3b39b4",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "files_before": {
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes\nto project facts, decisions, procedures, blockers or next actions. Read the skill\nbefore maintenance. Keep the rules above, the roles each document plays and the\ndecision status of each item (approved, proposed, unknown) intact. Update the\naffected canonical sections under `knowledge/` and check the diff, links and\ninformation preservation. Keep audit-only requests read-only; make no bookkeeping\nedits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "files_after": {
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes\nto project facts, decisions, procedures, blockers or next actions. Read the skill\nbefore maintenance. Keep the rules above, the roles each document plays and the\ndecision status of each item (approved, proposed, unknown) intact. Update the\naffected canonical sections under `knowledge/` and check the diff, links and\ninformation preservation. Keep audit-only requests read-only; make no bookkeeping\nedits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "rubric": [
+          "Repeated adoption leaves instructions and documents byte-identical, with one rule and one marker.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+        ]
+      }
+    ]
+  },
+  {
+    "trajectory": "split-instructions",
+    "invocation": "named",
+    "case": "adopt-split-instructions",
+    "steps": [
+      {
+        "pass_number": 1,
+        "prompt": "/adopt-context-docs Adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This client loads CLAUDE.md only; AGENTS.md is kept for another tool. Do not duplicate guidance between them. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md, knowledge/state.md.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 51.4
+        },
+        "observed": {
+          "skill_names": [],
+          "installed_reads": [
+            "/fixture/projects/split-instructions/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/split-instructions/.claude/skills/context-docs/references/standard.md"
+          ],
+          "invoked": true,
+          "final_message": "Adoption complete. Only the instruction files changed.\n\n**Changes**\n\n- `CLAUDE.md` \u2014 added a `## Context maintenance` section after the existing rules, merged rather than replacing them: the adoption marker (`Method: context-docs`, `Adopted: 2026-10-01`, `Entry point: knowledge/state.md`) followed by the maintenance rule, worded to preserve this project's own rules (knowledge/ layout, owner approval for production publication) and its existing status vocabulary.\n- `AGENTS.md` \u2014 one cross-reference line pointing to the canonical section in `CLAUDE.md`, with no copy of the rule itself, so the other tool's instruction file stays reachable without duplicating guidance.\n\n**Documents**\n\nNo context initialization or edits were needed. `knowledge/state.md` already serves the current-state role with a distinguishable approved decision (offline pilot, customer data stays local) and a proposal (cloud sync, no owner approval recorded), and `README.md` already links to it as the entry point. Both are byte-identical to the committed versions \u2014 confirmed by `git status`, which shows only `AGENTS.md` and `CLAUDE.md` modified. Populating anything further would have meant manufacturing intent.\n\n**Verification**\n\n- Reviewed the full diff; the marker's target `knowledge/state.md` exists and the relative path resolves from `CLAUDE.md`, as does the `AGENTS.md` \u2192 `CLAUDE.md` link.\n- Existing guidance in both files is preserved intact; nothing was rearranged.\n- No publication, deployment, or scheduling was performed \u2014 the project's owner-approval rule is untouched by this workflow.\n\n**Unresolved**\n\nLoading is established from your statement that this client loads `CLAUDE.md` only and keeps `AGENTS.md` for another tool; I did not independently verify it from session evidence or client version behavior. The adoption date is the `2026-10-01` you specified for this test, not the environment date (2026-09-28).",
+          "execution_error": null,
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 12,
+            "duration_ms": 50609,
+            "total_cost_usd": 0.38189749999999995
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:README.md": true,
+          "immutable:knowledge/state.md": true,
+          "preserved:ab3e3ce16d": true,
+          "preserved:f3e232751e": true,
+          "preserved:79874f52f4": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "no_execution_error": true
+        },
+        "mechanical_pass": true,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "b9cc5612b444a675cac2d19048a3ac7168bcf00c676664cb00672b74de84d661",
+          "CLAUDE.md": "341f4c04895f1a7d9205b53ac52c2d14ffebf58b8ad0d5a7161c99f18a48f78d",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "6278b531db5746355a88bf67209be82f47daaebdbf254fa18abe45619a6acc6e",
+          "CLAUDE.md": "9d91550c6ee3f58fb4c367f792265c6485e67fea6a6aebbaa7c891d59b1e382b",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56"
+        },
+        "files_before": {
+          "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n",
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+        },
+        "files_after": {
+          "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nContext maintenance follows the \"Context maintenance\" section of [CLAUDE.md](CLAUDE.md);\nthat section is canonical, so do not restate its rule here.\n",
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Preserve the project rules above, document roles and decision status\n(approved, proposed, unknown). Update affected canonical sections in `knowledge/` and\ncheck the diff, links and information preservation. Keep audit-only requests\nread-only; make no bookkeeping edits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+        },
+        "rubric": [
+          "The rule is reachable from the loaded CLAUDE.md, by placement or an explicit reference to the file that holds it.",
+          "Both existing instruction files keep their original content; the rule and marker are not copied into both.",
+          "Reports which file now carries the rule and how the loaded file reaches it.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+        ]
+      },
+      {
+        "pass_number": 2,
+        "prompt": "/adopt-context-docs Adopt Context Docs in this project. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\nKeep these project files byte-identical: README.md, knowledge/state.md.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 133.1
+        },
+        "observed": {
+          "skill_names": [],
+          "installed_reads": [
+            "/fixture/projects/split-instructions/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/split-instructions/.claude/skills/context-docs/references/standard.md"
+          ],
+          "invoked": true,
+          "final_message": "Adoption was already in place in the working tree, so I made **no edits**. Here's the verification.\n\n## Existing setup (uncommitted, pre-existing in the working tree)\n\n`CLAUDE.md:6-17` already holds a `## Context maintenance` section with the marker followed by the maintenance rule, adapted to this project's terms (`knowledge/`, the approved/proposed/unknown vocabulary) and explicitly preserving the two project rules above it:\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n```\n\n`AGENTS.md:5-6` points at that section as canonical rather than duplicating the rule \u2014 matching the skill's guidance for a project that keeps several instruction files.\n\n## Checks performed\n\n- **Loading evidence \u2014 CLAUDE.md confirmed, AGENTS.md unconfirmed.** This session's context contains `CLAUDE.md` verbatim, labeled as project instructions checked into the codebase. That is direct session evidence of automatic loading, so the rule sits in the file actually in effect. `AGENTS.md` did *not* appear in this session's loaded context; I have no evidence this client loads it, which is why its pointer-only treatment is correct and why I left the rule out of it.\n- **Cross-reference is a plain Markdown link**, not a Claude Code `@CLAUDE.md` import. Since AGENTS.md isn't loaded here, an import would not fire either way; the link keeps the rule reachable for a human or a client that reads AGENTS.md, without a second copy to drift. Left as-is.\n- **Marker target resolves.** `knowledge/state.md` exists and is correct relative to CLAUDE.md at the repo root. `README.md` \u2192 `knowledge/state.md` and `AGENTS.md` \u2192 `CLAUDE.md` both resolve.\n- **Adoption date preserved at 2026-10-01.** The skill says to keep an existing adoption date rather than restamping it, so I did not write 2026-10-02. That date would only apply to a fresh adoption, which this isn't.\n- **Protected files byte-identical.** `git hash-object` for `README.md` (`0dc6b68`) and `knowledge/state.md` (`6321afb`) match their `HEAD` blobs exactly; `git status` shows them unmodified.\n- **No documents updated.** You supplied no new evidence or decisions, and nothing durable changed, so per the method I made no bookkeeping edits. `knowledge/state.md` keeps its approved offline-pilot decision and the unapproved cloud-sync proposal distinct, and the owner-approval rule for production publication is untouched \u2014 this workflow grants no publishing authority.\n\n## Changed files\n\nNone. The two modified files (`AGENTS.md`, `CLAUDE.md`) carry only the pre-existing uncommitted adoption edits, which I preserved rather than rewriting.\n\n## Open questions\n\n- **AGENTS.md's loader is unverified.** I confirmed CLAUDE.md loads in *this* client, but not which tool (if any) consumes AGENTS.md here. If another agent in your workflow loads AGENTS.md and does not follow plain Markdown links, it would see the pytest rule but not the maintenance rule. Tell me which client that is and I can add its supported import form.\n- **The adoption edits are uncommitted.** I did not commit them; committing is your call.\n- `knowledge/state.md` is thin for an entry point \u2014 it records state but not project scope or reading order. I left it alone deliberately, since filling it out would mean inventing intent you haven't supplied.",
+          "execution_error": null,
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 10,
+            "duration_ms": 132388,
+            "total_cost_usd": 0.35792450000000003
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:README.md": true,
+          "immutable:knowledge/state.md": true,
+          "preserved:ab3e3ce16d": true,
+          "preserved:f3e232751e": true,
+          "preserved:79874f52f4": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/split-instructions/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "project_byte_identical": true,
+          "original_date_retained": true,
+          "no_execution_error": true
+        },
+        "mechanical_pass": true,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "6278b531db5746355a88bf67209be82f47daaebdbf254fa18abe45619a6acc6e",
+          "CLAUDE.md": "9d91550c6ee3f58fb4c367f792265c6485e67fea6a6aebbaa7c891d59b1e382b",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "6278b531db5746355a88bf67209be82f47daaebdbf254fa18abe45619a6acc6e",
+          "CLAUDE.md": "9d91550c6ee3f58fb4c367f792265c6485e67fea6a6aebbaa7c891d59b1e382b",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56"
+        },
+        "files_before": {
+          "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nContext maintenance follows the \"Context maintenance\" section of [CLAUDE.md](CLAUDE.md);\nthat section is canonical, so do not restate its rule here.\n",
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Preserve the project rules above, document roles and decision status\n(approved, proposed, unknown). Update affected canonical sections in `knowledge/` and\ncheck the diff, links and information preservation. Keep audit-only requests\nread-only; make no bookkeeping edits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+        },
+        "files_after": {
+          "AGENTS.md": "# Agent instructions\n\nRun `python3 -m pytest` before proposing a change.\n\nContext maintenance follows the \"Context maintenance\" section of [CLAUDE.md](CLAUDE.md);\nthat section is canonical, so do not restate its rule here.\n",
+          "CLAUDE.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\n\n## Context maintenance\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: knowledge/state.md\n\nUse the context-docs skill for documentation audits and after meaningful changes to\nproject facts, decisions, procedures, blockers or next actions. Read the skill before\nmaintenance. Preserve the project rules above, document roles and decision status\n(approved, proposed, unknown). Update affected canonical sections in `knowledge/` and\ncheck the diff, links and information preservation. Keep audit-only requests\nread-only; make no bookkeeping edits when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n"
+        },
+        "rubric": [
+          "Repeated adoption preserves all project files byte-identically, including one rule and marker with the original date.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+        ]
+      }
+    ]
+  },
+  {
+    "trajectory": "audit-only",
+    "invocation": "named",
+    "case": "audit-only",
+    "steps": [
+      {
+        "pass_number": 1,
+        "prompt": "/adopt-context-docs Audit this project for Context Docs adoption only. Do not edit, create or delete any project file. Report in your final message whether the existing instructions and documents already follow the method, and distinguish a missing marker from non-adoption. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md, AGENTS.md, knowledge/state.md.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 53.6
+        },
+        "observed": {
+          "skill_names": [],
+          "installed_reads": [
+            "/fixture/projects/audit-only/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/audit-only/.claude/skills/context-docs/references/standard.md",
+            "/fixture/projects/audit-only/.claude/skills/context-docs/assets/project-context.md"
+          ],
+          "invoked": true,
+          "final_message": "**Audit only \u2014 no files were created, edited, or deleted.** Working tree is still clean and the three named files are byte-identical (SHA-256 re-verified after the audit: README `abbea357\u2026`, AGENTS `fe1da730\u2026`, knowledge/state.md `4a59ec56\u2026`).\n\n## Verdict: adopted in substance, marker absent\n\nThe project already follows the Context Docs method. The only thing missing is the bookkeeping marker \u2014 that is a **missing marker, not non-adoption**, and per the skill it is not a reason to reinitialize or rewrite anything.\n\n**Role mapping (context-docs standard \u00a7Document roles):**\n\n| Role | Where | Status |\n|---|---|---|\n| Entry point | `README.md` \u2014 names the project (\"Offline pilot\") and links to the context | Present; minimal but valid (the standard accepts a short README pointing to supported context) |\n| Current state | `knowledge/state.md` | Present, with a live blocker (RESTORE-81) |\n| Decisions | `knowledge/state.md`, combined | Permitted \u2014 the standard allows a small project to keep the first four roles in one document |\n| Open questions | `knowledge/state.md` | Present |\n\nDecision hygiene is genuinely correct, not just formally present: the approved offline constraint carries its rationale (customer data must stay local), and cloud sync is kept explicitly `Proposed` with \"no owner approval recorded\" \u2014 approved intent and proposal are not blurred. `AGENTS.md` backs this with the project rule that production publication requires owner approval, and pins the local status vocabulary (Approved/Proposed/Unknown), which the standard directs be preserved rather than replaced.\n\n**Maintenance rule:** `AGENTS.md:7` already carries an equivalent ongoing rule, adapted to this project's invocation form (`$context-docs`). It covers the trigger conditions, reading the skill first, preserving rules and decisions, checking links and the diff, keeping audits read-only, and avoiding bookkeeping edits when nothing durable changed. Wording should be preserved as-is.\n\n**What's missing:** the adoption marker beside that rule:\n\n```text\nMethod: context-docs\nAdopted: <date>\nEntry point: README.md   (or knowledge/state.md)\n```\n\nTwo judgment calls for whoever adds it later:\n\n- **Date.** Not `2026-10-01`. The current date applies to *new* adoption; this guidance predates the audit, so the rule is a supported original date or `unknown`. Nothing in the docs records one. The only evidence is the single commit `f4d9640` (2026-09-28), which introduced the whole fixture at once \u2014 it dates the file's creation, not a decision to adopt. I'd write `unknown` rather than promote a commit timestamp into adoption history.\n- **Entry point.** Ambiguous between `README.md` (the reader's actual starting point, which the skill explicitly allows) and `knowledge/state.md` (the substantive context). I'd use `README.md`, since it is what `AGENTS.md`'s sibling reader encounters first and it links onward.\n\n**Loading is unconfirmed.** `AGENTS.md` is the only instruction file \u2014 there is no `CLAUDE.md` anywhere in the repo, and no `.claude/settings.json`. In this session its content did not arrive automatically; I obtained it by calling Read, which the skill states does not prove automatic loading. So the rule is correctly placed in the only candidate file (no cross-file reference is needed, since there is no second file to reach it from), but whether this client actually loads it remains unverified. That matters: if it isn't loaded, the rule silently does nothing.\n\n**Non-blocking observations for a future maintenance pass (not fixed here):**\n\n- `knowledge/state.md:6` files the RESTORE-81 blocker under `Unknown:`. Per the standard, a known blocker with a known cause is current state / open work rather than unresolved-information `Unknown`. Low impact \u2014 the blocker is visible either way \u2014 and the local vocabulary is project-mandated, so this is a wording question for the owner, not a correction to impose.\n- No observation dates anywhere in `state.md`. The standard asks for dates where freshness changes interpretation; the offline decision is durable, but RESTORE-81's status would benefit from one.\n- Link check: `README.md` \u2192 `knowledge/state.md` resolves.\n\n**Unresolved question for you:** the adoption date and entry-point choice above are the owner's call, and confirming whether your client loads `AGENTS.md` would settle the one real risk in this setup.",
+          "execution_error": null,
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 10,
+            "duration_ms": 52860,
+            "total_cost_usd": 0.358379
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:README.md": true,
+          "immutable:AGENTS.md": true,
+          "immutable:knowledge/state.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/audit-only/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "project_byte_identical": true,
+          "no_execution_error": true
+        },
+        "mechanical_pass": true,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "fe1da730ad3a221496a4651d7a8a4eeffedc30840934bb0bf3efb76eb3cffd88",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "AGENTS.md": "fe1da730ad3a221496a4651d7a8a4eeffedc30840934bb0bf3efb76eb3cffd88",
+          "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+          "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+        },
+        "files_before": {
+          "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "files_after": {
+          "AGENTS.md": "# Project instructions\n\nUse the existing knowledge/ layout.\nProduction publication requires owner approval.\nUse Approved, Proposed and Unknown as decision statuses.\n\nUse $context-docs after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules and decisions, check links and the diff, keep audits read-only, and avoid changes when nothing durable changed.\n",
+          "README.md": "# Offline pilot\n\n[Current context](knowledge/state.md).\n",
+          "knowledge/state.md": "# Current context\n\nApproved: keep the pilot offline because customer data must stay local.\nProposed: cloud sync; no owner approval recorded.\n\nUnknown: RESTORE-81 remains blocked on a missing test fixture.\n"
+        },
+        "rubric": [
+          "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+          "Leaves every project file byte-identical and reports findings without writing a project file.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+        ]
+      }
+    ]
+  },
+  {
+    "trajectory": "discovery",
+    "invocation": "unnamed",
+    "case": "adopt-empty-docs",
+    "steps": [
+      {
+        "pass_number": 1,
+        "prompt": "Set up ongoing context documentation maintenance for this project, so later sessions keep its project knowledge accurate and know where to start. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: convert.py.\n",
+        "execution": {
+          "exit_code": 0,
+          "stderr": "",
+          "seconds": 175.1
+        },
+        "observed": {
+          "skill_names": [
+            "adopt-context-docs"
+          ],
+          "installed_reads": [
+            "/fixture/projects/discovery/.claude/skills/context-docs/SKILL.md",
+            "/fixture/projects/discovery/.claude/skills/context-docs/references/standard.md",
+            "/fixture/projects/discovery/.claude/skills/context-docs/assets/project-context.md"
+          ],
+          "invoked": true,
+          "final_message": "Adoption complete. Three new files, no existing file touched.\n\n**Created**\n- `context.md` \u2014 the entry point, carrying the entry-point / current-state / decisions / open-questions roles in one document (the standard's shape for a small project). Current state is dated 2026-10-01 and scoped as read-from-source: the script wasn't executed, so I recorded what `csv.DictReader` + `json.dump` do in the code (JSON array of header-keyed objects, all values left as strings) rather than asserting runtime or deployment behavior.\n- `README.md` \u2014 short pointer: one-line identification, the implied invocation, and a link to `context.md` for the caveats it doesn't carry.\n- `CLAUDE.md` \u2014 a `Context maintenance` section with the adoption marker (`Method: context-docs` / `Adopted: 2026-10-01` / `Entry point: context.md`) followed by the maintenance rule, adapted to name the skill as this client invokes it.\n\n**Verified**\n- `convert.py` is byte-identical: MD5 `e39397a4226cca9edcdc5805bd41799e` before and after, absent from `git status`, and `git diff` on tracked files is empty. `git status` shows only the three untracked additions.\n- All six relative links in the new docs resolve to existing paths.\n- No secrets or customer data involved; nothing committed \u2014 the additions are left untracked for your review.\n\n**Worth knowing**\n- Instruction-file loading is established from documented Claude Code behavior for a root `CLAUDE.md`, not from session evidence: no instruction file existed when this session started, so nothing here has been observed loading yet. The project keeps no `AGENTS.md`, so there is no second file needing a cross-reference \u2014 if you later add one for another client, reference `CLAUDE.md` from it rather than copying the rule.\n- I deliberately left the project's intent blank instead of inventing one. The repository states no purpose, owner, or license, and its single commit is `180dc2f \"Initial synthetic fixture\"`, so `context.md` says the broader intent is unknown and lists the genuinely undecided items (argument contract, irregular-CSV semantics, encoding, memory profile, ownership) as open questions.\n- The two skills are committed inside the project at VERSION 0.1.2 and 0.1.4; I noted those as the vendored copies' versions, not an installed package version.\n- I recorded the byte-identical requirement for `convert.py` in the decisions section, flagged as stated for this task with its standing status unknown \u2014 say the word if it's a permanent project rule and I'll promote it.",
+          "execution_error": "permission_denied",
+          "event_types": [
+            "assistant",
+            "rate_limit_event",
+            "result",
+            "system",
+            "user"
+          ],
+          "usage": {
+            "num_turns": 16,
+            "duration_ms": 174397,
+            "total_cost_usd": 0.6532945000000001
+          },
+          "model": "claude-opus-5"
+        },
+        "skill_calls": [
+          {
+            "skill": "adopt-context-docs"
+          }
+        ],
+        "checks": {
+          "input_files_retained": true,
+          "non_document_inputs_unchanged": true,
+          "only_document_files_created": true,
+          "immutable:convert.py": true,
+          "external_reference:.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/LICENSE": true,
+          "external_reference:.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:.claude/skills/context-docs/VERSION": true,
+          "external_reference:.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:.claude/skills/context-docs/references/standard.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/VERSION": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/adopt-context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/LICENSE": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/SKILL.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/VERSION": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/agents/openai.yaml": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/assets/decision-record.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/assets/project-context.md": true,
+          "external_reference:/fixture/projects/discovery/.claude/skills/context-docs/references/standard.md": true,
+          "local_links_and_anchors": true,
+          "documentation_changed": true,
+          "no_agent_commits_or_staging": true,
+          "installed_skill_unchanged": true,
+          "skill_selected_unnamed": true,
+          "no_execution_error": false
+        },
+        "mechanical_pass": false,
+        "tree_before": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+        },
+        "tree_after": {
+          ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+          ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+          ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+          ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+          ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+          ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "CLAUDE.md": "b2b7df55add4fd2ae0800e032895bf2725295dd942a9fab56d9c0fa5e5b99b50",
+          "README.md": "e48f5d3b0ec176e3b9c682166bf40d856b89f76e0b32d3fb1be43e7df6a4f603",
+          "context.md": "44b006b8448a608b910525c3c624308608f3113a8bcecaa3fce7ebb58dd6b7cf",
+          "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+        },
+        "files_before": {
+          "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n"
+        },
+        "files_after": {
+          "CLAUDE.md": "# CLAUDE.md\n\nInstructions for AI agents working in this repository. Read\n[context.md](context.md) first \u2014 it is the project context entry point and\nrecords what is actually verified about this project, what is merely proposed,\nand what is still unknown.\n\n## Context maintenance\n\n```text\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: context.md\n```\n\nUse the `context-docs` skill (invoke it by name with the Skill tool) for\ndocumentation audits and after meaningful changes to project facts, decisions,\nprocedures, blockers, or next actions. Read the skill before doing maintenance.\nPreserve project rules, document roles, and decision status \u2014 in particular, keep\nobserved, approved, proposed, and unknown statements distinct rather than\nflattening them. Update the affected canonical sections of `context.md`, then\ncheck the diff, links, and information preservation. Keep audit-only requests\nread-only: make no bookkeeping edits when nothing durable changed.\n",
+          "README.md": "# discovery\n\nA single-script repository: [convert.py](convert.py) converts a CSV file into a\nJSON file.\n\n```\npython3 convert.py input.csv output.json\n```\n\n**Start here:** [context.md](context.md) is the project context entry point \u2014\npurpose and scope, verified current state, recorded decisions, and the open\nquestions (including the unspecified behavior for irregular CSV input) that the\nusage line above does not capture.\n",
+          "context.md": "# Project context\n\n## Purpose and scope\n\nA single-script repository whose one source file, [convert.py](convert.py), converts a\nCSV file into a JSON file. That scope is read off the code itself; the repository\nrecords no stated product goal, owner, roadmap, or project name (`discovery` is\njust the checkout directory), so the broader intent behind the script is unknown.\n\n## Current state\n\nObserved 2026-10-01 by reading the repository. The script was not executed during\nthis review, so everything below is a claim about the source, not about runtime or\nany deployment.\n\n- `convert.py` is 8 lines and imports only the standard library (`csv`, `json`,\n  `sys`). It opens `sys.argv[1]` with `newline=\"\"`, reads it with\n  `csv.DictReader`, materializes all rows into a list, and writes them to\n  `sys.argv[2]` with `json.dump`.\n- The resulting output is a JSON array of objects keyed by the CSV header row.\n  `DictReader` performs no type conversion, so numeric-looking columns are\n  emitted as JSON strings.\n- Invocation implied by the argument handling: `python3 convert.py input.csv output.json`.\n- No dependency, packaging, or interpreter-version declaration exists \u2014 there is\n  no `pyproject.toml`, `requirements.txt`, or `setup.py`.\n- No tests, CI configuration, or license file covers the project. The `LICENSE`\n  files present belong to the vendored skills under `.claude/skills/`.\n- Git history is a single commit, `180dc2f \"Initial synthetic fixture\"`. The\n  working tree was clean before this adoption.\n- The context-docs tooling is committed into the project itself:\n  `.claude/skills/context-docs` (VERSION 0.1.2) and\n  `.claude/skills/adopt-context-docs` (VERSION 0.1.4). Those VERSION files\n  describe the vendored skill copies, not any installed package.\n\n## Decisions and constraints\n\n- No approved project decisions are recorded anywhere in the repository. Treat\n  every entry in this document as an observation unless it is explicitly marked\n  otherwise; nothing here has been ratified by a project owner.\n- Approved (user request, 2026-10-01): this project follows the context-docs\n  method, with the ongoing maintenance rule in [CLAUDE.md](CLAUDE.md) and this\n  file as the entry point.\n- Constraint stated by the user for the adoption task: `convert.py` must remain\n  byte-identical, and it was left untouched (MD5 `e39397a4226cca9edcdc5805bd41799e`\n  before and after). Whether this is a standing rule beyond that one request is\n  unknown.\n\n## Open questions and next actions\n\n- **Intended command-line contract.** There is no argument-count check and no\n  error handling, so malformed invocations surface as unhandled exceptions\n  instead of a usage message. Whether that is acceptable, or whether the script\n  should validate arguments and print usage, is undecided.\n- **Behavior on irregular CSV input.** Duplicate header names, rows longer or\n  shorter than the header, and headerless files are neither specified nor\n  tested. Next step: decide the intended semantics, then add tests that pin\n  them down.\n- **Text encoding.** Both files are opened without an explicit `encoding`, so the\n  interpreter's default applies and results can differ between machines. Next\n  step: decide whether to pin UTF-8.\n- **Memory profile.** The whole input is held in memory and written as one JSON\n  array; there is no streaming or newline-delimited-JSON path. Unknown whether\n  large inputs are in scope.\n- **Ownership and licensing.** No owner, contact, or project license is recorded.\n\n## Canonical references\n\n- [README.md](README.md) \u2014 short entry pointer for new readers.\n- [convert.py](convert.py) \u2014 the implementation; this document links to it rather\n  than restating it.\n- [CLAUDE.md](CLAUDE.md) \u2014 agent instructions, including the context maintenance\n  rule and adoption marker.\n- [.claude/skills/context-docs/SKILL.md](.claude/skills/context-docs/SKILL.md) and\n  [.claude/skills/context-docs/references/standard.md](.claude/skills/context-docs/references/standard.md)\n  \u2014 the maintenance method and the document roles this file follows.\n",
+          "convert.py": "import csv\nimport json\nimport sys\n\nwith open(sys.argv[1], newline=\"\") as source:\n    rows = list(csv.DictReader(source))\nwith open(sys.argv[2], \"w\") as target:\n    json.dump(rows, target)\n"
+        },
+        "rubric": [
+          "Claude selects a context-docs skill from its description, without the skill being named in the request.",
+          "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+          "Adds ongoing maintenance guidance to the instruction file this client loads; does not install skill copies or change code.",
+          "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented.",
+          "The context entry point is discoverable through a README or documentation index, using supported content without requiring an invented project mission."
+        ]
+      }
+    ]
+  }
+]

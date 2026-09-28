@@ -1,0 +1,15 @@
+{
+  "reviewer": "Codex author review; not independent or blinded",
+  "sessions": {
+    "discovery-pass-1": {
+      "criteria": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "evidence": "Unnamed adoption selection, README navigation, a single CLAUDE.md maintenance rule, and code/package preservation pass. The context attributes the layout to the assistant and qualifies automatic loading. It now qualifies its no-README observation to exclude the README just created. However, context.md asserts that all CSV values are written as JSON strings and repeats string-only output as observed state; the final response repeats string-only output and says there is no README after listing the newly created README. DictReader short/long rows produce None/list values (see the retained synthetic counterexamples), so the grounded-content and factual-report criteria fail. A compound verification command was denied; all project-file checks pass but the strict execution check fails."
+    }
+  }
+}

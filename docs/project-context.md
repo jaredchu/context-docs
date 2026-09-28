@@ -53,7 +53,7 @@ still need owner acceptance.
   remain unknown, and audit-only requests never create markers.
   New sections prefer a `Context maintenance` heading, marker, then instructions;
   existing equivalent layouts stay intact. This v0.1.2 presentation preference
-  received static validation only; model results below cover earlier versions.
+  received static validation only at introduction; later model results appear below.
   v0.1.3 places the rule and marker in the instruction file the client actually
   loads, rather than assuming `AGENTS.md`, and states the rule without a
   client-specific invocation prefix. Claude Code loading depends on version,
@@ -95,23 +95,30 @@ still need owner acceptance.
   ignoring frozen requests/model, excluding `.claude/` from read-only checks, and
   rejecting valid absolute installed links. Live execution then exposed inherited
   standard-input contamination and a crash on textual permission events; both are
-  repaired, and read-only hash checks are preapproved. The 34 self-test assertions
-  and 12 regression tests pass. Protocols freeze inputs and requests; runs retain
-  completed attempts and stop on execution errors.
+  repaired, and read-only hash/inspection checks are preapproved. The 34 self-test
+  assertions and 13 native regression tests pass. Twelve shared-verifier tests
+  include directory links containing known sources, unknown directories and
+  directory anchors. Protocols freeze inputs and requests; completed responses
+  with denied commands retain execution failures but allow later sessions to run.
+  Authentication, nonzero exits and incomplete streams still stop the run.
   The [clean native run](../evals/results/2026-09-28-claude-code-clean/README.md)
-  passed four routing/repeat sessions and completed a read-only audit with an
-  execution failure. A [separate audit/discovery follow-up](../evals/results/2026-09-28-claude-code-followup/README.md)
-  passed auditing and observed unnamed adoption-skill selection, but discovery
-  recorded wrong installed versions and an unsupported publication-history claim.
-  Its denied commands remain execution failures. Audit also overclaimed automatic
-  AGENTS.md loading from filenames alone, outside its narrow passing rubric.
-  **Current recommendation: hold the merge pending these factual findings.**
-  Core v0.1.2 now tightens claim/source scope, final-report checking and minimal
-  README navigation. Adoption v0.1.4 requires evidence for automatic loading,
-  including during audits. The new regression will retain the same requests and
-  add explicit factual-grounding/navigation criteria before execution. Earlier
-  scores and versions are unchanged. Authentication and contaminated
-  attempts are retained separately; see the linked reports for provenance.
+  and [audit/discovery follow-up](../evals/results/2026-09-28-claude-code-followup/README.md)
+  retain earlier factual, permission and harness failures without rescoring.
+  Core v0.1.2 now tightens claim scope, decision attribution, final-report and
+  resulting-state checks, and minimal README navigation. Adoption v0.1.4 requires
+  evidence for automatic loading and aligns Codex metadata with the loaded file.
+  Four new frozen native runs distinguish successive unreleased candidates:
+  [first](../evals/results/2026-09-28-native-v014/README.md), 1/6 semantic passes;
+  [second](../evals/results/2026-09-28-native-v014-followup/README.md), 5/6;
+  [attribution follow-up](../evals/results/2026-09-28-native-discovery-final/README.md), 0/1;
+  [final-state follow-up](../evals/results/2026-09-28-native-state-followup/README.md), 0/1.
+  The second candidate passes routing, repeats and audit. The latest discovery
+  preserves code/packages, creates navigation, qualifies loading and attributes
+  choices correctly, but overclaims CSV value types and retains a stale no-README
+  claim in its final response. All its file checks pass; a denied compound command
+  fails the separate execution check. **Current recommendation: hold the merge.**
+  These are different development conditions, not a pooled benchmark. Exact
+  commits/hashes distinguish candidates sharing unreleased package versions.
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Other clients remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
@@ -127,16 +134,16 @@ still need owner acceptance.
 - Retain the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
   and [history-study temporary out-of-scope backup](evaluation-2026-09-27-history.md)
   when assessing reliability; perfect content scores do not prove full compliance.
-- Unnamed selection was observed once on Claude Code; reliable automatic selection,
+- Unnamed selection was observed in native discovery runs; reliable automatic selection,
   general cross-client behavior and long-term maintenance remain unestablished.
   Prior controlled Codex runs excluded host/global instructions; native smoke tests
   have weaker local isolation. Authoring and review were not independent or blinded.
 
 ## Next actions
 
-1. Monitor v0.1.1 on real work before further prompt tuning. Avoid adding rules for
-   isolated examples. Cloud adapters still need a concrete retrieval or cross-machine
-   use case.
+1. Use the recorded native failures to guide review before further prompt tuning.
+   Avoid adding rules for isolated examples. Cloud adapters still need a concrete
+   retrieval or cross-machine use case.
 2. Seek independently contributed histories from other projects and condition-blind
    review before expanding correctness claims. Keep common raw-evidence access,
    verified context reading, a competent ordinary baseline and frozen criteria.
@@ -146,7 +153,7 @@ still need owner acceptance.
    Preserve all earlier results and the original private-project miss.
 3. Evaluate selection reliability, other models, normal global-instruction setups
    and longer maintenance sequences when relevant. Native evidence now includes
-   one unnamed selection but does not establish reliable cross-client behavior.
+   unnamed selection but does not establish reliable cross-client behavior.
 4. Proposed, not yet approved: address the three conditions that hold reader and
    document scores at a ceiling before running further comparisons. The shared
    task prompts already state much of the skill's guidance to both arms, the
@@ -157,10 +164,12 @@ still need owner acceptance.
 5. Preserve the initial v0.1.3 failure, passing Codex follow-up and mixed native
    results as separate evidence. Installed-path portability across machines remains
    untested. Do not promote these small studies into reliable-support claims.
-6. Address the native grounded-content and instruction-loading findings using
-   existing guidance where possible, then freeze a targeted regression before
-   reconsidering the merge. Retain all attempts and keep execution failures
-   distinct from model factual errors; do not silently repair scored artifacts.
+6. Keep the current branch unmerged while discovery factual consistency remains
+   unresolved. Further changes need concrete claim evidence and independently
+   contributed cases, rather than more prompt tuning on this single fixture.
+   Retain all attempts and separate execution failures from factual errors; do not
+   silently repair scored artifacts. Native coverage does not make the new core
+   revision a full rerun of the earlier Codex maintenance studies.
 
 ## Canonical references
 

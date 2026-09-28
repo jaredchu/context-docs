@@ -6,7 +6,8 @@ They exercise decisions an agent must make, rather than exact headings or wordin
 The [public Harbor suite](suite/README.md) now provides eight runnable synthetic
 tasks, reference controls, mechanical graders and separate semantic review.
 See its [48-trial evaluation](../docs/evaluation-2026-09-27.md) and published
-evidence. Automatic skill selection remains a separate, untested question.
+evidence. Automatic selection was not tested in that comparative suite; the native smoke
+studies below observe unnamed selection separately from output quality.
 
 A separate [local-project maintenance pilot](../docs/evaluation-2026-09-26.md)
 records eight actual model runs, paired comparisons and limitations. It does not
@@ -179,12 +180,14 @@ The comparative studies above used one client and one model. The
 [native Claude Code smoke test](claude-code/README.md) runs the shared adoption
 fixtures through the Claude Code CLI to check skill discovery, rule placement in
 Claude-only and mixed instruction projects, repeat preservation and audit-only
-read-only behavior. The [clean native run](results/2026-09-28-claude-code-clean/README.md)
-passed four routing/repeat sessions; its audit encountered a permission denial and
-parser crash. A [targeted follow-up](results/2026-09-28-claude-code-followup/README.md)
-passed auditing and observed unnamed selection, but discovery failed grounded-content
-review and command permissions. Earlier failed attempts remain recorded. These
-small author-reviewed cases do not establish general cross-client reliability.
+read-only behavior. The [second unreleased candidate](results/2026-09-28-native-v014-followup/README.md)
+passes routing, repeats and auditing (five of six semantic sessions), but discovery
+fails. Two later targeted runs remain failures; the
+[latest](results/2026-09-28-native-state-followup/README.md) overclaims CSV value
+types and retains a stale README statement in its final response. File checks,
+execution denials and semantic review are reported separately. Earlier attempts
+remain recorded. These small author-reviewed cases do not establish general
+cross-client reliability; the merge recommendation remains on hold.
 
 ## Optional adoption skill
 

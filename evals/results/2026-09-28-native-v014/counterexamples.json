@@ -1,0 +1,28 @@
+{
+  "claim": "csv.DictReader produces every value as a string",
+  "checked_by": "Reviewer executed Python standard-library csv.DictReader with synthetic input",
+  "cases": [
+    {
+      "csv": "a,b\nx\n",
+      "rows": [
+        {
+          "a": "x",
+          "b": null
+        }
+      ]
+    },
+    {
+      "csv": "a,b\nx,y,z\n",
+      "rows": [
+        {
+          "a": "x",
+          "b": "y",
+          "overflow_key_is_python_None": [
+            "z"
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "The extra-field dictionary uses Python None as its key; JSON cannot represent that key type directly."
+}

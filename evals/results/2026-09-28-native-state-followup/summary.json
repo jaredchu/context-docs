@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "sessions": 1,
+    "mechanical_passed": 0,
+    "invoked": 1,
+    "execution_errors": 1,
+    "trajectories": 1,
+    "semantic_reviewed": 1,
+    "semantic_passed": 0
+  },
+  "rows": [
+    {
+      "session": "discovery-pass-1",
+      "mechanical_pass": false,
+      "invoked": true,
+      "skills": [
+        "adopt-context-docs"
+      ],
+      "failed_checks": [
+        "no_execution_error"
+      ],
+      "semantic": false
+    }
+  ]
+}

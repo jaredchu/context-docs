@@ -22,7 +22,8 @@ not a demonstrated accuracy gain.
   instruction files and configurable loading behavior; keep that detail canonical
   in the README.
 - Twelve checker regression tests passed. These are static checks, not model
-  evaluations. Installable skill contents and versions are unchanged.
+  evaluations. These repository-only changes do not alter installable skills;
+  separate skill changes are recorded below.
 
 ## context-docs 0.1.2 — unreleased
 
@@ -39,7 +40,14 @@ not a demonstrated accuracy gain.
 - Final review reconciles statements with the resulting project, including facts
   made stale by the agent's own edits.
 - Addresses the retained [native discovery failures](evals/results/2026-09-28-claude-code-followup/README.md).
-  Behavioral regression pending; prior results retain their original versions.
+  Four separately frozen native runs retain all candidates: the
+  [first six-session run](evals/results/2026-09-28-native-v014/README.md) passes
+  one semantic session, the [second](evals/results/2026-09-28-native-v014-followup/README.md)
+  passes five, and two targeted discovery runs still fail. The
+  [latest result](evals/results/2026-09-28-native-state-followup/README.md) retains
+  an unsupported universal CSV claim and a stale final README statement.
+  Hold the merge; this is author-reviewed development evidence, not a reliability
+  claim. Exact commits distinguish candidates with the same unreleased versions.
 
 ## adopt-context-docs 0.1.4 — unreleased
 
@@ -50,7 +58,11 @@ not a demonstrated accuracy gain.
   hardcoding AGENTS.md. This metadata change is statically validated.
 - Addresses the unsupported loading claim in the
   [native audit](evals/results/2026-09-28-claude-code-followup/README.md).
-  Behavioral regression pending; prior results retain their original versions.
+  The [second native candidate](evals/results/2026-09-28-native-v014-followup/README.md)
+  passes routing, repeat and audit semantic criteria, including qualified loading.
+  Discovery remains factually unreliable in the
+  [latest targeted run](evals/results/2026-09-28-native-state-followup/README.md).
+  Permission denials remain separate execution failures; the branch stays on hold.
 
 ## adopt-context-docs 0.1.3 — unreleased
 

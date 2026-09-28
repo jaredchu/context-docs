@@ -142,14 +142,16 @@ than inferring loading solely from filenames. See the
 [Claude Code skill](https://code.claude.com/docs/en/skills) and
 [memory](https://code.claude.com/docs/en/memory) documentation.
 
-**Native testing has mixed results.** A
-[Claude Code smoke test](evals/results/2026-09-28-claude-code-clean/README.md)
-passed four routing/repeat sessions. A
-[separate follow-up](evals/results/2026-09-28-claude-code-followup/README.md)
-passed read-only auditing and observed unnamed skill selection, but discovery
-recorded incorrect package versions and an unsupported publication claim.
-Permission and harness failures are retained separately. These small, author-reviewed
-runs on Claude Code 2.1.234 with Claude Opus 5 do not establish reliable support.
+**Native testing has mixed results; the branch remains on hold.** The unreleased
+core v0.1.2 / adoption v0.1.4 tighten evidence scope and loading verification. A
+[six-session follow-up](evals/results/2026-09-28-native-v014-followup/README.md)
+passed five semantic reviews (routing, repeats and audit), while discovery failed.
+The [latest targeted run](evals/results/2026-09-28-native-state-followup/README.md)
+still overclaims CSV value types and says no README exists after creating one.
+All project-file checks pass in that run, but a command denial fails the separate
+execution check. Earlier candidates and failures remain recorded. These small,
+author-reviewed runs on Claude Code 2.1.234 with Claude Opus 5 do not establish
+reliable support.
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](skills/context-docs/references/standard.md) directly.
