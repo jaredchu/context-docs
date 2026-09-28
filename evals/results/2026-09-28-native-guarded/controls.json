@@ -1,0 +1,15 @@
+{
+  "native_runner_tests": 25,
+  "guard_tests": 7,
+  "model_sessions_in_controls": 0,
+  "status": "All tests passed before native execution",
+  "coverage": [
+    "path containment and traversal",
+    "symlink escape and hardlinks",
+    "protected paths and readonly mode",
+    "unexposed tools and unknown skills",
+    "loading event reason/hash without context injection",
+    "malformed input blocks with exit 2",
+    "missing guard events, denied successes and unexpected advertised tools"
+  ]
+}
