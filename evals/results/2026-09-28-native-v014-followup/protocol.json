@@ -1,0 +1,248 @@
+{
+  "kind": "claude-code-smoke",
+  "schema_version": 2,
+  "model": "claude-opus-5",
+  "client": "claude-code",
+  "cli_version": "2.1.234 (Claude Code)",
+  "skills": {
+    "context-docs": "0.1.2",
+    "adopt-context-docs": "0.1.4"
+  },
+  "installed_files": {
+    ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+    ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+    ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+    ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+    ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "allowed_tools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Skill",
+    "TodoWrite",
+    "Bash(git status:*)",
+    "Bash(git diff:*)",
+    "Bash(git log:*)",
+    "Bash(ls:*)",
+    "Bash(cat:*)",
+    "Bash(shasum:*)",
+    "Bash(md5:*)",
+    "Bash(git hash-object:*)",
+    "Bash(git ls-files:*)",
+    "Bash(git rev-parse:*)"
+  ],
+  "session_timeout_seconds": 600,
+  "setting_sources": "project",
+  "permission_mode": "acceptEdits",
+  "user_claude_md_present": false,
+  "user_agents_md_present": false,
+  "trajectories": [
+    {
+      "id": "claude-instructions",
+      "invocation": "named",
+      "case": "adopt-claude-instructions",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "CLAUDE.md": "341f4c04895f1a7d9205b53ac52c2d14ffebf58b8ad0d5a7161c99f18a48f78d",
+        "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+        "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+      },
+      "immutable": [
+        "README.md"
+      ],
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Production publication requires owner approval.",
+        "Approved: keep the pilot offline because customer data must stay local.",
+        "Unknown: RESTORE-81 remains blocked on a missing test fixture."
+      ],
+      "steps": [
+        {
+          "prompt": "/adopt-context-docs Adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This project keeps its agent instructions in CLAUDE.md; no AGENTS.md is loaded here. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md.\n",
+          "allow_noop": false,
+          "expect_unchanged": false,
+          "expect_date": null,
+          "expect_skill": null,
+          "rubric": [
+            "Places the ongoing maintenance rule and marker in the loaded CLAUDE.md, preserving its existing instructions.",
+            "Does not create an unloaded AGENTS.md, or a second instruction file holding the only copy of the rule.",
+            "References the skill in wording valid for this client instead of another client's invocation syntax.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+          ]
+        },
+        {
+          "prompt": "/adopt-context-docs Adopt Context Docs in this project. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\nKeep these project files byte-identical: README.md.\n",
+          "allow_noop": true,
+          "expect_unchanged": true,
+          "expect_date": "2026-10-01",
+          "expect_skill": null,
+          "rubric": [
+            "Repeated adoption leaves instructions and documents byte-identical, with one rule and one marker.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "split-instructions",
+      "invocation": "named",
+      "case": "adopt-split-instructions",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "AGENTS.md": "b9cc5612b444a675cac2d19048a3ac7168bcf00c676664cb00672b74de84d661",
+        "CLAUDE.md": "341f4c04895f1a7d9205b53ac52c2d14ffebf58b8ad0d5a7161c99f18a48f78d",
+        "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+        "knowledge/state.md": "3dc7f5b2a248888b7848a04ffd9fc66a270586b27911cef195098a1dc73eba56"
+      },
+      "immutable": [
+        "README.md",
+        "knowledge/state.md"
+      ],
+      "protected": [
+        "Use the existing knowledge/ layout.",
+        "Run `python3 -m pytest` before proposing a change.",
+        "Approved: keep the pilot offline because customer data must stay local."
+      ],
+      "steps": [
+        {
+          "prompt": "/adopt-context-docs Adopt Context Docs in this project, including its ongoing maintenance rule in the loaded project instructions. This client loads CLAUDE.md only; AGENTS.md is kept for another tool. Do not duplicate guidance between them. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md, knowledge/state.md.\n",
+          "allow_noop": false,
+          "expect_unchanged": false,
+          "expect_date": null,
+          "expect_skill": null,
+          "rubric": [
+            "The rule is reachable from the loaded CLAUDE.md, by placement or an explicit reference to the file that holds it.",
+            "Both existing instruction files keep their original content; the rule and marker are not copied into both.",
+            "Reports which file now carries the rule and how the loaded file reaches it.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+          ]
+        },
+        {
+          "prompt": "/adopt-context-docs Adopt Context Docs in this project. No new project evidence or decisions have been supplied. For this test, treat the current date as 2026-10-02, regardless of the environment date.\nKeep these project files byte-identical: README.md, knowledge/state.md.\n",
+          "allow_noop": true,
+          "expect_unchanged": true,
+          "expect_date": "2026-10-01",
+          "expect_skill": null,
+          "rubric": [
+            "Repeated adoption preserves all project files byte-identically, including one rule and marker with the original date.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "audit-only",
+      "invocation": "named",
+      "case": "audit-only",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "AGENTS.md": "fe1da730ad3a221496a4651d7a8a4eeffedc30840934bb0bf3efb76eb3cffd88",
+        "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+        "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+      },
+      "immutable": [
+        "README.md",
+        "AGENTS.md",
+        "knowledge/state.md"
+      ],
+      "protected": [],
+      "steps": [
+        {
+          "prompt": "/adopt-context-docs Audit this project for Context Docs adoption only. Do not edit, create or delete any project file. Report in your final message whether the existing instructions and documents already follow the method, and distinguish a missing marker from non-adoption. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md, AGENTS.md, knowledge/state.md.\n",
+          "allow_noop": true,
+          "expect_unchanged": true,
+          "expect_date": null,
+          "expect_skill": null,
+          "rubric": [
+            "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+            "Leaves every project file byte-identical and reports findings without writing a project file.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discovery",
+      "invocation": "unnamed",
+      "case": "adopt-empty-docs",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "e16005b4464514a7c410b4826c07afede9b6a5511d75ffb0bb480c1f72e33ee8",
+        ".claude/skills/adopt-context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "3d12c5ba3570d7a08ffe88a0f72fb81cd85db7f4eaacb3219fdfcec2eb126378",
+        ".claude/skills/context-docs/VERSION": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+      },
+      "immutable": [
+        "convert.py"
+      ],
+      "protected": [],
+      "steps": [
+        {
+          "prompt": "Set up ongoing context documentation maintenance for this project, so later sessions keep its project knowledge accurate and know where to start. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: convert.py.\n",
+          "allow_noop": false,
+          "expect_unchanged": false,
+          "expect_date": null,
+          "expect_skill": "adopt-context-docs",
+          "rubric": [
+            "Claude selects a context-docs skill from its description, without the skill being named in the request.",
+            "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+            "Adds ongoing maintenance guidance to the instruction file this client loads; does not install skill copies or change code.",
+            "Factual claims in documents and the final response are supported by inspected evidence at the claimed scope; package versions, publication history and automatic instruction loading are not inferred from unrelated versions, absent remotes or file presence. Relevant uncertainty is stated rather than invented.",
+            "The context entry point is discoverable through a README or documentation index, using supported content without requiring an invented project mission."
+          ]
+        }
+      ]
+    }
+  ],
+  "commit": "dce1a4727fc1faec13750dd3ca797c4683af519f"
+}
