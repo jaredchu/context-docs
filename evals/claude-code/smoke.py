@@ -40,6 +40,14 @@ def grade(spec, project, output, before):
     working directory. Here the installed skills live at .claude/skills, so the
     same relative path must resolve for both the grader and the Markdown link.
     """
+    # Absolute links to these exact, hash-checked installations are aliases of
+    # their relative paths. Do not accept arbitrary paths elsewhere on the host.
+    spec = {**spec, 'external_references': dict(spec.get('external_references', {}))}
+    project_paths = {project.absolute(), project.resolve()}
+    for name, digest in list(spec['external_references'].items()):
+        for base in project_paths:
+            spec['external_references'][str(base / name)] = digest
+    spec['external_reference_roots'] = [INSTALL, *(str(base / INSTALL) for base in sorted(project_paths))]
     previous = Path.cwd()
     os.chdir(project)
     try:
@@ -140,18 +148,25 @@ def project_files(root):
 
     Grading uses the complete working tree so a stray file under .claude is
     visible to the shared verifier; this narrower view is what the report
-    compares and what the unchanged-project checks use.
+    compares. Byte-identity checks use hashes of the complete tree instead.
     """
     return {name: body for name, body in snapshot(root).items()
             if not name.startswith('.claude/')}
 
 
-def spec_for(case, before, step):
+def tree_hashes(root):
+    """Preserve exact bytes, including new files under .claude, excluding Git internals."""
+    return {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(root.rglob('*'))
+            if path.is_file() and '.git' not in path.relative_to(root).parts}
+
+
+def spec_for(case, before, step, installed=None):
     spec = dict(id='claude-' + case['id'], before=before, protected=case['protected'],
                 immutable=[p for p in case['immutable']], entry=case.get('entry', 'README.md'),
                 allow_noop=step['allow_noop'])
     spec['external_reference_roots'] = [INSTALL]
-    spec['external_references'] = installed_files()
+    spec['external_references'] = installed_files() if installed is None else installed
     return spec
 
 
@@ -184,6 +199,7 @@ def materialize(destination, case):
 def parse_stream(path):
     """Tool calls, skill invocations and the final message, from model-visible output."""
     events, skill_calls, reads, final, error, usage = [], [], [], None, None, {}
+    model = None
     for line in path.read_text().splitlines():
         if not line.strip():
             continue
@@ -193,6 +209,8 @@ def parse_stream(path):
             error = error or 'unparsable_stream_line'
             continue
         events.append(event.get('type'))
+        if event.get('type') == 'system' and event.get('subtype') == 'init':
+            model = event.get('model')
         message = event.get('message') or {}
         for block in message.get('content') or []:
             if not isinstance(block, dict):
@@ -214,24 +232,32 @@ def parse_stream(path):
                 error = error or 'permission_denied'
             if isinstance(event.get('result'), str):
                 final = event['result']
+    if 'result' not in events:
+        error = error or 'missing_terminal_result'
     named = {str(call.get('skill') or call.get('name') or '') for call in skill_calls}
     return dict(skill_calls=skill_calls, skill_names=sorted(n for n in named if n),
                 installed_reads=reads, invoked=bool(skill_calls or reads), final_message=final,
-                execution_error=error, event_types=sorted(set(events)), usage=usage)
+                execution_error=error, event_types=sorted(set(events)), usage=usage, model=model)
 
 
-def run_session(project, prompt, log, model):
+def run_session(project, prompt, log, protocol):
     command = ['claude', '-p', prompt, '--output-format', 'stream-json', '--verbose',
-               '--permission-mode', 'acceptEdits', '--setting-sources', 'project',
-               '--strict-mcp-config', '--allowedTools', *TOOLS]
-    if model:
-        command += ['--model', model]
+               '--permission-mode', protocol['permission_mode'],
+               '--setting-sources', protocol['setting_sources'],
+               '--strict-mcp-config', '--allowedTools', *protocol['allowed_tools']]
+    if protocol['model'] != 'client default':
+        command += ['--model', protocol['model']]
     environment = {k: v for k, v in os.environ.items() if not k.startswith('CLAUDE_CODE_')}
     environment['CLAUDE_CODE_ENTRYPOINT'] = 'context-docs-smoke'
     started = time.time()
     with log.open('w') as stream:
-        completed = subprocess.run(command, cwd=project, stdout=stream,
-                                   stderr=subprocess.PIPE, text=True, env=environment)
+        try:
+            completed = subprocess.run(command, cwd=project, stdout=stream,
+                                       stderr=subprocess.PIPE, text=True, env=environment,
+                                       timeout=protocol['session_timeout_seconds'])
+        except subprocess.TimeoutExpired:
+            return dict(exit_code=124, stderr='Session timed out.',
+                        seconds=round(time.time() - started, 1))
     return dict(exit_code=completed.returncode, stderr=completed.stderr[-2000:],
                 seconds=round(time.time() - started, 1))
 
@@ -240,20 +266,23 @@ def build(destination, model=None):
     if destination.exists():
         raise SystemExit('Destination exists; choose a new path to preserve prior runs.')
     destination.mkdir(parents=True)
-    protocol = dict(kind='claude-code-smoke', frozen_at=None, model=model or 'client default',
+    protocol = dict(kind='claude-code-smoke', schema_version=2, model=model or 'client default',
                     client='claude-code', cli_version=subprocess.run(['claude', '--version'],
                     capture_output=True, text=True).stdout.strip(),
                     skills={name: (ROOT / 'skills' / name / 'VERSION').read_text().strip() for name in SKILLS},
                     installed_files=installed_files(), allowed_tools=TOOLS,
+                    session_timeout_seconds=600,
                     setting_sources='project', permission_mode='acceptEdits',
                     user_claude_md_present=(Path.home() / '.claude/CLAUDE.md').exists(),
                     user_agents_md_present=(Path.home() / 'AGENTS.md').exists(),
                     trajectories=[])
     for trajectory in trajectories():
-        materialize(destination / 'projects' / trajectory['id'], trajectory['case'])
+        project = destination / 'projects' / trajectory['id']
+        materialize(project, trajectory['case'])
         protocol['trajectories'].append(dict(
             id=trajectory['id'], invocation=trajectory['invocation'],
-            case=trajectory['case']['id'], immutable=trajectory['case']['immutable'],
+            case=trajectory['case']['id'], entry=trajectory['case'].get('entry', 'README.md'),
+            initial_tree=tree_hashes(project), immutable=trajectory['case']['immutable'],
             protected=trajectory['case']['protected'],
             steps=[dict(prompt=step['prompt'], allow_noop=step['allow_noop'],
                         expect_unchanged=step.get('expect_unchanged', False),
@@ -269,21 +298,35 @@ def build(destination, model=None):
 
 def run(destination, model=None):
     protocol = json.loads((destination / 'protocol.json').read_text())
+    if protocol.get('schema_version') != 2:
+        raise SystemExit('Protocol lacks frozen inputs; build and freeze a new destination.')
+    if model is not None and model != protocol['model']:
+        raise SystemExit('Model differs from the frozen protocol; build a new destination.')
     if (destination / 'trials.json').exists():
         raise SystemExit('trials.json exists; preserve it and build a new destination.')
+    for trajectory in protocol['trajectories']:
+        if tree_hashes(destination / 'projects' / trajectory['id']) != trajectory['initial_tree']:
+            raise SystemExit(f'Inputs differ from frozen protocol: {trajectory["id"]}')
     logs = destination / 'logs'
-    logs.mkdir(exist_ok=True)
+    if logs.exists():
+        raise SystemExit('Logs already exist; preserve the interrupted run and build a new destination.')
+    logs.mkdir()
     trials = []
-    for trajectory in trajectories():
+    for trajectory in protocol['trajectories']:
         project = destination / 'projects' / trajectory['id']
         before_tree, before = snapshot(project), project_files(project)
+        before_hashes = tree_hashes(project)
         steps = []
+        trials.append(dict(trajectory=trajectory['id'], invocation=trajectory['invocation'],
+                           case=trajectory['case'], steps=steps))
         for index, step in enumerate(trajectory['steps']):
             log = logs / f'{trajectory["id"]}-pass-{index + 1}.jsonl'
-            execution = run_session(project, step['prompt'], log, model)
+            execution = run_session(project, step['prompt'], log, protocol)
             observed = parse_stream(log)
             after_tree, after = snapshot(project), project_files(project)
-            spec = spec_for(trajectory['case'], before_tree, step)
+            after_hashes = tree_hashes(project)
+            case = {**trajectory, 'id': trajectory['case']}
+            spec = spec_for(case, before_tree, step, protocol['installed_files'])
             graded = grade(spec, project, destination, before_tree)
             checks = dict(graded['checks'])
             checks['installed_skill_unchanged'] = all(
@@ -292,7 +335,7 @@ def run(destination, model=None):
                 for name, digest in protocol['installed_files'].items())
             checks['no_agent_commits_or_staging'] = checks.get('no_agent_commits_or_staging', False)
             if step.get('expect_unchanged'):
-                checks['project_byte_identical'] = after == before
+                checks['project_byte_identical'] = after_hashes == before_hashes
             if step.get('expect_date'):
                 checks['original_date_retained'] = any(
                     f'Adopted: {step["expect_date"]}' in body for body in after.values())
@@ -303,10 +346,14 @@ def run(destination, model=None):
                               observed={k: v for k, v in observed.items() if k != 'skill_calls'},
                               skill_calls=observed['skill_calls'], checks=checks,
                               mechanical_pass=all(checks.values()),
+                              tree_before=before_hashes, tree_after=after_hashes,
                               files_before=before, files_after=after, rubric=step['rubric']))
+            (destination / 'trials.json').write_text(json.dumps(trials, indent=2) + '\n')
+            if not checks['no_execution_error']:
+                print(f'Execution failed in {trajectory["id"]} pass {index + 1}; partial results retained.')
+                return
             before_tree, before = after_tree, after
-        trials.append(dict(trajectory=trajectory['id'], invocation=trajectory['invocation'],
-                           case=trajectory['case']['id'], steps=steps))
+            before_hashes = after_hashes
     (destination / 'trials.json').write_text(json.dumps(trials, indent=2) + '\n')
     passed = sum(s['mechanical_pass'] for t in trials for s in t['steps'])
     total = sum(len(t['steps']) for t in trials)
@@ -324,7 +371,7 @@ def report(destination, reviews_path=None):
             summary['sessions'] += 1
             summary['mechanical_passed'] += step['mechanical_pass']
             summary['invoked'] += bool(step['observed']['invoked'])
-            summary['execution_errors'] += step['observed']['execution_error'] is not None
+            summary['execution_errors'] += not step['checks']['no_execution_error']
             key = f'{trial["trajectory"]}-pass-{step["pass_number"]}'
             judged = (reviews or {}).get('sessions', {}).get(key)
             if judged is not None:

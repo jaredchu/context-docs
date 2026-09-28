@@ -40,7 +40,9 @@ jobs:
         working-directory: evals/quality
 
       - name: Claude Code smoke-test selftest
-        run: python3 evals/claude-code/smoke.py selftest
+        run: |
+          python3 evals/claude-code/smoke.py selftest
+          python3 -m unittest discover -s evals/claude-code -p 'test_*.py'
 
       - name: Adoption grader controls
         run: |

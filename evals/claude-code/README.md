@@ -44,33 +44,53 @@ things necessarily differ, and all three are recorded in `protocol.json`:
 Requests state each immutable file explicitly, following the fix the
 [initial v0.1.3 review](../results/2026-09-28-adoption-v013/README.md) required.
 
-Six open decisions about this harness, with recommendations, are recorded in the
-[September 28 handoff](../../docs/handoff-2026-09-28-claude-code.md). Settle the
-three that change fixtures before freezing a run.
+The [September 28 handoff](../../docs/handoff-2026-09-28-claude-code.md) records
+the original design proposals. The repaired harness retains project-scoped
+installation, final-message audits and the explicit unnamed-selection check.
+A discovery miss therefore fails that trajectory; it is not by itself a skill
+content defect. This local smoke test has no container or network isolation and
+must not be compared numerically with the Codex studies.
 
 ## Run it
 
 Needs Python 3, Git and a Claude Code CLI that can authenticate. Sessions run
 non-interactively with `--permission-mode acceptEdits`, `--setting-sources project`,
-`--strict-mcp-config` and a fixed tool allowlist, in disposable directories only.
+`--strict-mcp-config` and fixed tool permission rules, in disposable directories
+only. These rules preapprove tool calls; they are not a sandbox. Prefer a temporary
+directory outside this repository so ancestor project instructions cannot leak
+into the synthetic fixtures.
 
 ```sh
 python3 evals/claude-code/smoke.py selftest
-python3 evals/claude-code/smoke.py build .local/claude-code-smoke
-python3 evals/claude-code/smoke.py run .local/claude-code-smoke
-python3 evals/claude-code/smoke.py report .local/claude-code-smoke --reviews reviews.json
+python3 -m unittest discover -s evals/claude-code -p 'test_*.py'
+python3 evals/claude-code/smoke.py build /tmp/context-docs-claude-smoke --model claude-opus-5
+# Copy protocol.json to the evaluation results directory and commit before running.
+python3 evals/claude-code/smoke.py run /tmp/context-docs-claude-smoke
+python3 evals/claude-code/smoke.py report /tmp/context-docs-claude-smoke --reviews reviews.json
 ```
 
 Freeze the built `protocol.json` in Git before running the sessions. Pass `--model`
-to pin a model; the resolved CLI version, model, tool allowlist and permission mode
-are all recorded. Use a new destination for each run: `run` refuses to overwrite an
-existing `trials.json`, and every session is retained, including failures.
+at build time to select a full model ID (the example uses
+[Claude Opus 5](https://platform.claude.com/docs/en/models/opus-5/overview)). The CLI
+version, requested model, tool permission rules, timeout and grading inputs are
+recorded. `run` consumes the frozen requests and criteria, rejects conflicting
+model overrides and checks the initial project hashes before any session. Old
+protocols without frozen inputs require a new build. The model reported in the
+client's initialization event is retained separately when available.
+
+Use a new destination for each run: existing trials or logs are never overwritten.
+Results are saved after each session; an execution error stops the remaining
+sessions, with the failed attempt retained. Each session has a ten-minute timeout.
 
 `selftest` needs no credentials and no network. It checks stream parsing on
 recorded positive, negative and error streams, that each fixture materializes with
 its uncommitted material actually uncommitted, and that the grader accepts the
 reference output while rejecting an unrequested edit to an immutable file, a broken
-project link, a missing installed file and a tampered installed skill.
+project link, a missing installed file and a tampered installed skill. Additional
+unit tests exercise protocol/model drift, changed initial inputs, whole-tree byte
+identity (including `.claude/` and newline changes), absolute and relative
+installed references, incomplete streams and retained execution failures. Installed
+absolute links are validated for this machine; that does not establish portability.
 
 ## Review
 

@@ -91,10 +91,12 @@ still need owner acceptance.
 - A [native Claude Code smoke test](../evals/claude-code/README.md) exists for skill
   discovery and invocation, rule placement in Claude-only and mixed instruction
   projects, repeat preservation and audit-only read-only behavior. It reuses the
-  shared adoption fixtures, and its harness and static controls pass. Observed on
-  2026-09-28: no model session has been executed, because the Claude Code CLI
-  available here could not authenticate, so the harness records six execution
-  failures rather than behavior. Client behavior stays unestablished until it runs.
+  shared adoption fixtures. Review found and repaired three harness defects:
+  ignoring frozen requests/model, excluding `.claude/` from read-only checks, and
+  rejecting valid absolute installed links. The original 34 assertions and ten
+  new regression tests pass. Runs now validate frozen initial inputs, retain
+  partial results and stop on execution errors. The earlier contributor reported
+  six authentication failures; no completed native session is established yet.
 - Installation into Claude Code is documented and its packaging validated;
   no evaluation has been executed on any client other than Codex.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
