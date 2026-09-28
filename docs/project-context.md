@@ -118,15 +118,26 @@ records the implementation choices and decision rule. It does not authorize a me
   [second](../evals/results/2026-09-28-native-v014-followup/README.md), 5/6;
   [attribution follow-up](../evals/results/2026-09-28-native-discovery-final/README.md), 0/1;
   [final-state follow-up](../evals/results/2026-09-28-native-state-followup/README.md), 0/1.
-  The second candidate passes routing, repeats and audit. The latest discovery
+  The second candidate passes routing, repeats and audit. The final targeted discovery
   preserves code/packages, creates navigation, qualifies loading and attributes
   choices correctly, but overclaims CSV value types and retains a stale no-README
   claim in its final response. All its file checks pass; a denied compound command
-  fails the separate execution check. **Current recommendation: hold the merge.**
+  fails the separate execution check. That development review held the merge.
   These are different development conditions, not a pooled benchmark. Exact
   commits/hashes distinguish candidates sharing unreleased package versions.
+  The subsequent [paired study](../evals/results/2026-09-28-native-paired/README.md)
+  completed eight fresh sessions with identical requests, ordinary/skills conditions
+  and two attempts per case. Skills were unchanged. CSV target accuracy is 0/2
+  ordinary versus 1/2 skills; stale-state reconciliation passes in both conditions.
+  All eight sessions pass project-file checks. Strict semantic acceptance is 2/4 ordinary
+  versus 1/4 skills, but two skills failures are solely unverified loading
+  confirmations, not demonstrated false assertions. The missing early check phrase
+  cannot prove non-loading. Scope review finds scratch writes in two ordinary and
+  one skills session. **Current recommendation: hold the merge for verification
+  evidence and scope limits; a skill-specific cause of the original errors is not
+  established.** No prompt tuning or extra runs followed the bounded comparison.
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
-  Claude Opus 5, with mixed results. Other clients remain unevaluated.
+  Claude Opus 5, with mixed results. Clients beyond Codex and Claude Code remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Current package: experimental core skill v0.1.2; standard/resources remain v0.1.0.
   The package is instructions only, with no background maintenance or sync.
@@ -170,12 +181,13 @@ records the implementation choices and decision rule. It does not authorize a me
 5. Preserve the initial v0.1.3 failure, passing Codex follow-up and mixed native
    results as separate evidence. Installed-path portability across machines remains
    untested. Do not promote these small studies into reliable-support claims.
-6. Keep the current branch unmerged while discovery factual consistency remains
-   unresolved. Further changes need concrete claim evidence and independently
-   contributed cases, rather than more prompt tuning on this single fixture.
-   Retain all attempts and separate execution failures from factual errors; do not
-   silently repair scored artifacts. Native coverage does not make the new core
-   revision a full rerun of the earlier Codex maintenance studies.
+6. The accepted paired comparison is complete. Keep the merge recommendation on
+   hold while loading confirmations lack directly observable delivery evidence and
+   the client allows writes outside the requested project boundary. The comparison
+   does not establish that the skills caused the original CSV/stale-state failures.
+   Direct initial-context instrumentation and an enforced write boundary would be
+   more useful than further tuning on these fixtures. Preserve all attempts and
+   distinguish unverified claims, demonstrated errors and execution denials.
 
 ## Canonical references
 

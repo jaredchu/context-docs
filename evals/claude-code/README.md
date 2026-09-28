@@ -1,24 +1,24 @@
 # Native Claude Code smoke test
 
 Status: **native evaluation completed with mixed results; merge recommendation
-on hold.** The [second unreleased candidate](../results/2026-09-28-native-v014-followup/README.md)
-passes five of six semantic sessions (routing, repeats and audit), and four of six
-strict mechanical checks. The [latest targeted discovery run](../results/2026-09-28-native-state-followup/README.md)
-still makes an unsupported universal CSV claim and a stale final README statement.
-All its project-file checks pass; a command denial fails execution. Each candidate
-has frozen inputs and separate results. Earlier authentication, inherited-input,
-parser and factual failures remain recorded, starting with the
-[clean run](../results/2026-09-28-claude-code-clean/README.md) and
-[audit/discovery follow-up](../results/2026-09-28-claude-code-followup/README.md).
-This checks questions raised by the [Codex v0.1.3 review](../results/2026-09-28-adoption-v013-followup/README.md)
-on the native client with shared fixtures and strengthened factual criteria.
+on hold.** The [eight-session paired comparison](../results/2026-09-28-native-paired/README.md)
+finds CSV overclaims in both ordinary and skills conditions, with stale-state
+updates passing in both. It does not establish a skill-specific cause for the
+original errors. Some loading confirmations remain unverified, and command traces
+show out-of-project scratch writes in both conditions. The report distinguishes
+those findings from preserved files and optional command denials.
+
+The earlier [second unreleased candidate](../results/2026-09-28-native-v014-followup/README.md)
+passes five of six semantic sessions; [targeted discovery](../results/2026-09-28-native-state-followup/README.md)
+retains a CSV overclaim and stale README summary. All earlier authentication,
+input-contamination, parser and factual failures remain recorded without rescoring.
 
 This is a smoke test, not a comparison: there is no ordinary-maintenance arm, no
 reader phase and one attempt per session. It can show that the skill loads and
 behaves acceptably on this client, or that it does not. It cannot establish
 accuracy, reliability or any advantage.
 
-A [bounded paired comparison](paired-protocol.md) now tests two fresh cases with
+The completed [bounded paired comparison](paired-protocol.md) tests two fresh cases with
 and without the unchanged skills, using identical requests and two attempts per
 condition. Its frozen decision rule separates a repeatable adverse association
 from shared model errors. This adds a baseline absent from the smoke runs.

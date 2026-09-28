@@ -180,14 +180,14 @@ The comparative studies above used one client and one model. The
 [native Claude Code smoke test](claude-code/README.md) runs the shared adoption
 fixtures through the Claude Code CLI to check skill discovery, rule placement in
 Claude-only and mixed instruction projects, repeat preservation and audit-only
-read-only behavior. The [second unreleased candidate](results/2026-09-28-native-v014-followup/README.md)
-passes routing, repeats and auditing (five of six semantic sessions), but discovery
-fails. Two later targeted runs remain failures; the
-[latest](results/2026-09-28-native-state-followup/README.md) overclaims CSV value
-types and retains a stale README statement in its final response. File checks,
-execution denials and semantic review are reported separately. Earlier attempts
-remain recorded. These small author-reviewed cases do not establish general
-cross-client reliability; the merge recommendation remains on hold.
+read-only behavior. The [paired native study](results/2026-09-28-native-paired/README.md)
+adds eight sessions on fresh cases with identical requests and an ordinary baseline.
+CSV overclaims occur in both conditions; stale-state updates pass in both. Some
+loading confirmations cannot be independently verified from the recorded stream,
+and scratch writes violate scope in three sessions across both conditions. The
+merge recommendation remains on hold without a claim that the skills caused the
+original factual errors. Prior attempts retain their original criteria and scores.
+These author-reviewed development cases do not establish cross-client reliability.
 
 ## Optional adoption skill
 

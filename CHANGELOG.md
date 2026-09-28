@@ -25,6 +25,19 @@ not a demonstrated accuracy gain.
   evaluations. These repository-only changes do not alter installable skills;
   separate skill changes are recorded below.
 
+## Native paired evaluation — 2026-09-28
+
+- Add a bounded ordinary-versus-skills comparison with matched requests, fresh
+  cases, two attempts per condition and frozen inputs/criteria. Five new runner
+  tests and the existing thirteen native smoke tests pass; these are static checks.
+- [Eight actual native sessions](evals/results/2026-09-28-native-paired/README.md)
+  use the unchanged core 0.1.2 / adoption 0.1.4. CSV overclaims appear in both
+  conditions; stale-state reconciliation passes in both. No skill-specific cause
+  of the earlier errors is established.
+- Retain unverified loading confirmations, scratch-directory scope violations and
+  optional command denials separately. The hold remains; conservative acceptance
+  totals are not an accuracy ranking. No new skill revision or extra retry follows.
+
 ## context-docs 0.1.2 — unreleased
 
 - Tighten the existing evidence check: verify the exact claim and retain the
