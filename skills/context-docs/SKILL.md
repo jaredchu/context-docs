@@ -50,7 +50,9 @@ dated evidence and unresolved work. Mark superseded guidance without losing its
 rationale. Do not shorten by hiding blockers or relying on Git to recover uncommitted
 material. Keep commands, fences, anchors and relative links intact.
 
-Review the diff, affected links and information preservation. Check the final
+Review the diff, affected links and information preservation against the resulting
+project. Refresh facts made stale by your own edits; label retained earlier
+observations as pre-change when they no longer describe current state. Check the final
 report's factual claims by the same standard as the edited documents, retaining
 their qualifications rather than strengthening them in a summary. Date only claims
 actually reviewed. If nothing durable changed, avoid bookkeeping edits. Briefly

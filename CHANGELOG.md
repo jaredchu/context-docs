@@ -36,6 +36,8 @@ not a demonstrated accuracy gain.
   input and keeps final reports focused instead of restating unchanged context.
 - A targeted refinement attributes agent-chosen methods/layouts to their actual
   decision maker and preserves document qualifications in final summaries.
+- Final review reconciles statements with the resulting project, including facts
+  made stale by the agent's own edits.
 - Addresses the retained [native discovery failures](evals/results/2026-09-28-claude-code-followup/README.md).
   Behavioral regression pending; prior results retain their original versions.
 
