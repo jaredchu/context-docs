@@ -1,0 +1,39 @@
+{
+  "label": "Authored synthetic history; probe results below are fixture evidence, not executed probes",
+  "stages": [
+    {
+      "session": "stage-1",
+      "evidence": "# Synthetic evidence: stage 1\n\nOn synthetic September 1, owner Rowan approved changing the local pilot timeout from 10 to 20 seconds to accommodate slow imports. Approval applies only to the local pilot.\n\nFixture check: `demo-validator config.json` passed against this stage's Git revision. Scope: configuration shape and positive timeout only; no network request or deployment was checked.\n\nThe old operations note claims production uses 10 seconds, while local config is now 20. Production access is unavailable; production timeout and deployment remain unknown. Next action: obtain a production configuration observation from the operator.\n",
+      "context": "# Synthetic current context\n\nLocal pilot timeout is configured to 20 seconds, approved by Rowan to accommodate slow imports. Configuration validation passed; runtime behavior and deployment are unverified. Production timeout remains unknown despite an old operations note claiming 10 seconds. Ask the operator for a production configuration observation. Evidence: [stage 1](evidence/stage-1.md).\n",
+      "timeout": 20,
+      "events": [
+        {"type": "verification", "status": "observed", "summary": "Synthetic configuration validation passed; no runtime or deployment check.", "check": {"command": "demo-validator config.json", "scope": "Configuration shape and positive timeout only", "result": "Synthetic fixture: passed"}},
+        {"type": "context_update", "status": "observed", "summary": "Updated local timeout from 10 to 20 seconds because Rowan approved a local pilot change to accommodate slow imports; approval does not cover deployment."},
+        {"type": "contradiction", "status": "unknown", "summary": "Old operations note claims production timeout 10 seconds; local config is 20. Production value and deployment are unverified. Ask operator for a production configuration observation."}
+      ]
+    },
+    {
+      "session": "stage-2",
+      "evidence": "# Synthetic evidence: stage 2\n\nOn synthetic September 2, a single staging fixture import hit the 20-second timeout. Fixture command: `demo-probe --env staging --imports 1`, failed against this stage's Git revision. This is one staging import; production was not tested.\n\nAgent Vale proposed increasing staging timeout to 30 seconds. Rowan has not approved this proposal. Local pilot approval from stage 1 remains unchanged.\n\nCurrent context should now record the limited staging failure and the pending proposal. Production timeout and deployment remain unknown; the operator observation is still needed.\n",
+      "context": "# Synthetic current context\n\nLocal pilot configuration remains 20 seconds under Rowan's earlier approval. One staging fixture import timed out; this does not establish production failure. Vale proposes 30 seconds for staging; approval is pending. Production timeout and deployment remain unknown. Ask the operator for a production configuration observation. Evidence: [stage 1](evidence/stage-1.md), [stage 2](evidence/stage-2.md).\n",
+      "timeout": 20,
+      "events": [
+        {"type": "verification", "status": "observed", "summary": "Incorrect synthetic entry: production import failed at 20 seconds.", "check": {"command": "demo-probe --env production --imports 1", "scope": "Production import", "result": "Synthetic fixture: failed"}},
+        {"type": "verification", "status": "observed", "summary": "Correction: only one staging fixture import timed out at 20 seconds. Production was not tested.", "supersedes_previous": true, "check": {"command": "demo-probe --env staging --imports 1", "scope": "One staging fixture import; production untested", "result": "Synthetic fixture: failed"}},
+        {"type": "decision", "status": "proposed", "summary": "Vale proposes a staging timeout of 30 seconds; Rowan has not approved it."},
+        {"type": "context_update", "status": "observed", "summary": "Added the limited staging failure and pending 30-second proposal. Preserve existing local approval and unknown production state."}
+      ]
+    },
+    {
+      "session": "stage-3",
+      "evidence": "# Synthetic evidence: stage 3\n\nOn synthetic September 3, owner Rowan approved staging timeout 30 seconds after a bounded staging fixture probe passed. Approval is staging-only, to allow slow fixture imports. Local pilot configuration remains 20 seconds.\n\nFixture command: `demo-probe --env staging --timeout 30 --imports 1`, passed against this stage's Git revision. Scope: one staging fixture import; this does not prove general reliability or deployment to production.\n\nProduction timeout and deployment remain unknown. The operator configuration observation is still needed.\n\nOmitted-event control: a separate synthetic restore drill failed because backup credentials were unavailable. No restore result is entered in the journal. This raw note remains equally accessible in both source routes.\n",
+      "context": "# Synthetic current context\n\nLocal pilot timeout remains 20 seconds. Rowan approved staging timeout 30 seconds to allow slow fixture imports after one bounded staging probe passed. This is not production approval or a general reliability result. Production timeout and deployment remain unknown; ask the operator for a production configuration observation. Evidence: [stage 1](evidence/stage-1.md), [stage 2](evidence/stage-2.md), [stage 3](evidence/stage-3.md).\n",
+      "timeout": 20,
+      "events": [
+        {"type": "verification", "status": "observed", "summary": "One synthetic staging fixture import passed at timeout 30 seconds; production remains untested.", "check": {"command": "demo-probe --env staging --timeout 30 --imports 1", "scope": "One staging fixture import only", "result": "Synthetic fixture: passed"}},
+        {"type": "decision", "status": "approved", "summary": "Rowan approved staging timeout 30 seconds to allow slow fixture imports after the bounded passing probe. Local pilot remains 20; no production approval.", "authority": "Synthetic owner Rowan; evidence/stage-3.md"},
+        {"type": "context_update", "status": "observed", "summary": "Replaced the pending staging proposal with Rowan's staging-only approval and bounded probe result. Production configuration and deployment remain unknown; operator observation still needed."}
+      ]
+    }
+  ]
+}

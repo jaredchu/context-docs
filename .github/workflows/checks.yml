@@ -28,6 +28,14 @@ jobs:
       - name: Static checker regression tests
         run: python3 -m unittest discover -s evals/checks -p 'test_*.py'
 
+      - name: Optional event journal tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Native journal boundary tests
+        run: |
+          python3 -m unittest discover -s evals/event-journal/native -p 'test_*.py'
+          python3 -m unittest discover -s evals/event-journal/integration -p 'test_*.py'
+
       - name: Core suite self-test
         run: python3 selftest.py
         working-directory: evals/suite

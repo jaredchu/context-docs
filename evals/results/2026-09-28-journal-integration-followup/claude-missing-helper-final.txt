@@ -1,0 +1,8 @@
+This looks good — the release checklist line, adoption date, entry point, and prior decision/verification history in CLAUDE.md and `notes/current.md` are all untouched.
+
+**Summary**
+
+- Updated `notes/current.md`: added an "Open questions" section recording the new evidence from `evidence/pending.md` — restore verification is still pending, no restore check has run, source `synthetic-team:P1` — and noted that no existing script (`checks/probe.py` only gates `batch_limit`) currently performs that check.
+- No other canonical sections needed changes; the batch_limit decision/verification state was already current and is untouched.
+- Capability gap: the project has event journaling enabled (`Event journal: jsonl`, directory `history/events`), but the packaged `event_journal.py` helper referenced by the skill's journal guide isn't present under `.claude/skills/context-docs/` (no `scripts/` directory exists, only `references/`, `assets/`, `agents/`, `LICENSE`, `VERSION`). I couldn't append a journal event for this update and didn't fabricate one; the Markdown update above stands on its own.
+- No files outside `notes/current.md` were modified; evidence, settings, packages, and raw JSONL were left as-is per the task boundary.

@@ -9,8 +9,8 @@ continuity across AI sessions. Its primary goal is retaining useful content and
 improving documentation accuracy and consistency. It addresses inconsistent
 structures and maintenance drift while adapting to existing project layouts.
 
-The public package contains instructions, references, templates and synthetic
-examples. A hosted memory service, automatic scheduler and retrieval backend are
+The package contains instructions, references, templates and an optional Python
+journal helper. Ordinary Markdown maintenance needs no runtime. A hosted memory service, automatic scheduler and retrieval backend are
 outside the first version's scope.
 
 ## Decisions
@@ -28,7 +28,7 @@ owner quotes.
 
 On September 27 the owner accepted the proposed eight-task, two-condition,
 three-attempt evaluation. Harbor is the selected execution framework; evaluation
-dependencies are separate from the instruction-only skill package.
+dependencies were separate from the then instruction-only skill package.
 
 On September 27 the owner clarified that retained content, documentation accuracy
 and consistency are the product goals. Speed and concision are secondary diagnostics.
@@ -51,11 +51,73 @@ On September 28 the owner approved merging PR #1 after reviewing the guarded
 follow-up and its experimental-support recommendation. The merge retains the
 documented factual limitations and does not establish general reliability.
 
+On September 28 the owner authorized implementing an optional JSONL event-journal
+pilot, keeping Markdown as curated context and evaluating usefulness during real
+work. Its CLI, schema and three-session trial procedure are implementation choices,
+not an approved universal logging requirement.
+
+The owner subsequently authorized proceeding with the three-session live trial
+in this repository. The temporary project instruction and tracking layout are
+implementation choices; this does not mandate logging for skill adopters.
+
+The owner then clarified the logging objective: record events efficiently so their
+history is available when needed. Better current context, routine handoff speed
+and context savings are not acceptance criteria for logging. This supersedes the
+assistant's inference that the context-retrieval trial justified ending useful
+event capture; it does not rescore earlier tests or prove logging reliability.
+
+The owner added three logging requirements: include actual Claude testing and
+evaluation, make updates compatible with already adopted Context Docs projects,
+and establish whether additional logging is necessary alongside Markdown/Git.
+The third question takes priority over assuming a separate JSONL store is needed.
+The owner also identified projects without Git or with infrequent commits as
+logging use cases. Evaluate event preservation there without assuming JSONL is
+necessary: Markdown history can also survive independently of commits.
+Concrete comparison and upgrade criteria are recorded in the
+[journal requirements](event-journal-pilot.md#requirements-before-broader-integration).
+
+The owner then authorized the minimal opt-in integration: package the helper with
+the owning skill, leave logging off by default, exercise real incremental capture
+in Claude and Codex, and verify upgrade/repeat/audit/disable preservation. The
+settings and version increments are implementation choices within that scope.
+
+On September 28 the owner authorized publishing the experimental v0.1.3 release,
+including the merged Claude work, upgrading local global skills and enabling
+logging. This repository opts in through its existing AGENTS.md section, with
+CLAUDE.md importing that file; other projects keep their existing settings.
+
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
+- Core v0.1.3 packages the optional [schema-v1 journal](event-journal-pilot.md)
+  and its portable guide; adoption v0.1.5 merges explicit project settings.
+  Logging defaults off, including existing adopters. It has no background capture,
+  cleanup or mandatory runtime; the optional helper requires Python 3.9+.
+  The repository command remains a compatibility entry point to that one helper.
+  [Earlier mechanical tests and replay](../evals/results/2026-09-28-event-journal/README.md)
+  and the [same-chat trial](event-journal-live-trial.md) remain historical evidence.
+  The [12-session native format comparison](../evals/results/2026-09-28-native-journal/README.md)
+  found requested facts retained in all formats, with factual/execution errors;
+  it establishes no JSONL necessity or speed advantage.
+- The [native integration study](../evals/results/2026-09-28-journal-integration/README.md)
+  tests actual old-package replacement and direct installed-helper use. Codex's
+  nine-stage lifecycle passed functional capture/preservation. Claude's original
+  nine sessions skipped setup and remain failures; a separately frozen task-first
+  native-invocation follow-up passed functional stages with semantic and guard
+  qualifications. Original dates, custom paths, instruction wording and legacy
+  history survived; repeat/audits wrote nothing; disabling retained all records.
+  Normal maintenance continued with the helper absent.
+- A [four-session capture-gap follow-up](../evals/results/2026-09-28-journal-gap/README.md)
+  addresses failure reasons previously retained only in chat. Both clients now
+  preserve a concise gap note in existing Markdown; fresh readers recovered the
+  actual historical cause after helper restoration without writing/backfilling.
+  Frozen hashes identify the unreleased core candidates. A final clarification
+  covers unconfirmed writes and received static review only. General accuracy,
+  unrestricted-client reliability, implicit selection and a recording-cost
+  advantage remain unestablished. These evaluations used isolated installations
+  and synthetic adopters; they did not change global skills or real adopter projects.
 - Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
-  v0.1.4, applies the core method and merges ongoing maintenance into the project's
+  v0.1.5, applies the core method and merges ongoing maintenance into the project's
   loaded agent instruction file. Install it alongside `context-docs`; it is not standalone.
   Completed setup now records a small adoption marker with the original date and
   actual entry point. Missing markers do not imply non-adoption; unrecorded dates
@@ -152,15 +214,21 @@ documented factual limitations and does not establish general reliability.
   the boundary control. **Current recommendation: experimental merge, with factual
   limits and no unrestricted-client reliability claim.** The evaluation-only guard
   exposes six file/skill tools, excludes shell execution, and is not an OS sandbox.
-  Installing the instruction-only skills does not install this guard. No skill
-  revision or merge was performed during the follow-up.
+  That evaluated instruction-only candidate did not install the guard. No skill
+  revision or merge was performed during that follow-up.
 - Installation and native behavior have been tested on Claude Code 2.1.234 with
   Claude Opus 5, with mixed results. Clients beyond Codex and Claude Code remain unevaluated.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current package: experimental core skill v0.1.2; standard/resources remain v0.1.0.
-  The package is instructions only, with no background maintenance or sync.
+- Current package: experimental core skill v0.1.3 and adoption v0.1.5; standard
+  remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
+  maintenance needs no runtime. There is no background maintenance or sync.
+- The owner-authorized [v0.1.3 release](releases/v0.1.3.md) is being prepared.
+  Logging is enabled for this repository in `.context/events`, preserving the
+  original adoption date, entry point and historical records. CLAUDE.md imports
+  AGENTS.md so both clients can share the settings; live automatic loading in
+  a new Claude session has not been verified during release preparation.
 - Completed studies cover initialization, stale/conflicting guidance, decision
   preservation, uncommitted work, links, audit-only behavior and repeated maintenance.
   The [dated evaluation summary](evaluation-summary-2026-09-27.md) preserves all
@@ -177,6 +245,14 @@ documented factual limitations and does not establish general reliability.
   have weaker local isolation. Authoring and review were not independent or blinded.
 
 ## Next actions
+
+Keep logging optional and preserve the [integration findings and limits](../evals/results/2026-09-28-journal-integration/README.md).
+The bounded upgrade/capture/repeat/audit/disable checks are complete, including a
+focused durable-gap repair. Use explicit native skill invocation for Claude when
+evaluating this candidate; initial skipped requests remain evidence. Further
+expansion needs a concrete use case and varied real-project histories, not more
+format comparisons on these fixtures. Customized package merges, other platforms,
+high event volumes and natural recording effort remain outside the completed tests.
 
 1. Use the recorded native failures to guide review before further prompt tuning.
    Avoid adding rules for isolated examples. Cloud adapters still need a concrete

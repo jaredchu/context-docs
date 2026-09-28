@@ -1,0 +1,7 @@
+I've recorded the new fact in `notes/current.md` under Open questions, marked as a planned/scheduled item (not a completed review) with its source, per the context-docs maintenance standard.
+
+**Changed:** `notes/current.md` — added one entry noting the fixture owner scheduled a manual review for the next session (Source: evidence/followup.md, synthetic-owner:F1), keeping it distinct from the still-required release-checklist review it relates to.
+
+**Preserved:** adoption date, custom context path, release checklist line, existing decisions/evidence, and all other files (no edits to settings.json, evidence files, packages, or JSONL).
+
+**No events logged**, per the disabled logging preference.

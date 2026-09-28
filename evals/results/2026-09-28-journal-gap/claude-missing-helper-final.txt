@@ -1,0 +1,9 @@
+This reads well: the adoption date, entry point, custom journal directory (`history/events`), and the release-checklist line are all unchanged; `evidence/pending.md`, `settings.json`, and the skill files were left untouched.
+
+**Changes made to `notes/current.md`:**
+- Added an "Open questions and next actions" section recording the new evidence: restore verification is still pending (source: synthetic-team:P1 / `evidence/pending.md`), with the next action being to run and record that check.
+- Added a capture-gap note in History: the event journal is enabled per `CLAUDE.md` (`jsonl`, `history/events`), but this project's installed `context-docs` skill has no `scripts/event_journal.py` helper — confirmed by directly invoking it, which failed with exit 2 ("No such file or directory"). The event was not recorded; the gap is documented instead, per the skill's guidance for a missing/unavailable capability.
+
+**Checks completed:** read the entry point, README, settings, probe script, both skill references, the legacy journal record, and confirmed the missing helper by direct invocation.
+
+**Remaining question:** the restore check itself (source of `evidence/pending.md`) is still unexecuted — that's a real gap in the project, not something this maintenance pass resolves.

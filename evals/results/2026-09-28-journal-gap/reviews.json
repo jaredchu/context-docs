@@ -1,0 +1,31 @@
+{
+  "reviewer": "Authoring assistant; not independent or blinded",
+  "candidate": "Core 0.1.3 with durable capture-gap paragraph; frozen exact hashes retained",
+  "claude": {
+    "functional_and_target_factual_acceptance": true,
+    "findings": [
+      "Maintained pending restore fact without claiming execution.",
+      "Recorded dated capture gap in existing Markdown naming context_update, helper absence and actual attempted command exit 2.",
+      "No new event or fabricated replacement helper; original instructions, package bytes and legacy record preserved.",
+      "Fresh audit recovered the actual historical helper-absence cause and current restored availability, with a successful read-only helper read; no writes/backfill."
+    ],
+    "qualifications": [
+      "Incidental version label refers to the core package version, not a separate helper release; schema remains 1.",
+      "Evaluation guard/tool failures remain in streams and do not imply clean unrestricted execution."
+    ]
+  },
+  "codex": {
+    "functional_and_target_factual_acceptance": true,
+    "findings": [
+      "Maintained pending fact and dated historical capture-gap note with missing-helper reason.",
+      "No new event; original instructions, package bytes and legacy record preserved.",
+      "Fresh audit recovered the fact and reason from stored Markdown, treated them as recorded evidence and distinguished restored current file availability from runtime verification.",
+      "Audit preserved every project-file byte and performed no backfill."
+    ]
+  },
+  "limits": [
+    "Logging pre-enabled by fixture, not tested here.",
+    "One focused trajectory per client.",
+    "Final wording-only addition of or unconfirmed received static review, not another model run."
+  ]
+}

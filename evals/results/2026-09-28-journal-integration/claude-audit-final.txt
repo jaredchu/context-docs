@@ -1,0 +1,23 @@
+## Audit findings (read-only — no files changed)
+
+**1. What actually failed earlier?**
+An earlier `checks/probe.py` run on 2026-09-28 read `batch_limit=4` and exited with code 7, "queue overflow" (`notes/current.md:22-26`, sourced to "checks/probe.py run output"). This reading no longer matches the current `settings.json` and is explicitly marked superseded/historical, not current state.
+
+**2. What setting and scope did Rina later approve?**
+Rina (fixture owner) approved `batch_limit=6`, scoped **only to (synthetic) staging**, on 2026-09-28, citing peak-memory concerns with larger batches. Source: `evidence/approval.md:3-4` and `notes/current.md:8-13`, both traced to `synthetic-owner:A1`. This is distinct from the separate, unchanged **local smoke** scope, where Rina approved `batch_limit=2` on 2026-09-01 to bound memory use (`notes/current.md:3-6`, `history/events/legacy.jsonl:1`, source `synthetic-owner:D0`), reaffirmed unchanged as of 2026-09-28.
+
+**3. Was limit 12 approved?**
+No. A developer proposed `batch_limit=12`, but `evidence/approval.md:4-5` and `notes/current.md:10-11` both state explicitly it "has no owner approval (proposed, not current policy)."
+
+**4. What happened on the later check?**
+`settings.json` now reads `{"batch_limit":6,"scope":"synthetic staging"}`, matching Rina's approved staging limit. Running `checks/probe.py` against that config on 2026-09-28 passed with exit 0 (`notes/current.md:16-20`). The probe's own output states it "performs no production check," so **production remains unverified** — separate from this staging pass.
+
+**5. Which new fact could not be journaled?**
+Event journaling is currently **off** for this project: `CLAUDE.md`'s continuity-notes block has no `Event journal: jsonl` line (only `Method`, `Adopted`, `Entry point`), and `notes/current.md:33-34` confirms the presence of `history/events/legacy.jsonl` "does not enable logging." That file holds exactly one entry, recording the older 2026-09-01 local-smoke decision (`limit 2`). Because logging isn't enabled, none of today's (2026-09-28) facts were appended to the JSONL journal — most notably **Rina's new staging approval of `batch_limit=6`** (plus the related limit-12 rejection and the two probe results) exists only in `notes/current.md` and `evidence/approval.md`, not in the event journal.
+
+### Scope summary
+- **Local smoke:** `batch_limit=2`, approved 2026-09-01, unchanged/reaffirmed.
+- **Synthetic staging:** `batch_limit=6`, approved 2026-09-28 by Rina; `settings.json` matches it; probe passed (exit 0). An earlier, now-superseded probe run at `batch_limit=4` failed (exit 7).
+- **Production:** Not approved, not established, not validated — explicitly out of scope per both `evidence/approval.md` and the probe's own "no production check" statement. Restore verification is also still pending (`evidence/pending.md`).
+
+No checks were rerun, no files were repaired, and no notes/evidence/journal files were modified during this audit.

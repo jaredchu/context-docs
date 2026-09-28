@@ -1,0 +1,3 @@
+Saved both projects’ `notes/state.md` and `notes/history.md`, preserving approvals, rationale, event times, the staging failure and success, the unapproved proposal, production unknowns, and Git status.
+
+Both saves succeeded. Export-check results were recorded from supplied evidence; I did not execute those checks.

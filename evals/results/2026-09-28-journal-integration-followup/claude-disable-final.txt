@@ -1,0 +1,6 @@
+Done. Changed only `CLAUDE.md` line 9: `Event journal: jsonl` → `Event journal: off`.
+
+- Adoption date (2026-09-01), entry point (`notes/current.md`), maintenance wording, and release checklist note are all untouched.
+- `Event journal directory: history/events` is retained, and both existing session files (`history/events/ctxdocs-20260928.jsonl`, `-2.jsonl`) plus `legacy.jsonl` are left in place — history is preserved, not deleted.
+- No journal event was appended, per the skill's rule that setup/disable actions aren't themselves logged.
+- No other files (`notes/current.md`, `settings.json`, `README.md`, evidence files) needed changes since nothing durable changed beyond the logging toggle.

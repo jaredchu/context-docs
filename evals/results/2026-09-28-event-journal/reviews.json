@@ -1,0 +1,174 @@
+{
+  "reviewer": "authoring assistant; unblinded synthetic walkthrough, not model reader scores",
+  "questions": [
+    {
+      "id": "stage-1-q1",
+      "question": "What check ran, against which revision, with what result and scope?",
+      "author_answer": "Configuration validator passed for the stage-1 revision; configuration shape and positive timeout only, no runtime or deployment verification.",
+      "revision": "10297819d05862115ec46810a446d62f829e3424",
+      "baseline_sources": [
+        "run/stage-1/context.md",
+        "run/stage-1/evidence/stage-1.md",
+        "run/stage-1/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-1/journal/stage-1.jsonl",
+        "event_id": "9b2bcb43-4732-4725-8904-2382931f315d"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "No timed or blinded reader trial."
+    },
+    {
+      "id": "stage-1-q2",
+      "question": "Why did context change and what authority applies?",
+      "author_answer": "Rowan approved a local pilot timeout change from 10 to 20 seconds to accommodate slow imports. Context reflects that local scope; deployment is not approved or verified.",
+      "revision": "10297819d05862115ec46810a446d62f829e3424",
+      "baseline_sources": [
+        "run/stage-1/context.md",
+        "run/stage-1/evidence/stage-1.md",
+        "run/stage-1/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-1/journal/stage-1.jsonl",
+        "event_id": "9a1abe14-6938-4745-aa59-fab5cfc26443"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "No timed or blinded reader trial."
+    },
+    {
+      "id": "stage-1-q3",
+      "question": "What remains unresolved?",
+      "author_answer": "Production timeout/deployment remain unknown despite an old note claiming 10 seconds and local config at 20. Ask the operator for a production observation.",
+      "revision": "10297819d05862115ec46810a446d62f829e3424",
+      "baseline_sources": [
+        "run/stage-1/context.md",
+        "run/stage-1/evidence/stage-1.md",
+        "run/stage-1/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-1/journal/stage-1.jsonl",
+        "event_id": "c8d5eaeb-5764-412f-8d55-d638c2937d13"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "No timed or blinded reader trial."
+    },
+    {
+      "id": "stage-2-q1",
+      "question": "What check ran, against which revision, with what result and scope?",
+      "author_answer": "One staging import timed out at 20 seconds for stage-2 revision. The original production-failure journal claim is wrong and is superseded by the staging-only correction.",
+      "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+      "baseline_sources": [
+        "run/stage-2/context.md",
+        "run/stage-2/evidence/stage-2.md",
+        "run/stage-2/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-2/journal/stage-2.jsonl",
+        "event_id": "67a9c289-e8d4-4105-99fc-0faf85854d2d"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    },
+    {
+      "id": "stage-2-q2",
+      "question": "Why did context change and what authority applies?",
+      "author_answer": "The context now records the bounded staging failure and Vale proposal for 30 seconds; Rowan has not approved it. Existing local approval remains.",
+      "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+      "baseline_sources": [
+        "run/stage-2/context.md",
+        "run/stage-2/evidence/stage-2.md",
+        "run/stage-2/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-2/journal/stage-2.jsonl",
+        "event_id": "5094e381-2eee-4b9a-ba75-906b8ca242aa"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    },
+    {
+      "id": "stage-2-q3",
+      "question": "What remains unresolved?",
+      "author_answer": "Production timeout/deployment remain unknown and staging increase approval is pending. Operator observation is still needed.",
+      "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+      "baseline_sources": [
+        "run/stage-2/context.md",
+        "run/stage-2/evidence/stage-2.md",
+        "run/stage-2/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-2/journal/stage-2.jsonl",
+        "event_id": "5094e381-2eee-4b9a-ba75-906b8ca242aa"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    },
+    {
+      "id": "stage-3-q1",
+      "question": "What check ran, against which revision, with what result and scope?",
+      "author_answer": "One staging import at timeout 30 passed for stage-3 revision. No general reliability or production deployment result follows.",
+      "revision": "6c1c368a50be02761eeced121194ed279f3a7011",
+      "baseline_sources": [
+        "run/stage-3/context.md",
+        "run/stage-3/evidence/stage-3.md",
+        "run/stage-3/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-3/journal/stage-3.jsonl",
+        "event_id": "9c64f42c-fdee-4d36-bfcf-0ee8aed31d84"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    },
+    {
+      "id": "stage-3-q2",
+      "question": "Why did context change and what authority applies?",
+      "author_answer": "Rowan approved staging-only timeout 30 to allow slow imports after the bounded probe passed; local pilot remains 20. Context replaces the proposal with that limited approval.",
+      "revision": "6c1c368a50be02761eeced121194ed279f3a7011",
+      "baseline_sources": [
+        "run/stage-3/context.md",
+        "run/stage-3/evidence/stage-3.md",
+        "run/stage-3/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-3/journal/stage-3.jsonl",
+        "event_id": "09618b8d-09da-42f8-b8dd-0558c2b9b503"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    },
+    {
+      "id": "stage-3-q3",
+      "question": "What remains unresolved?",
+      "author_answer": "Production timeout/deployment remain unknown; request operator observation. The separate raw restore note also records unavailable backup credentials and is absent from the journal.",
+      "revision": "6c1c368a50be02761eeced121194ed279f3a7011",
+      "baseline_sources": [
+        "run/stage-3/context.md",
+        "run/stage-3/evidence/stage-3.md",
+        "run/stage-3/git-show.txt"
+      ],
+      "additional_journal_route": {
+        "path": "run/stage-3/journal/stage-3.jsonl",
+        "event_id": "0def577c-8c67-457e-8d50-4826ff07ea6d"
+      },
+      "assessment": "Answer supported by shared evidence; journal groups relevant fields but adds no independently verified facts.",
+      "qualification": "Stage 3 omitted restore event requires shared raw evidence; stage 2 check requires following the correction."
+    }
+  ],
+  "controls": {
+    "omitted_restore": {
+      "shared_raw_evidence": "run/stage-3/evidence/stage-3.md",
+      "supported_answer": "Synthetic restore drill failed because backup credentials were unavailable.",
+      "journal_only_answer": "Unknown; no restore event was recorded.",
+      "interpretation": "Capture remains manual; storage does not recover omitted events."
+    },
+    "correction": {
+      "path": "run/stage-2/journal/stage-2.jsonl",
+      "interpretation": "Both original and correction survive; type-filtered output includes both. Schema validity does not make the original true."
+    },
+    "approval": {
+      "path": "queries.json",
+      "interpretation": "Decision filter returns the stage-2 proposal and stage-3 approval; it does not compute current authoritative state."
+    }
+  }
+}

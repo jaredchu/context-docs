@@ -1,0 +1,176 @@
+# Optional event journal pilot
+
+Status: implementation pilot, schema version 1. This repository tool requires
+Python 3.9+ and its standard library. It is not part of either installable skill;
+copying a skill does not install, invoke or require the journal. There is no
+background capture, scheduler or automatic Markdown update.
+
+The owner authorized a small optional JSONL pilot on September 28, 2026. The CLI,
+schema and trial procedure below are implementation choices. Benefits for project
+continuity have not been established by a real-session comparison.
+
+## Roles and scope
+
+Markdown remains the curated account of current state, decisions and procedures,
+following the [canonical standard](../skills/context-docs/references/standard.md).
+The journal records meaningful verification, contradictions, decision changes and
+context updates, with their sources. It is original evidence, not a disposable
+cache. Do not log every tool call, conversation transcript or repetitive progress
+message. Use synthetic examples in this public repository; keep private-project
+journals with their own projects.
+
+The [command](../tools/event_journal.py) records statements supplied by the caller.
+Validation checks structure, not whether evidence exists, a check ran, an approval
+is genuine or a claim is correct. Never turn a proposal into approval just because
+it was implemented. `actor` names the recorder; `authority` identifies who approved
+a statement and where that approval was recorded.
+
+## Try it
+
+Run from this repository root. These commands record a clearly labeled synthetic
+example in the existing gitignored scratch area:
+
+```sh
+python3 tools/event_journal.py --directory .local/event-journal-demo append \
+  --session demo-001 --input examples/event-journal/verification.json
+python3 tools/event_journal.py --directory .local/event-journal-demo read \
+  --session demo-001 --type verification
+```
+
+The append command also accepts one JSON object on standard input when `--input`
+is omitted. Success prints the stored event, including its generated UUID. Failure
+returns a nonzero exit code and a diagnostic on standard error. Repeating append
+creates a new event; there is no retry deduplication.
+
+For real work, omit `--directory` to use `.context/events` relative to the current
+working directory, or select a project's directory explicitly. Choose a unique
+session ID, for example a UUID, and reuse it for that session. Session names allow
+1–80 ASCII letters, digits, underscores or hyphens, beginning with a letter or digit.
+Each session writes one `<session-id>.jsonl` file. Review event files before choosing
+to commit them; this tool never commits or publishes them. Runtime lock files in
+the default directory are gitignored; other journal locations need their own rule.
+
+`read` with no filters validates and emits all `.jsonl` files directly in the
+directory. `--session` selects one file; `--type` filters output after validation.
+Reading creates no directories or files. A missing directory or selected session
+is an error; an existing empty directory returns no events. Output preserves file
+order within each session and filename order across sessions, not global chronology.
+Timestamps are recording times from the local clock, not causal ordering or a claim
+about when earlier evidence occurred. State earlier observation dates in the summary
+and source reference when they matter.
+
+## Schema version 1
+
+Supply the following fields as one JSON object:
+
+| Field | Requirement |
+| --- | --- |
+| `type` | `verification`, `contradiction`, `decision` or `context_update` |
+| `status` | `observed`, `approved`, `proposed`, `unknown` or `superseded`; statement status, not test outcome |
+| `actor` | Nonempty recorder name or identifier |
+| `summary` | Nonempty account of the meaningful event, retaining qualifications |
+| `sources` | Nonempty array of evidence references, such as project-relative paths with lines, URLs or an identifiable owner message |
+| `revision` | Nonempty source revision; include dirty-state qualification or a snapshot reference when applicable, or explicitly state unknown |
+| `authority` | Required for `approved`; identify the approving authority and approval source |
+| `check` | Required for `verification`; object with nonempty `command`, `scope` and `result` strings |
+| `supersedes` | Optional canonical lowercase UUID of an earlier event being corrected |
+
+The writer adds `schema_version` (1), `event_id` (UUID), `recorded_at` (UTC) and
+`session_id`. Caller-supplied generated fields, unknown fields, duplicate JSON keys,
+non-JSON numeric constants and invalid field types are rejected. Embedded newlines
+are JSON-escaped, so each event occupies one UTF-8 line ending with a newline.
+
+For a context update, record what changed and why in `summary`, and reference the
+changed document and supporting evidence in `sources`. A Git commit alone does not
+identify uncommitted content; retain the relevant output or snapshot separately.
+The journal does not copy evidence files or execute the command named in `check`.
+
+Correct an earlier event by appending a new one with `supersedes`; preserve the
+original bytes. That reference is checked for UUID syntax, but its target is not
+resolved or marked automatically. Readers see both events, including earlier claims;
+this CLI does not compute an authoritative current view or update Markdown.
+
+## Write failures and concurrent access
+
+Append validates the payload before creating the directory. It takes an exclusive
+per-session lock, validates the entire existing session, appends the record, flushes
+and calls `fsync` before reporting success. Concurrent calls through this command
+for the same session are rejected while the lock is held; different sessions use
+different files. This is a local cooperative writer protocol, not a distributed
+lock, database transaction or security boundary. Other editors can bypass it.
+
+A killed process may leave a `<session-id>.lock` file. Confirm the writer has stopped,
+inspect and preserve the session file, then remove only that stale lock. The tool
+does not guess when a lock can safely be stolen. A reader overlapping an append can
+encounter an incomplete last record; retry after the writer finishes.
+
+Malformed history, duplicate event IDs in the selected files and an unterminated
+last record cause a failure. The tool does not silently skip, truncate or repair
+them. Preserve the original file before any manual recovery. If an interrupted
+record cannot be recovered, start a fresh session and retain the damaged artifact
+outside the directory scanned by `read`, with a reference from the new event.
+
+An I/O error or lost success response can occur after bytes were written. Inspect
+the session before retrying to avoid duplicate events. File flushing does not
+provide atomicity with Markdown edits or a guarantee of crash-safe directory
+creation. The synthetic failure controls cover malformed tails, a killed writer
+and a simulated `fsync` failure; they are not power-loss testing.
+
+## Rotation and retention
+
+The pilot rotates naturally by starting a new session file. It does not implement
+size-based rotation, compression, archival or automatic deletion. Completed sessions
+remain readable; they are closed by convention, not sealed or immutable. Both append
+validation and unfiltered reads scan selected history, so this design targets small
+project journals. Use session filtering as history grows; measure before adding an
+index or more retention machinery.
+
+Preserve durable events and cited evidence. A summary does not automatically replace
+the originals. Deleting a committed file only removes it from the current tree, not
+Git history. Define any future retention policy separately for disposable operational
+logs, rather than applying a blanket age cutoff to project evidence.
+
+## Evaluate the pilot
+
+The owner has started a [bounded live trial in this repository](event-journal-live-trial.md).
+Its tracker records completed sessions and the remaining handoff checks separately
+from the earlier synthetic replay.
+
+Implementation choice: try three meaningful maintenance sessions in a consenting
+project, using unique session IDs and recording only events that answer the questions
+below. This is a usability pilot, not a benchmark or an instruction to manufacture
+events when nothing changed. No recurring task is installed.
+
+Before each session, retain the starting Markdown/Git revision. Afterward, retain
+the final revision and any dirty-state evidence along with the journal. For each
+question, compare the same final Markdown/Git/evidence with and without the journal:
+
+1. What was checked, against which revision, and with what result and scope?
+2. Why did the current context change, and what evidence supported the change?
+3. Which contradiction or unresolved issue needs the next reader's attention?
+
+Record supported answers, omissions or false claims, evidence references, retrieval
+effort and logging effort. When one person reads both conditions, note order effects;
+do not interpret that as a controlled accuracy comparison. Preserve failed or missed
+events and corrections. Share only synthetic or explicitly publishable evidence here.
+
+Keep the feature if it recovers useful supported information or reduces retrieval
+effort enough to justify logging and maintenance. Simplify or remove it if it mostly
+duplicates existing docs, goes unused or encourages unsupported claims. Numerical
+speed, accuracy or reliability claims require a separately designed evaluation.
+
+## Mechanical validation
+
+```sh
+python3 -m unittest discover -s tests -p 'test_*.py'
+python3 evals/checks/static_checks.py
+```
+
+The [synthetic tests](../tests/test_event_journal.py) exercise CLI input/output,
+validation, read-only behavior, preservation on malformed input, correction history,
+competing writers and selected I/O failures. CI runs them separately from packaging
+and link checks. The [September 28 evaluation](../evals/results/2026-09-28-event-journal/README.md)
+retains two initial failures from one nesting-error defect and 25 passing tests
+after repair. A three-stage synthetic replay preserved ten events, with separate
+author review and local latency diagnostics. No actual agent evaluation or
+three-real-session benefit assessment has been completed for this pilot.

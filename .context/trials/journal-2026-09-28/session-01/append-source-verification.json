@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "tools/event_journal.py",
+    "append",
+    "--session",
+    "journal-trial-20260928-01",
+    "--input",
+    ".context/trials/journal-2026-09-28/session-01/payloads/source-verification.json"
+  ],
+  "returncode": 0,
+  "stdout": "{\"type\":\"verification\",\"status\":\"observed\",\"actor\":\"Codex assistant\",\"summary\":\"The current journal writer and its 25-test suite match the SHA-256 hashes in the retained synthetic evaluation provenance. This checks source identity; it does not rerun tests or establish live-trial benefit.\",\"sources\":[\".context/trials/journal-2026-09-28/session-01/evaluated-source-check.json\",\".context/trials/journal-2026-09-28/session-01/before.json\",\"evals/results/2026-09-28-event-journal/run/provenance.json\"],\"revision\":\"ede8f7ac1c69903dbcc400e68e6667bdceacd980 + dirty working tree; scoped snapshots: .context/trials/journal-2026-09-28/session-01/before.json\",\"check\":{\"command\":\"python3 - (SHA-256 source comparison)\",\"scope\":\"tools/event_journal.py and tests/test_event_journal.py compared against retained evaluation provenance\",\"result\":\"Both source hashes match; no fresh model or benefit evaluation.\"},\"schema_version\":1,\"event_id\":\"12d931fd-1411-4744-9658-5b3afcf572ef\",\"recorded_at\":\"2026-09-28T09:24:44.490759Z\",\"session_id\":\"journal-trial-20260928-01\"}\n",
+  "stderr": "",
+  "elapsed_ms": 27.216708999999998
+}

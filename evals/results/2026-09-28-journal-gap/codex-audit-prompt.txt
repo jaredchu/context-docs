@@ -1,0 +1,4 @@
+Use context-docs Conduct a read-only investigation: what new check is pending, was it executed, was the fact journaled, and what caused any capture gap? Cite stored evidence and distinguish the historical capture attempt from current availability. Do not rerun checks, repair, backfill or write anything.
+
+Evaluation constraints:
+Work only in this synthetic project. Preserve the existing adoption date, custom context path, release checklist, instruction routing, installed packages and supplied evidence. The project-installed skills are under .agents/skills; use those copies and their full instructions. 

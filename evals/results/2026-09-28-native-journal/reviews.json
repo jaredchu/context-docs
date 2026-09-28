@@ -1,0 +1,117 @@
+{
+  "reviewer": "authoring assistant; not independent or blinded",
+  "conditions": {
+    "claude-ordinary": {
+      "capture": "Preserves D0, E1/E2/E3 with source IDs, authority, failure result and staging-only approval; sparse Git labels uncommitted state.",
+      "qualifications": [
+        "Fresh reader calls the retry=10 proposal rejected in its closing summary. Evidence establishes no approval and a lower selected value, not an explicit rejection.",
+        "Capture and reader call E3 a supersession for staging use although D0 was local-only; historical local decision remains present."
+      ],
+      "strict_semantic_pass": false,
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "total": 5,
+          "recovered": 5
+        },
+        "sparse-git": {
+          "total": 5,
+          "recovered": 5
+        }
+      }
+    },
+    "claude-markdown-log": {
+      "capture": "Preserves all target history and sources; duplicates D0 and E1-E3 between current context and Markdown history. Clarifies local approval remains unaffected by staging approval.",
+      "qualifications": [
+        "Reader labels E2 rejected in sparse-Git answer and summary, while evidence only states proposal/unapproved and a lower approved value.",
+        "Both Markdown capture arms initially sent JSONL event arrays, were rejected before writes, and corrected the payload. This shared bridge/schema prompt primes structured fields; timings cannot rank natural workflows."
+      ],
+      "strict_semantic_pass": false,
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "total": 5,
+          "recovered": 5
+        },
+        "sparse-git": {
+          "total": 5,
+          "recovered": 5
+        }
+      }
+    },
+    "claude-jsonl": {
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "recovered": 5,
+          "total": 5
+        },
+        "sparse-git": {
+          "recovered": 5,
+          "total": 5
+        }
+      },
+      "capture": "Five helper records per fixture preserve E1, E2, E3 approval, E3 check and current configuration, with D0 retained in Markdown. Source IDs, supplied times, scope, revision qualifications and requested target facts survive.",
+      "qualifications": [
+        "Capture turns unapproved E2 into explicitly rejected in E3 summaries, and reader repeats/strengthens that unsupported claim. Schema validation does not prevent factual overstatement.",
+        "Actor fields name event participants rather than the recorder described by the pilot guide. The abbreviated evaluation prompt only named this field, so it did not test instruction-driven compliance with that distinction.",
+        "One noncanonical shell-quoting attempt was denied by the evaluation guard; the model recovered and both final journals contain five valid records. This is a harness-specific command failure, not a failed helper append.",
+        "Reader closing summary groups the whole decision chain under staging approval despite original D0 being local-only; its detailed answers preserve the correct scopes."
+      ],
+      "strict_semantic_pass": false
+    },
+    "codex-ordinary": {
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "recovered": 5,
+          "total": 5
+        },
+        "sparse-git": {
+          "recovered": 5,
+          "total": 5
+        }
+      },
+      "capture": "Retains D0 and E1-E3 with source IDs, scopes, dates, approval and unknowns. Distinguishes supplied outcomes from executed checks and leaves unknown numeric pass exit code unspecified.",
+      "qualifications": [
+        "Reader additionally cites sparse-git.files.initial_committed_context, but the bridge key is sparse-git.initial_committed_context. Its accompanying notes/state.md citation is valid and supports the same facts.",
+        "Reader reports sandbox warnings from Git/Xcode while bridge show succeeds. These do not establish independently verified event history."
+      ],
+      "strict_semantic_pass": true
+    },
+    "codex-markdown-log": {
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "recovered": 5,
+          "total": 5
+        },
+        "sparse-git": {
+          "recovered": 5,
+          "total": 5
+        }
+      },
+      "capture": "Retains all history, source IDs, approval boundaries and prior state in Markdown history; current context links to it and duplicates some verification/decision details.",
+      "qualifications": [
+        "Read succeeds with Git/Xcode sandbox warnings; reader accurately limits claims to supplied records.",
+        "Single grouped two-project attempt; not independent replication or proof of general reliability."
+      ],
+      "strict_semantic_pass": true
+    },
+    "codex-jsonl": {
+      "target_fact_groups_recovered": {
+        "no-git": {
+          "recovered": 5,
+          "total": 5
+        },
+        "sparse-git": {
+          "recovered": 5,
+          "total": 5
+        }
+      },
+      "capture": "Six valid helper records per fixture retain E1, E2, E3 approval/check, prior-state contradiction and maintenance update. D0 remains in Markdown. Both fresh reader answers preserve authority, dates, scope, failure and proposal status.",
+      "qualifications": [
+        "Actor fields in supplied-history events name participants rather than the recorder described by the pilot guide. The abbreviated prompt named actor without that definition; full instruction-driven metadata compliance remains untested.",
+        "Current context repeats several recorded facts; this does not demonstrate reduced duplication or cheaper routine capture.",
+        "Git/Xcode sandbox warnings were reported accurately; show returned both sets of records."
+      ],
+      "strict_semantic_pass": true
+    }
+  },
+  "metric_note": "Target fact recovery counts presence of required facts only. Strict semantic acceptance separately includes unsupported additions; recovery is not a perfect-answer score."
+}

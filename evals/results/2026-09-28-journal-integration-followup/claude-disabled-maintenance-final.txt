@@ -1,0 +1,9 @@
+The edit is complete: everything else (adoption date, entry point, release checklist line, routing, evidence, decisions) is untouched — only the new "Scheduled work" section was added to `notes/current.md:23-27`.
+
+**Changed:** `notes/current.md` — added a "Scheduled work" section recording the fact from `evidence/followup.md` (fixture owner scheduled a manual review for the next session, source `synthetic-owner:F1`), explicitly marked as an approved plan rather than a completed review, and distinguished from the unrelated, unchanged release-checklist line in History.
+
+**Checks completed:** read the entry point (`README.md` → `notes/current.md`), cross-checked `evidence/followup.md`, `evidence/approval.md`, `evidence/pending.md`, `settings.json`, `checks/probe.py`, and the standard's status vocabulary before writing.
+
+**Not done, per constraints:** no event-journal entry was written — `CLAUDE.md` sets "Event journal: off" and this was routine maintenance, so per the skill's optional-capture rule no runtime/journal action was needed; `evidence/followup.md` itself, the release checklist line, and settings/packages were left as-is.
+
+**Remaining open item (pre-existing, unchanged):** restore verification is still pending with no known next-check command.

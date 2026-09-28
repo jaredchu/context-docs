@@ -1,0 +1,3 @@
+Applied both project-installed skills. The existing setup is equivalent and needs no changes: adoption date `2026-09-01`, context path `notes/current.md`, and enabled JSONL directory `history/events` are preserved.
+
+No files changed, events added, or checks rerun. Instruction routing, release checklist, installed packages, and supplied evidence remain intact.

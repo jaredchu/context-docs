@@ -1,0 +1,5 @@
+links: checked 512 relative links and anchors
+tables: checked 5 published result tables
+skills: checked 2 installable skill packages
+versions: checked 2 declared package versions
+Static repository checks passed. Model evaluations are separate and unaffected.

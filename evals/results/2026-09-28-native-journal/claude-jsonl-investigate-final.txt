@@ -1,0 +1,54 @@
+## Command Actually Run
+
+Only one command was executed — the bridge `show` call above. Everything below is drawn directly from that single JSON payload (file contents + `events/capture.jsonl` records for `no-git`, and the same plus an `initial_committed_context` field for `sparse-git`). I did not run `git log`, `git show`, or any other command — the "committed" vs "uncommitted" claims are themselves *supplied synthetic data fields* (`"revision": "uncommitted"`, and the `initial_committed_context` string), not something I independently verified against a real Git history.
+
+---
+
+## Case: `no-git`
+
+**1. Original approved setting & why**
+Owner Mira approved `retry=3` for local checks on 2026-09-01, to bound memory use.
+— `notes/state.md` § Existing decisions, item D0; source tag `synthetic-owner:D0`.
+
+**2. What failed before the latest staging change**
+Event E1 (2026-09-26 09:00Z): operator ran `export-check` in staging at `retry=3`; failed with **exit 7 (queue overflow)**. No production run.
+— `events/capture.jsonl` event_id `b6e05749-49a2-4ac8-83d8-a19566d2eca5`; also `notes/state.md` § Verification history.
+
+**3. Was retry=10 approved, by whom proposed?**
+Not approved. Event E2 (2026-09-26 09:10Z): the **developer** proposed `retry=10`. No owner approval was recorded.
+— `events/capture.jsonl` event_id `bfe6a2df-1586-4ffa-953d-fca657d60c85`; `notes/state.md` § Proposals (not approved).
+
+**4. Who approved the current setting, why, scope, and result**
+**Mira (owner)** approved `retry=5`, **scope: staging only**, on 2026-09-26 09:20Z (E3) — explicitly *rejecting* the developer's retry=10 proposal as risking the memory budget. Following approval, the operator's `export-check` in staging at `retry=5` **passed**.
+— Decision: `events/capture.jsonl` event_id `2e7bb3e7-4eec-4a8f-8405-d261d45cf210`; Verification: event_id `f024cd0e-2275-4ba3-9ebb-316c1f788a07`; confirmed in `settings.json` (`retry: 5, scope: staging`).
+
+**5. Production validation & Git coverage**
+Production validation is explicitly **unknown** — stated in both `notes/state.md` § Unknowns and in the E3 verification record itself ("Production validation and rollout remain unknown"). Git coverage is moot: **no Git repository exists for this case** at all, per `notes/state.md` § Current state — so there is no commit history to check for any of D0/E1/E2/E3.
+
+---
+
+## Case: `sparse-git`
+
+**1. Original approved setting & why**
+Same as above: Mira approved `retry=3` for local checks on 2026-09-01 to bound memory use (D0).
+— `notes/state.md` § Existing decisions, D0; also independently reflected in the `initial_committed_context` field itself ("Owner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use... Current state: Retry=3; local checks only. No staging result recorded yet.") — i.e., this is what the *initial commit* contains.
+
+**2. What failed before the latest staging change**
+Same E1 as the other case: operator ran `export-check` in staging at `retry=3` on 2026-09-26 09:00Z; **exit 7 (queue overflow)**. This record is tagged `"revision": "uncommitted"`.
+— `events/capture.jsonl` event_id `83e461d8-0b6d-461a-bc84-bbe7a69325be`.
+
+**3. Was retry=10 approved, by whom proposed?**
+Not approved. Developer proposed `retry=10` (E2, 2026-09-26 09:10Z); no owner sign-off. This record is also tagged `"revision": "uncommitted"`.
+— `events/capture.jsonl` event_id `9dc18115-60a2-43b3-9407-1670d461731a`.
+
+**4. Who approved the current setting, why, scope, and result**
+**Mira (owner)** approved `retry=5`, **scope: staging only**, 2026-09-26 09:20Z (E3), rejecting retry=10 on memory-budget grounds. Operator's `export-check` at `retry=5` then **passed**. Both the decision and the verification records are tagged `"revision": "uncommitted"`.
+— Decision: event_id `c0c5a6f1-04ce-431b-994c-dfbd9f059f49`; Verification: event_id `d1922b57-22be-4302-9d8c-a4f0ef510469`; `settings.json` shows `retry:5, scope: staging, uncommitted: true`.
+
+**5. Production validation & Git coverage**
+Production validation is again **unknown** (`notes/state.md` § Unknowns). Git coverage is the distinguishing feature of this case: per `notes/state.md` § Current state, **the repository's only commit is the initial one, containing solely D0 (retry=3, local checks)** — this matches the standalone `initial_committed_context` field, which shows no mention of E1/E2/E3 or of staging/retry=5 at all. The entire E1→E2→E3 sequence and the resulting retry=5/staging config exist only as **uncommitted working-tree state** (`settings.json`, `notes/state.md`, `events/capture.jsonl`), never captured in Git history.
+
+---
+
+## Summary of differences between the two cases
+Both cases share an identical decision chain (D0 → E1 fail → E2 rejected proposal → E3 approval/pass), approved by the same owner (Mira) for the same scope (staging). They differ only in version-control coverage: `no-git` has no Git repository at all, while `sparse-git` has a Git repo whose sole commit predates and does not include the retry=5 change or any of E1–E3 — those exist only as uncommitted synthetic records. In neither case is there any evidence of production validation; both explicitly flag it as unknown.

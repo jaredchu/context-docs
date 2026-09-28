@@ -1,0 +1,5 @@
+Updated [notes/current.md](notes/current.md) with the supplied pending restore verification status and evidence link.
+
+Verified only that file changed and all its Markdown links resolve. Existing settings, instructions, packages, checklist, and evidence remain intact.
+
+Event capture was unavailable because the installed journal helper is missing; no journal entry was written.

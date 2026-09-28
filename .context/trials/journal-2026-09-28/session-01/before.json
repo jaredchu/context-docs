@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-09-28T09:24:11.957070+00:00",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "scope": "First live maintenance session: start bounded trial and verify its handoff; not a fresh reader or completed three-session trial.",
+  "before_sha256": {
+    "AGENTS.md": "99e4ef4385d7739d3a95ece032379ff5de7744ac1e57a5b40112b3d6e2e7920a",
+    "README.md": "ff8cc49403ef2450289addd94a35b9904df42fe942014eaf96e7f9e67ab65970",
+    "docs/project-context.md": "0835521aae0f7a527ed528ace79961ed545b54676bf4cbfc379ec7d4d61eb552",
+    "docs/event-journal-pilot.md": "8e9c2f2f4fbe59555a262e8cda45096118f209e5696655a1a3d817752e0b131a",
+    "CHANGELOG.md": "e734ac5f15d855204ad7585e3c5792713578f74672e16af09e03abbb581639d4",
+    "tools/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "tests/test_event_journal.py": "b58c5533d2d827c5f9987c10106ce30752710db790168cd907ccb53d432f3bab"
+  }
+}

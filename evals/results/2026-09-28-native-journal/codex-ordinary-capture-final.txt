@@ -1,0 +1,3 @@
+Saved both projects’ `notes/state.md` successfully, preserving approvals, rationale, event times, sources, failure/pass evidence, production unknowns, and Git limitations.
+
+Each case was saved once; no save failures occurred. Export-check results were recorded as supplied evidence, not executed checks.

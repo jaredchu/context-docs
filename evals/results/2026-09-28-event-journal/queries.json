@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "tools/event_journal.py",
+      "--directory",
+      "evals/results/2026-09-28-event-journal/run/stage-3/journal",
+      "read",
+      "--type",
+      "verification"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"Synthetic configuration validation passed; no runtime or deployment check.\",\"check\":{\"command\":\"demo-validator config.json\",\"scope\":\"Configuration shape and positive timeout only\",\"result\":\"Synthetic fixture: passed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-1.md\",\"context.md\"],\"revision\":\"10297819d05862115ec46810a446d62f829e3424\",\"schema_version\":1,\"event_id\":\"9b2bcb43-4732-4725-8904-2382931f315d\",\"recorded_at\":\"2026-09-28T08:57:48.278449Z\",\"session_id\":\"stage-1\"}\n{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"Incorrect synthetic entry: production import failed at 20 seconds.\",\"check\":{\"command\":\"demo-probe --env production --imports 1\",\"scope\":\"Production import\",\"result\":\"Synthetic fixture: failed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-2.md\",\"context.md\"],\"revision\":\"e2db9d4a2d32a3b4cd797cce258d5a6842078ba8\",\"schema_version\":1,\"event_id\":\"f56cf7ec-3383-4c82-b8f5-f76ca6a17ff6\",\"recorded_at\":\"2026-09-28T08:57:48.424627Z\",\"session_id\":\"stage-2\"}\n{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"Correction: only one staging fixture import timed out at 20 seconds. Production was not tested.\",\"check\":{\"command\":\"demo-probe --env staging --imports 1\",\"scope\":\"One staging fixture import; production untested\",\"result\":\"Synthetic fixture: failed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-2.md\",\"context.md\"],\"revision\":\"e2db9d4a2d32a3b4cd797cce258d5a6842078ba8\",\"supersedes\":\"f56cf7ec-3383-4c82-b8f5-f76ca6a17ff6\",\"schema_version\":1,\"event_id\":\"67a9c289-e8d4-4105-99fc-0faf85854d2d\",\"recorded_at\":\"2026-09-28T08:57:48.449475Z\",\"session_id\":\"stage-2\"}\n{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"One synthetic staging fixture import passed at timeout 30 seconds; production remains untested.\",\"check\":{\"command\":\"demo-probe --env staging --timeout 30 --imports 1\",\"scope\":\"One staging fixture import only\",\"result\":\"Synthetic fixture: passed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"9c64f42c-fdee-4d36-bfcf-0ee8aed31d84\",\"recorded_at\":\"2026-09-28T08:57:48.595320Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "tools/event_journal.py",
+      "--directory",
+      "evals/results/2026-09-28-event-journal/run/stage-3/journal",
+      "read",
+      "--type",
+      "decision"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"decision\",\"status\":\"proposed\",\"summary\":\"Vale proposes a staging timeout of 30 seconds; Rowan has not approved it.\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-2.md\",\"context.md\"],\"revision\":\"e2db9d4a2d32a3b4cd797cce258d5a6842078ba8\",\"schema_version\":1,\"event_id\":\"44b0dcc3-275e-4186-af12-19d3acf32c27\",\"recorded_at\":\"2026-09-28T08:57:48.473953Z\",\"session_id\":\"stage-2\"}\n{\"type\":\"decision\",\"status\":\"approved\",\"summary\":\"Rowan approved staging timeout 30 seconds to allow slow fixture imports after the bounded passing probe. Local pilot remains 20; no production approval.\",\"authority\":\"Synthetic owner Rowan; evidence/stage-3.md\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"09618b8d-09da-42f8-b8dd-0558c2b9b503\",\"recorded_at\":\"2026-09-28T08:57:48.620203Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "tools/event_journal.py",
+      "--directory",
+      "evals/results/2026-09-28-event-journal/run/stage-3/journal",
+      "read",
+      "--type",
+      "contradiction"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"contradiction\",\"status\":\"unknown\",\"summary\":\"Old operations note claims production timeout 10 seconds; local config is 20. Production value and deployment are unverified. Ask operator for a production configuration observation.\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-1.md\",\"context.md\"],\"revision\":\"10297819d05862115ec46810a446d62f829e3424\",\"schema_version\":1,\"event_id\":\"c8d5eaeb-5764-412f-8d55-d638c2937d13\",\"recorded_at\":\"2026-09-28T08:57:48.327615Z\",\"session_id\":\"stage-1\"}\n",
+    "stderr": ""
+  }
+]

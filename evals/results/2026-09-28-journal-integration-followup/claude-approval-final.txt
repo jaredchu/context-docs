@@ -1,0 +1,7 @@
+This looks correct — decisions, evidence, and release checklist are all preserved, with the current state now accurately reflecting the approved batch_limit=6.
+
+Summary of this session's work:
+- Read `evidence/approval.md`: Rina approved `batch_limit=6` for staging only (source `synthetic-owner:A1`, 2026-09-28); the developer's `batch_limit=12` proposal remains unapproved; the 2026-09-01 limit-2 smoke-check approval is unchanged.
+- Ran `python3 checks/probe.py` against the current `settings.json` (`batch_limit=6`): printed `"Synthetic staging fixture: batch_limit=6; passed; exit 0. No production check."`, exit 0.
+- Appended two events to a new journal session `history/events/ctxdocs-20260928-2.jsonl`: the Rina approval decision and the passing verification (the prior `ctxdocs-20260928.jsonl` batch_limit=4/exit-7 record is preserved as superseded history).
+- Updated `notes/current.md`'s "Current state" section to reflect the approval and passing check, explicitly noting production remains unverified; the earlier decision, release checklist, and history sections were left untouched.

@@ -2,7 +2,8 @@
 
 Each installable skill under `skills/` carries its own version in a `VERSION`
 file and moves independently. The repository tags `v0.1.0` and `v0.1.1` name core
-skill releases only; later entries identify the package they change. Versions are
+skill releases only; `v0.1.3` bundles core 0.1.3 and adoption 0.1.5, including
+the previously merged Claude changes. Later entries identify the package they change. Versions are
 reconstructed here from the commits and dated reports they were published with,
 so the history is auditable without reading every evaluation document.
 
@@ -10,7 +11,109 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-## Repository checks and installation guidance — unreleased
+Release contents and validation are summarized in the [v0.1.3 release notes](docs/releases/v0.1.3.md).
+
+## context-docs 0.1.3 — 2026-09-28 (tag `v0.1.3`)
+
+- Package the unchanged schema-v1 journal helper and a self-contained optional
+  guide with the core skill. Keep logging off by default; ordinary Markdown
+  maintenance has no runtime dependency. Enable capture only for project opt-in;
+  no events for setup, no-change maintenance or audits. Preserve history on disable.
+- Define recorder versus approving authority, unavailable/uncommitted revisions,
+  capture failure reporting, and use of the installed helper. Keep the repository
+  command as a compatibility entry point to one canonical implementation.
+- The existing 25 helper tests and two portable-package/wrapper tests pass.
+  Five new native execution-boundary controls, thirteen repository checker tests,
+  skill metadata validators and repository static checks pass separately from
+  actual model evaluation.
+- The [native lifecycle study](evals/results/2026-09-28-journal-integration/README.md)
+  ran eighteen sessions: Codex passed functional stages; Claude skipped setup.
+  A separately frozen nine-session Claude follow-up passed functional preservation
+  and capture under task-first native invocation. Retain semantic overstatements
+  and guard denials; these are not clean unrestricted-client passes.
+- Both original lifecycle readers lacked durable evidence for why a requested
+  event was not captured. Add a concise Markdown capture-gap note on failure.
+  Four [targeted native sessions](evals/results/2026-09-28-journal-gap/README.md)
+  then preserved and recovered the actual reason, with audits unchanged. The final
+  wording also covers unconfirmed writes after I/O errors; that wording-only
+  clarification received static review, not another model run. Frozen hashes
+  distinguish these unreleased 0.1.3 candidates; helper/schema remain unchanged.
+
+## adopt-context-docs 0.1.5 — 2026-09-28 (bundled in `v0.1.3`)
+
+- Merge optional journal settings only on explicit enable/disable requests.
+  Preserve existing adoption date, context path, maintenance wording and routing;
+  installing or updating a skill does not enable logging. Repeat setup is a no-op.
+- Delegates journal behavior to the sibling core's packaged guide. Actual native
+  old-package replacements preserve original project files. Codex's nine-stage
+  lifecycle and Claude's separate nine-stage invocation follow-up preserve dates,
+  paths, rule wording and legacy records; default-off/repeat/audit make no edits
+  and disabling preserves history. Retain the original Claude setup failure,
+  execution restrictions and factual limits. No global installation or publication.
+
+## Optional event journal pilot — included in `v0.1.3` (2026-09-28)
+
+- Add no-Git and infrequent-commit cases to the owner's logging requirements.
+  Document explicit unavailable/uncommitted revisions; Git is not required by the
+  helper. Run a [12-session native comparison](evals/results/2026-09-28-native-journal/README.md)
+  across Claude/Codex and three recording formats. All requested facts survived;
+  retain Claude overstatements, rejected/corrected capture attempts and metadata
+  limitations separately from mechanical success. Twenty-two actual appends
+  succeeded and all six fresh investigations preserved project-file bytes.
+  Six new execution-boundary tests and repository static checks passed. No helper,
+  skill or version change. Existing dates/paths/instructions were preserved in
+  fixtures; actual package upgrade and natural capture-effort benefits remain
+  untested. Keep JSONL optional rather than adding a default requirement.
+
+- Record the owner's requirements for native Claude evaluation, compatibility
+  with existing adopters and establishing necessity beyond Markdown/Git. Define
+  a proposed comparison that includes a Markdown event log, and explicit upgrade
+  acceptance criteria. Verified local Claude CLI version only; documentation and
+  repository static checks do not establish authentication or logger behavior.
+  No new model run, helper change, migration or skill version change in this step.
+- Owner clarification: logging should efficiently preserve events for later need;
+  current-context improvement and savings are not acceptance criteria. Update
+  active guidance and qualify the earlier stop-logging recommendation as based
+  on the narrower handoff trial. Preserve original results and journal entries.
+  Documentation and repository static checks only; no runtime or skill version
+  changes and no new investigation-benefit evaluation.
+- Add a repository-only Python JSONL append/read command, schema version 1,
+  with evidence and authority fields, verification scope/results, per-session
+  writer exclusion, correction references and validation of existing history.
+- Add a synthetic example and a three-session usability protocol. Markdown stays
+  curated context; capture, retention and skill integration remain manual/optional.
+- Eighteen synthetic journal tests and repository static checks passed. These
+  include CLI round trips, interrupted history, competing writers, UTF-8 validation
+  and a simulated `fsync` failure. No actual agent evaluation or real-session
+  benefit trial was run.
+  Installable skills and their versions are unchanged by this pilot.
+- A [follow-up evaluation](evals/results/2026-09-28-event-journal/README.md)
+  expanded coverage to 25 tests. Two initially failed on uncaught deep-JSON
+  decoding; a targeted handler repair makes all 25 pass. Preserve the failures.
+  Actual controls include a killed writer and 12 independent concurrent writers.
+  Ten events passed a three-stage synthetic replay, with nine author-reviewed
+  source-route questions and bounded local latency measurements. No fresh-agent
+  sessions or real-work benefit trial were run; skill versions remain unchanged.
+- Begin the owner-authorized [live trial](docs/event-journal-live-trial.md) in this
+  repository with a bounded temporary instruction, source snapshots and actual
+  journal events. Session 1 covers setup/verification; two later maintenance
+  sessions remain pending. This is not a completed usefulness evaluation and does
+  not change the installable skills or their versions.
+- Live-trial session 2 reviewed the setup handoff in the same authoring chat:
+  all three questions were answerable before the current-turn journal read;
+  the journal added grouping but no missing fact. Correct stale project-context
+  wording to distinguish the repository's temporary agent instruction from the
+  unchanged installable skills. Static checks passed; independent retrieval and
+  logging-effort benefits remain unmeasured, with session 3 pending.
+- Close the live trial after three maintenance tasks in one authoring chat.
+  Both handoff reviews found grouping but no missing fact recovered beyond the
+  baseline evidence. Recommend ending routine logging and retain the optional
+  tool and all evidence. Remove the temporary repository instruction as planned.
+  Writer/test hashes still match the prior 25-test run; fresh static checks cover
+  closure documentation. No fresh-agent, independent effort or accuracy result
+  is claimed; installable skills remain unchanged.
+
+## Repository checks and installation guidance — included in `v0.1.3` (2026-09-28)
 
 - Enforce package boundaries for skill links and nested references, allowing the
   adoption package's declared dependency on its sibling core. Reject repository-only,
@@ -53,7 +156,7 @@ not a demonstrated accuracy gain.
   optional command denials separately. The hold remains; conservative acceptance
   totals are not an accuracy ranking. No new skill revision or extra retry follows.
 
-## context-docs 0.1.2 — unreleased
+## context-docs 0.1.2 — included in `v0.1.3` (2026-09-28)
 
 - Tighten the existing evidence check: verify the exact claim and retain the
   source's scope in both documents and final reports. Distinguish installed
@@ -77,7 +180,7 @@ not a demonstrated accuracy gain.
   Hold the merge; this is author-reviewed development evidence, not a reliability
   claim. Exact commits distinguish candidates with the same unreleased versions.
 
-## adopt-context-docs 0.1.4 — unreleased
+## adopt-context-docs 0.1.4 — included in `v0.1.3` (2026-09-28)
 
 - Require evidence for automatic instruction loading rather than inferring it
   from file presence or an explicit file read. Keep existing workflow adoption
@@ -92,7 +195,7 @@ not a demonstrated accuracy gain.
   [latest targeted run](evals/results/2026-09-28-native-state-followup/README.md).
   Permission denials remain separate execution failures; the branch stays on hold.
 
-## adopt-context-docs 0.1.3 — unreleased
+## adopt-context-docs 0.1.3 — included in `v0.1.3` (2026-09-28)
 
 - Route the ongoing maintenance rule and adoption marker to the instruction file
   the client actually loads, instead of assuming `AGENTS.md`. Both `AGENTS.md` and

@@ -1,0 +1,40 @@
+[
+  {
+    "type": "verification",
+    "status": "observed",
+    "summary": "Synthetic configuration validation passed; no runtime or deployment check.",
+    "check": {
+      "command": "demo-validator config.json",
+      "scope": "Configuration shape and positive timeout only",
+      "result": "Synthetic fixture: passed"
+    },
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-1.md",
+      "context.md"
+    ],
+    "revision": "10297819d05862115ec46810a446d62f829e3424"
+  },
+  {
+    "type": "context_update",
+    "status": "observed",
+    "summary": "Updated local timeout from 10 to 20 seconds because Rowan approved a local pilot change to accommodate slow imports; approval does not cover deployment.",
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-1.md",
+      "context.md"
+    ],
+    "revision": "10297819d05862115ec46810a446d62f829e3424"
+  },
+  {
+    "type": "contradiction",
+    "status": "unknown",
+    "summary": "Old operations note claims production timeout 10 seconds; local config is 20. Production value and deployment are unverified. Ask operator for a production configuration observation.",
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-1.md",
+      "context.md"
+    ],
+    "revision": "10297819d05862115ec46810a446d62f829e3424"
+  }
+]

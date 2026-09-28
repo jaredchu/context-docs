@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context Docs"
+  short_description: "Maintain concise, reliable project context documents"
+  default_prompt: "Use $context-docs to review and maintain this project’s existing context documents."

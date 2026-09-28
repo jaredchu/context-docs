@@ -1,0 +1,23 @@
+## Audit findings (read-only — no files changed, no checks rerun)
+
+**1. What failed earlier**
+The **synthetic staging fixture** gate failed on `batch_limit=4`. `checks/probe.py` printed `"Synthetic staging fixture: batch_limit=4; queue overflow; exit 7. No production check."` and exited 7. Evidence: `history/events/ctxdocs-20260928.jsonl` (verification, exit 7), corroborated by `checks/probe.py:5-7` which hard-codes that exact failure branch for `limit == 4`. This was neither a local smoke check nor a production check — the script itself disclaims production coverage.
+
+**2. What Rina later approved**
+Rina (fixture owner) approved `batch_limit=6`, scoped **only to synthetic staging**, citing peak-memory risk from larger batches. Evidence: `evidence/approval.md` (source `synthetic-owner:A1`, 2026-09-28) and the decision event in `history/events/ctxdocs-20260928-2.jsonl` (`event_id dd6afd9c…`, `authority: "Fixture owner Rina; synthetic-owner:A1"`). `settings.json` now reads `{"batch_limit":6,"scope":"synthetic staging"}`, matching that approval. This is distinct from Rina's earlier, separate **local smoke-check** approval of `batch_limit=2` (2026-09-01, source `synthetic-owner:D0`, `history/events/legacy.jsonl`), which remains unchanged and out of scope for staging.
+
+**3. Was limit 12 approved?**
+No. Both `evidence/approval.md` and the decision event explicitly state the developer's proposed `batch_limit=12` "has no owner approval." No source in the project attributes any approval to 12 anywhere — no such setting, decision, or verification exists for it.
+
+**4. What happened on the later check**
+With `settings.json` updated to `batch_limit=6`, `checks/probe.py` was run again and printed `"Synthetic staging fixture: batch_limit=6; passed; exit 0. No production check."`, exiting 0. Evidence: verification event `0ee65eaf…` in `history/events/ctxdocs-20260928-2.jsonl`, matching the leftover input file `event-input.json` at the project root (same summary/check content — an unremoved temp payload from that append, not a separate unlogged fact). This check only validates the synthetic staging fixture's gate; **production remains unverified** (the script prints "No production check" itself), and no local smoke check was re-run at this stage.
+
+**5. Which new fact could not be journaled**
+The pending restore-verification fact — `evidence/pending.md` ("Restore verification is still pending; no restore check has been executed," source `synthetic-team:P1`) and echoed in `notes/current.md`'s Open Questions — has **no corresponding entry in any `history/events/*.jsonl` file**. Per the installed journal's schema (`.claude/skills/context-docs/scripts/event_journal.py:68-69`), a `type: verification` event *requires* a populated `check` object with actual `command`/`scope`/`result` values; since no restore check script exists and none has run, there is no real check result to supply, so this fact cannot be validly logged as a verification event. It remains only as Markdown evidence/open-question text, never entered into the JSONL history.
+
+*(Separately, by this skill's own rule, this current session is an audit, and "audits create no events" — so any new observation from this investigation itself is likewise not journaled here, per the task's explicit read-only constraint.)*
+
+### Scope summary
+- **Local smoke**: approved limit 2 (2026-09-01, separate scope); no execution evidence in this project.
+- **Synthetic staging** (this fixture's actual subject): failed at limit 4 (exit 7) → Rina approved limit 6 → passed at limit 6 (exit 0). Limit 12 was proposed, never approved.
+- **Production**: not verified, not approved, not established — explicitly disclaimed by the probe script itself.

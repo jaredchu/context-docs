@@ -1,0 +1,13 @@
+{
+  "type": "verification",
+  "status": "observed",
+  "actor": "synthetic-agent",
+  "summary": "Synthetic example: configuration validation passed for the demo fixture.",
+  "sources": ["synthetic:demo-validation-output"],
+  "revision": "synthetic:demo-revision",
+  "check": {
+    "command": "demo-validator config.json",
+    "scope": "Synthetic configuration fixture only; no deployment checked.",
+    "result": "Synthetic result: passed with zero validation errors."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "recorded_before_current_turn_journal_read_at": "2026-09-28T09:36:52.130013+00:00",
+  "task": "Review prior handoff and reconcile trial status with actual retrieval findings",
+  "reader": "Same assistant in same chat; prior content visible in history. No independent or blinded reader test.",
+  "answers": [
+    {
+      "question": "What was checked, against which revision or snapshot, with what scope/result?",
+      "answer": "Session 1 verified that the writer and its 25-test suite matched retained evaluation hashes, and ran repository static checks: 512 links/anchors, 5 result tables, 2 skill packages and 2 version declarations passed. It did not rerun the 25 tests or establish agent behavior. The source was base ede8f7ac1c69903dbcc400e68e6667bdceacd980 plus the dirty files identified by before/final snapshot manifests.",
+      "sources": [
+        ".context/trials/journal-2026-09-28/session-01/evaluated-source-check.json",
+        ".context/trials/journal-2026-09-28/session-01/before.json",
+        ".context/trials/journal-2026-09-28/session-01/final.json",
+        ".context/trials/journal-2026-09-28/session-01/static-checks.txt"
+      ]
+    },
+    {
+      "question": "Why did current context change, and which authority supported it?",
+      "answer": "The owner authorized proceeding with the optional three-session trial. Session 1 added a repository-local temporary instruction and a trial handoff tracker. This is not a universal logging requirement, publication approval or installable-skill change.",
+      "sources": [
+        "docs/project-context.md",
+        "docs/event-journal-live-trial.md",
+        "AGENTS.md"
+      ]
+    },
+    {
+      "question": "What unresolved issue needs the next reader's attention?",
+      "answer": "Whether the journal preserves useful information or saves enough retrieval effort to justify upkeep remains unmeasured. Sessions 2 and 3 were pending at the prior cutoff; actual later work must compare the same raw evidence and record logging cost/duplication.",
+      "sources": [
+        "docs/event-journal-live-trial.md",
+        "docs/project-context.md"
+      ]
+    }
+  ],
+  "retrieval_time": "Not measured; prior familiarity invalidates a speed comparison.",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "starting_sha256": {
+    "AGENTS.md": "88056d94ba6ad7c664ed2c2843a3074edabb6844b438eb21273e628b617410e1",
+    "docs/project-context.md": "3cfcc1cb20555cf9a698d5b8e1710e7654a4e5ff81def9bf553d545d9d41d2e7",
+    "docs/event-journal-live-trial.md": "d94e823e7ccf445e548c5832817f2c520b29ab4f94e4c3e6000c60da4f26f539",
+    "CHANGELOG.md": "893e9cbacab7062547105805c8c8f6f841fc924cedc917a947bd1217ac4fa619"
+  }
+}

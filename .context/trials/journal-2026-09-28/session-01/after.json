@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-09-28T09:25:49.105919+00:00",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "after_sha256": {
+    "AGENTS.md": "88056d94ba6ad7c664ed2c2843a3074edabb6844b438eb21273e628b617410e1",
+    "docs/project-context.md": "3cfcc1cb20555cf9a698d5b8e1710e7654a4e5ff81def9bf553d545d9d41d2e7",
+    "docs/event-journal-pilot.md": "87556df1a29ad812a90fe1397d4a7640e29199f2f0e9db6a0955c5b14411fab9",
+    "docs/event-journal-live-trial.md": "2270ee6ecb380e77769051d64c48d8832e808582fa1e372db54d32accde259b2",
+    "CHANGELOG.md": "893e9cbacab7062547105805c8c8f6f841fc924cedc917a947bd1217ac4fa619"
+  },
+  "scope": "Trial setup documentation; writer/test source identity recorded separately; not a complete repository snapshot."
+}

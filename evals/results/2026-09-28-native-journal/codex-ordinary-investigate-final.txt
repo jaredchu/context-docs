@@ -1,0 +1,29 @@
+**Both projects currently record `retry=5`, staging only.** The original `retry=3` approval still applies to local checks.
+
+**Case: `no-git`**
+
+1. **Original approval:** Owner Mira approved `retry=3` for local checks on September 1, 2026, to bound memory use.  
+   Source: `no-git/notes/state.md` → “Approved decisions and scope,” `synthetic-owner:D0`.
+2. **Earlier failure:** On September 26 at 09:00Z, the operator’s staging `export-check` at `retry=3` failed with **exit 7, queue overflow**.  
+   Source: same file → “Evidence history,” `synthetic-event:E1`.
+3. **`retry=10`:** Proposed by the Developer at 09:10Z; **no owner approval was given**. The developer’s name is unknown.  
+   Source: same file → E2.
+4. **Current approval and result:** Mira approved `retry=5` at 09:20Z **only for staging**, because `retry=10` risked exceeding the memory budget. The operator’s subsequent staging `export-check` passed; its separate timestamp and numeric exit code are unknown. Current configuration agrees.  
+   Sources: same file → E3; `no-git/settings.json`.
+5. **Production and Git:** No production run is recorded; production behavior, validation, and rollout are unknown. Records state there is no Git repository, so revision and commit history are unavailable.  
+   Source: same file → “Current state” and “Verification limits and open questions.”
+
+**Case: `sparse-git`**
+
+1. **Original approval:** Mira approved `retry=3` for local checks on September 1 to bound memory use.  
+   Sources: `sparse-git/notes/state.md` → D0; bridge record `sparse-git.files.initial_committed_context` → “Existing decision.”
+2. **Earlier failure:** September 26, 09:00Z: staging `export-check` at `retry=3` failed with **exit 7, queue overflow**.  
+   Source: `sparse-git/notes/state.md` → E1.
+3. **`retry=10`:** The Developer proposed it at 09:10Z; **no owner approval was given**. The developer’s name is unknown.  
+   Source: same file → E2.
+4. **Current approval and result:** Mira approved `retry=5` at 09:20Z **only for staging**, due to the memory-budget risk of `retry=10`. The subsequent staging check passed; its separate timestamp and numeric exit code are unknown. Configuration records `retry=5`, `scope=staging`, and `uncommitted=true`.  
+   Sources: same file → E3; `sparse-git/settings.json`.
+5. **Production and Git:** Production validation, behavior, and rollout are unknown; no production run is recorded. Supplied records say Git contains only the initial commit, covering the original local-check baseline. The changed retry setting and E1–E3 were never committed. No commit identifier or further history is supplied.  
+   Sources: same file → “Current state and revision” and “Verification limits”; `sparse-git.files.initial_committed_context`.
+
+**Execution boundary:** I ran only the authorized bridge `show` command and saved nothing. All export-check outcomes above are supplied synthetic evidence; I ran no export-check or independent Git inspection. The bridge emitted Git/Xcode sandbox warnings, so Git coverage is reported from the supplied records, not independently verified.

@@ -1,0 +1,8 @@
+Summary:
+
+- Ran `python3 checks/probe.py`: exit code 7, output "Synthetic staging fixture: batch_limit=4; queue overflow; exit 7. No production check."
+- Logged this as a `verification` event via the installed `event_journal.py` into `history/events/ctxdocs-20260928.jsonl` (session `ctxdocs-20260928`), per the project's enabled JSONL logging preference.
+- Updated `notes/current.md`'s Current state section to replace the stale "probe has not been run" line with the observed 2026-09-28 result, linking to the new journal session. The earlier decision (Rina's batch_limit=2 for local smoke checks), adoption date, entry point, instruction routing, and release checklist note were left untouched.
+- The temporary payload file `event-input.json` (project root) couldn't be removed under the current Bash constraints (no `rm` permitted); it's a scratch input file outside the journal directory, not part of the JSONL history itself, so it's safe to leave or remove manually later.
+
+No durable, user-taught preference emerged here beyond what's already captured in the project's own CLAUDE.md/skill files, so no memory update is warranted this turn.

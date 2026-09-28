@@ -1,0 +1,32 @@
+[
+  {
+    "session": "stage-1",
+    "before_revision": "cb04c4e1acfad0d6ce2b7cc348ad74ca5aef8b6e",
+    "after_revision": "10297819d05862115ec46810a446d62f829e3424",
+    "appended_events": 3,
+    "prior_session_bytes_preserved": true,
+    "read_roundtrip_and_no_mutation": true,
+    "payload_characters": 1153,
+    "journal_bytes_at_cutoff": 1521
+  },
+  {
+    "session": "stage-2",
+    "before_revision": "10297819d05862115ec46810a446d62f829e3424",
+    "after_revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+    "appended_events": 4,
+    "prior_session_bytes_preserved": true,
+    "read_roundtrip_and_no_mutation": true,
+    "payload_characters": 1501,
+    "journal_bytes_at_cutoff": 3506
+  },
+  {
+    "session": "stage-3",
+    "before_revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+    "after_revision": "6c1c368a50be02761eeced121194ed279f3a7011",
+    "appended_events": 3,
+    "prior_session_bytes_preserved": true,
+    "read_roundtrip_and_no_mutation": true,
+    "payload_characters": 1245,
+    "journal_bytes_at_cutoff": 5117
+  }
+]

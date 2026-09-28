@@ -1,0 +1,141 @@
+{
+  "single_session": [
+    {
+      "seeded_records": 10,
+      "sessions": 1,
+      "samples": [
+        {
+          "records_before": 10,
+          "file_bytes_before": 4380,
+          "read_ms": 24.011374999999944,
+          "append_ms": 24.160750000000064,
+          "read_output_bytes": 4380
+        },
+        {
+          "records_before": 11,
+          "file_bytes_before": 4818,
+          "read_ms": 23.338832999999948,
+          "append_ms": 24.552624999999995,
+          "read_output_bytes": 4818
+        },
+        {
+          "records_before": 12,
+          "file_bytes_before": 5256,
+          "read_ms": 24.1123339999999,
+          "append_ms": 26.723292000000008,
+          "read_output_bytes": 5256
+        }
+      ],
+      "median_read_ms": 24.011374999999944,
+      "median_append_ms": 24.552624999999995
+    },
+    {
+      "seeded_records": 100,
+      "sessions": 1,
+      "samples": [
+        {
+          "records_before": 100,
+          "file_bytes_before": 43800,
+          "read_ms": 28.049792000000018,
+          "append_ms": 29.90029099999991,
+          "read_output_bytes": 43800
+        },
+        {
+          "records_before": 101,
+          "file_bytes_before": 44238,
+          "read_ms": 28.77795900000002,
+          "append_ms": 28.71670900000001,
+          "read_output_bytes": 44238
+        },
+        {
+          "records_before": 102,
+          "file_bytes_before": 44676,
+          "read_ms": 28.47729099999996,
+          "append_ms": 28.324083,
+          "read_output_bytes": 44676
+        }
+      ],
+      "median_read_ms": 28.47729099999996,
+      "median_append_ms": 28.71670900000001
+    },
+    {
+      "seeded_records": 1000,
+      "sessions": 1,
+      "samples": [
+        {
+          "records_before": 1000,
+          "file_bytes_before": 438000,
+          "read_ms": 47.22604100000005,
+          "append_ms": 45.08116600000012,
+          "read_output_bytes": 438000
+        },
+        {
+          "records_before": 1001,
+          "file_bytes_before": 438438,
+          "read_ms": 48.64608400000003,
+          "append_ms": 46.68404200000009,
+          "read_output_bytes": 438438
+        },
+        {
+          "records_before": 1002,
+          "file_bytes_before": 438876,
+          "read_ms": 49.27454099999995,
+          "append_ms": 46.859500000000054,
+          "read_output_bytes": 438876
+        }
+      ],
+      "median_read_ms": 48.64608400000003,
+      "median_append_ms": 46.68404200000009
+    },
+    {
+      "seeded_records": 10000,
+      "sessions": 1,
+      "samples": [
+        {
+          "records_before": 10000,
+          "file_bytes_before": 4380000,
+          "read_ms": 246.00491700000003,
+          "append_ms": 223.21262499999995,
+          "read_output_bytes": 4380000
+        },
+        {
+          "records_before": 10001,
+          "file_bytes_before": 4380438,
+          "read_ms": 249.26683300000008,
+          "append_ms": 217.22933299999968,
+          "read_output_bytes": 4380438
+        },
+        {
+          "records_before": 10002,
+          "file_bytes_before": 4380876,
+          "read_ms": 250.29487499999982,
+          "append_ms": 215.4531660000001,
+          "read_output_bytes": 4380876
+        }
+      ],
+      "median_read_ms": 249.26683300000008,
+      "median_append_ms": 217.22933299999968
+    }
+  ],
+  "hundred_sessions": [
+    {
+      "selected_read_ms": 24.19779100000019,
+      "full_read_ms": 50.30687499999998,
+      "selected_output_bytes": 4380,
+      "full_output_bytes": 438000
+    },
+    {
+      "selected_read_ms": 25.02916700000002,
+      "full_read_ms": 50.99370900000011,
+      "selected_output_bytes": 4380,
+      "full_output_bytes": 438000
+    },
+    {
+      "selected_read_ms": 24.44466700000003,
+      "full_read_ms": 51.134959000000094,
+      "selected_output_bytes": 4380,
+      "full_output_bytes": 438000
+    }
+  ],
+  "measurement_scope": "warm-cache fresh CLI processes, including startup and captured output; 3 samples per condition"
+}

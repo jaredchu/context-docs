@@ -9,6 +9,12 @@
 - The standard is canonical in `skills/context-docs/references/standard.md`.
   Link to it instead of maintaining a second copy.
 - Preserve the distinction between observed facts, owner decisions and proposals.
+- For optional journal work, follow the [logging goals](docs/event-journal-pilot.md#efficient-logging-goals):
+  efficient, reliable event capture for later investigation. Do not judge logging
+  by routine current-context improvement or context savings.
+- Before broadening logging integration, apply the [journal requirements](docs/event-journal-pilot.md#requirements-before-broader-integration):
+  establish need beyond Markdown/Git, evaluate native Claude and Codex behavior,
+  and preserve projects that already adopted Context Docs.
 - Keep guidance applicable to varied project layouts. Do not add a universal
   rule for an isolated example without a demonstrated need.
 - Validate skill metadata, packaged reference links and affected evaluation
@@ -25,3 +31,5 @@
 Method: context-docs
 Adopted: 2026-09-27
 Entry point: docs/project-context.md
+Event journal: jsonl
+Event journal directory: .context/events

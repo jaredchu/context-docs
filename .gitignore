@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 .local/
+.context/events/*.lock

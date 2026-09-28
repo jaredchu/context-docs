@@ -1,0 +1,5 @@
+I ran the probe and updated the context doc with the result — no journal write, since event logging isn't enabled in CLAUDE.md (no "Event journal:" line), per the skill's off-by-default rule.
+
+**Probe result:** `python3 checks/probe.py` read `batch_limit=4` from settings.json and exited **7** with "queue overflow" (no production check performed).
+
+**Context update:** `notes/current.md`'s "Current state" section now records this run and its result, leaving the earlier decision (Rina's batch limit of 2 for local smoke checks, a separate scope), the release checklist note, and the history section untouched.

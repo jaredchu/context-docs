@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-09-28T09:38:43.211308+00:00",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "sha256": {
+    "docs/project-context.md": "678caa4cd0061f3569fa52f0d0423ba24bf94939bd6156da8aa098a2917ecf00",
+    "docs/event-journal-live-trial.md": "618a7824625402a40d817d6e01d5971b8abe814772cae4d7ce93b97180c85f97",
+    "CHANGELOG.md": "dd13ffcd7cab3c88f8cdd438f8783b01525766893bb5495aedd9c9f07a92cf47"
+  },
+  "scope": "Documentation changes from the handoff maintenance review only."
+}

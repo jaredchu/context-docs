@@ -1,0 +1,11 @@
+{
+  "default-off": true,
+  "enable": true,
+  "failure": true,
+  "approval": true,
+  "repeat": true,
+  "missing-helper": true,
+  "audit": true,
+  "disable": true,
+  "disabled-maintenance": true
+}

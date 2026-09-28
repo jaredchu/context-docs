@@ -1,0 +1,22 @@
+# Investigation Results (read-only; no records saved)
+
+Both projects (`no-git` and `sparse-git`) contain identical synthetic history in `notes/state.md`, `settings.json`, `AGENTS.md`/`CLAUDE.md`. The only difference is that `sparse-git` also reports Git commit coverage. All facts below are **supplied synthetic data** from the bridge `show` output — I ran no other commands and verified nothing externally.
+
+## Case: `no-git`
+
+1. **Original approved setting and why:** retry=3, approved by Owner Mira on 2026-09-01, "to bound memory use," scoped to local checks. — `notes/state.md` § "Existing decision" (source tag `synthetic-owner:D0`).
+2. **What failed before the latest staging change:** At 09:00Z (event E1), an operator ran `export-check` in staging at **retry=3**; it failed with **exit 7, queue overflow**. No production run occurred. — `notes/state.md` § "History (2026-09-26)", entry E1.
+3. **Was retry=10 approved?** No. At 09:10Z (event E2) a **Developer proposed** retry=10, but **no owner approval was given**. — `notes/state.md`, entry E2.
+4. **Who approved the current setting, why, scope, and check result:** At 09:20Z (event E3), **Owner Mira approved retry=5, staging only**, explicitly because retry=10 "risked exceeding the memory budget." The subsequent operator `export-check` **passed in staging at retry=5**. This approval supersedes the 09-01 retry=3 decision *for staging use only*. Current `settings.json` reflects `{"retry": 5, "scope": "staging"}`, matching this approval. — `notes/state.md`, entry E3 and "Current state" section; `settings.json`.
+5. **Production validation and Git coverage:** Production validation is explicitly **unknown** — stated twice in `notes/state.md` ("Production behavior is unknown" and under "Unknowns": "Production run/validation at any retry value," "Rollout plan beyond staging"). This project is **not a git repository** (per environment info), so there is no commit history to check — Git coverage of these events is **not applicable/unknown**.
+
+## Case: `sparse-git`
+
+1. **Original approved setting and why:** Same as above — retry=3, Mira, 2026-09-01, to bound memory use, local checks only. — `notes/state.md` § "Existing decision"; also independently confirmed by the `initial_committed_context` field (the actual first commit content), which states: "Owner Mira approved retry=3 for local checks... Current state: Retry=3; local checks only. No staging result recorded yet."
+2. **What failed before the latest staging change:** Identical to `no-git` — E1 at 09:00Z, staging, retry=3, exit 7, queue overflow, no production run. — `notes/state.md`, entry E1.
+3. **Was retry=10 approved?** No — same as above, proposed by a Developer at E2 (09:10Z), never approved by an owner. — `notes/state.md`, entry E2.
+4. **Who approved the current setting, why, scope, and check result:** Same as above — Mira approved retry=5, staging-only, at E3 (09:20Z), because retry=10 risked exceeding the memory budget; the follow-up staging `export-check` then passed. `settings.json` here reads `{"retry": 5, "scope": "staging", "uncommitted": true}` — the `uncommitted: true` flag itself signals this setting has not been committed to Git.
+5. **Production validation and Git coverage:** Production validation is again stated as **unknown** (same "Unknowns" section). For Git coverage, this case explicitly provides more detail: `notes/state.md` states "Repository has only its initial commit (which recorded retry=3); the retry=5 settings change and all 2026-09-26 events above are uncommitted." This is corroborated by the `initial_committed_context` snapshot, which only contains the retry=3 decision and no mention of E1/E2/E3 or retry=5. So **only the original retry=3 decision is committed to Git; the retry=5 approval, the failed retry=3 staging run, the retry=10 proposal, and the passing retry=5 check are all uncommitted** in this repo.
+
+## Cross-case comparison
+The two cases tell the same approval story (retry=3 → failed staging attempt → rejected retry=10 proposal → approved retry=5 staging-only, which then passed). The sole substantive difference `sparse-git` adds is **explicit Git-coverage information**: it confirms that everything except the original 2026-09-01 retry=3 decision is uncommitted, whereas `no-git` has no Git history to consult at all. Neither case has any record of production validation — that remains unknown in both.

@@ -1,0 +1,553 @@
+[
+  {
+    "name": "claude-ordinary-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 112.91,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json show",
+          "description": "Show current state of both projects via bridge"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Existing decision\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\\nSource: synthetic-owner:D0. Production behavior is unknown.\\n\\n## History (2026-09-26)\\n- 09:00Z (E1): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- 09:10Z (E2): Developer proposed retry=10; no owner approval given. Source: synthetic-event:E2.\\n- 09:20Z (E3): Owner Mira approved retry=5, staging only, because retry=10 risked exceeding the memory budget. Operator export-check then passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nRetry=5, staging only (Mira 2026-09-26 approval supersedes the 09-01 retry=3 decision for staging use). Production validation and rollout remain unknown.\\n\\n## Unknowns\\n- Production run/validation at any retry value.\\n- Rollout plan beyond staging.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:00Z: export-check run in staging at retry=3 failed with exit 7 (queue overflow); no production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"revision\": \"unavailable\", \"check\": {\"command\": \"export-check --retry=3\", \"scope\": \"staging\", \"result\": \"exit 7, queue overflow\"}}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"2026-09-26 09:10Z: developer proposed raising retry to 10; no owner approval was given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"2026-09-26 09:20Z: owner Mira approved retry=5 for staging only, rejecting the proposed retry=10 because it risked exceeding the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"unavailable\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:20Z: export-check run in staging at retry=5 passed after the retry=5 approval.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"unavailable\", \"check\": {\"command\": \"export-check --retry=5\", \"scope\": \"staging\", \"result\": \"passed\"}}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"Current config is retry=5, scope=staging; production validation and rollout beyond staging remain unknown.\", \"sources\": [\"synthetic-event:E3\", \"settings.json\"], \"revision\": \"unavailable\"}]}'",
+          "description": "Save updated context and events for no-git case"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json save '{\"case\": \"sparse-git\", \"context\": \"# Context\\n\\n## Existing decision\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\\nSource: synthetic-owner:D0. Production behavior is unknown.\\n\\n## History (2026-09-26)\\n- 09:00Z (E1): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- 09:10Z (E2): Developer proposed retry=10; no owner approval given. Source: synthetic-event:E2.\\n- 09:20Z (E3): Owner Mira approved retry=5, staging only, because retry=10 risked exceeding the memory budget. Operator export-check then passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nRetry=5, staging only (Mira 2026-09-26 approval supersedes the 09-01 retry=3 decision for staging use). Production validation and rollout remain unknown.\\nRepository has only its initial commit (which recorded retry=3); the retry=5 settings change and all 2026-09-26 events above are uncommitted.\\n\\n## Unknowns\\n- Production run/validation at any retry value.\\n- Rollout plan beyond staging.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:00Z: export-check run in staging at retry=3 failed with exit 7 (queue overflow); no production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"revision\": \"uncommitted\", \"check\": {\"command\": \"export-check --retry=3\", \"scope\": \"staging\", \"result\": \"exit 7, queue overflow\"}}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"2026-09-26 09:10Z: developer proposed raising retry to 10; no owner approval was given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"uncommitted\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"2026-09-26 09:20Z: owner Mira approved retry=5 for staging only, rejecting the proposed retry=10 because it risked exceeding the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"uncommitted\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:20Z: export-check run in staging at retry=5 passed after the retry=5 approval.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"uncommitted\", \"check\": {\"command\": \"export-check --retry=5\", \"scope\": \"staging\", \"result\": \"passed\"}}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"Current config is retry=5, scope=staging, marked uncommitted in settings.json; production validation and rollout beyond staging remain unknown.\", \"sources\": [\"synthetic-event:E3\", \"settings.json\"], \"revision\": \"uncommitted\"}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"Repository contains only its initial commit (retry=3 era); the retry=5 change and the 2026-09-26 E1/E2/E3 events are not committed.\", \"sources\": [\"settings.json\"], \"revision\": \"uncommitted\"}]}'",
+          "description": "Save updated context and events for sparse-git case"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Existing decision\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\\nSource: synthetic-owner:D0. Production behavior is unknown.\\n\\n## History (2026-09-26)\\n- 09:00Z (E1): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- 09:10Z (E2): Developer proposed retry=10; no owner approval given. Source: synthetic-event:E2.\\n- 09:20Z (E3): Owner Mira approved retry=5, staging only, because retry=10 risked exceeding the memory budget. Operator export-check then passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nRetry=5, staging only (Mira 2026-09-26 approval supersedes the 09-01 retry=3 decision for staging use). Production validation and rollout remain unknown.\\n\\n## Unknowns\\n- Production run/validation at any retry value.\\n- Rollout plan beyond staging.\\n\", \"history\": \"\", \"events\": []}'",
+          "description": "Save updated markdown context for no-git case with no events"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json save '{\"case\": \"sparse-git\", \"context\": \"# Context\\n\\n## Existing decision\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\\nSource: synthetic-owner:D0. Production behavior is unknown.\\n\\n## History (2026-09-26)\\n- 09:00Z (E1): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- 09:10Z (E2): Developer proposed retry=10; no owner approval given. Source: synthetic-event:E2.\\n- 09:20Z (E3): Owner Mira approved retry=5, staging only, because retry=10 risked exceeding the memory budget. Operator export-check then passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nRetry=5, staging only (Mira 2026-09-26 approval supersedes the 09-01 retry=3 decision for staging use). Production validation and rollout remain unknown.\\nRepository has only its initial commit (which recorded retry=3); the retry=5 settings change and all 2026-09-26 events above are uncommitted.\\n\\n## Unknowns\\n- Production run/validation at any retry value.\\n- Rollout plan beyond staging.\\n\", \"history\": \"\", \"events\": []}'",
+          "description": "Save updated markdown context for sparse-git case with no events"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-capture.json show",
+          "description": "Verify saved state for both projects"
+        }
+      }
+    ],
+    "command_policy": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "hooks": 6,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [
+      {
+        "type": "tool_result",
+        "content": "Exit code 1\nOnly JSONL arm accepts events",
+        "is_error": true,
+        "tool_use_id": "toolu_01TY2NHn1rKPraTg2gcuJCHG"
+      },
+      {
+        "type": "tool_result",
+        "content": "Exit code 1\nOnly JSONL arm accepts events",
+        "is_error": true,
+        "tool_use_id": "toolu_016SLYLbD9RLnUVncP6sbL1a"
+      }
+    ],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1031,
+      "no-git/notes/state.md": 889
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "claude-ordinary-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 20.56,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-ordinary-investigate.json show",
+          "description": "Show records from bridge for both projects"
+        }
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 1,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1031,
+      "no-git/notes/state.md": 889
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "claude-markdown-log-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 96.13,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json show"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Approved decisions\\n- D0 (2026-09-01): Owner Mira approved retry=3 for local checks, to bound memory use. Source: synthetic-owner:D0. Production behavior unknown. Scope: local checks only.\\n- E3 (2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Source: synthetic-event:E3. This governs staging scope; D0 retry=3 for local checks is unaffected.\\n\\n## Rationale\\n- retry=10, proposed by developer at 09:10Z (synthetic-event:E2), was not approved by the owner because it risked exceeding the memory budget.\\n- retry=5 was approved as a bounded compromise for staging.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): export-check run in staging at retry=3 failed, exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- E3 (2026-09-26 09:20Z): export-check passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nsettings.json: retry=5, scope=staging. Production validation and rollout status: unknown. Local-checks retry=3 (D0) is a separate scope and unchanged by these events.\\n\\n## Unknowns\\n- Production behavior at any retry value: unknown.\\n- Production validation and rollout of retry=5: unknown.\\n\\n## Note\\nNo Git repository exists for this project; state is tracked only via these notes files.\\n\", \"history\": \"# History\\n\\n- 2026-09-01: D0 - Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0.\\n- 2026-09-26 09:00Z: E1 - Operator ran export-check in staging at retry=3; exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- 2026-09-26 09:10Z: E2 - Developer proposed retry=10; not approved by owner. Source: synthetic-event:E2.\\n- 2026-09-26 09:20Z: E3 - Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Export-check then passed in staging at retry=5. Production validation and rollout remain unknown. Current config: retry=5, staging only. Source: synthetic-event:E3.\\n\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:00Z: Export-check run in staging at retry=3 failed with exit 7 (queue overflow); no production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7, queue overflow\"}, \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"2026-09-26 09:10Z: Developer proposed increasing retry to 10; not approved by owner.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira (owner)\", \"summary\": \"2026-09-26 09:20Z: Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget; production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"authority\": \"owner Mira\", \"revision\": \"unavailable\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:20Z: Export-check passed in staging at retry=5 following Mira approval; current config is retry=5, staging only.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"passed\"}, \"revision\": \"unavailable\"}]}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json save '{\"case\": \"sparse-git\", \"context\": \"# Context\\n\\n## Approved decisions\\n- D0 (2026-09-01): Owner Mira approved retry=3 for local checks, to bound memory use. Source: synthetic-owner:D0. Production behavior unknown. Scope: local checks only.\\n- E3 (2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Source: synthetic-event:E3. This governs staging scope; D0 retry=3 for local checks is unaffected.\\n\\n## Rationale\\n- retry=10, proposed by developer at 09:10Z (synthetic-event:E2), was not approved by the owner because it risked exceeding the memory budget.\\n- retry=5 was approved as a bounded compromise for staging.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): export-check run in staging at retry=3 failed, exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- E3 (2026-09-26 09:20Z): export-check passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nsettings.json: retry=5, scope=staging. Production validation and rollout status: unknown. Local-checks retry=3 (D0) is a separate scope and unchanged by these events.\\n\\n## Unknowns\\n- Production behavior at any retry value: unknown.\\n- Production validation and rollout of retry=5: unknown.\\n\\n## Note\\nThis repository has only its initial commit, which contains the original notes/state.md with the D0 decision (retry=3). The E1-E3 observations and the retry setting change to 5 in settings.json were never committed; settings.json currently differs from the initial commit and is uncommitted.\\n\", \"history\": \"# History\\n\\n- 2026-09-01: D0 - Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0.\\n- 2026-09-26 09:00Z: E1 - Operator ran export-check in staging at retry=3; exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- 2026-09-26 09:10Z: E2 - Developer proposed retry=10; not approved by owner. Source: synthetic-event:E2.\\n- 2026-09-26 09:20Z: E3 - Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Export-check then passed in staging at retry=5. Production validation and rollout remain unknown. Current config: retry=5, staging only. Source: synthetic-event:E3.\\n\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:00Z: Export-check run in staging at retry=3 failed with exit 7 (queue overflow); no production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7, queue overflow\"}, \"revision\": \"uncommitted\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"2026-09-26 09:10Z: Developer proposed increasing retry to 10; not approved by owner.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"uncommitted\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira (owner)\", \"summary\": \"2026-09-26 09:20Z: Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget; production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"authority\": \"owner Mira\", \"revision\": \"uncommitted\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"2026-09-26 09:20Z: Export-check passed in staging at retry=5 following Mira approval; current config is retry=5, staging only.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"passed\"}, \"revision\": \"uncommitted\"}]}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Approved decisions\\n- D0 (2026-09-01): Owner Mira approved retry=3 for local checks, to bound memory use. Source: synthetic-owner:D0. Production behavior unknown. Scope: local checks only.\\n- E3 (2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Source: synthetic-event:E3. This governs staging scope; D0 retry=3 for local checks is unaffected.\\n\\n## Rationale\\n- retry=10, proposed by developer at 09:10Z (synthetic-event:E2), was not approved by the owner because it risked exceeding the memory budget.\\n- retry=5 was approved as a bounded compromise for staging.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): export-check run in staging at retry=3 failed, exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- E3 (2026-09-26 09:20Z): export-check passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nsettings.json: retry=5, scope=staging. Production validation and rollout status: unknown. Local-checks retry=3 (D0) is a separate scope and unchanged by these events.\\n\\n## Unknowns\\n- Production behavior at any retry value: unknown.\\n- Production validation and rollout of retry=5: unknown.\\n\\n## Note\\nNo Git repository exists for this project; state is tracked only via these notes files.\\n\", \"history\": \"# History\\n\\n- 2026-09-01: D0 - Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0.\\n- 2026-09-26 09:00Z: E1 - Operator ran export-check in staging at retry=3; exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- 2026-09-26 09:10Z: E2 - Developer proposed retry=10; not approved by owner. Source: synthetic-event:E2.\\n- 2026-09-26 09:20Z: E3 - Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Export-check then passed in staging at retry=5. Production validation and rollout remain unknown. Current config: retry=5, staging only. Source: synthetic-event:E3.\\n\", \"events\": []}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json save '{\"case\": \"sparse-git\", \"context\": \"# Context\\n\\n## Approved decisions\\n- D0 (2026-09-01): Owner Mira approved retry=3 for local checks, to bound memory use. Source: synthetic-owner:D0. Production behavior unknown. Scope: local checks only.\\n- E3 (2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Source: synthetic-event:E3. This governs staging scope; D0 retry=3 for local checks is unaffected.\\n\\n## Rationale\\n- retry=10, proposed by developer at 09:10Z (synthetic-event:E2), was not approved by the owner because it risked exceeding the memory budget.\\n- retry=5 was approved as a bounded compromise for staging.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): export-check run in staging at retry=3 failed, exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- E3 (2026-09-26 09:20Z): export-check passed in staging at retry=5. Source: synthetic-event:E3.\\n\\n## Current state\\nsettings.json: retry=5, scope=staging. Production validation and rollout status: unknown. Local-checks retry=3 (D0) is a separate scope and unchanged by these events.\\n\\n## Unknowns\\n- Production behavior at any retry value: unknown.\\n- Production validation and rollout of retry=5: unknown.\\n\\n## Note\\nThis repository has only its initial commit, which contains the original notes/state.md with the D0 decision (retry=3). The E1-E3 observations and the retry setting change to 5 in settings.json were never committed; settings.json currently differs from the initial commit and is uncommitted.\\n\", \"history\": \"# History\\n\\n- 2026-09-01: D0 - Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0.\\n- 2026-09-26 09:00Z: E1 - Operator ran export-check in staging at retry=3; exit 7, queue overflow; no production run. Source: synthetic-event:E1.\\n- 2026-09-26 09:10Z: E2 - Developer proposed retry=10; not approved by owner. Source: synthetic-event:E2.\\n- 2026-09-26 09:20Z: E3 - Owner Mira approved retry=5 for staging only, because retry=10 risked exceeding the memory budget. Export-check then passed in staging at retry=5. Production validation and rollout remain unknown. Current config: retry=5, staging only. Source: synthetic-event:E3.\\n\", \"events\": []}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-capture.json show"
+        }
+      }
+    ],
+    "command_policy": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "hooks": 6,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [
+      {
+        "type": "tool_result",
+        "content": "Exit code 1\nOnly JSONL arm accepts events",
+        "is_error": true,
+        "tool_use_id": "toolu_01CXLM1yizmygwDiq1nQZf3e"
+      },
+      {
+        "type": "tool_result",
+        "content": "Exit code 1\nOnly JSONL arm accepts events",
+        "is_error": true,
+        "tool_use_id": "toolu_01GDB6Wta624nofUYFk7ujov"
+      }
+    ],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/history.md": 666,
+      "sparse-git/notes/state.md": 1516,
+      "no-git/notes/history.md": 666,
+      "no-git/notes/state.md": 1312
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "claude-markdown-log-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 35.64,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-markdown-log-investigate.json show"
+        }
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 1,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/history.md": 666,
+      "sparse-git/notes/state.md": 1516,
+      "no-git/notes/history.md": 666,
+      "no-git/notes/state.md": 1312
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "claude-jsonl-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 71.71,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-capture.json show"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Existing decisions\\n- D0 (approved, 2026-09-01): Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. Production behavior is unknown.\\n- E3 (approved, 2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, rejecting the developer'\\''s retry=10 proposal (E2) as risking the memory budget. Source: synthetic-event:E3.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- E3 verification (2026-09-26 09:20Z): Operator'\\''s export-check passed in staging at retry=5, following Mira'\\''s approval. Source: synthetic-event:E3.\\n\\n## Proposals (not approved)\\n- E2 (2026-09-26 09:10Z): Developer proposed retry=10. No owner approval. Source: synthetic-event:E2.\\n\\n## Current state\\nConfig per settings.json: retry=5, scope=staging. Local checks remain retry=3 per D0. No Git repository exists for this case.\\n\\n## Unknowns\\nProduction validation and rollout remain unknown.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Ran export-check in staging at retry=3 on 2026-09-26 09:00Z; failed with exit 7 (queue overflow). No production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7 (queue overflow)\"}, \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"Developer proposed increasing retry to 10 on 2026-09-26 09:10Z; no owner approval given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"Owner Mira approved retry=5 for staging only on 2026-09-26 09:20Z, rejecting the developer'\\''s retry=10 proposal (E2) as risking the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"unavailable\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Following Mira'\\''s retry=5 approval, operator'\\''s export-check passed in staging at retry=5 on 2026-09-26 09:20Z. Production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"pass\"}, \"revision\": \"unavailable\"}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"settings.json reflects current config: retry=5, scope=staging.\", \"sources\": [\"settings.json\"], \"revision\": \"unavailable\"}]}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Existing decisions\\n- D0 (approved, 2026-09-01): Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. Production behavior is unknown.\\n- E3 (approved, 2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, rejecting the retry=10 proposal from the developer (E2) as risking the memory budget. Source: synthetic-event:E3.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- E3 verification (2026-09-26 09:20Z): Export-check by operator passed in staging at retry=5, following the approval from Mira. Source: synthetic-event:E3.\\n\\n## Proposals (not approved)\\n- E2 (2026-09-26 09:10Z): Developer proposed retry=10. No owner approval. Source: synthetic-event:E2.\\n\\n## Current state\\nConfig per settings.json: retry=5, scope=staging. Local checks remain retry=3 per D0. No Git repository exists for this case.\\n\\n## Unknowns\\nProduction validation and rollout remain unknown.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Ran export-check in staging at retry=3 on 2026-09-26 09:00Z; failed with exit 7 (queue overflow). No production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7 (queue overflow)\"}, \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"Developer proposed increasing retry to 10 on 2026-09-26 09:10Z; no owner approval given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"Owner Mira approved retry=5 for staging only on 2026-09-26 09:20Z, rejecting the retry=10 proposal from the developer (E2) as risking the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"unavailable\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Following the retry=5 approval from Mira, export-check by the operator passed in staging at retry=5 on 2026-09-26 09:20Z. Production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"pass\"}, \"revision\": \"unavailable\"}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"settings.json reflects current config: retry=5, scope=staging.\", \"sources\": [\"settings.json\"], \"revision\": \"unavailable\"}]}'"
+        }
+      },
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-capture.json save '{\"case\": \"sparse-git\", \"context\": \"# Context\\n\\n## Existing decisions\\n- D0 (approved, 2026-09-01): Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. Production behavior is unknown. This is the only decision reflected in the initial commit.\\n- E3 (approved, 2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, rejecting the retry=10 proposal from the developer (E2) as risking the memory budget. Source: synthetic-event:E3.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- E3 verification (2026-09-26 09:20Z): Export-check by operator passed in staging at retry=5, following the approval from Mira. Source: synthetic-event:E3.\\n\\n## Proposals (not approved)\\n- E2 (2026-09-26 09:10Z): Developer proposed retry=10. No owner approval. Source: synthetic-event:E2.\\n\\n## Current state\\nConfig per settings.json: retry=5, scope=staging, uncommitted=true. Local checks remain retry=3 per D0. The repository has only its initial commit (retry=3, local checks); the retry=5/staging change and events E1-E3 were never committed.\\n\\n## Unknowns\\nProduction validation and rollout remain unknown.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Ran export-check in staging at retry=3 on 2026-09-26 09:00Z; failed with exit 7 (queue overflow). No production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7 (queue overflow)\"}, \"revision\": \"uncommitted\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"Developer proposed increasing retry to 10 on 2026-09-26 09:10Z; no owner approval given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"uncommitted\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"Owner Mira approved retry=5 for staging only on 2026-09-26 09:20Z, rejecting the retry=10 proposal from the developer (E2) as risking the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"uncommitted\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Following the retry=5 approval from Mira, export-check by the operator passed in staging at retry=5 on 2026-09-26 09:20Z. Production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"pass\"}, \"revision\": \"uncommitted\"}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"settings.json reflects current uncommitted config: retry=5, scope=staging (initial commit still has retry=3).\", \"sources\": [\"settings.json\"], \"revision\": \"uncommitted\"}]}'"
+        }
+      }
+    ],
+    "command_policy": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "hooks": 4,
+    "denied": 1,
+    "errors": [
+      {
+        "is_error": false,
+        "permission_denials": [
+          {
+            "tool_name": "Bash",
+            "tool_use_id": "toolu_01RkqoEKNFtEuNNDSkodj8Yw",
+            "tool_input": {
+              "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-capture.json save '{\"case\": \"no-git\", \"context\": \"# Context\\n\\n## Existing decisions\\n- D0 (approved, 2026-09-01): Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. Production behavior is unknown.\\n- E3 (approved, 2026-09-26 09:20Z): Owner Mira approved retry=5 for staging only, rejecting the developer'\\''s retry=10 proposal (E2) as risking the memory budget. Source: synthetic-event:E3.\\n\\n## Verification history\\n- E1 (2026-09-26 09:00Z): Operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\n- E3 verification (2026-09-26 09:20Z): Operator'\\''s export-check passed in staging at retry=5, following Mira'\\''s approval. Source: synthetic-event:E3.\\n\\n## Proposals (not approved)\\n- E2 (2026-09-26 09:10Z): Developer proposed retry=10. No owner approval. Source: synthetic-event:E2.\\n\\n## Current state\\nConfig per settings.json: retry=5, scope=staging. Local checks remain retry=3 per D0. No Git repository exists for this case.\\n\\n## Unknowns\\nProduction validation and rollout remain unknown.\\n\", \"history\": \"\", \"events\": [{\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Ran export-check in staging at retry=3 on 2026-09-26 09:00Z; failed with exit 7 (queue overflow). No production run performed.\", \"sources\": [\"synthetic-event:E1\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=3\", \"result\": \"exit 7 (queue overflow)\"}, \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"proposed\", \"actor\": \"developer\", \"summary\": \"Developer proposed increasing retry to 10 on 2026-09-26 09:10Z; no owner approval given.\", \"sources\": [\"synthetic-event:E2\"], \"revision\": \"unavailable\"}, {\"type\": \"decision\", \"status\": \"approved\", \"actor\": \"Mira\", \"authority\": \"Mira (owner)\", \"summary\": \"Owner Mira approved retry=5 for staging only on 2026-09-26 09:20Z, rejecting the developer'\\''s retry=10 proposal (E2) as risking the memory budget.\", \"sources\": [\"synthetic-event:E3\"], \"revision\": \"unavailable\"}, {\"type\": \"verification\", \"status\": \"observed\", \"actor\": \"operator\", \"summary\": \"Following Mira'\\''s retry=5 approval, operator'\\''s export-check passed in staging at retry=5 on 2026-09-26 09:20Z. Production validation and rollout remain unknown.\", \"sources\": [\"synthetic-event:E3\"], \"check\": {\"command\": \"export-check\", \"scope\": \"staging, retry=5\", \"result\": \"pass\"}, \"revision\": \"unavailable\"}, {\"type\": \"context_update\", \"status\": \"observed\", \"actor\": \"system\", \"summary\": \"settings.json reflects current config: retry=5, scope=staging.\", \"sources\": [\"settings.json\"], \"revision\": \"unavailable\"}]}'"
+            }
+          }
+        ]
+      }
+    ],
+    "tool_failures": [
+      {
+        "type": "tool_result",
+        "content": "Frozen evaluation bridge only; use canonical shlex quoting.",
+        "is_error": true,
+        "tool_use_id": "toolu_01RkqoEKNFtEuNNDSkodj8Yw"
+      }
+    ],
+    "journal_records": 10,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1220,
+      "no-git/notes/state.md": 1049,
+      "sparse-git/events/capture.jsonl": 2182,
+      "no-git/events/capture.jsonl": 2135
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "claude-jsonl-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 40.76,
+    "model_from_stream": "claude-sonnet-5",
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "Bash",
+        "input": {
+          "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/claude-jsonl-investigate.json show",
+          "description": "Show records from investigation bridge tool"
+        }
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 1,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 10,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1220,
+      "no-git/notes/state.md": 1049,
+      "sparse-git/events/capture.jsonl": 2182,
+      "no-git/events/capture.jsonl": 2135
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-ordinary-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 74.11,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-ordinary-capture.json show'",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-ordinary-capture.json save '{\\\"case\\\":\\\"no-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\n- 2026-09-01: Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. This local-check decision remains approved; the later staging decision does not authorize changing local checks or production.\\\\n- 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3.\\\\n- Production behavior, validation, and rollout remain unknown. No production run is recorded in the supplied evidence.\\\\n\\\\n## Current state\\\\n- settings.json contains retry=5 and scope=staging, consistent with the staging-only approval in synthetic-event:E3.\\\\n- The previous context said retry=3, local checks only, with no staging result recorded. That is preserved as prior state, but is stale as a description of the current configuration and supplied staging evidence. The original local-check approval remains in force.\\\\n- There is no Git repository; revision is unavailable. Evidence provenance is retained below because no commit history is available.\\\\n\\\\n## Evidence history\\\\nAll export-check results below are supplied synthetic evidence, not checks executed during this maintenance task.\\\\n\\\\n- E1 \u2014 2026-09-26 09:00Z: Operator ran export-check in staging at retry=3. Result: exit 7, queue overflow. No production run. Source: synthetic-event:E1. This staging failure does not itself revoke the approved retry=3 local-check decision.\\\\n- E2 \u2014 2026-09-26 09:10Z: Developer proposed retry=10. No owner approval was given. This remains an unapproved proposal, not current configuration or an authorized decision. Source: synthetic-event:E2.\\\\n- E3 \u2014 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. The operator'\\\"'\\\"'s subsequent export-check passed in staging at retry=5. A separate check time and numeric exit code were not supplied. Production validation and rollout remain unknown. Source: synthetic-event:E3.\\\\n\\\\n## Verification limits and open questions\\\\n- Current configuration was observed in settings.json through the bridge. No export-check was executed by this maintenance task.\\\\n- The supplied evidence supports a staging pass at retry=5, with no production conclusion. Production behavior, validation, and rollout remain unresolved.\\\\n- Preserve the retry=3 staging failure and the unapproved retry=10 proposal for later investigation alongside the approved retry=5 staging outcome.\\\\n\\\",\\\"history\\\":\\\"\\\",\\\"events\\\":[]}'\"",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-ordinary-capture.json save '{\\\"case\\\":\\\"sparse-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\n- 2026-09-01: Owner Mira approved retry=3 for local checks to bound memory use. Source: synthetic-owner:D0. This local-check decision remains approved; the later staging decision does not authorize changing local checks or production.\\\\n- 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3.\\\\n- Production behavior, validation, and rollout remain unknown. No production run is recorded in the supplied evidence.\\\\n\\\\n## Current state and revision\\\\n- settings.json contains retry=5, scope=staging, and uncommitted=true, consistent with the staging-only approval in synthetic-event:E3.\\\\n- Revision: uncommitted. The supplied repository evidence says Git has only its initial commit; the changed retry setting and all three supplied observations were never committed. No commit identifier was supplied.\\\\n- The initial committed context recorded retry=3, local checks only, and no staging result yet. It also recorded Mira'\\\"'\\\"'s local-check approval and the unknown production behavior. This is useful baseline evidence, but it does not establish the current staging outcome.\\\\n- The previous working context repeated that baseline and was stale as a description of the current configuration and staging evidence. The original local-check approval remains in force.\\\\n\\\\n## Evidence history\\\\nAll export-check results below are supplied synthetic evidence, not checks executed during this maintenance task. These observations belong to the uncommitted state and must not be attributed to the initial commit.\\\\n\\\\n- E1 \u2014 2026-09-26 09:00Z: Operator ran export-check in staging at retry=3. Result: exit 7, queue overflow. No production run. Source: synthetic-event:E1. This staging failure does not itself revoke the approved retry=3 local-check decision.\\\\n- E2 \u2014 2026-09-26 09:10Z: Developer proposed retry=10. No owner approval was given. This remains an unapproved proposal, not current configuration or an authorized decision. Source: synthetic-event:E2.\\\\n- E3 \u2014 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. The operator'\\\"'\\\"'s subsequent export-check passed in staging at retry=5. A separate check time and numeric exit code were not supplied. Production validation and rollout remain unknown. Source: synthetic-event:E3.\\\\n\\\\n## Verification limits and open questions\\\\n- Current configuration and initial committed context were observed through the bridge. Repository-history limitations are supplied evidence; no independent Git inspection or export-check was executed by this maintenance task.\\\\n- The supplied evidence supports a staging pass at retry=5, with no production conclusion. Production behavior, validation, and rollout remain unresolved.\\\\n- Preserve the retry=3 staging failure and the unapproved retry=10 proposal for later investigation alongside the approved retry=5 staging outcome. The initial commit alone cannot reconstruct these observations or the changed setting.\\\\n\\\",\\\"history\\\":\\\"\\\",\\\"events\\\":[]}'\"",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true,
+      true,
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 3059,
+      "no-git/notes/state.md": 2469
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-ordinary-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 40.21,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-ordinary-investigate.json show'",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 3059,
+      "no-git/notes/state.md": 2469
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-markdown-log-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 62.87,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-markdown-log-capture.json show'",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-markdown-log-capture.json save '{\\\"case\\\":\\\"no-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\n- 2026-09-01: Owner Mira approved retry=3 for local checks to bound memory use. This local-check decision remains approved. Source: synthetic-owner:D0.\\\\n- 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3.\\\\n\\\\n## Current state\\\\nsettings.json contains retry=5 and scope=staging, consistent with the staging approval. The previous state description (retry=3; local checks only; no staging result) is stale for current staging state; its original decision and the subsequent evidence are preserved in notes/history.md.\\\\n\\\\nSupplied evidence reports staging export-check failed at retry=3 (exit 7, queue overflow) at 2026-09-26 09:00Z, then passed at retry=5 after approval at 2026-09-26 09:20Z. These are supplied operator results, not checks executed during this maintenance. Sources: synthetic-event:E1, synthetic-event:E3.\\\\n\\\\n## Proposals and unknowns\\\\nThe developer proposed retry=10 at 2026-09-26 09:10Z without owner approval; it is not an approved setting. Source: synthetic-event:E2. The subsequent staging approval selected retry=5 due to the memory budget risk. Source: synthetic-event:E3.\\\\nProduction behavior, validation, and rollout remain unknown. E1 explicitly reports no production run. No staging result establishes production readiness.\\\\n\\\\n## Evidence and continuity\\\\nNo Git repository is available; revision: unavailable. Preserve investigation evidence in notes/history.md. Sources: supplied bridge files and synthetic_events.\\\\n\\\",\\\"history\\\":\\\"# Event history\\\\n\\\\nThese entries preserve supplied evidence; the export checks were not executed during this maintenance. No Git repository is available; revision: unavailable.\\\\n\\\\n- 2026-09-01 \u2014 Approved decision. Owner Mira approved retry=3 for local checks to bound memory use. Production behavior was unknown. Source: synthetic-owner:D0; original notes/state.md. This remains the approved local-check decision.\\\\n- Prior recorded state \u2014 notes/state.md stated: \\\\\\\"Retry=3; local checks only. No staging result recorded yet.\\\\\\\" Retained as historical context; superseded as the description of current staging state by E1 and E3 and the current settings.json.\\\\n- 2026-09-26 09:00Z \u2014 Observed verification, supplied operator evidence. Command: export-check. Scope: staging, retry=3. Result: exit 7, queue overflow. No production run. Actor: operator. Source: synthetic-event:E1.\\\\n- 2026-09-26 09:10Z \u2014 Proposed decision. Developer proposed retry=10. No owner approval was supplied. Actor: developer. Source: synthetic-event:E2. This proposal did not become the approved staging setting.\\\\n- 2026-09-26 09:20Z \u2014 Approved decision. Authority and actor: owner Mira. Approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3. This does not replace the local-check scope of D0 or authorize production rollout.\\\\n- 2026-09-26 09:20Z event, after approval \u2014 Observed verification, supplied operator evidence. Command: export-check. Scope: staging, retry=5. Result: passed; no numeric exit code supplied. Actor: operator. Source: synthetic-event:E3. Production validation and rollout remain unknown.\\\\n- Maintenance observation \u2014 settings.json contains {\\\\\\\"retry\\\\\\\": 5, \\\\\\\"scope\\\\\\\": \\\\\\\"staging\\\\\\\"}, contradicting the old current-state description but matching the approved staging setting. Updated notes/state.md and retained the earlier state, decisions, rationale, failure, proposal, success, and unknowns here. Sources: bridge show, settings.json, original notes/state.md, synthetic-event:E1, synthetic-event:E2, synthetic-event:E3. Revision: unavailable.\\\\n\\\",\\\"events\\\":[]}'\"",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-markdown-log-capture.json save '{\\\"case\\\":\\\"sparse-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\n- 2026-09-01: Owner Mira approved retry=3 for local checks to bound memory use. This local-check decision remains approved. Source: synthetic-owner:D0.\\\\n- 2026-09-26 09:20Z: Owner Mira approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3.\\\\n\\\\n## Current state\\\\nsettings.json contains retry=5 and scope=staging, consistent with the staging approval. The previous state description (retry=3; local checks only; no staging result) is stale for current staging state; its original decision and the subsequent evidence are preserved in notes/history.md.\\\\n\\\\nSupplied evidence reports staging export-check failed at retry=3 (exit 7, queue overflow) at 2026-09-26 09:00Z, then passed at retry=5 after approval at 2026-09-26 09:20Z. These are supplied operator results, not checks executed during this maintenance. Sources: synthetic-event:E1, synthetic-event:E3.\\\\n\\\\n## Proposals and unknowns\\\\nThe developer proposed retry=10 at 2026-09-26 09:10Z without owner approval; it is not an approved setting. Source: synthetic-event:E2. The subsequent staging approval selected retry=5 due to the memory budget risk. Source: synthetic-event:E3.\\\\nProduction behavior, validation, and rollout remain unknown. E1 explicitly reports no production run. No staging result establishes production readiness.\\\\n\\\\n## Evidence and continuity\\\\nSparse Git contains only the initial commit. The changed retry setting and E1\u2013E3 observations were never committed; revision for the current state: uncommitted. settings.json also contains uncommitted=true. No commit identifier was supplied. Preserve investigation evidence in notes/history.md. Sources: supplied bridge files and synthetic_events.\\\\n\\\",\\\"history\\\":\\\"# Event history\\\\n\\\\nThese entries preserve supplied evidence; the export checks were not executed during this maintenance. Sparse Git contains only its initial commit, whose context matches the original notes/state.md. The changed retry setting and E1\u2013E3 observations were never committed; revision: uncommitted. No commit identifier was supplied.\\\\n\\\\n- 2026-09-01 \u2014 Approved decision. Owner Mira approved retry=3 for local checks to bound memory use. Production behavior was unknown. Source: synthetic-owner:D0; original notes/state.md. This remains the approved local-check decision.\\\\n- Prior recorded state \u2014 notes/state.md stated: \\\\\\\"Retry=3; local checks only. No staging result recorded yet.\\\\\\\" Retained as historical context; superseded as the description of current staging state by E1 and E3 and the current settings.json.\\\\n- 2026-09-26 09:00Z \u2014 Observed verification, supplied operator evidence. Command: export-check. Scope: staging, retry=3. Result: exit 7, queue overflow. No production run. Actor: operator. Source: synthetic-event:E1.\\\\n- 2026-09-26 09:10Z \u2014 Proposed decision. Developer proposed retry=10. No owner approval was supplied. Actor: developer. Source: synthetic-event:E2. This proposal did not become the approved staging setting.\\\\n- 2026-09-26 09:20Z \u2014 Approved decision. Authority and actor: owner Mira. Approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3. This does not replace the local-check scope of D0 or authorize production rollout.\\\\n- 2026-09-26 09:20Z event, after approval \u2014 Observed verification, supplied operator evidence. Command: export-check. Scope: staging, retry=5. Result: passed; no numeric exit code supplied. Actor: operator. Source: synthetic-event:E3. Production validation and rollout remain unknown.\\\\n- Maintenance observation \u2014 settings.json contains {\\\\\\\"retry\\\\\\\": 5, \\\\\\\"scope\\\\\\\": \\\\\\\"staging\\\\\\\", \\\\\\\"uncommitted\\\\\\\": true}, contradicting the old current-state description but matching the approved staging setting. Updated notes/state.md and retained the earlier state, decisions, rationale, failure, proposal, success, and unknowns here. Sources: bridge show, settings.json, original notes/state.md, synthetic-event:E1, synthetic-event:E2, synthetic-event:E3. Revision: uncommitted. The initial committed context retains the original retry=3 local-check state and no staging result; these later observations and changed settings were not committed. Source: initial_committed_context and supplied synthetic_events.\\\\n\\\",\\\"events\\\":[]}'\"",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true,
+      true,
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/history.md": 2514,
+      "sparse-git/notes/state.md": 1754,
+      "no-git/notes/history.md": 2090,
+      "no-git/notes/state.md": 1565
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-markdown-log-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 36.2,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-markdown-log-investigate.json show'",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 0,
+    "record_file_bytes": {
+      "sparse-git/notes/history.md": 2514,
+      "sparse-git/notes/state.md": 1754,
+      "no-git/notes/history.md": 2090,
+      "no-git/notes/state.md": 1565
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-jsonl-capture",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 69.0,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": null,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-jsonl-capture.json show'",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-jsonl-capture.json save '{\\\"case\\\":\\\"no-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use. Source: synthetic-owner:D0. This local-check decision remains preserved; the later staging approval has a different scope.\\\\n\\\\nOwner Mira approved retry=5 only for staging on 2026-09-26 09:20Z because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3. The retry=10 developer proposal at 09:10Z was not owner-approved (synthetic-event:E2).\\\\n\\\\n## Current state\\\\nsettings.json contains retry=5 and scope=staging, consistent with E3. The previous current-state text (retry=3, local checks only, no staging result) is stale; it is retained as historical evidence in events. There is no Git repository; revision is unavailable.\\\\n\\\\n## Verification evidence\\\\nSupplied evidence, not checks executed during this maintenance:\\\\n- 2026-09-26 09:00Z: operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\\\n- 2026-09-26 09:20Z: following staging approval, operator ran export-check in staging at retry=5; passed. No numeric exit code supplied. Source: synthetic-event:E3.\\\\n\\\\n## Unknowns and follow-up\\\\nProduction behavior, validation, and rollout remain unknown. Staging approval and a staging pass do not establish production approval or readiness. Preserve the local memory-bound rationale and staging-only scope in further work; obtain production evidence and authorization before treating production as validated or approved.\\\\n\\\\n## History\\\\nEvent history is in events; it preserves the supplied event times, proposal, approval, check outcomes, and stale-state discrepancy.\\\\n\\\",\\\"history\\\":\\\"\\\",\\\"events\\\":[{\\\"type\\\":\\\"verification\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"operator (supplied evidence)\\\",\\\"summary\\\":\\\"2026-09-26 09:00Z: export-check at retry=3 failed in staging with exit 7, queue overflow; no production run. This is supplied evidence, not a check executed by the maintenance agent.\\\",\\\"sources\\\":[\\\"synthetic-event:E1\\\"],\\\"revision\\\":\\\"unavailable\\\",\\\"check\\\":{\\\"command\\\":\\\"export-check\\\",\\\"scope\\\":\\\"staging, retry=3\\\",\\\"result\\\":\\\"exit 7; queue overflow; no production run\\\"}},{\\\"type\\\":\\\"decision\\\",\\\"status\\\":\\\"proposed\\\",\\\"actor\\\":\\\"developer\\\",\\\"summary\\\":\\\"2026-09-26 09:10Z: proposed retry=10; no owner approval. The later staging approval selected retry=5 instead.\\\",\\\"sources\\\":[\\\"synthetic-event:E2\\\",\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"unavailable\\\"},{\\\"type\\\":\\\"decision\\\",\\\"status\\\":\\\"approved\\\",\\\"actor\\\":\\\"Mira (owner)\\\",\\\"summary\\\":\\\"2026-09-26 09:20Z: approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Production validation and rollout remain unknown; the existing retry=3 local-check decision is preserved.\\\",\\\"sources\\\":[\\\"synthetic-event:E3\\\",\\\"synthetic-owner:D0\\\"],\\\"revision\\\":\\\"unavailable\\\",\\\"authority\\\":\\\"Owner Mira, synthetic-event:E3\\\"},{\\\"type\\\":\\\"verification\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"operator (supplied evidence)\\\",\\\"summary\\\":\\\"2026-09-26 09:20Z: after owner approval, export-check passed in staging at retry=5. Exact check time and numeric exit code were not supplied. This is supplied evidence, not a check executed by the maintenance agent.\\\",\\\"sources\\\":[\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"unavailable\\\",\\\"check\\\":{\\\"command\\\":\\\"export-check\\\",\\\"scope\\\":\\\"staging, retry=5\\\",\\\"result\\\":\\\"passed; numeric exit code unspecified; production validation and rollout unknown\\\"}},{\\\"type\\\":\\\"contradiction\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"maintenance agent\\\",\\\"summary\\\":\\\"Prior notes/state.md claimed: Retry=3; local checks only. No staging result recorded yet. settings.json now contains retry=5, scope=staging, and supplied evidence records staging failure at 2026-09-26 09:00Z and a staging pass following approval at 09:20Z. Updated current state without discarding the 2026-09-01 local-check approval or memory rationale.\\\",\\\"sources\\\":[\\\"notes/state.md (before maintenance)\\\",\\\"settings.json\\\",\\\"synthetic-owner:D0\\\",\\\"synthetic-event:E1\\\",\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"unavailable\\\"},{\\\"type\\\":\\\"context_update\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"maintenance agent\\\",\\\"summary\\\":\\\"Recorded current staging configuration, supplied observations and scoped decisions in notes/state.md and events. No Git repository exists. No export checks were executed during maintenance; production behavior, validation and rollout remain unknown.\\\",\\\"sources\\\":[\\\"settings.json\\\",\\\"notes/state.md\\\",\\\"synthetic-owner:D0\\\",\\\"synthetic-event:E1\\\",\\\"synthetic-event:E2\\\",\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"unavailable\\\"}]}'\"",
+        "exit_code": 0
+      },
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc \"/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-jsonl-capture.json save '{\\\"case\\\":\\\"sparse-git\\\",\\\"context\\\":\\\"# Context\\\\n\\\\n## Approved decisions and scope\\\\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use. Source: synthetic-owner:D0. This local-check decision remains preserved; the later staging approval has a different scope.\\\\n\\\\nOwner Mira approved retry=5 only for staging on 2026-09-26 09:20Z because retry=10 risks exceeding the memory budget. Source: synthetic-event:E3. The retry=10 developer proposal at 09:10Z was not owner-approved (synthetic-event:E2).\\\\n\\\\n## Current state\\\\nsettings.json contains retry=5 and scope=staging, consistent with E3. The previous current-state text (retry=3, local checks only, no staging result) is stale; it is retained as historical evidence in events. settings.json also marks uncommitted=true. Git contains only the initial commit, whose context claimed retry=3 and no staging result. The supplied observations and changed retry setting were never committed; revision is uncommitted. The initial committed context is historical evidence, not the current staging state.\\\\n\\\\n## Verification evidence\\\\nSupplied evidence, not checks executed during this maintenance:\\\\n- 2026-09-26 09:00Z: operator ran export-check in staging at retry=3; exit 7, queue overflow. No production run. Source: synthetic-event:E1.\\\\n- 2026-09-26 09:20Z: following staging approval, operator ran export-check in staging at retry=5; passed. No numeric exit code supplied. Source: synthetic-event:E3.\\\\n\\\\n## Unknowns and follow-up\\\\nProduction behavior, validation, and rollout remain unknown. Staging approval and a staging pass do not establish production approval or readiness. Preserve the local memory-bound rationale and staging-only scope in further work; obtain production evidence and authorization before treating production as validated or approved.\\\\n\\\\n## History\\\\nEvent history is in events; it preserves the supplied event times, proposal, approval, check outcomes, and stale-state discrepancy.\\\\n\\\",\\\"history\\\":\\\"\\\",\\\"events\\\":[{\\\"type\\\":\\\"verification\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"operator (supplied evidence)\\\",\\\"summary\\\":\\\"2026-09-26 09:00Z: export-check at retry=3 failed in staging with exit 7, queue overflow; no production run. This is supplied evidence, not a check executed by the maintenance agent.\\\",\\\"sources\\\":[\\\"synthetic-event:E1\\\"],\\\"revision\\\":\\\"uncommitted\\\",\\\"check\\\":{\\\"command\\\":\\\"export-check\\\",\\\"scope\\\":\\\"staging, retry=3\\\",\\\"result\\\":\\\"exit 7; queue overflow; no production run\\\"}},{\\\"type\\\":\\\"decision\\\",\\\"status\\\":\\\"proposed\\\",\\\"actor\\\":\\\"developer\\\",\\\"summary\\\":\\\"2026-09-26 09:10Z: proposed retry=10; no owner approval. The later staging approval selected retry=5 instead.\\\",\\\"sources\\\":[\\\"synthetic-event:E2\\\",\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"uncommitted\\\"},{\\\"type\\\":\\\"decision\\\",\\\"status\\\":\\\"approved\\\",\\\"actor\\\":\\\"Mira (owner)\\\",\\\"summary\\\":\\\"2026-09-26 09:20Z: approved retry=5 only for staging because retry=10 risks exceeding the memory budget. Production validation and rollout remain unknown; the existing retry=3 local-check decision is preserved.\\\",\\\"sources\\\":[\\\"synthetic-event:E3\\\",\\\"synthetic-owner:D0\\\"],\\\"revision\\\":\\\"uncommitted\\\",\\\"authority\\\":\\\"Owner Mira, synthetic-event:E3\\\"},{\\\"type\\\":\\\"verification\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"operator (supplied evidence)\\\",\\\"summary\\\":\\\"2026-09-26 09:20Z: after owner approval, export-check passed in staging at retry=5. Exact check time and numeric exit code were not supplied. This is supplied evidence, not a check executed by the maintenance agent.\\\",\\\"sources\\\":[\\\"synthetic-event:E3\\\"],\\\"revision\\\":\\\"uncommitted\\\",\\\"check\\\":{\\\"command\\\":\\\"export-check\\\",\\\"scope\\\":\\\"staging, retry=5\\\",\\\"result\\\":\\\"passed; numeric exit code unspecified; production validation and rollout unknown\\\"}},{\\\"type\\\":\\\"contradiction\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"maintenance agent\\\",\\\"summary\\\":\\\"Prior notes/state.md claimed: Retry=3; local checks only. No staging result recorded yet. settings.json now contains retry=5, scope=staging, and supplied evidence records staging failure at 2026-09-26 09:00Z and a staging pass following approval at 09:20Z. Updated current state without discarding the 2026-09-01 local-check approval or memory rationale.\\\",\\\"sources\\\":[\\\"notes/state.md (before maintenance)\\\",\\\"settings.json\\\",\\\"synthetic-owner:D0\\\",\\\"synthetic-event:E1\\\",\\\"synthetic-event:E3\\\",\\\"initial_committed_context\\\"],\\\"revision\\\":\\\"uncommitted\\\"},{\\\"type\\\":\\\"context_update\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"maintenance agent\\\",\\\"summary\\\":\\\"Recorded current staging configuration, supplied observations and scoped decisions in notes/state.md and events. Sparse Git contains only the initial commit; the supplied observations and changed retry setting were never committed. settings.json marks uncommitted=true. No export checks were executed during maintenance; production behavior, validation and rollout remain unknown.\\\",\\\"sources\\\":[\\\"settings.json\\\",\\\"notes/state.md\\\",\\\"synthetic-owner:D0\\\",\\\"synthetic-event:E1\\\",\\\"synthetic-event:E2\\\",\\\"synthetic-event:E3\\\",\\\"initial_committed_context\\\"],\\\"revision\\\":\\\"uncommitted\\\"}]}'\"",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true,
+      true,
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 12,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1920,
+      "no-git/notes/state.md": 1655,
+      "sparse-git/events/capture.jsonl": 3732,
+      "no-git/events/capture.jsonl": 3545
+    },
+    "terminal_result": true
+  },
+  {
+    "name": "codex-jsonl-investigate",
+    "unexpected_new_files": [],
+    "exit_code": 0,
+    "seconds": 39.66,
+    "model_from_stream": null,
+    "protected_unchanged": true,
+    "audit_unchanged": true,
+    "commands": [
+      {
+        "tool": "command_execution",
+        "command": "/bin/zsh -lc '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/bridge.py /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_/control/codex-jsonl-investigate.json show'",
+        "exit_code": 0
+      }
+    ],
+    "command_policy": [
+      true
+    ],
+    "hooks": 0,
+    "denied": 0,
+    "errors": [],
+    "tool_failures": [],
+    "journal_records": 12,
+    "record_file_bytes": {
+      "sparse-git/notes/state.md": 1920,
+      "no-git/notes/state.md": 1655,
+      "sparse-git/events/capture.jsonl": 3732,
+      "no-git/events/capture.jsonl": 3545
+    },
+    "terminal_result": true
+  }
+]

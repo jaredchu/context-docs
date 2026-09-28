@@ -1,0 +1,17 @@
+**`no-git`**
+
+1. **Original approval:** Owner Mira approved `retry=3` on September 1 for **local checks**, to bound memory use. That local approval remains valid. (`notes/history.md`, D0 entry; `notes/state.md`, “Approved decisions and scope”)
+2. **Earlier failure:** On September 26 at 09:00Z, staging `export-check` at `retry=3` failed with **exit 7: queue overflow**. (`notes/history.md`, synthetic-event:E1)
+3. **Retry 10:** The developer proposed `retry=10` at 09:10Z. No owner approval was supplied; it did not become the approved setting. (`notes/history.md`, synthetic-event:E2)
+4. **Current approval and result:** Mira approved `retry=5` at 09:20Z, **only for staging**, because retry 10 risks exceeding the memory budget. The subsequent operator check reportedly **passed**; no numeric exit code was supplied. Current `settings.json` matches this approval. (`notes/history.md`, synthetic-event:E3; `settings.json`)
+5. **Production and Git:** E1 explicitly reports no production run. Production behavior, validation, and rollout remain **unknown**; staging approval does not authorize production rollout. No Git repository is available, so revision history is unavailable. (`notes/history.md`, introduction and E1/E3; `notes/state.md`, “Proposals and unknowns” and “Evidence and continuity”)
+
+**`sparse-git`**
+
+1. **Original approval:** Mira approved `retry=3` on September 1 for **local checks**, to bound memory use. The initial committed context preserves that decision. (`initial_committed_context`, “Existing decision”; `notes/history.md`, synthetic-owner:D0)
+2. **Earlier failure:** On September 26 at 09:00Z, staging `export-check` at `retry=3` failed with **exit 7: queue overflow**. (`notes/history.md`, synthetic-event:E1)
+3. **Retry 10:** The developer proposed it at 09:10Z. No owner approval was supplied; it was not the approved staging setting. (`notes/history.md`, synthetic-event:E2)
+4. **Current approval and result:** Mira approved `retry=5` at 09:20Z **only for staging**, because retry 10 risks exceeding the memory budget. The subsequent operator check reportedly **passed**, with no numeric exit code supplied. (`notes/history.md`, synthetic-event:E3; `settings.json`)
+5. **Production and Git:** Production behavior, validation, and rollout remain **unknown**; E1 reports no production run. Git contains only the initial commit, whose context records retry 3 for local checks and no staging result. The changed setting and E1–E3 observations were never committed; `settings.json` includes `uncommitted=true`. No commit identifier was supplied; additional history is unknown. (`initial_committed_context`; `notes/history.md`, introduction and maintenance observation; `notes/state.md`, “Evidence and continuity”)
+
+**Execution boundary:** I ran only the authorized bridge `show` command, which returned exit 0 with Git/Xcode environment warnings. I saved nothing and ran no export checks. All check outcomes above are supplied synthetic records, not validations I performed.

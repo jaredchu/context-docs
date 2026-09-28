@@ -197,3 +197,22 @@ Use the [adoption regression](adoption/README.md) for `adopt-context-docs` chang
 It checks initial adoption and repeated use on projects with no documentation and
 with existing rules, a custom layout and uncommitted work. Core maintenance studies
 do not establish the adoption wrapper's behavior.
+
+## Optional event journal
+
+The repository-only [event journal evaluation](event-journal/README.md) exercises
+CLI failure handling, a synthetic history replay and local latency. It includes
+author-reviewed retrieval routes but no fresh-agent sessions. Those results do
+not establish the proposed journal's benefit during real project work.
+
+A [separate native comparison](results/2026-09-28-native-journal/README.md) ran
+12 Claude/Codex capture and fresh-investigation sessions with no-Git and sparse-Git
+fixtures. All three formats retained the requested history, with semantic and
+execution errors reported separately. This does not establish a JSONL advantage
+or validate a real skill upgrade. [Protocol and runner](event-journal/native/README.md).
+
+The [installed-skill integration study](results/2026-09-28-journal-integration/README.md)
+adds actual package upgrades and direct capture/lifecycle checks. Its original
+18 sessions, separate nine-session Claude invocation follow-up and four-session
+capture-gap repair retain failures and candidate hashes separately. Static checks
+and guarded preservation are not substitutes for the recorded semantic review.

@@ -1,0 +1,11 @@
+Both cases were updated and verified successfully.
+
+**Recorded for both `no-git` and `sparse-git`:**
+- **notes/state.md** — preserved the original approved decision (D0: Mira approved retry=3 for local checks, 2026-09-01) and added the new approved decision (Mira approved retry=5 for staging only, 2026-09-26 09:20Z, per synthetic-event:E3), the rejected proposal (developer's retry=10, no approval), verification results (E1 failure at retry=3 exit 7; E3 success at retry=5), current state (retry=5/staging per settings.json), and remaining unknowns (production behavior/validation/rollout).
+- **notes/history.md** — chronological log of D0, E1, E2, E3 with timestamps and sources.
+
+**Case-specific notes added:**
+- `no-git`: flagged that no repository exists.
+- `sparse-git`: flagged that only the initial commit exists (containing the original D0-era state.md) and that the E1–E3 observations plus the settings.json retry change to 5 were never committed — settings.json is currently uncommitted relative to that initial commit.
+
+The save call initially failed once (`"Only JSONL arm accepts events"`) because this is the markdown-log capture, not a JSONL one — I retried with an empty `events` array and both saves succeeded (`appended: 0`, as expected for this arm). I did not execute the export-check myself; all check results reflect the synthetic evidence (E1/E3) as supplied.

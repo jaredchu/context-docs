@@ -1,0 +1,5 @@
+Updated [notes/current.md](notes/current.md) with the pending restore verification and evidence link.
+
+Journal capture was unavailable because the installed helper is missing; recorded the gap in the notes. Preserved settings, adoption date, release checklist, routing, packages, and evidence.
+
+Diff and link checks passed. No restore check was run.

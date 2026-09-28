@@ -1,0 +1,3 @@
+Logging is now enabled: I merged `Event journal: jsonl` and `Event journal directory: history/events` into the existing maintenance marker in CLAUDE.md, right after `Entry point`, since `history/events` already holds `legacy.jsonl` and matches the requested directory.
+
+Everything else is untouched — adoption date (2026-09-01), entry point (`notes/current.md`), maintenance wording, the release checklist note in `notes/current.md`, `settings.json`, `checks/probe.py`, and the legacy JSONL history. No event was appended for this setup itself (per the journal guide, setup isn't a loggable event), and I didn't write to any packages, scripts, settings.json, or raw JSONL.

@@ -1,0 +1,3 @@
+Updated [notes/current.md](notes/current.md) with the owner’s planned manual review, citing `evidence/followup.md` and clearly marking it incomplete.
+
+Verified only that file changed and all context links resolve. Logging remains disabled; installed packages, evidence, adoption date, routing, and release checklist were preserved.

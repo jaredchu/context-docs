@@ -1,0 +1,4 @@
+Use context-docs Maintain notes from the new supplied evidence/pending.md, following existing project settings. Installed packages are immutable; report unavailable capabilities and continue authorized documentation work.
+
+Evaluation constraints:
+Work only in this synthetic project. Preserve the existing adoption date, custom context path, release checklist, instruction routing, installed packages and supplied evidence. The project-installed skills are under .agents/skills; use those copies and their full instructions. 

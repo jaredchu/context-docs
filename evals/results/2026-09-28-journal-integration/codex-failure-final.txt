@@ -1,0 +1,5 @@
+`python3 checks/probe.py` exited **7**, reporting queue overflow at `batch_limit=4`.
+
+Updated `notes/current.md` and added one verification event under `history/events/` using the installed context-docs helper. Journal validation and `git diff --check` passed.
+
+Preserved the adoption date, custom paths, release checklist, instruction routing, installed packages, and supplied evidence. The staging failure remains unresolved; production is unverified.

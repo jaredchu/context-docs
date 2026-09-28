@@ -1,0 +1,3 @@
+Enabled JSONL logging at `history/events` by adding two settings to [AGENTS.md](/private/var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-optin-5ksbz2x7/codex/AGENTS.md:9), following the project-installed skills.
+
+Preserved the adoption date, context path, checklist, routing, packages, and evidence. No setup event was created. Diff checks passed; all other files are unchanged.

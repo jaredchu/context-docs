@@ -1,0 +1,46 @@
+[
+  {
+    "args": [
+      "append",
+      "--session",
+      "stage-3"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"One synthetic staging fixture import passed at timeout 30 seconds; production remains untested.\",\"check\":{\"command\":\"demo-probe --env staging --timeout 30 --imports 1\",\"scope\":\"One staging fixture import only\",\"result\":\"Synthetic fixture: passed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"9c64f42c-fdee-4d36-bfcf-0ee8aed31d84\",\"recorded_at\":\"2026-09-28T08:57:48.595320Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": "",
+    "elapsed_ms": 24.045749999999977
+  },
+  {
+    "args": [
+      "append",
+      "--session",
+      "stage-3"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"decision\",\"status\":\"approved\",\"summary\":\"Rowan approved staging timeout 30 seconds to allow slow fixture imports after the bounded passing probe. Local pilot remains 20; no production approval.\",\"authority\":\"Synthetic owner Rowan; evidence/stage-3.md\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"09618b8d-09da-42f8-b8dd-0558c2b9b503\",\"recorded_at\":\"2026-09-28T08:57:48.620203Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": "",
+    "elapsed_ms": 24.863750000000017
+  },
+  {
+    "args": [
+      "append",
+      "--session",
+      "stage-3"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"context_update\",\"status\":\"observed\",\"summary\":\"Replaced the pending staging proposal with Rowan's staging-only approval and bounded probe result. Production configuration and deployment remain unknown; operator observation still needed.\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"0def577c-8c67-457e-8d50-4826ff07ea6d\",\"recorded_at\":\"2026-09-28T08:57:48.644769Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": "",
+    "elapsed_ms": 24.43529199999994
+  },
+  {
+    "args": [
+      "read",
+      "--session",
+      "stage-3"
+    ],
+    "returncode": 0,
+    "stdout": "{\"type\":\"verification\",\"status\":\"observed\",\"summary\":\"One synthetic staging fixture import passed at timeout 30 seconds; production remains untested.\",\"check\":{\"command\":\"demo-probe --env staging --timeout 30 --imports 1\",\"scope\":\"One staging fixture import only\",\"result\":\"Synthetic fixture: passed\"},\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"9c64f42c-fdee-4d36-bfcf-0ee8aed31d84\",\"recorded_at\":\"2026-09-28T08:57:48.595320Z\",\"session_id\":\"stage-3\"}\n{\"type\":\"decision\",\"status\":\"approved\",\"summary\":\"Rowan approved staging timeout 30 seconds to allow slow fixture imports after the bounded passing probe. Local pilot remains 20; no production approval.\",\"authority\":\"Synthetic owner Rowan; evidence/stage-3.md\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"09618b8d-09da-42f8-b8dd-0558c2b9b503\",\"recorded_at\":\"2026-09-28T08:57:48.620203Z\",\"session_id\":\"stage-3\"}\n{\"type\":\"context_update\",\"status\":\"observed\",\"summary\":\"Replaced the pending staging proposal with Rowan's staging-only approval and bounded probe result. Production configuration and deployment remain unknown; operator observation still needed.\",\"actor\":\"synthetic-recorder\",\"sources\":[\"evidence/stage-3.md\",\"context.md\"],\"revision\":\"6c1c368a50be02761eeced121194ed279f3a7011\",\"schema_version\":1,\"event_id\":\"0def577c-8c67-457e-8d50-4826ff07ea6d\",\"recorded_at\":\"2026-09-28T08:57:48.644769Z\",\"session_id\":\"stage-3\"}\n",
+    "stderr": "",
+    "elapsed_ms": 23.974625000000028
+  }
+]

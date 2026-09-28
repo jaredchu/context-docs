@@ -1,0 +1,7 @@
+Updated `notes/current.md` via the context-docs maintenance flow:
+
+- **Corrected a stale fact**: the doc said `settings.json` configures `batch_limit=4`, but it's actually `6`. Re-ran `checks/probe.py`, which now reports `batch_limit=6; passed; exit 0` — recorded as current-state evidence, with the old `batch_limit=4` / exit 7 reading kept but marked superseded/historical.
+- **Added the new staging decision** from `evidence/approval.md`: Rina approved `batch_limit=6` for staging only (2026-09-28); the developer's proposed `batch_limit=12` is noted as proposed, not approved; production validation/rollout remains unapproved. The unrelated 2026-09-01 local-smoke-check limit-2 decision was preserved as-is and marked reaffirmed unchanged.
+- **Added an "Open questions" section** from `evidence/pending.md`: restore verification is still pending, no restore check has been run yet.
+
+Left `CLAUDE.md`, `settings.json`, the evidence files, and the release checklist untouched — no journal logging is enabled in `CLAUDE.md`, so no event was appended. No production-readiness claim was made since none of the evidence supports one.

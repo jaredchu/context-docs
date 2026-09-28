@@ -1,0 +1,86 @@
+# Live journal trial
+
+Status: **1 of 3 sessions completed; two later maintenance sessions pending.**
+Authorized by the owner on September 28, 2026 after the initial synthetic
+evaluation. This tracker applies only to this repository. No recurring task,
+automatic capture or global logging requirement is installed.
+
+## What counts
+
+A session is a distinct real maintenance task with a useful handoff, not a new
+JSONL filename or repeated test invocation. Do not invent work to reach three.
+Session 1 is trial setup and handoff verification in the existing authoring chat;
+it is not an independent or fresh-reader evaluation. Later sessions should follow
+actual maintenance needs. Record whether the reader has prior chat context.
+Audit-only work stays read-only and does not advance the trial.
+
+Markdown/Git and original evidence remain authoritative sources for their claims.
+Use the [pilot command and schema](event-journal-pilot.md) only for meaningful
+checks, decisions, contradictions and context changes. Preserve observations,
+proposals and approval sources distinctly. Keep project events in `.context/events`;
+retain scoped evidence under `.context/trials/journal-2026-09-28`.
+
+## Progress
+
+| Session | Actual work | Evidence | Status |
+| --- | --- | --- | --- |
+| 1 — September 28 | Start the approved trial, preserve dirty-worktree snapshots, verify evaluated writer/test hashes, and check the updated handoff | [Evidence directory](../.context/trials/journal-2026-09-28/session-01), [events](../.context/events/journal-trial-20260928-01.jsonl) | Complete; setup session, retrieval benefit unmeasured |
+| 2 | Next meaningful maintenance task; assess what session 1 left behind | Pending | Not run |
+| 3 | A later meaningful maintenance task; assess the previous handoff and conclude | Pending | Not run |
+
+Session 1 introduced no new writer behavior. The [earlier evaluation](../evals/results/2026-09-28-event-journal/README.md)
+remains a synthetic result; beginning this live trial does not convert it into
+real-work or fresh-agent evidence. Setup cost and reading benefit must remain
+separate. Existing reports already contain the implementation/test findings, so
+the first events primarily index evidence that also exists elsewhere.
+
+## Next session procedure
+
+1. Read the normal context, relevant Git changes and raw evidence first, before
+   reading the previous session's journal. Answer the three questions below with
+   source references; record unknowns without looking at the journal to fill them.
+2. Read the prior journal with `read --session`. Record what it added, duplicated
+   or made misleading, including corrections and omitted events. Same-reader
+   order effects are expected; do not claim a controlled accuracy or speed gain.
+3. Perform the actual authorized maintenance task. Preserve the starting and final
+   source revisions or scoped snapshots for uncommitted files. Append only events
+   that carry durable information, with actual check output as evidence. Do not
+   rerun unchanged checks merely to produce a log entry.
+4. Update this tracker and leave a short handoff. Record event count, payload/record
+   bytes, extra commands and any observed logging friction. Record elapsed effort
+   only when measured; otherwise mark it unmeasured. Include missed events.
+
+Questions for the previous session:
+
+- What was checked, against which revision or snapshot, with what scope/result?
+- Why did current context change, and which authority supported it?
+- What unresolved issue needs the next reader's attention?
+
+For session 2, the baseline source route is `docs/project-context.md`,
+`AGENTS.md`, the initial evaluation report, and session 1's source snapshots,
+`before.json`, `after.json`, `final.json`, `evaluated-source-check.json` and
+`static-checks.txt`. Exclude `payloads/`, `append-*.json` and the journal itself
+from the baseline: those files contain the additional journal content. Trial
+review notes are not baseline evidence either. The second route adds the JSONL
+file while retaining the same raw evidence. No time comparison is valid if the
+same author already remembers the answers.
+
+```sh
+python3 tools/event_journal.py read --session journal-trial-20260928-01
+```
+
+Use a distinct ID for session 2, then session 3. A continuation of the same task
+keeps its session ID and does not increment the count. A task adding no durable
+information needs no event. Errors, corrections and negative findings stay in the
+record; do not delete evidence to improve the outcome.
+
+## Decision after session 3
+
+Recommend keeping optional logging only if it preserves useful supported history
+or reduces retrieval effort enough to justify its upkeep. Recommend simplifying
+or dropping the feature if it mostly duplicates docs or goes unused. State which
+findings support that recommendation and what remains unmeasured. Do not turn the
+recommendation into owner approval or expand mandatory skill behavior.
+
+Remove the temporary trial rule from `AGENTS.md` once the three sessions and their
+review are complete. Retain the journal and evidence regardless of the decision.

@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-09-28T09:43:02.520653+00:00",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "sha256": {
+    "AGENTS.md": "99e4ef4385d7739d3a95ece032379ff5de7744ac1e57a5b40112b3d6e2e7920a",
+    "README.md": "0949edce897786f3fb52c5649c53b85ed1d7d9121cd95f52a2e25ecbee728d45",
+    "docs/project-context.md": "6a99886ab7881b55eaae92382317aa553d01bcb12ea119911d95261ac7c50b7b",
+    "docs/event-journal-live-trial.md": "610f47e20eed15fcad4ef2b7917ed8a39c01e1f9756d84886b081083e8b5b73e",
+    "docs/event-journal-pilot.md": "76886c4bdb9f97c2e43f93a9eb9f95c8591af5caa4592517a6d3067a5f0d05ec",
+    "CHANGELOG.md": "c5cc0974d671dc784a2d1c70c659e6079c75d5a87fdafbcce1081fdf843b21fa"
+  },
+  "scope": "Final closure documentation; source identity of unchanged writer/tests is recorded separately."
+}

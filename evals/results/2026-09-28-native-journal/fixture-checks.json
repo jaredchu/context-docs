@@ -1,0 +1,145 @@
+{
+  "frozen_sources_match": true,
+  "cases": {
+    "claude-ordinary/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "claude-ordinary/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    },
+    "claude-markdown-log/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "claude-markdown-log/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    },
+    "claude-jsonl/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "claude-jsonl/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    },
+    "codex-ordinary/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "codex-ordinary/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    },
+    "codex-markdown-log/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "codex-markdown-log/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    },
+    "codex-jsonl/no-git": {
+      "has_own_git": false,
+      "git_probe_exit": 128
+    },
+    "codex-jsonl/sparse-git": {
+      "has_own_git": true,
+      "git_probe_exit": 0,
+      "commit_count": 1
+    }
+  },
+  "journal_validation": {
+    "claude-jsonl/no-git": {
+      "exit_code": 0,
+      "records": 5,
+      "unique_ids": 5,
+      "types": [
+        "verification",
+        "decision",
+        "decision",
+        "verification",
+        "context_update"
+      ]
+    },
+    "claude-jsonl/sparse-git": {
+      "exit_code": 0,
+      "records": 5,
+      "unique_ids": 5,
+      "types": [
+        "verification",
+        "decision",
+        "decision",
+        "verification",
+        "context_update"
+      ]
+    },
+    "codex-jsonl/no-git": {
+      "exit_code": 0,
+      "records": 6,
+      "unique_ids": 6,
+      "types": [
+        "verification",
+        "decision",
+        "decision",
+        "verification",
+        "contradiction",
+        "context_update"
+      ]
+    },
+    "codex-jsonl/sparse-git": {
+      "exit_code": 0,
+      "records": 6,
+      "unique_ids": 6,
+      "types": [
+        "verification",
+        "decision",
+        "decision",
+        "verification",
+        "contradiction",
+        "context_update"
+      ]
+    }
+  },
+  "helper_calls": {
+    "claude-jsonl": {
+      "count": 10,
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "codex-jsonl": {
+      "count": 12,
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

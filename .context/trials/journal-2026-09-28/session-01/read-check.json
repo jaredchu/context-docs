@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "tools/event_journal.py",
+    "read",
+    "--session",
+    "journal-trial-20260928-01"
+  ],
+  "returncode": 0,
+  "event_count": 2,
+  "journal_sha256_before_and_after": "50705751ffb8dff248b8379e1524aa972ac753c389efc81efb2e686b1e767ccb",
+  "bytes_preserved": true
+}

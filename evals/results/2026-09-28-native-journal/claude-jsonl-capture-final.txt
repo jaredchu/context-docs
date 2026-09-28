@@ -1,0 +1,6 @@
+Both projects are updated:
+
+- **no-git**: context (notes/state.md) rewritten to preserve the original approved decision (D0: retry=3 for local checks, Mira, 2026-09-01) and add the new evidence chain — E1 (staging failure at retry=3, exit 7), E2 (unapproved retry=10 proposal), and E3 (Mira's approval of retry=5 for staging only, plus the subsequent passing export-check). 5 events appended, revision marked `unavailable` (no repo).
+- **sparse-git**: same context/decisions, but notes that only the initial commit (retry=3) exists in git history and that the retry=5/staging change plus E1–E3 are uncommitted. 5 events appended, revision marked `uncommitted`.
+
+Production validation/rollout is preserved as an open unknown in both. No failures reported by the bridge; no duplicate saves were made.

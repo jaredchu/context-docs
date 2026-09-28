@@ -1,0 +1,5 @@
+Saved both projects successfully: updated `notes/state.md` and appended six events per case.
+
+Preserved approved decisions, rationale, event times, staging results, production unknowns, and revision status. Recorded the stale-state discrepancy.
+
+No export checks were executed. No save failures occurred.

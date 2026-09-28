@@ -1,0 +1,46 @@
+test_approved_decision_requires_authority (test_event_journal.EventJournalTests) ... ok
+test_cli_append_from_stdin_and_file (test_event_journal.EventJournalTests) ... ok
+test_concurrent_independent_sessions_preserve_all_acknowledged_records (test_event_journal.EventJournalTests) ... ok
+test_correction_preserves_original (test_event_journal.EventJournalTests) ... ok
+test_deep_history_has_clean_error_and_is_preserved (test_event_journal.EventJournalTests) ... FAIL
+test_deep_input_has_clean_cli_error_without_writes (test_event_journal.EventJournalTests) ... FAIL
+test_duplicate_event_ids_rejected (test_event_journal.EventJournalTests) ... ok
+test_duplicate_id_across_sessions_rejected_by_full_read (test_event_journal.EventJournalTests) ... ok
+test_duplicate_keys_and_non_json_numbers_rejected (test_event_journal.EventJournalTests) ... ok
+test_fsync_failure_reports_failure_and_releases_lock (test_event_journal.EventJournalTests) ... ok
+test_incomplete_tail_is_preserved_and_blocks_append (test_event_journal.EventJournalTests) ... ok
+test_invalid_payloads_do_not_create_directory (test_event_journal.EventJournalTests) ... ok
+test_invalid_stored_metadata_and_blank_lines_rejected (test_event_journal.EventJournalTests) ... ok
+test_killed_writer_leaves_lock_and_partial_tail_for_explicit_recovery (test_event_journal.EventJournalTests) ... ok
+test_lock_rejects_competing_process_but_other_session_can_write (test_event_journal.EventJournalTests) ... ok
+test_malformed_history_rejected_without_output_or_changes (test_event_journal.EventJournalTests) ... ok
+test_missing_read_does_not_initialize (test_event_journal.EventJournalTests) ... ok
+test_output_filter_does_not_hide_invalid_history (test_event_journal.EventJournalTests) ... ok
+test_path_traversal_sessions_rejected (test_event_journal.EventJournalTests) ... ok
+test_read_is_read_only_and_filter_preserves_source_order (test_event_journal.EventJournalTests) ... ok
+test_repeated_append_is_not_deduplicated (test_event_journal.EventJournalTests) ... ok
+test_roundtrip_unicode_and_newlines_with_generated_metadata (test_event_journal.EventJournalTests) ... ok
+test_structurally_valid_unsupported_claims_are_not_verified (test_event_journal.EventJournalTests) ... ok
+test_symlink_session_rejected_without_touching_target (test_event_journal.EventJournalTests) ... ok
+test_unpaired_unicode_surrogate_rejected_before_write_or_read_output (test_event_journal.EventJournalTests) ... ok
+
+======================================================================
+FAIL: test_deep_history_has_clean_error_and_is_preserved (test_event_journal.EventJournalTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/Work/OpenSource/context-docs/tests/test_event_journal.py", line 236, in test_deep_history_has_clean_error_and_is_preserved
+    self.assertNotIn('Traceback', result.stderr)
+AssertionError: 'Traceback' unexpectedly found in 'Traceback (most recent call last):\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 216, in <module>\n    sys.exit(main())\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 203, in main\n    records = read_events(args.directory, args.session)\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 143, in read_events\n    for record in read_session(path):\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 126, in read_session\n    record = validate(decode(line.decode(\'utf-8\')), stored=True)\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 110, in decode\n    return json.loads(text, object_pairs_hook=unique_keys, parse_constant=reject_constant)\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 359, in loads\n    return cls(**kw).decode(s)\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\nRecursionError: maximum recursion depth exceeded while decoding a JSON array from a unicode string\n'
+
+======================================================================
+FAIL: test_deep_input_has_clean_cli_error_without_writes (test_event_journal.EventJournalTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/Work/OpenSource/context-docs/tests/test_event_journal.py", line 223, in test_deep_input_has_clean_cli_error_without_writes
+    self.assertNotIn('Traceback', result.stderr)
+AssertionError: 'Traceback' unexpectedly found in 'Traceback (most recent call last):\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 216, in <module>\n    sys.exit(main())\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 201, in main\n    records = [append_event(args.directory, args.session, decode(source))]\n  File "/Volumes/Storage/Work/OpenSource/context-docs/tools/event_journal.py", line 110, in decode\n    return json.loads(text, object_pairs_hook=unique_keys, parse_constant=reject_constant)\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 359, in loads\n    return cls(**kw).decode(s)\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\nRecursionError: maximum recursion depth exceeded while decoding a JSON array from a unicode string\n'
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.399s
+
+FAILED (failures=2)

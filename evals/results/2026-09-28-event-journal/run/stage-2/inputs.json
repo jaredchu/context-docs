@@ -1,0 +1,57 @@
+[
+  {
+    "type": "verification",
+    "status": "observed",
+    "summary": "Incorrect synthetic entry: production import failed at 20 seconds.",
+    "check": {
+      "command": "demo-probe --env production --imports 1",
+      "scope": "Production import",
+      "result": "Synthetic fixture: failed"
+    },
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-2.md",
+      "context.md"
+    ],
+    "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8"
+  },
+  {
+    "type": "verification",
+    "status": "observed",
+    "summary": "Correction: only one staging fixture import timed out at 20 seconds. Production was not tested.",
+    "check": {
+      "command": "demo-probe --env staging --imports 1",
+      "scope": "One staging fixture import; production untested",
+      "result": "Synthetic fixture: failed"
+    },
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-2.md",
+      "context.md"
+    ],
+    "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8",
+    "supersedes": "f56cf7ec-3383-4c82-b8f5-f76ca6a17ff6"
+  },
+  {
+    "type": "decision",
+    "status": "proposed",
+    "summary": "Vale proposes a staging timeout of 30 seconds; Rowan has not approved it.",
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-2.md",
+      "context.md"
+    ],
+    "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8"
+  },
+  {
+    "type": "context_update",
+    "status": "observed",
+    "summary": "Added the limited staging failure and pending 30-second proposal. Preserve existing local approval and unknown production state.",
+    "actor": "synthetic-recorder",
+    "sources": [
+      "evidence/stage-2.md",
+      "context.md"
+    ],
+    "revision": "e2db9d4a2d32a3b4cd797cce258d5a6842078ba8"
+  }
+]

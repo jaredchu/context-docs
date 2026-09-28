@@ -1,0 +1,32 @@
+{
+  "reviewer": "Authoring assistant; not independent or blinded",
+  "candidate": "Initial core 0.1.3/adoption 0.1.5; see frozen hashes",
+  "codex": {
+    "functional_lifecycle": "passes all nine staged operations",
+    "evidence": [
+      "No changes for ordinary upgraded adoption or repeated enabled setup.",
+      "Enable/disable changed only the two optional-setting lines; original instruction wording/date/path and CLAUDE import remained intact.",
+      "Actual probe failed with exit 7 at limit 4; later passed with exit 0 at limit 6. Three corresponding journal events preserve scope, recorder, authority and uncommitted state.",
+      "Missing helper: Markdown updated, no event added, final response accurately reported unavailable capture.",
+      "Fresh audit left all bytes unchanged, answered stored history correctly and declined to invent the unavailable reason for the unlogged pending fact.",
+      "Disabled maintenance worked with absent helper; only context changed."
+    ],
+    "limits": [
+      "Missing-helper cause appeared only in the final response, not project evidence. This triggers the separately frozen durable-gap fix.",
+      "Codex stream does not expose a model ID or native instruction-loading event; file/skill reads do not prove startup loading."
+    ]
+  },
+  "claude": {
+    "functional_lifecycle": "fails; requested enablement and other operations were skipped",
+    "evidence": [
+      "Default-off, enable, approval, repeat and disable responses said no request was present; no settings were added.",
+      "One real probe failure was recorded in Markdown while logging remained off. No new journal record was created in any stage.",
+      "The runner continued after semantic misses, so enabled repeat, missing-helper and disable outcomes are invalid as tests of an enabled journal.",
+      "All protected bytes and legacy history survived; audit wrote nothing. These preservation checks do not convert skipped actions into passes.",
+      "InstructionsLoaded matched the actual project CLAUDE.md at startup in every session; absence of the request cannot be attributed to missing instruction loading from this evidence."
+    ],
+    "limits": [
+      "Retain nine original sessions and guard denials. The separately frozen follow-up changes task placement and invocation, not skills or scoring."
+    ]
+  }
+}

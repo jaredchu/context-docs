@@ -1,0 +1,6 @@
+Both projects updated successfully. Summary:
+
+- **no-git**: `notes/state.md` now preserves the original 2026-09-01 decision (Mira approved retry=3, source `synthetic-owner:D0`) and adds a dated history section for 2026-09-26 covering E1 (retry=3 staging run, exit 7 queue overflow), E2 (developer's unapproved retry=10 proposal), and E3 (Mira's approval of retry=5 for staging only, with the subsequent passing export-check). Current state and unknowns (no production validation/rollout) are recorded.
+- **sparse-git**: Same content, plus a note that the repo's initial commit still reflects the old retry=3 config and that the retry=5 settings change and all 2026-09-26 events remain uncommitted.
+
+Note on execution: the two attempts to submit these updates with an `events` array failed (`Only JSONL arm accepts events` — that array is reserved for a jsonl-type case, not no-git/sparse-git), so I resubmitted with `events: []` and folded all the E1/E2/E3 evidence into the markdown `context` instead, which succeeded for both. I did not execute any export-check myself — the E1/E3 check results are recorded only as previously-supplied synthetic evidence, not verified by me in this session.

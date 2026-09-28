@@ -11,7 +11,8 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[2]
 SKILLS = {'context-docs': ['references/standard.md', 'assets/project-context.md',
-                           'assets/decision-record.md', 'LICENSE', 'VERSION'],
+                           'assets/decision-record.md', 'references/event-journal.md',
+                           'scripts/event_journal.py', 'LICENSE', 'VERSION'],
           'adopt-context-docs': ['LICENSE', 'VERSION']}
 SKILL_DEPENDENCIES = {'adopt-context-docs': ['context-docs']}
 README_VERSION_LABELS = {'context-docs': 'core skill', 'adopt-context-docs': 'adoption skill'}
@@ -22,6 +23,23 @@ LINK_EXCEPTIONS = {('evals/concise/candidate-SKILL.md', 'references/standard.md'
                    ('evals/concise/candidate-SKILL.md', 'assets/project-context.md'),
                    ('evals/concise/original-SKILL.md', 'references/standard.md'),
                    ('evals/concise/original-SKILL.md', 'assets/project-context.md')}
+# Exact frozen fault-injection snapshots intentionally lack the helper. Their
+# source hashes and native outcomes retain that missing-file state. This exception
+# applies only to these links; the shipped core still requires its helper below.
+LINK_EXCEPTIONS.update({
+    (f'evals/results/{study}/{client}-{stage}/{install}/context-docs/references/event-journal.md',
+     '../scripts/event_journal.py')
+    for study, client, install in (
+        ('2026-09-28-journal-integration', 'claude', '.claude/skills'),
+        ('2026-09-28-journal-integration', 'codex', '.agents/skills'),
+        ('2026-09-28-journal-integration-followup', 'claude', '.claude/skills'))
+    for stage in ('missing-helper', 'disabled-maintenance')
+})
+LINK_EXCEPTIONS.update({
+    (f'evals/results/2026-09-28-journal-gap/{client}-missing-helper/{install}/context-docs/references/event-journal.md',
+     '../scripts/event_journal.py')
+    for client, install in (('claude', '.claude/skills'), ('codex', '.agents/skills'))
+})
 # Generated result tables embedded in README.md, with the artifact each one comes from.
 TABLES = {'quality-table': 'evals/results/2026-09-27-quality/table.md',
           'public-table': 'evals/results/2026-09-27-public/table.md',

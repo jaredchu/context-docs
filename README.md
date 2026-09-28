@@ -6,9 +6,38 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.2; adoption skill v0.1.4.** The package contains instructions only.
+**Status: experimental, core skill v0.1.3; adoption skill v0.1.5.**
 It runs when an agent uses it; there is no background service, automatic scheduler,
-cloud account or runtime dependency. Git remains available for history and review.
+cloud account or mandatory runtime dependency. Git remains available for history and review.
+The core package includes an optional Python 3.9+ journal helper; ordinary Markdown
+maintenance works without Python.
+
+An optional [JSONL event journal pilot](docs/event-journal-pilot.md) is available
+with its helper now packaged in the core skill. Logging is off by default and
+requires an explicit project opt-in. The skills capture meaningful events only
+when enabled; setup, no-change maintenance and audits create no events.
+The [initial evaluation](evals/results/2026-09-28-event-journal/README.md) covers
+mechanical controls and a synthetic history replay; real-work benefit remains
+unestablished.
+
+The journal's goal is [efficient event capture for later investigation](docs/event-journal-pilot.md#efficient-logging-goals).
+Capture significant history when it happens and consult it when needed. Current
+context improvement or savings are not its success criteria. The earlier
+[same-chat handoff trial](docs/event-journal-live-trial.md) tested a narrower question;
+its findings do not establish whether historical logging earns its cost.
+Before broader integration, the [journal requirements](docs/event-journal-pilot.md#requirements-before-broader-integration)
+call for comparison against Markdown/Git, native Claude and Codex evaluation, and
+compatible updates for existing adopters. A [12-session native comparison](evals/results/2026-09-28-native-journal/README.md)
+now covers no-Git and sparse-commit histories: all three formats retained the
+requested facts, with Claude factual overstatements and capture errors preserved.
+JSONL remains optional. The [installed-skill lifecycle evaluation](evals/results/2026-09-28-journal-integration/README.md)
+now covers upgrades, direct capture, repeat setup, audits, helper absence and
+logging disablement. Codex passed its functional stages; Claude required a
+separately frozen explicit-invocation follow-up, with earlier failures retained.
+A [targeted capture-gap fix](evals/results/2026-09-28-journal-gap/README.md) preserves
+failed-capture reasons for later readers. Natural recording-cost advantages and
+general reliability remain unestablished. Installing or updating skills installs
+the helper but does not enable logging.
 
 ## Use it
 
@@ -73,8 +102,8 @@ involving an immutable heading and an installed-skill link. Routing rubrics pass
 but the original result is not a full regression pass. A
 [separately frozen follow-up](evals/results/2026-09-28-adoption-v013-followup/README.md)
 passed four routing/repeat sessions after making file constraints explicit and
-validating installed references consistently. The skills are unchanged; the
-initial failure remains recorded.
+validating installed references consistently. That follow-up left the skills
+unchanged; the initial failure remains recorded.
 Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
@@ -86,6 +115,27 @@ documentation index. For a fresh session, ask the agent to start there and read
 the linked context before working. A context file's presence alone does not ensure
 that an agent will read it. This routing is already part of the skill's
 initialization workflow.
+
+## Optional logging
+
+Ordinary adoption and upgrades preserve existing projects and leave logging off.
+For optional logging, install core v0.1.3 and adoption v0.1.5 together; older core
+packages do not include its guide or helper. Preserve locally customized package
+files when reviewing an upgrade.
+To enable it explicitly, ask the adoption skill to enable JSONL in the project's
+existing maintenance section, optionally naming a directory. For example:
+
+```text
+Codex: $adopt-context-docs Enable optional JSONL logging in history/events.
+Claude Code: /adopt-context-docs Enable optional JSONL logging in history/events.
+Preserve the existing adoption date, context path and maintenance instructions.
+```
+
+The [packaged journal guide](skills/context-docs/references/event-journal.md)
+defines settings, capture, investigation and failure handling. It works without
+Git; uncommitted state must not be attributed solely to an old commit. Ask the
+same skill to disable logging to stop capture while retaining the directory
+setting and all history. No project migration or background service is required.
 
 ## Install in Codex
 
@@ -183,6 +233,7 @@ same method. No forced directory migration or universal document-size limit.
 - [Optional context template](skills/context-docs/assets/project-context.md)
 - [Optional decision template](skills/context-docs/assets/decision-record.md)
 - [Before-and-after example](examples/maintenance.md)
+- [Optional event journal pilot](docs/event-journal-pilot.md)
 - [Behavioral evaluation scenarios](evals/README.md)
 - [Static repository checks](evals/checks/static_checks.py)
 - [Per-version changelog](CHANGELOG.md)

@@ -1,0 +1,48 @@
+commit cb04c4e1acfad0d6ce2b7cc348ad74ca5aef8b6e
+Author:     Synthetic Evaluation <synthetic@example.invalid>
+AuthorDate: Mon Sep 28 15:57:48 2026 +0700
+Commit:     Synthetic Evaluation <synthetic@example.invalid>
+CommitDate: Mon Sep 28 15:57:48 2026 +0700
+
+    Synthetic initial state
+
+ config.json | 1 +
+ context.md  | 3 +++
+ 2 files changed, 4 insertions(+)
+
+commit 10297819d05862115ec46810a446d62f829e3424
+Author:     Synthetic Evaluation <synthetic@example.invalid>
+AuthorDate: Mon Sep 28 15:57:48 2026 +0700
+Commit:     Synthetic Evaluation <synthetic@example.invalid>
+CommitDate: Mon Sep 28 15:57:48 2026 +0700
+
+    Synthetic stage-1
+
+ config.json         | 2 +-
+ context.md          | 2 +-
+ evidence/stage-1.md | 7 +++++++
+ 3 files changed, 9 insertions(+), 2 deletions(-)
+
+commit e2db9d4a2d32a3b4cd797cce258d5a6842078ba8
+Author:     Synthetic Evaluation <synthetic@example.invalid>
+AuthorDate: Mon Sep 28 15:57:48 2026 +0700
+Commit:     Synthetic Evaluation <synthetic@example.invalid>
+CommitDate: Mon Sep 28 15:57:48 2026 +0700
+
+    Synthetic stage-2
+
+ context.md          | 2 +-
+ evidence/stage-2.md | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+commit 6c1c368a50be02761eeced121194ed279f3a7011
+Author:     Synthetic Evaluation <synthetic@example.invalid>
+AuthorDate: Mon Sep 28 15:57:48 2026 +0700
+Commit:     Synthetic Evaluation <synthetic@example.invalid>
+CommitDate: Mon Sep 28 15:57:48 2026 +0700
+
+    Synthetic stage-3
+
+ context.md          | 2 +-
+ evidence/stage-3.md | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)

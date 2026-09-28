@@ -1,0 +1,5 @@
+Updated `notes/current.md` and added two history events using the project-installed context-docs helper: owner approval and probe verification.
+
+`python3 checks/probe.py` passed at `batch_limit=6`, exit 0. Journal validation, links, and diff checks passed.
+
+Preserved adoption date, paths, release checklist, routing, installed packages, and supplied evidence. Production remains unverified and unapproved for validation or rollout.

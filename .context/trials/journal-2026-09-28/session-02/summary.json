@@ -1,0 +1,19 @@
+{
+  "session": 2,
+  "event_id": "f46e8faf-2c2a-40d7-855d-f91dc998a5b7",
+  "event_count": 1,
+  "journal_bytes": 1442,
+  "input_payload_bytes": 1361,
+  "journal_cli_calls": {
+    "read_previous": 1,
+    "append": 1,
+    "read_back": 1
+  },
+  "record_roundtrip": true,
+  "prior_session_journal_bytes_preserved": true,
+  "scope": "Handoff review plus correction of stale integration wording; same author/chat.",
+  "retrieval_observation": "No missing fact recovered by journal after the baseline answers; grouped source references are the observed convenience.",
+  "logging_friction": "One additional structured payload and append/read-back pair; supporting raw evidence retained separately. Snapshots are evaluation overhead, not a universal journal requirement.",
+  "elapsed_authoring_effort": "Unmeasured; prior familiarity prevents a valid speed comparison.",
+  "pending": "Session 3 and final recommendation; no independent reader benefit established."
+}

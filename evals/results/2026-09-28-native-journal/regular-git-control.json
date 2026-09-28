@@ -1,0 +1,5 @@
+{
+  "committed_event": "# Context\n\n## Existing decision\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\nSource: synthetic-owner:D0. Production behavior is unknown.\n\n## Current state\nRetry=3; local checks only. No staging result recorded yet.\n\nE1: staging retry=3 exit 7 queue overflow.\n",
+  "current_state": "Current retry=5, staging only.\n",
+  "passes": true
+}

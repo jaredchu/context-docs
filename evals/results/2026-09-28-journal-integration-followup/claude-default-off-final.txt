@@ -1,0 +1,13 @@
+Verification complete — no edits were needed.
+
+**Checked:**
+- `.claude/skills/context-docs/SKILL.md` (v0.1.3) and `.claude/skills/adopt-context-docs/SKILL.md` (v0.1.5) — read in full per the skill's own instruction to read context-docs before maintaining.
+- `CLAUDE.md` already carries an equivalent "Our continuity notes" section: `Method: context-docs`, `Adopted: 2026-09-01`, `Entry point: notes/current.md`, plus maintenance wording matching the required guidance (read skill before maintaining, preserve decisions/evidence, audit-only stays read-only). This matches the adapted wording the skill prescribes — nothing to merge or duplicate.
+- `notes/current.md` and `README.md` — entry point still exists, resolves correctly relative to `CLAUDE.md`, and is linked from the README.
+- `settings.json` — `{"batch_limit":4,"scope":"synthetic staging"}`, no journal keys present.
+- No `Event journal:` line in `CLAUDE.md`'s maintenance section, so logging remains off, consistent with "no request to enable logging."
+- Release checklist line in `CLAUDE.md` ("Keep the unrelated release checklist intact...") left untouched, as instructed.
+
+**Result:** existing setup is equivalent to what adoption would produce (same date, same entry point, same wording), so per the skill ("add only the missing marker... repeated setup with the same settings makes no edits") this run makes no bookkeeping edits. No new project facts were supplied and none were invented. Skill-loading is confirmed only in the sense that `CLAUDE.md` is the project instructions file surfaced to me this session (per the system context); I have no independent evidence beyond that of the client's loading behavior.
+
+No unresolved questions — adoption remains intact after the skill upgrade with no file changes required.

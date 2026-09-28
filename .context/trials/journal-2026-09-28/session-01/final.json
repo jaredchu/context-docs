@@ -1,0 +1,13 @@
+{
+  "recorded_at": "2026-09-28T09:26:35.096818+00:00",
+  "base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "dirty_worktree": true,
+  "sha256": {
+    "AGENTS.md": "88056d94ba6ad7c664ed2c2843a3074edabb6844b438eb21273e628b617410e1",
+    "docs/project-context.md": "3cfcc1cb20555cf9a698d5b8e1710e7654a4e5ff81def9bf553d545d9d41d2e7",
+    "docs/event-journal-pilot.md": "87556df1a29ad812a90fe1397d4a7640e29199f2f0e9db6a0955c5b14411fab9",
+    "docs/event-journal-live-trial.md": "d94e823e7ccf445e548c5832817f2c520b29ab4f94e4c3e6000c60da4f26f539",
+    "CHANGELOG.md": "893e9cbacab7062547105805c8c8f6f841fc924cedc917a947bd1217ac4fa619"
+  },
+  "note": "Final scoped documentation snapshot after clarifying baseline exclusions; earlier snapshots and journal events remain unchanged."
+}

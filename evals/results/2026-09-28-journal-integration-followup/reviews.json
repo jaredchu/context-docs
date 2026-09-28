@@ -1,0 +1,22 @@
+{
+  "reviewer": "Authoring assistant; not independent or blinded",
+  "candidate": "Same initial core 0.1.3/adoption 0.1.5 as original run; explicit native task-first requests",
+  "functional_lifecycle": "passes all nine staged operations",
+  "evidence": [
+    "Equivalent upgraded adoption made no edits and did not enable logging.",
+    "Enable/disable changed only optional setting lines; all original instruction text, marker/date/path and legacy bytes survived.",
+    "Real fixture failure and pass were captured with the approval as three valid records; actor is Claude Code, authority is Rina with source, revision unavailable (no Git). No repeated successful append.",
+    "Repeat setup and maintenance left every project file byte unchanged; no extra event or probe run.",
+    "Missing helper: updated only Markdown and honestly reported capture unavailable; no fabricated helper or event.",
+    "Fresh audit left all project bytes unchanged and recovered the required historical facts and missing pending-check event.",
+    "Disabled maintenance with absent helper changed only Markdown and added no records.",
+    "Every observed tool call has a guard decision. Nine startup instruction loads match actual CLAUDE.md hashes."
+  ],
+  "not_clean_semantic_or_execution_pass": [
+    "Fresh audit supplied an unsupported schema explanation for the unlogged pending-check fact. It could instead be represented as a context_update; the actual historical cause was helper absence, which was not preserved in project files. This triggers the durable-gap fix.",
+    "Missing-helper final response said the scripts directory was absent, although only the script was removed and the directory remained.",
+    "Some summaries call the earlier real failure superseded, although its record remains observed historical evidence; later success at a changed setting does not erase that failure.",
+    "Guard denied compound commands, unlisted shell tools/cleanup, and outside-project memory operations. The leftover event-input.json is a harness cleanup limitation, not production retention behavior."
+  ],
+  "interpretation": "Functional opt-in/preservation gates pass under explicit native invocation. No claim of clean execution, reliable implicit selection, unrestricted behavior or general accuracy. Original failure remains."
+}

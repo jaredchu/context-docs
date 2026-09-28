@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-09-28T08:57:48.141619+00:00",
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "repository_base_revision": "ede8f7ac1c69903dbcc400e68e6667bdceacd980",
+  "uncommitted_pilot": true,
+  "sha256": {
+    "tools/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "evals/event-journal/protocol.md": "ae03a64f68f359afbbbb2831b90656f6775f4bf076c1ce80c807934dbc5ce7fb",
+    "evals/event-journal/scenario.json": "44d2c3a6083d941b22a2ecccc43812780fbbb6697d0cb03bf75258d2d522a77e",
+    "evals/event-journal/evaluate.py": "d33f2bd14cd2ab00b7331d020a1fda263f854d7b46986790c805bfc6425c3f1f",
+    "tests/test_event_journal.py": "b58c5533d2d827c5f9987c10106ce30752710db790168cd907ccb53d432f3bab"
+  },
+  "scope": "synthetic CLI replay and local performance diagnostics; no model sessions"
+}

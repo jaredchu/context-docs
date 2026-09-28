@@ -1,0 +1,3 @@
+Verified ordinary adoption using both project-installed skills. The existing setup is equivalent; no files were changed.
+
+Preserved the adoption date `2026-09-01`, `notes/current.md`, release checklist, instruction routing, installed skill upgrades, and supplied evidence. Session instructions confirm AGENTS.md is loaded. Logging remains off; no events were created.

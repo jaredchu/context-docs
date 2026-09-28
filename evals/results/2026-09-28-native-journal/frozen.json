@@ -1,0 +1,19 @@
+{
+  "scratch": "/var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/context-journal-native-pwz074x_",
+  "versions": {
+    "claude": "2.1.234 (Claude Code)",
+    "codex": "codex-cli 0.158.0-alpha.2.1"
+  },
+  "source_hashes": {
+    "evals/event-journal/native/protocol.md": "828e29098570d0381a0a85999605b57fbf83183da2486d159f5873f429f09a08",
+    "evals/event-journal/native/run.py": "9b69a99e692c676c260f10556cf434f318d4f9ff377a477a75b1e6f78a3626d6",
+    "evals/event-journal/native/bridge.py": "94585b683e71cb19889f99ebe2b9d87737443e62ffff2e1667f0f392ec70f952",
+    "evals/event-journal/native/guard.py": "a52201cfb96b51ed2ee01af9bb551226b622b7de14ba2798a5ff9da16b129282",
+    "tools/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+  },
+  "feed": "Synthetic supplied evidence (not checks executed by this evaluation):\nE1, 2026-09-26 09:00Z: operator ran export-check in staging at retry=3;\nexit 7, queue overflow. No production run. Source synthetic-event:E1.\nE2, 2026-09-26 09:10Z: developer proposed retry=10. No owner approval.\nSource synthetic-event:E2.\nE3, 2026-09-26 09:20Z: owner Mira approved retry=5 only for staging because\nretry=10 risks exceeding the memory budget. Operator's export-check then passed\nin staging at retry=5. Production validation and rollout remain unknown.\nSource synthetic-event:E3. Current config is retry=5, staging only.\nNo Git case has no repository. Sparse Git has only its initial commit; these\nthree observations and changed retry setting were never committed.\n",
+  "initial_context": "# Context\n\n## Existing decision\nOwner Mira approved retry=3 for local checks on 2026-09-01 to bound memory use.\nSource: synthetic-owner:D0. Production behavior is unknown.\n\n## Current state\nRetry=3; local checks only. No staging result recorded yet.\n",
+  "initial_instructions": "# Project instructions\n\nPreserve existing decisions and scope. Context is notes/state.md.\nMethod: context-docs\nAdopted: 2026-09-01\nEntry point: notes/state.md\n",
+  "models": "client default",
+  "sessions": 12
+}

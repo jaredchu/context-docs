@@ -1,0 +1,3 @@
+Disabled optional event logging in [AGENTS.md](AGENTS.md) by setting `Event journal: off`.
+
+Verified this was the only change. History, adoption date, custom context path, release checklist, instruction routing, installed packages, and supplied evidence remain intact. Markdown maintenance remains enabled.

@@ -1,0 +1,9 @@
+Everything already matches what was requested — no changes were needed.
+
+**Adoption (CLAUDE.md `## Our continuity notes`):** Already has `Method: context-docs`, `Adopted: 2026-09-01`, `Entry point: notes/current.md`, `Event journal: jsonl`, `Event journal directory: history/events`, plus maintenance wording equivalent to the skill's template. This is the file confirmed loaded for this session (per system-reminder), so instruction routing is correct and required no edit. The unrelated release checklist line (`Keep the unrelated release checklist intact.`) and its reference in `notes/current.md`'s History section are untouched.
+
+**Maintenance check on `notes/current.md`:** Still accurately reflects the supplied evidence — `evidence/approval.md` (Rina's `batch_limit=6` staging-only approval, source `synthetic-owner:A1`), `settings.json` (`batch_limit=6`), and `checks/probe.py`'s logic. It correctly distinguishes the unchanged 2026-09-01 local smoke-check approval (limit 2) from the staging approval, marks the developer's `batch_limit=12` proposal as unapproved, and notes production validation/rollout remain unestablished. Per your instruction I did not rerun `checks/probe.py`.
+
+**Event journal (`history/events`):** Three session files already present — `legacy.jsonl` (2026-09-01 decision D0), `ctxdocs-20260928.jsonl` (superseded exit-7 verification), `ctxdocs-20260928-2.jsonl` (A1 decision + exit-0 verification) — and `current.md` already links to both current session files correctly. Since there are no new facts or events, I appended nothing.
+
+No files were edited (audit found nothing durable to change); `event-input.json` in the project root was left alone since it's leftover input matching an already-recorded event, and you asked to leave unchanged context alone.

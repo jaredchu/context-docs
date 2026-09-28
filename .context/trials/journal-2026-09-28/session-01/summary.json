@@ -1,0 +1,23 @@
+{
+  "session": 1,
+  "completed_sessions": 1,
+  "pending_sessions": [
+    2,
+    3
+  ],
+  "reader": "existing authoring assistant with prior chat context",
+  "work": "repository-local trial setup and handoff verification",
+  "event_count": 2,
+  "journal_bytes": 2307,
+  "payload_file_bytes": 2140,
+  "journal_cli_calls": {
+    "append": 2,
+    "read": 1
+  },
+  "authoring_effort": "not separately timed; setup includes snapshots and documentation",
+  "retrieval_benefit": "not yet measured; next distinct maintenance task must compare the two source routes",
+  "duplication_observed": "Both events summarize facts available in the source-identity check, static-check output and setup documentation.",
+  "logging_friction_observed": "Required actor, status, revision and evidence references were supplied manually; raw outputs and dirty-file snapshots had to be retained separately.",
+  "missed_meaningful_events": "No known omission within the setup task; this is author self-review, not an independent capture audit.",
+  "authority": "Owner authorized proceeding with the proposed live trial in the current chat; no publication or general adoption decision is inferred."
+}

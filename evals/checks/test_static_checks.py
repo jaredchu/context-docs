@@ -73,6 +73,11 @@ class StaticChecksTests(unittest.TestCase):
         self.assertTrue(any('declared sibling dependency' in failure
                             for failure in self.failures(checks.check_skills)))
 
+    def test_missing_packaged_helper_fails_even_with_fault_fixture_exceptions(self):
+        (self.root / 'skills/context-docs/scripts/event_journal.py').unlink()
+        self.assertTrue(any('scripts/event_journal.py' in failure
+                            for failure in self.failures(checks.check_skills)))
+
     def test_current_versions_pass(self):
         self.assertEqual([], self.failures(checks.check_versions))
 
