@@ -179,8 +179,10 @@ Every executed study used one client and one model. The
 [native Claude Code smoke test](claude-code/README.md) runs the shared adoption
 fixtures through the Claude Code CLI to check skill discovery, rule placement in
 Claude-only and mixed instruction projects, repeat preservation and audit-only
-read-only behavior. Its harness and static controls are complete; no model session
-has been executed, so it establishes no behavior on that client yet.
+read-only behavior. Its repaired harness and static controls pass. The
+[frozen native attempt](results/2026-09-28-claude-code/README.md) stopped after one
+authentication failure, leaving five sessions unattempted. No completed model
+session establishes behavior on that client yet.
 
 ## Optional adoption skill
 

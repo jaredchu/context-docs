@@ -1,6 +1,8 @@
 # Native Claude Code smoke test
 
-Status: **harness complete and statically validated; no model session executed.**
+Status: **harness repaired and statically validated; native evaluation blocked by
+CLI authentication.** The [retained attempt](../results/2026-09-28-claude-code/README.md)
+stopped after the first authentication error; five sessions were not attempted.
 Every published result so far ran on Codex with one model, and the
 [v0.1.3 follow-up](../results/2026-09-28-adoption-v013-followup/README.md) records
 native Claude Code behavior as unestablished. This checks the four questions raised

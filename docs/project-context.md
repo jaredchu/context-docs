@@ -95,8 +95,11 @@ still need owner acceptance.
   ignoring frozen requests/model, excluding `.claude/` from read-only checks, and
   rejecting valid absolute installed links. The original 34 assertions and ten
   new regression tests pass. Runs now validate frozen initial inputs, retain
-  partial results and stop on execution errors. The earlier contributor reported
-  six authentication failures; no completed native session is established yet.
+  partial results and stop on execution errors. A
+  [separately frozen native attempt](../evals/results/2026-09-28-claude-code/README.md)
+  then failed CLI authentication on its first session; five sessions were not
+  attempted. The failed attempt is retained. No completed native session is
+  established yet; the earlier contributor's six failures remain a separate report.
 - Installation into Claude Code is documented and its packaging validated;
   no evaluation has been executed on any client other than Codex.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
@@ -142,7 +145,9 @@ still need owner acceptance.
    follow-up under explicit file constraints. Native Claude Code behavior and
    installed-path portability across machines remain untested; do not describe
    either as evaluated support.
-6. Execute the native Claude Code smoke test on a CLI that can authenticate, then
+6. Refresh Claude Code CLI authentication, then build and freeze a new smoke-test
+   destination, preserving the blocked September 28 attempt. Execute all six
+   sessions on a CLI that can authenticate, then
    publish its sessions, failures and explicit review. Freeze the built protocol
    first. Six sessions on one client with one attempt each would be a smoke test,
    not a comparison: no accuracy or reliability claim follows from it.
