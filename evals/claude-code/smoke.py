@@ -146,7 +146,17 @@ def trajectories():
 
 def installed_files():
     return {f'{INSTALL}/{path.relative_to(ROOT / "skills")}': hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted((ROOT / 'skills').rglob('*')) if path.is_file()}
+            for path in sorted((ROOT / 'skills').rglob('*'))
+            if path.is_file() and '__pycache__' not in path.parts
+            and path.suffix not in ('.pyc', '.pyo')}
+
+
+def install_skills(destination):
+    # Test imports can create bytecode beside the optional helper. It is not
+    # package content and must not enter frozen text fixtures or their manifest.
+    for name in SKILLS:
+        shutil.copytree(ROOT / 'skills' / name, destination / INSTALL / name,
+                        ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.pyo'))
 
 
 def project_files(root):
@@ -188,8 +198,7 @@ def materialize(destination, case):
     # Commit only the tracked fixture, then add uncommitted material on top, so the
     # agent meets a dirty working tree as it does in the Harbor packages.
     write_files(destination, case['files'])
-    for name in SKILLS:
-        shutil.copytree(ROOT / 'skills' / name, destination / INSTALL / name)
+    install_skills(destination)
     subprocess.run(['git', 'init', '-q'], cwd=destination, check=True)
     for name in sorted(case['files']) + [INSTALL]:
         subprocess.run(['git', 'add', '--', name], cwd=destination, check=True)

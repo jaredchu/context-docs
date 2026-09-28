@@ -13,6 +13,12 @@ not a demonstrated accuracy gain.
 
 Release contents and validation are summarized in the [v0.1.3 release notes](docs/releases/v0.1.3.md).
 
+Release validation found a generated-bytecode fixture-copy failure in the first
+Linux CI run. Exclude Python cache files from native Claude fixture installations
+and their manifests, with a regression checking that executable helper sources
+remain included. This evaluation-harness repair does not change either skill or
+rescore frozen model runs.
+
 ## context-docs 0.1.3 — 2026-09-28 (tag `v0.1.3`)
 
 - Package the unchanged schema-v1 journal helper and a self-contained optional

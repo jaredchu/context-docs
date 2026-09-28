@@ -98,8 +98,7 @@ def build(destination, model):
                 project.mkdir(parents=True)
                 smoke.write_files(project, case['files'])
                 if arm == 'skills':
-                    for name in smoke.SKILLS:
-                        shutil.copytree(smoke.ROOT/'skills'/name, project/smoke.INSTALL/name)
+                    smoke.install_skills(project)
                 subprocess.run(['git', 'init', '-q'], cwd=project, check=True)
                 subprocess.run(['git', 'add', '.'], cwd=project, check=True)
                 subprocess.run(['git', '-c', 'user.email=fixture@example.invalid', '-c',

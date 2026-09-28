@@ -4,6 +4,7 @@ import copy
 import importlib.util
 import io
 import json
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -16,6 +17,28 @@ module_spec.loader.exec_module(smoke)
 
 
 class SmokeTests(unittest.TestCase):
+    def test_generated_bytecode_is_excluded_from_fixture_and_manifest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / 'source'
+            shutil.copytree(smoke.ROOT / 'skills', root / 'skills',
+                            ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.pyo'))
+            scripts = root / 'skills/context-docs/scripts'
+            cache = scripts / '__pycache__'
+            cache.mkdir()
+            (cache / 'event_journal.cpython-312.pyc').write_bytes(b'\xcb\x00')
+            (scripts / 'legacy.pyc').write_bytes(b'\xcb\x00')
+            (scripts / 'legacy.pyo').write_bytes(b'\xcb\x00')
+            destination = Path(tmp) / 'project'
+            with patch.object(smoke, 'ROOT', root):
+                smoke.materialize(destination, self.audit['case'])
+                manifest = smoke.installed_files()
+                files = smoke.snapshot(destination)
+            installed = {name for name in files if name.startswith(smoke.INSTALL + '/')}
+            self.assertEqual(installed, set(manifest))
+            self.assertIn(smoke.INSTALL + '/context-docs/scripts/event_journal.py', installed)
+            self.assertFalse(any('__pycache__' in name or name.endswith(('.pyc', '.pyo'))
+                                 for name in installed))
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
