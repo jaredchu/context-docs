@@ -1,0 +1,125 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd && ls -la",
+      "description": "Show current directory and list files"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/probe.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd",
+      "description": "Show current working directory"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la",
+      "description": "List files in project directory"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 checks/probe.py",
+      "description": "Run probe script"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/SKILL.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/references/event-journal.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".claude/skills/context-docs/scripts/*.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".context/events/*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Write",
+    "input": {
+      "file_path": "<project>/.event-payload-tmp.json",
+      "content": "{\n  \"type\": \"verification\",\n  \"status\": \"observed\",\n  \"actor\": \"Claude Code\",\n  \"summary\": \"Ran checks/probe.py (2026-09-28): script printed 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' and exited with code 7. This is the synthetic staging fixture per README.md; it is explicitly not a production check, so production remains unverified.\",\n  \"sources\": [\"checks/probe.py output, observed 2026-09-28\"],\n  \"revision\": \"unavailable (no Git)\",\n  \"check\": {\n    \"command\": \"python3 checks/probe.py\",\n    \"scope\": \"synthetic staging fixture probe (checks/probe.py); not a production check\",\n    \"result\": \"exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\"\n  }\n}\n"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 .claude/skills/context-docs/scripts/event_journal.py --directory .context/events append --session probe-run-20260928 --input .event-payload-tmp.json",
+      "description": "Append probe result event to journal"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "rm .event-payload-tmp.json",
+      "description": "Remove temporary event payload file"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Edit",
+    "input": {
+      "file_path": "<project>/notes/current.md",
+      "old_string": "# Current context\n\nBatch limit 4 is configured for synthetic staging. The probe has not yet run. Production remains untested. Manual release review is still required.",
+      "new_string": "# Current context\n\nBatch limit 4 is configured for synthetic staging. The probe (`checks/probe.py`) ran on 2026-09-28: it printed \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" and exited with code 7. The script's own output states this is a synthetic staging fixture, not a production check, so production remains untested and manual release review is still required. Event recorded in `.context/events` (session `probe-run-20260928`).",
+      "replace_all": false
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls /Users/jaredchu/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-global-journal-eval-xx1hoqyx-claude/memory/ 2>&1 || true",
+      "description": "List existing memory files"
+    },
+    "allowed": false
+  }
+]

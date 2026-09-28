@@ -1,0 +1,6 @@
+**Summary:**
+- Ran `python3 checks/probe.py` — it exited with code 7 and printed: `Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.`
+- This is the project's synthetic staging fixture (per its own output and README.md), not a production check.
+- Recorded a verification event in `.context/events` (session `probe-run-20260928`) via the installed context-docs journal helper.
+- Updated `notes/current.md` to reflect the actual outcome: the probe has now run, exited 7 with the queue-overflow message, and production remains untested/manual release review still required.
+- Note: a temporary payload file `.event-payload-tmp.json` (used only to pass JSON to the journal helper) remains in the project root — I couldn't delete it under the current shell restrictions (only python3/pwd/ls/read-only git allowed). It's outside the journal directory and contains no sensitive data, but you may want to remove it manually.

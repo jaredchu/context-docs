@@ -1,0 +1,1 @@
+Reviewed README.md and notes/current.md — both are already consistent, correctly describe the prior synthetic probe outcome (queue overflow at batch_limit=4, exit 7) as historical fixture evidence, and link to the recorded event. Since no new facts or work occurred and no checks were rerun, no edits are needed.

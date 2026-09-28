@@ -1,0 +1,1 @@
+Checked `notes/current.md` and `README.md` — both already reflect the current state: the probe ran 2026-09-28, exited 7 with a queue overflow at `batch_limit=4` in synthetic staging, no production check performed, and the event is logged under session `probe-run-20260928`. Since no new facts or work occurred, there's nothing to update — no edits made.

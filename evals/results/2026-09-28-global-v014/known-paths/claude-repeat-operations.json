@@ -1,0 +1,32 @@
+[
+  {
+    "tool": "Skill",
+    "input": {
+      "skill": "context-docs",
+      "args": "Maintain project context. No new facts or work have occurred since the previous update. Do not rerun checks. Read-only audit constraints: no network, delegation, or commits; use only individual direct python3 commands (file args, no stdin/redirection/shell operators), pwd/ls, or simple read-only git commands."
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd && ls",
+      "description": "Show current directory and list files"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  }
+]

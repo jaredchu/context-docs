@@ -1,0 +1,3 @@
+Probe failed with exit code **7**: synthetic staging reported queue overflow at `batch_limit=4`.
+
+Updated [current context](notes/current.md) and recorded the outcome in the event journal. Verified the journal link and unchanged probe script. Production remains untested; manual release review is still required.

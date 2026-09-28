@@ -1,0 +1,3 @@
+notes/current.md already accurately reflects this state, and the user confirmed no new facts or work have occurred, with checks not to be rerun. Since nothing durable has changed since the last update, no edits are needed — this session found the documented probe result, capture gap, and pending `event-input.json` all still consistent with the file.
+
+No changes made: notes/current.md and README.md already reflect the current state (probe exit 7 on the synthetic staging fixture, journal CLI unreachable in the sandbox, `event-input.json` pending). Per the skill's guidance, since nothing durable changed, I made no bookkeeping edits.

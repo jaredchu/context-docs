@@ -1,0 +1,6 @@
+- **What failed:** The earlier synthetic staging probe reported “queue overflow” and exited with code **7**, according to the [preserved event record](.context/events/probe-20260928-714a2c.jsonl:1).
+- **Value tested:** The recorded value was **`batch_limit=4`**. However, the [probe source](checks/probe.py:2) simply prints that fixed message and exits with 7; it does not actually exercise a queue or read configuration.
+- **Production checked:** **No.** Both the event record and [current context](notes/current.md:3) explicitly say production remains untested. Manual release review remains required.
+- **Historical evidence surviving:** The JSONL record preserves the command, scope, reported stdout, exit code, recorder, event/session IDs, and recording timestamp. It records the revision as **“unavailable (no Git)”**. The probe source and current-context summary also survive; no separate raw output file or historical source snapshot was found.
+
+Read-only investigation completed. No checks rerun, files changed, network access, delegation, or commits.

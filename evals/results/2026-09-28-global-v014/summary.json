@@ -1,0 +1,372 @@
+{
+  "sessions": 5,
+  "conditions": {
+    "initial": {
+      "codex": {
+        "cli_version": "codex-cli 0.158.0-alpha.2.1",
+        "packages": {
+          "context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+            "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+            "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+            "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+            "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+            "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+            "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+            "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+          },
+          "adopt-context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+            "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+            "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+          }
+        },
+        "trial": {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 14.45,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Synthetic fixture author",
+              "summary": "Synthetic fixture history: staging probe at batch_limit=4 printed queue overflow and exited 7; production untested.",
+              "sources": [
+                "synthetic-fixture:H1",
+                "checks/probe.py"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Authored synthetic staging history, not a live production test",
+                "result": "Fixture history: queue overflow at limit 4; exit 7; production untested"
+              },
+              "schema_version": 1,
+              "event_id": "310b1dd9-5865-4c02-a1b7-d397333def11",
+              "recorded_at": "2026-09-28T14:53:05.681980Z",
+              "session_id": "fixture-history"
+            }
+          ],
+          "before": {
+            ".context/events/fixture-history.jsonl": "92e60d0628edba408863df1f7c0e4750521684c597786e5f6da13d5c83b6d6c3",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          },
+          "after": {
+            ".context/events/fixture-history.jsonl": "92e60d0628edba408863df1f7c0e4750521684c597786e5f6da13d5c83b6d6c3",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          }
+        },
+        "skill_exposure_observed": true,
+        "strict_no_history_access": true,
+        "raw_stream_sha256": "abdb3dc37cbd05be861d0b1d05428149b348ab1fb686e3724b7cebed26895978"
+      },
+      "claude": {
+        "cli_version": "2.1.234 (Claude Code)",
+        "packages": {
+          "context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+            "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+            "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+            "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+            "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+            "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+            "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+            "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+          },
+          "adopt-context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+            "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+            "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+          }
+        },
+        "trial": {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 28.79,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Synthetic fixture author",
+              "summary": "Synthetic fixture history: staging probe at batch_limit=4 printed queue overflow and exited 7; production untested.",
+              "sources": [
+                "synthetic-fixture:H1",
+                "checks/probe.py"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Authored synthetic staging history, not a live production test",
+                "result": "Fixture history: queue overflow at limit 4; exit 7; production untested"
+              },
+              "schema_version": 1,
+              "event_id": "c781c6ba-b8da-49e0-a44a-e060b424e872",
+              "recorded_at": "2026-09-28T14:53:05.716327Z",
+              "session_id": "fixture-history"
+            }
+          ],
+          "before": {
+            ".context/events/fixture-history.jsonl": "fd5858159cb37824d80a2cd43ce41035f56993224ffb014fb1757cd755de848c",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          },
+          "after": {
+            ".context/events/fixture-history.jsonl": "fd5858159cb37824d80a2cd43ce41035f56993224ffb014fb1757cd755de848c",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          }
+        },
+        "skill_exposure_observed": false,
+        "strict_no_history_access": false,
+        "raw_stream_sha256": "20a977194dc103d0ec9d3ac7b88262b518da30c8177c89fda3f4f0fc1792892f"
+      }
+    },
+    "explicit-tool": {
+      "claude": {
+        "cli_version": "2.1.234 (Claude Code)",
+        "packages": {
+          "context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+            "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+            "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+            "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+            "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+            "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+            "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+            "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+          },
+          "adopt-context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+            "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+            "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+          }
+        },
+        "trial": {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 15.49,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Synthetic fixture author",
+              "summary": "Synthetic fixture history: staging probe at batch_limit=4 printed queue overflow and exited 7; production untested.",
+              "sources": [
+                "synthetic-fixture:H1",
+                "checks/probe.py"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Authored synthetic staging history, not a live production test",
+                "result": "Fixture history: queue overflow at limit 4; exit 7; production untested"
+              },
+              "schema_version": 1,
+              "event_id": "155317c8-4c5e-4820-8347-6200fb259da9",
+              "recorded_at": "2026-09-28T14:55:22.883379Z",
+              "session_id": "fixture-history"
+            }
+          ],
+          "before": {
+            ".context/events/fixture-history.jsonl": "550db8c390de8c61ab90fe20edc62101d84593286600d22024ac9afe3f23b4ab",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          },
+          "after": {
+            ".context/events/fixture-history.jsonl": "550db8c390de8c61ab90fe20edc62101d84593286600d22024ac9afe3f23b4ab",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          }
+        },
+        "skill_exposure_observed": true,
+        "strict_no_history_access": false,
+        "raw_stream_sha256": "c28e710aa7bbbffbeb62ea99f5b05cc369687834f039bbca92ad1ecc0e1d2ada"
+      }
+    },
+    "known-paths": {
+      "codex": {
+        "cli_version": "codex-cli 0.158.0-alpha.2.1",
+        "packages": {
+          "context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "7339f36ae7c7d49cc1ad1bc176b1e89cb80a071caee73adc751bd9efcdfa1613",
+            "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+            "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+            "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+            "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+            "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+            "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+            "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+          },
+          "adopt-context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+            "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+            "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+          }
+        },
+        "trial": {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 13.57,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Synthetic fixture author",
+              "summary": "Synthetic fixture history: staging probe at batch_limit=4 printed queue overflow and exited 7; production untested.",
+              "sources": [
+                "synthetic-fixture:H1",
+                "checks/probe.py"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Authored synthetic staging history, not a live production test",
+                "result": "Fixture history: queue overflow at limit 4; exit 7; production untested"
+              },
+              "schema_version": 1,
+              "event_id": "8db9ea01-7746-4574-a3db-c2a943e0f78b",
+              "recorded_at": "2026-09-28T14:57:19.161818Z",
+              "session_id": "fixture-history"
+            }
+          ],
+          "before": {
+            ".context/events/fixture-history.jsonl": "6662fe8be79ed59f13fd14568ad9619afa9fa6bfe72e7bde58a14339458b7f84",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          },
+          "after": {
+            ".context/events/fixture-history.jsonl": "6662fe8be79ed59f13fd14568ad9619afa9fa6bfe72e7bde58a14339458b7f84",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          }
+        },
+        "skill_exposure_observed": true,
+        "strict_no_history_access": true,
+        "raw_stream_sha256": "d2dbc8301afd447d7c8cdab7e93b545862ebfb51b4cc01b5640fc4974b4d8d33"
+      },
+      "claude": {
+        "cli_version": "2.1.234 (Claude Code)",
+        "packages": {
+          "context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "7339f36ae7c7d49cc1ad1bc176b1e89cb80a071caee73adc751bd9efcdfa1613",
+            "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+            "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+            "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+            "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+            "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+            "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+            "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+          },
+          "adopt-context-docs": {
+            "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+            "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+            "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+            "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+          }
+        },
+        "trial": {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 17.63,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Synthetic fixture author",
+              "summary": "Synthetic fixture history: staging probe at batch_limit=4 printed queue overflow and exited 7; production untested.",
+              "sources": [
+                "synthetic-fixture:H1",
+                "checks/probe.py"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Authored synthetic staging history, not a live production test",
+                "result": "Fixture history: queue overflow at limit 4; exit 7; production untested"
+              },
+              "schema_version": 1,
+              "event_id": "dd774d32-60ff-44d6-9f89-be7d1d2407a5",
+              "recorded_at": "2026-09-28T14:57:19.190771Z",
+              "session_id": "fixture-history"
+            }
+          ],
+          "before": {
+            ".context/events/fixture-history.jsonl": "5c57a6f41ac9062a6957306f95e6a405e595a38b612ad3f266cf22b5b4c9a88c",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          },
+          "after": {
+            ".context/events/fixture-history.jsonl": "5c57a6f41ac9062a6957306f95e6a405e595a38b612ad3f266cf22b5b4c9a88c",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "7f0a25b15c201354eb7eccefe50173cf2bd1bd5418a466f562b8f62018576b4f"
+          }
+        },
+        "skill_exposure_observed": true,
+        "strict_no_history_access": true,
+        "raw_stream_sha256": "f135b43b29c3ff9da5d9a002a64ac599df01223b346c362e55a7f0ce048687f1"
+      }
+    }
+  },
+  "review": "Author-reviewed. Final known-paths candidate passes no-history-access under Codex named and Claude explicit native Skill invocation. Initial slash-only Claude and first explicit-tool control fail; retained separately. No automatic-selection or unrestricted reliability claim."
+}

@@ -1,0 +1,3 @@
+Investigate the earlier staging check, read-only: what failed, what value was tested, was production checked, and what historical evidence survives? Cite source files. Do not rerun checks or write anything.
+
+Work only in this synthetic project. Preserve instructions, scripts and global skill files. No network, delegation or commits. Evaluation shell boundary: use individual direct python3 commands (file arguments, no stdin, redirection or shell operators), pwd/ls or simple read-only git commands.

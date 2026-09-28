@@ -1,0 +1,1051 @@
+{
+  "candidate": "context-docs 0.1.4 (unreleased), adoption 0.1.5",
+  "sessions": 12,
+  "conditions": {
+    "initial": {
+      "source_commit": "052efb019b34def20002c075ce3d412084edfb31",
+      "candidate_sources": {
+        "evals/event-journal/read-gating/run.py": "9887271cbcf482ce70fe26a31965d55ea75b65505499794c3c4ab5818519dc9f",
+        "evals/event-journal/read-gating/protocol.md": "86cde2eb80c2d39920df36361d5353f936777110445c61e203a4f2ae12381091",
+        "evals/event-journal/global-install/run.py": "5bc65b49139c0516c68ce00416e17332d9f00e1db781b48bec2d60b712b60c16",
+        "evals/event-journal/global-install/guard.py": "d0b5b5b107528b0e92baaedefa056f4168ae081dac41086029492bb7fc0128d7",
+        "evals/event-journal/integration/guard.py": "414cfa0eeef64f89ceb432e9202280495dad7168ca63b53e994ea2315af92230",
+        "skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+        "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+        "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        "skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+        "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        "skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+        "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+        "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+      },
+      "direct_read": false,
+      "clients": {
+        "codex": {
+          "version": "codex-cli 0.158.0-alpha.2.1",
+          "packages": {
+            "context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+              "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+              "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+              "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+              "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+              "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+              "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+              "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+            },
+            "adopt-context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+              "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+              "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+            }
+          },
+          "trials": [
+            {
+              "stage": "capture",
+              "exit_code": 0,
+              "seconds": 41.87,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": false,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Codex",
+                  "summary": "Ran the synthetic staging probe: batch_limit=4; queue overflow; exit code 7. No production check.",
+                  "sources": [
+                    "checks/probe.py",
+                    "Observed stdout from python3 checks/probe.py: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "Synthetic staging only",
+                    "result": "Failed with exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "c202424f-f978-4178-8dbb-8ef27a608bee",
+                  "recorded_at": "2026-09-28T13:11:09.987738Z",
+                  "session_id": "probe-20260928-714a2c"
+                }
+              ],
+              "before": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+              },
+              "after": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-20260928-714a2c.jsonl": "7964134b7c586b6d61b7143a0a9f39755877443ced694d1296e0d27cd5a2b00f",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "020c433d19ebd1fc8bb1976dc271f3ae9cd4631c7df094f8ede436c9df04cb6b"
+              }
+            },
+            {
+              "stage": "repeat",
+              "exit_code": 0,
+              "seconds": 11.93,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Codex",
+                  "summary": "Ran the synthetic staging probe: batch_limit=4; queue overflow; exit code 7. No production check.",
+                  "sources": [
+                    "checks/probe.py",
+                    "Observed stdout from python3 checks/probe.py: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "Synthetic staging only",
+                    "result": "Failed with exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "c202424f-f978-4178-8dbb-8ef27a608bee",
+                  "recorded_at": "2026-09-28T13:11:09.987738Z",
+                  "session_id": "probe-20260928-714a2c"
+                }
+              ],
+              "before": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-20260928-714a2c.jsonl": "7964134b7c586b6d61b7143a0a9f39755877443ced694d1296e0d27cd5a2b00f",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "020c433d19ebd1fc8bb1976dc271f3ae9cd4631c7df094f8ede436c9df04cb6b"
+              },
+              "after": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-20260928-714a2c.jsonl": "7964134b7c586b6d61b7143a0a9f39755877443ced694d1296e0d27cd5a2b00f",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "020c433d19ebd1fc8bb1976dc271f3ae9cd4631c7df094f8ede436c9df04cb6b"
+              }
+            },
+            {
+              "stage": "audit",
+              "exit_code": 0,
+              "seconds": 28.19,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Codex",
+                  "summary": "Ran the synthetic staging probe: batch_limit=4; queue overflow; exit code 7. No production check.",
+                  "sources": [
+                    "checks/probe.py",
+                    "Observed stdout from python3 checks/probe.py: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "Synthetic staging only",
+                    "result": "Failed with exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "c202424f-f978-4178-8dbb-8ef27a608bee",
+                  "recorded_at": "2026-09-28T13:11:09.987738Z",
+                  "session_id": "probe-20260928-714a2c"
+                }
+              ],
+              "before": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-20260928-714a2c.jsonl": "7964134b7c586b6d61b7143a0a9f39755877443ced694d1296e0d27cd5a2b00f",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "020c433d19ebd1fc8bb1976dc271f3ae9cd4631c7df094f8ede436c9df04cb6b"
+              },
+              "after": {
+                ".agents/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".agents/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".agents/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".agents/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".agents/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".agents/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".agents/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".agents/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".agents/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".agents/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".agents/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".agents/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-20260928-714a2c.jsonl": "7964134b7c586b6d61b7143a0a9f39755877443ced694d1296e0d27cd5a2b00f",
+                "AGENTS.md": "48926d7541fa9cd6e501bcf6eaaeefec374362135ea3c6ba5f002032573dae1d",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "020c433d19ebd1fc8bb1976dc271f3ae9cd4631c7df094f8ede436c9df04cb6b"
+              }
+            }
+          ],
+          "stages": {
+            "capture": {
+              "raw_stream_sha256": "3071d0b8dac494f53b71a4b57cb70ac0b9a531d478e2a96ed88a9d5519783bd9"
+            },
+            "repeat": {
+              "raw_stream_sha256": "89f7a76b115661be5b511af2687895342c504a7c3da09955fce0a5d0db120267"
+            },
+            "audit": {
+              "raw_stream_sha256": "14d95289a2a9055959b66445ae78ab022d306678977174ca5ea8ed6e282de29d"
+            }
+          }
+        },
+        "claude": {
+          "version": "2.1.234 (Claude Code)",
+          "packages": {
+            "context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+              "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+              "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+              "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+              "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+              "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+              "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+              "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+            },
+            "adopt-context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+              "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+              "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+            }
+          },
+          "trials": [
+            {
+              "stage": "capture",
+              "exit_code": 0,
+              "seconds": 147.23,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": false,
+              "events": [],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "event-input.json": "33fe25ea93b67ea89739f1acb6a78526484475ac1693210b600ae7988459d5c5",
+                "notes/current.md": "174f1c6fa9e04b995ba8be66bab7b81f17e4633b7025a833f13fbef8f5fef1a2"
+              }
+            },
+            {
+              "stage": "repeat",
+              "exit_code": 0,
+              "seconds": 17.07,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "event-input.json": "33fe25ea93b67ea89739f1acb6a78526484475ac1693210b600ae7988459d5c5",
+                "notes/current.md": "174f1c6fa9e04b995ba8be66bab7b81f17e4633b7025a833f13fbef8f5fef1a2"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "event-input.json": "33fe25ea93b67ea89739f1acb6a78526484475ac1693210b600ae7988459d5c5",
+                "notes/current.md": "174f1c6fa9e04b995ba8be66bab7b81f17e4633b7025a833f13fbef8f5fef1a2"
+              }
+            },
+            {
+              "stage": "audit",
+              "exit_code": 0,
+              "seconds": 29.28,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "event-input.json": "33fe25ea93b67ea89739f1acb6a78526484475ac1693210b600ae7988459d5c5",
+                "notes/current.md": "174f1c6fa9e04b995ba8be66bab7b81f17e4633b7025a833f13fbef8f5fef1a2"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "2749c2d8573792833e2ab04b74d5ea6a4d9cbbc0d4b913966551f204ed58378c",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "event-input.json": "33fe25ea93b67ea89739f1acb6a78526484475ac1693210b600ae7988459d5c5",
+                "notes/current.md": "174f1c6fa9e04b995ba8be66bab7b81f17e4633b7025a833f13fbef8f5fef1a2"
+              }
+            }
+          ],
+          "stages": {
+            "capture": {
+              "guard_denials": 11,
+              "raw_stream_sha256": "f0d65839f991f9cb547a0a010cc4b19b477f7e1726798c21a25ab5c42e94d06d"
+            },
+            "repeat": {
+              "guard_denials": 1,
+              "raw_stream_sha256": "efd8084205c013f69d96d44ac3634445215f1a6173800a1d6dab015e3e9d2bb4"
+            },
+            "audit": {
+              "guard_denials": 4,
+              "raw_stream_sha256": "eb67a0d9b75ece89c1d640ec1c60efc161ba5662690292994975fb560b36fab4"
+            }
+          }
+        }
+      }
+    },
+    "path-followup": {
+      "source_commit": "052efb019b34def20002c075ce3d412084edfb31",
+      "candidate_sources": {
+        "evals/event-journal/read-gating/run.py": "18f045b6b37996b2c6f7ed773aca2b9d829a8adcc63aa6b1abc04b97794739b2",
+        "evals/event-journal/read-gating/protocol.md": "0bfc2ce73f417194f6b55c297d4a167a592fd587d5f8812c35b5551d9bec109b",
+        "evals/event-journal/global-install/run.py": "5bc65b49139c0516c68ce00416e17332d9f00e1db781b48bec2d60b712b60c16",
+        "evals/event-journal/global-install/guard.py": "d0b5b5b107528b0e92baaedefa056f4168ae081dac41086029492bb7fc0128d7",
+        "evals/event-journal/integration/guard.py": "414cfa0eeef64f89ceb432e9202280495dad7168ca63b53e994ea2315af92230",
+        "skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+        "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+        "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        "skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+        "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        "skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+        "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+        "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+      },
+      "direct_read": false,
+      "clients": {
+        "claude": {
+          "version": "2.1.234 (Claude Code)",
+          "packages": {
+            "context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+              "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+              "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+              "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+              "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+              "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+              "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+              "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+            },
+            "adopt-context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+              "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+              "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+            }
+          },
+          "trials": [
+            {
+              "stage": "capture",
+              "exit_code": 0,
+              "seconds": 48.66,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": false,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py (2026-09-28): script printed 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' and exited with code 7. This is the synthetic staging fixture per README.md; it is explicitly not a production check, so production remains unverified.",
+                  "sources": [
+                    "checks/probe.py output, observed 2026-09-28"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging fixture probe (checks/probe.py); not a production check",
+                    "result": "exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "b461386b-d51d-449a-8cf0-847b075fc388",
+                  "recorded_at": "2026-09-28T13:13:39.327186Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "699216d6fae86bccc2e77b1291ebf3abe94e519a564fe2d6b20708dc5135b1ae",
+                ".event-payload-tmp.json": "8ecb8d03d590dcf371acaff08d19599ac8e79ebd04acb9c99e741827c0b9f19b",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "d869578dcca961be8b713649a22090e18b3651e9a537676354195a28d647691f"
+              }
+            },
+            {
+              "stage": "repeat",
+              "exit_code": 0,
+              "seconds": 27.36,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py (2026-09-28): script printed 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' and exited with code 7. This is the synthetic staging fixture per README.md; it is explicitly not a production check, so production remains unverified.",
+                  "sources": [
+                    "checks/probe.py output, observed 2026-09-28"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging fixture probe (checks/probe.py); not a production check",
+                    "result": "exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "b461386b-d51d-449a-8cf0-847b075fc388",
+                  "recorded_at": "2026-09-28T13:13:39.327186Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "699216d6fae86bccc2e77b1291ebf3abe94e519a564fe2d6b20708dc5135b1ae",
+                ".event-payload-tmp.json": "8ecb8d03d590dcf371acaff08d19599ac8e79ebd04acb9c99e741827c0b9f19b",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "d869578dcca961be8b713649a22090e18b3651e9a537676354195a28d647691f"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "699216d6fae86bccc2e77b1291ebf3abe94e519a564fe2d6b20708dc5135b1ae",
+                ".event-payload-tmp.json": "8ecb8d03d590dcf371acaff08d19599ac8e79ebd04acb9c99e741827c0b9f19b",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "d869578dcca961be8b713649a22090e18b3651e9a537676354195a28d647691f"
+              }
+            },
+            {
+              "stage": "audit",
+              "exit_code": 0,
+              "seconds": 21.44,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py (2026-09-28): script printed 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' and exited with code 7. This is the synthetic staging fixture per README.md; it is explicitly not a production check, so production remains unverified.",
+                  "sources": [
+                    "checks/probe.py output, observed 2026-09-28"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging fixture probe (checks/probe.py); not a production check",
+                    "result": "exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+                  },
+                  "schema_version": 1,
+                  "event_id": "b461386b-d51d-449a-8cf0-847b075fc388",
+                  "recorded_at": "2026-09-28T13:13:39.327186Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "699216d6fae86bccc2e77b1291ebf3abe94e519a564fe2d6b20708dc5135b1ae",
+                ".event-payload-tmp.json": "8ecb8d03d590dcf371acaff08d19599ac8e79ebd04acb9c99e741827c0b9f19b",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "d869578dcca961be8b713649a22090e18b3651e9a537676354195a28d647691f"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "699216d6fae86bccc2e77b1291ebf3abe94e519a564fe2d6b20708dc5135b1ae",
+                ".event-payload-tmp.json": "8ecb8d03d590dcf371acaff08d19599ac8e79ebd04acb9c99e741827c0b9f19b",
+                "AGENTS.md": "d9b2bd8681f9925800b23ead85b0b099aa94a8fd4d089dcf2825d5d4a048badb",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "d869578dcca961be8b713649a22090e18b3651e9a537676354195a28d647691f"
+              }
+            }
+          ],
+          "stages": {
+            "capture": {
+              "guard_denials": 3,
+              "raw_stream_sha256": "28e2c072ff03ce8593fce184197b5e05f639954a6775f7daac3c48ee22f7dae9"
+            },
+            "repeat": {
+              "guard_denials": 2,
+              "raw_stream_sha256": "cdc15aec5d39d7bf71f0d3fa52d76fe1633920033f91e32c8f1acc158cb73ac4"
+            },
+            "audit": {
+              "guard_denials": 1,
+              "raw_stream_sha256": "981a4b0fd6bfaaff29b94a0136ffe7071c8368dbe8b5c9d43de8c23ebf666861"
+            }
+          }
+        }
+      }
+    },
+    "direct-read": {
+      "source_commit": "052efb019b34def20002c075ce3d412084edfb31",
+      "candidate_sources": {
+        "evals/event-journal/read-gating/run.py": "0aafb674e36ac99890f504c9054f6a002ded2d2caab194e89d99812e24d65040",
+        "evals/event-journal/read-gating/protocol.md": "85890149fe909aeaf379d9f8c6fbf9c654990de43beef3bce7b27ee50ce19f90",
+        "evals/event-journal/global-install/run.py": "5bc65b49139c0516c68ce00416e17332d9f00e1db781b48bec2d60b712b60c16",
+        "evals/event-journal/global-install/guard.py": "d0b5b5b107528b0e92baaedefa056f4168ae081dac41086029492bb7fc0128d7",
+        "evals/event-journal/integration/guard.py": "414cfa0eeef64f89ceb432e9202280495dad7168ca63b53e994ea2315af92230",
+        "skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+        "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+        "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+        "skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+        "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        "skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+        "skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+        "skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+        "skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+      },
+      "direct_read": true,
+      "clients": {
+        "claude": {
+          "version": "2.1.234 (Claude Code)",
+          "packages": {
+            "context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+              "VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+              "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+              "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+              "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+              "references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+              "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+              "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+            },
+            "adopt-context-docs": {
+              "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+              "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+              "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+              "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+            }
+          },
+          "trials": [
+            {
+              "stage": "capture",
+              "exit_code": 0,
+              "seconds": 40.64,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": false,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py on 2026-09-28: exited 7, output 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' Confirms batch_limit=4 for synthetic staging and that the probe has now run; production remains unchecked by this script.",
+                  "sources": [
+                    "checks/probe.py",
+                    "python3 checks/probe.py stdout/exit code (2026-09-28)"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging probe fixture",
+                    "result": "exit code 7; queue overflow reported; no production check performed"
+                  },
+                  "schema_version": 1,
+                  "event_id": "74be9b40-6aac-4a36-84dd-1b2a3bcc8ca0",
+                  "recorded_at": "2026-09-28T13:16:17.223168Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "603211908b41c9f4bd194722f88467a0c72e9d8b9393ce475ee8607f7b779e3a",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/_event_probe_run.json": "e97695bf98111da9801716a58dee1da53ef4a6aa85c02db0df8287a9600cb906",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "4f7cd26cec489e8ddb0e401c5a63b65b47a42249ade46c04ab459da0b5840207"
+              }
+            },
+            {
+              "stage": "repeat",
+              "exit_code": 0,
+              "seconds": 14.66,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py on 2026-09-28: exited 7, output 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' Confirms batch_limit=4 for synthetic staging and that the probe has now run; production remains unchecked by this script.",
+                  "sources": [
+                    "checks/probe.py",
+                    "python3 checks/probe.py stdout/exit code (2026-09-28)"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging probe fixture",
+                    "result": "exit code 7; queue overflow reported; no production check performed"
+                  },
+                  "schema_version": 1,
+                  "event_id": "74be9b40-6aac-4a36-84dd-1b2a3bcc8ca0",
+                  "recorded_at": "2026-09-28T13:16:17.223168Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "603211908b41c9f4bd194722f88467a0c72e9d8b9393ce475ee8607f7b779e3a",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/_event_probe_run.json": "e97695bf98111da9801716a58dee1da53ef4a6aa85c02db0df8287a9600cb906",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "4f7cd26cec489e8ddb0e401c5a63b65b47a42249ade46c04ab459da0b5840207"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "603211908b41c9f4bd194722f88467a0c72e9d8b9393ce475ee8607f7b779e3a",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/_event_probe_run.json": "e97695bf98111da9801716a58dee1da53ef4a6aa85c02db0df8287a9600cb906",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "4f7cd26cec489e8ddb0e401c5a63b65b47a42249ade46c04ab459da0b5840207"
+              }
+            },
+            {
+              "stage": "audit",
+              "exit_code": 0,
+              "seconds": 24.52,
+              "terminal": true,
+              "immutable_unchanged": true,
+              "global_packages_unchanged": true,
+              "all_bytes_unchanged": true,
+              "events": [
+                {
+                  "type": "verification",
+                  "status": "observed",
+                  "actor": "Claude Code",
+                  "summary": "Ran checks/probe.py on 2026-09-28: exited 7, output 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' Confirms batch_limit=4 for synthetic staging and that the probe has now run; production remains unchecked by this script.",
+                  "sources": [
+                    "checks/probe.py",
+                    "python3 checks/probe.py stdout/exit code (2026-09-28)"
+                  ],
+                  "revision": "unavailable (no Git)",
+                  "check": {
+                    "command": "python3 checks/probe.py",
+                    "scope": "synthetic staging probe fixture",
+                    "result": "exit code 7; queue overflow reported; no production check performed"
+                  },
+                  "schema_version": 1,
+                  "event_id": "74be9b40-6aac-4a36-84dd-1b2a3bcc8ca0",
+                  "recorded_at": "2026-09-28T13:16:17.223168Z",
+                  "session_id": "probe-run-20260928"
+                }
+              ],
+              "before": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "603211908b41c9f4bd194722f88467a0c72e9d8b9393ce475ee8607f7b779e3a",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/_event_probe_run.json": "e97695bf98111da9801716a58dee1da53ef4a6aa85c02db0df8287a9600cb906",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "4f7cd26cec489e8ddb0e401c5a63b65b47a42249ade46c04ab459da0b5840207"
+              },
+              "after": {
+                ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/adopt-context-docs/SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+                ".claude/skills/adopt-context-docs/VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+                ".claude/skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+                ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+                ".claude/skills/context-docs/SKILL.md": "3cc1f6f1f099623a51057c9706fdca49dbd0f2a4dff893b631206a659b177efa",
+                ".claude/skills/context-docs/VERSION": "8a3dad16d348c163566a456fcf650d85d7aeeda5e53d01ee1fa8dc15212915a7",
+                ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+                ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+                ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+                ".claude/skills/context-docs/references/event-journal.md": "5674ac7460f295efec5f35e52b5623a93aef267af82fe3c14246b55c98392987",
+                ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+                ".claude/skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+                ".context/events/probe-run-20260928.jsonl": "603211908b41c9f4bd194722f88467a0c72e9d8b9393ce475ee8607f7b779e3a",
+                "AGENTS.md": "445b0415418eea7e9f96e69816c4959794fbc7f8f7bcf456b4b212e3d99918c1",
+                "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+                "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+                "checks/_event_probe_run.json": "e97695bf98111da9801716a58dee1da53ef4a6aa85c02db0df8287a9600cb906",
+                "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+                "notes/current.md": "4f7cd26cec489e8ddb0e401c5a63b65b47a42249ade46c04ab459da0b5840207"
+              }
+            }
+          ],
+          "stages": {
+            "capture": {
+              "guard_denials": 2,
+              "raw_stream_sha256": "39ca622629900b69297b5cd6d544574b4d7beff6ea2482edc377195cbd2216ba"
+            },
+            "repeat": {
+              "guard_denials": 0,
+              "raw_stream_sha256": "1d6f608c359690ba18900588206460c905c7b28413221396c4fccb2fb8b8c0a3"
+            },
+            "audit": {
+              "guard_denials": 1,
+              "raw_stream_sha256": "707fa3d7de068431018f1469e4b579501d0ceefcb055af9b82111466eb3ad3b3"
+            }
+          }
+        }
+      }
+    }
+  },
+  "review": "Author-reviewed. Codex initial and Claude direct-read meet focused acceptance; prior Claude path and candidate-exposure failures retained separately. No general reliability/performance claim.",
+  "released_global_packages_unchanged": true
+}

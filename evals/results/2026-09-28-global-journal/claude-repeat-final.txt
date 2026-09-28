@@ -1,0 +1,5 @@
+I checked README.md, notes/current.md, the event journal, and checks/probe.py — everything is already consistent: the current.md claims (batch_limit=4, exit code 7, the exact stdout message, and the "no production check" caveat) match both the probe script's actual output and the recorded event in `.context/events/probe-2026-09-28.jsonl`.
+
+Since no new facts or work have occurred and I didn't rerun any checks, there's nothing stale to update — no edits made.
+
+One note: a `.tmp-probe-event.json` file at the repo root duplicates the already-captured event content. It's not part of the canonical docs, so I left it untouched per "preserve existing decisions and evidence" — let me know if you'd like it cleaned up.

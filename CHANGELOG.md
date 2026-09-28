@@ -13,13 +13,52 @@ not a demonstrated accuracy gain.
 
 Release contents and validation are summarized in the [v0.1.3 release notes](docs/releases/v0.1.3.md).
 
+## context-docs 0.1.4 — unreleased
+
+- Decide whether historical evidence is needed before accessing the journal.
+  No-change maintenance checks current context and supplied evidence, then stops
+  without listing, searching or reading journal files unless a contradiction or
+  uncertain write requires it. An enabled setting or history link alone is not a
+  read trigger. Preserve new-event capture and targeted historical investigations.
+- Clarify that the helper's own append validation still runs and a successful
+  append returns its record; extra history reads need a concrete reason.
+  Helper/schema and adoption version are unchanged.
+- The [read-gating follow-up](evals/results/2026-09-28-read-gating/README.md)
+  retained twelve native sessions. Codex's initial trajectory and Claude's final
+  direct-read trajectory capture one event, avoid all journal access on repeat,
+  and investigate history without writing. Earlier Claude helper-path and global
+  skill-selection failures remain separate evidence; candidate bytes were unchanged.
+  Claude guard/cleanup and audit wording limits remain. Both metadata validators,
+  thirteen checker regressions, six guard assertions and static checks pass.
+  Global installations and released tags are unchanged; this is not a cost study.
+- A later [five-session global acceptance check](evals/results/2026-09-28-global-v014/README.md)
+  upgrades both global installations with backups. Codex passes; Claude's initial
+  slash-only request does not load the skill. Explicit native Skill loading skips
+  event contents but still enumerates history through a broad search. Add two
+  sentences directing unchanged maintenance to known entry-point paths. The final
+  Codex and explicit native Claude checks then avoid all journal access and writes.
+  Preserve the earlier failures and distinct candidate hashes. All 90 local
+  regression tests, study controls, metadata and static checks pass separately.
+  The [v0.1.4 draft notes](docs/releases/v0.1.4.md) retain invocation limits.
+
+## Global installation evaluation — 2026-09-28 (after v0.1.3)
+
+- Run six fresh native sessions against the actual global Codex/Claude skills.
+  Both capture one synthetic failure without a task-level logging reminder;
+  repeats/audits preserve bytes and create no duplicates. Both unnecessarily read
+  history on unchanged maintenance. Retain Claude guard denials, its leftover
+  payload and audit qualifications in the [report](evals/results/2026-09-28-global-journal/README.md).
+- Add the bounded evaluator and one regression with six global-read/project-write
+  boundary assertions to CI. Boundary and static checks pass separately from native
+  findings. Skills, versions, released tag and global settings are unchanged.
+
+## context-docs 0.1.3 — 2026-09-28 (tag `v0.1.3`)
+
 Release validation found a generated-bytecode fixture-copy failure in the first
 Linux CI run. Exclude Python cache files from native Claude fixture installations
 and their manifests, with a regression checking that executable helper sources
 remain included. This evaluation-harness repair does not change either skill or
 rescore frozen model runs.
-
-## context-docs 0.1.3 — 2026-09-28 (tag `v0.1.3`)
 
 - Package the unchanged schema-v1 journal helper and a self-contained optional
   guide with the core skill. Keep logging off by default; ordinary Markdown

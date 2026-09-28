@@ -1,0 +1,3 @@
+Run python3 checks/probe.py and update the project context with the actual outcome.
+
+Work only in this synthetic project. Preserve instructions, scripts and global skill files. No network, delegation or commits.

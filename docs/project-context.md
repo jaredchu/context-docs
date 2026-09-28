@@ -89,6 +89,35 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 ## Current state
 
 - Core skill supports audit, initialize and maintain operations.
+- Unreleased core 0.1.4 adds an explicit journal read decision: no-change
+  maintenance stops after current context and supplied evidence unless new work,
+  a contradiction or an uncertain write needs history. Enabled settings and history
+  links alone do not trigger journal access. The helper/schema and adoption 0.1.5
+  remain unchanged. A [twelve-session follow-up](../evals/results/2026-09-28-read-gating/README.md)
+  found Codex and Claude direct-read trajectories preserve capture/investigation
+  while avoiding history on repeat. Earlier Claude path/selection failures remain
+  recorded; a native Skill call selected the released global copy. The final Claude
+  condition disables that lookup and verifies candidate file reads. These are
+  narrow behavior checks with execution/factual qualifications, not general
+  reliability or cost evidence. Global packages stayed at released versions during
+  that isolated study; the later authorized upgrade is recorded below.
+- Local global Codex and Claude skills now contain core 0.1.4/adoption 0.1.5;
+  prior copies are backed up. The [global acceptance check](../evals/results/2026-09-28-global-v014/README.md)
+  retains five sessions: initial Claude slash-only loading failed, and an explicit
+  Skill control loaded the body but enumerated history. A two-sentence known-path
+  clarification then passed no-history-access in both Codex and explicit native
+  Claude Skill invocation. All project/package bytes were preserved. Native
+  slash-only and automatic selection reliability remain unestablished. The
+  [v0.1.4 prerelease draft](releases/v0.1.4.md) is being prepared; it is unpublished.
+- A [six-session global-installation check](../evals/results/2026-09-28-global-journal/README.md)
+  used the released packages in fresh Codex and Claude sessions. Both captured a
+  synthetic failure without an extra logging reminder; repeats and audits preserved
+  all project bytes, with no duplicate events or global package changes. Claude's
+  fixture loaded CLAUDE.md and its AGENTS.md import. However, both clients reread
+  history during no-change maintenance; Claude also retained guard denials, a
+  temporary payload and qualified audit wording. Functional passes do not establish
+  efficient or unrestricted behavior. Project opt-in remains the only documented
+  enablement mechanism; a global default has not been implemented or tested.
 - Core v0.1.3 packages the optional [schema-v1 journal](event-journal-pilot.md)
   and its portable guide; adoption v0.1.5 merges explicit project settings.
   Logging defaults off, including existing adopters. It has no background capture,
@@ -221,14 +250,14 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current package: experimental core skill v0.1.3 and adoption v0.1.5; standard
+- Current working package: experimental core skill v0.1.4 (unreleased) and adoption v0.1.5; standard
   remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
   maintenance needs no runtime. There is no background maintenance or sync.
 - The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)
   is published at `b4233576db78`, including the merged Claude work. The
   [release notes](releases/v0.1.3.md) retain evaluation limits and the initial CI
   failure; the repaired commit passed the complete GitHub Actions suite.
-  Local global Codex and Claude skill copies now match core 0.1.3/adoption 0.1.5;
+  At publication, local global copies matched core 0.1.3/adoption 0.1.5;
   previous Codex copies were backed up. Both installed helpers passed a read-only
   journal check. No other project's logging settings were changed.
   Logging is enabled for this repository in `.context/events`, preserving the
@@ -259,6 +288,10 @@ evaluating this candidate; initial skipped requests remain evidence. Further
 expansion needs a concrete use case and varied real-project histories, not more
 format comparisons on these fixtures. Customized package merges, other platforms,
 high event volumes and natural recording effort remain outside the completed tests.
+The read-gating candidate addresses unnecessary journal reads in the focused
+conditions above, now including explicit native selection of the updated global
+Claude skill. Retain the failed slash-only request and broader invocation limits
+when reviewing the prerelease; varied-project efficiency remains unmeasured.
 
 1. Use the recorded native failures to guide review before further prompt tuning.
    Avoid adding rules for isolated examples. Cloud adapters still need a concrete

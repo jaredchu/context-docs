@@ -1,0 +1,20 @@
+{
+  "type": "verification",
+  "status": "observed",
+  "actor": "Claude Code",
+  "summary": "Ran checks/probe.py (synthetic staging fixture) on 2026-09-28; it exited with code 7 and printed \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" The probe does not check production.",
+  "sources": [
+    "checks/probe.py",
+    "command output of `python3 checks/probe.py` (exit code 7)"
+  ],
+  "revision": "unavailable (no Git)",
+  "check": {
+    "command": "python3 checks/probe.py",
+    "scope": "synthetic staging fixture defined in checks/probe.py",
+    "result": "exit code 7; stdout: \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\""
+  },
+  "schema_version": 1,
+  "event_id": "7cf442f8-3729-4fe5-a1a1-75b8c27b00e3",
+  "recorded_at": "2026-09-28T12:43:27.657960Z",
+  "session_id": "probe-2026-09-28"
+}

@@ -1,0 +1,1 @@
+Reviewed README.md and notes/current.md using the context-docs skill. No update was needed; all files remain unchanged. No checks were rerun, and journal history was neither opened nor modified.

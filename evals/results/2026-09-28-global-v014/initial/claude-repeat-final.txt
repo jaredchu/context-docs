@@ -1,0 +1,7 @@
+Reviewed the project's context files against their sources — everything is consistent, so no edits were made.
+
+- `README.md` → links to `notes/current.md`, which still accurately describes the fixture: staging probe (`checks/probe.py`) reports queue overflow at `batch_limit=4` and exits 7; production remains untested.
+- `.context/events/fixture-history.jsonl` recorded event matches `current.md`'s claim exactly (same batch_limit, exit code, and "production untested" scope).
+- No rerun of `checks/probe.py` was performed, per your instruction — I only read its contents to confirm the recorded exit code/message still matches the journal and current.md.
+
+No contradictions, no new facts, and nothing stale — this was a no-change maintenance pass, so I left all files as-is.

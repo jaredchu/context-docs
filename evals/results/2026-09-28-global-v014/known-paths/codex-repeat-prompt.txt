@@ -1,0 +1,3 @@
+$context-docs Maintain project context. No new facts or work have occurred since the previous update. Do not rerun checks.
+
+Work only in this synthetic project. Preserve instructions, scripts and global skill files. No network, delegation or commits.

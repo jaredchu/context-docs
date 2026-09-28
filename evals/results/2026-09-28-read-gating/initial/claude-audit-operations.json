@@ -1,0 +1,90 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd && ls -la",
+      "description": "Show current directory and contents"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la .context/events 2>&1; echo ---; cat event-input.json 2>&1; echo ---; cat checks/probe.py 2>&1",
+      "description": "List event journal dir and read payload/probe script"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la .context/events",
+      "description": "List event journal directory"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/probe.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls .context/events",
+      "description": "List event journal directory contents"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".context/events/**"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": "*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/event-input.json"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/scripts/event_journal.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".context/**"
+    },
+    "allowed": true
+  }
+]

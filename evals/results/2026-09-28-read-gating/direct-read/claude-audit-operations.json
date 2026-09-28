@@ -1,0 +1,60 @@
+[
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd",
+      "description": "Show current working directory"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": "**/*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/probe.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.context/events/probe-run-20260928.jsonl"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/_event_probe_run.json"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la <project>/.context/events/",
+      "description": "List event journal directory contents"
+    },
+    "allowed": false
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/SKILL.md"
+    },
+    "allowed": true
+  }
+]

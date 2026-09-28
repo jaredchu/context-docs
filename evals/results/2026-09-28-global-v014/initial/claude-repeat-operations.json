@@ -1,0 +1,84 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd && ls",
+      "description": "Show working directory and list files"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd",
+      "description": "Show current working directory"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls",
+      "description": "List files in current directory"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls checks",
+      "description": "List files in checks directory"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -a .",
+      "description": "List all files including hidden in project root"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": "checks/*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".context/events/*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/probe.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.context/events/fixture-history.jsonl"
+    },
+    "allowed": true
+  }
+]

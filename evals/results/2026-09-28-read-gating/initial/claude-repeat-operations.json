@@ -1,0 +1,46 @@
+[
+  {
+    "tool": "Skill",
+    "input": {
+      "skill": "context-docs",
+      "args": "Maintain project context. No new facts or work have occurred since the previous update; do not rerun checks. Perform routine maintenance only."
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "pwd && ls -la",
+      "description": "Show current directory and list files"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": "**/*"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/event-input.json"
+    },
+    "allowed": true
+  }
+]

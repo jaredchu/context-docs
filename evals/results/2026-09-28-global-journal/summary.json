@@ -1,0 +1,365 @@
+{
+  "source_commit": "052efb019b34def20002c075ce3d412084edfb31",
+  "source_hashes": {
+    "guard.py": "d0b5b5b107528b0e92baaedefa056f4168ae081dac41086029492bb7fc0128d7",
+    "protocol.md": "5fc56ad75dcdbee64879bfbe3c4cee767cfdaceba91860fddb18343d373be2d6",
+    "run.py": "5bc65b49139c0516c68ce00416e17332d9f00e1db781b48bec2d60b712b60c16",
+    "test_guard.py": "7480410c65aea440563fbc1226ba443dd05af45793141e4e5a0daee8f67bdfd0"
+  },
+  "acceptance": "Capture actual failure via global helper without a logging reminder; repeat and audit preserve bytes; audit correctly distinguishes staging failure from untested production; preserve source/instructions/global packages; no cross-project logs.",
+  "limits": "One synthetic no-Git trajectory per client; ordinary maintenance prompts but a standing project skill rule. Claude uses evaluation guard; Codex uses workspace sandbox. Not real-project effort or unrestricted reliability evidence.",
+  "clients": {
+    "codex": {
+      "cli_version": "codex-cli 0.158.0-alpha.2.1",
+      "packages": {
+        "context-docs": {
+          "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          "SKILL.md": "5c04857cf2eaf2288390db5ce45133e71582dd2f0fa9da695467d97c2292f7cf",
+          "VERSION": "2d2454ef0edeb462a6ce8b25d387aaa74df08093d5cea0428a10ce55510c6326",
+          "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          "references/event-journal.md": "1aed61331df38e5a306dfb675edd9dadf7996ea5353575a47890c85a2962b912",
+          "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+        },
+        "adopt-context-docs": {
+          "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+          "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+          "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+        }
+      },
+      "model": "not exposed in retained stream",
+      "trials": [
+        {
+          "stage": "capture",
+          "exit_code": 0,
+          "seconds": 40.4,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": false,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Codex",
+              "summary": "Synthetic probe reported: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.",
+              "sources": [
+                "checks/probe.py",
+                "python3 checks/probe.py stdout and process exit code observed in this session"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Synthetic staging only; no production check",
+                "result": "Failed with process exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+              },
+              "schema_version": 1,
+              "event_id": "73454a44-7145-4b65-8aa8-625e170ab2d2",
+              "recorded_at": "2026-09-28T12:43:01.680987Z",
+              "session_id": "probe-20260928-8bd74391"
+            }
+          ],
+          "before": {
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+          },
+          "after": {
+            ".context/events/probe-20260928-8bd74391.jsonl": "c5899d43da39eca9c3a94d308aa61abf11d41754c2c848f3c988962f114d6bdc",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "a416ebe259644dbffcf6f815197d05a4baf5e370cacdb3044026f04ebcb21039"
+          }
+        },
+        {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 16.82,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Codex",
+              "summary": "Synthetic probe reported: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.",
+              "sources": [
+                "checks/probe.py",
+                "python3 checks/probe.py stdout and process exit code observed in this session"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Synthetic staging only; no production check",
+                "result": "Failed with process exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+              },
+              "schema_version": 1,
+              "event_id": "73454a44-7145-4b65-8aa8-625e170ab2d2",
+              "recorded_at": "2026-09-28T12:43:01.680987Z",
+              "session_id": "probe-20260928-8bd74391"
+            }
+          ],
+          "before": {
+            ".context/events/probe-20260928-8bd74391.jsonl": "c5899d43da39eca9c3a94d308aa61abf11d41754c2c848f3c988962f114d6bdc",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "a416ebe259644dbffcf6f815197d05a4baf5e370cacdb3044026f04ebcb21039"
+          },
+          "after": {
+            ".context/events/probe-20260928-8bd74391.jsonl": "c5899d43da39eca9c3a94d308aa61abf11d41754c2c848f3c988962f114d6bdc",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "a416ebe259644dbffcf6f815197d05a4baf5e370cacdb3044026f04ebcb21039"
+          }
+        },
+        {
+          "stage": "audit",
+          "exit_code": 0,
+          "seconds": 30.45,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Codex",
+              "summary": "Synthetic probe reported: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.",
+              "sources": [
+                "checks/probe.py",
+                "python3 checks/probe.py stdout and process exit code observed in this session"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "Synthetic staging only; no production check",
+                "result": "Failed with process exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check."
+              },
+              "schema_version": 1,
+              "event_id": "73454a44-7145-4b65-8aa8-625e170ab2d2",
+              "recorded_at": "2026-09-28T12:43:01.680987Z",
+              "session_id": "probe-20260928-8bd74391"
+            }
+          ],
+          "before": {
+            ".context/events/probe-20260928-8bd74391.jsonl": "c5899d43da39eca9c3a94d308aa61abf11d41754c2c848f3c988962f114d6bdc",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "a416ebe259644dbffcf6f815197d05a4baf5e370cacdb3044026f04ebcb21039"
+          },
+          "after": {
+            ".context/events/probe-20260928-8bd74391.jsonl": "c5899d43da39eca9c3a94d308aa61abf11d41754c2c848f3c988962f114d6bdc",
+            "AGENTS.md": "8dd10122926a972c2138aed04d50cd4a3c22bf2532cd46379d96f8cdfa72a1f8",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "a416ebe259644dbffcf6f815197d05a4baf5e370cacdb3044026f04ebcb21039"
+          }
+        }
+      ],
+      "functional_pass": true,
+      "no_change_history_read": true,
+      "global_helper_capture": true
+    },
+    "claude": {
+      "cli_version": "2.1.234 (Claude Code)",
+      "packages": {
+        "context-docs": {
+          "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          "SKILL.md": "5c04857cf2eaf2288390db5ce45133e71582dd2f0fa9da695467d97c2292f7cf",
+          "VERSION": "2d2454ef0edeb462a6ce8b25d387aaa74df08093d5cea0428a10ce55510c6326",
+          "agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+          "assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+          "assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+          "references/event-journal.md": "1aed61331df38e5a306dfb675edd9dadf7996ea5353575a47890c85a2962b912",
+          "references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+          "scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+        },
+        "adopt-context-docs": {
+          "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+          "SKILL.md": "a9817eaa7e8438fd3347090ba692fb6bf2d6c18803a62b254789fb5d26fcd326",
+          "VERSION": "800cf1c0392b24de7c0a1c6ea6778ecb433dec71c49a150bce96a98477527b2f",
+          "agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+        }
+      },
+      "model": "claude-sonnet-5",
+      "trials": [
+        {
+          "stage": "capture",
+          "exit_code": 0,
+          "seconds": 61.63,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": false,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Claude Code",
+              "summary": "Ran checks/probe.py (synthetic staging fixture) on 2026-09-28; it exited with code 7 and printed \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" The probe does not check production.",
+              "sources": [
+                "checks/probe.py",
+                "command output of `python3 checks/probe.py` (exit code 7)"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "synthetic staging fixture defined in checks/probe.py",
+                "result": "exit code 7; stdout: \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\""
+              },
+              "schema_version": 1,
+              "event_id": "7cf442f8-3729-4fe5-a1a1-75b8c27b00e3",
+              "recorded_at": "2026-09-28T12:43:27.657960Z",
+              "session_id": "probe-2026-09-28"
+            }
+          ],
+          "before": {
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "09cc46101c83bf5cfc1018b602095005560b6b3470e55ed887b51d95353d1e60"
+          },
+          "after": {
+            ".context/events/probe-2026-09-28.jsonl": "f933dcec6df9073911f98e7d15405c965f867c4485ba381ac32f4933032704c7",
+            ".tmp-probe-event.json": "2cdb9f9868558a712a9f914ae4ee8d630673a3ee9273627704edb9524420f852",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "c201e90e5e2e998ca4ff2061651df8cc6ba8e70b94285c6751675a1f46cf5c14"
+          }
+        },
+        {
+          "stage": "repeat",
+          "exit_code": 0,
+          "seconds": 21.54,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Claude Code",
+              "summary": "Ran checks/probe.py (synthetic staging fixture) on 2026-09-28; it exited with code 7 and printed \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" The probe does not check production.",
+              "sources": [
+                "checks/probe.py",
+                "command output of `python3 checks/probe.py` (exit code 7)"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "synthetic staging fixture defined in checks/probe.py",
+                "result": "exit code 7; stdout: \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\""
+              },
+              "schema_version": 1,
+              "event_id": "7cf442f8-3729-4fe5-a1a1-75b8c27b00e3",
+              "recorded_at": "2026-09-28T12:43:27.657960Z",
+              "session_id": "probe-2026-09-28"
+            }
+          ],
+          "before": {
+            ".context/events/probe-2026-09-28.jsonl": "f933dcec6df9073911f98e7d15405c965f867c4485ba381ac32f4933032704c7",
+            ".tmp-probe-event.json": "2cdb9f9868558a712a9f914ae4ee8d630673a3ee9273627704edb9524420f852",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "c201e90e5e2e998ca4ff2061651df8cc6ba8e70b94285c6751675a1f46cf5c14"
+          },
+          "after": {
+            ".context/events/probe-2026-09-28.jsonl": "f933dcec6df9073911f98e7d15405c965f867c4485ba381ac32f4933032704c7",
+            ".tmp-probe-event.json": "2cdb9f9868558a712a9f914ae4ee8d630673a3ee9273627704edb9524420f852",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "c201e90e5e2e998ca4ff2061651df8cc6ba8e70b94285c6751675a1f46cf5c14"
+          }
+        },
+        {
+          "stage": "audit",
+          "exit_code": 0,
+          "seconds": 21.69,
+          "terminal": true,
+          "immutable_unchanged": true,
+          "global_packages_unchanged": true,
+          "all_bytes_unchanged": true,
+          "events": [
+            {
+              "type": "verification",
+              "status": "observed",
+              "actor": "Claude Code",
+              "summary": "Ran checks/probe.py (synthetic staging fixture) on 2026-09-28; it exited with code 7 and printed \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" The probe does not check production.",
+              "sources": [
+                "checks/probe.py",
+                "command output of `python3 checks/probe.py` (exit code 7)"
+              ],
+              "revision": "unavailable (no Git)",
+              "check": {
+                "command": "python3 checks/probe.py",
+                "scope": "synthetic staging fixture defined in checks/probe.py",
+                "result": "exit code 7; stdout: \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\""
+              },
+              "schema_version": 1,
+              "event_id": "7cf442f8-3729-4fe5-a1a1-75b8c27b00e3",
+              "recorded_at": "2026-09-28T12:43:27.657960Z",
+              "session_id": "probe-2026-09-28"
+            }
+          ],
+          "before": {
+            ".context/events/probe-2026-09-28.jsonl": "f933dcec6df9073911f98e7d15405c965f867c4485ba381ac32f4933032704c7",
+            ".tmp-probe-event.json": "2cdb9f9868558a712a9f914ae4ee8d630673a3ee9273627704edb9524420f852",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "c201e90e5e2e998ca4ff2061651df8cc6ba8e70b94285c6751675a1f46cf5c14"
+          },
+          "after": {
+            ".context/events/probe-2026-09-28.jsonl": "f933dcec6df9073911f98e7d15405c965f867c4485ba381ac32f4933032704c7",
+            ".tmp-probe-event.json": "2cdb9f9868558a712a9f914ae4ee8d630673a3ee9273627704edb9524420f852",
+            "AGENTS.md": "06271502c6af795676a053740f6a4707cc6e83d83bba76ad7b070218c6a37e31",
+            "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+            "README.md": "a80699edab84ab77a9f42799c274dadd2b5b54a88b5fe54dfe318d545671f689",
+            "checks/probe.py": "728935af16d1e3901039e7ce02b28972f5711e39cc549b752230227b12d10752",
+            "notes/current.md": "c201e90e5e2e998ca4ff2061651df8cc6ba8e70b94285c6751675a1f46cf5c14"
+          }
+        }
+      ],
+      "functional_pass": true,
+      "no_change_history_read": true,
+      "global_helper_capture": true,
+      "guard_denials": {
+        "capture": 6,
+        "repeat": 0,
+        "audit": 2
+      },
+      "limitations": [
+        "Capture left a temporary payload after the guard denied rm.",
+        "Audit describes a value tested against a synthetic queue but then correctly explains the hardcoded probe; its broad no-other-artifacts statement omits the leftover payload."
+      ]
+    }
+  },
+  "review": "Author-reviewed, not independent. Functional capture/preservation passes; repeated unnecessary history reads fail the intended efficient no-change behavior.",
+  "distinct_project_event_ids": true
+}

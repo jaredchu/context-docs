@@ -1,0 +1,26 @@
+[
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'cat README.md notes/current.md .agents/skills/context-docs/SKILL.md'"
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'cat checks/probe.py .agents/skills/context-docs/references/event-journal.md; git status --short'"
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'python3 checks/probe.py'"
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'! .git'\"' -g 'AGENTS.md' -g 'event_journal.py'\""
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc \"cat AGENTS.md; python3 .agents/skills/context-docs/scripts/event_journal.py --directory .context/events append --session probe-20260928-714a2c --input /dev/stdin <<'JSON'\n{\\\"type\\\":\\\"verification\\\",\\\"status\\\":\\\"observed\\\",\\\"actor\\\":\\\"Codex\\\",\\\"summary\\\":\\\"Ran the synthetic staging probe: batch_limit=4; queue overflow; exit code 7. No production check.\\\",\\\"sources\\\":[\\\"checks/probe.py\\\",\\\"Observed stdout from python3 checks/probe.py: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\\\"],\\\"revision\\\":\\\"unavailable (no Git)\\\",\\\"check\\\":{\\\"command\\\":\\\"python3 checks/probe.py\\\",\\\"scope\\\":\\\"Synthetic staging only\\\",\\\"result\\\":\\\"Failed with exit code 7; stdout: Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\\\"}}\nJSON\""
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\np = Path('notes/current.md')\nprint(p.read_text())\nassert (p.parent / '../.context/events/probe-20260928-714a2c.jsonl').is_file()\nassert Path('checks/probe.py').read_text() == 'import sys\\\\nprint(\\\"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\\\")\\\\nsys.exit(7)\\\\n'\nprint('Verified context link and unchanged probe script.')\nPY\""
+  }
+]

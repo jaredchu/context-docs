@@ -1,0 +1,21 @@
+No `.context/` directory exists at all — the journal was never successfully written to.
+
+## Findings
+
+**What failed:** `checks/probe.py` (checks/probe.py:1-3), run 2026-09-28 against the synthetic staging fixture, exited with code 7 and printed:
+```
+Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.
+```
+The script is a hardcoded stub — it doesn't actually run anything dynamic, it just prints that literal message and exits 7.
+
+**Value tested:** `batch_limit=4`, per README.md:1-3 ("Queue fixture... Synthetic staging only") and notes/current.md:3 ("Batch limit 4 is configured for synthetic staging"). The result was a queue overflow at that limit.
+
+**Was production checked:** No. Both the probe's own output and notes/current.md:3 explicitly state "No production check" / "production remains untested by this probe." This is a synthetic-staging-only fixture; production was never in scope.
+
+**Historical evidence that survives:**
+- notes/current.md:3–5 — the only durable record, written manually as Markdown. It documents the run, the result, and a **capture gap**: the intended structured record was supposed to go through the JSONL event journal (per AGENTS.md's `Event journal: jsonl`, directory `.context/events`), but every invocation of the journal CLI (`.claude/skills/context-docs/scripts/event_journal.py`) — with `--help`, no args, and full `append` args — was rejected by that session's sandbox policy.
+- `event-input.json` at the project root — a prepared-but-never-submitted payload for the journal (`type: verification`, `status: observed`, citing `checks/probe.py stdout/exit code (2026-09-28 run)` as its source). It was left in place rather than deleted, per the note's own reasoning.
+- `.context/events/` **does not exist** — confirmed just now (Glob on `.context/events/**` and `.context/**` both return no files). So no JSONL verification event was ever actually recorded; the event journal has zero entries for this or any check.
+- No git history is available to cross-check — this directory is not a git repository, so there's no commit trail as a secondary source.
+
+In short: the only surviving evidence is the Markdown note and the orphaned `event-input.json` draft; the structured event-journal record that should have backed it up was never created.

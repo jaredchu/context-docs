@@ -1,0 +1,17 @@
+This is the staging payload used to write the journal entry — consistent with the recorded event.
+
+## Findings
+
+**What failed:** `checks/probe.py` (`checks/probe.py:1-3`), a synthetic staging fixture probe, exited with status code 7 (non-zero → failure).
+
+**Value tested:** `batch_limit=4`, triggering a simulated "queue overflow" condition. The script's only behavior is to print that message and exit 7 — it performs no real check logic.
+
+**Was production checked?** No. The script's own stdout explicitly states "No production check," and the event summary in `.context/events/probe-run-20260928.jsonl:1` reiterates: *"This is the synthetic staging fixture per README.md; it is explicitly not a production check, so production remains unverified."* `README.md:3` also labels the whole project "Synthetic staging only."
+
+**Historical evidence surviving:**
+- `.context/events/probe-run-20260928.jsonl:1` — the canonical event-journal record (`event_id b461386b-d51d-449a-8cf0-847b075fc388`, recorded `2026-09-28T13:13:39.327186Z`, session `probe-run-20260928`), containing the command run (`python3 checks/probe.py`), full stdout, exit code, and scope note.
+- `.event-payload-tmp.json` — a leftover temp file with the identical payload that was used to write the journal entry (not itself part of the durable record).
+- `notes/current.md:3` — the human-readable summary pointing back to the same event, noting `revision: unavailable (no Git)` and that manual release review is still required since production is untested.
+- `README.md:3` — one-line project framing confirming synthetic-staging-only scope.
+
+No other check runs, prior probe versions, or production-related records exist in the project (confirmed via full project file listing — only one journal entry, one probe script, no other `.context/events` files).

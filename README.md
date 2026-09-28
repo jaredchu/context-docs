@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.3; adoption skill v0.1.5.**
+**Status: experimental, core skill v0.1.4 (unreleased); adoption skill v0.1.5.**
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or mandatory runtime dependency. Git remains available for history and review.
 The core package includes an optional Python 3.9+ journal helper; ordinary Markdown

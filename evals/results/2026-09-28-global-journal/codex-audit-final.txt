@@ -1,0 +1,6 @@
+- **What failed:** The recorded `python3 checks/probe.py` run reported “queue overflow” and exited with code **7**. [Historical record](.context/events/probe-20260928-8bd74391.jsonl:1)
+- **Value reported:** `batch_limit=4`. The surviving script simply prints that fixed result and exits 7; it does not exercise a queue or read configuration. This supports a synthetic failure, not verified runtime behavior. [Probe source](checks/probe.py:2)
+- **Production checked?** No. Both the historical record and current notes explicitly say production was untested. Manual release review remains required. [Current context](notes/current.md:3)
+- **Surviving evidence:** One verification JSONL record preserves the command, scope, reported stdout, exit code, recorder, session/event IDs, and recording timestamp (`2026-09-28T12:43:01.680987Z`). It records the revision as `unavailable (no Git)`. The probe source and context summary also survive; no separate raw output file or historical code snapshot appears in the project. [Record](.context/events/probe-20260928-8bd74391.jsonl:1)
+
+No checks were rerun and nothing was written.

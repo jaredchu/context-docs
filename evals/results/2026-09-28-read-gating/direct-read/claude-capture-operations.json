@@ -1,0 +1,109 @@
+[
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/README.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/notes/current.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/SKILL.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/checks/probe.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "<project>/.claude/skills/context-docs/references/event-journal.md"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 checks/probe.py; echo \"EXIT_CODE=$?\"",
+      "description": "Run probe script and capture exit code"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 checks/probe.py",
+      "description": "Run probe script"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".claude/skills/context-docs/scripts/event_journal.py"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Glob",
+    "input": {
+      "pattern": ".context/events/**"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls -la",
+      "description": "List project root contents"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Write",
+    "input": {
+      "file_path": "<project>/checks/_event_probe_run.json",
+      "content": "{\n  \"type\": \"verification\",\n  \"status\": \"observed\",\n  \"actor\": \"Claude Code\",\n  \"summary\": \"Ran checks/probe.py on 2026-09-28: exited 7, output 'Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.' Confirms batch_limit=4 for synthetic staging and that the probe has now run; production remains unchecked by this script.\",\n  \"sources\": [\"checks/probe.py\", \"python3 checks/probe.py stdout/exit code (2026-09-28)\"],\n  \"revision\": \"unavailable (no Git)\",\n  \"check\": {\n    \"command\": \"python3 checks/probe.py\",\n    \"scope\": \"synthetic staging probe fixture\",\n    \"result\": \"exit code 7; queue overflow reported; no production check performed\"\n  }\n}\n"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 .claude/skills/context-docs/scripts/event_journal.py --directory .context/events append --session probe-run-20260928 --input checks/_event_probe_run.json",
+      "description": "Append probe run event to journal"
+    },
+    "allowed": true
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "rm checks/_event_probe_run.json",
+      "description": "Remove temporary event payload file"
+    },
+    "allowed": false
+  },
+  {
+    "tool": "Edit",
+    "input": {
+      "file_path": "<project>/notes/current.md",
+      "old_string": "# Current context\n\nBatch limit 4 is configured for synthetic staging. The probe has not yet run. Production remains untested. Manual release review is still required.",
+      "new_string": "# Current context\n\nBatch limit 4 is configured for synthetic staging. The probe (`checks/probe.py`) ran on 2026-09-28 and exited 7 with output: \"Synthetic staging: batch_limit=4; queue overflow; exit 7. No production check.\" This confirms a queue overflow against the configured batch_limit=4 in synthetic staging; the script performs no production check, so production remains untested. Manual release review is still required. Event recorded in `.context/events` (session `probe-run-20260928`).",
+      "replace_all": false
+    },
+    "allowed": true
+  }
+]

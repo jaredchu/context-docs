@@ -1,0 +1,18 @@
+[
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'cat README.md notes/current.md .agents/skills/context-docs/SKILL.md'"
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git'\"' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\""
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'cat .agents/skills/context-docs/references/event-journal.md'"
+  },
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'nl -ba .context/events/probe-20260928-714a2c.jsonl\nnl -ba checks/probe.py\nnl -ba notes/current.md\ncat AGENTS.md CLAUDE.md'"
+  }
+]

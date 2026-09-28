@@ -1,0 +1,5 @@
+The probe exited **7**, reporting synthetic staging queue overflow at `batch_limit=4`.
+
+Updated `notes/current.md` and recorded the outcome in `.context/events/`; verified both by reading them back. Production remains untested, and manual release review is still required.
+
+Instructions, scripts, and global skill files were preserved.

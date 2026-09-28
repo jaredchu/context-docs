@@ -1,0 +1,6 @@
+[
+  {
+    "tool": "command_execution",
+    "command": "/bin/zsh -lc 'cat README.md notes/current.md /Users/jaredchu/.agents/skills/context-docs/SKILL.md'"
+  }
+]
