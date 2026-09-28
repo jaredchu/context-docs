@@ -1,0 +1,126 @@
+{
+  "kind": "claude-code-smoke",
+  "schema_version": 2,
+  "model": "claude-opus-5",
+  "client": "claude-code",
+  "cli_version": "2.1.234 (Claude Code)",
+  "skills": {
+    "context-docs": "0.1.1",
+    "adopt-context-docs": "0.1.3"
+  },
+  "installed_files": {
+    ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/adopt-context-docs/SKILL.md": "0b0f50b18ad6818601d75babd892ad7569d6be909e9f8f9f7dd52d3ca1d4f063",
+    ".claude/skills/adopt-context-docs/VERSION": "2d2454ef0edeb462a6ce8b25d387aaa74df08093d5cea0428a10ce55510c6326",
+    ".claude/skills/adopt-context-docs/agents/openai.yaml": "b95d741909643953973f253f884665b2d74544c06f9d340290fafa23f29ac7b2",
+    ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    ".claude/skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+    ".claude/skills/context-docs/VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
+    ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+    ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c"
+  },
+  "allowed_tools": [
+    "Read",
+    "Write",
+    "Edit",
+    "Glob",
+    "Grep",
+    "Skill",
+    "TodoWrite",
+    "Bash(git status:*)",
+    "Bash(git diff:*)",
+    "Bash(git log:*)",
+    "Bash(ls:*)",
+    "Bash(cat:*)",
+    "Bash(shasum:*)"
+  ],
+  "session_timeout_seconds": 600,
+  "setting_sources": "project",
+  "permission_mode": "acceptEdits",
+  "user_claude_md_present": false,
+  "user_agents_md_present": false,
+  "trajectories": [
+    {
+      "id": "audit-only",
+      "invocation": "named",
+      "case": "audit-only",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "0b0f50b18ad6818601d75babd892ad7569d6be909e9f8f9f7dd52d3ca1d4f063",
+        ".claude/skills/adopt-context-docs/VERSION": "2d2454ef0edeb462a6ce8b25d387aaa74df08093d5cea0428a10ce55510c6326",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "b95d741909643953973f253f884665b2d74544c06f9d340290fafa23f29ac7b2",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+        ".claude/skills/context-docs/VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "AGENTS.md": "fe1da730ad3a221496a4651d7a8a4eeffedc30840934bb0bf3efb76eb3cffd88",
+        "README.md": "abbea35725647bac768438a9c87de7ed7a0b432647080313d197b11ab7ebb2b9",
+        "knowledge/state.md": "4a59ec569dd4de1df3e702b425f18fb919d93bb157e3a79641eb63cc0faff81a"
+      },
+      "immutable": [
+        "README.md",
+        "AGENTS.md",
+        "knowledge/state.md"
+      ],
+      "protected": [],
+      "steps": [
+        {
+          "prompt": "/adopt-context-docs Audit this project for Context Docs adoption only. Do not edit, create or delete any project file. Report in your final message whether the existing instructions and documents already follow the method, and distinguish a missing marker from non-adoption. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: README.md, AGENTS.md, knowledge/state.md.\n",
+          "allow_noop": true,
+          "expect_unchanged": true,
+          "expect_date": null,
+          "expect_skill": null,
+          "rubric": [
+            "Reports existing workflow adoption with an absent marker and unrecorded date; does not classify the project as non-adopted merely because its marker is missing.",
+            "Leaves every project file byte-identical and reports findings without writing a project file."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discovery",
+      "invocation": "unnamed",
+      "case": "adopt-empty-docs",
+      "entry": "README.md",
+      "initial_tree": {
+        ".claude/skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/adopt-context-docs/SKILL.md": "0b0f50b18ad6818601d75babd892ad7569d6be909e9f8f9f7dd52d3ca1d4f063",
+        ".claude/skills/adopt-context-docs/VERSION": "2d2454ef0edeb462a6ce8b25d387aaa74df08093d5cea0428a10ce55510c6326",
+        ".claude/skills/adopt-context-docs/agents/openai.yaml": "b95d741909643953973f253f884665b2d74544c06f9d340290fafa23f29ac7b2",
+        ".claude/skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+        ".claude/skills/context-docs/SKILL.md": "c3af1d4584be0175fa2330488c528510b229fd51366ae32f0301c999dd093974",
+        ".claude/skills/context-docs/VERSION": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c",
+        ".claude/skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+        ".claude/skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+        ".claude/skills/context-docs/assets/project-context.md": "f74d5c71e2f53b079aef18a7d2e5d7ebfde32051163c944b04859ddc7ceb6ce4",
+        ".claude/skills/context-docs/references/standard.md": "31bf987bd3e875dcb1662b33d10fc15fdcb3d2bad75e4fc68c666465bfe51f7c",
+        "convert.py": "14e9bbc6c09c4ec9af9b82c4446d1e90df9d1793084554d82cd3657733cfff56"
+      },
+      "immutable": [
+        "convert.py"
+      ],
+      "protected": [],
+      "steps": [
+        {
+          "prompt": "Set up ongoing context documentation maintenance for this project, so later sessions keep its project knowledge accurate and know where to start. For this test, treat the current date as 2026-10-01, regardless of the environment date.\nKeep these project files byte-identical: convert.py.\n",
+          "allow_noop": false,
+          "expect_unchanged": false,
+          "expect_date": null,
+          "expect_skill": "adopt-context-docs",
+          "rubric": [
+            "Claude selects a context-docs skill from its description, without the skill being named in the request.",
+            "Creates useful discoverable context grounded in the CSV script, without invented approvals or deployment claims.",
+            "Adds ongoing maintenance guidance to the instruction file this client loads; does not install skill copies or change code."
+          ]
+        }
+      ]
+    }
+  ],
+  "commit": "b473c65201bc016c4aeca59afde7ddcf804270f6"
+}
