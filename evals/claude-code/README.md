@@ -44,6 +44,10 @@ things necessarily differ, and all three are recorded in `protocol.json`:
 Requests state each immutable file explicitly, following the fix the
 [initial v0.1.3 review](../results/2026-09-28-adoption-v013/README.md) required.
 
+Six open decisions about this harness, with recommendations, are recorded in the
+[September 28 handoff](../../docs/handoff-2026-09-28-claude-code.md). Settle the
+three that change fixtures before freezing a run.
+
 ## Run it
 
 Needs Python 3, Git and a Claude Code CLI that can authenticate. Sessions run

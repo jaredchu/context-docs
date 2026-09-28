@@ -162,3 +162,4 @@ still need owner acceptance.
 - [Per-version changelog](../CHANGELOG.md)
 - [Proposed discrimination protocol](../evals/discrimination-protocol.md)
 - [Native Claude Code smoke test](../evals/claude-code/README.md)
+- [September 28 Claude Code handoff and open decisions](handoff-2026-09-28-claude-code.md)
