@@ -101,10 +101,15 @@ logging. The preference line and read-only policy helper are implementation choi
   Codex harness blocks and four functional passes. Both clients preserve explicit
   settings, custom paths and history; repeat after Git and audits write nothing.
   Claude still enumerated journal filenames and retained guard denials. Eight new
-  policy tests and affected mechanical checks pass separately. Local global skills
-  remain core 0.1.4/adoption 0.1.5 during release preparation. The owner authorized
-  proceeding with the [v0.1.5 experimental release](releases/v0.1.5.md) and local
-  skill updates; this project's explicit logging setting is unchanged.
+  policy tests and affected mechanical checks pass separately. The owner-authorized
+  [v0.1.5 experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.5)
+  is published at `927d28c12c9a`; its [full CI run](https://github.com/jaredchu/context-docs/actions/runs/36507800666)
+  passed all 99 regression tests and study/report checks. Both local global clients
+  now match core 0.1.5/adoption 0.1.6, with previous packages backed up. Five installed
+  policy controls passed per client; this is mechanical validation, not another
+  native agent evaluation. The [release notes](releases/v0.1.5.md) retain limits.
+  This project's explicit logging setting remains unchanged; no personal auto
+  preference or other project setting was changed.
 - Core skill supports audit, initialize and maintain operations.
 - Core 0.1.4 adds an explicit journal read decision: no-change
   maintenance stops after current context and supplied evidence unless new work,
