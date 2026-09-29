@@ -62,7 +62,10 @@ without restating unchanged context. Do not copy the session report into the con
 ## Optional event capture
 
 Logging is off by default; ordinary Markdown maintenance needs no runtime or
-journal. An enabled setting does not make history part of routine context reading.
+journal. When the user has selected `Context Docs logging preference: auto` and
+no project logging setting exists, consult the journal guide below during authorized
+maintenance to resolve the preference. Audits never enable logging. An enabled
+setting does not make history part of routine context reading.
 For no-change maintenance, check current context and supplied evidence; if there
 is no new event, contradiction or uncertain prior write, stop without listing,
 searching or reading journal files. A link to history alone is not a reason to open it.

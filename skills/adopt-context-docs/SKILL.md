@@ -75,8 +75,9 @@ the marker were added, reused or remain incomplete.
 ## Optional logging
 
 Adoption and skill upgrades leave logging off unless explicitly enabled by the
-project. Preserve existing logging preferences and history. For a request to
-enable or disable JSONL, follow the core skill's
+project or the user has selected `Context Docs logging preference: auto`. Preserve
+explicit project settings, including `off`, ahead of that preference. For auto
+resolution or a request to enable or disable JSONL, follow the core skill's
 [journal guide](../context-docs/references/event-journal.md), merging only the
 requested settings into the existing loaded maintenance section. Do not change
 adoption dates, context paths or equivalent maintenance wording. Repeated setup

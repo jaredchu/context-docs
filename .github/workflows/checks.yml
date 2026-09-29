@@ -36,6 +36,7 @@ jobs:
           python3 -m unittest discover -s evals/event-journal/native -p 'test_*.py'
           python3 -m unittest discover -s evals/event-journal/integration -p 'test_*.py'
           python3 -m unittest discover -s evals/event-journal/global-install -p 'test_*.py'
+          python3 -m unittest discover -s evals/event-journal/auto-preference -p 'test_*.py'
 
       - name: Core suite self-test
         run: python3 selftest.py

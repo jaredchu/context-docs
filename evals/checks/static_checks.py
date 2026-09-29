@@ -12,7 +12,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[2]
 SKILLS = {'context-docs': ['references/standard.md', 'assets/project-context.md',
                            'assets/decision-record.md', 'references/event-journal.md',
-                           'scripts/event_journal.py', 'LICENSE', 'VERSION'],
+                           'scripts/event_journal.py', 'scripts/journal_policy.py', 'LICENSE', 'VERSION'],
           'adopt-context-docs': ['LICENSE', 'VERSION']}
 SKILL_DEPENDENCIES = {'adopt-context-docs': ['context-docs']}
 README_VERSION_LABELS = {'context-docs': 'core skill', 'adopt-context-docs': 'adoption skill'}

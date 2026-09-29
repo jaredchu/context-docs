@@ -1,6 +1,6 @@
 # Project context
 
-Last reviewed: 2026-09-28.
+Last reviewed: 2026-09-29.
 
 ## Purpose and scope
 
@@ -86,8 +86,23 @@ including the merged Claude work, upgrading local global skills and enabling
 logging. This repository opts in through its existing AGENTS.md section, with
 CLAUDE.md importing that file; other projects keep their existing settings.
 
+On September 29 the owner approved an opt-in auto preference: enable logging only
+when no explicit project setting exists and Git confirms the project is outside
+a repository. Explicit off/on settings win; unknown Git status leaves settings
+unchanged. Save enablement in project instructions and preserve it if Git is later
+added. This is setup convenience, not a decision that every non-Git project needs
+logging. The preference line and read-only policy helper are implementation choices.
+
 ## Current state
 
+- Unreleased core 0.1.5/adoption 0.1.6 implement the optional
+  [auto preference](../skills/context-docs/references/event-journal.md#optional-auto-preference).
+  [Native checks](../evals/results/2026-09-29-auto-preference/README.md) retain two
+  Codex harness blocks and four functional passes. Both clients preserve explicit
+  settings, custom paths and history; repeat after Git and audits write nothing.
+  Claude still enumerated journal filenames and retained guard denials. Eight new
+  policy tests and affected mechanical checks pass separately. Local global skills
+  remain core 0.1.4/adoption 0.1.5; this project's explicit setting is unchanged.
 - Core skill supports audit, initialize and maintain operations.
 - Core 0.1.4 adds an explicit journal read decision: no-change
   maintenance stops after current context and supplied evidence unless new work,
@@ -120,8 +135,8 @@ CLAUDE.md importing that file; other projects keep their existing settings.
   fixture loaded CLAUDE.md and its AGENTS.md import. However, both clients reread
   history during no-change maintenance; Claude also retained guard denials, a
   temporary payload and qualified audit wording. Functional passes do not establish
-  efficient or unrestricted behavior. Project opt-in remains the only documented
-  enablement mechanism; a global default has not been implemented or tested.
+  efficient or unrestricted behavior. That evaluation tested only project opt-in;
+  the later optional auto preference is described above.
 - Core v0.1.3 packages the optional [schema-v1 journal](event-journal-pilot.md)
   and its portable guide; adoption v0.1.5 merges explicit project settings.
   Logging defaults off, including existing adopters. It has no background capture,
@@ -254,7 +269,7 @@ CLAUDE.md importing that file; other projects keep their existing settings.
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current working package: experimental core skill v0.1.4 and adoption v0.1.5; standard
+- Current working package: unreleased core skill v0.1.5 and adoption v0.1.6; standard
   remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
   maintenance needs no runtime. There is no background maintenance or sync.
 - The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)

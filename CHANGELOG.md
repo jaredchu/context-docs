@@ -14,6 +14,26 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.4 release notes](docs/releases/v0.1.4.md)
 and earlier [v0.1.3 release notes](docs/releases/v0.1.3.md).
 
+## context-docs 0.1.5 — unreleased
+
+- Add an opt-in auto preference for projects outside Git. A read-only policy helper
+  distinguishes confirmed absence from detection errors and recognizes parent
+  repositories, worktrees and bare repositories. Explicit project settings win;
+  saved enablement survives adding Git. Audits and default adoption remain unchanged.
+- Eight new policy tests, 35 total journal/policy tests, 13 checker regressions,
+  one native guard regression, both metadata validators and static checks pass.
+  The [native evaluation](evals/results/2026-09-29-auto-preference/README.md) retains
+  six sessions: two Codex harness blocks and four functional passes after correcting
+  its shell-read boundary. Claude guard denials and journal filename enumeration
+  remain qualifications. Writer/schema and global installations are unchanged.
+
+## adopt-context-docs 0.1.6 — unreleased
+
+- Route user-selected auto preferences through the core 0.1.5 journal guide while
+  preserving explicit settings, custom paths, adoption dates and existing history.
+  The same native evaluation verifies one-line enablement, unchanged default/off/
+  Git/error projects and read-only audits. Installation alone does not enable logging.
+
 ## context-docs 0.1.4 — 2026-09-28 (tag `v0.1.4`)
 
 - Decide whether historical evidence is needed before accessing the journal.

@@ -6,7 +6,7 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
-**Status: experimental, core skill v0.1.4; adoption skill v0.1.5.**
+**Status: experimental, core skill v0.1.5 (unreleased); adoption skill v0.1.6 (unreleased).**
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or mandatory runtime dependency. Git remains available for history and review.
 The core package includes an optional Python 3.9+ journal helper; ordinary Markdown
@@ -14,8 +14,8 @@ maintenance works without Python.
 
 An optional [JSONL event journal pilot](docs/event-journal-pilot.md) is available
 with its helper now packaged in the core skill. Logging is off by default and
-requires an explicit project opt-in. The skills capture meaningful events only
-when enabled; setup, no-change maintenance and audits create no events.
+requires explicit enablement or a user-selected auto preference. The skills capture
+meaningful events only when enabled; setup, no-change maintenance and audits create no events.
 The [initial evaluation](evals/results/2026-09-28-event-journal/README.md) covers
 mechanical controls and a synthetic history replay; real-work benefit remains
 unestablished.
@@ -118,8 +118,9 @@ initialization workflow.
 
 ## Optional logging
 
-Ordinary adoption and upgrades preserve existing projects and leave logging off.
-For optional logging, install core v0.1.3 and adoption v0.1.5 together; older core
+Ordinary adoption and upgrades preserve existing projects and leave logging off
+unless a user-selected auto preference applies. Basic JSONL logging requires at
+least core v0.1.3 and adoption v0.1.5 together; older core
 packages do not include its guide or helper. Preserve locally customized package
 files when reviewing an upgrade.
 To enable it explicitly, ask the adoption skill to enable JSONL in the project's
@@ -136,6 +137,23 @@ defines settings, capture, investigation and failure handling. It works without
 Git; uncommitted state must not be attributed solely to an old commit. Ask the
 same skill to disable logging to stop capture while retaining the directory
 setting and all history. No project migration or background service is required.
+
+To opt into automatic enablement for projects outside Git, use core v0.1.5 and
+adoption v0.1.6 (currently unreleased) and include this preference in your request
+or the personal instructions your agent loads:
+
+```text
+Context Docs logging preference: auto
+```
+
+During adoption or authorized maintenance, an existing project logging setting
+wins, including `off`. Otherwise, the skill enables JSONL only after Git confirms
+that the project is outside a repository. Parent repositories and worktrees count;
+missing Git or failed detection does not enable logging. The resulting setting is
+saved in the project's loaded instructions so both clients can use it. Adding Git
+later preserves that setting and history. Audits never enable logging. See the
+[auto preference rules](skills/context-docs/references/event-journal.md#optional-auto-preference).
+This preference does not automatically commit logs or install a background service.
 
 ## Install in Codex
 

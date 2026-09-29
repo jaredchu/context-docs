@@ -38,6 +38,48 @@ directory setting and every existing record. Disabling logging does not disable
 Markdown maintenance. An off setting takes precedence over an old enablement note.
 Conflicting active settings need resolution before capture, not an assumed choice.
 
+## Optional auto preference
+
+A user can select `Context Docs logging preference: auto` in a task request or
+already loaded personal/project instructions. This is an opt-in fallback, not
+`Event journal: auto` and not a global enable switch. With no preference, logging
+stays off. Do not edit personal instructions just to persist a task preference.
+
+During adoption or authorized maintenance, resolve existing project settings
+first. Explicit `jsonl`, `off`, or another logging method takes precedence; preserve
+its directory and history without probing Git. Resolve conflicting settings or
+preferences before enabling anything. Audits remain read-only and never apply
+this preference. Skill installation alone does not apply it.
+
+Only when the preference is `auto` and no project setting exists, run the packaged
+[read-only policy helper](../scripts/journal_policy.py):
+
+```sh
+python3 /path/to/installed/context-docs/scripts/journal_policy.py --project /path/to/project --preference auto
+```
+
+Use the actual project root. The helper asks Git about repository membership,
+including parent repositories, worktrees and bare repositories. It removes shell
+Git redirection variables and uses English diagnostics to distinguish confirmed
+absence from errors. Missing Git/Python, permission errors, broken repositories,
+timeouts or unrecognized results leave logging unchanged; report detection as
+unconfirmed rather than treating failure as absence. Do not fall back to testing
+for a `.git` directory.
+
+On `action: enable`, merge `Event journal: jsonl` and the existing or requested
+journal directory (default `.context/events`) into the loaded project maintenance
+section using the preservation rules above. Report that auto enabled it because
+Git confirmed no repository. Do not create a journal or event for setup. On
+`action: none`, make no logging-setting edits. An existing explicit setting can
+also be passed as `--setting off` or `--setting jsonl`; `action: preserve` requires
+no Git probe or edits. The helper only returns a decision; the skill applies it.
+
+Once saved, `Event journal: jsonl` is a project setting: adding Git later does not
+disable it or delete records. A later request to disable changes it to `off`.
+The auto preference does not authorize commits, publication or background capture.
+Projects without Git may already have sufficient Markdown history; this preference
+is a convenience, not evidence that they require another log.
+
 ## Capture during maintenance
 
 When enabled, record meaningful check results, failures, decisions or corrections

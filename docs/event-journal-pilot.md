@@ -58,6 +58,11 @@ them. In particular, append currently validates all prior records in its session
 and the CLI still requires manually supplied event fields. Their recording cost
 is an implementation concern, independent of current-context quality.
 
+The owner approved an optional no-Git auto preference on September 29. It changes
+setup convenience, not these logging goals or the necessity findings below. The
+[packaged rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
+preserve explicit settings and require confirmed Git absence before enablement.
+
 ## Requirements before broader integration
 
 The owner added three requirements on September 28, 2026: evaluate Claude as well
