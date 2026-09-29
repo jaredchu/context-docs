@@ -93,6 +93,12 @@ unchanged. Save enablement in project instructions and preserve it if Git is lat
 added. This is setup convenience, not a decision that every non-Git project needs
 logging. The preference line and read-only policy helper are implementation choices.
 
+On September 29 the owner approved visible README credit for Codex as the primary
+AI development contributor, with Jared Chu as creator/maintainer and Claude also
+credited. The [commit attribution policy](../CONTRIBUTING.md#commit-attribution)
+uses Codex's verified co-author trailer for future assisted commits while preserving
+human authorship and existing history. Contributor-graph placement is not established.
+
 ## Current state
 
 - Core 0.1.5/adoption 0.1.6 implement the optional

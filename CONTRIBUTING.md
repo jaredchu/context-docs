@@ -34,3 +34,18 @@ evaluation. Keep those claims separate, including in the
 [changelog](CHANGELOG.md): record the version a change lands in and what was
 actually executed for it. A version whose only evidence is static checks says so. Contributions are provided under the
 repository's MIT license.
+
+## Commit attribution
+
+Keep the contributor's normal Git author identity. For work assisted by Codex,
+include this trailer exactly once, separated from the commit body by a blank line:
+
+```text
+Co-authored-by: Codex <noreply@openai.com>
+```
+
+This is the format used in [OpenAI's Codex attribution implementation](https://github.com/openai/codex/blob/9946da9af1829410271f6b76f9159961f7281e0a/codex-rs/ext/git-attribution/src/world_state.rs),
+verified on September 29, 2026. Preserve existing co-author trailers and credit
+only actual assistance. Apply this to new commits; do not rewrite published history
+solely for attribution. The README acknowledgment describes project roles and does
+not promise a particular position in GitHub's Contributors graph.

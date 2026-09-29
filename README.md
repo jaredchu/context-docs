@@ -6,6 +6,13 @@ Context Docs is an open-source convention and reusable agent skill for maintaini
 Markdown project knowledge. It adapts to existing documentation, preserves
 decisions and evidence, and keeps current context from becoming a session diary.
 
+**Project credits**
+
+- **Creator and maintainer:** [Jared Chu](https://github.com/jaredchu)
+- **Primary AI development contributor:** [OpenAI Codex](https://github.com/codex),
+  covering implementation, documentation and evaluations.
+- **Additional AI development contributions:** Claude.
+
 **Status: experimental, core skill v0.1.5; adoption skill v0.1.6.**
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or mandatory runtime dependency. Git remains available for history and review.

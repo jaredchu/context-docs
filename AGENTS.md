@@ -24,6 +24,11 @@
   was actually tested. Keep each skill's `VERSION` file in step with it.
 - Use synthetic examples. Do not copy private project context into this repo.
 - Update current project context when behavior, scope or status changes.
+- For commits containing Codex-assisted work, follow the
+  [commit attribution policy](CONTRIBUTING.md#commit-attribution): add
+  `Co-authored-by: Codex <noreply@openai.com>` exactly once, preserving the human
+  author and existing co-author trailers. Do not add it to work Codex did not
+  assist or rewrite existing history solely to add credit.
 - Publication requires authorization from the task; these instructions grant none.
 
 ## Context documentation
