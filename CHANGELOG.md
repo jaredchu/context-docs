@@ -11,10 +11,10 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-Release contents and validation are summarized in the [v0.1.4 release notes](docs/releases/v0.1.4.md)
-and earlier [v0.1.3 release notes](docs/releases/v0.1.3.md).
+Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
+with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## context-docs 0.1.5 — unreleased
+## context-docs 0.1.5 — 2026-09-29 (tag `v0.1.5`)
 
 - Add an opt-in auto preference for projects outside Git. A read-only policy helper
   distinguishes confirmed absence from detection errors and recognizes parent
@@ -27,7 +27,7 @@ and earlier [v0.1.3 release notes](docs/releases/v0.1.3.md).
   its shell-read boundary. Claude guard denials and journal filename enumeration
   remain qualifications. Writer/schema and global installations are unchanged.
 
-## adopt-context-docs 0.1.6 — unreleased
+## adopt-context-docs 0.1.6 — 2026-09-29 (bundled in `v0.1.5`)
 
 - Route user-selected auto preferences through the core 0.1.5 journal guide while
   preserving explicit settings, custom paths, adoption dates and existing history.

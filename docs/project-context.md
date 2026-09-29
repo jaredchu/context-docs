@@ -95,14 +95,16 @@ logging. The preference line and read-only policy helper are implementation choi
 
 ## Current state
 
-- Unreleased core 0.1.5/adoption 0.1.6 implement the optional
+- Core 0.1.5/adoption 0.1.6 implement the optional
   [auto preference](../skills/context-docs/references/event-journal.md#optional-auto-preference).
   [Native checks](../evals/results/2026-09-29-auto-preference/README.md) retain two
   Codex harness blocks and four functional passes. Both clients preserve explicit
   settings, custom paths and history; repeat after Git and audits write nothing.
   Claude still enumerated journal filenames and retained guard denials. Eight new
   policy tests and affected mechanical checks pass separately. Local global skills
-  remain core 0.1.4/adoption 0.1.5; this project's explicit setting is unchanged.
+  remain core 0.1.4/adoption 0.1.5 during release preparation. The owner authorized
+  proceeding with the [v0.1.5 experimental release](releases/v0.1.5.md) and local
+  skill updates; this project's explicit logging setting is unchanged.
 - Core skill supports audit, initialize and maintain operations.
 - Core 0.1.4 adds an explicit journal read decision: no-change
   maintenance stops after current context and supplied evidence unless new work,
@@ -116,7 +118,7 @@ logging. The preference line and read-only policy helper are implementation choi
   narrow behavior checks with execution/factual qualifications, not general
   reliability or cost evidence. Global packages stayed at released versions during
   that isolated study; the later authorized upgrade is recorded below.
-- Local global Codex and Claude skills now contain core 0.1.4/adoption 0.1.5;
+- At v0.1.4 publication, local global Codex and Claude skills contained core 0.1.4/adoption 0.1.5;
   prior copies are backed up. The [global acceptance check](../evals/results/2026-09-28-global-v014/README.md)
   retains five sessions: initial Claude slash-only loading failed, and an explicit
   Skill control loaded the body but enumerated history. A two-sentence known-path
@@ -269,7 +271,7 @@ logging. The preference line and read-only policy helper are implementation choi
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current working package: unreleased core skill v0.1.5 and adoption v0.1.6; standard
+- Current working package: experimental core skill v0.1.5 and adoption v0.1.6; standard
   remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
   maintenance needs no runtime. There is no background maintenance or sync.
 - The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)
