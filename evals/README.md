@@ -156,7 +156,9 @@ Keep this variation out of development prompts when measuring generalization.
 
 ## Audience and destination cases — unexecuted
 
-These synthetic cases exercise core 0.1.6 and standard 0.1.1 guidance. They have
+These synthetic cases exercise core 0.1.6 and standard 0.1.1 guidance. The
+[prepared native runner](audience/README.md) has passing mechanical controls;
+its counterpart harness review and final freeze are still pending. They have
 not been run as agent evaluations. Use the disposable-fixture procedure above;
 keep expected outcomes outside the subject session. The requests deliberately
 leave content selection to the skill. No real private data or external access

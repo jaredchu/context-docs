@@ -91,9 +91,10 @@ studies into claims of general reliability or superiority over ordinary maintena
 ## Next actions
 
 1. Audience/destination guidance and cleanup have completed counterpart review
-   and mechanical validation. Before broader claims, exercise the five new
-   synthetic scenarios in fresh agent sessions; they remain unexecuted.
-   Keep prior frozen studies intact rather than tuning on their fixtures.
+   and mechanical validation. The [five-case native pilot](../evals/audience/README.md)
+   is prepared with passing mechanical controls. Counterpart harness review, final
+   freeze and all five subject sessions remain pending. Keep prior frozen studies
+   intact rather than tuning on their fixtures.
 2. Prepare the next experimental release from reviewed changes and full CI; obtain
    publication authorization, then update local installations from the released
    packages with backups and customization checks.

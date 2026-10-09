@@ -14,6 +14,18 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Audience/destination evaluation preparation — 2026-10-09 (unreleased)
+
+- Prepare five isolated synthetic cases with a restricted native runner, pinned
+  candidate skills, exact input/control hashes, invocation provenance and selected
+  trajectory export. Separate audit write attempts and journal scan scope from
+  actual changes or returned evidence.
+- Twelve new runner controls, seven reused guard tests and repository static checks
+  pass; a disposable build passed manifest and input validation. Claude Opus 5.5
+  reviewed fixture design; its material ambiguities were addressed before any run.
+  Counterpart harness review and final freeze remain pending. No subject session was launched; this is
+  preparation, not a behavioral result. Installable packages are unchanged.
+
 ## context-docs 0.1.6 — 2026-10-09 (unreleased)
 
 - Select retained information by audience, sharing destination and lasting

@@ -31,6 +31,9 @@ jobs:
       - name: Public-source adoption controls
         run: python3 -m unittest discover -s evals/public-adoption -p 'test_*.py'
 
+      - name: Audience and destination controls
+        run: python3 -m unittest discover -s evals/audience -p 'test_*.py'
+
       - name: Optional event journal tests
         run: python3 -m unittest discover -s tests -p 'test_*.py'
 
