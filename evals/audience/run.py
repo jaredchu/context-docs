@@ -1,11 +1,14 @@
 """Five frozen synthetic audience/destination sessions; build never runs subjects."""
 import argparse
+from datetime import datetime, timezone
 import importlib.util
 import json
+import re
 import shlex
 import shutil
 import subprocess
 import sys
+import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -36,7 +39,7 @@ def build(destination):
     if destination.exists() or destination == ROOT or ROOT in destination.parents:
         raise ValueError('Choose a fresh directory outside the repository.')
     for parent in destination.parents:
-        if any((parent / name).exists() for name in ('CLAUDE.md', 'CLAUDE.local.md', '.claude/CLAUDE.md')):
+        if any((parent / name).exists() for name in ('CLAUDE.md', 'CLAUDE.local.md', '.claude/CLAUDE.md', '.claude/rules')):
             raise ValueError('Ancestor instruction file; use a clean evaluation location.')
     paths = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', PIN, '--', 'skills'], cwd=ROOT, text=True).splitlines()
     packages = {'.claude/' + n: subprocess.check_output(['git', 'show', PIN + ':' + n], cwd=ROOT).decode() for n in paths}
@@ -56,12 +59,13 @@ def build(destination):
                       immutable=immutable, writable=case['writable'], read_only=case.get('audit', False))
         configs[sid] = config; config_path = control / (sid + '.config.json'); dump(config_path, config)
         command = shlex.join([sys.executable, str(control / 'hook.py'), str(config_path)]) + ' || exit 2'
-        dump(control / (sid + '.settings.json'), dict(hooks={e: [dict(hooks=[dict(type='command', command=command, timeout=10)])]
+        dump(control / (sid + '.settings.json'), dict(autoMemoryEnabled=False, hooks={e: [dict(hooks=[dict(type='command', command=command, timeout=10)])]
             for e in ('InstructionsLoaded', 'PreToolUse', 'PostToolUse', 'PostToolUseFailure')}))
-    protocol = dict(kind=KIND, package_commit=PIN, package_versions={n: packages['.claude/skills/' + n + '/VERSION'].strip() for n in smoke.SKILLS},
+    protocol = dict(kind=KIND, build_id=str(uuid.uuid4()), built_at=datetime.now(timezone.utc).isoformat(),
+        package_commit=PIN, package_versions={n: packages['.claude/skills/' + n + '/VERSION'].strip() for n in smoke.SKILLS},
         model='claude-opus-5-5', requested_effort='high', effort_observed=False,
         cli_version=subprocess.check_output(['claude', '--version'], text=True).strip(),
-        permission_mode='acceptEdits', setting_sources='project', session_timeout_seconds=600,
+        permission_mode='acceptEdits', setting_sources='project', auto_memory_enabled=False, session_timeout_seconds=600,
         allowed_tools=list(guard_hook.TOOLS), fixtures=fixtures, cases=CASES, general_rubric=GENERAL,
         initial_hashes={n: hashes(f) for n, f in fixtures.items()}, configurations=configs,
         control_hashes=hashes(snapshot(control)), harness_hashes=harness_hashes())
@@ -136,14 +140,23 @@ def trajectory(log, events, project, case, destination):
         selected = str(content) if inside and '.claude' not in resolved.relative_to(project).parts and name in ('Read', 'Grep', 'Glob') and event.get('decision') == 'allow' else ''
         journal_path = project / journal if journal else None
         candidate = bool(journal_path and name in ('Glob', 'Grep') and (resolved == journal_path or resolved in journal_path.parents))
+        successful_content = bool(selected.strip() and result and not result.get('is_error'))
+        grep_content = bool(successful_content and name == 'Grep' and payload.get('output_mode') == 'content'
+            and selected.strip() != 'No matches found'
+            and (resolved == journal_path or (candidate and re.search(r'(?:^|[/\\])' + re.escape(journal) + r'[:\-].+', selected, re.MULTILINE))))
         output.append(dict(tool=name, inputs=inputs, decision=event.get('decision'),
             result_present=bool(result), result_error=result.get('is_error', False) if result else None,
             selected_result=clean(selected, destination), write_attempt=name in ('Write', 'Edit'),
             journal_read_attempt=bool(journal_path and name == 'Read' and resolved == journal_path),
             journal_scan_candidate=candidate,
             journal_filename_returned=bool(journal and journal in selected),
-            journal_content_returned=bool(journal_path and name == 'Read' and resolved == journal_path and result and not result.get('is_error'))))
+            journal_content_returned=bool(grep_content or (journal_path and name == 'Read' and resolved == journal_path and successful_content))))
     return output
+
+
+def should_stop(checks, execution_error):
+    """Stop for execution gates; a guarded behavioral denial alone can continue."""
+    return not all(checks.values()) or execution_error not in (None, 'permission_denied')
 
 
 def run(destination, expected_hash):
@@ -180,14 +193,16 @@ def run(destination, expected_hash):
             trajectory=trajectory(log, events, project, case, destination))
         trials.append(trial); dump(destination / 'trials.json', trials)
         print('Completed ' + sid + ': failed execution checks ' + str([k for k, v in checks.items() if not v]), flush=True)
-        if not all(checks.values()) or observed['execution_error'] not in (None, 'permission_denied'):
+        if should_stop(checks, observed['execution_error']):
             print('Execution gate failed; retain attempt and stop.'); break
 
 
 def export_data(p, trials, destination):
-    result = {k: p[k] for k in ('kind', 'package_commit', 'package_versions', 'model', 'requested_effort', 'effort_observed', 'cli_version', 'general_rubric', 'harness_hashes')}
+    result = {k: p[k] for k in ('kind', 'build_id', 'built_at', 'package_commit', 'package_versions', 'model', 'requested_effort', 'effort_observed', 'cli_version', 'auto_memory_enabled', 'general_rubric', 'harness_hashes')}
     result['protocol_sha256'] = sha((destination / 'protocol.json').read_bytes())
-    result['cases'] = [{k: c[k] for k in ('id', 'entry', 'prompt', 'criteria')} for c in p['cases']]
+    result['cases'] = [{**{k: c[k] for k in ('id', 'entry', 'prompt', 'criteria', 'writable')},
+                        'protected': c.get('protected', []), 'audit': c.get('audit', False), 'journal': c.get('journal')}
+                       for c in p['cases']]
     result['sessions'] = []
     for t in trials:
         files = lambda key: {n: clean(b, destination) for n, b in t[key].items() if not n.startswith('.claude/')}

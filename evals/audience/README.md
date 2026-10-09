@@ -4,10 +4,10 @@ Five independent synthetic cases exercise the core skill's audience/destination
 guidance. [Protocol](protocol.md) and [cases](cases.py) define the proposed acceptance
 criteria. Preparation and controls do not count as native subject results.
 
-Status: prepared, with twelve runner controls, seven reused guard tests and repository
-static checks passing. No subject session has been launched. Counterpart harness
-review and the final committed manifest freeze remain pending. The
-[design review record](preflight.md) distinguishes completed checks from pending work.
+Status: counterpart design and harness review completed; nineteen runner controls,
+seven reused guard tests and repository static checks pass. See the
+[preflight record](preflight.md). The [October 10 pilot](../results/2026-10-10-audience/README.md)
+records the final freeze and subsequent execution status.
 
 ```sh
 python3 -m unittest discover -s evals/audience -p 'test_*.py' -v
@@ -16,8 +16,8 @@ python3 evals/audience/run.py build /tmp/context-docs-audience-review
 
 After counterpart review, create a fresh final build and commit its exact manifest,
 SHA-256 and harness. Keep the full runtime manifest outside subject roots and raw
-logs outside the repository; a public manifest copy must normalize host paths and
-retain the original manifest digest as provenance. Inspect exports before sharing
+logs outside the repository; the exact public manifest may retain a neutral temporary root, but must contain
+no personal host paths. Preserve its exact bytes and digest. Inspect exports before sharing
 them. Then execute once:
 
 ```sh
