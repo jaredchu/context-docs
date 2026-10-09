@@ -28,6 +28,9 @@ jobs:
       - name: Static checker regression tests
         run: python3 -m unittest discover -s evals/checks -p 'test_*.py'
 
+      - name: Public-source adoption controls
+        run: python3 -m unittest discover -s evals/public-adoption -p 'test_*.py'
+
       - name: Optional event journal tests
         run: python3 -m unittest discover -s tests -p 'test_*.py'
 
