@@ -1,7 +1,7 @@
 # Project context
 
 Last reviewed: 2026-09-29.
-Collaboration decision and adoption guidance/version updated: 2026-10-09;
+Collaboration decision, adoption guidance/version and bounded evaluation updated: 2026-10-09;
 other sections not re-audited.
 
 ## Purpose and scope
@@ -194,8 +194,13 @@ model configuration or a claim that both models reviewed every prior change.
   it is not standalone.
   v0.1.7 clarifies that newly added maintenance wording may use local terminology
   without client-specific invocation syntax; existing equivalent guidance stays
-  as written. Static checks and existing routing/marker
-  controls pass; this clarification has no new live behavioral evaluation.
+  as written. The [public-source regression](../evals/results/2026-10-09-public-adoption/README.md)
+  completed four native Claude Opus 5.5 sessions on one pinned public project and
+  two synthetic overlays: execution 4/4, frozen mechanical acceptance 3/4. Both
+  reviewers accepted all target preservation behavior; full-claim scores differ
+  (Astra 1/4, Claude 3/4), with an agreed unsupported verification claim. The
+  fenced-marker failure and reviewer disagreement remain recorded. Static and
+  harness controls passed separately; no general reliability gain is established.
   Completed setup now records a small adoption marker with the original date and
   actual entry point. Missing markers do not imply non-adoption; unrecorded dates
   remain unknown, and audit-only requests never create markers.
@@ -341,6 +346,12 @@ The v0.1.4 read-gating guidance addresses unnecessary journal reads in the focus
 conditions above, now including explicit native selection of the updated global
 Claude skill. Retain the failed slash-only request and broader invocation limits
 when reviewing the prerelease; varied-project efficiency remains unmeasured.
+
+The October 9 adoption regression is complete. Before reusing its evaluator,
+reconcile the plain-line marker constraint with permissible fenced presentation
+and freeze a new protocol; retain the existing failure and reviewer disagreement.
+The unreleased skills are unchanged by evaluation results. Broader evidence still
+needs independent histories and review, rather than retries on these fixtures.
 
 1. Use the recorded native failures to guide review before further prompt tuning.
    Avoid adding rules for isolated examples. Cloud adapters still need a concrete

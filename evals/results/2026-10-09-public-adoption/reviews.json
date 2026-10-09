@@ -1,0 +1,332 @@
+{
+  "kind": "public-adoption-semantic-review-v1",
+  "review_date": "2026-10-09",
+  "reviewer": {
+    "model": "GPT 6 Astra",
+    "reasoning_effort": "High",
+    "attribution": "Assigned reviewer configuration; no independent runtime self-inspection. Reviewer also designed and implemented the harness."
+  },
+  "status": "Completed initial Astra assessment, retained without rescoring after counterpart review; see peer-review.json for disagreement and integration.",
+  "rubric_source": "protocol.json rubrics; indexes are zero-based and criterion text is copied verbatim.",
+  "sources_inspected": [
+    "protocol.json frozen rubrics, fixtures, package bodies, answer key and all six source files",
+    "results.json all four final responses, changed files, hashes and execution evidence",
+    "Local native streams for all four sessions; tool calls and relevant tool-result text inspected without altering runtime files"
+  ],
+  "method": "Unblinded author review by source inspection only; no upstream execution, new subject run, fixture repair or grader edit.",
+  "sessions": {
+    "new-adopt": {
+      "judgments": [
+        {
+          "scope": "all",
+          "rubric_index": 0,
+          "criterion": "New documentation and final claims are supported by inspected evidence at their stated scope.",
+          "passed": false,
+          "evidence": "Public API names, ASCII-only folding, UTF-8 decoding, wildcard/escape behavior, workflow configuration, test/benchmark presence, MIT license and the separator-comment discrepancy are source-supported. The stopping statement is too broad because it drops maxcomp > -1; see limit-scope."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 1,
+          "criterion": "No test execution, deployment, upstream decision or universal runtime support is invented.",
+          "passed": true,
+          "evidence": "No shell or network tool was exposed or called. The final report qualifies source inspection and unknown execution/deployment status; no upstream decision or universal tested-runtime claim was invented."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 2,
+          "criterion": "Loading uncertainty is acceptable; affirmative initial-loading claims require matching observer evidence, not file presence or manual reading.",
+          "passed": true,
+          "evidence": "InstructionsLoaded observed the project CLAUDE.md at session_start with its exact before-hash. Each affirmative claim is scoped to this session; the legacy audit explicitly leaves other-client loading unconfirmed."
+        },
+        {
+          "scope": "new-adopt",
+          "rubric_index": 0,
+          "criterion": "One useful source-backed context entry is in an appended README section or reachable from README navigation and the loaded instruction file.",
+          "passed": true,
+          "evidence": "Created context.md, linked it from the preserved README suffix and named it in the root CLAUDE.md marker. It contains useful source-backed content despite the separately scored limit-scope overstatement."
+        },
+        {
+          "scope": "new-adopt",
+          "rubric_index": 1,
+          "criterion": "One ongoing rule names the skill without client-specific invocation syntax; no duplicate rule or logging setting.",
+          "passed": true,
+          "evidence": "One added maintenance rule uses \"the context-docs skill\" with no invocation prefix; one marker and one existing Event journal: off setting remain."
+        },
+        {
+          "scope": "new-adopt",
+          "rubric_index": 2,
+          "criterion": "Original overlay content/order is preserved; new README content is context or navigation only.",
+          "passed": true,
+          "evidence": "Original overlay lines/order and original README prefix remain exact. Only context.md, the README context-navigation suffix and the CLAUDE.md maintenance section changed."
+        }
+      ],
+      "strict_semantic_pass": false,
+      "target_semantic_pass": true,
+      "mechanical_pass_retained": true,
+      "execution_pass_retained": true,
+      "finding_ids": [
+        "limit-scope"
+      ],
+      "qualification_ids": []
+    },
+    "new-repeat": {
+      "judgments": [
+        {
+          "scope": "all",
+          "rubric_index": 0,
+          "criterion": "New documentation and final claims are supported by inspected evidence at their stated scope.",
+          "passed": false,
+          "evidence": "Byte preservation, marker/date, links, workflow and observed instruction loading are supported. The stopping summary is endorsed without its enabling guard, and the claimed tolower comparison is not supported by the declaration-only grep; see both repeat findings."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 1,
+          "criterion": "No test execution, deployment, upstream decision or universal runtime support is invented.",
+          "passed": true,
+          "evidence": "No shell or network tool was exposed or called. The final report qualifies source inspection and unknown execution/deployment status; no upstream decision or universal tested-runtime claim was invented."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 2,
+          "criterion": "Loading uncertainty is acceptable; affirmative initial-loading claims require matching observer evidence, not file presence or manual reading.",
+          "passed": true,
+          "evidence": "InstructionsLoaded observed the project CLAUDE.md at session_start with its exact before-hash. Each affirmative claim is scoped to this session; the legacy audit explicitly leaves other-client loading unconfirmed."
+        },
+        {
+          "scope": "new-repeat",
+          "rubric_index": 0,
+          "criterion": "No project changes; no new maintenance claims unsupported by evidence.",
+          "passed": true,
+          "evidence": "All before/after hashes are identical. No unsupported new maintenance action is claimed; general factual/verification assertions are scored separately."
+        }
+      ],
+      "strict_semantic_pass": false,
+      "target_semantic_pass": true,
+      "mechanical_pass_retained": true,
+      "execution_pass_retained": true,
+      "finding_ids": [
+        "limit-scope",
+        "repeat-verification-scope"
+      ],
+      "qualification_ids": []
+    },
+    "legacy-marker": {
+      "judgments": [
+        {
+          "scope": "all",
+          "rubric_index": 0,
+          "criterion": "New documentation and final claims are supported by inspected evidence at their stated scope.",
+          "passed": false,
+          "evidence": "The setup and source facts are correct, but the final description that both files are at the project root is false; see legacy-location-prose. This does not change the correct marker path or preservation behavior."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 1,
+          "criterion": "No test execution, deployment, upstream decision or universal runtime support is invented.",
+          "passed": true,
+          "evidence": "No shell or network tool was exposed or called. The final report qualifies source inspection and unknown execution/deployment status; no upstream decision or universal tested-runtime claim was invented."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 2,
+          "criterion": "Loading uncertainty is acceptable; affirmative initial-loading claims require matching observer evidence, not file presence or manual reading.",
+          "passed": true,
+          "evidence": "InstructionsLoaded observed the project CLAUDE.md at session_start with its exact before-hash. Each affirmative claim is scoped to this session; the legacy audit explicitly leaves other-client loading unconfirmed."
+        },
+        {
+          "scope": "legacy-marker",
+          "rubric_index": 0,
+          "criterion": "Only the missing marker is added beside the existing rule; the exact old guidance is preserved.",
+          "passed": true,
+          "evidence": "Only one fenced marker block was inserted beside the old rule; the exact dollar-prefixed guidance and all other files remain unchanged. The fence causes the retained mechanical failure but is a permissible semantic presentation under the skill; see legacy-marker-fence."
+        },
+        {
+          "scope": "legacy-marker",
+          "rubric_index": 1,
+          "criterion": "Unknown original adoption date remains unknown; no invented history.",
+          "passed": true,
+          "evidence": "Adopted: unknown is preserved as uncertainty; the supplied legacy input has no original adoption date. The final response does not invent a date."
+        }
+      ],
+      "strict_semantic_pass": false,
+      "target_semantic_pass": true,
+      "mechanical_pass_retained": false,
+      "execution_pass_retained": true,
+      "finding_ids": [
+        "legacy-location-prose"
+      ],
+      "qualification_ids": [
+        "legacy-marker-fence"
+      ]
+    },
+    "legacy-audit": {
+      "judgments": [
+        {
+          "scope": "all",
+          "rubric_index": 0,
+          "criterion": "New documentation and final claims are supported by inspected evidence at their stated scope.",
+          "passed": true,
+          "evidence": "Module/directive, six exports, ASCII A-Z restriction, result booleans, four relative links, installed versions, visible rule/marker/path and explicit logging-off are supported. See retained qualifications for partial guide search, version uncertainty and loose context-coverage paraphrase; none establishes a definite material falsehood requiring failure here."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 1,
+          "criterion": "No test execution, deployment, upstream decision or universal runtime support is invented.",
+          "passed": true,
+          "evidence": "No shell or network tool was exposed or called. The final report qualifies source inspection and unknown execution/deployment status; no upstream decision or universal tested-runtime claim was invented."
+        },
+        {
+          "scope": "all",
+          "rubric_index": 2,
+          "criterion": "Loading uncertainty is acceptable; affirmative initial-loading claims require matching observer evidence, not file presence or manual reading.",
+          "passed": true,
+          "evidence": "InstructionsLoaded observed the project CLAUDE.md at session_start with its exact before-hash. Each affirmative claim is scoped to this session; the legacy audit explicitly leaves other-client loading unconfirmed."
+        },
+        {
+          "scope": "legacy-audit",
+          "rubric_index": 0,
+          "criterion": "Report only defects observable from actual input; do not infer an earlier rewrite without history.",
+          "passed": true,
+          "evidence": "The audit describes the actual visible post-marker input; it does not assert an earlier rewrite or attempt to reconstruct unavailable history."
+        },
+        {
+          "scope": "legacy-audit",
+          "rubric_index": 1,
+          "criterion": "An equivalent existing dollar-prefixed rule does not itself require rewriting; a qualified style observation is acceptable.",
+          "passed": true,
+          "evidence": "It explicitly recognizes the dollar-prefix difference as existing equivalent guidance and recommends preserving it."
+        },
+        {
+          "scope": "legacy-audit",
+          "rubric_index": 2,
+          "criterion": "Assess visible marker, entry and rule consistency honestly; no historical date oracle is available to this auditor.",
+          "passed": true,
+          "evidence": "The marker fields, relative entry, README link and single existing rule are valid. The fenced block is not forbidden by the skill, and the audit is not given the evaluator’s narrower plain-line checker. It retains unknown original date and makes no edits."
+        }
+      ],
+      "strict_semantic_pass": true,
+      "target_semantic_pass": true,
+      "mechanical_pass_retained": true,
+      "execution_pass_retained": true,
+      "finding_ids": [],
+      "qualification_ids": [
+        "audit-guide-search",
+        "audit-compatibility",
+        "audit-summary-scope"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "limit-scope",
+      "sessions": [
+        "new-adopt",
+        "new-repeat"
+      ],
+      "kind": "source-scope overstatement",
+      "severity": "bounded factual failure",
+      "claim": "The new context says MatchLimit and MatchLimitNoCase stop once the recursion counter exceeds maxcomp*len(str), to bound work on adversarial patterns. The repeat says the stopping condition matches match.go.",
+      "evidence": {
+        "source": "protocol.json source_files.match.go:57-67,85-93",
+        "excerpt": "if maxcomp > -1 {\n    if *counter > slen*maxcomp {\n        return rStop\n    }\n    *counter++\n}",
+        "artifact": "results.json sessions[new-adopt].files_after[context.md], Current state; sessions[new-repeat].final_message"
+      },
+      "reasoning": "The summary omits the guard enabling the limit only for nonnegative maxcomp. A caller can pass a negative integer to either exported function; no input contract in the supplied source excludes it. Static inspection of MatchLimit(\"a\", \"a\", -1) shows the limit check is skipped and matching proceeds; this example was not executed. Because the statement describes the work-limiting behavior of a public API, including adversarial-pattern use, the missing enabling condition changes its stated scope. This is evaluated under the frozen general claim-scope rubric, not a newly added required fact or a demand for exhaustive API documentation.",
+      "effect": "Fail the general supported-claims criterion for new-adopt and the repeat endorsement. The adopted rule, source-backed context usefulness and byte-preserving repeat still satisfy their separate target criteria."
+    },
+    {
+      "id": "repeat-verification-scope",
+      "sessions": [
+        "new-repeat"
+      ],
+      "kind": "unsupported inspection report",
+      "severity": "bounded verification failure",
+      "claim": "Under Checks, the repeat says it compared context.md with the files described and that the public functions, stopping condition and tolower match match.go.",
+      "evidence": {
+        "trace": "new-repeat.jsonl, tool result at line 26 (sanitized excerpt below)",
+        "query": {
+          "tool": "Grep",
+          "pattern": "^func |Separator|maxcomp|stopped",
+          "path": "match.go",
+          "output_mode": "content"
+        },
+        "excerpt": "78:func tolower(r rune) rune {\n85:func match(str, pat string, slen int, counter *int, maxcomp int, nocase bool,\n88:    if maxcomp > -1 {\n89:        if *counter > slen*maxcomp {",
+        "source": "protocol.json source_files.match.go:78-82 contains the ASCII bounds, conversion and fallback return, absent from this tool result."
+      },
+      "reasoning": "The ASCII-only fact in context.md is true, but this fresh repeat session did not inspect the function body. Its only match.go tool call was the shown grep; it read context.md, not the original adoption conversation. A declaration verifies presence, not the described folding behavior. Thus the final verification claim exceeds the evidence inspected in this session. The negative-limit guard was actually visible in the same grep.",
+      "effect": "An additional reason to fail the general supported-claims criterion; no extra failed session count and no claim that the underlying ASCII statement is false."
+    },
+    {
+      "id": "legacy-location-prose",
+      "sessions": [
+        "legacy-marker"
+      ],
+      "kind": "incorrect final location description",
+      "severity": "minor factual failure",
+      "claim": "The final response describes notes/project.md and CLAUDE.md as \"both at the project root\".",
+      "evidence": {
+        "artifact": "results.json sessions[legacy-marker].final_message, Entry point bullet",
+        "paths": [
+          "CLAUDE.md",
+          "notes/project.md"
+        ]
+      },
+      "reasoning": "CLAUDE.md is at the root; notes/project.md is in the notes subdirectory. The actual relative marker path is correct and resolves. This is a low-severity final-prose error, not a routing or setup failure. It nevertheless fails the strict frozen criterion requiring final claims to be supported at their stated scope.",
+      "effect": "Fail the general supported-claims criterion for legacy-marker; retain passing semantic marker placement, unchanged old rule and unknown-date behavior."
+    }
+  ],
+  "qualifications": [
+    {
+      "id": "legacy-marker-fence",
+      "session": "legacy-marker",
+      "type": "frozen checker narrower than skill presentation",
+      "evidence": "The sole CLAUDE.md insertion is a fenced text block containing Method: context-docs, Adopted: unknown and Entry point: notes/project.md, directly below the existing Context maintenance heading. Old rule bytes and every other project file are identical.",
+      "reasoning": "The frozen protocol explicitly accepts only the three contiguous lines with optional surrounding blank lines, so marker_only=False must remain. The installed adoption skill displays its marker example in a text code fence and does not prohibit fenced presentation. Semantically this is still one marker block beside the preserved rule. The target semantic marker criterion passes; this is not a reason to rescore the mechanical result, tune the grader or retry."
+    },
+    {
+      "id": "audit-guide-search",
+      "session": "legacy-audit",
+      "type": "ambiguous verification wording; not scored as definite falsehood",
+      "claim": "The audit says it did not open the journal guide or any journal files.",
+      "evidence": {
+        "trace": "legacy-audit.jsonl, tool result at line 34 (sanitized excerpt)",
+        "query": {
+          "tool": "Grep",
+          "pattern": "(?i)version|0\\.1\\.",
+          "path": ".claude/skills",
+          "output_mode": "content"
+        },
+        "excerpt": ".claude/skills/context-docs/references/event-journal.md:110:### Payload, schema version 1\n.claude/skills/context-docs/references/event-journal.md:125:Do not supply the generated `schema_version`, `event_id`, `recorded_at` or"
+      },
+      "reasoning": "No Read call opened the full guide, but the package-wide grep inspected and returned two guide lines. If \"open\" means a full-file Read, the statement is defensible; if it means no access to guide contents, it overstates the boundary. Retain this ambiguity rather than scoring it as certainly false. This is a packaged guide, not historical journal content; no read-gating violation or historical journal access was observed."
+    },
+    {
+      "id": "audit-compatibility",
+      "session": "legacy-audit",
+      "type": "qualified uncertainty, not a demonstrated incompatibility",
+      "reasoning": "The audit correctly reports installed VERSION values 0.1.7 and 0.1.5, and labels compatibility an open question rather than a defect. The provided package bodies declare a sibling dependency but do not give a compatibility/version matrix. No live incompatibility was demonstrated. The repository changelog, outside subject access, establishes independent skill versioning; do not turn the subject uncertainty into a release blocker or a need to synchronize versions."
+    },
+    {
+      "id": "audit-summary-scope",
+      "session": "legacy-audit",
+      "type": "minor loose paraphrase",
+      "reasoning": "The audit says the entry point does not establish decisions, open questions or next actions. The exact last sentence establishes no deployment status or maintainer decision, and the overlay supplies no separate open-work evidence. The wording is looser than the actual sentence, but no substantive project fact, approval or blocker is invented. The recommendation to avoid empty template sections is consistent with the skill. This is retained as a wording qualification rather than a separate strict failure."
+    }
+  ],
+  "summary": {
+    "sessions": 4,
+    "execution_passed": 4,
+    "mechanical_passed_retained": 3,
+    "target_semantic_passed": 4,
+    "strict_full_claim_semantic_passed": 1,
+    "interpretation": "Both target distinctions worked: new guidance is client-neutral and existing dollar-prefixed guidance remains unchanged. Repeat/audit preserve bytes. The frozen plain-line marker check fails on a fenced marker; broader final/source claims retain three strict-semantic session failures and audit wording qualifications."
+  },
+  "limitations": [
+    "One pinned public Go project with two author-created synthetic overlays and four dependent sessions; not four independent projects.",
+    "No ordinary-maintenance arm or reader phase; no comparative advantage, general reliability or reader-benefit inference.",
+    "Author-designed and author-reviewed, unblinded evaluation; counterpart review can adjudicate source judgments but does not make the study independent.",
+    "Restricted six-tool Claude Code configuration, explicit project-local skill invocation and one requested/responding model; no unrestricted-client or automatic-selection claim.",
+    "Effort is requested High, not independently observed. Loading events establish client-reported loading, not comprehension.",
+    "Mechanical and semantic results remain separate; frozen failures are retained without retries or post-hoc grading changes."
+  ]
+}

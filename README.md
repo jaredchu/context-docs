@@ -111,6 +111,11 @@ but the original result is not a full regression pass. A
 passed four routing/repeat sessions after making file constraints explicit and
 validating installed references consistently. That follow-up left the skills
 unchanged; the initial failure remains recorded.
+The [v0.1.7 public-source regression](evals/results/2026-10-09-public-adoption/README.md)
+ran four native Claude Opus 5.5 sessions. Target preservation behavior passed both
+reviews; a frozen marker-format failure, unsupported verification claim and
+semantic scoring disagreement remain recorded. This bounded study establishes
+neither comparative benefit nor general reliability.
 Per-version history is in the [changelog](CHANGELOG.md).
 
 The workflow reads existing context, checks relevant evidence, updates canonical

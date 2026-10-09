@@ -21,8 +21,15 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   existing equivalent guidance as written.
   Correct the stale current adoption version in project context; core stays 0.1.5.
 - Repository static checks, 13 checker regressions and 30 existing adoption,
-  routing and marker controls pass. These are mechanical checks; no new live
-  behavioral evaluation was run for this clarification.
+  routing and marker controls pass. These are mechanical checks.
+- A [bounded public-source regression](evals/results/2026-10-09-public-adoption/README.md)
+  ran four native Claude Opus 5.5 sessions on one pinned Go project with two
+  synthetic overlays. Execution passed 4/4; frozen mechanical checks passed 3/4,
+  retaining a fenced-marker failure. Both reviewers accepted target preservation
+  behavior in all four, but full-claim semantic scores differ (Astra 1/4, Claude
+  3/4); both found an unsupported verification claim in the repeat. No retries,
+  comparative benefit or general reliability claim. Twenty-three new harness
+  controls, seven reused guard tests and static checks passed separately.
 
 ## context-docs 0.1.5 — 2026-09-29 (tag `v0.1.5`)
 

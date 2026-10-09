@@ -1,9 +1,10 @@
 # Public-source adoption pilot
 
-Four planned native Claude Opus 5.5 sessions use pinned `tidwall/match` Go source
+Four completed native Claude Opus 5.5 sessions used pinned `tidwall/match` Go source
 with two synthetic overlays. See the [protocol](protocol.md). This is a bounded
 adoption regression, with no ordinary-maintenance comparison or reader phase.
-No subject results exist yet.
+The [completed report](../results/2026-10-09-public-adoption/README.md) retains the
+frozen marker-format failure and separate semantic reviewer assessments.
 
 The [runner](run.py) reuses the native smoke execution, stream parser and six-tool
 guard. It never executes upstream source or workflows. Source and license bytes
