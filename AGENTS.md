@@ -31,6 +31,24 @@
   assist or rewrite existing history solely to add credit.
 - Publication requires authorization from the task; these instructions grant none.
 
+## Model collaboration
+
+- Use GPT 6 Astra with High reasoning and Claude Opus 5.5 as this project's
+  ongoing collaborators. Assign work by task fit and available context; either
+  model may implement or review. Give each change one owner responsible for
+  integration and validation. Delegate bounded tasks with clear scope and
+  acceptance criteria; parallelize independent work without overlapping edits.
+- Have the other model review substantive behavior, skill, evaluation or design
+  changes. Give the reviewer the relevant diff, requirements and check results;
+  focus on correctness, regressions and unsupported claims. Routine wording,
+  formatting and mechanical updates need only proportionate local checks.
+- Verify review findings against evidence before acting. Re-review affected
+  changes when material concerns remain; avoid repeated full reviews once they
+  are resolved. Resolve technical disagreements through source inspection or
+  focused checks; ask the owner only for consequential scope or product choices.
+- Report the models actually used and any unavailable collaborator; do not
+  silently substitute another model or claim review that did not occur.
+
 ## Context documentation
 
 Method: context-docs

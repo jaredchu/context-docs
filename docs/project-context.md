@@ -1,6 +1,8 @@
 # Project context
 
 Last reviewed: 2026-09-29.
+Collaboration decision and adoption guidance/version updated: 2026-10-09;
+other sections not re-audited.
 
 ## Purpose and scope
 
@@ -99,9 +101,18 @@ credited. The [commit attribution policy](../CONTRIBUTING.md#commit-attribution)
 uses Codex's verified co-author trailer for future assisted commits while preserving
 human authorship and existing history. Contributor-graph placement is not established.
 
+On October 9 the owner designated GPT 6 Astra with High reasoning and Claude
+Opus 5.5 as the project's ongoing collaborators. The
+[project instructions](../AGENTS.md#model-collaboration) record the working rule;
+the owner also delegated reasonable task assignment and peer review. Task-fit
+assignment, one owner per change and focused counterpart review for substantive
+changes implement that preference, with proportionate checks for routine edits.
+This records the requested models, not a change to an active chat's
+model configuration or a claim that both models reviewed every prior change.
+
 ## Current state
 
-- Core 0.1.5/adoption 0.1.6 implement the optional
+- Released core 0.1.5/adoption 0.1.6 introduced the optional
   [auto preference](../skills/context-docs/references/event-journal.md#optional-auto-preference).
   [Native checks](../evals/results/2026-09-29-auto-preference/README.md) retain two
   Codex harness blocks and four functional passes. Both clients preserve explicit
@@ -110,10 +121,10 @@ human authorship and existing history. Contributor-graph placement is not establ
   policy tests and affected mechanical checks pass separately. The owner-authorized
   [v0.1.5 experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.5)
   is published at `927d28c12c9a`; its [full CI run](https://github.com/jaredchu/context-docs/actions/runs/36507800666)
-  passed all 99 regression tests and study/report checks. Both local global clients
-  now match core 0.1.5/adoption 0.1.6, with previous packages backed up. Five installed
-  policy controls passed per client; this is mechanical validation, not another
-  native agent evaluation. The [release notes](releases/v0.1.5.md) retain limits.
+  passed all 99 regression tests and study/report checks. At publication, both local
+  global clients matched core 0.1.5/adoption 0.1.6, with previous packages backed up.
+  Five installed policy controls passed per client; this is mechanical validation,
+  not another native agent evaluation. The [release notes](releases/v0.1.5.md) retain limits.
   This project's explicit logging setting remains unchanged; no personal auto
   preference or other project setting was changed.
 - Core skill supports audit, initialize and maintain operations.
@@ -178,8 +189,13 @@ human authorship and existing history. Contributor-graph placement is not establ
   advantage remain unestablished. These evaluations used isolated installations
   and synthetic adopters; they did not change global skills or real adopter projects.
 - Optional [adoption skill](../skills/adopt-context-docs/SKILL.md), experimental
-  v0.1.5, applies the core method and merges ongoing maintenance into the project's
-  loaded agent instruction file. Install it alongside `context-docs`; it is not standalone.
+  v0.1.7 (unreleased), applies the core method and merges ongoing maintenance into
+  the project's loaded agent instruction file. Install it alongside `context-docs`;
+  it is not standalone.
+  v0.1.7 clarifies that newly added maintenance wording may use local terminology
+  without client-specific invocation syntax; existing equivalent guidance stays
+  as written. Static checks and existing routing/marker
+  controls pass; this clarification has no new live behavioral evaluation.
   Completed setup now records a small adoption marker with the original date and
   actual entry point. Missing markers do not imply non-adoption; unrecorded dates
   remain unknown, and audit-only requests never create markers.
@@ -282,9 +298,10 @@ human authorship and existing history. Contributor-graph placement is not establ
 - Public repository: [jaredchu/context-docs](https://github.com/jaredchu/context-docs).
 - Experimental Claude Code changes were merged into `main` on September 28 in
   [PR #1](https://github.com/jaredchu/context-docs/pull/1), merge commit `998ff774eec9`.
-- Current working package: experimental core skill v0.1.5 and adoption v0.1.6; standard
-  remains v0.1.0. The core includes the optional schema-v1 helper; normal Markdown
-  maintenance needs no runtime. There is no background maintenance or sync.
+- Current working package: experimental core skill v0.1.5 and adoption v0.1.7
+  (unreleased); standard remains v0.1.0. The core includes the optional schema-v1
+  helper; normal Markdown maintenance needs no runtime. There is no background
+  maintenance or sync.
 - The owner-authorized [v0.1.3 prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.3)
   is published at `b4233576db78`, including the merged Claude work. The
   [release notes](releases/v0.1.3.md) retain evaluation limits and the initial CI

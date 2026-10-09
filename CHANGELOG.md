@@ -14,6 +14,16 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## adopt-context-docs 0.1.7 — 2026-10-09 (unreleased)
+
+- Clarify that newly added maintenance wording may adapt to local terminology
+  without client-specific invocation syntax, consistent with v0.1.3. Preserve
+  existing equivalent guidance as written.
+  Correct the stale current adoption version in project context; core stays 0.1.5.
+- Repository static checks, 13 checker regressions and 30 existing adoption,
+  routing and marker controls pass. These are mechanical checks; no new live
+  behavioral evaluation was run for this clarification.
+
 ## context-docs 0.1.5 — 2026-09-29 (tag `v0.1.5`)
 
 - Add an opt-in auto preference for projects outside Git. A read-only policy helper
