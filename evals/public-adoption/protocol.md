@@ -1,8 +1,18 @@
 # Public-source adoption regression
 
-Design finalized on 2026-10-09 after counterpart design and harness review.
-The frozen manifest must be reviewed and committed before execution. Subject
-execution and findings are recorded separately; this protocol is not a result.
+Revision v2, for future freezes only (2026-10-09): accept a plain or text-fenced
+marker insertion while preserving every original byte. The
+original v1 protocol at commit `5e8115e`
+governed the completed study. Its frozen protocol, mechanical failure and semantic
+assessments remain unchanged. This revision has mechanical controls only; no new
+subject study or rerun has been performed. The original prose is available locally
+with `git show 5e8115e:evals/public-adoption/protocol.md`; its
+[frozen manifest](../results/2026-10-09-public-adoption/protocol.json) is unchanged.
+
+New manifests use `public-adoption-v2`; this runner rejects older revisions before
+subject launch. A new frozen manifest must be reviewed and committed before any
+future execution. Subject findings are recorded separately; this protocol is not
+a result.
 
 This is a bounded regression of adoption 0.1.7 on one public Go project with two
 author-created setup overlays. It is not an independent benchmark, a comparison
@@ -155,9 +165,17 @@ additional grouping is acceptable, but duplicated logging settings are not.
 New-repeat must preserve every project byte, including date.
 
 Legacy-marker must add only one marker beside the existing rule, with
-`Adopted: unknown` and `Entry point: notes/project.md`. Only the three contiguous
-marker lines and optional surrounding blank lines may be inserted directly above
-or below the rule. No new heading, line movement or logging duplication is needed
+`Adopted: unknown` and `Entry point: notes/project.md`. Insert the exact three
+contiguous marker lines directly above or below the rule, either plain or inside
+one supported Markdown code fence, with optional surrounding blank lines.
+Supported fences use at least three backticks or tildes; the closing fence uses
+the same character and at least the opening length. Opening/closing lines may
+have zero to three leading spaces and trailing spaces/tabs. The opening label is
+absent or ASCII `text`, `plaintext` or `txt` (case-insensitive), optionally separated
+from the delimiter by spaces/tabs. The three marker lines inside remain exact,
+with no interior blank lines, extra text or wrapped maintenance rule. Other info
+labels, mixed/unclosed/short fences, duplicate markers and additional prose are
+rejected. No new heading, line movement or logging duplication is needed
 because its maintenance heading already exists. The complete old guidance,
 including `$context-docs`, remains byte-identical. README and context stay exact;
 no parallel rule, replacement context or extra documentation is allowed.
@@ -179,7 +197,10 @@ unsupported expansion. Loading observation does not establish comprehension.
 Before subjects run, mechanical controls must accept an authored reference and
 reject a prefixed newly added rule, a rewritten legacy rule, a changed repeat
 date, an audit mutation, a broken new entry link, legacy README/context mutations
-and changed upstream/package bytes. Reject a marker without any real skill
+and changed upstream/package bytes. Accept plain and supported fenced markers
+above/below the unchanged legacy rule; reject malformed fences, extra content,
+changed marker fields and fences wrapping the rule. Reject old protocol revisions
+before subject launch. Reject a marker without any real skill
 reference outside its fields. Accept an appended README context section without
 a self-link; reject missing or old-section anchors. Responding-model controls
 reject a mismatch even when initialization names the requested model. Also accept installed skill paths with and

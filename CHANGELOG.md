@@ -14,6 +14,18 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Public-adoption evaluator marker handling — 2026-10-09 (unreleased)
+
+- Accept a marker-only insertion as bare lines or a bounded Markdown fenced
+  block while preserving the exact existing rule, date uncertainty and entry path.
+  Version the revised protocol for future freezes; retain the completed study's
+  original files and scores. This changes evaluation tooling only; skill packages
+  and versions remain unchanged.
+- GPT 6 Astra High implemented the change; Claude Opus 5.5 found no blocking
+  issues in a read-only review. Applied its ASCII-label restriction and additional
+  boundary controls. All 28 evaluator controls, seven reused guard tests and static
+  checks pass. These are mechanical checks, not new agent evaluations.
+
 ## adopt-context-docs 0.1.7 — 2026-10-09 (unreleased)
 
 - Clarify that newly added maintenance wording may adapt to local terminology

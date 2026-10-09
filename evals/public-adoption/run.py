@@ -20,6 +20,7 @@ import guarded
 import smoke
 
 PIN = 'afc69bce52e08c02e78156a7697bd808fc868ec5'
+PROTOCOL_KIND = 'public-adoption-v2'
 PACKAGE_COMMIT = '3a0c4013962b35c733dc316271f6981aaf5fe9a1'
 SOURCE_URL = 'https://github.com/tidwall/match/tree/' + PIN
 UPSTREAM = {'.github/workflows/go.yml', 'LICENSE', 'README.md', 'go.mod',
@@ -155,9 +156,26 @@ def new_marker(entry='docs/context.md'):
 def marker_only(text):
     marker = 'Method: context-docs\nAdopted: unknown\nEntry point: notes/project.md'
     before, after = LEGACY.split(RULE)
-    # Only blank lines plus the exact three-line insertion adjacent to the old rule.
-    return any(re.fullmatch(re.escape(a) + r'\n*' + re.escape(marker) + r'\n+' + re.escape(b), text)
-               for a, b in [(before, RULE + after), (before + RULE, after)])
+    # Extract only the insertion; all original bytes, including the rule, stay exact.
+    for a, b in [(before, RULE + after), (before + RULE, after)]:
+        if not text.startswith(a) or not text.endswith(b):
+            continue
+        insertion = text[len(a):len(text) - len(b)]
+        if not insertion.endswith('\n'):
+            continue
+        payload = insertion.strip('\n')
+        if payload == marker:
+            return True
+        lines = payload.split('\n')
+        if len(lines) != 5 or '\n'.join(lines[1:4]) != marker:
+            continue
+        opening = re.fullmatch(r' {0,3}(`{3,}|~{3,})[ \t]*(?:(?:text|plaintext|txt)[ \t]*)?',
+                               lines[0], re.I | re.A)
+        if opening:
+            fence = opening[1]
+            if re.fullmatch(r' {0,3}' + re.escape(fence[0]) + '{' + str(len(fence)) + r',}[ \t]*', lines[4]):
+                return True
+    return False
 
 
 def added_lines(before, after):
@@ -324,7 +342,7 @@ def build(destination):
                         for event in ('InstructionsLoaded', 'PreToolUse', 'PostToolUse', 'PostToolUseFailure')})
         dump(control / (sid + '.settings.json'), settings)
         configs[sid] = dict(config=config, settings=settings)
-    protocol = dict(kind='public-adoption-v1', source_url=SOURCE_URL, source_commit=PIN,
+    protocol = dict(kind=PROTOCOL_KIND, source_url=SOURCE_URL, source_commit=PIN,
                     source_fetched_at=datetime.now(timezone.utc).isoformat(),
                     package_commit=PACKAGE_COMMIT, package_versions={name:
                         packages[f'.claude/skills/{name}/VERSION'].strip() for name in smoke.SKILLS},
@@ -347,7 +365,9 @@ def validate_frozen(destination, expected_hash):
     if sha(data) != expected_hash:
         raise ValueError('Frozen protocol hash mismatch')
     p = json.loads(data)
-    if p['kind'] != 'public-adoption-v1' or p['harness_hashes'] != harness_hashes():
+    if p.get('kind') != PROTOCOL_KIND:
+        raise ValueError('Unsupported protocol revision; preserve historical runs and freeze new inputs')
+    if p['harness_hashes'] != harness_hashes():
         raise ValueError('Harness drift')
     if p['cli_version'] != subprocess.check_output(['claude', '--version'], text=True).strip():
         raise ValueError('CLI version drift')

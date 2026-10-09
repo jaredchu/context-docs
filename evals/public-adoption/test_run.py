@@ -129,6 +129,48 @@ class GraderControls(unittest.TestCase):
                      run.LEGACY.replace(run.RULE, run.RULE + '\n' + self.marker)):
             self.assertTrue(self.passed('legacy-marker', self.legacy, {**self.legacy, 'CLAUDE.md': body}))
 
+    def test_fenced_marker_variants_above_and_below_rule_pass(self):
+        for opening, closing in [('```', '```'), ('```text', '```'),
+                                 ('~~~plaintext', '~~~'), ('~~~~ txt', '~~~~~'),
+                                 ('  ``` TEXT  ', ' ```\t')]:
+            block = opening + '\n' + self.marker + closing + '\n'
+            for rule_and_marker in (block + '\n' + run.RULE, run.RULE + '\n' + block):
+                body = run.LEGACY.replace(run.RULE, rule_and_marker)
+                self.assertTrue(self.passed('legacy-marker', self.legacy,
+                    {**self.legacy, 'CLAUDE.md': body}), (opening, closing))
+
+    def test_malformed_or_non_marker_fences_fail(self):
+        blocks = [
+            '```text\n' + self.marker,  # No closing fence.
+            '```text\n' + self.marker + '~~~\n',  # Mixed delimiters.
+            '````text\n' + self.marker + '```\n',  # Closing fence too short.
+            '    ```text\n' + self.marker + '```\n',  # Indented code, not a fence.
+            '```text\n' + self.marker + '``` trailing prose\n',
+            '```text\n' + self.marker + 'extra prose\n```\n',
+            '```text\n' + self.marker + self.marker + '```\n',
+            '```text\n' + self.marker.replace('unknown', '2026-10-09') + '```\n',
+            '```text\n' + self.marker.replace('notes/project.md', 'README.md') + '```\n',
+            '```json\n' + self.marker + '```\n',  # Only text-oriented labels accepted.
+            '```plaıntext\n' + self.marker + '```\n',  # ASCII labels only.
+            '```text\n\n' + self.marker + '```\n',  # No interior blank line.
+            '```text title=x\n' + self.marker + '```\n',
+            '```text\n' + self.marker + '    ```\n',
+            '\t```text\n' + self.marker + '```\n',
+        ]
+        for block in blocks:
+            body = run.LEGACY.replace(run.RULE, block + '\n' + run.RULE)
+            self.assertFalse(self.passed('legacy-marker', self.legacy,
+                {**self.legacy, 'CLAUDE.md': body}), repr(block))
+        wrapped_rule = run.LEGACY.replace(run.RULE, '```text\n' + self.marker + run.RULE + '```\n')
+        self.assertFalse(self.passed('legacy-marker', self.legacy, {**self.legacy, 'CLAUDE.md': wrapped_rule}))
+
+    def test_fenced_marker_does_not_allow_rule_or_other_original_byte_changes(self):
+        body = run.LEGACY.replace(run.RULE, '```text\n' + self.marker + '```\n\n' + run.RULE)
+        for changed in (body.replace('$context-docs', 'the context-docs skill'),
+                        body.replace('Event journal: off', 'Event journal: on'),
+                        body + '\nExtra prose.\n'):
+            self.assertFalse(self.passed('legacy-marker', self.legacy, {**self.legacy, 'CLAUDE.md': changed}))
+
     def test_legacy_rewritten_rule_or_new_heading_fails(self):
         body = run.LEGACY.replace(run.RULE, self.marker + '\n' + run.RULE)
         for changed in (body.replace('$context-docs', 'the context-docs skill'),
@@ -155,6 +197,26 @@ class GraderControls(unittest.TestCase):
             with patch.object(run.smoke, 'run_session') as subject:
                 with self.assertRaisesRegex(ValueError, 'hash mismatch'):
                     run.run(root, 'wrong')
+                subject.assert_not_called()
+
+    def test_old_protocol_revision_is_rejected_before_subject_launch(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = json.dumps({'kind': 'public-adoption-v1'}).encode()
+            (root / 'protocol.json').write_bytes(data)
+            with patch.object(run.smoke, 'run_session') as subject:
+                with self.assertRaisesRegex(ValueError, 'Unsupported protocol revision'):
+                    run.run(root, run.sha(data))
+                subject.assert_not_called()
+
+    def test_current_protocol_reaches_harness_validation_before_launch(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = json.dumps({'kind': run.PROTOCOL_KIND, 'harness_hashes': {}}).encode()
+            (root / 'protocol.json').write_bytes(data)
+            with patch.object(run.smoke, 'run_session') as subject:
+                with self.assertRaisesRegex(ValueError, 'Harness drift'):
+                    run.run(root, run.sha(data))
                 subject.assert_not_called()
 
     def test_crlf_mutation_is_not_hidden_by_text_snapshot(self):

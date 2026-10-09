@@ -1,10 +1,19 @@
 # Public-source adoption pilot
 
 Four completed native Claude Opus 5.5 sessions used pinned `tidwall/match` Go source
-with two synthetic overlays. See the [protocol](protocol.md). This is a bounded
+with two synthetic overlays under the
+v1 protocol at local freeze commit `5e8115e`.
+The [current v2 protocol](protocol.md) applies only to future freezes. This is a bounded
 adoption regression, with no ordinary-maintenance comparison or reader phase.
 The [completed report](../results/2026-10-09-public-adoption/README.md) retains the
 frozen marker-format failure and separate semantic reviewer assessments.
+
+The v2 evaluator accepts the exact legacy marker either plain or in a supported
+text code fence beside the unchanged rule. It still rejects extra prose, malformed
+fences, duplicate markers and changes to original bytes. New manifests use
+`public-adoption-v2`; older revisions cannot launch subjects with this runner.
+This repair passed mechanical controls only. No historical score or frozen file
+was changed, and no new study or rerun was performed.
 
 The [runner](run.py) reuses the native smoke execution, stream parser and six-tool
 guard. It never executes upstream source or workflows. Source and license bytes

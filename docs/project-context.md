@@ -347,11 +347,13 @@ conditions above, now including explicit native selection of the updated global
 Claude skill. Retain the failed slash-only request and broader invocation limits
 when reviewing the prerelease; varied-project efficiency remains unmeasured.
 
-The October 9 adoption regression is complete. Before reusing its evaluator,
-reconcile the plain-line marker constraint with permissible fenced presentation
-and freeze a new protocol; retain the existing failure and reviewer disagreement.
-The unreleased skills are unchanged by evaluation results. Broader evidence still
-needs independent histories and review, rather than retries on these fixtures.
+The October 9 adoption regression and evaluator repair are complete. The revised
+[v2 protocol](../evals/public-adoption/protocol.md) accepts supported fenced marker
+presentation while preserving original bytes; old manifests cannot launch with
+the revised runner. A future evaluation still requires a new reviewed, committed
+freeze. The original study and reviewer disagreement remain unchanged; this repair
+has mechanical validation only. Broader evidence still needs independent histories
+and review, rather than retries on these fixtures. Skill packages are unchanged.
 
 1. Use the recorded native failures to guide review before further prompt tuning.
    Avoid adding rules for isolated examples. Cloud adapters still need a concrete
