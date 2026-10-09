@@ -14,6 +14,27 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.1.6 — 2026-10-09 (unreleased)
+
+- Select retained information by audience, sharing destination and lasting
+  usefulness, using public, private-team and personal-project examples. Keep
+  portable current context separate from detailed evidence and local state;
+  preserve relevant operational constraints and failed results. Standard advances
+  to 0.1.1. Adoption remains 0.1.7.
+- Apply the guidance to this repository: shorten current context, preserve decision
+  history, and normalize incidental host metadata in public evidence copies with
+  a hash ledger and local originals. Historical scores and Git history remain
+  unchanged. See the [redaction record](docs/evidence-redaction-2026-10-09.md).
+- Skill metadata validation and all 20 local CI-equivalent check groups pass,
+  including 127 unit tests, static checks, grader controls and four unchanged
+  regenerated reports. The 43 redacted copies were verified against local originals
+  for declared transformations and unchanged scores. Five new audience/destination
+  scenarios are synthetic and unexecuted; no new behavioral evaluation is claimed.
+- GPT 6 Astra High implemented the guidance; Claude Opus 5.5 found no blocking
+  skill issue. Its documentation findings were resolved with validation details,
+  per-study redaction notices and restored historical navigation. Codex integrated
+  cleanup and verified the declared transformations against original bytes.
+
 ## Public-adoption evaluator marker handling — 2026-10-09 (unreleased)
 
 - Accept a marker-only insertion as bare lines or a bounded Markdown fenced
@@ -31,7 +52,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - Clarify that newly added maintenance wording may adapt to local terminology
   without client-specific invocation syntax, consistent with v0.1.3. Preserve
   existing equivalent guidance as written.
-  Correct the stale current adoption version in project context; core stays 0.1.5.
+  Correct the stale current adoption version in project context; core then remained 0.1.5.
 - Repository static checks, 13 checker regressions and 30 existing adoption,
   routing and marker controls pass. These are mechanical checks.
 - A [bounded public-source regression](evals/results/2026-10-09-public-adoption/README.md)

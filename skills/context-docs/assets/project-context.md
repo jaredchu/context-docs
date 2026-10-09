@@ -1,7 +1,10 @@
 # Project context
 
 <!-- Starter only. Adapt names to the existing project. Replace prompts with
-supported facts; remove unused sections and these comments before adopting. -->
+supported facts for the intended readers and sharing destination. Keep detailed
+procedures, historical evidence and incidental local state in their appropriate
+existing locations; link when useful. Remove unused sections and these comments
+before adopting. -->
 
 ## Purpose and scope
 

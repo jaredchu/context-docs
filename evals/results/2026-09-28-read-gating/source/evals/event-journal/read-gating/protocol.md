@@ -31,7 +31,7 @@ Do not change the skill bytes, requests or guard for the rerun. Codex's complete
 first condition remains separate evidence; no silent retry or pooled clean score.
 
 The path-repaired Claude repeat invoked `Skill: context-docs`, whose stream
-explicitly exposed the released global skill at `/Users/jaredchu/.claude/skills/context-docs`,
+explicitly exposed the released global skill at `/user-home/.claude/skills/context-docs`,
 not the candidate. It listed and read journal history. Preserve this as candidate
 exposure failure, not a clean test of the new wording. A final separately frozen
 Claude trajectory uses `--direct-read`: disable slash-command/Skill lookup, use

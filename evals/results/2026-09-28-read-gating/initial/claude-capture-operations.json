@@ -140,7 +140,7 @@
     "tool": "Glob",
     "input": {
       "pattern": "**/context-docs/scripts/event_journal.py",
-      "path": "/Users/jaredchu/.claude"
+      "path": "/user-home/.claude"
     },
     "allowed": false
   },

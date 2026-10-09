@@ -1,5 +1,9 @@
 # Durable capture-gap follow-up — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **Both clients preserved the failed capture's reason in Markdown, and both fresh
 readers recovered it after the helper was restored.** All four sessions met the
 focused functional and factual acceptance. Existing history/instructions/packages

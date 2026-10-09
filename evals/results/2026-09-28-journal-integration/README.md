@@ -1,5 +1,9 @@
 # Opt-in journal integration — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **The optional integration is implemented, with logging off by default.** Core
 v0.1.3 packages the helper and its guide; adoption v0.1.5 merges explicit settings
 without replacing existing adoption. The helper/schema are unchanged, with the

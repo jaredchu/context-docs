@@ -13,7 +13,7 @@ decisions and evidence, and keeps current context from becoming a session diary.
   covering implementation, documentation and evaluations.
 - **Additional AI development contributions:** Claude.
 
-**Status: experimental, core skill v0.1.5; adoption skill v0.1.7 (unreleased).**
+**Status: experimental, core skill v0.1.6 and adoption skill v0.1.7 (unreleased).**
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or mandatory runtime dependency. Git remains available for history and review.
 The core package includes an optional Python 3.9+ journal helper; ordinary Markdown
@@ -117,6 +117,10 @@ reviews; a frozen marker-format failure, unsupported verification claim and
 semantic scoring disagreement remain recorded. This bounded study establishes
 neither comparative benefit nor general reliability.
 Per-version history is in the [changelog](CHANGELOG.md).
+
+Core v0.1.6 adds guidance for selecting information by audience and destination,
+with public, private-team and personal-project examples in the
+[standard](skills/context-docs/references/standard.md#audience-and-destination).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.

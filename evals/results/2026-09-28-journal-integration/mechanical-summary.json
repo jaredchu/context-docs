@@ -277,7 +277,7 @@
         "id": "toolu_01JET3hEA9crBAYSuC68hx9H",
         "name": "Bash",
         "input": {
-          "command": "ls /Users/jaredchu/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-optin-5ksbz2x7-claude/memory/ 2>/dev/null",
+          "command": "ls /user-home/.claude/projects/fixture-project-2f0526ccc534/memory/ 2>/dev/null",
           "description": "List existing memory files"
         },
         "caller": {
@@ -298,7 +298,7 @@
         "hook_event_name": "PreToolUse",
         "tool_name": "Bash",
         "tool_input": {
-          "command": "ls /Users/jaredchu/.claude/projects/-private-var-folders-3s-bx6-5-0960q4w4swf573ht8w0000gn-T-context-optin-5ksbz2x7-claude/memory/ 2>/dev/null",
+          "command": "ls /user-home/.claude/projects/fixture-project-2f0526ccc534/memory/ 2>/dev/null",
           "description": "List existing memory files"
         },
         "tool_use_id": "toolu_01JET3hEA9crBAYSuC68hx9H",
