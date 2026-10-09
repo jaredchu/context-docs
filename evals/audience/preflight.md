@@ -2,9 +2,11 @@
 
 Prepared by GPT 6 Astra with High reasoning, integrated by Codex. Claude Opus 5.5
 reviewed the fixture/rubric design before any subject execution. This is unblinded
-author/counterpart development work. The October 10 counterpart harness review found a search-content observation gap;
-its correction passed focused counterpart review before the final committed freeze. No subject session has
-been launched, and no behavioral result is claimed.
+author/counterpart development work. The October 10 harness review found a search
+content observation gap; its correction passed focused counterpart review before
+the final committed freeze. No subject session had
+been launched at preflight completion. Subsequent execution is recorded in the
+[October 10 report](../results/2026-10-10-audience/README.md).
 
 Before freezing, the design review led to these refinements:
 

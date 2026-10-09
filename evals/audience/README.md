@@ -7,7 +7,7 @@ criteria. Preparation and controls do not count as native subject results.
 Status: counterpart design and harness review completed; nineteen runner controls,
 seven reused guard tests and repository static checks pass. See the
 [preflight record](preflight.md). The [October 10 pilot](../results/2026-10-10-audience/README.md)
-records the final freeze and subsequent execution status.
+records the completed five-session run and both semantic assessments.
 
 ```sh
 python3 -m unittest discover -s evals/audience -p 'test_*.py' -v

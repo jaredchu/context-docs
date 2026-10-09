@@ -1,7 +1,7 @@
 # Project context
 
-Current state and cleanup reviewed: 2026-10-09. Historical evaluation findings
-below are retained from their linked reports, not newly rerun results.
+Current state reviewed: 2026-10-10. Cleanup was reviewed on October 9. Earlier
+evaluation findings are retained from their linked reports, not rerun here.
 
 ## Purpose and scope
 
@@ -81,6 +81,11 @@ studies into claims of general reliability or superiority over ordinary maintena
   retains execution 4/4 and mechanical 3/4, plus separate Astra/Claude semantic
   assessments. The [v2 evaluator](../evals/public-adoption/protocol.md) handles
   supported fenced markers for future freezes only; original scores remain intact.
+- The [October 10 audience/destination pilot](../evals/results/2026-10-10-audience/README.md)
+  passed execution 5/5. Both counterpart reviewers accepted 19 target and 15 general
+  criteria. The mixed case used an allowed handoff question; audit attempted no
+  writes or history access. Five authored synthetic cases establish no broader
+  reliability or comparative benefit.
 - Preserve the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
   and [history-study scope violation](evaluation-2026-09-27-history.md) when assessing
   reliability. Perfect artifact scores do not establish full task compliance.
@@ -90,15 +95,10 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-1. Audience/destination guidance and cleanup have completed counterpart review
-   and mechanical validation. The [five-case native pilot](../evals/audience/README.md)
-   is prepared with passing mechanical controls. Counterpart harness review, final
-   freeze and all five subject sessions remain pending. Keep prior frozen studies
-   intact rather than tuning on their fixtures.
-2. Prepare the next experimental release from reviewed changes and full CI; obtain
+1. Prepare the next experimental release from reviewed changes and full CI; obtain
    publication authorization, then update local installations from the released
    packages with backups and customization checks.
-3. Seek varied real-project histories and independent review before broader
+2. Seek varied real-project histories and independent review before broader
    correctness claims. The [discrimination protocol](../evals/discrimination-protocol.md)
    remains a proposal, not an approved study. Any future native run needs a new
    frozen manifest; no retries or rescoring of the completed October 9 study.

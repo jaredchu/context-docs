@@ -14,6 +14,20 @@ not a demonstrated accuracy gain.
 Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Audience/destination native evaluation — 2026-10-10 (unreleased)
+
+- Complete the [five-case pilot](evals/results/2026-10-10-audience/README.md) on
+  core 0.1.6/adoption 0.1.7: execution gates pass 5/5; GPT 6 Astra High and Claude
+  Opus 5.5 each accept 19/19 target and 15/15 general criteria. No retries or
+  material findings. The mixed case completes the API edit and asks for handoff
+  readers/destination; it does not produce the handoff artifact. Audit attempts
+  no writes, searches or journal reads. No comparative or general reliability claim.
+- Before freezing, correct journal search-content observation, verify denied
+  writes do not halt valid execution, disable subject auto memory and record
+  unique build identity and destination scope. Claude's focused re-review found
+  no blocking issues. Nineteen audience controls, seven reused guard tests and
+  static checks pass separately. Historical studies and packages are unchanged.
+
 ## Audience/destination evaluation preparation — 2026-10-09 (unreleased)
 
 - Prepare five isolated synthetic cases with a restricted native runner, pinned
@@ -23,8 +37,9 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - Twelve new runner controls, seven reused guard tests and repository static checks
   pass; a disposable build passed manifest and input validation. Claude Opus 5.5
   reviewed fixture design; its material ambiguities were addressed before any run.
-  Counterpart harness review and final freeze remain pending. No subject session was launched; this is
-  preparation, not a behavioral result. Installable packages are unchanged.
+  At this preparation stage, counterpart harness review and final freeze remained
+  pending and no subject session was launched. The October 10 entry records the
+  later evaluation. Installable packages were unchanged.
 
 ## context-docs 0.1.6 — 2026-10-09 (unreleased)
 
@@ -41,7 +56,8 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   including 127 unit tests, static checks, grader controls and four unchanged
   regenerated reports. The 43 redacted copies were verified against local originals
   for declared transformations and unchanged scores. Five new audience/destination
-  scenarios are synthetic and unexecuted; no new behavioral evaluation is claimed.
+  scenarios were synthetic and unexecuted at that stage; the October 10 entry
+  records their subsequent native evaluation.
 - GPT 6 Astra High implemented the guidance; Claude Opus 5.5 found no blocking
   skill issue. Its documentation findings were resolved with validation details,
   per-study redaction notices and restored historical navigation. Codex integrated

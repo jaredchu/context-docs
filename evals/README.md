@@ -154,12 +154,15 @@ equally authoritative. The agent should record the discrepancy and needed
 decision, rather than treating recency or implementation as owner approval.
 Keep this variation out of development prompts when measuring generalization.
 
-## Audience and destination cases — unexecuted
+## Audience and destination cases — bounded native pilot
 
 These synthetic cases exercise core 0.1.6 and standard 0.1.1 guidance. The
-[prepared native runner](audience/README.md) has passing mechanical controls;
-its counterpart harness review and final freeze are still pending. They have
-not been run as agent evaluations. Use the disposable-fixture procedure above;
+[October 10 native pilot](results/2026-10-10-audience/README.md) ran one frozen
+session per case: all five passed execution gates, and both counterpart reviewers
+accepted all 19 target and 15 general criteria. The mixed case used the permitted
+question route rather than completing a handoff artifact. These bounded results
+establish no general reliability or comparative benefit. The [runner](audience/README.md)
+has separate mechanical controls. Future runs need a new frozen manifest and must
 keep expected outcomes outside the subject session. The requests deliberately
 leave content selection to the skill. No real private data or external access
 is needed, and a mechanical wording check is not a substitute for observing the
