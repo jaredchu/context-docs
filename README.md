@@ -15,7 +15,8 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.1.8 and adoption skill v0.1.9.**
+**Status: experimental, core skill v0.1.9 (unreleased) and adoption skill v0.1.9.**
+The latest published bundle is [v0.1.8](docs/releases/v0.1.8.md).
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get

@@ -37,6 +37,9 @@ jobs:
       - name: Local-only context controls
         run: python3 -m unittest discover -s evals/local-only -p 'test_*.py'
 
+      - name: Source-selection regression controls
+        run: python3 -m unittest discover -s evals/source-selection -p 'test_*.py'
+
       - name: Public-history boundary controls
         run: python3 -m unittest discover -s evals/public-history -p 'test_*.py'
 

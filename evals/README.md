@@ -342,6 +342,11 @@ per client and fresh read-only audits, retaining a source-accuracy finding and
 execution limits. These authored checks do not establish general skill reliability.
 Earlier frozen studies and scores stay unchanged.
 
+The [focused source-selection case](source-selection/README.md) isolates the
+adoption finding: old notes report a 10-second timeout while configuration sets
+20. Its controls reject stale copying and loss of decisions, blockers or the
+local sharing boundary; native trials and semantic review are reported separately.
+
 Use the [adoption regression](adoption/README.md) for `adopt-context-docs` changes.
 It checks initial adoption and repeated use on projects with no documentation and
 with existing rules, a custom layout and uncommitted work. Core maintenance studies

@@ -47,7 +47,16 @@ Earlier release approvals do not authorize new publication.
 - Released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
-- This bundle adds
+- Working candidate: core **0.1.9**, unreleased; adoption remains **0.1.9**.
+  The [focused source-selection check](../evals/source-selection/README.md)
+  reproduces importing a stale timeout from earlier notes in one of two released
+  core trials. Initialization now explicitly checks relevant project sources
+  before importing current-state claims. Both candidate trials record the actual
+  configured value and preserve decisions and unfinished work. Installed skills,
+  existing setup and earlier study artifacts remain unchanged. Mechanical checks
+  and native outcomes are recorded separately; these trials establish no general
+  reliability improvement.
+- The released v0.1.8 bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
   controls have 21 real-Git/canary tests. The
@@ -129,10 +138,10 @@ feedback; it is not independent validation. New studies need a fresh freeze and
 must preserve earlier results; the [discrimination protocol](../evals/discrimination-protocol.md)
 is still a proposal.
 
-The local-only follow-up found a new adoption document copying a stale seed
-timeout despite a different configuration value. Reproduce this source-selection
-issue in a focused case before deciding whether existing evidence-verification
-guidance needs a skill change; the storage checks alone do not resolve it.
+The local-only follow-up's stale-source finding now has a focused reproduction
+and an unreleased initialization fix. Review the candidate diff and its recorded
+checks before deciding whether to publish it; earlier release approval does not
+authorize this candidate's publication or updates to installed skills.
 
 ## Canonical references
 

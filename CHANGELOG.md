@@ -16,6 +16,27 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.1.9 — Unreleased
+
+- Clarify initialization from earlier notes: check relevant project sources before
+  importing current implementation/configuration claims, while retaining decisions
+  and unresolved work. Adoption inherits the core rule; its package is unchanged.
+- Add a focused stale-source adoption fixture and regression controls. The released
+  core reproduced the stale 10-second claim in one of two source-selection trials;
+  the other correctly read the 20-second configuration. An earlier attempt was
+  blocked by the sandbox's ignore-file write restriction and produced no context.
+  Validation details are recorded in the [focused case](evals/source-selection/README.md).
+- Both matched candidate source-selection trials use the 20-second configuration,
+  distinguish the earlier claim and preserve rationale, blocker, next step and
+  local sharing boundaries. This small mixed-baseline check establishes no general
+  reliability or causal accuracy advantage. Local checks: seven focused controls,
+  23 local-only controls, 17 static-checker tests, 12 site tests, repository static
+  checks and site build. Existing installations, adoption setup and saved study
+  artifacts are preserved; this candidate is not published or installed.
+- Claude Opus 5.5 reviewed the focused change and evidence; Sol integrated and
+  validated it. Both package metadata validators pass using a disposable PyYAML
+  environment; the initial system/bundled Python attempts lacked that dependency.
+
 ## Documentation and validation follow-up — 2026-10-10
 
 - Clarify that adopted projects use their loaded maintenance rule during normal

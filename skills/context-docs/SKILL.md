@@ -19,6 +19,9 @@ unclear. Preserve existing layouts and concurrent edits.
   For shared context, if neither exists, a short README pointing to the supported
   context is enough; it does not require inventing a broader project mission.
   For local-only context, use the local discovery route below instead.
+  When initializing from earlier notes, check relevant project sources before
+  importing claims about current implementation or configuration. Carry forward
+  decisions and unresolved work without treating the notes as proof of current state.
 - **Maintain:** update affected canonical sections from completed work and evidence.
   Consult the standard when roles, conflicting statuses or restructuring need it.
   Ordinary document repairs are included; proposed product decisions are not approved
