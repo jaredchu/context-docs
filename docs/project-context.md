@@ -45,6 +45,9 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual; Cloudflare proxies the custom domain with Full SSL and
   Always Use HTTPS enabled.
+- Discoverability changes are prepared for review: canonical metadata, a public
+  sitemap and crawler policy. [Search registration steps](../site/README.md#search-discovery)
+  remain manual after deployment; indexing and AI citations are not established.
 
 ## Evidence and limits
 

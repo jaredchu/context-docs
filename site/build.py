@@ -6,6 +6,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '.local' / 'site-dist'
+SITE_URL = 'https://context-docs.com/'
 
 
 def fenced_section(text, heading, language):
@@ -31,6 +32,7 @@ def render(root):
     readme = (root / 'README.md').read_text(encoding='utf-8')
     example = (root / 'examples/maintenance.md').read_text(encoding='utf-8')
     values = {
+        'SITE_URL': SITE_URL,
         'CODEX_INSTALL': fenced_section(readme, '### Install in Codex', 'text'),
         'CLAUDE_INSTALL': fenced_section(readme, '### Install in Claude Code', 'sh'),
         'SAVE_PROMPT': fenced_section(readme, '### 2. Work normally, then save useful changes', 'text'),
@@ -70,6 +72,15 @@ def build(root=ROOT, output=OUTPUT):
     output.mkdir(parents=True)
     (output / 'index.html').write_text(html, encoding='utf-8')
     (output / '.nojekyll').write_text('', encoding='utf-8')
+    # Only public pages belong here, never repository context or evidence exports.
+    (output / 'robots.txt').write_text(
+        'User-agent: *\nAllow: /\n\nSitemap: ' + SITE_URL + 'sitemap.xml\n',
+        encoding='utf-8')
+    (output / 'sitemap.xml').write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        '  <url><loc>' + escape(SITE_URL) + '</loc></url>\n</urlset>\n',
+        encoding='utf-8')
     for name, source in sources.items():
         shutil.copyfile(source, output / name)
     return output
