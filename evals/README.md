@@ -27,6 +27,10 @@ and [broader protocol](quality-protocol.md). The scenarios below remain maintena
 regression checks; their pass rates do not establish downstream usefulness.
 Speed, tokens and size are supporting diagnostics, not quality substitutes.
 
+The [public-history comparison plan](public-history-plan.md) proposes four
+matched upgrade-handoff sessions on pinned HTTPX and ripgrep history. It is
+preparation only: no execution, reader outcomes or new comparative results.
+
 ## Run a case
 
 Use a disposable project directory with only the synthetic fixture described

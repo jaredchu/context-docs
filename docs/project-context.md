@@ -95,10 +95,14 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-Seek varied real-project histories and independent review before broader
-correctness claims. The [discrimination protocol](../evals/discrimination-protocol.md)
-remains a proposal, not an approved study. Any future native run needs a new
-frozen manifest; preserve completed studies without retries or rescoring.
+The [public-history comparison plan](../evals/public-history-plan.md) proposes four
+upgrade-handoff sessions across HTTPX and ripgrep, pairing ordinary maintenance
+with the released skill. Public source revisions are pinned; execution is not
+accepted or frozen. This evaluates documentation artifacts, not reader benefit.
+The [discrimination protocol](../evals/discrimination-protocol.md) remains a separate
+proposal. Seek independent cases/review before broader correctness claims; any
+future native run needs a new frozen manifest without retrying or rescoring
+completed studies.
 
 ## Canonical references
 

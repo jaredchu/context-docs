@@ -1,0 +1,261 @@
+{
+  "status": "Source scouting only; not a frozen subject manifest and no model sessions executed.",
+  "observed_on": "2026-10-10",
+  "projects": [
+    {
+      "id": "httpx",
+      "repository": "encode/httpx",
+      "before": "80960fa31918d7663c3f4c3ad61661cf0e80628f",
+      "after": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "license": "BSD-3-Clause",
+      "proposed_output_path": "docs/upgrade-handoff.md",
+      "output_absent_at_cutoff": true,
+      "upstream_agent_files": [],
+      "tree_api_ref": "26d48e0634e6ee9cdc0533996db289ce4b430177"
+    },
+    {
+      "id": "ripgrep",
+      "repository": "BurntSushi/ripgrep",
+      "before": "e50df40a1967708b9781486b1c017e48040bceb0",
+      "after": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "license": "Unlicense OR MIT",
+      "proposed_output_path": "UPGRADE-HANDOFF.md",
+      "output_absent_at_cutoff": true,
+      "upstream_agent_files": [],
+      "tree_api_ref": "4649aa9700619f94cf9c66876e9549d83420e16c"
+    }
+  ],
+  "files": [
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "LICENSE.md",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "ab79d16a3f4c6c894c028d1f7431811e8711b42b",
+      "sha256": "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d",
+      "bytes": 1508,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/LICENSE.md"
+    },
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "README.md",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "23992d9c24c07f7e835d39f65e28f9055aa0926c",
+      "sha256": "0025293013043e0c49d494dbbde876a6ac558fa70a74f93a86ed10e7ecba0ea3",
+      "bytes": 4944,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/README.md"
+    },
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "docs/advanced/ssl.md",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "da40ed2843c26c815d440dc0662db934bbbe4c61",
+      "sha256": "96dc8e954c5965bcf2ee68f436a143bcc8dab3cd647aa1631c1190593d241831",
+      "bytes": 3984,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/docs/advanced/ssl.md"
+    },
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "httpx/_config.py",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "467a6c90ae269babe3af7963d9d7c78b9f012268",
+      "sha256": "a4fa7653ec2271f70ab05f8a6111352d876dddee84446788a1767c1a3a372d67",
+      "bytes": 8547,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/httpx/_config.py"
+    },
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "CHANGELOG.md",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "f4cd341b71cdf2988a31f1e0d25cb567ee8e30a9",
+      "sha256": "2cd04b965b20eff7a4d3b30cc020c63b125da9f731874513bad2e59ca9743258",
+      "bytes": 52970,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/CHANGELOG.md"
+    },
+    {
+      "project": "httpx",
+      "state": "after",
+      "path": "tests/test_config.py",
+      "commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "git_blob": "22abd4c22c70c3600dd3a4b01b98df181c1bf624",
+      "sha256": "c1da4019686c6a62fb69f196ea09e00e529ffb207adae457c91f91819b9951fc",
+      "bytes": 5561,
+      "url": "https://github.com/encode/httpx/blob/26d48e0634e6ee9cdc0533996db289ce4b430177/tests/test_config.py"
+    },
+    {
+      "project": "httpx",
+      "state": "before",
+      "path": "httpx/_config.py",
+      "commit": "80960fa31918d7663c3f4c3ad61661cf0e80628f",
+      "git_blob": "dbd2b46cd1e41a5688c11d33d4196f5ad17abcf3",
+      "sha256": "49a62ffacb385e164e37bb296325020f1023e9c75538a9722fa93b1262b4d3d8",
+      "bytes": 8598,
+      "url": "https://github.com/encode/httpx/blob/80960fa31918d7663c3f4c3ad61661cf0e80628f/httpx/_config.py"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "COPYING",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "bb9c20a094e41b7632d63bcff20c0b4b95e80777",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+      "bytes": 126,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/COPYING"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "LICENSE-MIT",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "3b0a5dc09c1e16357459ddc9182a50f360f3cdba",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f",
+      "bytes": 1081,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/LICENSE-MIT"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "README.md",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "a429087603d005810ac60db8e04ac8db78af31ee",
+      "sha256": "439fd62b6ba5d8ac6bb16740df2251d37b086cf83dada391d73099bb8b81d046",
+      "bytes": 21003,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/README.md"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "GUIDE.md",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "6d51e460ef860fd350dd5a9f2f9e147b94e7bd01",
+      "sha256": "9dd96f163700ab5b41296cef3555b535c80c19e2ea25c7925c21b133d96d9537",
+      "bytes": 40701,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/GUIDE.md"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "Cargo.toml",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "2ec69c92a5336fa600260cb734b1aa85f7d82840",
+      "sha256": "ebdf51de971758dad9515a54da04ecce611fc8a3affc85b89ed439036fe7f994",
+      "bytes": 3364,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/Cargo.toml"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "CHANGELOG.md",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "60438379a64adf632e2d72c9b3fd5b470ba6eee5",
+      "sha256": "d60f8cf2583aa295378437ca8856246991107a2c24aec62e329ef6a016bb84f4",
+      "bytes": 82502,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/CHANGELOG.md"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "crates/regex/src/literal.rs",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "a33da2a6c19bef7fe99e4d98926a3e54439f3b2d",
+      "sha256": "a0b593514d4a1b66962e2d0d6e6425b5fc1e164a164e891bb0b029b7b3052ac0",
+      "bytes": 38175,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/crates/regex/src/literal.rs"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "crates/regex/src/config.rs",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "24bca70e35f11ba4dd96dc18cc45251762b96d08",
+      "sha256": "81fbeb214b8bf7b21567b2c744673165664a19424574894091fd5f6ebf3d85cb",
+      "bytes": 14512,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/crates/regex/src/config.rs"
+    },
+    {
+      "project": "ripgrep",
+      "state": "after",
+      "path": "crates/regex/src/matcher.rs",
+      "commit": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "git_blob": "7c1b87edbff20c5f2eae98b1fee55d6cc6358d6c",
+      "sha256": "a66589015a563a7857c106c10d25f534c353f2a35e22043aed002aa0a03eaa46",
+      "bytes": 25563,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/4649aa9700619f94cf9c66876e9549d83420e16c/crates/regex/src/matcher.rs"
+    },
+    {
+      "project": "ripgrep",
+      "state": "before",
+      "path": "crates/regex/src/literal.rs",
+      "commit": "e50df40a1967708b9781486b1c017e48040bceb0",
+      "git_blob": "e2f158b63edebd3bf101e5a8a8f72c943e863c45",
+      "sha256": "ca8f2aab8fb331ed5c794dae7875e00e15b6cf6a2b8b3856830938e75cc06fec",
+      "bytes": 37702,
+      "url": "https://github.com/BurntSushi/ripgrep/blob/e50df40a1967708b9781486b1c017e48040bceb0/crates/regex/src/literal.rs"
+    }
+  ],
+  "limits": [
+    "Selected immutable source blobs inspected for feasibility; full fixtures, expected facts and harness remain to be frozen before any run.",
+    "Tasks and case selection are evaluator-authored; sources are public upstream history, not owner-contributed field cases.",
+    "Mutable GitHub release bodies are not evidence of exactly what their tagged revision contained."
+  ],
+  "fixes": [
+    {
+      "project": "httpx",
+      "commit": "89599a9541af14bcf906fc4ed58ccbdf403802ba",
+      "url": "https://github.com/encode/httpx/commit/89599a9541af14bcf906fc4ed58ccbdf403802ba",
+      "date": "2024-12-04T11:29:09Z",
+      "parents": [
+        "8ecb86f0d74ffc52d4663214fae9526bee89358d"
+      ],
+      "diff_sha256": "c3279b318af54bfcd50194eca3c7d06d10d9992d61c3a9b8af1da1e4bf9f12c3",
+      "diff_bytes": 1209,
+      "diff_url": "https://github.com/encode/httpx/commit/89599a9541af14bcf906fc4ed58ccbdf403802ba.diff",
+      "after": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "ancestor_of_after": true,
+      "comparison_status": "ahead",
+      "merge_base": "89599a9541af14bcf906fc4ed58ccbdf403802ba",
+      "comparison_url": "https://github.com/encode/httpx/compare/89599a9541af14bcf906fc4ed58ccbdf403802ba...26d48e0634e6ee9cdc0533996db289ce4b430177",
+      "primary_file_provenance": {
+        "path": "httpx/_config.py",
+        "before_tag_blob": "dbd2b46cd1e41a5688c11d33d4196f5ad17abcf3",
+        "fix_parent_blob": "dbd2b46cd1e41a5688c11d33d4196f5ad17abcf3",
+        "after_tag_blob": "467a6c90ae269babe3af7963d9d7c78b9f012268",
+        "diff_index_before": "dbd2b46cd1",
+        "diff_index_after": "467a6c90ae",
+        "before_tag_matches_fix_parent": true,
+        "parent_source_url": "https://github.com/encode/httpx/blob/8ecb86f0d74ffc52d4663214fae9526bee89358d/httpx/_config.py"
+      }
+    },
+    {
+      "project": "ripgrep",
+      "commit": "9d738ad0c009e6632d75fa3d36051e5ae7f7cce6",
+      "url": "https://github.com/BurntSushi/ripgrep/commit/9d738ad0c009e6632d75fa3d36051e5ae7f7cce6",
+      "date": "2024-09-09T02:00:46Z",
+      "parents": [
+        "6c5108ed17987531644518fac8c1659b0b202611"
+      ],
+      "diff_sha256": "a3aa2db2ad2420289d731060ee3c1313c00782404ed787a24d3f522babf157fe",
+      "diff_bytes": 4690,
+      "diff_url": "https://github.com/BurntSushi/ripgrep/commit/9d738ad0c009e6632d75fa3d36051e5ae7f7cce6.diff",
+      "after": "4649aa9700619f94cf9c66876e9549d83420e16c",
+      "ancestor_of_after": true,
+      "comparison_status": "ahead",
+      "merge_base": "9d738ad0c009e6632d75fa3d36051e5ae7f7cce6",
+      "comparison_url": "https://github.com/BurntSushi/ripgrep/compare/9d738ad0c009e6632d75fa3d36051e5ae7f7cce6...4649aa9700619f94cf9c66876e9549d83420e16c",
+      "primary_file_provenance": {
+        "path": "crates/regex/src/literal.rs",
+        "before_tag_blob": "e2f158b63edebd3bf101e5a8a8f72c943e863c45",
+        "fix_parent_blob": "a45f749e29091568c156a63d2a2b107ba6a1d460",
+        "after_tag_blob": "a33da2a6c19bef7fe99e4d98926a3e54439f3b2d",
+        "diff_index_before": "a45f749e29",
+        "diff_index_after": "a33da2a6c1",
+        "before_tag_matches_fix_parent": false,
+        "parent_source_url": "https://github.com/BurntSushi/ripgrep/blob/6c5108ed17987531644518fac8c1659b0b202611/crates/regex/src/literal.rs"
+      }
+    }
+  ]
+}
