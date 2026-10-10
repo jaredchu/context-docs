@@ -34,7 +34,7 @@ class LandingBuildTests(unittest.TestCase):
         for path, heading, language in [
             ('README.md', '### Install in Codex', 'text'),
             ('README.md', '### Install in Claude Code', 'sh'),
-            ('README.md', '### 2. Work normally, then save useful changes', 'text'),
+            ('README.md', '### 2. Save decisions, current work and next steps', 'text'),
             ('README.md', '### 3. Resume with the saved context', 'text'),
             ('examples/maintenance.md', '## Before: existing context.md', 'markdown'),
             ('examples/maintenance.md', '## After: same context.md', 'markdown'),
@@ -84,7 +84,7 @@ class LandingBuildTests(unittest.TestCase):
         for heading, language in [
             ('### Install in Codex', 'text'),
             ('### Install in Claude Code', 'sh'),
-            ('### 2. Work normally, then save useful changes', 'text'),
+            ('### 2. Save decisions, current work and next steps', 'text'),
             ('### 3. Resume with the saved context', 'text'),
             ('## What you get', 'markdown'),
         ]:

@@ -36,7 +36,7 @@ def render(root, template_name='index.html'):
         'QUICK_EXAMPLE': fenced_section(readme, '## What you get', 'markdown'),
         'CODEX_INSTALL': fenced_section(readme, '### Install in Codex', 'text'),
         'CLAUDE_INSTALL': fenced_section(readme, '### Install in Claude Code', 'sh'),
-        'SAVE_PROMPT': fenced_section(readme, '### 2. Work normally, then save useful changes', 'text'),
+        'SAVE_PROMPT': fenced_section(readme, '### 2. Save decisions, current work and next steps', 'text'),
         'RESUME_PROMPT': fenced_section(readme, '### 3. Resume with the saved context', 'text'),
         'EXAMPLE_BEFORE': fenced_section(example, '## Before: existing context.md', 'markdown'),
         'EXAMPLE_AFTER': fenced_section(example, '## After: same context.md', 'markdown'),
