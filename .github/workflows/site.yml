@@ -1,0 +1,49 @@
+name: Landing page
+
+on:
+  pull_request:
+    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+  push:
+    branches: [main]
+    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Publish the reviewed main branch to GitHub Pages
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: landing-page-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m unittest discover -s site -p 'test_*.py'
+      - run: python3 site/build.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: .local/site-dist
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
