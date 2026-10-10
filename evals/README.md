@@ -334,6 +334,12 @@ scores; no skill-specific cause of the original errors is established.
 
 ## Optional adoption skill
 
+The [local-only controls and scenarios](local-only/README.md) cover Git-ignored
+destinations, tracked-context migration and copying local canaries into shared
+docs. Their real-Git unit tests validate inspection mechanics; the adoption,
+maintenance, repeat and audit scenarios are unexecuted agent checks, not evidence
+of skill reliability. Earlier frozen studies and scores stay unchanged.
+
 Use the [adoption regression](adoption/README.md) for `adopt-context-docs` changes.
 It checks initial adoption and repeated use on projects with no documentation and
 with existing rules, a custom layout and uncommitted work. Core maintenance studies

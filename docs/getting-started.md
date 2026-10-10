@@ -121,11 +121,68 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
-Make the context entry point discoverable: link it from the project README or
+Make shared context discoverable: link it from the project README or
 documentation index. For a fresh session, ask the agent to start there and read
 the linked context before working. A context file's presence alone does not ensure
 that an agent will read it. This routing is already part of the skill's
 initialization workflow.
+
+## Local-only context (excluded from Git)
+
+Unreleased core v0.1.7 and adoption v0.1.8 add an explicit local-only option. Existing
+projects keep their storage, paths and instructions unless you request a change;
+installing or upgrading the skills does not make context local-only.
+
+For a new setup, ask:
+
+```text
+Use $adopt-context-docs to set up local-only context, excluded from Git.
+Reuse my existing local context and instruction locations if present;
+otherwise use .context/local/ for context files. Use repository-local excludes
+for my personal setup. Keep private content out of shared docs and instructions.
+Verify both tracking and ignore status, including the journal if already enabled.
+Preserve existing tracked context and resolve migration scope before changing it.
+Record how a fresh session should find the local entry point, and report whether
+the guidance actually loads. Leave logging settings unchanged.
+```
+
+In Claude Code, replace `$adopt-context-docs` with `/adopt-context-docs`.
+The directory above is an example; use your own existing path. For a project-wide
+ignore convention, request `.gitignore` instead of a developer-local exclude rule.
+The [packaged local-only guide](../skills/context-docs/references/local-only.md)
+owns the storage checks, discovery and migration procedure.
+
+The agent should confirm that every chosen context path is untracked and ignored.
+Ignored files may be absent from searches, so a new session should read the named
+entry point directly, for example:
+
+```text
+Read .context/local/project-context.md and its relevant linked documents directly.
+Keep this context local-only and use it to continue the next task.
+```
+
+Use local agent guidance that actually loads, or an agreed nonsensitive path
+pointer in shared instructions. Avoid public README links to files missing from
+other clones. A pointer does not authorize copying the local content into shared
+docs, tracked instructions, shared journals or exports.
+
+An ignore rule does not stop tracking existing files or erase old commits. The
+agent should report tracked context and preserve it until migration scope is
+clear, rather than silently moving or untracking it. Enabled journals need the
+same storage checks; existing records and logging settings remain intact.
+
+For local-only context, [optional logging](#optional-logging) can retain significant
+decisions, checks and corrections as current context changes without Git history.
+Enable it explicitly with an untracked, ignored journal destination; selecting
+local-only storage alone does not enable it. The
+[journal guide](../skills/context-docs/references/event-journal.md) explains capture
+and preservation; complete document versions still need snapshots or backups.
+
+Git exclusion is not encryption or a promise that an agent cannot read the files.
+Local files do not travel with clones, other worktrees or other machines; arrange
+your own backup or transfer if needed. A missing local entry point requires
+restoration or fresh initialization, not invented history. Audits remain read-only,
+and repeat adoption preserves matching rules, paths and the original adoption date.
 
 ## Optional logging
 

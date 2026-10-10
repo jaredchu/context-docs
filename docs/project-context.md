@@ -18,6 +18,9 @@ local notes only when still useful.
 - Select information by audience, destination and lasting usefulness. The agent
   must filter what it writes; publication still requires project authorization.
 - Keep logging optional, for efficient event capture and later investigation.
+  Local-only context is a concrete use case for retaining significant events as
+  current Markdown changes without Git history; complete version recovery still
+  needs snapshots or backups.
   Broader integration must meet the [journal requirements](event-journal-pilot.md#requirements-before-broader-integration).
 - Prioritize useful, accurate context and reduced human effort. Model speed, token
   use and file length alone do not establish success; outperforming expert
@@ -40,6 +43,12 @@ Earlier release approvals do not authorize new publication.
 
 - Released bundle: [v0.1.6](releases/v0.1.6.md), with core **0.1.6**, adoption
   **0.1.7** and standard **0.1.1**.
+- Working packages: core **0.1.7** and adoption **0.1.8**, unreleased. They add
+  explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
+  while preserving existing setups. Storage, ignored-entry discovery and sharing
+  controls pass 21 real-Git/canary tests, with seven agent scenarios still
+  unexecuted. Saved studies and this repository's shared context/journal setup
+  remain unchanged. [Changelog](../CHANGELOG.md) records validation and review limits.
 - Core supports audit, initialize and maintain. Adoption uses the sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.

@@ -11,9 +11,42 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The current bundle is described in the [v0.1.6 release notes](docs/releases/v0.1.6.md).
+The latest published bundle is described in the [v0.1.6 release notes](docs/releases/v0.1.6.md).
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## context-docs 0.1.7 — unreleased
+
+- Add opt-in local-only context guidance: check effective ignore rules separately
+  from Git tracking, read ignored entry points directly, and keep local content
+  out of shared destinations. Preserve existing layouts, tracked history and
+  logging settings; resolve migration scope before changing established context.
+- Clarify the journal's optional role in retaining selected events as Git-ignored
+  context changes. It does not capture complete document versions or enable
+  logging implicitly; existing logging settings and auto rules are preserved.
+- Add repository-only storage/leakage regression controls and synthetic scenarios.
+  All 21 new real-Git/canary controls pass, along with 17 static-checker, 19 audience,
+  28 public-adoption and 8 site tests (93 total), repository static checks, the site
+  build, both skill validators and isolated sibling-package link checks. Seven
+  agent scenarios are authored but unexecuted; no new native agent evaluation or
+  confidentiality guarantee is claimed. Saved studies remain unchanged; standard
+  remains 0.1.1.
+- Codex implemented skill/docs guidance and integrated controls drafted by exact
+  Claude Opus 5.5. The bounded implementation reached its 180-second limit after
+  writing three files; Codex corrected Git invocation issues and validated them.
+  A separate Opus review found no hard blocker; its routing, marker and ignore-rule
+  clarifications were applied. One focused follow-up accepted the fixes; version
+  files and the guide's unreleased wording were verified independently.
+
+## adopt-context-docs 0.1.8 — unreleased
+
+- Apply the core local-only procedure during explicit adoption and record the
+  storage choice in the agreed instruction location. Keep upgrades and repeat
+  adoption from selecting or migrating storage implicitly; separate verified Git
+  exclusion from instruction-loading evidence. Update the user guide with setup
+  and fresh-session prompts. The same 93 mechanical tests, static checks, skill
+  validators and sibling-package checks pass; native local-only adoption remains
+  untested. The focused Opus review and its clarifications are recorded above.
 
 ## v0.1.6 publication — 2026-10-10
 

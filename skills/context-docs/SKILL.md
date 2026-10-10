@@ -15,15 +15,23 @@ unclear. Preserve existing layouts and concurrent edits.
 - **Audit:** report concrete gaps and source locations; leave project files unchanged.
 - **Initialize:** reuse suitable files or sections. Read [the standard](references/standard.md)
   for document roles. If an entry point is missing, adapt [the template](assets/project-context.md),
-  remove unused prompts, and link it from the README or documentation index.
-  If neither exists, a short README pointing to the supported context is enough;
-  it does not require inventing a broader project mission.
+  remove unused prompts, and link shared context from the README or documentation index.
+  For shared context, if neither exists, a short README pointing to the supported
+  context is enough; it does not require inventing a broader project mission.
+  For local-only context, use the local discovery route below instead.
 - **Maintain:** update affected canonical sections from completed work and evidence.
   Consult the standard when roles, conflicting statuses or restructuring need it.
   Ordinary document repairs are included; proposed product decisions are not approved
   by a maintenance request. A review without permission to edit remains an audit.
 
 ## Make the smallest useful update
+
+Preserve the existing storage choice unless the user requests a change. For an
+explicit local-only (Git-ignored) request, or maintenance of an existing local-only
+setup, read the [local-only guide](references/local-only.md). Verify tracking and
+ignore status before writing, read the named entry point directly even when searches
+omit ignored files, and keep its content out of shared destinations. An audit reports
+storage gaps without changing files, Git state or settings.
 
 Select durable information for the intended reader and actual sharing destination.
 For decisions about what to retain or where it belongs, use the standard's

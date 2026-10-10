@@ -145,3 +145,17 @@ are objectives to verify, not demonstrated outcomes.
 The [project instructions](../AGENTS.md#model-collaboration) own the working rules.
 This records the owner's requested responsibilities, not a runtime model change
 or evidence that either model participated in a particular task.
+
+On October 10, 2026, the owner requested an explicit local-only context option in
+both skills and the user guide, with checks for ignored files, already tracked
+context and copying into shared docs. Existing setups and saved studies must be
+preserved. Local-only is opt-in Git exclusion; it does not retroactively remove
+tracked history or establish confidentiality. Example paths and verification
+procedures are implementation choices documented in the
+[packaged guide](../skills/context-docs/references/local-only.md).
+
+The owner then identified Git-ignored context as a clearer use case for logging:
+retaining history while current context changes without commits. This clarifies
+the optional journal's purpose, without enabling it or changing existing setups.
+It is a proposed use case, not a newly measured benefit or a claim that selected
+event records preserve complete document versions.

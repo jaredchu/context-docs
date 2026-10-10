@@ -3,6 +3,10 @@
 Record compact evidence for later investigation when the project opts in. Git
 is not required. Existing Markdown history, CI results or application logs may
 already suffice; a journal is optional, not a replacement for current context.
+For Git-ignored context, an enabled local-only journal can retain significant
+decisions, checks and corrections as current Markdown is revised, even though
+those documents have no Git commit history. It records selected events, not
+complete document versions; snapshots or backups serve that separate need.
 Consult history when needed, not as routine session context. No automatic capture,
 background process, cleanup or factual verification is provided.
 
@@ -15,6 +19,11 @@ its internal validation of the selected session. A successful append already
 returns the stored record; an additional history read needs a concrete reason.
 
 ## Enable, upgrade, disable
+
+For local-only context, also apply the [storage guide](local-only.md): verify the
+configured journal destination is untracked and ignored before capturing local
+content. Preserve existing journals and resolve a shared/tracked destination
+without silently moving records or changing the logging setting.
 
 Logging is off when no setting exists. Installing or updating this skill does
 not enable it. On an explicit request to enable JSONL, merge these two lines beside

@@ -11,7 +11,13 @@ the maintenance method. If unavailable, report the missing dependency rather tha
 silently inventing a substitute.
 
 Read the project's instructions and entry points. Confirm the target from the
-workspace; ask only when the intended project is ambiguous. Initialize missing
+workspace; ask only when the intended project is ambiguous. Preserve existing
+storage choices. If the user requests local-only context, follow the core skill's
+[local-only guide](../context-docs/references/local-only.md) before initialization:
+establish the ignored, untracked destination and a suitable discovery route,
+preserve tracked context until any migration is explicitly scoped, and keep local
+content out of shared docs and instructions. Skill installation, upgrade and repeat
+adoption alone do not select local-only storage. Initialize missing
 context or maintain existing documents using the skill. Preserve useful layouts,
 approved decisions, rationale, source evidence, unresolved work and concurrent edits.
 Do not manufacture missing intent or populate empty templates merely for completeness.
@@ -59,7 +65,15 @@ equivalent sections and marker positions; do not rearrange them solely for
 formatting consistency.
 
 Use the actual context entry point, relative to that instruction file; a README
-section is also valid. For new adoption, use the current date. Preserve an existing
+section is also valid for shared context. For local-only adoption, record
+`Context storage: local-only` beside the marker only in an existing local
+instruction location or an explicitly agreed shared pointer location. If neither
+is established, use the agreed session prompt and report the persistent discovery
+gap; do not insert a marker into shared instructions as a fallback. Preserve
+equivalent existing wording and avoid a public README link to an ignored target.
+The marker records intent; separately verify tracking, ignore status and
+instruction loading, reporting an unresolved setup without claiming it is complete.
+For new adoption, use the current date. Preserve an existing
 adoption date and equivalent marker rather than adding another. When adding a
 marker to previously adopted guidance, use a supported original date or `unknown`
 if none is recorded; do not invent the history. If equivalent maintenance guidance
