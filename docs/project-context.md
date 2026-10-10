@@ -69,7 +69,9 @@ Earlier release approvals do not authorize new publication.
   are defined in the packaged guide. There is no background service or sync.
 
 - [Landing page](https://context-docs.com/): live on GitHub Pages,
-  built from selected public sources. [Deployment](../site/README.md#github-pages)
+  built from selected public sources. The [v0.1.8 deployment](https://github.com/jaredchu/context-docs/actions/runs/38062572064)
+  passed; both live pages match the built HTML, with released package versions
+  and updated local-only guidance. [Deployment](../site/README.md#github-pages)
   is manual; Cloudflare proxies the custom domain with Full SSL and
   Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a

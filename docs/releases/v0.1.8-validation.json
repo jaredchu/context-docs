@@ -64,5 +64,31 @@
       "landing_page": "https://github.com/jaredchu/context-docs/actions/runs/38062411476",
       "conclusions": "success"
     }
+  },
+  "website_deployment": {
+    "source_commit": "2f147cbdd1095ca4212608b9833781bc182312c8",
+    "workflow_run": "https://github.com/jaredchu/context-docs/actions/runs/38062572064",
+    "conclusion": "success",
+    "live_checks": [
+      {
+        "url": "https://context-docs.com/",
+        "sha256": "5a7c75af74de024c8b8569fe82ccfb223860fb7132099003acae7074cbef50ab",
+        "matches_build": true,
+        "seo_titles": [
+          "Context Docs: pick up where you left off",
+          "Context Docs: pick up where you left off"
+        ]
+      },
+      {
+        "url": "https://context-docs.com/getting-started/",
+        "sha256": "ef46777088a438e3ef4eb47b682be53695aa3d589e0c1afbb69f8d7588d71b30",
+        "matches_build": true,
+        "seo_titles": [
+          "Get started with Context Docs",
+          "Get started with Context Docs"
+        ]
+      }
+    ],
+    "request_limits": "Initial Python urllib request received HTTP 403 and web-reader access was unavailable. Ordinary curl GETs succeeded and matched both built HTML files. This does not establish verified crawler access or indexing."
   }
 }
