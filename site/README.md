@@ -29,10 +29,7 @@ It never copies the repository, context docs, journals, or evaluation exports.
 
 ## GitHub Pages
 
-Domain: [Context Docs](http://context-docs.com/). On 2026-10-10, HTTP serving and
-the `www` redirect were verified; GitHub's HTTPS certificate is still being issued.
-Enable **Enforce HTTPS** in Pages settings and verify both hostnames once issuance
-completes, then update this link to HTTPS.
+Live site: [Context Docs](https://context-docs.com/).
 
 The [landing-page workflow](../.github/workflows/site.yml) builds and tests on
 relevant pull requests and main-branch pushes. Deployment is manual: after an
@@ -42,8 +39,11 @@ Use the URL returned by the deployment. Branch/PR builds do not publish a site.
 
 The custom domain is `context-docs.com`. Cloudflare DNS points its four A and four
 AAAA records to GitHub Pages, with `www` pointing to `jaredchu.github.io` by CNAME;
-these records are DNS-only. GitHub Pages handles hosting, certificates and the
-`www` redirect. Domain configuration lives in Pages settings; this Actions-based
+these records are proxied. Cloudflare provides the public certificate with
+**Full** SSL mode and **Always Use HTTPS** enabled. Full encrypts the origin
+connection without validating the origin certificate; visitor HTTPS does not
+depend on GitHub issuing a certificate for this domain. GitHub Pages handles
+hosting and the `www` redirect. Domain configuration lives in Pages settings; this Actions-based
 deployment does not require a repository CNAME file. The page uses relative asset
 links. Do not publish the repository root as the site artifact.
 

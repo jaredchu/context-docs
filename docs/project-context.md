@@ -41,10 +41,10 @@ Earlier release approvals do not authorize new publication.
   [logging precedence and auto rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
   are defined in the packaged guide. There is no background service or sync.
 
-- [Landing page](http://context-docs.com/): live on GitHub Pages,
+- [Landing page](https://context-docs.com/): live on GitHub Pages,
   built from selected public sources. [Deployment](../site/README.md#github-pages)
-  is manual; Cloudflare manages DNS for the custom domain. HTTPS certificate
-  issuance is pending; the deployment guide records the remaining verification.
+  is manual; Cloudflare proxies the custom domain with Full SSL and
+  Always Use HTTPS enabled.
 
 ## Evidence and limits
 
