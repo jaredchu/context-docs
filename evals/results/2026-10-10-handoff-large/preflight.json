@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "coordinator": "Codex, requested Sol coordination role; precise model identity not independently exposed",
+  "preparation_timeout_retained": true,
+  "preparation": {
+    "assignment": "Opus author fixture/verifier within180s",
+    "result": "Timed out with no files; no retry",
+    "evidence": "author-execution.json; author.jsonl",
+    "completion_owner": "Codex completed already-specified fixture and verifier; original requirement retained"
+  },
+  "equivalence": "Every curated fact occurs in raw notes or code; both arms receive identical common files, code/tests and36 neutral distractor notes. Curated adds summary, README link and routing instruction only.",
+  "authority": "Owner records establish arrival-priority reason, full-validation corruption reason and exact tenant/id identity reason. Contributor design superseded by later owner reply. Compatibility blocker supplied in ops record.",
+  "baseline_controls": "baseline-control.json:3 baseline tests pass,9/16 missing-feature outcomes fail. reference-control.json:16/16 independent outcomes and baseline tests pass.",
+  "budget_controls": "Five unit controls pass, including simultaneous reads cannot overrun atomic reservation; forbidden tools, partial reads, content search and out-of-scope writes denied.",
+  "feasibility": "All nondistractor common content is6934 bytes across18 files, plus1874-byte curated summary; subjects can skip __init__/UI/pagination/testing note and fit16 reads in either arm. Filename-only search locates meaningful notes; no content budget weakening or artificial source concealment.",
+  "limits": [
+    "Common raw sources easily searchable; informative bytes alone fit byte cap, so file-read count and source selection matter more than byte cap.",
+    "36 benign workshop notes add corpus volume, not extra authority; no assumption this creates meaningful pressure.",
+    "Author failure retained; no counterpart preflight approval falsely claimed. Final Opus review will review design/control changes and assessment.",
+    "Frozen verifier created before both subjects; reference code and expected outcomes remain outside subject roots."
+  ]
+}

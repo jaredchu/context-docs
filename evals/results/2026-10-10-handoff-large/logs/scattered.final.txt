@@ -1,0 +1,25 @@
+I've added `--limit N`. The code changes and tests are written, but I haven't run anything, so the tests have not been executed yet.
+
+**Owner's decision and why:** Mira, the project owner, decided this in `notes/owner/2026-09-24-preview-reply.md`. Records must stay in the order they arrived, because consumers treat that order as priority. Sorting by id would quietly change which job they see first. The whole file must still be loaded and checked before the preview is chosen, so a corrupt record later in the file is still caught even when the limit is 0 or already reached. The limit counts selected records, not raw lines. It must be zero or more: 0 prints nothing, and a limit larger than the selection prints everything. Negative or non-integer values get the usual argparse error. The input file stays untouched. Jo's note (`notes/contracts/2026-09-25-selection.md`) adds that the limit applies after the tenant filter and duplicate removal, is passed from the CLI through `service.execute` into `selection.select`, and leaves output unchanged when no limit is given.
+
+**Proposal not followed:** Dev's September 21 design (`notes/design/2026-09-21-preview.md`) suggested sorting by id, stopping reading once N rows are found, and eventually merging tenant queues. Mira rejected the sorting and early stop, and queue merging is out of scope. Dev's page-number idea (`notes/design/2026-09-18-pagination.md`) was never accepted.
+
+**Changes:**
+- `parcel/cli.py`: new `--limit` option. Its `nonnegative_int` check raises `argparse.ArgumentTypeError`, so a bad value exits with code 2 and a `argument --limit: …` message.
+- `parcel/service.py`: `execute(path, tenant=None, limit=None)` passes the limit on.
+- `parcel/selection.py`: the limit is applied after the full tenant filter and duplicate removal, by cutting the list to the first N. Without a limit the output is exactly as before. Loading, validation and output formatting are unchanged.
+- `tests/test_parcel.py`: the three original tests are kept. A new `LimitTests` class checks:
+  - the limit counts selected records, so another tenant's rows and duplicates don't use it up;
+  - arrival order is kept rather than id order;
+  - 0 prints nothing;
+  - a limit larger than the selection prints the same as no limit;
+  - output with no limit is unchanged;
+  - a corrupt later record is still rejected with limits 0 and 1, through both the CLI and `execute`, and so is invalid JSON later in the file;
+  - `-1`, `1.5`, `two` and an empty value each give an argparse error (exit 2, message mentions `--limit`);
+  - the input file is unchanged after a run.
+
+**Remaining blocker:** The compatibility check against the production exporter v3 is blocked because its owner hasn't provided a sample (`notes/ops/2026-09-26-exporter.md`). The test files are made-up JSONL, so passing them doesn't clear this, and there's no evidence of a production rollout.
+
+**Next step:** Ask the exporter owner for a sanitized v3 sample and run a separate compatibility check. Before that, run `python -m unittest tests.test_parcel` from the project root.
+
+**Limits of what I checked:** I read 14 files, about 5 KB, within the budget. I didn't read `validation.py`. The corrupt-record test assumes a record missing `tenant` is rejected, which the original `test_full_validation` already relies on. I didn't read the workshop notes or the README. Notes, README and settings were not touched, and nothing was committed or published.

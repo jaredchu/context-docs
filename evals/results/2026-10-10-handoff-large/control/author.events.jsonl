@@ -1,0 +1,2 @@
+{"hook_event_name": "PreToolUse", "session_id": "1094b779-8b17-47e5-aef4-e5d6ddfb73e2", "tool_use_id": "toolu_01JtUoFucLRABdUAFTJnMU8Y", "tool_name": "Read", "tool_input": {"file_path": "/private/tmp/context-docs-handoff-large-20261010/REQUIREMENTS.md"}, "decision": "allow", "reason": "Read-only review or bounded authoring.", "retrieval_bytes": 4584}
+{"hook_event_name": "PostToolUse", "session_id": "1094b779-8b17-47e5-aef4-e5d6ddfb73e2", "tool_use_id": "toolu_01JtUoFucLRABdUAFTJnMU8Y", "observed_at_ns": 1791628741230369000, "tool_name": "Read", "error": null}

@@ -1,0 +1,16 @@
+I accept the fixes. I found no remaining material problems.
+
+- **Curated checks:** `curated-checks.json` has 16 named checks, all `passed: true`, all with `source_unchanged: true`, and `all_acceptance_passed: true`. The suite ran 14 tests with exit code 0. This matches `acceptance_passed: 16/16` in `assessment.json`.
+- **Budget controls:** `unit-control-output.txt` shows 5/5 tests passing, and they match the 5 tests in `review-material/test_hook.py`. Together they cover:
+  - byte charging for non-ASCII (UTF-8) text
+  - denial before a read that would exceed the byte cap
+  - 5 parallel hook calls that can't overrun the budget (2 allowed, 3 denied)
+  - denial of partial reads, content-output Grep, paths outside the project, and Bash
+  - the search cap and the writable-file limit
+- **Literal scoring:** Both arms now pass all six frozen criteria. The scattered arm's false claim of 14 reads (13 observed) is kept separately in `additional_report_errors` and isn't counted against a criterion. Finding 6 in `review-disposition.json` says the same thing.
+- **Filename-search disclosure:** The limits entry at `assessment.json:184` states that Grep matches file content but returns only filenames, that searches aren't charged bytes, that the budget controls content delivery rather than all information gathering, and the counts (scattered 2, curated 0). The reviewer's own content-output Grep denial is disclosed at line 188.
+
+Two minor notes; neither changes acceptance:
+
+1. **Read cap isn't tested on its own.** `test_utf8_repeated_reads_charge_and_read_cap` and the parallel test use `'éé'` (4 bytes) with `reads=2` and `bytes=8`, so the byte cap and read cap trigger at the same point. Either cap could be causing the denial. The byte cap is tested alone (`bytes=3`), but the read cap isn't. Caps weren't reached in either arm, so no result depends on this.
+2. **"Source hash verified" isn't backed by a recorded hash.** Finding 5 makes the claim, but none of the files I read record a hash. Also, `test_hook.py` imports `hook` from `../claude-code`, not from `review-material/hook.py`. If you want this provable from the files, record the hash comparison.

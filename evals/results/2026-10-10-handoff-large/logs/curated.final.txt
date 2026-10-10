@@ -1,0 +1,42 @@
+I've finished the code changes and tests. Here is the summary.
+
+## `--limit N` for the Parcel queue CLI
+
+**Who decided and why.** Mira, the project owner, set the rules in a reply on Sept 24 (`notes/owner/2026-09-24-preview-reply.md`):
+- **Keep arrival order.** Downstream consumers read the order records arrive in as priority. Sorting would quietly change which job they see first.
+- **Read and validate the whole input before choosing anything.** A broken record later in the file must still cause an error, even with `--limit 0` or once the limit is already met.
+- **What N means:** N is a whole number of 0 or more. Leaving it out means no limit; 0 prints nothing; an N larger than the result prints everything.
+- **No side effects:** the input file is never changed, and there's no queue merging.
+
+Jo, the maintainer, added the selection rule on Sept 25 (`notes/contracts/2026-09-25-selection.md`). The limit counts records *after* the tenant filter and after duplicates are removed (same tenant and id, keeping the first). If it counted raw lines, duplicates or other tenants' rows could use up the quota.
+
+**Proposal set aside.** Dev's Sept 21 design suggested sorting the records and stopping early, for nicer screenshots and lower latency. Mira's reply explicitly overrules both parts, so neither is used. I didn't open that design note because the owner's reply settles the question.
+
+**Changes**
+- `parcel/cli.py`: new `--limit` option with a `nonnegative_int` check. Negative, decimal, non-numeric or empty values fail with the standard argparse usage error (exit code 2). The value is passed to `execute`.
+- `parcel/service.py`: `execute(path, tenant=None, limit=None)` passes `limit` on to `select`. Loading and validating the full file still happens first, unchanged.
+- `parcel/selection.py`: `select(..., limit=None)` cuts the list *after* the tenant filter and duplicate removal. With no limit, the output is exactly what it was before.
+- `tests/test_parcel.py`: the existing tests are untouched. A new `LimitTests` class covers:
+  - no limit gives the same output as before (through both the function and the CLI)
+  - the limit counts records after tenant filtering and duplicate removal (raw duplicates and other-tenant rows don't use up the quota)
+  - arrival order is kept
+  - `0` prints nothing
+  - a too-large N prints everything selected
+  - with limit 0, a missing-field row later in the file still raises an error
+  - with the limit already met, bad JSON later in the file still raises an error
+  - in the CLI, that late error becomes an exit-code-2 error message
+  - the input file's bytes are unchanged afterwards
+  - `--limit` reaches the selection step from the command line
+  - invalid limit values (`-1`, `1.5`, `abc`, empty) are rejected
+
+`loader.py`, `validation.py`, `render.py`, the notes, the README and the settings were not changed.
+
+**What I checked, and what I didn't**
+- I read `docs/project-context.md`, the four files I edited, `loader.py`, `render.py`, Mira's reply and Jo's selection contract (9 reads, roughly 5 KB).
+- I didn't read `validation.py`, the README, the identity, ops, testing or UI notes, or Dev's design. For those I relied on the project-context summary.
+- I assumed which rows count as valid from the existing tests: rows with `tenant` and `id`, where extra keys are allowed and a missing `tenant` fails.
+- **Nothing was run.** Whoever runs the checks should use `python -m unittest tests.test_parcel` (or the command in the README).
+
+**Remaining blocker.** Compatibility with production exporter v3 is still unverified. There's no v3 sample, and tests with made-up data can't settle it.
+
+**Next step.** Ask the exporter's owner for a sanitized v3 sample, then check compatibility separately before any production rollout.

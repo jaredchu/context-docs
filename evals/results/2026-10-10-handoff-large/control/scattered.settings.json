@@ -1,0 +1,49 @@
+{
+  "autoMemoryEnabled": false,
+  "hooks": {
+    "InstructionsLoaded": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /private/tmp/context-docs-handoff-large-20261010/control/hook.py /private/tmp/context-docs-handoff-large-20261010/control/scattered.config.json || exit 2",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /private/tmp/context-docs-handoff-large-20261010/control/hook.py /private/tmp/context-docs-handoff-large-20261010/control/scattered.config.json || exit 2",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /private/tmp/context-docs-handoff-large-20261010/control/hook.py /private/tmp/context-docs-handoff-large-20261010/control/scattered.config.json || exit 2",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3 /private/tmp/context-docs-handoff-large-20261010/control/hook.py /private/tmp/context-docs-handoff-large-20261010/control/scattered.config.json || exit 2",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

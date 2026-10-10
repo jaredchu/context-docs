@@ -1,0 +1,7 @@
+{
+  "command": "python3 -m unittest tests.test_parcel",
+  "scope": "scattered final project; focused check of recommended named-module invocation",
+  "exit_code": 0,
+  "tests": 12,
+  "result": "OK; no named-module import defect found"
+}

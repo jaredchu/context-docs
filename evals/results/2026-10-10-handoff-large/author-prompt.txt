@@ -1,0 +1,1 @@
+Read REQUIREMENTS.md, then author fixture.json and verify.py only. This is a bounded synthetic evaluation preparation assignment. Return artifacts and limitations; no execution or other edits. Three-minute bound.

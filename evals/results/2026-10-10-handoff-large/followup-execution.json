@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "stderr": "",
+  "seconds": 29.6,
+  "responding_models": [
+    "claude-opus-5-5"
+  ],
+  "result_received": true
+}

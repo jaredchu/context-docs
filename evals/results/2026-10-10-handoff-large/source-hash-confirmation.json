@@ -1,0 +1,20 @@
+{
+  "hook.py": {
+    "frozen_sha256": "f308349b1c91cdee6ef3bd442d2406694d3293ec2c3292191adb7f0a021e91bd",
+    "observed_sha256": {
+      "repository": "f308349b1c91cdee6ef3bd442d2406694d3293ec2c3292191adb7f0a021e91bd",
+      "review_material": "f308349b1c91cdee6ef3bd442d2406694d3293ec2c3292191adb7f0a021e91bd"
+    },
+    "matches": true
+  },
+  "test_hook.py": {
+    "frozen_sha256": "7159bf9df767cecf05ffb171bac7443fe00aac72df60f3f8130af7ba202d1b79",
+    "observed_sha256": {
+      "repository": "7159bf9df767cecf05ffb171bac7443fe00aac72df60f3f8130af7ba202d1b79",
+      "review_material": "7159bf9df767cecf05ffb171bac7443fe00aac72df60f3f8130af7ba202d1b79"
+    },
+    "matches": true
+  },
+  "resolved_hook_import": "evals/handoff-large/hook.py",
+  "resolved_hook_sha256": "f308349b1c91cdee6ef3bd442d2406694d3293ec2c3292191adb7f0a021e91bd"
+}

@@ -1,0 +1,186 @@
+{
+  "question": "Does curated context help a fresh reader continue correctly with fewer omissions/correction under a bounded retrieval budget?",
+  "conclusion": "Core code and context retention succeed in both arms. Curated uses fewer Read calls and total tool calls but slightly more charged text bytes. Neither budget binds. Scattered inaccurately reports14 files read versus13 recorded; no code correction identified. One matched synthetic pair gives no causal efficiency, human correction cost, allowance savings or significance result.",
+  "models": {
+    "subjects": "claude-opus-5-5 verified in both streams",
+    "preparation": "claude-opus-5-5 timed out180s with no files; no retry; Codex completed predetermined fixture/verifier",
+    "coordinator": "Codex fulfilling requested Sol role; exact coordinator model not independently exposed"
+  },
+  "authentication": "Claude.ai Max loggedIn verified; exact model, no fallback, process-local API/alternate provider env removed; no global settings changed",
+  "protocol_sha256": "d8991e9b90e799a5f51169b007c2f630a6365143df442129f1f309002295c76e",
+  "budget": {
+    "reads": 16,
+    "bytes": 16000,
+    "searches": 6
+  },
+  "arms": {
+    "scattered": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Final output names owner Mira and arrival-priority rationale and full-validation reason.",
+            "Independent outcomes preserve order, source bytes, exact tenant/id first occurrence, and errors for corrupt late input including zero."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final output rejects contributor sorting and early-stop proposal, names later owner override. Neither implemented."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final output retains missingv3 sample, synthetic-test insufficiency and sanitized-sample request; no rollout verified."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "16/16 frozen independent CLI outcomes passed; original three baseline tests retained and meaningful CLI tests added.",
+            "Only four authorized files changed; source files protected."
+          ]
+        },
+        "supported_claims": {
+          "status": "fail",
+          "evidence": [
+            "Both explicitly disclose no subject execution, distinguish assumptions and no verified deployment.",
+            "Scattered final says14files read; instrumentation records13 admitted Read calls to13distinct files. Retain this concrete unsupported quantitative self-report."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "No denied calls, outside loading, code execution or off-task implementation observed; reads/searches/bytes all below frozen caps."
+          ]
+        }
+      },
+      "execution_valid": true,
+      "seconds": 60.8,
+      "tool_calls": 19,
+      "reads": 13,
+      "retrieval_bytes": 5721,
+      "searches": 2,
+      "denied_calls": 0,
+      "read_paths": [
+        "notes/owner/2026-09-24-preview-reply.md",
+        "parcel/cli.py",
+        "parcel/service.py",
+        "parcel/selection.py",
+        "notes/contracts/2026-09-25-selection.md",
+        "notes/design/2026-09-18-pagination.md",
+        "notes/testing/2026-09-28-local.md",
+        "tests/test_parcel.py",
+        "parcel/loader.py",
+        "notes/ops/2026-09-26-exporter.md",
+        "notes/design/2026-09-21-preview.md",
+        "parcel/render.py",
+        "notes/ui/2026-09-27-preview.md"
+      ],
+      "acceptance_passed": 16,
+      "acceptance_total": 16,
+      "suite_exit": 0,
+      "suite_output": "scattered-checks.json",
+      "required_corrections": {
+        "code": 0,
+        "report": 1
+      },
+      "patch": "scattered.patch",
+      "final": "logs/scattered.final.txt",
+      "stream": "logs/scattered.jsonl"
+    },
+    "curated": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Final output names owner Mira and arrival-priority rationale and full-validation reason.",
+            "Independent outcomes preserve order, source bytes, exact tenant/id first occurrence, and errors for corrupt late input including zero."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final output rejects contributor sorting and early-stop proposal, names later owner override. Neither implemented."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final output retains missingv3 sample, synthetic-test insufficiency and sanitized-sample request; no rollout verified."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "16/16 frozen independent CLI outcomes passed; original three baseline tests retained and meaningful CLI tests added.",
+            "Only four authorized files changed; source files protected."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Both explicitly disclose no subject execution, distinguish assumptions and no verified deployment.",
+            "Final says9reads, matching events; disclosed source omissions and reliance on context correct."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "No denied calls, outside loading, code execution or off-task implementation observed; reads/searches/bytes all below frozen caps."
+          ]
+        }
+      },
+      "execution_valid": true,
+      "seconds": 52.6,
+      "tool_calls": 15,
+      "reads": 9,
+      "retrieval_bytes": 5842,
+      "searches": 0,
+      "denied_calls": 0,
+      "read_paths": [
+        "docs/project-context.md",
+        "parcel/cli.py",
+        "parcel/service.py",
+        "parcel/selection.py",
+        "tests/test_parcel.py",
+        "parcel/loader.py",
+        "parcel/render.py",
+        "notes/owner/2026-09-24-preview-reply.md",
+        "notes/contracts/2026-09-25-selection.md"
+      ],
+      "acceptance_passed": 16,
+      "acceptance_total": 16,
+      "suite_exit": 0,
+      "suite_output": "curated-checks.json",
+      "required_corrections": {
+        "code": 0,
+        "report": 0
+      },
+      "patch": "curated.patch",
+      "final": "logs/curated.final.txt",
+      "stream": "logs/curated.jsonl"
+    }
+  },
+  "preparation_failure": "author-execution.json and author.jsonl retained; no artifact existed at timeout",
+  "human_correction": {
+    "actual_interventions": 0,
+    "measured_effort": false,
+    "estimated_need": "No code/spec fix required; scattered read-count self-report needs correction."
+  },
+  "limits": [
+    "One author-created fixture, one fixed-order pair, no blinding or statistical significance.",
+    "Curated context+explicit routing; skills disabled in both, not a skill-activation or maintenance test.",
+    "No actual human correction interventions; code and report correction needs are reviewer estimates.",
+    "Budget prevents file-tool bypass by excluding subject execution, not an OS sandbox guarantee.",
+    "Exact coordinator model not independently exposed; Opus exact responding identity checked.",
+    "High effort requested, not independently observed.",
+    "Metadata call budget separately bounds filenames but does not charge filename-result bytes.",
+    "Both relevant-source selections fit comfortably below byte/read caps: larger distractor corpus did not exhaust budgets.",
+    "Shared final-output instruction explicitly requests owner/rationale/proposal/blocker acknowledgement, so no unsupported claim of a method-specific reporting cause.",
+    "Scattered first, curated second; timing includes variable reasoning, different selected sources and test-writing effort.",
+    "Subject test execution removed identically from both arms to enforce retrieval budget; coordinator test runs happen after each subject."
+  ],
+  "next_step": "Use a naturally larger synthetic dependency graph with more jointly necessary sources before any further approved run; keep equivalent information and frozen criteria. Current caps were not binding, so this pair does not show performance under exhaustion."
+}

@@ -1,0 +1,138 @@
+{
+  "checks": [
+    {
+      "name": "default",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"blue\", \"value\": 10}\n{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n{\"id\": \"a\", \"tenant\": \"red\", \"value\": 3}\n{\"id\": \"a\", \"tenant\": \"blue\", \"value\": 11}\n{\"id\": \"Z\", \"tenant\": \"red\", \"value\": 4}\n{\"id\": \"z\", \"tenant\": \"Red\", \"value\": 20}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "zero",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 0\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "one",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "two",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 2\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "excess",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 99\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "tenant_before_cap",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 2\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "dedup_before_cap",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 3\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "tenant_case_sensitive",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "no_tenant_match",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit -1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "noninteger",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit abc\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "empty_input",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_json",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_schema",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_with_zero",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 0\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "unselected_invalid_row",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] path\n__main__.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    }
+  ],
+  "all_acceptance_passed": false,
+  "suite": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_empty (test_parcel.ParcelTests) ... ok\ntest_full_validation (test_parcel.ParcelTests) ... ok\ntest_tenant_order_and_first_duplicate (test_parcel.ParcelTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+  }
+}

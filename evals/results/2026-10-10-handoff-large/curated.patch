@@ -1,0 +1,163 @@
+--- before/parcel/cli.py
++++ after/parcel/cli.py
+@@ -1,13 +1,23 @@
+ import argparse
+ from .service import execute
++
++def nonnegative_int(text):
++    try:
++        value=int(text)
++    except ValueError:
++        raise argparse.ArgumentTypeError(f"invalid nonnegative integer: {text!r}")
++    if value<0:
++        raise argparse.ArgumentTypeError(f"invalid nonnegative integer: {text!r}")
++    return value
+ 
+ def main(argv=None):
+     parser=argparse.ArgumentParser()
+     parser.add_argument("path")
+     parser.add_argument("--tenant", default=None)
++    parser.add_argument("--limit", type=nonnegative_int, default=None)
+     args=parser.parse_args(argv)
+     try:
+-        output=execute(args.path, tenant=args.tenant)
++        output=execute(args.path, tenant=args.tenant, limit=args.limit)
+     except ValueError as error:
+         parser.error(str(error))
+     print(output, end="")
+--- before/parcel/selection.py
++++ after/parcel/selection.py
+@@ -1,4 +1,4 @@
+-def select(records, tenant=None):
++def select(records, tenant=None, limit=None):
+     chosen=[]
+     seen=set()
+     for row in records:
+@@ -9,4 +9,7 @@
+             continue
+         seen.add(key)
+         chosen.append(row)
++    # The cap applies to selected records, after tenant filtering and dedup.
++    if limit is not None:
++        chosen=chosen[:limit]
+     return chosen
+--- before/parcel/service.py
++++ after/parcel/service.py
+@@ -2,7 +2,7 @@
+ from .selection import select
+ from .render import render
+ 
+-def execute(path, tenant=None):
++def execute(path, tenant=None, limit=None):
+     records=load(path)
+-    chosen=select(records, tenant=tenant)
++    chosen=select(records, tenant=tenant, limit=limit)
+     return render(chosen)
+--- before/tests/test_parcel.py
++++ after/tests/test_parcel.py
+@@ -1,7 +1,10 @@
++import contextlib
++import io
+ import json
+ import tempfile
+ import unittest
+ from pathlib import Path
++from parcel.cli import main
+ from parcel.service import execute
+ 
+ class ParcelTests(unittest.TestCase):
+@@ -25,3 +28,94 @@
+             path.write_text('{"tenant":"red","id":"ok"}\n{"id":"bad"}\n')
+             with self.assertRaises(ValueError):
+                 execute(path,tenant="red")
++
++class LimitTests(unittest.TestCase):
++    rows=[{"tenant":"red","id":"z","value":1},{"tenant":"red","id":"z","value":2},{"tenant":"blue","id":"b"},{"tenant":"red","id":"y"},{"tenant":"red","id":"a"}]
++
++    def write(self, directory, text=None):
++        path=Path(directory)/"input.jsonl"
++        path.write_text("\n".join(json.dumps(row) for row in self.rows) if text is None else text)
++        return path
++
++    def parse(self, output):
++        return [json.loads(line) for line in output.splitlines()]
++
++    def run_cli(self, argv):
++        stdout=io.StringIO()
++        with contextlib.redirect_stdout(stdout):
++            main(argv)
++        return stdout.getvalue()
++
++    def test_absent_limit_matches_default_output(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            self.assertEqual(execute(path,limit=None),execute(path))
++            self.assertEqual(self.run_cli([str(path)]),execute(path))
++
++    def test_limit_counts_selected_records_after_tenant_and_dedup(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            # Raw lines 1-2 share an identity and line 3 is another tenant;
++            # the cap must still yield two distinct red records in arrival order.
++            actual=self.parse(execute(path,tenant="red",limit=2))
++            self.assertEqual(actual,[self.rows[0],self.rows[3]])
++
++    def test_limit_keeps_arrival_order_without_tenant(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            actual=self.parse(execute(path,limit=3))
++            self.assertEqual(actual,[self.rows[0],self.rows[2],self.rows[3]])
++
++    def test_zero_emits_nothing(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            self.assertEqual(execute(path,limit=0),"")
++            self.assertEqual(self.run_cli([str(path),"--limit","0"]),"")
++
++    def test_excess_limit_emits_all_selected(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            self.assertEqual(execute(path,tenant="red",limit=100),execute(path,tenant="red"))
++
++    def test_zero_limit_still_validates_later_rows(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory,'{"tenant":"red","id":"ok"}\n{"id":"bad"}\n')
++            with self.assertRaises(ValueError):
++                execute(path,limit=0)
++
++    def test_satisfied_limit_still_detects_later_corruption(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory,'{"tenant":"red","id":"ok"}\n{"tenant":"red","id":"ok2"}\nnot json\n')
++            with self.assertRaises(ValueError):
++                execute(path,tenant="red",limit=1)
++
++    def test_cli_reports_late_corruption_as_argparse_error(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory,'{"tenant":"red","id":"ok"}\nnot json\n')
++            with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as caught:
++                self.run_cli([str(path),"--limit","1"])
++            self.assertEqual(caught.exception.code,2)
++
++    def test_input_file_untouched(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            before=path.read_bytes()
++            self.run_cli([str(path),"--tenant","red","--limit","1"])
++            self.assertEqual(path.read_bytes(),before)
++
++    def test_cli_limit_routes_to_selection(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            actual=self.parse(self.run_cli([str(path),"--tenant","red","--limit","2"]))
++            self.assertEqual(actual,[self.rows[0],self.rows[3]])
++
++    def test_cli_rejects_invalid_limits(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=self.write(directory)
++            for value in ["-1","1.5","abc",""]:
++                with self.subTest(value=value):
++                    stderr=io.StringIO()
++                    with contextlib.redirect_stderr(stderr), self.assertRaises(SystemExit) as caught:
++                        self.run_cli([str(path),"--limit",value])
++                    self.assertEqual(caught.exception.code,2)
++                    self.assertIn("--limit",stderr.getvalue())

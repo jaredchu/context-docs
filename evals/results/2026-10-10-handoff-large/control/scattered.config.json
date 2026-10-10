@@ -1,0 +1,15 @@
+{
+  "project": "/private/tmp/context-docs-handoff-large-20261010/projects/scattered",
+  "events": "/private/tmp/context-docs-handoff-large-20261010/control/scattered.events.jsonl",
+  "writable": [
+    "parcel/cli.py",
+    "parcel/service.py",
+    "parcel/selection.py",
+    "tests/test_parcel.py"
+  ],
+  "budget": {
+    "reads": 16,
+    "bytes": 16000,
+    "searches": 6
+  }
+}

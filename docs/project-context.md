@@ -72,6 +72,12 @@ facts. Both implementations passed; curated omitted restating the approved
 rationale (5/6 semantic criteria versus scattered 6/6). No curated advantage was
 observed. Actual human correction effort was not measured; the small fixture
 establishes no general benefit or subscription allowance savings.
+The separate [larger handoff follow-up](../evals/results/2026-10-10-handoff-large/README.md)
+froze retrieval quotas and its verifier before both Opus 5.5 sessions. Both
+implementations and six literal criteria passed. Curated used fewer reads (9
+versus 13) but slightly more file bytes; neither quota was exhausted. The
+preparation timeout, scattered read-count reporting error and review
+qualifications are retained; no general effort or allowance benefit is established.
 [Metadata cleanup](evidence-redaction-2026-10-09.md) records original/public hashes
 and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.

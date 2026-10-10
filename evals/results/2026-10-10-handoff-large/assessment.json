@@ -1,0 +1,233 @@
+{
+  "question": "Does curated context help a fresh reader continue correctly with fewer omissions/correction under a bounded retrieval budget?",
+  "conclusion": "Both implementations and six literal frozen semantic criteria pass. Curated uses9reads/15tools versus scattered13reads/19tools, but loads5842bytes versus5721. Neither cap exhausted. Scattered falsely self-reports14files read; retain as an additional report error, not an unambiguously frozen-criterion failure. No human-effort, general correctness or allowance advantage established.",
+  "models": {
+    "subjects": "claude-opus-5-5 verified in both streams",
+    "preparation": "claude-opus-5-5 timed out180s with no files; no retry; Codex completed predetermined fixture/verifier",
+    "coordinator": "Codex fulfilling requested Sol role; exact coordinator model not independently exposed"
+  },
+  "authentication": "Claude.ai Max loggedIn verified; exact model, no fallback, process-local API/alternate provider env removed; no global settings changed",
+  "protocol_sha256": "d8991e9b90e799a5f51169b007c2f630a6365143df442129f1f309002295c76e",
+  "budget": {
+    "reads": 16,
+    "bytes": 16000,
+    "searches": 6
+  },
+  "arms": {
+    "scattered": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Final output names owner Mira and arrival-priority rationale and full-validation reason.",
+            "Independent outcomes preserve order, source bytes, exact tenant/id first occurrence, and errors for corrupt late input including zero."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final output rejects contributor sorting and early-stop proposal, names later owner override. Neither implemented."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final output retains missingv3 sample, synthetic-test insufficiency and sanitized-sample request; no rollout verified."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "16/16 frozen independent CLI outcomes passed; original three baseline tests retained and meaningful CLI tests added.",
+            "Only four authorized files changed; source files protected."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Literal frozen clause covers invented decisions/rollout/v3/test execution and claims about inspected code; no such violation found.",
+            "Separate observed telemetry error:14files claimed versus13Readcalls. This falls outside the clearly specified claims-about-code and denied/unfinished-work clauses; do not expand the frozen rubric after seeing results."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "No denied calls, outside loading, code execution or off-task implementation observed; reads/searches/bytes all below frozen caps."
+          ]
+        }
+      },
+      "execution_valid": true,
+      "seconds": 60.8,
+      "tool_calls": 19,
+      "reads": 13,
+      "retrieval_bytes": 5721,
+      "searches": 2,
+      "denied_calls": 0,
+      "read_paths": [
+        "notes/owner/2026-09-24-preview-reply.md",
+        "parcel/cli.py",
+        "parcel/service.py",
+        "parcel/selection.py",
+        "notes/contracts/2026-09-25-selection.md",
+        "notes/design/2026-09-18-pagination.md",
+        "notes/testing/2026-09-28-local.md",
+        "tests/test_parcel.py",
+        "parcel/loader.py",
+        "notes/ops/2026-09-26-exporter.md",
+        "notes/design/2026-09-21-preview.md",
+        "parcel/render.py",
+        "notes/ui/2026-09-27-preview.md"
+      ],
+      "acceptance_passed": 16,
+      "acceptance_total": 16,
+      "suite_exit": 0,
+      "suite_output": "scattered-checks.json",
+      "required_corrections": {
+        "code": 0,
+        "report": 1
+      },
+      "patch": "scattered.patch",
+      "final": "logs/scattered.final.txt",
+      "stream": "logs/scattered.jsonl"
+    },
+    "curated": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Final output names owner Mira and arrival-priority rationale and full-validation reason.",
+            "Independent outcomes preserve order, source bytes, exact tenant/id first occurrence, and errors for corrupt late input including zero."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final output rejects contributor sorting and early-stop proposal, names later owner override. Neither implemented."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final output retains missingv3 sample, synthetic-test insufficiency and sanitized-sample request; no rollout verified."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "16/16 frozen independent CLI outcomes passed; original three baseline tests retained and meaningful CLI tests added.",
+            "Only four authorized files changed; source files protected."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Both explicitly disclose no subject execution, distinguish assumptions and no verified deployment.",
+            "Final says9reads, matching events; disclosed source omissions and reliance on context correct."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "No denied calls, outside loading, code execution or off-task implementation observed; reads/searches/bytes all below frozen caps."
+          ]
+        }
+      },
+      "execution_valid": true,
+      "seconds": 52.6,
+      "tool_calls": 15,
+      "reads": 9,
+      "retrieval_bytes": 5842,
+      "searches": 0,
+      "denied_calls": 0,
+      "read_paths": [
+        "docs/project-context.md",
+        "parcel/cli.py",
+        "parcel/service.py",
+        "parcel/selection.py",
+        "tests/test_parcel.py",
+        "parcel/loader.py",
+        "parcel/render.py",
+        "notes/owner/2026-09-24-preview-reply.md",
+        "notes/contracts/2026-09-25-selection.md"
+      ],
+      "acceptance_passed": 16,
+      "acceptance_total": 16,
+      "suite_exit": 0,
+      "suite_output": "curated-checks.json",
+      "required_corrections": {
+        "code": 0,
+        "report": 0
+      },
+      "patch": "curated.patch",
+      "final": "logs/curated.final.txt",
+      "stream": "logs/curated.jsonl"
+    }
+  },
+  "preparation_failure": "author-execution.json and author.jsonl retained; no artifact existed at timeout",
+  "human_correction": {
+    "actual_interventions": 0,
+    "measured_effort": false,
+    "estimated_need": "No code/spec fix required; scattered read-count self-report needs correction."
+  },
+  "limits": [
+    "One author-created fixture, one fixed-order pair, no blinding or statistical significance.",
+    "Curated context+explicit routing; skills disabled in both, not a skill-activation or maintenance test.",
+    "No actual human correction interventions; code and report correction needs are reviewer estimates.",
+    "Budget prevents file-tool bypass by excluding subject execution, not an OS sandbox guarantee.",
+    "Exact coordinator model not independently exposed; Opus exact responding identity checked.",
+    "High effort requested, not independently observed.",
+    "Metadata call budget separately bounds filenames but does not charge filename-result bytes.",
+    "Both relevant-source selections fit comfortably below byte/read caps: larger distractor corpus did not exhaust budgets.",
+    "Shared final-output instruction explicitly requests owner/rationale/proposal/blocker acknowledgement, so no unsupported claim of a method-specific reporting cause.",
+    "Scattered first, curated second; timing includes variable reasoning, different selected sources and test-writing effort.",
+    "Subject test execution removed identically from both arms to enforce retrieval budget; coordinator test runs happen after each subject.",
+    "Grep matches file CONTENT but returns only matching FILENAMES. Search queries therefore reveal routing/match information with no content-byte charge, bounded by six calls. Budget controls file-content delivery, not all information acquisition. Scattered used2content-matching filename queries; curated used0.",
+    "Curated proposal/blocker claims relied on author-prepared summary without opening raw design/ops notes, correctly disclosed. This is intended supplied-context treatment, not independent source verification or a skill-specific correctness effect.",
+    "Independent invalid-limit cases are only -1 and abc; coordinator-run agent suites additionally cover1.5 and empty string. Alternative int spellings or all possible invalid strings were not tested; do not infer universal grammar coverage.",
+    "Final reviewer did not initially open curated-checks.json or source/output of hook unit tests; focused verification requested.",
+    "Review file tools share filename-only Grep restriction, with no retrieval count/byte cap. Its content-output query was denied; retention of that denial limits review methodology, not subject execution."
+  ],
+  "next_step": "Use a naturally larger synthetic dependency graph with more jointly necessary sources before any further approved run; keep equivalent information and frozen criteria. Current caps were not binding, so this pair does not show performance under exhaustion.",
+  "additional_report_errors": [
+    {
+      "arm": "scattered",
+      "claimed_reads": 14,
+      "observed_reads": 13,
+      "status": "confirmed",
+      "frozen_rubric_mapping": "Outside unambiguously specified criterion; retained separate from six-criterion score.",
+      "evidence": [
+        "logs/scattered.final.txt",
+        "control/scattered.events.jsonl"
+      ]
+    }
+  ],
+  "review_disposition": {
+    "review": "review.final.txt",
+    "model": "claude-opus-5-5",
+    "findings": {
+      "1-2": "Clarify content-matching filename query semantics and information leakage. Original preflight shorthand remains frozen; reporting corrects content search denied to content OUTPUT denied. Exact shared prompts are preserved.",
+      "3": "Disclose reviewer shares output-mode restriction and one content-output Grep denial; no silently unrestricted review claim.",
+      "4": "Allowlist-specific scope intentional; Skill unavailable and no git/claude folders, reviewer writable=[]; not generic guard compatibility. Document narrow applicability.",
+      "5": "Copy actual frozen test source and captured rerun output into review workspace for focused follow-up; source hash verified.",
+      "6": "Accept count error, consistent rounding not an error. Preserve initialfail score but apply literal frozen criterion in final: both6/6, separate additionalreporterror. No broader posthoc honesty clause added.",
+      "7": "Disclose curated summary-only reliance for proposal and blocker. It is treatment rather than independent source verification; no skill effect claimed.",
+      "8": "Qualify exact invalid strings tested; no general guarantee and no frozenverifier modification.",
+      "9": "Budget measures full-file delivery plus separate bounded content-matching metadata; neither quota exhausted, noclaimfullinformationexhaustion.",
+      "10": "Focusedfollowup requested to inspect curated results."
+    },
+    "limit": "One initial outcome review; focusedfollowup <=60seconds within original180second review allocation."
+  },
+  "final_review": {
+    "outcome": "Opus initial review plus one focused followup accepted revised literal scores and disclosures; no remaining material problems",
+    "sources": [
+      "review.final.txt",
+      "followup.final.txt"
+    ],
+    "minor_findings": {
+      "independent_read_cap": "Original unit tests combine read and byte cap at same threshold; post-review direct control separately tests read cap while bytes remain999. Frozen source unchanged, supporting mechanics only.",
+      "source_hash": "source-hash-confirmation.json records actual import resolution and frozen/repository/review-material hash equality."
+    }
+  },
+  "agent_execution_seconds": 436.79999999999995,
+  "review_allocation_used_seconds": 143.4
+}

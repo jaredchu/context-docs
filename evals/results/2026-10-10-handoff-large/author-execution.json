@@ -1,0 +1,9 @@
+{
+  "exit_code": 124,
+  "stderr": "Session timed out.",
+  "seconds": 180.0,
+  "responding_models": [
+    "claude-opus-5-5"
+  ],
+  "result_received": false
+}

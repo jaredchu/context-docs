@@ -1,0 +1,5 @@
+{
+  "command": "python3 -m unittest discover -s evals/handoff-large -p test_hook.py -v",
+  "exit_code": 0,
+  "scope": "Mechanical guard controls; repeated only to retain evidence requested by reviewer"
+}

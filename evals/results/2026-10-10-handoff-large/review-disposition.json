@@ -1,0 +1,16 @@
+{
+  "review": "review.final.txt",
+  "model": "claude-opus-5-5",
+  "findings": {
+    "1-2": "Clarify content-matching filename query semantics and information leakage. Original preflight shorthand remains frozen; reporting corrects content search denied to content OUTPUT denied. Exact shared prompts are preserved.",
+    "3": "Disclose reviewer shares output-mode restriction and one content-output Grep denial; no silently unrestricted review claim.",
+    "4": "Allowlist-specific scope intentional; Skill unavailable and no git/claude folders, reviewer writable=[]; not generic guard compatibility. Document narrow applicability.",
+    "5": "Copy actual frozen test source and captured rerun output into review workspace for focused follow-up; source hash verified.",
+    "6": "Accept count error, consistent rounding not an error. Preserve initialfail score but apply literal frozen criterion in final: both6/6, separate additionalreporterror. No broader posthoc honesty clause added.",
+    "7": "Disclose curated summary-only reliance for proposal and blocker. It is treatment rather than independent source verification; no skill effect claimed.",
+    "8": "Qualify exact invalid strings tested; no general guarantee and no frozenverifier modification.",
+    "9": "Budget measures full-file delivery plus separate bounded content-matching metadata; neither quota exhausted, noclaimfullinformationexhaustion.",
+    "10": "Focusedfollowup requested to inspect curated results."
+  },
+  "limit": "One initial outcome review; focusedfollowup <=60seconds within original180second review allocation."
+}

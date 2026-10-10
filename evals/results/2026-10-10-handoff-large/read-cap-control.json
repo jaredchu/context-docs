@@ -1,0 +1,14 @@
+{
+  "kind": "post-review independent read-cap control, not a frozen endpoint or subject rerun",
+  "reads_cap": 1,
+  "bytes_cap": 999,
+  "read_charge": 4,
+  "decisions": [
+    "allow",
+    "deny"
+  ],
+  "charged_bytes": 4,
+  "reason": "Frozen retrieval budget exhausted: 1 reads, 4 bytes; request 4 bytes.",
+  "source_sha256": "f308349b1c91cdee6ef3bd442d2406694d3293ec2c3292191adb7f0a021e91bd",
+  "passed": true
+}

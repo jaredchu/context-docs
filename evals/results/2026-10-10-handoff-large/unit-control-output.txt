@@ -1,0 +1,10 @@
+test_byte_cap_denies_before_read (test_hook.BudgetTests) ... ok
+test_filename_search_cap_and_edit_scope (test_hook.BudgetTests) ... ok
+test_parallel_reservations_cannot_overrun_budget (test_hook.BudgetTests) ... ok
+test_partial_content_search_and_outside_rejected (test_hook.BudgetTests) ... ok
+test_utf8_repeated_reads_charge_and_read_cap (test_hook.BudgetTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.083s
+
+OK

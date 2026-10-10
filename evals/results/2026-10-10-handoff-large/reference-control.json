@@ -1,0 +1,138 @@
+{
+  "checks": [
+    {
+      "name": "default",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"blue\", \"value\": 10}\n{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n{\"id\": \"a\", \"tenant\": \"red\", \"value\": 3}\n{\"id\": \"a\", \"tenant\": \"blue\", \"value\": 11}\n{\"id\": \"Z\", \"tenant\": \"red\", \"value\": 4}\n{\"id\": \"z\", \"tenant\": \"Red\", \"value\": 20}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "zero",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "one",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"blue\", \"value\": 10}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "two",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"blue\", \"value\": 10}\n{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "excess",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"blue\", \"value\": 10}\n{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n{\"id\": \"a\", \"tenant\": \"red\", \"value\": 3}\n{\"id\": \"a\", \"tenant\": \"blue\", \"value\": 11}\n{\"id\": \"Z\", \"tenant\": \"red\", \"value\": 4}\n{\"id\": \"z\", \"tenant\": \"Red\", \"value\": 20}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "tenant_before_cap",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n{\"id\": \"a\", \"tenant\": \"red\", \"value\": 3}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "dedup_before_cap",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"red\", \"value\": 1}\n{\"id\": \"a\", \"tenant\": \"red\", \"value\": 3}\n{\"id\": \"Z\", \"tenant\": \"red\", \"value\": 4}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "tenant_case_sensitive",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"tenant\": \"Red\", \"value\": 20}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "no_tenant_match",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: argument --limit: negative limit\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "noninteger",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: argument --limit: invalid integer\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "empty_input",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_json",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: line 15: invalid JSON\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_schema",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: line 15: tenant and id must be strings\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "late_invalid_with_zero",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: line 15: tenant and id must be strings\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "unselected_invalid_row",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: __main__.py [-h] [--tenant TENANT] [--limit LIMIT] path\n__main__.py: error: line 15: tenant and id must be strings\n",
+      "source_unchanged": true
+    }
+  ],
+  "all_acceptance_passed": true,
+  "suite": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_empty (test_parcel.ParcelTests) ... ok\ntest_full_validation (test_parcel.ParcelTests) ... ok\ntest_tenant_order_and_first_duplicate (test_parcel.ParcelTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+  }
+}
