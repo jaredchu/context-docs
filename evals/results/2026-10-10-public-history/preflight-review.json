@@ -1,0 +1,89 @@
+{
+  "status": "Prelaunch counterpart review complete; final fresh build/freeze required. No subject sessions at review completion.",
+  "author_model": "GPT 6 Astra High",
+  "reviewer_model": "claude-opus-5-5",
+  "requested_effort": "high",
+  "cli_version": "2.1.295",
+  "packet_sha256": "a394f01d8fe488a92e79bc8d56c0b76900c6546096ecf1719e884174ffb1a699",
+  "initial_review": "# Pre-launch review: public-history harness\n\n**Verdict:** Not ready to freeze. Three issues could lose or contaminate the study before any scoring happens. Each has a small fix. The rest of the implementation matches the accepted plan.\n\n## Blockers\n\n**1. A subject timeout aborts the whole study** (`run.py`, `should_stop` and `checks['completed']`)\n\n- A 600-second timeout returns exit code 124 and has no `result` event.\n- This sets `completed=False` and `execution_error='missing_terminal_result'`, so `should_stop` returns true.\n- If HTTPX-ordinary times out, the remaining three sessions never run. Because retries are not allowed, the comparison is lost.\n- Running out of budget is a subject outcome, not an infrastructure failure. The plan says to stop only on infrastructure failures.\n- The same applies to `treatment_delivery=False` in a skill arm. That is non-delivery to report, not a guard breach.\n- Fix:\n  - Set `timed_out = execution['exit_code'] == 124`.\n  - Base `should_stop` only on integrity gates: catalog, guard coverage, denied-tool success, write allowance, evidence, immutable files, new files, README prefix, loading, controls, native catalog and model.\n  - Ignore `completed`, `missing_terminal_result` (when timed out) and `treatment_delivery`.\n  - Add one test.\n\n**2. Instruction preflight skips the runtime's own directories** (`instruction_preflight` and `preflight`)\n\n- `instruction_preflight(destination)` checks only `destination.parents`.\n- `preflight` hashes only `project/` and `evidence/`.\n- A `CLAUDE.md`, `AGENTS.md`, `CLAUDE.local.md` or `.claude/` placed in `destination`, `destination/sessions` or `sessions/<sid>` after the freeze would load through the ancestor walk.\n- `no_external_loading` catches this only after a contaminated session has already run.\n- Fix:\n  - In `preflight`, run the same name checks on `unit`, `unit.parent` and `destination`.\n  - Assert `sorted(os.listdir(unit)) == ['evidence', 'project']`.\n\n**3. The evidence `sources.json` copies inventory records whole** (`build`)\n\n- `source_refs` copies `identities[name]`, each before-file entry and the `fix` record verbatim into subject-readable evidence.\n- If `public-history-sources.json` has notes, candidate distinctions or ledger cross-references, both arms receive evaluator leads. That is baseline contamination the frozen hashes would not reveal.\n- Fix: write an explicit field allowlist (project URL, before/after revisions, path, URL, `sha256`, fix commit and diff URL, `diff_sha256`) and test that no other keys appear.\n\n## Should fix before freeze\n\n**4. Failure capture is all-or-nothing** (`run`, `try` block)\n\n- Any exception while assembling the trial, such as the `readme_append` UTF-8 decode, `handoff.read_text()` or a `coverage` KeyError, discards checks already computed. It replaces them with `postprocess_ok: False`.\n- Fix: dump `checks` before extracting content, decode with `errors='replace'`, and keep partial checks in the `except` branch.\n\n**5. Export can hide unrun sessions** (`export_data`)\n\n- After a stop, `sessions` lists only attempted trials while `prompts` lists all four.\n- Fix: add `planned`, `attempted` and `stopped_after` plus the stop reason, so a missing arm cannot be read as an omission or a tie.\n\n**6. Several gates depend on unverified stream fields**\n\n- `native_skills_disabled` requires `skills` and `slash_commands` keys in `init`.\n- `initial_loading_observed` requires `load_reason == 'session_start'`.\n- `responding_model_matches` requires an exact ID list.\n- If CLI 2.1.295 names or omits these fields differently, session 1 fails falsely.\n- Fix: confirm the field shapes against a retained stream from this CLI version, such as the native-guarded study logs. Do not run a new probe. If no stream is available, record these gates as diagnostic rather than stopping.\n\n**7. Freeze placement**\n\n- `frozen_inputs` hashes the plan, ledger, sources and review files.\n- Commit the freeze record to a new file. Updating any hashed file, for example plan \"Status: frozen\", would make `validate` fail.\n\n## Minor, optional\n\n- `immutable_bytes_and_modes` excludes `README.md` entirely, so its mode and kind are unchecked. Compare `kind` and `mode` separately from bytes.\n- `complete_skill_read` compares against the post-run `SKILL.md`. Compare against the frozen `package['SKILL.md']` bytes instead. The immutability gate currently covers this indirectly.\n- Brace globs such as `{..,x}/*` pass the `..` part check. This is harmless if the CLI's Glob is ripgrep-backed, which reveals names only.\n\n## Verified as sound\n\n- **Write guard:** exact allowlist, no writes through symlinks inside the project, the `/tmp` ancestor alias works, and Edit predictions are exact or denied.\n- **README prefix:** the prefix is checked on every write or edit and again after the run.\n- **Cross-arm isolation:** reads are confined to the session's own project and evidence, and the ordinary arm has no package.\n- **Snapshot fidelity:** `snapshot` handles bytes, modes and the internal `HomebrewFormula` link correctly.\n- **Source verification:** `verify_source` checks Git blobs.\n- **Drift checks:** CLI, control and input drift are checked before each session.\n- **Matched prompts:** the skill prompt is the ordinary prompt plus only the skill instruction.\n- **Retry guard:** the existing-`logs/` check enforces no retries.\n- **File counts:** reported counts are consistent: 125+1 and 125+11, 213+1 and 213+11.\n\n## Checks status\n\nI did not rerun the checks. Your reported results stand as given: 16 boundary tests and static checks passed, the review build succeeded, and four fixture preflights passed. No session launched.\n\nThe review build hash `593cfa7a\u2026` will not match the final build because `build_id` and `built_at` change. Freeze the hash from the fresh build after applying fixes 1\u20133, and add their tests.",
+  "resolutions": [
+    {
+      "finding": 1,
+      "resolution": "Explicit integrity-only stop list; completed/treatment_delivery are outcomes. Timeout missing-terminal exception does not halt intact later arms. Tests cover continuation and integrity stopping."
+    },
+    {
+      "finding": 2,
+      "resolution": "Preflight inspects runtime, sessions and unit directories for ancestor instructions, and exact unit entries must be evidence/project."
+    },
+    {
+      "finding": 3,
+      "resolution": "Subject-readable source_references uses an explicit provenance-only field allowlist; injected commentary test verifies exclusion."
+    },
+    {
+      "finding": 4,
+      "resolution": "Trial retains partial checks and diagnostic state; checkpoints checks before text extraction. Invalid UTF-8 is replacement-decoded with false validity flag; mocked runner diagnostic failure proves retained checks and unrun reporting."
+    },
+    {
+      "finding": 5,
+      "resolution": "Status/export explicitly records planned, attempted, unrun, state, stopped_after and stop_reason."
+    },
+    {
+      "finding": 6,
+      "resolution": "Verified exact stream field shapes from retained real CLI2.1.295 logs; see retained_stream_schema_check."
+    },
+    {
+      "finding": 7,
+      "resolution": "Public freeze will be a new results file; no hashed inputs will change between final build and session completion."
+    }
+  ],
+  "retained_stream_schema_check": {
+    "retained_study": "2026-10-10-audience",
+    "case": "public",
+    "cli_version": "2.1.295 (Claude Code)",
+    "responding_models": [
+      "claude-opus-5-5"
+    ],
+    "loading_event_fields": [
+      {
+        "basename": "CLAUDE.md",
+        "load_reason": "session_start",
+        "hash_observed": true
+      }
+    ],
+    "stream_sha256": "6c24854fb451c00911f20cddc189c5ab42910514aa11a089c627f7b58f34e40f",
+    "hook_events_sha256": "5ff15f1d324e31330086a9a3654c973aba5ea07ebdae03cb7cf71825a3ebe62a",
+    "disabled_catalog_evidence": {
+      "retained_review": "public-history-plan-followup",
+      "skills": [],
+      "slash_commands": [],
+      "model": "claude-opus-5-5",
+      "stream_sha256": "64c7a2c2fe9103a7bedfb9f71de068666706d5ac4c425e93f4d3de64127ef0be"
+    },
+    "project_skills_presence_at_disabled_catalog_review": "Not recorded. That stream does not establish behavior with a project-local skill directory."
+  },
+  "additional_fixes": [
+    "README kind/mode checked separately from prefix.",
+    "Skill delivery compared with frozen body.",
+    "Traversal through brace glob alternatives denied."
+  ],
+  "follow_up": {
+    "packet_sha256": "137ec356f8bce01f46e6f74b21312bfc341984726be3d3222f9666943c6f5054",
+    "review": "# Follow-up review: public-history harness fixes\n\n**Verdict:** Findings 1\u20135 are fixed correctly. Finding 6 is verified for field shapes, but one condition specific to the skill arm is still unverified. That condition should be settled in the freeze record before launch. No code blocker remains. One small hardening for timeouts is recommended because the final build is being regenerated anyway.\n\n## Fixes confirmed\n\n1. **Timeout no longer aborts the study** (`stop_reason`, `INTEGRITY_GATES`)\n   - Stopping now depends only on the integrity gates plus non-timeout execution errors.\n   - `completed` and `treatment_delivery` are outside the gate list, so they are reported but never halt the run.\n   - A timeout sets exit code 124, which passes `process_exit_valid`, and `missing_terminal_result` is excused only when `timed_out` is true.\n   - An infrastructure failure after a hook denial is still caught. It exits nonzero (not 0 or 124), so `process_exit_valid` fails.\n   - The test covers both continuing after a timeout and stopping on an integrity failure.\n\n2. **Instruction checks cover the runtime directories** (`preflight`)\n   - `instruction_preflight(unit)` walks the unit, `sessions/`, the destination and every ancestor.\n   - The unit must contain exactly `evidence` and `project`.\n   - The skill arm's `project/.claude` is correctly excluded from the name check and covered by the snapshot hash instead.\n   - The test injects at all three levels.\n\n3. **Subject-readable provenance is allowlisted** (`source_references`)\n   - Explicit field allowlists apply at the project, file and fix levels.\n   - The test injects commentary at each level and confirms it is excluded.\n   - `export_data` still includes the full `source_identities`. That file is not readable by subjects, so this is not contamination. Check it for notes before publishing.\n\n4. **Failure capture keeps partial results** (`run`)\n   - Checks are written to `checks.json` before any text is extracted.\n   - The `except` branch keeps checks already computed and sets `postprocess_ok=False`, which still stops the run.\n   - `decode_artifact` replacement-decodes invalid UTF-8 and records a validity flag.\n   - The mocked diagnostic-failure test confirms that gates and the unrun list survive.\n\n5. **Unrun sessions are visible** (`record_status`, `export_data`)\n   - Status records planned, attempted, unrun, state, `stopped_after` and the stop reason, and is written before each launch.\n   - The export merges the cleaned status.\n\n## Remaining items\n\n**A. Finding 6 does not cover the skill arm's actual condition (settle before freeze)**\n\n- The retained disabled-catalog evidence (`public-history-plan-followup`, stream `64c7a2c2\u2026`) shows empty `skills` and `slash_commands` arrays.\n- The gate `native_skill_catalog_empty` requires those arrays to be empty in every session.\n- The skill arm is the only session with a project `.claude/skills/context-docs/` directory, and it first runs at session 2 (`httpx-skill`).\n- If the retained stream's working directory had no project skill directory, nothing has shown that `--disable-slash-commands` hides project skills from the init catalog on CLI 2.1.295.\n- If it does not, session 2 stops the study and sessions 3\u20134 never run. No retry is allowed.\n- Minimal fix, with no new probe:\n  - Record in `retained_stream_schema_check` whether that stream's working directory contained a project `.claude/skills` entry.\n  - If it did not, state in the public freeze that a non-empty skill-arm catalog is an accepted, preserved integrity stop.\n  - Do not loosen the gate. A non-empty catalog in the ordinary arm would be genuine baseline contamination.\n\n**B. Timeout tail can still look like an integrity failure (recommended, small)**\n\n- If the 600-second timeout kills the process just after a `tool_use` is emitted but before `PreToolUse` records it, `all_tool_calls_guarded` and `successful_writes_allowed` from `guarded.coverage` fail and the run stops. This is unlikely but possible.\n- A partially written final stream line would likewise produce `unparsable_stream_line` instead of `missing_terminal_result`.\n- Fix:\n  - When `timed_out` is true, exclude a final `tool_use` that has no `tool_result` and no hook record from those two gates.\n  - Accept `unparsable_stream_line` only when it is the last line of a timed-out stream.\n  - The snapshot gates (`immutable_bytes_and_modes`, `authorized_new_files`, `readme_prefix`) still enforce the actual file effects.\n  - Add one test.\n\n## Minor (no action required)\n\n- `complete_skill_read` requires the whole body in a single read result. A chunked read using offset/limit is recorded as non-delivery. This matches the prompt but should be noted in the report.\n- `checks.json` is not written if the exception happens before the checkpoint. `trials.json` still keeps the trial, so this is acceptable.\n\n## Checks status\n\nI did not rerun anything. The reported results stand as given:\n\n- 22 focused controls pass. This matches the 22 test methods in `test_run.py`.\n- 7 reused guard controls and the repository static checks pass.\n- Fresh build `7f491daa\u2026` validates all four fixtures. No subject sessions have run.\n\nIf B is applied, freeze the hash from a new fresh build, not `7f491daa\u2026`.",
+    "disposition": "No code blocker; residual A explicitly retained as an integrity stop, optional B conservatively deferred."
+  },
+  "execution_limits": [
+    "Both arms require observed empty native skills/slash_commands catalogs. Project-local package condition is not separately probed; any nonempty catalog is a preserved integrity stop, never waived or retried.",
+    "Timeouts continue only if integrity is established. Uncovered final calls or partial/unparseable stream tails remain conservative infrastructure stops; no tail-exclusion relaxation is implemented.",
+    "Complete skill-body delivery requires one successful full-file Read result; a split read is recorded as non-delivery."
+  ],
+  "checks": {
+    "public_history_controls": 22,
+    "reused_guard_controls": 7,
+    "static_checks": "passed; not model evaluation",
+    "source_entries": {
+      "httpx": 125,
+      "ripgrep": 213
+    },
+    "review_build_preflights": 4
+  }
+}

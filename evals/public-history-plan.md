@@ -1,9 +1,9 @@
 # Small public-history maintenance plan
 
-Status: **preparation on October 10, 2026; not frozen, accepted or executed.**
-The next proposed step is four maintenance sessions using two public projects.
-Selecting sources and preparing this plan do not authorize model execution or
-publication. No completed study, skill or score changes with this proposal.
+Status: **execution accepted on October 10, 2026; implementation/freeze in progress.**
+The owner's “next” follows the reviewed four-session plan and its stated next step
+to build isolated fixtures, freeze inputs and run the comparison. This authorizes
+that bounded execution; publication remains separate. Earlier studies are unchanged.
 
 ## Question and boundary
 
@@ -65,7 +65,7 @@ editable paths, audience, source cutoff, tool limits and task boundaries. The
 skill arm additionally invokes the frozen released **context-docs v0.1.6**.
 Do not install or invoke the adoption skill. Freeze complete prompts verbatim.
 
-Proposed executor: **Claude Opus 5.5, high reasoning**, using identical tools in
+Executor: **Claude Opus 5.5, high reasoning**, using identical tools in
 both arms. Local Claude CLI is currently 2.1.295; freeze exact client/model IDs,
 reasoning configuration and tool/resource limits before execution. Give each session a
 fresh isolated context. Verify that the ordinary arm cannot read the skill and
@@ -74,6 +74,13 @@ ledger, reviewer notes or other outputs. Preserve applicable upstream instructio
 identically and audit any method guidance they already contain. Verify explicit
 skill exposure from the recorded trace rather than assuming invocation succeeded.
 Order: HTTPX ordinary, HTTPX skill, ripgrep skill, ripgrep ordinary.
+
+Execution configuration disables automatic skill discovery in both arms with
+`--disable-slash-commands`. Both expose only Read, Write, Edit, Glob and Grep.
+The skill arm explicitly reads and applies the frozen core `SKILL.md`; the ordinary
+arm has no package. Verify delivery of the full skill body in successful read
+results. This controls contamination from global installations and tests explicit
+file-delivered guidance, not native Skill-tool invocation or implicit selection.
 
 Outputs: HTTPX `docs/upgrade-handoff.md`; ripgrep root `UPGRADE-HANDOFF.md`, each
 with an appended README navigation link. Preserve
@@ -124,10 +131,10 @@ the [initial Claude review](public-history-review.json), disagreements and resol
 
 ## Acceptance, freeze and reporting
 
-Before asking to execute, complete both case rows and provide the exact sources,
-task boundaries, four-session budget, model configuration and ledger/rubric for
-review. Execution requires acceptance of that concrete scope. Snapshot assembly,
-input isolation and write-boundary enforcement remain unimplemented. Freeze hashes of
+The owner accepted the reviewed sources, task boundaries, four-session budget,
+model configuration and ledger/rubric by asking to continue. Complete and review
+snapshot assembly, input isolation and write-boundary enforcement before execution.
+Freeze hashes of
 the full skill package, project/source snapshots, prompts, ledger, criteria and
 controls in a new manifest before starting any subject session.
 Enumerate the read-only evidence exactly: HTTPX's before-tag `httpx/_config.py`
