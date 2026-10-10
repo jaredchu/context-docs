@@ -29,6 +29,8 @@ It never copies the repository, context docs, journals, or evaluation exports.
 
 ## GitHub Pages
 
+Live site: [Context Docs](https://jaredchu.github.io/context-docs/).
+
 The [landing-page workflow](../.github/workflows/site.yml) builds and tests on
 relevant pull requests and main-branch pushes. Deployment is manual: after an
 approved merge, select **GitHub Actions** as the Pages source in repository

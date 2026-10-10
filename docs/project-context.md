@@ -41,8 +41,9 @@ Earlier release approvals do not authorize new publication.
   [logging precedence and auto rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
   are defined in the packaged guide. There is no background service or sync.
 
-- [Landing page](../site/README.md): a separate public artifact built from selected
-  sources. GitHub Pages deployment is manual; the custom domain is not configured.
+- [Landing page](https://jaredchu.github.io/context-docs/): live on GitHub Pages,
+  built from selected public sources. [Deployment](../site/README.md#github-pages)
+  is manual; the custom domain is not configured.
 
 ## Evidence and limits
 
