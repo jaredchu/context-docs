@@ -44,7 +44,7 @@
     <div class="section-intro"><p class="eyebrow">THE WORKFLOW</p><h2 id="workflow-title">Keep the useful parts<br>of the work you already do.</h2><p>Context Docs is a pair of reusable instruction skills for your agent. You stay in your project, with documents you can read and edit.</p></div>
     <ol class="steps">
       <li><span class="step-number" aria-hidden="true">01</span><div><h3>Set it up once</h3><p>The adoption skill uses your existing docs and adds or reuses a maintenance rule in project instructions.</p></div></li>
-      <li><span class="step-number" aria-hidden="true">02</span><div><h3>Save what changed</h3><p>After meaningful work, ask your agent to update the context. Review the diff: decisions, blockers and next steps should stay clear.</p></div></li>
+      <li><span class="step-number" aria-hidden="true">02</span><div><h3>Save what changed</h3><p>The loaded project maintenance rule guides updates after meaningful work. Review the diff: decisions, blockers and next steps should stay clear. Ask for an update if one is missed.</p></div></li>
       <li><span class="step-number" aria-hidden="true">03</span><div><h3>Give the next session a starting point</h3><p>Ask the agent to read the saved context and the linked details relevant to its task. A file alone does not guarantee it will be read.</p></div></li>
     </ol>
   </section>
@@ -86,7 +86,8 @@
         </section>
         <p id="copy-status" class="copy-status" aria-live="polite"></p>
         <div class="next-prompt">
-          <div class="prompt-heading"><h3>After meaningful work, ask:</h3><button class="prompt-copy" type="button" data-copy="save-prompt" data-destination="your coding agent" hidden aria-label="Copy save context prompt">Copy</button></div>
+          <p>After adoption, a loaded project maintenance rule guides context updates during normal work. You do not need to name the skill in every prompt.</p>
+          <div class="prompt-heading"><h3>To request an update explicitly:</h3><button class="prompt-copy" type="button" data-copy="save-prompt" data-destination="your coding agent" hidden aria-label="Copy save context prompt">Copy</button></div>
           <blockquote id="save-prompt">{{SAVE_PROMPT}}</blockquote><p>Review the resulting changes.</p>
         </div>
         <div class="next-prompt">

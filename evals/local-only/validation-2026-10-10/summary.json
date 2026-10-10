@@ -1,0 +1,761 @@
+{
+  "date": "2026-10-10",
+  "skills": {
+    "context-docs": "0.1.8",
+    "adopt-context-docs": "0.1.9"
+  },
+  "scope": "Seven author-created cases per client in one batch, followed by a fresh read-only audit per client. Four native sessions total; not fourteen independent sessions.",
+  "freeze": {
+    "repo_commit": "9aa63e535ab38d6ba9f41fb782efb5e2d69a9d38",
+    "frozen_at": 1791647821.975184,
+    "runner_sha256": "73f982968c919f65043056bb14ea5f7877a4124a328b6f7841b1c5959a537a17",
+    "packages": {
+      "adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+      "adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "context-docs/SKILL.md": "d71abe3ac4a88185fcaee666899e568a7797d16a086ecc0564ca5366dd24dfb3",
+      "context-docs/VERSION": "76f81f64ece28d0bcfe39dd35f6d14f3c87fe000b77aee11561e18d1919f607e",
+      "context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    },
+    "acceptance": {
+      "adoption": "Local canary retained, ignored/untracked before writing (temporal transcript review), personal exclude only; nonsensitive shared pointer permitted; no setup journal",
+      "repeat": "All bytes unchanged, including custom rule/date/ignore/Git; fresh audit changes no bytes",
+      "tracked": "Tracked document/index/history/setup unchanged; unresolved migration reported (semantic review)",
+      "discovery": "20-second configured timeout; SQLite rationale and dataset blocker retained; deployment unverified; only local context edited",
+      "journal": "Legacy bytes/settings unchanged; full-directory ignore OR exposure report without new event (semantic review)",
+      "leakage": "Public /status README update; no literal private canary in any shared file, including untracked files",
+      "shared": "All original bytes including dirty work, Git index/history/exclude unchanged; no local-only setup"
+    },
+    "controls": {
+      "storage_positive_negative_tracked_and_shared_leak": true,
+      "no_op_would_fail_adoption_discovery_and_api_update": true
+    },
+    "clients": {
+      "codex": {
+        "version": "codex-cli 0.162.0-alpha.17.2",
+        "prompts": {
+          "batch": "004713ac3df5cef1c852b2d26c45099abb5947880ba2926d0504c4e8e45efe62",
+          "audit": "a382e675a8489d13dfe8d88329aadcb92f43462e222f78eac63250c0a3e368f0"
+        }
+      },
+      "claude": {
+        "version": "2.1.296 (Claude Code)",
+        "prompts": {
+          "batch": "004713ac3df5cef1c852b2d26c45099abb5947880ba2926d0504c4e8e45efe62",
+          "audit": "a382e675a8489d13dfe8d88329aadcb92f43462e222f78eac63250c0a3e368f0"
+        }
+      }
+    }
+  },
+  "clients": {
+    "codex": {
+      "outside_case_changes": [],
+      "execution_ok": true,
+      "client": "codex",
+      "cases": {
+        "adoption": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "context_created": true,
+            "canary_retained": true,
+            "storage_ignored": true,
+            "pointer_present": true,
+            "no_shared_ignore": true
+          },
+          "changed": [
+            ".context/local/context.md",
+            ".git/info/exclude",
+            "AGENTS.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:3:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "repeat": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        },
+        "tracked": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true,
+            "still_tracked": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": false,
+            "paths": [
+              {
+                "path": "docs/context.md",
+                "exists": true,
+                "kind": "file",
+                "status": "tracked",
+                "rule": ".gitignore:1:docs/context.md",
+                "tracked": [
+                  "docs/context.md"
+                ],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "discovery": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "timeout_20": true,
+            "sqlite_rationale": true,
+            "dataset_blocker": true,
+            "private_canary_preserved": true,
+            "storage_ignored": true
+          },
+          "changed": [
+            ".context/local/context.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "journal": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true
+          },
+          "changed": [
+            ".git/info/exclude"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              },
+              {
+                "path": "history/events/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:3:/history/events/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "leakage": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "public_api_updated": true
+          },
+          "changed": [
+            "README.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        },
+        "shared": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": false,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": false,
+                "kind": "directory",
+                "status": "exposed",
+                "rule": null,
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        }
+      },
+      "batch_execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "terminal": true,
+        "seconds": 106.94,
+        "responding_models": [],
+        "changed": [
+          "cases/adoption/.context/local/context.md",
+          "cases/adoption/.git/info/exclude",
+          "cases/adoption/AGENTS.md",
+          "cases/discovery/.context/local/context.md",
+          "cases/journal/.git/info/exclude",
+          "cases/leakage/README.md"
+        ],
+        "unchanged_packages": true
+      },
+      "audit_execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "terminal": true,
+        "seconds": 42.62,
+        "responding_models": [],
+        "changed": [],
+        "unchanged_packages": true
+      },
+      "all_mechanical_pass": true,
+      "limits": [
+        "Author-created direct-invocation fixtures, not independent validation.",
+        "No claim of implicit selection, automatic instruction loading, general privacy or human-effort savings.",
+        "Exact Claude responding model checked; Codex model is requested identity only.",
+        "One batch and one fresh audit per client; no failed-agent retries.",
+        "Canaries detect literal copying only; temporal adoption checks require transcript inspection.",
+        "Claude tool boundaries are prompt constraints, not an OS sandbox."
+      ],
+      "semantic_review": {
+        "adoption_ignore_before_write": true,
+        "tracked_migration_reported_unresolved": true,
+        "discovery_20_seconds_rationale_blocker_and_unverified_deployment": true,
+        "journal_resolution": "whole-directory personal exclusion verified",
+        "leakage_public_fact_only": true,
+        "reviewer": "Codex coordinator; not independent"
+      },
+      "batch_trace_sha256": "38289ca546aaa7878e91e33bcb7b98b14f2bdd6fa417c37cee6c1c41c6c0fdd9",
+      "audit_trace_sha256": "ad478e7a1860442ee60694d2356116a47bebef5992eefb9ff592db81329cd81a",
+      "case_checks_passed": 7,
+      "audit_zero_edits": true
+    },
+    "claude": {
+      "outside_case_changes": [],
+      "execution_ok": false,
+      "client": "claude",
+      "cases": {
+        "adoption": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "context_created": true,
+            "canary_retained": true,
+            "storage_ignored": true,
+            "pointer_present": true,
+            "no_shared_ignore": true
+          },
+          "changed": [
+            ".context/local/context.md",
+            ".git/info/exclude",
+            "AGENTS.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:3:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "repeat": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        },
+        "tracked": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true,
+            "still_tracked": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": false,
+            "paths": [
+              {
+                "path": "docs/context.md",
+                "exists": true,
+                "kind": "file",
+                "status": "tracked",
+                "rule": ".gitignore:1:docs/context.md",
+                "tracked": [
+                  "docs/context.md"
+                ],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "discovery": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "timeout_20": true,
+            "sqlite_rationale": true,
+            "dataset_blocker": true,
+            "private_canary_preserved": true,
+            "storage_ignored": true
+          },
+          "changed": [
+            ".context/local/context.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "journal": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": false,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              },
+              {
+                "path": "history/events/",
+                "exists": true,
+                "kind": "directory",
+                "status": "exposed",
+                "rule": null,
+                "tracked": [],
+                "exposed_descendants": [
+                  "history/events/legacy.jsonl"
+                ],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": true
+        },
+        "leakage": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "public_api_updated": true
+          },
+          "changed": [
+            "README.md"
+          ],
+          "unauthorized": [],
+          "storage": {
+            "ok": true,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": true,
+                "kind": "directory",
+                "status": "ignored",
+                "rule": ".git/info/exclude:2:/.context/local/",
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        },
+        "shared": {
+          "mechanical_pass": true,
+          "conditions": {
+            "only_allowed_edits": true,
+            "no_shared_canaries": true,
+            "history_and_index_preserved": true,
+            "zero_edits": true
+          },
+          "changed": [],
+          "unauthorized": [],
+          "storage": {
+            "ok": false,
+            "paths": [
+              {
+                "path": ".context/local/",
+                "exists": false,
+                "kind": "directory",
+                "status": "exposed",
+                "rule": null,
+                "tracked": [],
+                "exposed_descendants": [],
+                "errors": []
+              }
+            ],
+            "errors": []
+          },
+          "shared_scan": {
+            "ok": true,
+            "findings": [],
+            "errors": []
+          },
+          "semantic_review_required": false
+        }
+      },
+      "batch_execution": {
+        "exit_code": null,
+        "cli_exit_code_not_retained": true,
+        "harness_postprocessing_exit": 1,
+        "timeout": false,
+        "terminal": true,
+        "terminal_subtype": "success",
+        "terminal_is_error": false,
+        "seconds": null,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "changed": [
+          "cases/adoption/.context/local/context.md",
+          "cases/adoption/.git/info/exclude",
+          "cases/adoption/AGENTS.md",
+          "cases/discovery/.context/local/context.md",
+          "cases/leakage/README.md"
+        ],
+        "unchanged_packages": true,
+        "recovered_from_completed_trace": true
+      },
+      "audit_execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "terminal": true,
+        "seconds": 42.38,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "changed": [],
+        "unchanged_packages": true
+      },
+      "all_mechanical_pass": false,
+      "limits": [
+        "Author-created direct-invocation fixtures, not independent validation.",
+        "No claim of implicit selection, automatic instruction loading, general privacy or human-effort savings.",
+        "Exact Claude responding model checked; Codex model is requested identity only.",
+        "One batch and one fresh audit per client; no failed-agent retries.",
+        "Canaries detect literal copying only; temporal adoption checks require transcript inspection.",
+        "Claude tool boundaries are prompt constraints, not an OS sandbox."
+      ],
+      "semantic_review": {
+        "adoption_ignore_before_write": true,
+        "tracked_migration_reported_unresolved": true,
+        "discovery_20_seconds_rationale_blocker_and_unverified_deployment": true,
+        "journal_resolution": "permission-denied writes; exposure reported, no event or file change",
+        "leakage_public_fact_only": true,
+        "reviewer": "Codex coordinator; not independent"
+      },
+      "batch_trace_sha256": "a4d2f0514aacc69f78aa2a2d9c9b6b502413b32a4acc947ef4d54df6e28a233c",
+      "audit_trace_sha256": "7d87d8251cbcd5989c7a351a9859488e26bc432016062c1af45096f4b4ed9687",
+      "case_checks_passed": 7,
+      "audit_zero_edits": true
+    }
+  },
+  "review": {
+    "coordinator": "Codex / Sol 6.1",
+    "counterpart": "confirmed Claude Opus 5.5",
+    "preflight_verdict": "no blocking findings; reviewer did not inspect scenario README, comparing case list from assignment instead; Sol inspected scenario source separately",
+    "preparation_timeout": "Opus drafting attempt stopped at 240 seconds with no runnable harness. Sol drafted the harness; no subject session had begun.",
+    "follow_up": {
+      "model": "claude-opus-5-5",
+      "blocking_findings": [],
+      "findings": [
+        {
+          "severity": "minor",
+          "id": "aggregate-naming-mismatch",
+          "evidence": "summary.json clients.claude.all_mechanical_pass=false while all 7 cases have mechanical_pass=true and case_checks_passed=7. In run_native.py:173 and recovery_runner.py:167, all_mechanical_pass is ANDed with execution_ok, and execution_ok is false because batch exit_code is null.",
+          "issue": "The README says 'Both clients satisfy all seven mechanical case checks', which is true per case. But a reader of summary.json sees all_mechanical_pass=false for Claude with no explanation next to it. That is not an overclaim, but the two could be read as contradicting each other.",
+          "suggestion": "In the README, say that Claude's all_mechanical_pass aggregate is false only because the strict execution gate is false."
+        },
+        {
+          "severity": "minor",
+          "id": "follow-up-pending",
+          "evidence": "summary.json review.follow_up='pending'; the README says 'the Opus follow-up review is recorded in the summary'.",
+          "issue": "Right now the README claims a recorded review that the summary does not yet contain.",
+          "suggestion": "Record this result in summary.json before publishing."
+        }
+      ],
+      "scope": "README.md, summary.json, run_native.py/test_native.py gate and parser lines, recovery_runner.py gate, the four validated-study final.txt files",
+      "not_checked": "I did not rerun the regression tests or read raw traces or final case contexts. I took the package-hash match from summary.json without recomputing it.",
+      "resolution": "README now explicitly explains the false Claude aggregate; this record replaces pending status.",
+      "trace_sha256": "be79766fb5768827617125d40e625d0e85a47b8be84f1e2f63f6c9f7905048f6"
+    }
+  },
+  "limits": [
+    "Author-created direct-invocation fixtures, not independent validation.",
+    "No claim of implicit selection, automatic instruction loading, general privacy or human-effort savings.",
+    "Exact Claude responding model checked; Codex model is requested identity only.",
+    "One batch and one fresh audit per client; no failed-agent retries.",
+    "Canaries detect literal copying only; temporal adoption checks require transcript inspection.",
+    "Claude tool boundaries are prompt constraints, not an OS sandbox.",
+    "One fixed-order batch per client; cases share session context.",
+    "Original Claude batch CLI exit code was not retained before a postprocessing exception; success is established by terminal stream evidence, not a captured exit code.",
+    "Original frozen runner has a mixed-event parsing bug. Shipped run_native.py fixes it and saves process receipts before parsing; it differs from the executed frozen source.",
+    "Raw inputs, all Git hashes and full traces remain local; this public record is scoped evidence, not the complete executed snapshot."
+  ],
+  "additional_semantic_findings": {
+    "codex-adoption": "Created context copies seed timeout 10 although fixture config sets 20. Storage criteria pass, but source accuracy is not established; this is a retained quality finding.",
+    "claude-adoption": "Uses configured timeout 20 and explicitly reports conflict with seed timeout 10, keeping runtime unverified.",
+    "both-audits": "Detect stale 10-second context against 20-second config and leave every file and Git byte unchanged."
+  },
+  "recovery": {
+    "failure": "Postprocessing AttributeError: string-valued message event has no get method; completed Claude native trace retained.",
+    "subject_retries": 0,
+    "cli_exit_code": "not retained before parser failure",
+    "terminal_evidence": {
+      "subtype": "success",
+      "is_error": false,
+      "model": [
+        "claude-opus-5-5"
+      ]
+    },
+    "original_runner_sha256": "73f982968c919f65043056bb14ea5f7877a4124a328b6f7841b1c5959a537a17",
+    "recovery_runner_sha256": "ddcc6ffe96fc762436f6d97570bb1d5ef48874dcb1615fcadeec1b8cbf811f44",
+    "changes": "Only structured-message guard and frozen original-runner hash check; fixtures/prompts/criteria unchanged.",
+    "audit_recovery_freeze_at": 1791648015.698932
+  },
+  "current_runner_sha256": "f39849661fce4290f2564b8d82e887ed3feb55707f665be9035ec5ae791fd9de"
+}

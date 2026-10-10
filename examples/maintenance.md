@@ -5,8 +5,11 @@ independent agent evaluation or a claim about token savings.
 
 ## Request and evidence
 
-The user asks to update project context after changing the configured request
-timeout from 10 to 20 seconds. The current `config/service.yaml` says
+In an adopted project, the user asks to change the configured request timeout
+from 10 to 20 seconds. The loaded project maintenance rule also tells the agent
+to update affected context; the user need not name the skill in that request.
+An explicit request to update context can produce the same illustrated change.
+The current `config/service.yaml` says
 `timeout_seconds: 20`. No deployment evidence is available. The owner previously
 approved retaining SQLite for the pilot; PostgreSQL remains a suggestion. A
 restore test is still blocked on obtaining a representative synthetic dataset.

@@ -14,6 +14,12 @@ an expert workflow is not a requirement for serving users who lack one. The stud
 below retain their original findings and limits. They do not yet establish how much
 effort Context Docs saves its intended users; factual errors still matter.
 
+The [October 10 local-only follow-up](../evals/local-only/validation-2026-10-10/README.md)
+executes seven cases per native client and two fresh read-only audits. Storage and
+preservation checks pass, with stale-source selection, denied journal writes and
+a recovered postprocessing failure retained separately. These direct-invocation
+fixtures do not establish implicit selection or automatic instruction loading.
+
 The [quality-first study](evaluation-2026-09-27-quality.md) compared two
 synthetic projects with scattered, conflicting or absent context. It ran 12
 three-stage maintenance trials, followed by 36 fresh-reader sessions: **72 model

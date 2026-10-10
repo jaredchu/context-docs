@@ -59,7 +59,19 @@ Co-authored-by: Codex <noreply@openai.com>
 ```
 
 This is the format used in [OpenAI's Codex attribution implementation](https://github.com/openai/codex/blob/9946da9af1829410271f6b76f9159961f7281e0a/codex-rs/ext/git-attribution/src/world_state.rs),
-verified on September 29, 2026. Preserve existing co-author trailers and credit
+verified on September 29, 2026.
+
+For every commit Claude helps implement, validate or review, include this
+project's Claude attribution trailer exactly once:
+
+```text
+Co-authored-by: Claude <noreply@anthropic.com>
+```
+
+Credit completed validation and review even when Claude does not edit the files.
+When both Codex and Claude assist the work in a commit, include both trailers,
+each exactly once, separated from the commit body by a blank line. Keep the
+normal human author identity and preserve existing co-author trailers. Credit
 only actual assistance. Apply this to new commits; do not rewrite published history
 solely for attribution. The README acknowledgment describes project roles and does
 not promise a particular position in GitHub's Contributors graph.

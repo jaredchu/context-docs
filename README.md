@@ -96,10 +96,13 @@ confirm instruction loading.
 
 ### 2. Save decisions, current work and next steps
 
-After meaningful work, ask your agent:
+Once adopted, the project's loaded maintenance rule guides the agent to update
+context after meaningful changes during normal work. You do not need to name
+Context Docs in every prompt. Check that the rule is loaded and review the updates.
+If an update is missed, or you want one explicitly, ask:
 
 ```text
-Use context-docs to update this project's context from the work we just completed.
+Update this project's context from the work we just completed.
 Preserve decisions and their reasons, current work, blockers and next steps.
 ```
 
@@ -132,8 +135,8 @@ loads it. [More usage examples and setup details →](docs/getting-started.md#us
 | [context-docs](skills/context-docs/SKILL.md) | Create, maintain or audit project context. Can also be used on its own. |
 
 Ordinary maintenance requires no background service, cloud account or runtime
-dependency. The agent works when invoked; this is not automatic conversation
-capture or unlimited memory. Your project keeps ordinary, reviewable files.
+dependency. The agent works during active sessions; this is not automatic
+conversation capture or unlimited memory. Your project keeps ordinary, reviewable files.
 
 ## Optional logging
 
@@ -177,9 +180,11 @@ remains experimental.
 
 ## Credits and license
 
-Created and maintained by [Jared Chu](https://github.com/jaredchu).
-[OpenAI Codex](https://github.com/codex) is the primary AI development contributor,
-covering implementation, documentation and evaluations; Claude also contributes.
+Created and maintained by [Jared Chu](https://github.com/jaredchu), with
+[OpenAI Codex](https://github.com/codex) and Claude contributing implementation,
+documentation and evaluations. Codex led the initial AI development. The current
+workflow uses Sol 6.1 for coordination, integration and validation, and Opus 5.5
+for substantial implementation and counterpart review.
 See the [contribution and attribution policy](CONTRIBUTING.md).
 
 Released under the [MIT license](LICENSE).

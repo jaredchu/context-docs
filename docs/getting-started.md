@@ -2,7 +2,7 @@
 
 [Back to Context Docs](../README.md) · [Evaluation evidence](evaluation-results.md)
 
-Install both skills once, adopt them in a project, and ask your agent to keep its
+Install both skills once, adopt them in a project, and let its maintenance rule keep
 context current after meaningful work. No background service is installed.
 
 ## Install in Codex
@@ -94,8 +94,21 @@ original adoption date and reuse equivalent guidance. When retrofitting a marker
 an undocumented original adoption date stays `unknown`. Audit-only runs do not
 write markers. The marker records workflow adoption; it is not an accuracy or
 freshness certificate, and its absence alone does not prove non-adoption.
-For routine audits and maintenance, use `$context-docs` in Codex or `/context-docs`
-in Claude Code. The following examples use Codex syntax; replace `$context-docs`
+
+After adoption, a loaded project maintenance rule tells the agent to maintain
+context after meaningful changes during normal work. You do not need to mention
+Context Docs in every prompt. Check that the agent loads the rule and review its
+edits; skill installation alone does not establish ongoing project maintenance.
+
+You can also ask directly, for example if an update was missed:
+
+```text
+Update this project's context from the work we just completed.
+Preserve the existing layout, approved decisions, and unresolved blockers.
+```
+
+Explicit skill prompts are optional ways to request a focused audit, update or
+initialization. The following examples use Codex syntax; replace `$context-docs`
 with `/context-docs` for Claude Code:
 
 ```text

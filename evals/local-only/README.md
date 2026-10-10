@@ -12,6 +12,8 @@ The standard remains canonical in
   (`rev-parse`, `ls-files`, `check-ignore`) and read files.
 - `test_checks.py`: `unittest` cases against temporary real Git repositories
   with synthetic content.
+- `run_native.py`: bounded direct-invocation fixtures for both native clients;
+  `test_native.py` covers mixed stream-event parsing.
 
 Run the tests with:
 
@@ -62,9 +64,12 @@ python3 evals/local-only/checks.py shared PROJECT --marker CANARY-... docs/
 
 ## Future agent scenarios
 
-The author-created scenarios below have not been executed. For each synthetic project,
-plant a distinctive canary in local-only context and run both checks before and
-after the agent session, alongside reviewing the transcript.
+The [October 10 follow-up](validation-2026-10-10/README.md) executes the seven
+author-created scenarios below on both clients, with a fresh read-only audit.
+It retains a source-accuracy finding, journal write denial and a result-parser
+failure; passing storage checks does not establish general agent reliability.
+For each synthetic project, plant a distinctive canary in local-only context and
+run both checks before and after the session, alongside reviewing the transcript.
 
 1. **Local-only adoption**: start with a Git repository, shared README and no
    context. Request adoption with `.context/local/` and a personal exclude rule.

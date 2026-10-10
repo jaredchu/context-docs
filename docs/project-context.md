@@ -25,6 +25,9 @@ local notes only when still useful.
 - Prioritize useful, accurate context and reduced human effort. Model speed, token
   use and file length alone do not establish success; outperforming expert
   maintenance is not the product's success gate.
+- Credit Claude on every commit it helps implement, validate or review, alongside
+  the existing Codex rule. The [attribution policy](../CONTRIBUTING.md#commit-attribution)
+  owns trailer formats and preserves human authorship and existing history.
 - Use Sol 6.1 for coordination, integration, validation and context maintenance;
   use Opus 5.5 for bounded substantial work, with focused counterpart review for
   consequential changes. Sol inspects returned patches and evidence at important
@@ -47,8 +50,11 @@ Earlier release approvals do not authorize new publication.
 - This bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
-  controls pass 21 real-Git/canary tests, with seven broader local-only agent scenarios still
-  unexecuted. Saved studies and this repository's shared context/journal setup
+  controls have 21 real-Git/canary tests. The
+  [broader local-only follow-up](../evals/local-only/validation-2026-10-10/README.md)
+  now exercises seven cases per client and fresh audits; storage/preservation gates
+  pass, with a stale-source finding, denied journal writes and a parser failure
+  retained separately. Saved studies and this repository's shared context/journal setup
   remain unchanged. The opted-in auto preference now also covers explicitly
   selected local-only context inside Git after verifying ignored, untracked
   context and journal paths; every explicit logging setting wins. The website
@@ -70,14 +76,17 @@ Earlier release approvals do not authorize new publication.
 
 - [Landing page](https://context-docs.com/): live on GitHub Pages,
   built from selected public sources. The [v0.1.8 deployment](https://github.com/jaredchu/context-docs/actions/runs/38062572064)
-  passed; both live pages match the built HTML, with released package versions
-  and updated local-only guidance. [Deployment](../site/README.md#github-pages)
+  passed; publication-time checks showed both live pages matched that build, with
+  released package versions and updated local-only guidance. New source wording
+  clarifies optional prompts and awaits publication. [Deployment](../site/README.md#github-pages)
   is manual; Cloudflare proxies the custom domain with Full SSL and
   Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a
   [beginner guide](https://context-docs.com/getting-started/) built from canonical
-  commands and prompts. [Search registration steps](../site/README.md#search-discovery)
-  remain outstanding; indexing and AI citations are not established.
+  commands and prompts. The owner reports search registration and sitemap
+  submission complete on October 10; indexing and AI citations are not established
+  by that report. [Search discovery guidance](../site/README.md#search-discovery)
+  owns the process.
 
 ## Evidence and limits
 
@@ -107,11 +116,19 @@ comprehensive privacy audit.
 
 Use the released skills in normal daily work and improve them when concrete issues
 arise. Reproduce failures with public evidence or synthetic examples, then validate
-focused fixes. Routine use needs no evaluation log or outside reviewer. The
-[contribution packet](../evals/external-validation/README.md) welcomes maintainer
+focused fixes. The owner reports that context updates occur during normal work
+without naming the skill in each prompt; the guide now explains the loaded
+maintenance rule and optional explicit prompts. This is maintainer feedback,
+not a general implicit-selection evaluation. Routine use needs no evaluation log
+or outside reviewer. The [contribution packet](../evals/external-validation/README.md) welcomes maintainer
 feedback; it is not independent validation. New studies need a fresh freeze and
 must preserve earlier results; the [discrimination protocol](../evals/discrimination-protocol.md)
 is still a proposal.
+
+The local-only follow-up found a new adoption document copying a stale seed
+timeout despite a different configuration value. Reproduce this source-selection
+issue in a focused case before deciding whether existing evidence-verification
+guidance needs a skill change; the storage checks alone do not resolve it.
 
 ## Canonical references
 

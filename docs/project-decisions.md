@@ -166,3 +166,11 @@ context and journal paths. Update both skills and the guide, add regression test
 and preserve saved study artifacts. This extends an already opted-in preference;
 it does not enable logging for all local-only setups or authorize moving records,
 changing global settings or publishing a release.
+
+On October 10, 2026, the owner requested crediting Claude on every commit it
+helps implement, validate or review, while preserving the existing Codex
+attribution rule. Completed validation and review count even without file edits;
+only actual assistance is credited, preserving human authorship, existing
+co-author trailers and published history. The
+[commit attribution policy](../CONTRIBUTING.md#commit-attribution) owns the exact
+trailers; the stable Claude trailer name is a project implementation choice.

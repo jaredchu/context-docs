@@ -16,6 +16,26 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Documentation and validation follow-up — 2026-10-10
+
+- Clarify that adopted projects use their loaded maintenance rule during normal
+  work; naming the skill in every prompt is optional. Align README, guide,
+  illustrative example and website source. Describe Codex's initial contribution
+  and the current Sol/Opus collaboration roles; record owner-reported search setup.
+- Extend commit attribution to every commit Claude helps implement, validate or
+  review, including review-only assistance. Preserve the Codex trailer rule,
+  human author identity, existing co-author trailers and published history.
+- Execute seven local-only cases per client plus fresh audits on released core
+  0.1.8/adoption 0.1.9. Record passing storage/preservation gates alongside the
+  stale-source finding, journal write denial, preparation timeout and recovered
+  parser failure in the [follow-up](evals/local-only/validation-2026-10-10/README.md).
+  No subject cases were retried. Ship the runner with a mixed-event parser fix
+  and early process receipts; it differs from the frozen execution source.
+- Local checks: 23 local-only/stream controls, 17 static-checker tests and 12 site
+  tests; repository static checks and public site build. These mechanics are
+  separate from the native evaluations. Skill packages and versions are unchanged;
+  the previous 1,881 saved study files are preserved.
+
 ## v0.1.8 publication — 2026-10-10
 
 - Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.8)

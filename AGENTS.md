@@ -29,6 +29,10 @@
   `Co-authored-by: Codex <noreply@openai.com>` exactly once, preserving the human
   author and existing co-author trailers. Do not add it to work Codex did not
   assist or rewrite existing history solely to add credit.
+- Credit Claude on every commit it helps implement, validate or review, including
+  completed validation or review without file edits, following the same
+  [commit attribution policy](CONTRIBUTING.md#commit-attribution). Include both
+  attribution trailers when both models assisted, each exactly once.
 - Publication requires authorization from the task; these instructions grant none.
 
 ## Model collaboration
