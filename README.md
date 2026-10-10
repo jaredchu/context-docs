@@ -1,11 +1,15 @@
 # Context Docs
 
-**Keep your project’s context. Pick up where you left off.**
+**Keep decisions, current work and next steps across AI sessions.**
 
-Context Docs helps people who do not yet have a way to save and maintain project
-context. Give your AI coding agent a reusable workflow for recording decisions,
-current work and next steps in readable Markdown—with as little setup and manual
-organization as possible.
+Context Docs helps you preserve project knowledge in readable Markdown so a new
+AI session can pick up where you left off. Give your coding agent a reusable
+workflow for recording what was decided and why, what is done or blocked, and
+what to do next.
+
+Designed for people without an established context-management workflow, it uses
+your project's existing documents with as little setup and manual organization
+as possible.
 
 ![Work produces code, conversations and notes. Save useful decisions, current state and next steps in a Markdown document, then read it to resume in a new session.](assets/context-docs-overview.png)
 
@@ -19,7 +23,7 @@ For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 You should not have to invent a documentation system before you can preserve your
 work. Context Docs gives your agent instructions to:
 
-- **Save what matters:** decisions and their reasons, current state, blockers and next steps.
+- **Save what matters:** decisions and their reasons, current work, blockers and next steps.
 - **Keep it useful:** update stale sections, consolidate repetition and distinguish facts from proposals.
 - **Fit your project:** use existing documents and choose content for their audience.
 - **Help the next session start:** make the context discoverable from the README or documentation index.
@@ -90,12 +94,13 @@ rule in the project instructions your agent loads. It preserves equivalent
 existing rules and the project’s documentation layout, and reports when it cannot
 confirm instruction loading.
 
-### 2. Work normally, then save useful changes
+### 2. Save decisions, current work and next steps
 
 After meaningful work, ask your agent:
 
 ```text
 Use context-docs to update this project's context from the work we just completed.
+Preserve decisions and their reasons, current work, blockers and next steps.
 ```
 
 Review the resulting diff. You do not need to keep a session diary or log every
@@ -110,8 +115,8 @@ Use context-docs to audit this project's context documents without editing files
 Start a new session with:
 
 ```text
-Read this project's context entry point and its relevant linked documents,
-then continue with the next task.
+Read this project's context entry point and its relevant linked documents.
+Use the recorded decisions, current work and next steps to continue with the next task.
 ```
 
 Find the entry point in your README, documentation index, or the adoption marker’s
