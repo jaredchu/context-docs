@@ -56,6 +56,8 @@ Earlier release approvals do not authorize new publication.
   records 156 mechanical tests and six bounded native sessions, distinguishing
   final setup checks from earlier repeat/audit checks and retaining review limits.
   [Changelog](../CHANGELOG.md) records validation and review limits.
+  [v0.1.8 release preparation](releases/v0.1.8.md) records package identities
+  and candidate CI; publication and website deployment are pending.
 - Core supports audit, initialize and maintain. Adoption uses the sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-10",
+  "candidate_commit": "fa4b26ccd4c5deef22f5963d6c7c1cbe2e05cbff",
+  "packages": {
+    "context-docs": "0.1.8",
+    "adopt-context-docs": "0.1.9",
+    "standard": "0.1.1"
+  },
+  "packaged_files": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+    "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "d71abe3ac4a88185fcaee666899e568a7797d16a086ecc0564ca5366dd24dfb3",
+    "skills/context-docs/VERSION": "76f81f64ece28d0bcfe39dd35f6d14f3c87fe000b77aee11561e18d1919f607e",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "final_native_identity_checks": {
+    "matched": 7,
+    "source": "evals/event-journal/auto-preference/local-only.md",
+    "scope": "All seven identities published for the final native setup sessions match. Other package files are recorded here, not claimed as final-native manifest comparisons."
+  },
+  "candidate_ci": {
+    "static_checks": "https://github.com/jaredchu/context-docs/actions/runs/38061372651",
+    "landing_page": "https://github.com/jaredchu/context-docs/actions/runs/38061372682",
+    "conclusions": "success"
+  },
+  "preservation": {
+    "saved_study_file_count": 1881,
+    "scope": "All 1881 saved study files hash-checked against the pre-implementation baseline; existing instructions, ignore rules and installed skills are preserved."
+  },
+  "preparation_checks": {
+    "site_unit_tests": {
+      "count": 12,
+      "result": "pass"
+    },
+    "static_checks": {
+      "relative_links": 1192,
+      "published_tables": 5,
+      "skills": 2,
+      "versions": 2,
+      "result": "pass"
+    },
+    "site_build": "pass",
+    "diff_check": "pass",
+    "new_native_sessions": 0,
+    "initial_edit_failure": "An optional subn fixture edit omitted a comma and failed test-module import; corrected before the final 12-test pass."
+  },
+  "publication": "pending"
+}

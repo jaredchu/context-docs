@@ -1,6 +1,7 @@
 """Boundary and canonical-content checks for the public website artifact."""
 import importlib.util
 from pathlib import Path
+import re
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -142,10 +143,15 @@ class LandingBuildTests(unittest.TestCase):
         for released, capitalized in [(False, False), (False, True), (True, False)]:
             def status_source(path, *args, **kwargs):
                 text = original_read(path, *args, **kwargs)
-                if released and path == landing.ROOT / 'README.md':
-                    return text.replace(' (unreleased)', '')
-                if capitalized and path == landing.ROOT / 'README.md':
-                    return text.replace('(unreleased)', '(Unreleased)')
+                if path == landing.ROOT / 'README.md':
+                    # Exercise both states independently of the current release status.
+                    text = text.replace(' (unreleased)', '').replace(' (Unreleased)', '')
+                    if not released:
+                        suffix = ' (Unreleased)' if capitalized else ' (unreleased)'
+                        text, count = re.subn(r'^(\*\*Status: .*?)(\*\*)$',
+                                      lambda match: match[1] + suffix + match[2], text, flags=re.M)
+                        self.assertEqual(count, 1)
+                    return text
                 return text
 
             with self.subTest(released=released), patch.object(Path, 'read_text', status_source):

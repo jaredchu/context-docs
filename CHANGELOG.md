@@ -15,6 +15,18 @@ The latest published bundle is described in the [v0.1.6 release notes](docs/rele
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.1.8 release preparation — 2026-10-10 (prepublication checks)
+
+- Prepare [release notes](docs/releases/v0.1.8.md) for core 0.1.8/adoption 0.1.9
+  and unchanged standard 0.1.1. Record all 15 packaged file hashes; all seven
+  published final-native identities match the candidate. The candidate's static
+  and landing-page GitHub Actions runs passed.
+- Release preparation passes 12 site tests, repository static checks and the
+  site build. Site status tests now cover released/unreleased states independently
+  of the README's current state. Saved study artifacts and existing setups remain
+  unchanged. These checks add no native agent evaluation; release-note review
+  and publication status are recorded in the linked notes and records.
+
 ## context-docs 0.1.8 — unreleased
 
 - Extend the opted-in `auto` preference to explicitly selected local-only context
