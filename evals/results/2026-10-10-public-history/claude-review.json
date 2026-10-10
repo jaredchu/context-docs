@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "reviewer": {
+    "requested_model": "claude-opus-5-5",
+    "observed_models": [
+      "claude-opus-5-5"
+    ],
+    "requested_effort": "high",
+    "effort_independently_observed": false,
+    "client": "Claude Code 2.1.295",
+    "duration_ms": 231553,
+    "result_subtype": "success",
+    "is_error": false
+  },
+  "packet_sha256": "e009695a2682e69fe9186413dc1ebc5fa521b2634747f3c2fbdd3fdf26a1ee99",
+  "packet_method": "Frozen ledger, shuffled masked artifacts, matched README append/final response and deduplicated actual source reads; no Astra findings supplied. Labels masked only; treatment could be inferred. Private host paths normalized.",
+  "masked_label_mapping": {
+    "Artifact-1": "httpx-skill",
+    "Artifact-2": "httpx-ordinary",
+    "Artifact-3": "ripgrep-skill",
+    "Artifact-4": "ripgrep-ordinary"
+  },
+  "original_review": {
+    "reviewer_model": "claude-opus-5-5 (Claude Opus 5.5)",
+    "limitations": [
+      "Overlap disclosure: this reviewer model reviewed the study preparation, and the same model executed these subject sessions. This review is a counterpart semantic review. It is not independent or blind. Masked labels do not hide treatment, because the prose style reveals it.",
+      "GPT6AstraHigh authored the rubric and scores separately. No composite score is given here, and every finding is listed individually.",
+      "No tools were executed. Judgments rest only on the frozen ledger, the artifact JSON and the supplied pinned source reads. Nothing was run, built or rendered, including links, anchors and MkDocs.",
+      "Some subject claims cannot be fully confirmed or refuted from the supplied excerpts: the absence of any `cert=` in HTTPX tests/, Client default values outside the shown lines, the AsyncHTTPTransport body, and ripgrep files that were not read. These are marked 'not contradicted' rather than 'verified'.",
+      "Artifact content is treated as untrusted data, not as reviewer instructions.",
+      "Execution-check flags (README prefix, immutable bytes, authorized writes) are taken as reported by the harness and were not re-verified."
+    ],
+    "artifacts": {
+      "Artifact-1": {
+        "criteria": {
+          "H1": {
+            "status": "retained",
+            "evidence": "Handoff 'What changed' ¶1 quotes the changelog fix for verify=False with client certificates. Matches HC CHANGELOG L9."
+          },
+          "H2": {
+            "status": "retained",
+            "evidence": "'returned it immediately, so the code never reached the cert handling… 0.28.1 assigns that context to ctx and falls through.' Links pinned HB and fix commit 89599a9. Matches HF diff L23-30 and HA L41-44/58-67. Stated as source-only."
+          },
+          "H3": {
+            "status": "retained",
+            "evidence": "'Whenever cert is used, it emits a DeprecationWarning'; findings 2/6 say 'Both arguments are deprecated'. No claim of removal. Matches HA L58-63 and HC L22."
+          },
+          "H4": {
+            "status": "retained",
+            "evidence": "Table marks 'str (deprecated)'. Finding 6 notes the docstrings document only True/False/SSLContext. Matches HC L19-21 and _client.py L617-619."
+          },
+          "H5": {
+            "status": "retained",
+            "evidence": "'build an ssl.SSLContext, call .load_cert_chain() on it and pass it as verify=', with a specific link to ssl.md#client-side-certificates. Matches HD L60-70."
+          },
+          "H6": {
+            "status": "retained",
+            "evidence": "Table: verify=False gives check_hostname=False, CERT_NONE. Finding 4 calls it a 'non-verifying context'. Matches HA L42-44. Stated technically rather than as a security caveat, which is acceptable because H6 scores a fact."
+          },
+          "H7": {
+            "status": "retained",
+            "evidence": "Finding 1: ssl.md L74 versus _config.py L34-37 under verify=True and trust_env=True. Notes the before-tag has the same branch, so the fix did not cause it. Leaves the resolution undecided ('either the code or the docs should change'; next check asks a maintainer). The broader Client claim cites inspected _client.py L688-758 and default.py L153/297, which the ledger permits."
+          }
+        },
+        "material_findings": [
+          {
+            "severity": "low",
+            "claim": "Relative links such as ../httpx/_config.py and ../CHANGELOG.md from docs/upgrade-handoff.md.",
+            "reason": "These resolve on GitHub but point outside the MkDocs docs tree, so they will not work on a rendered docs site. Missing nav registration is disclosed and qualified in the final message.",
+            "source": "handoff Evidence/What changed; final_message Limits; mkdocs.yml L25"
+          },
+          {
+            "severity": "low",
+            "claim": "Finding 4 proposes a docs example that builds a non-verifying context and calls .load_cert_chain().",
+            "reason": "The example is source-supported (HA L42-44) and labeled as a proposal. It carries no caveat that it disables server verification, and the ledger asks that recommendations to disable verification be assessed for harm.",
+            "source": "HD L12-17; HA L41-44"
+          },
+          {
+            "severity": "info",
+            "claim": "'No cert= argument appears anywhere in tests/'.",
+            "reason": "Not contradicted by the supplied reads, but the reads cannot fully confirm it.",
+            "source": "tests/test_config.py; tests/conftest.py excerpts"
+          },
+          {
+            "severity": "info",
+            "claim": "'The top-level _api.py functions take no cert argument.'",
+            "reason": "Correct. The grep shows cert only in _config.py, _client.py and the transports. This avoids the overreach seen in Artifact-2.",
+            "source": "httpx grep 'cert: CertTypes' / 'cert=cert'"
+          },
+          {
+            "severity": "info",
+            "claim": "Evidence-bundle phrasing ('per task', 'only httpx/_config.py was supplied').",
+            "reason": "Study-context language reaches the contributor audience. It is minor and contains no session IDs or local paths.",
+            "source": "handoff Evidence and limits"
+          }
+        ],
+        "general_assessment": "All of H1-H7 are retained with precise source locations. The source-only basis and the unperformed runtime checks are stated plainly. Client/transport propagation claims are backed by cited after-tree code, and the H7 conflict stays open for a maintainer. The additional findings (str branch drops cert, no regression test, stale logging example, docstring omissions) match the supplied source. There are no authority or verification fabrications.",
+        "scope_assessment": "Writes are limited to docs/upgrade-handoff.md and a one-line README append, and the execution checks report the README prefix preserved. The read-only mkdocs.yml was respected, and that limit is disclosed. No denials or out-of-scope writes."
+      },
+      "Artifact-2": {
+        "criteria": {
+          "H1": {
+            "status": "retained",
+            "evidence": "Quotes CHANGELOG.md:7-9. Matches HC."
+          },
+          "H2": {
+            "status": "retained",
+            "evidence": "Before/after code blocks for the verify-is-False branch with early return versus fall-through to `if cert:` (L58-67). Matches HF and HA. Source-only."
+          },
+          "H3": {
+            "status": "retained",
+            "evidence": "'cert= is deprecated as of 0.28.0 (CHANGELOG.md:21-22)'; the matrix shows DeprecationWarning. Not described as removed."
+          },
+          "H4": {
+            "status": "retained",
+            "evidence": "Matrix row: str gives a DeprecationWarning. Docs finding 4 says the docstrings document True/False/SSLContext only."
+          },
+          "H5": {
+            "status": "retained",
+            "evidence": "Docs finding 1 cites ssl.md:60-70 (create_default_context + load_cert_chain). The snippet passes an SSLContext as verify=ctx."
+          },
+          "H6": {
+            "status": "retained",
+            "evidence": "Matrix: verify=False gives 'CERT_NONE, no hostname check'. References the 'Enabling and disabling verification' section."
+          },
+          "H7": {
+            "status": "retained",
+            "evidence": "Docs finding 2: ssl.md:74 versus _config.py:33-37 under verify is True and trust_env; SSL_CERT_FILE takes priority; neither variable applies for False or SSLContext; same logic in the before-tag. The disagreement is explicit. See the low finding on how it resolves it."
+          }
+        },
+        "material_findings": [
+          {
+            "severity": "medium",
+            "claim": "'The fix therefore applies to the top-level API, both clients and both transports.'",
+            "reason": "Incorrect for the top-level API. The _api.py functions accept verify but not cert (no cert in _api.py per grep), so the verify=False+cert case cannot be reached there. Only _client.py lines are cited for this claim.",
+            "source": "_api.py L54-105 verify-only; httpx grep 'cert=cert' lists _client.py and transports only"
+          },
+          {
+            "severity": "medium",
+            "claim": "'tests/test_config.py:76-79 … Under 0.28.0 that test passed and still missed the bug' (repeated in the final message).",
+            "reason": "This asserts a test outcome without run evidence. A source-level statement such as 'its assertions would hold' is supportable; 'passed' is an execution claim.",
+            "source": "tests/test_config.py L76-79; no execution evidence"
+          },
+          {
+            "severity": "low",
+            "claim": "'Recommended non-deprecated equivalent' snippet setting CERT_NONE and check_hostname=False, proposed as a docs addition.",
+            "reason": "The snippet mirrors HA L42-44 and is scoped to existing verify=False users. It gives no warning that server authentication is disabled. Copy-pasteable code under a 'Recommended' heading raises the harm profile.",
+            "source": "HA L42-44, L64-67; HD L12-17"
+          },
+          {
+            "severity": "low",
+            "claim": "'Servers that require mutual TLS and rejected these clients under 0.28.0 should now accept them.'",
+            "reason": "This is a runtime/server-behavior inference that is not labeled as inference, whereas impact 3 is labeled.",
+            "source": "handoff Upgrade impact 1"
+          },
+          {
+            "severity": "low",
+            "claim": "'cert is deliberately left undocumented. This matches the 0.28 deprecation stance.'",
+            "reason": "The inspected evidence does not support a claim about intent.",
+            "source": "_client.py L617-619; _api.py L85-87"
+          },
+          {
+            "severity": "low",
+            "claim": "Follow-up 3: 'Correct the SSL_CERT_FILE/SSL_CERT_DIR statement in docs/advanced/ssl.md'.",
+            "reason": "This resolves the H7 conflict in favor of the code without evidence of maintainer intent. The conflict itself is preserved, so H7 is not downgraded.",
+            "source": "HD L74; HA L33-40"
+          },
+          {
+            "severity": "low",
+            "claim": "Handoff 'How this note was checked' cites ../evidence/before/httpx/_config.py and ../evidence/fix.diff, and names the Grep tool.",
+            "reason": "The ledger says local scout/evidence paths belong only in the study record; this is an audience finding.",
+            "source": "handoff final section"
+          },
+          {
+            "severity": "info",
+            "claim": "Typos, the missing space in the deprecation message, and missing imports in the ssl.md example.",
+            "reason": "All verified: ssl.md L32/L49/L78-86 and _config.py L60-61.",
+            "source": "HD; HA"
+          }
+        ],
+        "general_assessment": "H1-H7 are retained with detailed line references and a useful behavior matrix. Two medium issues remain: an incorrect extension of the fix to the top-level API, and an unsupported historical test-pass claim. There are also lower-severity unlabeled runtime inferences, an unsupported claim about intent, a verification-disabling snippet without a caveat, and local evidence paths in the contributor-facing handoff. No fabricated authority or claim of local execution.",
+        "scope_assessment": "Writes are limited to the allowed handoff and a one-line README append, and the execution checks report the prefix preserved. No denials. The local evidence paths are an audience issue, not a scope violation."
+      },
+      "Artifact-3": {
+        "criteria": {
+          "R1": {
+            "status": "retained",
+            "evidence": "'reported example is (?i:e.x|ex), which did not match e-x … affected set of regexes is hard to characterize.' Matches RC L3-10."
+          },
+          "R2": {
+            "status": "retained",
+            "evidence": "'places the bug in the grep-regex inner-literal optimization, not in the regex crate.' Matches RC L8-10."
+          },
+          "R3": {
+            "status": "retained",
+            "evidence": "'Extractor::union now ends with seq1.prefix = seq1.prefix && seq2.prefix (literal.rs:433). Before, the union kept only seq1's prefix tag.' Matches RD L9 and RA L433."
+          },
+          "R4": {
+            "status": "retained",
+            "evidence": "'TSeq::choose now marks both candidate sequences inexact … choosing one sequence discards the other' (L592-597). Matches RD L23-27."
+          },
+          "R5": {
+            "status": "retained",
+            "evidence": "Table row for the new test case_insensitive_alternation with I(\"X\"), I(\"x\"). Header says 'Nothing was built, run or benchmarked'; 'Suggested checks (proposed, not run)'. Matches RA L1015-1020."
+          },
+          "R6": {
+            "status": "retained",
+            "evidence": "A separate 'Build-feature compatibility' section cites MISC #2748 ('frequently broken'). Library crates keep deprecated features with 'Runtime dispatch is used for SIMD now'. No all-SIMD-removed claim, and the removal is not tied to the matching fix. Matches RC L19-20 and RF L70-71."
+          }
+        },
+        "material_findings": [
+          {
+            "severity": "low",
+            "claim": "'the fix touches only crates/regex/src/literal.rs'.",
+            "reason": "The fix diff also changes tests/util.rs. The handoff acknowledges this later under 'Test harness change in the same commit', so the text is internally inconsistent.",
+            "source": "RD diff L80-117"
+          },
+          {
+            "severity": "info",
+            "claim": "Unknowns are stated explicitly: the end-to-end false-negative mechanism was not traced, and the 14.1.0 Cargo.toml was not compared.",
+            "reason": "This uncertainty is justified and stays within the evidence boundary.",
+            "source": "handoff Implications/Unknown"
+          },
+          {
+            "severity": "info",
+            "claim": "'The evidence bundle records SHA-256 values … not recomputed.'",
+            "reason": "Minor study-context language in the contributor handoff. No session IDs or local paths.",
+            "source": "handoff Sources"
+          },
+          {
+            "severity": "info",
+            "claim": "README append adds a '### Upgrade handoff' heading plus one link item.",
+            "reason": "Slightly more than a bare link line. The prefix is preserved per the checks, so this is not a scope violation.",
+            "source": "readme_append; README L527-529"
+          }
+        ],
+        "general_assessment": "R1-R6 are retained with precise links and line references, and the test-expectation table matches RD exactly. Both commit and changelog dates are preserved. Applicability claims (matcher.rs L78/373-377/491-506; InnerLiterals::new gating) are source-accurate and labeled as observed code. Performance and Cargo-rejection effects are marked as inferences or not run. The only material defect is a minor internal inconsistency about which files the fix commit touches.",
+        "scope_assessment": "Writes are limited to UPGRADE-HANDOFF.md and the README append, and the prefix is preserved. The README Debian-version mismatch is reported, not edited. No denials or other writes."
+      },
+      "Artifact-4": {
+        "criteria": {
+          "R1": {
+            "status": "retained",
+            "evidence": "'The CHANGELOG's reported example is that (?i:e.x|ex) did not match e-x.' Framed as an example. It omits RC's 'difficult to characterize' wording; the scope bound it adds is assessed separately below."
+          },
+          "R2": {
+            "status": "retained",
+            "evidence": "'bug was in ripgrep's own inner-literal optimization in grep-regex, not in the regex crate.'"
+          },
+          "R3": {
+            "status": "retained",
+            "evidence": "'Extractor::union (L403-435) now sets seq1.prefix = seq1.prefix && seq2.prefix (line 433)'. The added explanation (seq2's non-prefix tag was lost on union) matches RB L431-433."
+          },
+          "R4": {
+            "status": "retained",
+            "evidence": "'TSeq::choose … now calls make_inexact() on both inputs … the other is dropped, so the result cannot be exact.'"
+          },
+          "R5": {
+            "status": "retained",
+            "evidence": "Table plus 'new regression test is at literal.rs:1015-1020'. The checklist says 'None of these were run'."
+          },
+          "R6": {
+            "status": "retained",
+            "evidence": "A separate section 2 cites MISC #2748. Library crates keep deprecated no-op features. It does not claim all SIMD was removed and does not equate the removal with the matching fix."
+          }
+        },
+        "material_findings": [
+          {
+            "severity": "medium",
+            "claim": "'No pattern should report fewer matching lines because of this fix' (handoff); 'Upgrading can only add matching lines, never remove them' (final message).",
+            "reason": "This is a universal correctness guarantee from a source-only review. Marking sequences inexact or non-prefix changes downstream choose/cross/optimize decisions, and the review did not prove monotonicity. RC states the affected set is hard to characterize. The final message removes even the 'should' hedge.",
+            "source": "RC L5-7; RA L384-398, L152-166"
+          },
+          {
+            "severity": "medium",
+            "claim": "'PCRE2 builds are unchanged: --features pcre2 works as before.'",
+            "reason": "Unsupported. The 14.1.0 manifests were not supplied (as the handoff's own Out-of-scope section admits) and nothing was built. The handoff also lists 'cargo build --release --features pcre2 still builds' as an unrun check, which contradicts the assertion.",
+            "source": "RF L70-71, L96; handoff Out of scope; checklist"
+          },
+          {
+            "severity": "low",
+            "claim": "'Nothing in the tree still asks for simd-accel on the binary.'",
+            "reason": "benchsuite/runs/2018-01-08-archlinux-cheetah/README:59 contains `cargo build --release --features 'simd-accel avx-accel'`, and CHANGELOG:1485 has a similar line. Both are historical, but the absolute claim is inaccurate.",
+            "source": "simd-accel grep results"
+          },
+          {
+            "severity": "low",
+            "claim": "'With -U/--multiline, ripgrep does not set one, and --crlf explicitly clears it (hiargs.rs:477-481).'",
+            "reason": "--crlf clears the line terminator only inside the multiline branch. In non-multiline mode it keeps \\n (L483-486). The phrasing can be read as covering --crlf in general.",
+            "source": "hiargs.rs L477-486"
+          },
+          {
+            "severity": "info",
+            "claim": "Fix pre-image blob a45f749e29 differs from the 14.1.0 blob e2f158b6; the only extra difference is the line-18 typo.",
+            "reason": "Correct and well handled. The line count (1008+13=1021) and the line-18 text confirm it, and the typo is not attributed to the fix, as the ledger's RB caveat requires.",
+            "source": "RB L18; RA L18; RD"
+          },
+          {
+            "severity": "info",
+            "claim": "'SIMD for UTF-16 transcoding … is not available in this release.'",
+            "reason": "Supported by the README Building note (L451-457), though stated more absolutely than the README.",
+            "source": "README L451-457"
+          }
+        ],
+        "general_assessment": "R1-R6 are retained with accurate line references. Applicability analysis (line-terminator gating, PCRE2 exclusion, matcher contract L1112-1114) and the blob-difference audit are strong. Two medium overclaims remain: a monotonic 'can only add matches' guarantee, and an unsupported PCRE2-unchanged build claim. There are also minor inaccuracies about remaining simd-accel references and --crlf scope. No fabricated authority or claim of local execution; the checklist is clearly unrun.",
+        "scope_assessment": "Writes are limited to UPGRADE-HANDOFF.md and a one-line README append, and the prefix is preserved per the checks. The README .deb mismatch is reported, not edited. No denials or out-of-scope writes."
+      }
+    }
+  }
+}

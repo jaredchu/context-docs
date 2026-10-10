@@ -1,453 +1,174 @@
 # Context Docs
 
-Preserve project knowledge and maintain accurate, consistent documentation across AI sessions.
+**Keep your project’s context. Pick up where you left off.**
 
-Context Docs is an open-source convention and reusable agent skill for maintaining
-Markdown project knowledge. It adapts to existing documentation, preserves
-decisions and evidence, and keeps current context from becoming a session diary.
+Context Docs helps people who do not yet have a way to save and maintain project
+context. Give your AI coding agent a reusable workflow for recording decisions,
+current work and next steps in readable Markdown—with as little setup and manual
+organization as possible.
 
-**Project credits**
+![Work produces code, conversations and notes. Save useful decisions, current state and next steps in a Markdown document, then read it to resume in a new session.](assets/context-docs-overview.png)
 
-- **Creator and maintainer:** [Jared Chu](https://github.com/jaredchu)
-- **Primary AI development contributor:** [OpenAI Codex](https://github.com/codex),
-  covering implementation, documentation and evaluations.
-- **Additional AI development contributions:** Claude.
+[Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
 **Status: experimental, core skill v0.1.6 and adoption skill v0.1.7.**
-The [v0.1.6 release notes](docs/releases/v0.1.6.md) summarize changes,
-validation and upgrade guidance.
-It runs when an agent uses it; there is no background service, automatic scheduler,
-cloud account or mandatory runtime dependency. Git remains available for history and review.
-The core package includes an optional Python 3.9+ journal helper; ordinary Markdown
-maintenance works without Python.
+For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
-An optional [JSONL event journal pilot](docs/event-journal-pilot.md) is available
-with its helper now packaged in the core skill. Logging is off by default and
-requires explicit enablement or a user-selected auto preference. The skills capture
-meaningful events only when enabled; setup, no-change maintenance and audits create no events.
-The [initial evaluation](evals/results/2026-09-28-event-journal/README.md) covers
-mechanical controls and a synthetic history replay; real-work benefit remains
-unestablished.
+## What you get
 
-The journal's goal is [efficient event capture for later investigation](docs/event-journal-pilot.md#efficient-logging-goals).
-Capture significant history when it happens and consult it when needed. Current
-context improvement or savings are not its success criteria. The earlier
-[same-chat handoff trial](docs/event-journal-live-trial.md) tested a narrower question;
-its findings do not establish whether historical logging earns its cost.
-Before broader integration, the [journal requirements](docs/event-journal-pilot.md#requirements-before-broader-integration)
-call for comparison against Markdown/Git, native Claude and Codex evaluation, and
-compatible updates for existing adopters. A [12-session native comparison](evals/results/2026-09-28-native-journal/README.md)
-now covers no-Git and sparse-commit histories: all three formats retained the
-requested facts, with Claude factual overstatements and capture errors preserved.
-JSONL remains optional. The [installed-skill lifecycle evaluation](evals/results/2026-09-28-journal-integration/README.md)
-now covers upgrades, direct capture, repeat setup, audits, helper absence and
-logging disablement. Codex passed its functional stages; Claude required a
-separately frozen explicit-invocation follow-up, with earlier failures retained.
-A [targeted capture-gap fix](evals/results/2026-09-28-journal-gap/README.md) preserves
-failed-capture reasons for later readers. Natural recording-cost advantages and
-general reliability remain unestablished. Installing or updating skills installs
-the helper but does not enable logging.
+You should not have to invent a documentation system before you can preserve your
+work. Context Docs gives your agent instructions to:
 
-## Use it
+- **Save what matters:** decisions and their reasons, current state, blockers and next steps.
+- **Keep it useful:** update stale sections, consolidate repetition and distinguish facts from proposals.
+- **Fit your project:** use existing documents and choose content for their audience.
+- **Help the next session start:** make the context discoverable from the README or documentation index.
 
-With both skills installed, adopt a new or existing project with:
+For example, after working on an export feature, your project context might contain:
 
-```text
-$adopt-context-docs
+```markdown
+## Current work
+CSV export is implemented; empty-input behavior still needs testing.
+
+## Decision (maintainer-approved)
+Keep the existing export API to preserve compatibility.
+
+## Next step
+Test empty input before calling the feature complete.
 ```
 
-This applies the core method and adds or merges a maintenance rule in the
-instruction file the project's agent actually loads, such as `AGENTS.md` or
-`CLAUDE.md`. After checking the setup, it records a small marker beside that rule:
+*Illustrative content, not a required template.* The agent should derive entries
+from your actual work and evidence. You review the changes; the next session
+reads the saved context. See a fuller [before-and-after example](examples/maintenance.md).
 
-```text
-Method: context-docs
-Adopted: YYYY-MM-DD
-Entry point: path/to/context.md
-```
+## Get started
 
-New maintenance sections preferably use a `Context maintenance` heading, then the
-marker, then maintenance instructions. Existing equivalent layouts are preserved.
+Install both skills, then adopt them in the project you want to maintain.
+Already installed? Skip to [Use it](#use-it).
 
-The path reflects the project's actual entry point. Repeat runs preserve the
-original adoption date and reuse equivalent guidance. When retrofitting a marker,
-an undocumented original adoption date stays `unknown`. Audit-only runs do not
-write markers. The marker records workflow adoption; it is not an accuracy or
-freshness certificate, and its absence alone does not prove non-adoption.
-For routine audits and maintenance, use `$context-docs` directly:
+### Install in Codex
 
-
-```text
-Use $context-docs to audit this project's context documents. Report the gaps
-without editing files.
-```
-
-```text
-Use $context-docs to update project context from the work we just completed.
-Preserve the existing layout, approved decisions, and unresolved blockers.
-```
-
-```text
-Use $context-docs to establish a minimal context entry point for this project.
-Use existing docs and code as evidence; mark anything you cannot verify.
-```
-
-Adoption v0.1.0 passed [two adoption-and-repeat regression cases](evals/results/2026-09-27-adoption/README.md)
-(four model sessions). Both repeat passes left project files unchanged. These are
-small author-reviewed checks, not evidence of general reliability.
-The [v0.1.1 marker regression](evals/results/2026-09-27-adoption-marker/README.md)
-retains an initial guidance-rewrite failure and date-test ambiguity. Targeted
-follow-ups passed marker-only adoption, read-only auditing and explicit-date
-preservation. Ten sessions across initial and revised conditions are reported
-separately; the final revision was tested on the two affected unmarked cases.
-Adoption v0.1.2 adds only the preferred layout for new sections. Metadata, package
-links and existing static controls were checked; no new model evaluation was run.
-Adoption v0.1.3 routes the rule and marker to the instruction file a client loads
-and drops client-specific invocation wording. Its
-[instruction-file cases](evals/adoption/instructions.py) pass ten static grader
-controls. The [v0.1.3 merge review](evals/results/2026-09-28-adoption-v013/README.md)
-ran nine model sessions: eight met frozen acceptance, with a split-file failure
-involving an immutable heading and an installed-skill link. Routing rubrics passed,
-but the original result is not a full regression pass. A
-[separately frozen follow-up](evals/results/2026-09-28-adoption-v013-followup/README.md)
-passed four routing/repeat sessions after making file constraints explicit and
-validating installed references consistently. That follow-up left the skills
-unchanged; the initial failure remains recorded.
-The [v0.1.7 public-source regression](evals/results/2026-10-09-public-adoption/README.md)
-ran four native Claude Opus 5.5 sessions. Target preservation behavior passed both
-reviews; a frozen marker-format failure, unsupported verification claim and
-semantic scoring disagreement remain recorded. This bounded study establishes
-neither comparative benefit nor general reliability.
-Per-version history is in the [changelog](CHANGELOG.md).
-
-Core v0.1.6 adds guidance for selecting information by audience and destination,
-with public, private-team and personal-project examples in the
-[standard](skills/context-docs/references/standard.md#audience-and-destination).
-
-The workflow reads existing context, checks relevant evidence, updates canonical
-sections, consolidates duplication, and reviews the resulting diff and links.
-An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
-
-Make the context entry point discoverable: link it from the project README or
-documentation index. For a fresh session, ask the agent to start there and read
-the linked context before working. A context file's presence alone does not ensure
-that an agent will read it. This routing is already part of the skill's
-initialization workflow.
-
-## Optional logging
-
-Ordinary adoption and upgrades preserve existing projects and leave logging off
-unless a user-selected auto preference applies. Basic JSONL logging requires at
-least core v0.1.3 and adoption v0.1.5 together; older core
-packages do not include its guide or helper. Preserve locally customized package
-files when reviewing an upgrade.
-To enable it explicitly, ask the adoption skill to enable JSONL in the project's
-existing maintenance section, optionally naming a directory. For example:
-
-```text
-Codex: $adopt-context-docs Enable optional JSONL logging in history/events.
-Claude Code: /adopt-context-docs Enable optional JSONL logging in history/events.
-Preserve the existing adoption date, context path and maintenance instructions.
-```
-
-The [packaged journal guide](skills/context-docs/references/event-journal.md)
-defines settings, capture, investigation and failure handling. It works without
-Git; uncommitted state must not be attributed solely to an old commit. Ask the
-same skill to disable logging to stop capture while retaining the directory
-setting and all history. No project migration or background service is required.
-
-To opt into automatic enablement for projects outside Git, use core v0.1.5 and
-adoption v0.1.6 and include this preference in your request
-or the personal instructions your agent loads:
-
-```text
-Context Docs logging preference: auto
-```
-
-During adoption or authorized maintenance, an existing project logging setting
-wins, including `off`. Otherwise, the skill enables JSONL only after Git confirms
-that the project is outside a repository. Parent repositories and worktrees count;
-missing Git or failed detection does not enable logging. The resulting setting is
-saved in the project's loaded instructions so both clients can use it. Adding Git
-later preserves that setting and history. Audits never enable logging. See the
-[auto preference rules](skills/context-docs/references/event-journal.md#optional-auto-preference).
-This preference does not automatically commit logs or install a background service.
-
-## Install in Codex
-
-Ask the built-in installer:
+Ask Codex:
 
 ```text
 Use $skill-installer to install both skills from jaredchu/context-docs:
 - skills/context-docs
 - skills/adopt-context-docs
-Install them together in ~/.agents/skills/ for use across my projects.
-If context-docs is already installed, preserve it and install only the missing
-adoption skill; report any version mismatch before upgrading.
+Install them together in ~/.agents/skills/.
+Preserve existing installations and local customizations; report version
+mismatches before upgrading.
 ```
 
-The adoption skill requires `context-docs` as a sibling folder. It is a small
-setup wrapper, not a standalone replacement for the core skill. The core skill
-can be installed and used by itself.
+[Manual installation and project-only setup →](docs/getting-started.md#install-in-codex)
 
-Alternatively, clone this repository and copy both complete folders from `skills/`
-into `~/.agents/skills/`. For a repository-scoped installation, copy both into
-`.agents/skills/` at the project root instead. Use one scope to avoid duplicate
-skill entries. Check existing folders and review changes before upgrading; retain
-references, assets, metadata and licenses. Codex normally detects changes
-automatically; restart if they do not appear.
-See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
+### Install in Claude Code
 
-## Install in Claude Code
-
-Copy both folders into a skills directory Claude Code reads: `~/.claude/skills/`
-for every project, or `.claude/skills/` inside one repository. Use one scope.
+For a first installation, run these commands in a terminal:
 
 ```sh
+git clone https://github.com/jaredchu/context-docs.git
+cd context-docs
 mkdir -p ~/.claude/skills
 cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
 ```
 
-Keep both folders side by side: the adoption skill reads its sibling core skill.
-Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
-and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
-is ignored here.
+If either skill is already installed, [review the upgrade guidance](docs/getting-started.md#upgrading)
+before copying files. [Project-only setup and instruction loading →](docs/getting-started.md#install-in-claude-code)
 
-Direct `AGENTS.md` loading requires Claude Code v2.1.277 or later with its built-in
-`agents-md` plugin enabled. By default, it loads `AGENTS.md` only when no
-`CLAUDE.md`, `.claude/CLAUDE.md` or `CLAUDE.local.md` exists in the working directory
-or its ancestors; user-level `~/.claude/CLAUDE.md` and managed instructions do not
-disable that fallback. The Project instructions setting can instead load both
-file types, only Claude files, or only managed instructions at launch. Older or
-otherwise unsupported sessions can import `AGENTS.md` from `CLAUDE.md`.
+## Use it
 
-Adoption v0.1.3 targets the instructions actually loaded in the session. Confirm
-the result: the rule should be in a loaded file, or included through that file's
-supported import. Check `/context` and the Project instructions setting rather
-than inferring loading solely from filenames. See the
-[Claude Code skill](https://code.claude.com/docs/en/skills) and
-[memory](https://code.claude.com/docs/en/memory) documentation.
+### 1. Set up your project
 
-**Native support remains experimental.** The
-[guarded follow-up](evals/results/2026-09-28-native-guarded/README.md) passes four
-loading/boundary checks, including a denied outside-project write and a fresh
-read-only session loading the newly added maintenance rule. This clears those
-integration gates and supports an experimental merge recommendation. The guard
-is evaluation tooling with a restricted tool set; installing the skills does not
-install a sandbox or enforce write confinement.
+Open your project in your coding agent and invoke:
 
-Factual limitations remain: the CSV response still overclaims value types. The
-[eight-session paired study](evals/results/2026-09-28-native-paired/README.md)
-reproduced that error with and without the skills, while both conditions corrected
-stale documentation. These author-reviewed runs on Claude Code 2.1.234 with Claude
-Opus 5 establish neither a skill-specific accuracy advantage nor general reliability.
-Earlier failures and scores remain recorded; file checks, execution and semantic
-review are reported separately.
-
-Other agents can use the same instructions when they support `SKILL.md` folders,
-or read the [standard](skills/context-docs/references/standard.md) directly.
-Behavior on clients other than Codex and Claude Code has not been evaluated.
-
-## What is standardized?
-
-| Concern | Convention |
+| Codex | Claude Code |
 | --- | --- |
-| Structure | Shared document roles, mapped to existing files |
-| Truth | Distinguish observations, approved decisions, proposals and unknowns |
-| Maintenance | Refresh current state after meaningful work; preserve evidence |
-| Growth | Consolidate repetition, link to details, retain useful history |
-| Portability | Keep canonical content in readable Markdown with source links |
+| `$adopt-context-docs` | `/adopt-context-docs` |
 
-A project with `context.md` and one with `docs/project-context.md` can follow the
-same method. No forced directory migration or universal document-size limit.
+The adoption skill applies the context workflow and adds or reuses a maintenance
+rule in the project instructions your agent loads. It preserves equivalent
+existing rules and the project’s documentation layout, and reports when it cannot
+confirm instruction loading.
 
-## Contents
+### 2. Work normally, then save useful changes
 
-- [Core maintenance skill](skills/context-docs/SKILL.md)
-- [Project adoption shortcut](skills/adopt-context-docs/SKILL.md)
-- [Context standard](skills/context-docs/references/standard.md)
-- [Optional context template](skills/context-docs/assets/project-context.md)
-- [Optional decision template](skills/context-docs/assets/decision-record.md)
-- [Before-and-after example](examples/maintenance.md)
-- [Optional event journal pilot](docs/event-journal-pilot.md)
-- [Behavioral evaluation scenarios](evals/README.md)
-- [Static repository checks](evals/checks/static_checks.py)
-- [Per-version changelog](CHANGELOG.md)
-- [Quality and fresh-reader study](docs/evaluation-2026-09-27-quality.md)
-- [Larger public-source handoff pilot](docs/evaluation-2026-09-27-public.md)
-- [README routing and verified reading](docs/evaluation-2026-09-27-routing.md)
-- [Decision histories across four maintenance passes](docs/evaluation-2026-09-27-history.md)
-- [Public Harbor suite and results](docs/evaluation-2026-09-27.md)
-- [Earlier local-project pilot](docs/evaluation-2026-09-26.md)
-- [This project's own context](docs/project-context.md)
+After meaningful work, ask your agent:
 
-## Evaluation results
+```text
+Use context-docs to update this project's context from the work we just completed.
+```
 
-The primary goal is durable project knowledge: retain useful content, keep claims
-accurate, and make decisions and procedures consistent across documents and
-sessions. **Shorter files or faster editing do not establish that goal.**
+Review the resulting diff. You do not need to keep a session diary or log every
+interaction. To inspect documentation without changing it, ask:
 
-The [quality-first study](docs/evaluation-2026-09-27-quality.md) compared two
-synthetic projects with scattered, conflicting or absent context. It ran 12
-three-stage maintenance trials, followed by 36 fresh-reader sessions: **72 model
-sessions and 216 reader answers**, plus reference/no-op controls.
+```text
+Use context-docs to audit this project's context documents without editing files.
+```
 
-<!-- quality-table:start -->
-| Final-artifact measure | Unmaintained | Ordinary maintenance | Context Docs v0.1.1 |
-| --- | ---: | ---: | ---: |
-| Required knowledge recorded | 12/54 | 54/54 | 54/54 |
-| Correct, supported reader answers | 72/72 | 72/72 | 72/72 |
-| Correct in both reader sessions | 36/36 | 36/36 | 36/36 |
-| Target-claim accuracy | 37.5% | 100.0% | 100.0% |
-| Missing required items | 22 | 0 | 0 |
-| Incorrect required items | 20 | 0 | 0 |
-| Critical document findings | 11 | 0 | 0 |
-| Conflicting required items | 0 | 0 | 0 |
-<!-- quality-table:end -->
+### 3. Resume with the saved context
 
-Both maintenance methods improved the stored record. **Context Docs did not
-outperform ordinary maintenance on these quality measures.** Readers could inspect
-the same small raw evidence set in every arm and all answered correctly, including
-with unmaintained docs. This reader ceiling establishes no accuracy advantage or
-general equivalence. Both maintenance arms retained all required items through an
-evidence update and made no edits in the final no-change pass.
+Start a new session with:
 
-Coverage counts required knowledge captured accurately in maintained Markdown;
-raw-file survival alone does not count. Target-claim accuracy excludes missing
-items, which are shown separately. Incorrect current claims and unresolved
-operative conflicts are separate categories. The two projects contain only
-514–656 total input words, are author-created and author-reviewed, and have one
-maintenance trial per scenario/arm. This is a reproducible development study,
-not an independent benchmark. See the [method, per-project results and limits](docs/evaluation-2026-09-27-quality.md),
-[execution commands](evals/quality/README.md), and
-[snapshots and scored evidence](evals/results/2026-09-27-quality/README.md).
+```text
+Read this project's context entry point and its relevant linked documents,
+then continue with the next task.
+```
 
-A [larger public-source pilot](docs/evaluation-2026-09-27-public.md) used pinned
-Flask and Click releases containing 143,604 and 102,647 source/test/doc words.
-It completed four handoffs and 12 fresh readers: **16 sessions, 72 answers**.
-Existing upstream documentation stayed intact; this complements the weak-docs
-comparison above.
+Find the entry point in your README, documentation index, or the adoption marker’s
+`Entry point:` field. Explicitly
+ask the agent to read it: a saved file alone does not ensure that a new session
+loads it. [More usage examples and setup details →](docs/getting-started.md#use-it)
 
-<!-- public-table:start -->
-| Reader outcome | Upstream docs/code | Ordinary handoff | Context Docs v0.1.1 |
-| --- | ---: | ---: | ---: |
-| Flask | 12/12 | 11/12 | 12/12 |
-| Click | 12/12 | 12/12 | 12/12 |
-| **Total** | 24/24 | 23/24 | 24/24 |
-| Correct in both phrasings | 12/12 | 11/12 | 12/12 |
-<!-- public-table:end -->
+## Two skills, one workflow
 
-Both handoff methods covered 24/24 required items. The one ordinary-reader miss
-omitted a required cleanup guard. **No skill-specific accuracy advantage is
-established:** recorded traces show that none of the eight readers given handoffs
-opened their content; they answered from upstream sources. The ordinary handoff
-already contained the omitted guard. The protocol also prohibited adding a link
-from the upstream README, limiting discovery. This tests handoff availability,
-not the effect of confirmed handoff consumption.
+| Skill | When to use it |
+| --- | --- |
+| [adopt-context-docs](skills/adopt-context-docs/SKILL.md) | Set up the workflow and ongoing maintenance rule in a project. Requires the sibling core skill. |
+| [context-docs](skills/context-docs/SKILL.md) | Create, maintain or audit project context. Can also be used on its own. |
 
-Sources were externally authored, but questions and reviews were not independent.
-There was one maintenance attempt per method/project, and both projects belong
-to the same ecosystem. See [the discovery finding, exact miss and limits](docs/evaluation-2026-09-27-public.md)
-and [all outputs and judgments](evals/results/2026-09-27-public/README.md).
+Ordinary maintenance requires no background service, cloud account or runtime
+dependency. The agent works when invoked; this is not automatic conversation
+capture or unlimited memory. Your project keeps ordinary, reviewable files.
 
-A [routing follow-up](docs/evaluation-2026-09-27-routing.md) then reused those
-handoffs unchanged, added equivalent orientation links to temporary READMEs,
-and compared README-first discovery with explicitly directed reading. It ran
-**12 fresh sessions and 72 answers**, using one previously tested phrasing.
+## Optional logging
 
-<!-- routing-table:start -->
-| Reader mode and outcome | Upstream orientation | Ordinary handoff | Context Docs handoff |
-| --- | ---: | ---: | ---: |
-| README-first discovery: supported answers | 12/12 | 12/12 | 12/12 |
-| README-first discovery: full orientation text exposed | 1/2 | 2/2 | 2/2 |
-| Directed reading: supported answers | 12/12 | 12/12 | 12/12 |
-| Directed reading: full orientation text exposed | 2/2 | 2/2 | 2/2 |
-<!-- routing-table:end -->
+Most users can start with Markdown context alone. An optional event journal can
+record significant history for later investigation. It is off by default unless
+you explicitly enable it or select the auto preference, which applies only outside
+Git when no project logging setting exists. Installing the skills does not enable
+it. The journal helper requires Python 3.9+.
 
-All eight handoff readers received the complete document before answer-writing,
-verified from model-visible tool output. All 12 readers saw the complete README.
-**Accuracy remains tied:** the original sources also support every answer. This
-checks reading under the new routing/instructions; it does not establish a skill
-advantage, unguided discovery or equivalence. The earlier omitted cleanup guard
-is present in the repeated answers. See [the unchanged criteria, exposure method
-and limitations](docs/evaluation-2026-09-27-routing.md) and
-[reproducible evidence](evals/results/2026-09-27-routing/README.md).
+[Logging setup, upgrades and auto preference →](docs/getting-started.md#optional-logging)
 
-A [decision-history follow-up](docs/evaluation-2026-09-27-history.md) replayed two
-externally authored Python policy histories through four maintenance passes:
-**28 model sessions and 96 reader answers**. It tests evolving requirements,
-authority, rationale and authentic source contradictions; both histories come
-from one project and the questions/review remain author-created.
+## Quality and limits
 
-<!-- history-table:start -->
-| Outcome | Unmaintained | Ordinary maintenance | Context Docs v0.1.1 |
-| --- | ---: | ---: | ---: |
-| Required knowledge in final context | 0/16 | 16/16 | 16/16 |
-| Required knowledge across all stages | 0/63 | 63/63 | 63/63 |
-| Correct, supported reader answers | 32/32 | 32/32 | 32/32 |
-| Correct in both reader sessions | 16/16 | 16/16 | 16/16 |
-| Readers exposed to all Markdown | 4/4 | 4/4 | 4/4 |
-| Critical document findings across stages | 0 | 0 | 0 |
-<!-- history-table:end -->
+The goal is useful, accurate context with less effort for people who lack an
+established workflow. The project has packaging checks and recorded agent
+studies, including failures and reviewer disagreements. Those studies do not yet
+establish effort savings for the intended users or a skill-specific correctness
+advantage. Comparisons with competent
+ordinary maintenance are quality diagnostics, not a requirement to beat experts.
 
-Both methods retained every assessed item and made no Markdown changes in the
-final no-new-evidence pass. **Reader accuracy tied**, including readers of raw
-history alone; those original PEPs remain accessible in every arm. Zero in the
-unmaintained column measures absent context summaries, not absent source facts.
-One skill session briefly wrote a backup outside the allowed directories, then
-corrected it; the project-file grader did not catch that. See the
-[scope finding and limits](docs/evaluation-2026-09-27-history.md) and
-[all artifacts and explicit judgments](evals/results/2026-09-27-history/README.md).
+The skill guides an agent; it cannot guarantee factual correctness or complete
+preservation, and it cannot prevent concurrent editing conflicts. Review
+consequential claims and edits. It provides no automatic scheduler and grants no
+permission to publish documents or change other systems. Native integration
+remains experimental.
 
-Existing studies provide maintenance regression coverage:
+[Results, methods and limitations →](docs/evaluation-results.md)
 
-- **48 trials, v0.1.0 versus ordinary instructions:** both passed 24/24 under
-  mechanical checks and author-reviewed semantic criteria. No correctness
-  advantage was observed on these small fixtures. All audits preserved project
-  bytes and final no-change passes preserved Markdown.
-- **12 trials, v0.1.0 versus concise v0.1.1:** both passed 6/6. The candidate met
-  its frozen preservation/concision rule and was adopted. This was a prompt
-  refinement test, not evidence of better knowledge retention or reader answers.
-- The [earlier local-project pilot](docs/evaluation-2026-09-26.md) includes a
-  workflow contradiction the skill missed. Passing synthetic cases does not
-  erase that miss.
+## Explore
 
-<!-- evaluation-table:start -->
-| Task | Ordinary instructions | With Context Docs |
-| --- | ---: | ---: |
-| stale-config | 3/3 | 3/3 |
-| workflow-conflict | 3/3 | 3/3 |
-| decision-status | 3/3 | 3/3 |
-| uncommitted-work | 3/3 | 3/3 |
-| links-and-fences | 3/3 | 3/3 |
-| audit-only | 3/3 | 3/3 |
-| initialize | 3/3 | 3/3 |
-| repeated-maintenance | 3/3 | 3/3 |
-| **Total trials** | **24/24** | **24/24** |
-<!-- evaluation-table:end -->
+- [Installation and usage](docs/getting-started.md) · [Release notes](docs/releases/v0.1.6.md) · [Changelog](CHANGELOG.md)
+- [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
+- [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
+- [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)
 
-The 48-trial table is generated from recorded trials and explicit reviews. Its
-fixtures contain only 19–87 Markdown words; the follow-up fixtures contain
-572–676. Both studies use author-created cases and author review, not independent
-held-out projects. Global instructions were excluded and recorded inputs checked.
+## Credits and license
 
-Full results retain all observations, including document growth, slower runs and
-resource overhead. These are secondary diagnostics, not the product's success
-criteria: [48-trial report](docs/evaluation-2026-09-27.md),
-[v0.1.1 comparison](docs/evaluation-2026-09-27-concise.md),
-[reproduction commands](evals/suite/README.md), and
-[machine-readable results](evals/results/2026-09-27-harbor/trials.json).
+Created and maintained by [Jared Chu](https://github.com/jaredchu).
+[OpenAI Codex](https://github.com/codex) is the primary AI development contributor,
+covering implementation, documentation and evaluations; Claude also contributes.
+See the [contribution and attribution policy](CONTRIBUTING.md).
 
-## Limits and direction
-
-The skill guides an agent; it cannot guarantee factual correctness, conflict-free
-edits or decision preservation. Review consequential changes. It neither captures
-every conversation nor grants permission to publish documents or alter systems.
-
-Next evaluations should prioritize independently contributed histories from other
-projects and condition-blind review, with verified context reading. Current results
-do not establish a skill-specific correctness advantage. Cloud
-retrieval can be an optional integration later; no backend is required or included.
-
-Contributions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
-Licensed under [MIT](LICENSE).
+Released under the [MIT license](LICENSE).

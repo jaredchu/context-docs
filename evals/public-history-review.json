@@ -1,0 +1,68 @@
+{
+  "status": "Preparation reviewed and corrected; no subject sessions, frozen execution manifest or published results.",
+  "date": "2026-10-10",
+  "author_model": "GPT 6 Astra High",
+  "reviewer_model": "claude-opus-5-5",
+  "reviewer_effort": "high",
+  "client_version": "2.1.295",
+  "review_mode": "Tool-free, unblinded review of plan, ledger, source inventory, quality protocol and selected pinned source excerpts.",
+  "packet_sha256": "887b9aa19173c7cd6105a239dd4ab4e0c0fbd8a7dab480daa58f78341c04692d",
+  "initial_review": "**Verdict: revise before freeze.** The design is sound and appropriately bounded. The line references I checked are accurate: HA 23\u201369, 33\u201340 and 41\u201344; HD 74; RA 433, 592\u2013597 and 1015\u20131019. Four ledger and packaging defects should be fixed before acceptance. Already-listed prerequisites are not counted as findings: snapshot assembly, isolation, write enforcement, verbatim prompts, client/model IDs and the freeze manifest.\n\n### Must-fix\n\n1. **The editable revision and evidence packaging are undefined.** `public-history-plan.md`, \"Cases to freeze\" and the paragraph beginning \"Use a disposable copy at a declared historical cutoff\", require a cutoff and \"event evidence newer than the documents\". But `public-history-sources.json` checks `output_absent_at_cutoff` against `tree_api_ref` = the *after* commit, and H2, R3 and R4 need the *before* files (HB, RB). If the editable tree is the after tag, nothing is newer than the documents, so that clause is meaningless.\n   *Fix:* State that the editable copy is the after-tag tree. Supply the before files and the diff as identical read-only evidence outside the tree, with their pinned URLs, so both arms can produce the \"specific navigable links\" the ledger credits. Delete or redefine the \"newer evidence\" clause.\n\n2. **Supplied inputs are not inventoried.** The plan says to supply a \"change diff and public discussion excerpts\", but the inventory has neither. The fix commits `89599a9\u2026` and `9d738ad\u2026` are not hashed, and their ancestry relative to the tags is not recorded. Issue threads #2884 and #2748 are mutable, which is the same problem the plan already flags for release pages. The ledger also attributes tag-to-tag RB\u2192RA differences to the fix, but the two revisions differ in unrelated ways too: the docstring at before 589\u2013590 is rewrapped.\n   *Fix:* Hash the two fix-commit diffs and record that each commit is an ancestor of its after tag. Cite R3 and R4 against the commit diff. Either drop discussion excerpts or pin them as dated, hashed snapshots that the ledger cites.\n\n3. **The HTTPX ledger misses a source-backed limit on the fix.** In both HB (lines 46\u201355) and HA (lines 45\u201354), `verify=<str>` still returns before the `cert` handling. So 0.28.1 fixes only the `verify=False` path. A handoff saying \"client certificates are now always applied\" would be wrong, yet no required item or control catches it, and \"inspect new claims\" depends on the reviewer noticing.\n   *Fix:* Add this as a required item (H8), or add a negative control: \"0.28.1 makes `cert` work with every `verify` form\" \u2192 incorrect.\n\n4. **H6 mixes a source fact with an evaluator norm.** This contradicts the ledger's claim that \"All required facts below derive from pinned upstream files\". HD line 12 supports \"disables verification\". No source says the fix \"is not a reason to recommend disabling\".\n   *Fix:* Keep the first clause as H6. Score any recommendation to disable verification as an unsupported or harmful claim, not as a `missing` item.\n\n### Should-fix (fairness)\n\n5. **Treatment conflict is unaudited.** The plan forbids logging, layout migration and adoption markers, and fixes both output paths, but never records whether context-docs v0.1.6's core instructions require any of these. If they do, the skill arm is being tested on obeying overrides, and a skill-induced write becomes a critical scope failure.\n   *Fix:* Before freeze, record any conflicts between v0.1.6 and the allowlist, and how a write the skill instructed is attributed.\n\n6. **Positive controls favor the reference shape.** The only positive control is the evaluator's own outline, which is a bullet list, not a written handoff. Meanwhile the ledger asserts that \"acceptable alternative prose and layout must also pass\".\n   *Fix:* Add one structurally different positive artifact, for example a terse handoff in which specific links carry R3\u2013R5.\n\n7. **Destination criterion conflicts with fixed paths.** The plan's \"Audience and destination\" row rewards an \"appropriate existing destination\", but the plan mandates new files.\n   *Fix:* Reword to \"the mandated handoff, reachable from the README, with links to existing canonical sources\".\n\n8. **Same-model review is undisclosed.** The proposed executor is Claude Opus 5.5, which is also a counterpart reviewer, and GPT 6 Astra High authored the ledger. The quality protocol requires honest labeling of self-review.\n   *Fix:* State this overlap explicitly in the role record and the report.\n\n### Not findings\n\n- Session count, the ceiling caveat, the exclusion of reader benefit and the causal-claim limits are stated correctly.\n- The R6 \"do not claim all SIMD disappeared\" clause is acceptable as an overclaim check, though the inventory contains no before-tag `Cargo.toml` showing the feature existed.",
+  "resolutions": [
+    {
+      "finding": 1,
+      "change": "Editable copies are full after-tag trees; before files and fix diffs are read-only evidence outside them. Removed newer-than-documents clause.",
+      "evidence": "public-history-plan.md: Cases to freeze"
+    },
+    {
+      "finding": 2,
+      "change": "Inventoried and hashed both actual fix diffs; each fix is the merge base of fix...after (ahead), establishing ancestry. Removed discussion excerpts. Ledger attributes corrective changes to those fix diffs.",
+      "evidence": "public-history-sources.json: fixes; public-history-ledger.md: HF/RD"
+    },
+    {
+      "finding": 3,
+      "change": "Added negative control rejecting cert support for every verify form; string-valued verify still returns before certificate handling.",
+      "evidence": "public-history-ledger.md: Overgeneralized fix control; HA lines 45\u201354"
+    },
+    {
+      "finding": 4,
+      "change": "H6 requires only the source fact that verification is disabled. Recommendations are assessed separately and their absence is not missing content.",
+      "evidence": "public-history-ledger.md: H6 and following scope paragraph"
+    },
+    {
+      "finding": 5,
+      "change": "Audited released core compatibility, disclosed immutable-source override of in-place repair guidance, and retained attribution of attempted forbidden edits. Final injected settings/package still require a preflight audit.",
+      "evidence": "public-history-ledger.md: Released-skill compatibility audit"
+    },
+    {
+      "finding": 6,
+      "change": "Added a prose ripgrep positive artifact covering R1\u2013R6 with specific canonical links, plus its manual control judgment.",
+      "evidence": "public-history-ledger.md: Alternative positive artifact and controls"
+    },
+    {
+      "finding": 7,
+      "change": "Destination measure now evaluates the mandated handoff, README reachability and canonical links.",
+      "evidence": "public-history-plan.md: Audience and destination measure"
+    },
+    {
+      "finding": 8,
+      "change": "Disclosed Astra ledger authorship/scoring and Claude executor/reviewer model overlap; neither is presented as independent evaluation.",
+      "evidence": "public-history-plan.md: Evidence and review"
+    }
+  ],
+  "follow_up": {
+    "reviewer_model": "claude-opus-5-5",
+    "packet_sha256": "82cce7fa1238236efe5eaf0bafd4d29cf32145b128bf3fc304f6a10533839cb9",
+    "review": "**Verdict: preparation-ready.** All eight initial findings are resolved in the revised plan, ledger and inventory. No material must-fix design problem remains. The items below are small record and freeze-completeness updates to finish before acceptance. They do not require redesign.\n\n### Status of initial findings\n\n| # | Status | Evidence |\n|---|---|---|\n| 1 | Resolved | Plan, \"Cases to freeze\": the after-tag tree is the editable copy, before files and diffs are supplied read-only, and the \"newer evidence\" clause is redefined. |\n| 2 | Resolved | Discussion excerpts are dropped. `fixes[]` records the diff SHA256, `ancestor_of_after: true` and `merge_base` = fix commit. R3\u2013R5 now cite RD first. |\n| 3 | Resolved | The \"Overgeneralized fix\" control cites HA 45\u201354, which matches the excerpt. The ledger also notes string `verify` still returns early in HB/HA. |\n| 4 | Resolved | H6 is now the source fact only (HD 12; HA 41\u201344). Any recommendation to disable verification is scored separately. |\n| 5 | Resolved, pending recheck | The ledger's \"Released-skill compatibility audit\" records the scope override and attribution. Its own recheck against the frozen package remains a listed prerequisite. |\n| 6 | Resolved | The alternative ripgrep prose artifact covers R1\u2013R6 through specific links (L431, L590, L1015). It states source-only basis and versions. |\n| 7 | Resolved | The \"Audience and destination\" row now names the mandated handoff, README reachability and canonical links. |\n| 8 | Resolved | Plan, \"Evidence and review\", discloses the author, scorer, reviewer and executor overlap. |\n\n### Actionable residual items\n\n1. **Correction to my initial finding 2, plus a real preimage mismatch.**\n   - My earlier example was wrong. The docstring rewrap at before 589\u2013590 is part of fix commit `9d738ad` itself (the diff hunk `@@ -586,10 +587,15`), not an unrelated tag-to-tag difference.\n   - The underlying concern still holds for a different reason. The ripgrep diff header is `index a45f749e29..a33da2a6c1`, but the inventory's before-tag `literal.rs` blob is `e2f158b63e\u2026`. So `literal.rs` changed between 14.1.0 and fix parent `6c5108ed\u2026`, and not every RB\u2192RA difference is the fix.\n   - HTTPX has no such gap. The `dbd2b46cd1..467a6c90ae` header matches the HB and HA blobs exactly.\n   - *Minimum fix:* Record the preimage blob `a45f749e` in `public-history-sources.json` and add one sentence to the ledger: RB\u2192RA differences beyond RD are not fix evidence. Score claims that attribute them to the fix as unsupported.\n\n2. **Review record is incomplete.**\n   - `public-history-review.json` still has `\"resolutions\": []` and status \"resolution in progress\". The plan requires preserving resolutions and disagreements.\n   - *Minimum fix:* Add a per-finding resolution for 1\u20138, citing the changed passages. Add this follow-up review with its packet hash and the correction in item 1, and update the status.\n\n3. **The before-evidence file set is implicit (minor).**\n   - The plan says to supply \"identical before-revision files\" but does not name them. The inventory hashes only HB and RB.\n   - *Minimum fix:* Enumerate the supplied read-only files in the freeze manifest: HB, RB, both diffs, and any others. Fold this into the existing manifest prerequisite.\n\n### Explicit implementation and freeze prerequisites already listed (not counted as findings)\n\n- Snapshot assembly, input isolation and write-allowlist enforcement.\n- Verbatim prompts, client and model IDs, reasoning configuration, and tool/resource limits.\n- Exclusion of inherited logging settings and preferences.\n- Recheck of the skill compatibility audit against the frozen v0.1.6 package.\n- Trace-verified skill exposure.\n- A new freeze manifest hashing the skill package, snapshots, prompts, ledger, criteria and controls.\n- Formal acceptance of the concrete scope before any subject session.\n- Repository static checks, reported separately.\n\n### Not findings\n\n- Line references re-checked against the excerpts are correct: HA 23\u201340, 41\u201344 and 45\u201354; HD 12 and 74; RA 431\u2013434, 592\u2013597 and 1015\u20131019. Release-versus-commit dates match `fixes[].date`.\n- The fix diff also changes existing test expectations from `E` to `I`, and changes `tests/util.rs`. The ledger does not need to require these. Supported mentions of them are already credited, and unsupported ones are already caught under \"inspect new claims\".\n- The R6 caveat about missing before-tag `Cargo.toml` evidence stands as previously accepted.\n- HTTPX lacks a structurally different positive control. One alternative artifact satisfies the original finding, and requiring a second would broaden scope.",
+    "verdict": "Preparation-ready; eight initial findings resolved.",
+    "residual_resolutions": [
+      "Preserved reviewer correction: docstring rewrap is in the fix itself. Verified full fix-parent blob IDs against the actual diff headers and GitHub parent revision. Recorded ripgrep before-tag mismatch, with explicit ledger restriction on attributing other differences to the fix.",
+      "Per-finding resolutions were added after the follow-up packet was captured; both initial and follow-up judgments are preserved here.",
+      "Plan now enumerates HB, RB and both fix diffs as read-only evidence; any additions must be declared equally before freeze."
+    ]
+  },
+  "checks": {
+    "static_checks": "python3 evals/checks/static_checks.py passed; packaging/link/version checks only, not model evaluation.",
+    "source_provenance": "17 source blobs verified by size, SHA-256 and Git blob ID; 2 fix diffs by size/SHA-256; ancestry and primary-file preimages checked through pinned GitHub objects."
+  }
+}

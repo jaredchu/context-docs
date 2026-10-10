@@ -15,9 +15,21 @@ claim that every scenario below or automatic skill selection has been tested.
 For the original runner selection and proposed protocol, see the
 [framework comparison and proposed protocol](frameworks.md).
 
+The [evidence overview](../docs/evaluation-results.md) collects results, original
+comparison tables and their limitations.
+
 ## Evaluation priority
 
-Retained content, factual accuracy and consistency are primary. The completed
+The intended users do not already know how to save and maintain project context.
+The product goal is useful, accurate, consistent context with minimal setup and
+ongoing manual effort. Future practical validation should examine learning,
+organization, prompting and correction effort for those users, alongside retained
+knowledge and accuracy. Fast model runs or short files do not measure that effort.
+
+Competent ordinary maintenance remains a useful quality comparison, not the
+primary success gate for this audience. Do not weaken a comparison agent to
+manufacture an advantage. Existing frozen studies and scores remain unchanged;
+no new target-user usability result is claimed here. The completed
 [quality-first study](../docs/evaluation-2026-09-27-quality.md) compares scattered,
 conflicting and absent context against ordinary maintenance and Context Docs,
 then tests fresh readers. Both maintenance methods capture all required items;
@@ -26,6 +38,17 @@ skill accuracy advantage is established. See the [runnable study](quality/README
 and [broader protocol](quality-protocol.md). The scenarios below remain maintenance
 regression checks; their pass rates do not establish downstream usefulness.
 Speed, tokens and size are supporting diagnostics, not quality substitutes.
+
+The [public-history comparison](results/2026-10-10-public-history/README.md)
+completed four matched upgrade-handoff sessions on pinned HTTPX and ripgrep
+history. All execution gates passed; both methods produced additional unsupported
+claims. Separate artifact reviews and frozen inputs are retained. There were no
+fresh readers or retries, and no general comparative benefit is established.
+
+The [external-contributor packet](external-validation/README.md) provides case
+proposal and review templates. It is preparation for outside contributions, not
+an independent evaluation result. No outside contributor has yet supplied a case
+or review through this packet.
 
 ## Run a case
 

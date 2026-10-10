@@ -5,11 +5,14 @@ evaluation findings are retained from their linked reports, not rerun here.
 
 ## Purpose and scope
 
-Context Docs is an experimental convention and reusable agent skill for maintaining
-useful Markdown project knowledge across AI sessions. Retained content, factual
-accuracy and consistency are the product goals; speed and brevity are secondary.
-It adapts to existing layouts and distinguishes observations, approved decisions,
-proposals and unknowns. Ordinary maintenance has no runtime dependency. The
+Context Docs is an experimental convention and reusable agent skill for people who
+do not yet know how to save and maintain project context. The goal is useful,
+accurate, consistent project knowledge across AI sessions with as little setup
+and ongoing manual effort as possible. Users should not need to design their own
+context-management process. Reducing human effort is a primary product goal; model
+speed, token use and file length alone do not establish success. It adapts to
+existing layouts and distinguishes observations, approved decisions, proposals
+and unknowns. Ordinary maintenance has no runtime dependency. The
 optional journal helper requires Python 3.9+; no background service or sync exists.
 
 This is a public open-source repository. Shared context should serve contributors
@@ -19,6 +22,9 @@ Relevant runtime constraints and failed evaluations remain shared evidence.
 
 ## Decisions
 
+- Serve users without an established context-management practice. The owner
+  clarified this audience and minimal-effort goal on October 10, 2026. Outperforming
+  expert maintenance is not the product's success gate; accuracy still matters.
 - Keep Markdown/Git authoritative and cloud integrations optional. A hosted memory
   service or retrieval backend needs a concrete use case.
 - Keep logging optional. Its goal is efficient event capture for later
@@ -48,13 +54,18 @@ approvals. An earlier release approval does not authorize a new publication.
   Claude integration was merged in [PR #1](https://github.com/jaredchu/context-docs/pull/1).
 - Core supports audit, initialize and maintain. Adoption is a sibling-dependent
   wrapper that adds guidance and a marker to instructions actually loaded by the
-  client. [README](../README.md) owns installation and invocation details.
+  client. [README](../README.md) introduces the workflow; the
+  [user guide](getting-started.md) owns detailed setup, usage and logging guidance.
 - The core package owns the standard, references, templates and optional journal
   helper. This repository enables JSONL through [AGENTS.md](../AGENTS.md); its
   `CLAUDE.md` imports those instructions. No other project's setting is implied.
 - [Repository checks](../.github/workflows/checks.yml) cover packaging, versions,
   links, grader controls and report regeneration. They are mechanical checks;
   actual agent evaluations remain separate.
+- The README now introduces the intended audience with a work/save/resume
+  illustration and quick start. Detailed setup is in the user guide; the
+  [evidence page](evaluation-results.md) retains all five generated result tables
+  and their limitations. Skill behavior and package versions are unchanged.
 
 ## Evidence and limits
 
@@ -86,6 +97,12 @@ studies into claims of general reliability or superiority over ordinary maintena
   criteria. The mixed case used an allowed handoff question; audit attempted no
   writes or history access. Five authored synthetic cases establish no broader
   reliability or comparative benefit.
+- The [October 10 public-history comparison](../evals/results/2026-10-10-public-history/README.md)
+  completed four native Claude Opus 5.5 handoffs across HTTPX and ripgrep, pairing
+  ordinary maintenance with explicit core-skill reading. Execution gates passed
+  4/4 with no denied actions; additional unsupported claims occurred in both
+  methods. Separate semantic reviews preserve the failures. No reader benefit,
+  native skill-discovery reliability or comparative accuracy advantage is established.
 - Preserve the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
   and [history-study scope violation](evaluation-2026-09-27-history.md) when assessing
   reliability. Perfect artifact scores do not establish full task compliance.
@@ -95,10 +112,15 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-Seek varied real-project histories and independent review before broader
-correctness claims. The [discrimination protocol](../evals/discrimination-protocol.md)
-remains a proposal, not an approved study. Any future native run needs a new
-frozen manifest; preserve completed studies without retries or rescoring.
+Prioritize normal daily use of the released skills and focused improvements when
+concrete issues arise. Routine use needs no evaluation log or outside reviewer.
+Reproduce significant failures with public evidence or synthetic examples, then
+validate targeted fixes. The [contribution packet](../evals/external-validation/README.md)
+is available for maintainer field feedback and outside contributions; distinguish
+those from independent validation. No specific field case or outside review has
+been captured for this follow-up. Any new comparison needs its own freeze and
+must preserve completed results; the [discrimination protocol](../evals/discrimination-protocol.md)
+remains a separate proposal.
 
 ## Canonical references
 

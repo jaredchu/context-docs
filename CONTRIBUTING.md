@@ -8,7 +8,10 @@ Keep the skill short and its references portable. Preserve existing project
 layouts, decision authority and evidence. Favor an instruction change over a new
 script unless deterministic tooling provides a clear, repeatable benefit.
 
-Evaluate knowledge retention, accuracy and consistency before speed or file size.
+Design for people who do not yet know how to save and maintain project context.
+Reduce the setup, organization, prompting and correction work users must do while
+preserving useful knowledge, accuracy and consistency. Model speed and file size
+alone do not measure that benefit; outperforming an expert workflow is not required.
 For claims about reader benefit, use the [quality-first protocol](evals/quality-protocol.md)
 with matched weak-documentation baselines. Maintenance pass rates alone do not
 establish better downstream answers.
@@ -23,7 +26,7 @@ For a skill change:
    verification limits and any lost information. Report semantic review separately
    from mechanical checks, and retain failed trials.
 3. Run `python3 evals/checks/static_checks.py` for packaging, links, declared
-   versions and agreement between README tables and published results. GitHub
+   versions and agreement between evidence-page tables and published results. GitHub
    Actions runs it with the container-free study self-tests on every push. Also
    check that the skill works when copied without the rest of this repository, and
    use your client's skill validator if available.
@@ -34,6 +37,17 @@ evaluation. Keep those claims separate, including in the
 [changelog](CHANGELOG.md): record the version a change lands in and what was
 actually executed for it. A version whose only evidence is static checks says so. Contributions are provided under the
 repository's MIT license.
+
+## Contribute validation evidence
+
+You can [propose a public case or review a handoff](evals/external-validation/README.md)
+without running models or installing tools. Case selection and artifact review
+are separate contributions; disclose prior involvement and model assistance.
+Original study results remain intact when supplemental reviews are added.
+Maintainer and regular-user feedback is welcome too: record the task, version,
+expected behavior and observed result. Label maintainer cases as field validation,
+with public source evidence or a clearly labeled synthetic reproduction of private
+work, rather than independent review.
 
 ## Commit attribution
 

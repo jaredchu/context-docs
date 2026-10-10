@@ -40,7 +40,8 @@ LINK_EXCEPTIONS.update({
      '../scripts/event_journal.py')
     for client, install in (('claude', '.claude/skills'), ('codex', '.agents/skills'))
 })
-# Generated result tables embedded in README.md, with the artifact each one comes from.
+# Generated result tables in the evidence page, checked against their source artifacts.
+TABLE_DOCUMENT = "docs/evaluation-results.md"
 TABLES = {'quality-table': 'evals/results/2026-09-27-quality/table.md',
           'public-table': 'evals/results/2026-09-27-public/table.md',
           'routing-table': 'evals/results/2026-09-27-routing/table.md',
@@ -87,16 +88,20 @@ def check_links(failures):
 
 
 def check_tables(failures):
-    readme = (ROOT / 'README.md').read_text()
+    document = ROOT / TABLE_DOCUMENT
+    if not document.is_file():
+        failures.append(f'{TABLE_DOCUMENT}: missing result table document')
+        return f'{len(TABLES)} published result tables'
+    body = document.read_text()
     for name, path in TABLES.items():
-        embedded = re.search(r'<!-- %s:start -->\n(.*?)<!-- %s:end -->' % (name, name), readme, re.S)
+        embedded = re.search(r'<!-- %s:start -->\n(.*?)<!-- %s:end -->' % (name, name), body, re.S)
         artifact = ROOT / path
         if embedded is None:
-            failures.append(f'README.md: missing {name} markers')
+            failures.append(f'{TABLE_DOCUMENT}: missing {name} markers')
         elif not artifact.is_file():
-            failures.append(f'README.md: {name} has no published artifact at {path}')
+            failures.append(f'{TABLE_DOCUMENT}: {name} has no published artifact at {path}')
         elif embedded.group(1) != artifact.read_text():
-            failures.append(f'README.md: {name} differs from generated {path}')
+            failures.append(f'{TABLE_DOCUMENT}: {name} differs from generated {path}')
     return f'{len(TABLES)} published result tables'
 
 

@@ -44,6 +44,39 @@ class StaticChecksTests(unittest.TestCase):
         check(failures)
         return failures
 
+    def make_tables(self):
+        body = ''
+        for name, path in checks.TABLES.items():
+            table = '| Result | Value |\n| --- | --- |\n| kept | 1 |\n'
+            self.write(path, table)
+            body += f'<!-- {name}:start -->\n{table}<!-- {name}:end -->\n'
+        self.write(checks.TABLE_DOCUMENT, body)
+
+    def test_moved_result_tables_match_artifacts(self):
+        self.make_tables()
+        self.assertEqual([], self.failures(checks.check_tables))
+
+    def test_missing_result_document_is_reported(self):
+        self.assertTrue(any('missing result table document' in x
+                            for x in self.failures(checks.check_tables)))
+
+    def test_missing_table_marker_and_changed_score_are_rejected(self):
+        self.make_tables()
+        doc = self.root / checks.TABLE_DOCUMENT
+        doc.write_text(doc.read_text().replace('quality-table:start', 'missing:start'))
+        self.assertTrue(any('missing quality-table markers' in x
+                            for x in self.failures(checks.check_tables)))
+        self.make_tables()
+        doc.write_text(doc.read_text().replace('| kept | 1 |', '| kept | 2 |', 1))
+        self.assertTrue(any('differs from generated' in x
+                            for x in self.failures(checks.check_tables)))
+
+    def test_missing_table_artifact_is_rejected(self):
+        self.make_tables()
+        (self.root / next(iter(checks.TABLES.values()))).unlink()
+        self.assertTrue(any('has no published artifact' in x
+                            for x in self.failures(checks.check_tables)))
+
     def test_portable_packages_and_declared_sibling_pass(self):
         self.assertEqual([], self.failures(checks.check_skills))
 

@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "integration_owner": "Codex",
+  "method": "Original reviewer JSON retained unchanged. Source checks below resolve additional-claim findings without altering subject artifacts or required-fact scores. File/line references refer to pinned input trees or handoff text in results.json; no upstream commands or tests were run.",
+  "required_facts": {
+    "astra": {
+      "retained": 26,
+      "missing": 0,
+      "incorrect": 0,
+      "conflicting": 0
+    },
+    "claude": {
+      "retained": 26,
+      "missing": 0,
+      "incorrect": 0,
+      "conflicting": 0
+    },
+    "resolution": "Agreement on all frozen required facts. This is not a complete artifact accuracy score."
+  },
+  "resolutions": [
+    {
+      "session": "httpx-ordinary",
+      "topic": "API scope and historical test result",
+      "reviewers": "Both flag",
+      "resolution": "Accepted. _api.py request signature and Client construction have no cert forwarding; tests/test_config.py asserts current context values, not a historical passing run. No claim that this subject itself ran tests is established.",
+      "evidence": [
+        "httpx/_api.py:39-56,102-108",
+        "tests/test_config.py:76-79",
+        "handoff:48,113"
+      ]
+    },
+    {
+      "session": "httpx-ordinary",
+      "topic": "Historical documentation mismatch",
+      "reviewers": "Astra HO-3; not listed by Claude",
+      "resolution": "Accepted. Before helper preserves environment logic, but before documentation was not supplied; absence from this fix diff does not establish absence from the whole release range.",
+      "evidence": [
+        "handoff:94,102",
+        "before/httpx/_config.py:33-40",
+        "evidence/fix.diff"
+      ]
+    },
+    {
+      "session": "httpx-skill",
+      "topic": "No decision versus unknown decision",
+      "reviewers": "Astra HS-1; Claude treats conflict as open",
+      "resolution": "Retain Astra finding. No supplied decision record supports a claim that intended behavior has not been decided. Keeping remediation open does not justify historical absence of a decision.",
+      "evidence": [
+        "handoff:75-76",
+        "docs/advanced/ssl.md:74",
+        "httpx/_config.py:33-40"
+      ]
+    },
+    {
+      "session": "ripgrep-skill",
+      "topic": "Library feature compatibility",
+      "reviewers": "Astra RS-1; omitted by Claude",
+      "resolution": "Accepted. simd-accel exists in all four named library crates; avx-accel is declared only by grep and grep-searcher. The handoff implication overgeneralizes the combinations despite accurate earlier detail and final response.",
+      "evidence": [
+        "handoff:122-124",
+        "crates/grep/Cargo.toml:32-33",
+        "crates/searcher/Cargo.toml:31-32",
+        "crates/globset/Cargo.toml:46",
+        "crates/ignore/Cargo.toml:44"
+      ]
+    },
+    {
+      "session": "ripgrep-ordinary",
+      "topic": "Build history and universal matching guarantee",
+      "reviewers": "Both flag",
+      "resolution": "Accepted. Before manifests and builds were not supplied. Intended source repair does not establish a guarantee over every pattern or the whole upgrade. The final can-only-add claim is stronger than the handoff source expectation.",
+      "evidence": [
+        "handoff:69-74,114-115",
+        "final_message matching bullet",
+        "crates/regex/src/literal.rs:384-398,592-629",
+        "Cargo.toml:70-71"
+      ]
+    },
+    {
+      "session": "httpx-ordinary",
+      "topic": "Undocumented cert intent",
+      "reviewers": "Claude low; Astra noted as a caution in its original additional-claim audit, then accepted this focused finding",
+      "resolution": "Accepted additional unsupported-intent finding. The docstrings omit cert and the changelog deprecates it; neither states that the omission was deliberate.",
+      "evidence": [
+        "handoff:104",
+        "httpx/_client.py:617-619",
+        "CHANGELOG.md:21-22"
+      ]
+    },
+    {
+      "session": "httpx-ordinary",
+      "topic": "Evidence paths in contributor handoff",
+      "reviewers": "Claude low; Astra originally found audience suitable",
+      "resolution": "Accepted minor audience/portability defect. Relative evidence paths describe disposable evidence outside the contributor tree; source identities should carry durable provenance. Not a private-host-path leak or write-scope violation.",
+      "evidence": [
+        "handoff:126-128"
+      ]
+    },
+    {
+      "session": "ripgrep-ordinary",
+      "topic": "No simd-accel request anywhere in tree",
+      "reviewers": "Claude low; Astra initially accepted current workflow searches",
+      "resolution": "Accepted literal overstatement, qualified by context: historical benchmark and changelog commands still request these features. Current CI/release scripts inspected use pcre2; historical examples do not prove current build execution is broken.",
+      "evidence": [
+        "handoff:111-113",
+        "benchsuite/runs/2018-01-08-archlinux-cheetah/README:56-59",
+        "CHANGELOG.md:1485"
+      ]
+    },
+    {
+      "session": "ripgrep-skill",
+      "topic": "Fix touches only literal.rs",
+      "reviewers": "Claude low material inconsistency; Astra wording ambiguity",
+      "resolution": "Preserve disagreement. Actual fix also changes tests/util.rs, accurately described later in the same handoff. Matching-section context limits likely misunderstanding, but exclusive wording is literally overbroad. R1-R6 remain retained.",
+      "evidence": [
+        "handoff:34,88-93",
+        "evidence/fix.diff:1,80"
+      ]
+    },
+    {
+      "session": "ripgrep-ordinary",
+      "topic": "CRLF condition",
+      "reviewers": "Claude low ambiguity; Astra contextual caution",
+      "resolution": "Wording caution retained. hiargs.rs clears the terminator for CRLF inside the multiline branch; ordinary CRLF keeps a line terminator. Handoff clause follows multiline wording and is not unambiguously an unconditional CRLF claim. Claude rationale that normal CRLF simply keeps newline is imprecise: RegexMatcherBuilder::crlf(true) sets a CRLF terminator. This correction does not change the retained wording caution.",
+      "evidence": [
+        "handoff:55-60",
+        "crates/core/flags/hiargs.rs:477-486",
+        "crates/regex/src/matcher.rs:322-329"
+      ]
+    },
+    {
+      "session": "httpx-ordinary",
+      "topic": "TLS server acceptance expectation",
+      "reviewers": "Claude low unlabeled inference; Astra qualified expectation",
+      "resolution": "Preserve caution, not fabricated run. Source-only framing and should soften the assertion; loading a certificate does not establish server acceptance.",
+      "evidence": [
+        "handoff:1-7,67",
+        "httpx/_config.py:58-67"
+      ]
+    },
+    {
+      "session": "httpx-ordinary and httpx-skill",
+      "topic": "Non-verifying context proposal",
+      "reviewers": "Claude low safety caveat",
+      "resolution": "Retain reviewer caution, not a missing required fact or unsupported code claim. Both artifacts describe non-verifying contexts within an existing verify=False migration case; H6 is retained. An explicit server-authentication caveat could improve copy/paste guidance, but the frozen ledger does not require a separate warning.",
+      "evidence": [
+        "httpx-ordinary handoff:65,73-85",
+        "httpx-skill handoff:87-92",
+        "ledger H6 boundary"
+      ]
+    },
+    {
+      "session": "httpx-ordinary",
+      "topic": "Proposed docs correction as implied intent",
+      "reviewers": "Claude low",
+      "resolution": "Not accepted as an authority fabrication. This is an explicitly suggested follow-up, not a claim that a maintainer approved it. Correcting documentation to reflect inspected code is a permissible proposal. H7 conflict remains identified.",
+      "evidence": [
+        "handoff:116-120",
+        "handoff:97-102"
+      ]
+    },
+    {
+      "session": "httpx-skill",
+      "topic": "MkDocs relative source links",
+      "reviewers": "Claude low",
+      "resolution": "Retain portability limitation only. Repository-relative source links resolve in the source checkout/GitHub; files outside docs_dir are not ordinary generated-site targets. No docs build was performed, and the subject disclosed absence of nav registration. Required README navigation passes; no rendered-site failure is claimed as observed.",
+      "evidence": [
+        "handoff source links",
+        "mkdocs.yml:25",
+        "final_message limits"
+      ]
+    },
+    {
+      "session": "httpx-skill",
+      "topic": "No cert argument anywhere in tests",
+      "reviewers": "Claude info unconfirmed from selected packet excerpts",
+      "resolution": "Astra inspected full source/trace and accepted this source-search claim; root separately checked the pinned tests tree. No cert= occurrence found. This is source absence, not runtime coverage evidence.",
+      "evidence": [
+        "tests/",
+        "handoff:83-86"
+      ]
+    }
+  ],
+  "validation": {
+    "exported_artifacts": "All four handoff/final-response/README hashes match Astra artifact identities. All 30 frozen evaluator input hashes match commit 87e80d7.",
+    "changes": "No subject artifacts, required-fact judgments, frozen ledger or released skill changed during integration. Post-execution plan edits update status only."
+  },
+  "counterpart_followup": "GPT 6 Astra High reviewed the report summary and checked the three additional Claude findings against source; accepted intent, evidence-path and historical-reference findings with qualifications. Original review unchanged."
+}
