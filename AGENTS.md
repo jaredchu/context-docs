@@ -33,21 +33,46 @@
 
 ## Model collaboration
 
-- Use GPT 6 Astra with High reasoning and Claude Opus 5.5 as this project's
-  ongoing collaborators. Assign work by task fit and available context; either
-  model may implement or review. Give each change one owner responsible for
-  integration and validation. Delegate bounded tasks with clear scope and
-  acceptance criteria; parallelize independent work without overlapping edits.
-- Have the other model review substantive behavior, skill, evaluation or design
+Use GPT 6.1 Sol and Claude Opus 5.5 with these suggested responsibilities:
+This policy applies only to this project. Preserve its existing safeguards;
+do not change global settings.
+
+| Work | Suggested responsibility |
+| --- | --- |
+| Coordination, scope, task breakdown, integration | Sol 6.1 |
+| Small fixes and straightforward changes | Sol, working alone unless project rules require independent review |
+| Substantial implementation or sustained investigation | Opus 5.5, with a bounded assignment |
+| Review of consequential changes | The other model, focused on specific risks |
+| Validation and context-docs maintenance | Sol, using actual tests and accepted decisions |
+
+- Roles may change when the task warrants it.
+- Sol coordinates without redoing all of Opus's work. Hand over a compact task
+  with clear editable scope, relevant context, acceptance criteria, expected evidence
+  and a usage/time bound;
+  receive a patch plus evidence, then inspect the important boundaries and
+  specific risks. Repeat investigation only to resolve a concrete gap or concern,
+  so coordination does not consume the ChatGPT allowance it is meant to preserve.
+- Keep one writer per change. Reviewers return findings; the implementation owner
+  validates and resolves them. Sol handles integration and validation.
+  Parallelize independent assignments without overlapping edits.
+- Have the other model review consequential behavior, skill, evaluation or design
   changes. Give the reviewer the relevant diff, requirements and check results;
-  focus on correctness, regressions and unsupported claims. Routine wording,
-  formatting and mechanical updates need only proportionate local checks.
-- Verify review findings against evidence before acting. Re-review affected
-  changes when material concerns remain; avoid repeated full reviews once they
-  are resolved. Resolve technical disagreements through source inspection or
-  focused checks; ask the owner only for consequential scope or product choices.
+  focus on specific risks, including correctness, regressions and unsupported
+  claims. Routine wording, formatting and mechanical updates need only
+  proportionate local checks.
+- Verify review findings against evidence before acting. Allow one initial review
+  and one focused follow-up for material fixes. Stop and report unresolved issues
+  rather than looping. Resolve technical disagreements through source inspection
+  or focused checks within those bounds; ask the project owner only for
+  consequential scope or product choices.
+- Use existing subscription-authenticated access. Do not use Astra, API fallback
+  or additional spending without the project owner's explicit request.
 - Report the models actually used and any unavailable collaborator; do not
   silently substitute another model or claim review that did not occur.
+
+The objective is useful completed work from both subscriptions while reducing
+pressure on the owner's ChatGPT allowance. Better quality and allowance savings
+remain goals to verify, not assumed benefits.
 
 ## Context documentation
 

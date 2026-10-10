@@ -97,6 +97,7 @@ assignment, one owner per change and focused counterpart review for substantive
 changes implement that preference, with proportionate checks for routine edits.
 This records the requested models, not a change to an active chat's
 model configuration or a claim that both models reviewed every prior change.
+The October 10 responsibility split below supersedes this model assignment.
 
 
 On October 9 the owner requested that Context Docs choose what to retain according
@@ -122,3 +123,25 @@ use or document length. Comparisons with competent ordinary maintenance remain
 quality diagnostics, not a requirement to outperform an expert workflow. Existing
 frozen criteria, scores and factual failures remain unchanged; no reduction in
 intended users' effort has been demonstrated by this clarification alone.
+
+On October 10, 2026, the owner replaced the Astra/Opus assignment with Sol 6.1
+coordinating scope, task breakdown and integration, handling small changes alone,
+and maintaining context with actual tests and accepted decisions. Opus 5.5 takes
+bounded substantial implementation or sustained investigation; the other model
+reviews consequential changes against specific risks. The owner emphasized that
+Sol should send a compact task, receive a patch plus evidence and inspect important
+boundaries without redoing all of Opus's work, to preserve the ChatGPT allowance.
+In the fuller policy supplied afterward, the owner required clear editable scope
+and a usage/time bound for Opus assignments, one writer per change, findings-only
+reviewers and owner-validated resolutions. Review is limited to one initial pass
+and one focused follow-up for material fixes; unresolved issues must be reported
+rather than triggering a loop. Roles may change when warranted; small changes
+remain Sol-only unless project rules require independent review. Use existing
+subscription-authenticated access; Astra, API fallback and additional spending
+require an explicit owner request. Apply the policy only to this project, preserve
+existing safeguards and leave global settings unchanged. Useful completed work
+from both subscriptions, better quality and reduced ChatGPT allowance pressure
+are objectives to verify, not demonstrated outcomes.
+The [project instructions](../AGENTS.md#model-collaboration) own the working rules.
+This records the owner's requested responsibilities, not a runtime model change
+or evidence that either model participated in a particular task.

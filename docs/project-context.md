@@ -22,6 +22,14 @@ local notes only when still useful.
 - Prioritize useful, accurate context and reduced human effort. Model speed, token
   use and file length alone do not establish success; outperforming expert
   maintenance is not the product's success gate.
+- Use Sol 6.1 for coordination, integration, validation and context maintenance;
+  use Opus 5.5 for bounded substantial work, with focused counterpart review for
+  consequential changes. Sol inspects returned patches and evidence at important
+  boundaries without repeating Opus's work. The
+  [collaboration rules](../AGENTS.md#model-collaboration) own the responsibility split,
+  assignment and review bounds, and subscription-only access constraints. This
+  policy applies only to this project; better quality and reduced ChatGPT allowance
+  pressure remain goals to verify, not established benefits.
 
 [Decision history](project-decisions.md) records authority and rationale.
 [AGENTS.md](../AGENTS.md) owns collaboration rules;
