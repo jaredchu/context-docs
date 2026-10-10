@@ -29,7 +29,10 @@ It never copies the repository, context docs, journals, or evaluation exports.
 
 ## GitHub Pages
 
-Live site: [Context Docs](https://jaredchu.github.io/context-docs/).
+Domain: [Context Docs](http://context-docs.com/). On 2026-10-10, HTTP serving and
+the `www` redirect were verified; GitHub's HTTPS certificate is still being issued.
+Enable **Enforce HTTPS** in Pages settings and verify both hostnames once issuance
+completes, then update this link to HTTPS.
 
 The [landing-page workflow](../.github/workflows/site.yml) builds and tests on
 relevant pull requests and main-branch pushes. Deployment is manual: after an
@@ -37,10 +40,12 @@ approved merge, select **GitHub Actions** as the Pages source in repository
 Settings → Pages, then run **Landing page** on `main` with **deploy** selected.
 Use the URL returned by the deployment. Branch/PR builds do not publish a site.
 
-The page uses relative asset links so it supports a repository subpath or a future
-custom domain. No domain is configured or assumed; the owner plans to purchase
-`context-docs.com` separately. Connect and verify it in GitHub Pages only when
-requested. Do not publish the repository root as the site artifact.
+The custom domain is `context-docs.com`. Cloudflare DNS points its four A and four
+AAAA records to GitHub Pages, with `www` pointing to `jaredchu.github.io` by CNAME;
+these records are DNS-only. GitHub Pages handles hosting, certificates and the
+`www` redirect. Domain configuration lives in Pages settings; this Actions-based
+deployment does not require a repository CNAME file. The page uses relative asset
+links. Do not publish the repository root as the site artifact.
 
 See [GitHub's custom-workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 and [custom-domain guidance](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
