@@ -35,6 +35,11 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   tests; repository static checks and public site build. These mechanics are
   separate from the native evaluations. Skill packages and versions are unchanged;
   the previous 1,881 saved study files are preserved.
+- Publish the prepared follow-up as `a8e1e36` with Codex and Claude co-author
+  trailers. Both push workflows and manual Pages deployment pass; both live HTML
+  pages and five public resources match the build. Retain the
+  [deployment verification](docs/website-deployment-2026-10-10.json), including
+  optional-prompt guidance and SEO titles without em dashes. No new skill release.
 
 ## v0.1.8 publication — 2026-10-10
 

@@ -77,8 +77,12 @@ Earlier release approvals do not authorize new publication.
 - [Landing page](https://context-docs.com/): live on GitHub Pages,
   built from selected public sources. The [v0.1.8 deployment](https://github.com/jaredchu/context-docs/actions/runs/38062572064)
   passed; publication-time checks showed both live pages matched that build, with
-  released package versions and updated local-only guidance. New source wording
-  clarifies optional prompts and awaits publication. [Deployment](../site/README.md#github-pages)
+  released package versions and updated local-only guidance. The
+  [documentation follow-up deployment](https://github.com/jaredchu/context-docs/actions/runs/38067535734)
+  also passed from `a8e1e36`: both live HTML pages clarify optional prompts, and
+  all seven checked public responses match the build. The
+  [verification record](website-deployment-2026-10-10.json) retains commit credits,
+  Actions results, response hashes and verification limits. [Deployment](../site/README.md#github-pages)
   is manual; Cloudflare proxies the custom domain with Full SSL and
   Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a
