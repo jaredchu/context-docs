@@ -1,5 +1,9 @@
 # Native event-history comparison — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **Meaningful history survived without Git and between commits in all three
 formats. This study does not establish a need for JSONL over Markdown.** Keep the
 helper optional; recording useful events is the key behavior. A project whose

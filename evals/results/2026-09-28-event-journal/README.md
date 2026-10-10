@@ -1,5 +1,9 @@
 # JSONL event journal evaluation — September 28, 2026
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 Recommendation: continue the optional local pilot. The tested preservation controls
 pass after one error-handling repair. The journal offers a structured route to
 history, but this evaluation establishes no reader-accuracy advantage or net time

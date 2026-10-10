@@ -1,5 +1,9 @@
 # Journal read-gating follow-up — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **Codex and Claude, when reading the candidate instructions, skipped journal
 access on no-change maintenance while retaining capture and investigation.**
 The unreleased core 0.1.4 changes the read decision in SKILL.md and the journal

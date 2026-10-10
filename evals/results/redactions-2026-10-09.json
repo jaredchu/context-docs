@@ -1,0 +1,379 @@
+{
+  "kind": "public-evidence-redactions-v1",
+  "date": "2026-10-09",
+  "base_commit": "c9aa810940c83132b1b341df10a8f4ae77e7e80f",
+  "scope": "Normalize host-specific paths and unrelated startup inventory names in public evidence copies; keep evaluated project content, model identities, tool catalogs, runtime versions, call identifiers, scores and failures. Original raw hashes and frozen acceptance remain historical, not recomputed as new runs.",
+  "originals": "Original bytes retained in an ignored local backup; not distributed with the public copies. Git history is unchanged.",
+  "files": [
+    {
+      "path": "evals/event-journal/read-gating/protocol.md",
+      "before_sha256": "85890149fe909aeaf379d9f8c6fbf9c654990de43beef3bce7b27ee50ce19f90",
+      "public_sha256": "e6aa8ec80c43151646a3d63240f9febc75bea8d38e7e481c9eaa4d7613eee8df",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-event-journal/tests-before.txt",
+      "before_sha256": "8442680945de3bf1a67cef7caf1a4ac275adf0e3b5ecf71da97fb84351272a51",
+      "public_sha256": "a6260f8b60ee194afe1747e834db1b9508dac94ac10e7d04b734bc40cf1a4df8",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-global-v014/initial/codex-repeat-operations.json",
+      "before_sha256": "c60e7d04ba526cf963b4c537c67323e26f0940cbef16029cd59fa9185246e43e",
+      "public_sha256": "b2452240f543e813810560204e3f61ee01ce3799f3dadb78b258ff53c04aca60",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-global-v014/known-paths/codex-repeat-operations.json",
+      "before_sha256": "c60e7d04ba526cf963b4c537c67323e26f0940cbef16029cd59fa9185246e43e",
+      "public_sha256": "b2452240f543e813810560204e3f61ee01ce3799f3dadb78b258ff53c04aca60",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-gap/claude-audit-stream.jsonl",
+      "before_sha256": "74a86e0ce37eae597907182864c1c8a2bc5a3718fddaa0bcc568e761199ed641",
+      "public_sha256": "12e2c75378069ee12eb4dc0f7bf98d4bc60d3987b7ba5b787c36072471ca6230",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-gap/claude-missing-helper-stream.jsonl",
+      "before_sha256": "8923204687ca6807b940edd14604d415b6245ef49ca782aaddf52eb784a7c5fa",
+      "public_sha256": "7a4c91645a077c3fb5e1780f5a346be773057e990864bdac306a33b865915bc3",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-approval-stream.jsonl",
+      "before_sha256": "262060c376fb89f1c124529021408979ae82bc16aec3df3310feaf93439a8c32",
+      "public_sha256": "31cf7b2a6224f269df5f69ce1adbc895b014d8b04c1ac58a25294f754e863c6b",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-audit-stream.jsonl",
+      "before_sha256": "0019001627a713bef4875a53e20d98b1efe4ed0b355ba62196afa2f60692c0ed",
+      "public_sha256": "9ea8242d7b8792dc5009a7539dc0bc3447b031dd8fc52aecf2dc979cb76e0e2a",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-default-off-stream.jsonl",
+      "before_sha256": "7378d07a354951ff8b126c3ad16010c7e92de01fb1df22532687a4fa6ce3ade0",
+      "public_sha256": "c04e962b4e2f90ab60cc863621bb4e95d376faa470e5a4bdba335822be313723",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-disable-stream.jsonl",
+      "before_sha256": "0d3b4050f4c0e60ee96b65f69baa5bbce9fdb1cdd48f04b583211a0dc5a822fb",
+      "public_sha256": "ba18df42d2aee50732fbd48d09ca939d2a501135754454529e5fc5b284b4c19e",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-disabled-maintenance-stream.jsonl",
+      "before_sha256": "beff8e725442faee4d555ff8df6ba08b944838188436754e4bafabaafd4d9198",
+      "public_sha256": "b16749224aa393d458893e32ab45c8707594027d8db734def6bbcaace29648ac",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-enable-stream.jsonl",
+      "before_sha256": "09695f2ba57521df8ad9834fc4b46060237c926ca4741d412ba841e795362336",
+      "public_sha256": "4bdb82395bebcd583367a425d0d6feebaaf6bd3f09ac327ee160d6012a8ec62b",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-failure-stream.jsonl",
+      "before_sha256": "a5885fae8aa3944e7d8d47111a7349df5dfe1d5261c6bd9fcc30c51b2272e235",
+      "public_sha256": "543c27c70d60a92ddd8f8cdf352ccb648aa58d2e2de826446fa2955cdcaafa0a",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-missing-helper-stream.jsonl",
+      "before_sha256": "4e4459663bac3363185a6071146301f67727b2c223403bc4017da74dafa3ae60",
+      "public_sha256": "312ef795f86c6c84b684dc9248502503cf2f5b604054b13f3a6515b8f18b8217",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration-followup/claude-repeat-stream.jsonl",
+      "before_sha256": "c4f424b51b87f2191ce81c31eb7dae6dc3a13534664fcb16ba4da2c286591884",
+      "public_sha256": "174bfbe749914c9adabe9499cf584b293561064042ca9dae2fad694fa90a1c34",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-approval-hooks.jsonl",
+      "before_sha256": "9a85d2e17c24a7caa5687fcf389ce362b507b07ccc3e34b61fccef2574f791b3",
+      "public_sha256": "4c07855c515a7a5e8c9650342e0214f87c3495dbff21f637b1bbc18ac2c35041",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-approval-stream.jsonl",
+      "before_sha256": "4bf68dd8e4263ffb93a89794db1f9ebb25b938974120596d8fb68750ed4fd377",
+      "public_sha256": "8140bb59c2069c63706ae7dcc076f7b2c72096ed6a155138a66c23d3e6167a61",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-audit-stream.jsonl",
+      "before_sha256": "fe55414d3ee9def3af05c9f3dfe338a9a3b567ec6d8c9b28926992dd44fe0b48",
+      "public_sha256": "6c691a9bd0300973b72d4c89a7db4a629e627063884bea1e2226b6ffd2070546",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-default-off-stream.jsonl",
+      "before_sha256": "ed1121ad6485d66d33651cdaa753a366556ed6701d579a9570516950b135fa2e",
+      "public_sha256": "3853a5912ed530a22d19b95acbdf81209571cf92d5634b668ca26a639edc20da",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-disable-stream.jsonl",
+      "before_sha256": "2e6ff2ee985b61b95ddee7cefe227365307bd35268c159ed4af6b0ce338f476d",
+      "public_sha256": "1bc8fc9c961612049ee36c037cf624a719829d69e82a7574978bc91c1d6302d5",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-disabled-maintenance-stream.jsonl",
+      "before_sha256": "6a62ffe5bb2ca38e7646bf6f3f163c5270c99784450f15dc332a190014d95883",
+      "public_sha256": "4be1902b03a3d4f83a719c6c6f93824bf5fcf1d52dfd24eba283dc4318b6f564",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-enable-stream.jsonl",
+      "before_sha256": "60b584ba1325c931c3a57d0bd596f927690843be5a9b46183b16ca0c692a8de3",
+      "public_sha256": "ac5b9f9d0794d51ff10a0f38a3c7a6275392ddbe8ea7a2169b640cfbcaf82c04",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-failure-stream.jsonl",
+      "before_sha256": "25f0b66c1422d87327fead60cab37d58c48e41f77873c6fa2048f853c802c794",
+      "public_sha256": "d23d55467b9c96bde84557caa9251df09442d0bb3b90e9aee205d86685186be9",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-missing-helper-stream.jsonl",
+      "before_sha256": "40b08a03de2a268bd3a212b1995873ca3e28cd6d5be83490e39de9fffd71167f",
+      "public_sha256": "c78dc8d2e2484521d5e8f4faee8540a10615b205e4da8759519c513909a119e2",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/claude-repeat-stream.jsonl",
+      "before_sha256": "6e4f30ffacbad373f5ada7b269eea2f8206d575ed87ba3befb955a7f67461b45",
+      "public_sha256": "6a3b9aeda798e9a7e07a6c5f9f6ee9a16b15331df0bf26457bb65e1784cb4e40",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/codex-disabled-maintenance-stderr.txt",
+      "before_sha256": "3f678b98c1526e26df4ec5c94584e4cb65c3fdbc17c0338883de997693b7a6f1",
+      "public_sha256": "b3c6bb0820ea0b5688f26be26959c1a0adb2839a5241cd72272fb5cd954ee62c",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-journal-integration/mechanical-summary.json",
+      "before_sha256": "e7b1bfafa8b89c3fdd29f3fba9191691c21aae36d6b31eab26295c4e5d36e8ab",
+      "public_sha256": "c0e6ad7102a145c9b2da62502b0664438267779fb4e05c5cba0829a67e3f703c",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-jsonl-capture-hooks.jsonl",
+      "before_sha256": "381f1a8ace468800bf7e93a3c046fc35ee45a8e0bae7f7a346e88bb7bd436b32",
+      "public_sha256": "4ffc811386773b8f0beaa4f5e6408bbcc48516c0a1fd2c4ebe04b32382f3b246",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-jsonl-capture-stream.jsonl",
+      "before_sha256": "eb159ccf614f2bf947135c224e4a7dac129c1e82cae9262b9fe7581aea4f444e",
+      "public_sha256": "9b7c0ec2af7f47bf1077d5b0bab657d54e0bd19500478b3ac9592ef4e2d51714",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-jsonl-investigate-hooks.jsonl",
+      "before_sha256": "6dcb41d31c675e0a2dbb4bc6a041a3d3e8542080437cd54942b8d0f8d3f32597",
+      "public_sha256": "1f5beaf3557fdc78c8d7bfb91d096f826c6a0b640d713f54c59d40b36b71c954",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-jsonl-investigate-stream.jsonl",
+      "before_sha256": "a1183dfc6c7f354fc0d493a945261c80df010f6b49104f1cc50e67f25394b9b8",
+      "public_sha256": "6c0ce40f45a2ca1c367d4065bf6fd29b8a1e43b1afbc743f4a549aba3991189f",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-markdown-log-capture-hooks.jsonl",
+      "before_sha256": "ce8fe1270f945195ea5b2f168af0fbb497d4f912a6ddd37bd90173400cc15dea",
+      "public_sha256": "baa1dba83bf5732873665735093b9b9b65f6f2342d2628561d4c7737463a6fac",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-markdown-log-capture-stream.jsonl",
+      "before_sha256": "bb4ca7d43a166070efe69bc13d06c6b8cb6e493d8d0997468bbc35b09884dc18",
+      "public_sha256": "594405102df5d33847f0217098e91b7e376bddf0e0982717f338f0bd4f217c2c",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-markdown-log-investigate-hooks.jsonl",
+      "before_sha256": "23cfea57248f316588e0a0c3593de2bfd043a7d8414d7f2dfcd2bb76a50acd3a",
+      "public_sha256": "04538564f380d722f357d615a61e5e27a4e119093ba4d678aa0d422770fff4c7",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-markdown-log-investigate-stream.jsonl",
+      "before_sha256": "19b7124eca7b52d928cfd8d1d527fc94db3d12be868fe79d7760c86502cc7d5b",
+      "public_sha256": "7ee5d55b649878c62622522ae67048d149d9dbcbadc573ca07c2be948f7cf356",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-ordinary-capture-hooks.jsonl",
+      "before_sha256": "0ea60a4ee651e45f60f8d4ea57cba38009dcfa23f5d404d3b1efcdc13fe784c8",
+      "public_sha256": "2f59d7870a7f5b697c074948828c93fcf1524745957b43f0451363bb8bd197b0",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-ordinary-capture-stream.jsonl",
+      "before_sha256": "6922e5ef0de77b610fc4a2040316f5f77324fb84c2d7315fa980bac7460adc6a",
+      "public_sha256": "3ebff74821691d65e205a2f805cd244acb667cbaa7cf72a2b6636e03449cc5d4",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-ordinary-investigate-hooks.jsonl",
+      "before_sha256": "aa043b76b36d34f96f010e4b23b366d8587a4d1b583d2583b19802908f8c2cce",
+      "public_sha256": "5fdc0cbf3821cf61b9c900719f28f6abc9f68e667bca685e24f17bdcbd60b424",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-native-journal/claude-ordinary-investigate-stream.jsonl",
+      "before_sha256": "b4669a0ee4f636f4533605f6d4fe1d64a4ada822d51817f7aa442abbdd261758",
+      "public_sha256": "ec45b9dbf369b804aca9d45173b54e310bb6ad6befd1843a99f084328e8c87d9",
+      "transformations": [
+        "normalize-host-paths",
+        "pseudonymize-unrelated-startup-inventory"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-read-gating/direct-read/protocol.md",
+      "before_sha256": "85890149fe909aeaf379d9f8c6fbf9c654990de43beef3bce7b27ee50ce19f90",
+      "public_sha256": "e6aa8ec80c43151646a3d63240f9febc75bea8d38e7e481c9eaa4d7613eee8df",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-read-gating/initial/claude-capture-operations.json",
+      "before_sha256": "8fe8aeb596d089f0b41c585c56f2d435a0637341fe2787583f56323cfea2a6f8",
+      "public_sha256": "e430fafeccca8fa410dd05f0f2dcdd41123c61d5570f8f70da3e2ad403e60614",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-read-gating/path-followup/claude-capture-operations.json",
+      "before_sha256": "5d106e01d2d16a180a903930d6a1804e2fcaae8a6acf5e5b5c92d3c722b8aa9e",
+      "public_sha256": "05ff866eeee256c0602da656d62ef349e28b289ec828c292e96cee7c77112abf",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    },
+    {
+      "path": "evals/results/2026-09-28-read-gating/source/evals/event-journal/read-gating/protocol.md",
+      "before_sha256": "85890149fe909aeaf379d9f8c6fbf9c654990de43beef3bce7b27ee50ce19f90",
+      "public_sha256": "e6aa8ec80c43151646a3d63240f9febc75bea8d38e7e481c9eaa4d7613eee8df",
+      "transformations": [
+        "normalize-host-paths"
+      ]
+    }
+  ]
+}

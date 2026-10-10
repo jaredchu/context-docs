@@ -1,5 +1,9 @@
 # Global v0.1.4 acceptance — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **The final global candidate passes the focused no-history-access check in Codex
 and explicit native Claude Skill invocation. Slash-only Claude invocation remains
 unreliable in the observed CLI run.** Both clients now have core 0.1.4/adoption

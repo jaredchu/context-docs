@@ -11,8 +11,98 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
+The v0.1.6 bundle is described in the [release notes](docs/releases/v0.1.6.md).
+Published contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.1.6 release preparation — 2026-10-10 (unpublished)
+
+- Prepare [release notes](docs/releases/v0.1.6.md) for core 0.1.6/adoption 0.1.7.
+  All 21 local CI command groups pass with Python 3.12 on macOS: 146 unit tests,
+  study/grader controls and four unchanged regenerated reports. Isolated package
+  metadata and links pass; all 14 package files match the evaluated candidate.
+- GPT 6 Astra High drafted the notes; Claude Opus 5.5 found no blocking issue.
+  Its package-identity evidence gap was resolved with exact hash comparisons.
+  Validation and review records distinguish local checks, native study outcomes
+  and publication status. No package behavior or version changed in preparation.
+
+## Audience/destination native evaluation — 2026-10-10 (unreleased)
+
+- Complete the [five-case pilot](evals/results/2026-10-10-audience/README.md) on
+  core 0.1.6/adoption 0.1.7: execution gates pass 5/5; GPT 6 Astra High and Claude
+  Opus 5.5 each accept 19/19 target and 15/15 general criteria. No retries or
+  material findings. The mixed case completes the API edit and asks for handoff
+  readers/destination; it does not produce the handoff artifact. Audit attempts
+  no writes, searches or journal reads. No comparative or general reliability claim.
+- Before freezing, correct journal search-content observation, verify denied
+  writes do not halt valid execution, disable subject auto memory and record
+  unique build identity and destination scope. Claude's focused re-review found
+  no blocking issues. Nineteen audience controls, seven reused guard tests and
+  static checks pass separately. Historical studies and packages are unchanged.
+
+## Audience/destination evaluation preparation — 2026-10-09 (unreleased)
+
+- Prepare five isolated synthetic cases with a restricted native runner, pinned
+  candidate skills, exact input/control hashes, invocation provenance and selected
+  trajectory export. Separate audit write attempts and journal scan scope from
+  actual changes or returned evidence.
+- Twelve new runner controls, seven reused guard tests and repository static checks
+  pass; a disposable build passed manifest and input validation. Claude Opus 5.5
+  reviewed fixture design; its material ambiguities were addressed before any run.
+  At this preparation stage, counterpart harness review and final freeze remained
+  pending and no subject session was launched. The October 10 entry records the
+  later evaluation. Installable packages were unchanged.
+
+## context-docs 0.1.6 — 2026-10-09 (v0.1.6 bundle)
+
+- Select retained information by audience, sharing destination and lasting
+  usefulness, using public, private-team and personal-project examples. Keep
+  portable current context separate from detailed evidence and local state;
+  preserve relevant operational constraints and failed results. Standard advances
+  to 0.1.1. Adoption remains 0.1.7.
+- Apply the guidance to this repository: shorten current context, preserve decision
+  history, and normalize incidental host metadata in public evidence copies with
+  a hash ledger and local originals. Historical scores and Git history remain
+  unchanged. See the [redaction record](docs/evidence-redaction-2026-10-09.md).
+- Skill metadata validation and all 20 local CI-equivalent check groups pass,
+  including 127 unit tests, static checks, grader controls and four unchanged
+  regenerated reports. The 43 redacted copies were verified against local originals
+  for declared transformations and unchanged scores. Five new audience/destination
+  scenarios were synthetic and unexecuted at that stage; the October 10 entry
+  records their subsequent native evaluation.
+- GPT 6 Astra High implemented the guidance; Claude Opus 5.5 found no blocking
+  skill issue. Its documentation findings were resolved with validation details,
+  per-study redaction notices and restored historical navigation. Codex integrated
+  cleanup and verified the declared transformations against original bytes.
+
+## Public-adoption evaluator marker handling — 2026-10-09 (unreleased)
+
+- Accept a marker-only insertion as bare lines or a bounded Markdown fenced
+  block while preserving the exact existing rule, date uncertainty and entry path.
+  Version the revised protocol for future freezes; retain the completed study's
+  original files and scores. This changes evaluation tooling only; skill packages
+  and versions remain unchanged.
+- GPT 6 Astra High implemented the change; Claude Opus 5.5 found no blocking
+  issues in a read-only review. Applied its ASCII-label restriction and additional
+  boundary controls. All 28 evaluator controls, seven reused guard tests and static
+  checks pass. These are mechanical checks, not new agent evaluations.
+
+## adopt-context-docs 0.1.7 — 2026-10-09 (v0.1.6 bundle)
+
+- Clarify that newly added maintenance wording may adapt to local terminology
+  without client-specific invocation syntax, consistent with v0.1.3. Preserve
+  existing equivalent guidance as written.
+  Correct the stale current adoption version in project context; core then remained 0.1.5.
+- Repository static checks, 13 checker regressions and 30 existing adoption,
+  routing and marker controls pass. These are mechanical checks.
+- A [bounded public-source regression](evals/results/2026-10-09-public-adoption/README.md)
+  ran four native Claude Opus 5.5 sessions on one pinned Go project with two
+  synthetic overlays. Execution passed 4/4; frozen mechanical checks passed 3/4,
+  retaining a fenced-marker failure. Both reviewers accepted target preservation
+  behavior in all four, but full-claim semantic scores differ (Astra 1/4, Claude
+  3/4); both found an unsupported verification claim in the repeat. No retries,
+  comparative benefit or general reliability claim. Twenty-three new harness
+  controls, seven reused guard tests and static checks passed separately.
 
 ## context-docs 0.1.5 — 2026-09-29 (tag `v0.1.5`)
 

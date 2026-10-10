@@ -1,5 +1,9 @@
 # Claude native-invocation follow-up — 2026-09-28
 
+Metadata note (2026-10-09): selected evidence files below are sanitized public
+copies; [the redaction record](../../../docs/evidence-redaction-2026-10-09.md)
+links original and public hashes. Historical scores and frozen acceptance are unchanged.
+
 **The nine functional lifecycle stages passed under explicit task-first native
 skill invocation.** The candidate skills are byte-identical to the original run;
 its skipped requests remain failures. This does not establish reliable implicit

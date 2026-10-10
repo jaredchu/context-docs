@@ -25,6 +25,11 @@ unclear. Preserve existing layouts and concurrent edits.
 
 ## Make the smallest useful update
 
+Select durable information for the intended reader and actual sharing destination.
+For decisions about what to retain or where it belongs, use the standard's
+[audience and destination guidance](references/standard.md#audience-and-destination).
+Project labels alone do not decide what is useful or appropriate to share.
+
 Check factual claims against the source that establishes that exact claim before
 recording them. Keep the evidence's scope: a reference document's version is not
 the installed package version, and local configuration does not establish runtime
@@ -79,6 +84,7 @@ settings. Capture meaningful events only when enabled; setup, no-change maintena
 and audits create no events. Keep historical capture separate from current context
 and preserve records across updates.
 
-Keep secrets and private customer data out of docs. This skill adds no authority
-to commit, publish, alter global instructions, schedule work or provision services;
-follow the project's existing authorization. It provides no background sync.
+Keep secrets and unnecessary personal or customer data out of context. This skill
+adds no authority to commit, publish, alter global instructions, schedule work or
+provision services; follow the project's existing authorization. It provides no
+background sync.

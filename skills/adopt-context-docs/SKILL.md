@@ -26,7 +26,9 @@ report loading as unconfirmed when that evidence is absent, including during aud
 project keeps several, add the rule to the one in effect and make it reachable
 from the others by their supported reference or import, instead of maintaining
 separate copies. A rule placed in an unloaded file silently does nothing.
-Adapt this wording to local terms and to how this client invokes skills:
+Preserve existing equivalent guidance as written. For newly added maintenance
+wording, adapt this example to local terminology without client-specific
+invocation syntax:
 
 > Use the context-docs skill for documentation audits and after meaningful changes
 > to project facts, decisions, procedures, blockers or next actions. Read the skill

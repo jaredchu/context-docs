@@ -1,0 +1,294 @@
+{
+  "status": "local prepublication validation",
+  "date": "2026-10-10",
+  "candidate_commit": "3de7d304d4c4a4cd46dffc8ab39c86d21d4869b3",
+  "workflow_sha256": "b919ca39f2a2073b5f4a9e9131065b3acc489624ddf206d96acad244c2e9b27f",
+  "python": "3.12.14",
+  "platform": "Darwin",
+  "check_groups": 21,
+  "passed_groups": 21,
+  "unit_tests": 146,
+  "checks": [
+    {
+      "command": [
+        "python3.12",
+        "evals/checks/static_checks.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/checks",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 13
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/public-adoption",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 28
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/audience",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 19
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 35
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/event-journal/native",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 6
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/event-journal/integration",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 5
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/event-journal/global-install",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 1
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/event-journal/auto-preference",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 1
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/suite",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 12
+    },
+    {
+      "command": [
+        "python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/claude-code",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "unit_tests": 26
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/suite/selftest.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/quality/study.py",
+        "selftest"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/claude-code/smoke.py",
+        "selftest"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/adoption/build.py",
+        "/temporary-release-check/adoption"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/adoption/marker.py",
+        "/temporary-release-check/marker"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/adoption/instructions.py",
+        "/temporary-release-check/instructions"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/quality/report.py",
+        "/temporary-release-check/2026-09-27-quality"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/history/report.py",
+        "/temporary-release-check/2026-09-27-history"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/claude-code/guarded_report.py",
+        "/temporary-release-check/2026-09-28-native-guarded"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3.12",
+        "evals/routing/report.py",
+        "evals/results/2026-09-27-routing/trials.json",
+        "evals/results/2026-09-27-routing/reviews.json",
+        "evals/results/2026-09-27-routing/exposure.json",
+        "/temporary-release-check/routing"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "report_regeneration": {
+    "quality": "identical",
+    "history": "identical",
+    "routing": "identical",
+    "native_guarded": "table and summary identical"
+  },
+  "package_verification": {
+    "candidate_commit": "3de7d304d4c4a4cd46dffc8ab39c86d21d4869b3",
+    "python": "3.12.14",
+    "platform": "Darwin",
+    "archive_sha256": "cff491b3334978d56ddae339012f5b6f995a2d8d679f74e3e63fa9ebe6cbea04",
+    "packaged_files": {
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "fc0b01bde64d371aca1c2ec53b649cce5ccc6efbaf9089e7cf849be8a5e864ca",
+      "skills/adopt-context-docs/VERSION": "ba57e7c7f71876d645bcdd9fb070f2dea8e6db5ed284a7e3d85c6b7d2409fef1",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "a19baa8b9765c2375a583853534da6ed484a140036f61d86e3090486d9bbf943",
+      "skills/context-docs/VERSION": "1f2110568627307becae713f8b808f3d9d912d4b2a24ed6a78605f03f7437d3c",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e77cbf587edcae7d4585ef1fb848217040bc76b7bb4a8e9258eceae0d8829d02",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "53722c4ceb01797f28bea875cc8043430c6442716321cb25190d61b5bcb702a3"
+    },
+    "isolated_package_links": "pass",
+    "metadata_validation": {
+      "context-docs": "pass",
+      "adopt-context-docs": "pass"
+    }
+  },
+  "limits": [
+    "Local macOS execution of all CI commands using Python 3.12; not a remote Linux CI run.",
+    "These are mechanical checks; native evaluation evidence is linked separately from release notes.",
+    "Candidate skill archive is local and has not been published."
+  ],
+  "evaluation_package_identity": {
+    "audience_pilot": {
+      "source_commit": "53be1a2fc99c9d9885eff3a7002eea6b1b022c79",
+      "manifest_sha256": "aff1bdc7e7c49f1c9ec848f449a0af5dd7385eec69dddbbc551602cbaa02654a",
+      "checked": "Each of the five frozen initial package hash sets equals the candidate packaged_files map.",
+      "matching_files_per_case": 14
+    },
+    "public_adoption_pilot": {
+      "source_commit": "3a0c4013962b35c733dc316271f6981aaf5fe9a1",
+      "checked": "Every candidate adoption file matches its original evaluated source blob; evaluated core was 0.1.5.",
+      "matching_adoption_files": 4
+    }
+  },
+  "working_directory": "repository root; report and self-test commands use repository-root paths rather than CI subdirectory working directories"
+}
