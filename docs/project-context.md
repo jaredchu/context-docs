@@ -40,13 +40,12 @@ approvals. An earlier release approval does not authorize a new publication.
 
 ## Current state
 
-- Released bundle: [v0.1.5](releases/v0.1.5.md), containing core 0.1.5 and adoption
-  0.1.6. The earlier experimental Claude integration was merged in
-  [PR #1](https://github.com/jaredchu/context-docs/pull/1).
-- Working packages: core **0.1.6** and adoption **0.1.7**, both unreleased; standard
-  **0.1.1**. Core adds audience/destination guidance. Adoption preserves equivalent
-  existing rules while making newly added instructions client-neutral.
-  [Proposed v0.1.6 notes](releases/v0.1.6.md) collect release and upgrade details.
+- Released bundle: [v0.1.6](releases/v0.1.6.md), containing core **0.1.6** and
+  adoption **0.1.7**, with standard **0.1.1**. Release-commit remote CI passed;
+  [PR #2](https://github.com/jaredchu/context-docs/pull/2) merged the reviewed changes.
+- Core adds audience/destination guidance. Adoption preserves equivalent existing
+  rules while making newly added instructions client-neutral. The earlier native
+  Claude integration was merged in [PR #1](https://github.com/jaredchu/context-docs/pull/1).
 - Core supports audit, initialize and maintain. Adoption is a sibling-dependent
   wrapper that adds guidance and a marker to instructions actually loaded by the
   client. [README](../README.md) owns installation and invocation details.
@@ -96,14 +95,10 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-1. The proposed v0.1.6 release is prepared and counterpart-reviewed; full local
-   CI-equivalent checks passed. Obtain publication authorization, verify remote CI
-   before publishing, then update local installations from the released packages
-   with backups and customization checks.
-2. Seek varied real-project histories and independent review before broader
-   correctness claims. The [discrimination protocol](../evals/discrimination-protocol.md)
-   remains a proposal, not an approved study. Any future native run needs a new
-   frozen manifest; no retries or rescoring of the completed October 9 study.
+Seek varied real-project histories and independent review before broader
+correctness claims. The [discrimination protocol](../evals/discrimination-protocol.md)
+remains a proposal, not an approved study. Any future native run needs a new
+frozen manifest; preserve completed studies without retries or rescoring.
 
 ## Canonical references
 

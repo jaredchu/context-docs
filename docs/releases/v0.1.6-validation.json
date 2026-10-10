@@ -290,5 +290,18 @@
       "matching_adoption_files": 4
     }
   },
-  "working_directory": "repository root; report and self-test commands use repository-root paths rather than CI subdirectory working directories"
+  "working_directory": "repository root; report and self-test commands use repository-root paths rather than CI subdirectory working directories",
+  "publication": {
+    "release_url": "https://github.com/jaredchu/context-docs/releases/tag/v0.1.6",
+    "tag": "v0.1.6",
+    "commit": "b10a3058e43f9af278cbb7a6b2b70d41df16ea7d",
+    "published_at": "2026-10-10T04:32:33Z",
+    "prerelease": true,
+    "merged_pr": "https://github.com/jaredchu/context-docs/pull/2",
+    "remote_ci": {
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38024377561",
+      "head_sha": "b10a3058e43f9af278cbb7a6b2b70d41df16ea7d",
+      "conclusion": "success"
+    }
+  }
 }

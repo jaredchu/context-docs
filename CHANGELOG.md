@@ -11,11 +11,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The v0.1.6 bundle is described in the [release notes](docs/releases/v0.1.6.md).
-Published contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
+The current bundle is described in the [v0.1.6 release notes](docs/releases/v0.1.6.md).
+Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## v0.1.6 release preparation — 2026-10-10 (unpublished)
+## v0.1.6 publication — 2026-10-10
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.6)
+  from `b10a3058e43f9af278cbb7a6b2b70d41df16ea7d`, after reviewed
+  [PR #2](https://github.com/jaredchu/context-docs/pull/2) merged and the exact
+  [release-commit CI run](https://github.com/jaredchu/context-docs/actions/runs/38024377561)
+  passed. Bundle core 0.1.6/adoption 0.1.7 and standard 0.1.1; retain the recorded
+  experimental limits and earlier failed evaluation results.
+
+## v0.1.6 release preparation — 2026-10-10 (prepublication checks)
 
 - Prepare [release notes](docs/releases/v0.1.6.md) for core 0.1.6/adoption 0.1.7.
   All 21 local CI command groups pass with Python 3.12 on macOS: 146 unit tests,
@@ -26,7 +35,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   Validation and review records distinguish local checks, native study outcomes
   and publication status. No package behavior or version changed in preparation.
 
-## Audience/destination native evaluation — 2026-10-10 (unreleased)
+## Audience/destination native evaluation — 2026-10-10 (included in v0.1.6)
 
 - Complete the [five-case pilot](evals/results/2026-10-10-audience/README.md) on
   core 0.1.6/adoption 0.1.7: execution gates pass 5/5; GPT 6 Astra High and Claude
@@ -40,7 +49,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   no blocking issues. Nineteen audience controls, seven reused guard tests and
   static checks pass separately. Historical studies and packages are unchanged.
 
-## Audience/destination evaluation preparation — 2026-10-09 (unreleased)
+## Audience/destination evaluation preparation — 2026-10-09 (included in v0.1.6)
 
 - Prepare five isolated synthetic cases with a restricted native runner, pinned
   candidate skills, exact input/control hashes, invocation provenance and selected
@@ -53,7 +62,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   pending and no subject session was launched. The October 10 entry records the
   later evaluation. Installable packages were unchanged.
 
-## context-docs 0.1.6 — 2026-10-09 (v0.1.6 bundle)
+## context-docs 0.1.6 — 2026-10-09 (bundled in `v0.1.6`)
 
 - Select retained information by audience, sharing destination and lasting
   usefulness, using public, private-team and personal-project examples. Keep
@@ -75,7 +84,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   per-study redaction notices and restored historical navigation. Codex integrated
   cleanup and verified the declared transformations against original bytes.
 
-## Public-adoption evaluator marker handling — 2026-10-09 (unreleased)
+## Public-adoption evaluator marker handling — 2026-10-09 (included in v0.1.6)
 
 - Accept a marker-only insertion as bare lines or a bounded Markdown fenced
   block while preserving the exact existing rule, date uncertainty and entry path.
@@ -87,7 +96,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   boundary controls. All 28 evaluator controls, seven reused guard tests and static
   checks pass. These are mechanical checks, not new agent evaluations.
 
-## adopt-context-docs 0.1.7 — 2026-10-09 (v0.1.6 bundle)
+## adopt-context-docs 0.1.7 — 2026-10-09 (bundled in `v0.1.6`)
 
 - Clarify that newly added maintenance wording may adapt to local terminology
   without client-specific invocation syntax, consistent with v0.1.3. Preserve
