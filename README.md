@@ -14,6 +14,8 @@ decisions and evidence, and keeps current context from becoming a session diary.
 - **Additional AI development contributions:** Claude.
 
 **Status: experimental, core skill v0.1.6 and adoption skill v0.1.7 (unreleased).**
+The [proposed v0.1.6 release notes](docs/releases/v0.1.6.md) summarize changes,
+validation and upgrade guidance.
 It runs when an agent uses it; there is no background service, automatic scheduler,
 cloud account or mandatory runtime dependency. Git remains available for history and review.
 The core package includes an optional Python 3.9+ journal helper; ordinary Markdown

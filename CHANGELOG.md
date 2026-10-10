@@ -11,8 +11,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-Release contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
+The next bundle is described in the [proposed v0.1.6 notes](docs/releases/v0.1.6.md).
+Published contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.1.6 release preparation — 2026-10-10 (unpublished)
+
+- Prepare [release notes](docs/releases/v0.1.6.md) for core 0.1.6/adoption 0.1.7.
+  All 21 local CI command groups pass with Python 3.12 on macOS: 146 unit tests,
+  study/grader controls and four unchanged regenerated reports. Isolated package
+  metadata and links pass; all 14 package files match the evaluated candidate.
+- GPT 6 Astra High drafted the notes; Claude Opus 5.5 found no blocking issue.
+  Its package-identity evidence gap was resolved with exact hash comparisons.
+  Validation and review records distinguish local checks, native study outcomes
+  and publication status. No package behavior or version changed in preparation.
 
 ## Audience/destination native evaluation — 2026-10-10 (unreleased)
 
