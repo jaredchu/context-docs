@@ -63,3 +63,10 @@ verified on September 29, 2026. Preserve existing co-author trailers and credit
 only actual assistance. Apply this to new commits; do not rewrite published history
 solely for attribution. The README acknowledgment describes project roles and does
 not promise a particular position in GitHub's Contributors graph.
+
+## Landing page
+
+See the [site build guide](site/README.md) for local preview and GitHub Pages setup.
+Installation commands, the example and package versions come from their canonical
+repository sources. Keep the public build allowlist explicit; do not deploy the
+repository root.

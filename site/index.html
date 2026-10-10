@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Give your AI coding agent a simple way to keep project decisions, current work and next steps in readable Markdown. An open-source skill for Codex and Claude Code.">
+  <meta name="theme-color" content="#f7f9f8">
+  <meta property="og:title" content="Context Docs — pick up where you left off">
+  <meta property="og:description" content="Useful project context, saved in Markdown. A simple workflow for Codex and Claude Code.">
+  <meta property="og:type" content="website">
+  <title>Context Docs — pick up where you left off</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header wrap">
+  <a class="brand" href="#" aria-label="Context Docs home"><span class="brand-mark" aria-hidden="true">c<span>_</span></span>Context Docs</a>
+  <nav aria-label="Main navigation">
+    <a href="#how-it-works">How it works</a>
+    <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md">Docs <span aria-hidden="true">↗</span></a>
+    <a class="nav-github" href="https://github.com/jaredchu/context-docs">GitHub <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> OPEN SOURCE · FOR CODEX &amp; CLAUDE CODE</p>
+    <h1 id="hero-title">Your next session.<br><span>Less starting over.</span></h1>
+    <p class="hero-description">Give your AI coding agent a simple way to save decisions, current work and next steps in Markdown. Pick up the project without inventing a context-management system.</p>
+    <div class="hero-actions"><a class="button primary" href="#get-started">Get started <span aria-hidden="true">↓</span></a><a class="text-link" href="#example">See an example <span aria-hidden="true">↓</span></a></div>
+    <p class="hero-note">Your files. Your repository. A workflow you can review.</p>
+    <figure class="overview">
+      <img src="./context-docs-overview.png" width="1983" height="793" fetchpriority="high" alt="Work produces code, chats and notes. Save decisions, current state and next steps in a Markdown document, then read that document to resume in a new session.">
+      <figcaption>A small habit for continuity: work, save what matters, then read it next time.</figcaption>
+    </figure>
+  </section>
+
+  <section id="how-it-works" class="workflow section wrap" aria-labelledby="workflow-title">
+    <div class="section-intro"><p class="eyebrow">THE WORKFLOW</p><h2 id="workflow-title">Keep the useful parts<br>of the work you already do.</h2><p>Context Docs is a pair of reusable instruction skills for your agent. You stay in your project, with documents you can read and edit.</p></div>
+    <ol class="steps">
+      <li><span class="step-number" aria-hidden="true">01</span><div><h3>Set it up once</h3><p>The adoption skill uses your existing docs and adds or reuses a maintenance rule in project instructions.</p></div></li>
+      <li><span class="step-number" aria-hidden="true">02</span><div><h3>Save what changed</h3><p>After meaningful work, ask your agent to update the context. Review the diff: decisions, blockers and next steps should stay clear.</p></div></li>
+      <li><span class="step-number" aria-hidden="true">03</span><div><h3>Give the next session a starting point</h3><p>Ask the agent to read the saved context and the linked details relevant to its task. A file alone does not guarantee it will be read.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="example" class="example-section section" aria-labelledby="example-title">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">WHAT CHANGES</p><h2 id="example-title">From scattered updates<br>to a useful next step.</h2></div><p>The timeout changed from 10 to 20 seconds in configuration. Deployment is unverified. The approved database choice and restore-test blocker still matter.</p></div>
+      <div class="comparison">
+        <article class="document before"><header><span class="document-label">BEFORE</span><span>context.md</span></header><pre tabindex="0" aria-label="Context before maintenance"><code>{{EXAMPLE_BEFORE}}</code></pre><p class="document-note">An old value and repeated diary entries obscure what matters.</p></article>
+        <article class="document after"><header><span class="document-label">AFTER</span><span>The same context.md</span></header><pre tabindex="0" aria-label="Context after maintenance"><code>{{EXAMPLE_AFTER}}</code></pre><p class="document-note">The updated fact, its limits, the decision and the blocker stay together.</p></article>
+      </div>
+      <p class="example-caption">Synthetic illustration, not an evaluation result or a promise of token savings. <a href="https://github.com/jaredchu/context-docs/blob/main/examples/maintenance.md">Read the source example <span aria-hidden="true">↗</span></a></p>
+    </div>
+  </section>
+
+  <section class="principles section wrap" aria-labelledby="principles-title">
+    <p class="eyebrow">CONTEXT WITH BOUNDARIES</p><h2 id="principles-title">Useful to the next reader.<br>Appropriate for the project.</h2>
+    <div class="principle-grid">
+      <div><span class="small-rule" aria-hidden="true"></span><h3>Keep it focused</h3><p>The skill asks your agent to replace stale facts, consolidate repetition and link to detailed evidence. It does not need a transcript of every session.</p></div>
+      <div><span class="small-rule" aria-hidden="true"></span><h3>Respect the destination</h3><p>Public project docs, restricted team notes and local working state have different readers. The guidance helps the agent choose what belongs where.</p></div>
+      <div><span class="small-rule" aria-hidden="true"></span><h3>Keep control</h3><p>You review ordinary Markdown changes. There is no background sync or automatic publishing. Optional event logging is separate from current context.</p></div>
+    </div>
+  </section>
+
+  <section id="get-started" class="install-section section" aria-labelledby="install-title">
+    <div class="wrap install-layout">
+      <div class="install-intro"><p class="eyebrow">GET STARTED</p><h2 id="install-title">One setup.<br>Your usual workflow.</h2><p>Install the two sibling skills, then open the project whose context you want to maintain.</p><p class="version-note">Experimental<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p><a class="text-link" href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md">Full installation guide <span aria-hidden="true">↗</span></a></div>
+      <div class="install-content">
+        <div class="client-switch" role="group" hidden aria-label="Choose your coding agent"><button type="button" data-client="codex" aria-pressed="true" aria-controls="install-codex">Codex</button><button type="button" data-client="claude" aria-pressed="false" aria-controls="install-claude">Claude Code</button></div>
+        <section id="install-codex" class="client-panel" aria-labelledby="codex-label">
+          <h3 id="codex-label">Install in Codex</h3><p>Paste this request into Codex:</p>
+          <div class="code-block"><button class="copy-button" type="button" data-copy="codex-command" data-destination="Codex" hidden aria-label="Copy Codex installation request">Copy</button><pre tabindex="0" aria-label="Codex installation request"><code id="codex-command">{{CODEX_INSTALL}}</code></pre></div>
+          <div class="adopt"><span>Then, inside your project</span><code>$adopt-context-docs</code></div>
+        </section>
+        <section id="install-claude" class="client-panel" aria-labelledby="claude-label">
+          <h3 id="claude-label">Install in Claude Code</h3><p>For a first installation, run in a terminal. Already installed? <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#upgrading">Read the upgrade guidance</a> before copying files.</p>
+          <div class="code-block"><button class="copy-button" type="button" data-copy="claude-command" data-destination="your terminal" hidden aria-label="Copy Claude Code installation commands">Copy</button><pre tabindex="0" aria-label="Claude Code installation commands"><code id="claude-command">{{CLAUDE_INSTALL}}</code></pre></div>
+          <div class="adopt"><span>Then, open your project in Claude Code</span><code>/adopt-context-docs</code></div>
+        </section>
+        <p id="copy-status" class="copy-status" aria-live="polite"></p>
+        <div class="next-prompt">
+          <div class="prompt-heading"><h3>After meaningful work, ask:</h3><button class="prompt-copy" type="button" data-copy="save-prompt" data-destination="your coding agent" hidden aria-label="Copy save context prompt">Copy</button></div>
+          <blockquote id="save-prompt">{{SAVE_PROMPT}}</blockquote><p>Review the resulting changes.</p>
+        </div>
+        <div class="next-prompt">
+          <div class="prompt-heading"><h3>In the next session, ask:</h3><button class="prompt-copy" type="button" data-copy="resume-prompt" data-destination="your coding agent" hidden aria-label="Copy resume context prompt">Copy</button></div>
+          <blockquote id="resume-prompt">{{RESUME_PROMPT}}</blockquote><p>The context entry point is your project's starting document. Find its path in the README, documentation index, or the <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#use-it">adoption marker's</a> <code>Entry point:</code> field.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="limits wrap" aria-labelledby="limits-title"><div><span class="status-label">EXPERIMENTAL</span><h2 id="limits-title">Useful guidance.<br>Honest limits.</h2></div><div><p>Context Docs guides an agent; it does not guarantee accuracy, privacy, smaller documents or lower token usage. Recorded studies do not yet establish effort savings for the intended users or a skill-specific correctness advantage.</p><p>Review consequential claims and what you share. Daily use and concrete feedback help us find what needs improving.</p><div class="limits-links"><a href="https://github.com/jaredchu/context-docs/blob/main/docs/evaluation-results.md">Read the evidence <span aria-hidden="true">↗</span></a><a href="https://github.com/jaredchu/context-docs/issues">Report an issue <span aria-hidden="true">↗</span></a></div></div></section>
+</main>
+<footer class="site-footer wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">c<span>_</span></span>Context Docs</a><p>Created by <a href="https://github.com/jaredchu">Jared Chu</a>.<br>Developed with Codex and Claude.</p><div><a href="https://github.com/jaredchu/context-docs">GitHub</a><a href="https://github.com/jaredchu/context-docs/blob/main/LICENSE">MIT license</a></div></footer>
+</body>
+</html>
