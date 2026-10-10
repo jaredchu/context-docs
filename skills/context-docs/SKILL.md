@@ -77,7 +77,10 @@ without restating unchanged context. Do not copy the session report into the con
 Logging is off by default; ordinary Markdown maintenance needs no runtime or
 journal. When the user has selected `Context Docs logging preference: auto` and
 no project logging setting exists, consult the journal guide below during authorized
-maintenance to resolve the preference. Audits never enable logging. An enabled
+maintenance to resolve the preference for no-Git projects or explicitly selected
+local-only context. Inside Git, verify the context and journal paths are ignored
+and untracked before enabling. Existing settings always take precedence; selecting
+local-only storage alone does not enable logging. Audits never enable logging. An enabled
 setting does not make history part of routine context reading.
 For no-change maintenance, check current context and supplied evidence; if there
 is no new event, contradiction or uncertain prior write, stop without listing,

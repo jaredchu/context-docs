@@ -56,7 +56,8 @@ stays off. Do not edit personal instructions just to persist a task preference.
 
 During adoption or authorized maintenance, resolve existing project settings
 first. Explicit `jsonl`, `off`, or another logging method takes precedence; preserve
-its directory and history without probing Git. Resolve conflicting settings or
+its directory and history without probing Git for auto resolution. Storage checks
+before local-only capture still apply to an enabled journal. Resolve conflicting settings or
 preferences before enabling anything. Audits remain read-only and never apply
 this preference. Skill installation alone does not apply it.
 
@@ -67,7 +68,8 @@ Only when the preference is `auto` and no project setting exists, run the packag
 python3 /path/to/installed/context-docs/scripts/journal_policy.py --project /path/to/project --preference auto
 ```
 
-Use the actual project root. The helper asks Git about repository membership,
+Use the actual project root. The existing command retains its behavior: confirmed
+no-Git projects qualify, and shared context inside Git does not. The helper asks Git about repository membership,
 including parent repositories, worktrees and bare repositories. It removes shell
 Git redirection variables and uses English diagnostics to distinguish confirmed
 absence from errors. Missing Git/Python, permission errors, broken repositories,
@@ -75,13 +77,45 @@ timeouts or unrecognized results leave logging unchanged; report detection as
 unconfirmed rather than treating failure as absence. Do not fall back to testing
 for a `.git` directory.
 
-On `action: enable`, merge `Event journal: jsonl` and the existing or requested
-journal directory (default `.context/events`) into the loaded project maintenance
-section using the preservation rules above. Report that auto enabled it because
-Git confirmed no repository. Do not create a journal or event for setup. On
-`action: none`, make no logging-setting edits. An existing explicit setting can
-also be passed as `--setting off` or `--setting jsonl`; `action: preserve` requires
-no Git probe or edits. The helper only returns a decision; the skill applies it.
+For explicitly selected local-only context inside Git, use core v0.1.8 or later.
+Pass `--storage local-only`, all chosen context paths, and the existing or agreed
+journal directory. Take the storage choice from the user's request or established
+local-only guidance, not merely an ignored file. For example:
+
+```sh
+python3 /path/to/installed/context-docs/scripts/journal_policy.py \
+  --project /path/to/project --preference auto --storage local-only \
+  --context-path .context/local/ --journal-directory .context/local/events
+```
+
+Repeat `--context-path` for additional targets, relative to the project root; use a
+trailing `/` for a directory that does not exist yet. The journal argument always
+names a directory. Preserve a preexisting directory setting even when logging has
+no setting. For a new local-only journal, agree a path inside the chosen local root
+instead of defaulting to a shared `.context/events` destination.
+
+The helper checks index tracking separately from effective ignore rules for all
+targets, a prospective ordinary child of each directory, journal event/lock suffixes,
+and exposed existing descendants. Tracking queries honor Git's case-folding setting;
+existing paths with case or Unicode normalization aliases are refused.
+Tracked targets fail even when an ignore rule matches. Negated ignore rules,
+file-only journal rules, missing scope, invalid paths, symlink aliases or Git/read
+errors leave auto unchanged with a reported verification gap. The helper does not
+change ignore rules, move files or write instructions, journals or the index.
+Directory probes cannot predict every absent negated target: pass known new paths
+explicitly and recheck new capture targets before writing. Apply the
+[local-only guide](local-only.md) for destination and discovery boundaries.
+
+On `action: enable`, merge `Event journal: jsonl` and the existing or agreed
+journal directory into the agreed instruction location that the client loads,
+using the preservation rules above. The no-Git default remains `.context/events`.
+Report whether confirmed Git absence or verified local-only storage enabled auto.
+Do not create a journal or event for setup. On `action: none`, make no settings or
+storage edits; report any returned errors. An existing explicit setting can also
+be passed as `--setting off`, `--setting jsonl` or another method;
+`action: preserve` requires no Git probe or edits. The helper only returns a
+decision; the skill applies it. Repeat setup preserves matching settings, paths,
+dates and records. Installation or upgrade alone never applies auto.
 
 Once saved, `Event journal: jsonl` is a project setting: adding Git later does not
 disable it or delete records. A later request to disable changes it to `off`.

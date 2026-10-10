@@ -91,6 +91,82 @@ class LandingBuildTests(unittest.TestCase):
             self.assertIn(landing.fenced_section(readme, heading, language), rendered)
         self.assertNotIn('{{', rendered)
 
+    def test_local_only_guide_uses_only_canonical_public_prompts(self):
+        rendered = unescape(landing.render(landing.ROOT, 'getting-started.html'))
+        guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
+        for heading in ['## Local-only context (excluded from Git)',
+                        '### Auto logging for local-only context']:
+            self.assertIn(landing.fenced_section(guide, heading, 'text'), rendered)
+        original_read = Path.read_text
+
+        def forbid_private_sources(path, *args, **kwargs):
+            relative = path.relative_to(landing.ROOT).as_posix()
+            self.assertNotIn(relative, ['docs/project-context.md', 'docs/project-decisions.md'])
+            self.assertFalse(relative.startswith('.context/'))
+            return original_read(path, *args, **kwargs)
+
+        with patch.object(Path, 'read_text', forbid_private_sources):
+            landing.render(landing.ROOT, 'getting-started.html')
+
+    def test_seo_titles_have_no_em_dash(self):
+        class Titles(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.inside_title = False
+                self.values = []
+
+            def handle_starttag(self, tag, attrs):
+                self.inside_title = tag == 'title'
+                attrs = dict(attrs)
+                if tag == 'meta' and (attrs.get('property') == 'og:title' or
+                                      attrs.get('name') == 'twitter:title'):
+                    self.values.append(attrs['content'])
+
+            def handle_endtag(self, tag):
+                if tag == 'title':
+                    self.inside_title = False
+
+            def handle_data(self, text):
+                if self.inside_title:
+                    self.values.append(text)
+
+        for page in ['index.html', 'getting-started.html']:
+            titles = Titles()
+            titles.feed(landing.render(landing.ROOT, page))
+            self.assertGreaterEqual(len(titles.values), 2)
+            for value in titles.values:
+                self.assertNotIn('\u2014', value)
+
+    def test_package_release_status_follows_readme(self):
+        original_read = Path.read_text
+        for released, capitalized in [(False, False), (False, True), (True, False)]:
+            def status_source(path, *args, **kwargs):
+                text = original_read(path, *args, **kwargs)
+                if released and path == landing.ROOT / 'README.md':
+                    return text.replace(' (unreleased)', '')
+                if capitalized and path == landing.ROOT / 'README.md':
+                    return text.replace('(unreleased)', '(Unreleased)')
+                return text
+
+            with self.subTest(released=released), patch.object(Path, 'read_text', status_source):
+                for page in ['index.html', 'getting-started.html']:
+                    self.assertIn('Experimental · ' + ('Released' if released else 'Unreleased'),
+                                  landing.render(landing.ROOT, page))
+
+    def test_missing_package_status_does_not_claim_a_release(self):
+        original_read = Path.read_text
+
+        def missing_status(path, *args, **kwargs):
+            text = original_read(path, *args, **kwargs)
+            if path == landing.ROOT / 'README.md':
+                return '\n'.join(line for line in text.splitlines() if not line.startswith('**Status:'))
+            return text
+
+        with patch.object(Path, 'read_text', missing_status):
+            for page in ['index.html', 'getting-started.html']:
+                with self.assertRaisesRegex(ValueError, 'Missing canonical package status'):
+                    landing.render(landing.ROOT, page)
+
     def test_each_page_fails_closed_when_required_content_is_removed(self):
         original_read = Path.read_text
         for name in ['index.html', 'getting-started.html']:

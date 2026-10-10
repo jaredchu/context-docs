@@ -43,12 +43,19 @@ Earlier release approvals do not authorize new publication.
 
 - Released bundle: [v0.1.6](releases/v0.1.6.md), with core **0.1.6**, adoption
   **0.1.7** and standard **0.1.1**.
-- Working packages: core **0.1.7** and adoption **0.1.8**, unreleased. They add
+- Working packages: core **0.1.8** and adoption **0.1.9**, unreleased. They add
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
-  controls pass 21 real-Git/canary tests, with seven agent scenarios still
+  controls pass 21 real-Git/canary tests, with seven broader local-only agent scenarios still
   unexecuted. Saved studies and this repository's shared context/journal setup
-  remain unchanged. [Changelog](../CHANGELOG.md) records validation and review limits.
+  remain unchanged. The opted-in auto preference now also covers explicitly
+  selected local-only context inside Git after verifying ignored, untracked
+  context and journal paths; every explicit logging setting wins. The website
+  guide includes canonical setup/auto prompts and SEO titles omit em dashes.
+  The [auto-policy validation](../evals/event-journal/auto-preference/local-only.md)
+  records 156 mechanical tests and six bounded native sessions, distinguishing
+  final setup checks from earlier repeat/audit checks and retaining review limits.
+  [Changelog](../CHANGELOG.md) records validation and review limits.
 - Core supports audit, initialize and maintain. Adoption uses the sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.

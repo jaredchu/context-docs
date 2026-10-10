@@ -32,7 +32,9 @@ The [getting-started template](getting-started.html) owns the beginner walkthrou
 Its installation commands, save/resume prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed
 [installation reference](../docs/getting-started.md) remains in the repository;
-the site links to it for client settings, upgrades and optional logging.
+the site's local-only setup and auto-logging prompts are extracted from its public
+sections. The site links to it for client settings, upgrades and logging details.
+Repository context, local notes and journals never become build inputs.
 
 ## Search discovery
 

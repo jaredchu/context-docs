@@ -159,3 +159,10 @@ retaining history while current context changes without commits. This clarifies
 the optional journal's purpose, without enabling it or changing existing setups.
 It is a proposed use case, not a newly measured benefit or a claim that selected
 event records preserve complete document versions.
+
+The owner then requested implementing auto logging for local-only context inside
+Git projects, respecting explicit settings and verifying ignored, untracked
+context and journal paths. Update both skills and the guide, add regression tests,
+and preserve saved study artifacts. This extends an already opted-in preference;
+it does not enable logging for all local-only setups or authorize moving records,
+changing global settings or publishing a release.

@@ -93,7 +93,9 @@ the marker were added, reused or remain incomplete.
 Adoption and skill upgrades leave logging off unless explicitly enabled by the
 project or the user has selected `Context Docs logging preference: auto`. Preserve
 explicit project settings, including `off`, ahead of that preference. For auto
-resolution or a request to enable or disable JSONL, follow the core skill's
+resolution, Git projects qualify only with explicitly selected local-only context
+and verified ignored, untracked context and journal paths; shared Git context
+keeps its existing behavior. For this or a request to enable or disable JSONL, follow the core skill's
 [journal guide](../context-docs/references/event-journal.md), merging only the
 requested settings into the existing loaded maintenance section. Do not change
 adoption dates, context paths or equivalent maintenance wording. Repeated setup

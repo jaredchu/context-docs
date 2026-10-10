@@ -63,6 +63,13 @@ setup convenience, not these logging goals or the necessity findings below. The
 [packaged rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
 preserve explicit settings and require confirmed Git absence before enablement.
 
+On October 10, the owner authorized extending that opt-in preference to explicitly
+selected local-only context inside Git. Such context lacks commit history even
+though its project uses Git. The extension requires verified ignored, untracked
+context and journal paths and preserves every explicit logging setting. It
+changes setup convenience, not the necessity findings or capture goals; JSONL
+remains optional. The packaged rules own the current procedure.
+
 ## Requirements before broader integration
 
 The owner added three requirements on September 28, 2026: evaluate Claude as well

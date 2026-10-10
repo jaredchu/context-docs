@@ -174,7 +174,8 @@ same storage checks; existing records and logging settings remain intact.
 For local-only context, [optional logging](#optional-logging) can retain significant
 decisions, checks and corrections as current context changes without Git history.
 Enable it explicitly with an untracked, ignored journal destination; selecting
-local-only storage alone does not enable it. The
+local-only storage alone does not enable it. A selected `auto` preference can also
+enable it after the same checks, unless an existing setting takes precedence. The
 [journal guide](../skills/context-docs/references/event-journal.md) explains capture
 and preservation; complete document versions still need snapshots or backups.
 
@@ -209,8 +210,9 @@ Setup, no-change maintenance and audits create no events. The
 [journal pilot and requirements](event-journal-pilot.md) explain when logging may
 be useful and what remains unestablished.
 
-To opt into automatic enablement for projects outside Git, use core v0.1.5 and
-adoption v0.1.6 and include this preference in your request
+### Auto logging
+
+To opt into automatic enablement, include this preference in your request
 or the personal instructions your agent loads:
 
 ```text
@@ -218,11 +220,33 @@ Context Docs logging preference: auto
 ```
 
 During adoption or authorized maintenance, an existing project logging setting
-wins, including `off`. Otherwise, the skill enables JSONL only after Git confirms
-that the project is outside a repository. Parent repositories and worktrees count;
-missing Git or failed detection does not enable logging. The resulting setting is
-saved in the project's loaded instructions so both clients can use it. Adding Git
-later preserves that setting and history. Audits never enable logging. See the
+wins, including `off`, `jsonl` or another logging method. With no setting, auto
+enables JSONL outside Git (core v0.1.5/adoption v0.1.6 or later), or for explicitly
+selected local-only context inside Git (unreleased core v0.1.8/adoption v0.1.9).
+For the latter, every chosen context path and the journal directory must be
+verified untracked and ignored, including existing descendants and prospective
+new paths. A tracked file still fails even if an ignore rule matches it.
+
+### Auto logging for local-only context
+
+For example, after choosing local-only storage, ask:
+
+```text
+Use adopt-context-docs to apply my auto logging preference to this local-only setup.
+Context Docs logging preference: auto
+Use the existing context at .context/local/ and journal directory
+.context/local/events. Verify that both are ignored and untracked before enabling.
+Preserve explicit logging settings, adoption dates, paths and existing records.
+Do not move files, change ignore rules or create a log for setup.
+```
+
+These paths are examples; reuse yours. Shared context inside Git does not qualify.
+Parent repositories and worktrees count as Git; missing Git, failed detection or
+unverified exclusion leaves logging unchanged and the gap is reported. The setting
+is saved only in the agreed instruction location that the client loads. Existing
+paths and records stay intact; auto does not grant permission to change ignore
+rules or relocate a journal to make it qualify. Adding Git later preserves a saved
+setting and history. Audits never enable logging. See the
 [auto preference rules](../skills/context-docs/references/event-journal.md#optional-auto-preference).
 This preference does not automatically commit logs or install a background service.
 

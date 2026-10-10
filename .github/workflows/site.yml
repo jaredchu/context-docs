@@ -2,10 +2,10 @@ name: Landing page
 
 on:
   pull_request:
-    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'docs/getting-started.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
   push:
     branches: [main]
-    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+    paths: ['site/**', 'assets/context-docs-overview.png', 'README.md', 'docs/getting-started.md', 'examples/maintenance.md', 'skills/**/VERSION', '.github/workflows/site.yml']
   workflow_dispatch:
     inputs:
       deploy:

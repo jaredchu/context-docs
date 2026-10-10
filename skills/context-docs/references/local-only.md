@@ -82,13 +82,16 @@ Use the standard's [audience guidance](standard.md#audience-and-destination) whe
 the user explicitly requests a suitable shared derivative; preserve the local
 original and omit details outside that derivative's agreed audience.
 
-Logging remains separately opt-in. If enabled for local-only work, verify that
+Logging remains separately opt-in, including the user's `auto` preference. With
+`auto` and no existing logging setting, local-only context inside Git can qualify
+after verifying all chosen context paths and the journal directory. Explicit
+settings, including `off`, always win. If enabled for local-only work, verify that
 the configured journal destination is also untracked and ignored before capture.
 For a new journal, an `events/` directory under the chosen local root is one option.
 Preserve an existing journal, its setting and records; if it is shared or tracked,
 resolve the requested storage scope before capturing local-only content there.
-Do not enable logging, relocate old events or change global settings as a side
-effect of selecting local-only context. Follow the
+Selecting local-only storage alone does not enable logging. Do not relocate old
+events or change global settings as a side effect. Follow the
 [journal guide](event-journal.md) for any authorized logging change.
 
 Audits never edit ignore rules, markers, files, the index or history. Repeat setup

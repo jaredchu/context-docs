@@ -15,7 +15,7 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.1.7 and adoption skill v0.1.8 (unreleased).**
+**Status: experimental, core skill v0.1.8 and adoption skill v0.1.9 (unreleased).**
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
@@ -140,8 +140,9 @@ capture or unlimited memory. Your project keeps ordinary, reviewable files.
 Most users can start with Markdown context alone. An optional event journal can
 record significant history for later investigation, including when local-only
 context changes without Git history. It is off by default unless you explicitly
-enable it or select the auto preference, which applies only outside
-Git when no project logging setting exists. Installing the skills does not enable
+enable it or select the auto preference. With no project logging setting, auto
+applies outside Git or to explicitly selected local-only context with verified
+ignored, untracked context and journal paths. Installing the skills does not enable
 it. The journal helper requires Python 3.9+.
 
 [Logging setup, upgrades and auto preference →](docs/getting-started.md#optional-logging)

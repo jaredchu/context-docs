@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{SITE_URL}}getting-started/">
   <meta property="og:image" content="{{SITE_URL}}context-docs-overview.png">
-  <title>Get started — Context Docs</title>
+  <title>Get started with Context Docs</title>
   <link rel="canonical" href="{{SITE_URL}}getting-started/">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
@@ -27,10 +27,10 @@
     <p class="eyebrow">YOUR FIRST PROJECT</p>
     <h1>Start here.<br><span>Keep what matters.</span></h1>
     <p class="guide-lead">You don't need to design a documentation system. Install two skills, use them in one project, and leave the next session a useful place to start.</p>
-    <p class="guide-meta">For Codex and Claude Code · Experimental<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
+    <p class="guide-meta">For Codex and Claude Code · Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
   </header>
   <div class="guide-layout">
-    <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#questions">Common questions</a></nav>
+    <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#local-only">Local-only context</a><a href="#questions">Common questions</a></nav>
     <article class="guide-content" aria-label="Getting started instructions">
       <section id="install" class="guide-section">
         <p class="eyebrow">STEP 01</p><h2>Install the skills.</h2>
@@ -69,6 +69,19 @@
         <p id="resume-status" class="copy-status" aria-live="polite"></p>
         <p>If the agent cannot find the entry point, provide the path recorded during setup. Ask it to check relevant code or other evidence before relying on a claim that may be stale.</p>
         <p>The saved document helps the agent get oriented. It does not automatically load every file or restore the previous conversation. You still decide what to work on next.</p>
+      </section>
+      <section id="local-only" class="guide-section">
+        <p class="eyebrow">OPTIONAL STORAGE</p><h2>Keep context local-only.</h2>
+        <p>Choose context excluded from Git when it belongs on your machine. Existing shared setups stay intact unless you request a change. For a local-only setup, ask:</p>
+        <div class="code-block"><button class="copy-button" type="button" data-copy="local-only-prompt" data-status="local-only-status" data-destination="your coding agent" hidden aria-label="Copy local-only setup prompt">Copy</button><pre tabindex="0" aria-label="Local-only setup prompt"><code id="local-only-prompt">{{LOCAL_ONLY_PROMPT}}</code></pre></div>
+        <p id="local-only-status" class="copy-status" aria-live="polite"></p>
+        <p>In Claude Code, replace <code>$adopt-context-docs</code> with <code>/adopt-context-docs</code>. The paths are examples; reuse yours. An ignore rule does not stop tracking an existing file or remove old commits. Read the named entry point directly in a fresh session, since searches may omit ignored files.</p>
+        <p>Local files need your own backup or transfer between machines. Git exclusion does not provide encryption. Keep local content out of shared docs, instructions and journals.</p>
+        <h3>Retain history with optional logging.</h3>
+        <p>A journal can retain significant decisions, checks and corrections as current context changes without Git history. Logging stays off unless you opt in. Auto for local-only context inside Git requires core 0.1.8/adoption 0.1.9 or later. With <code>auto</code> and no existing setting, it qualifies only when both context and journal paths are verified ignored and untracked. An explicit <code>off</code>, enabled setting or another logging method always wins.</p>
+        <div class="code-block"><button class="copy-button" type="button" data-copy="auto-logging-prompt" data-status="auto-logging-status" data-destination="your coding agent" hidden aria-label="Copy auto logging prompt">Copy</button><pre tabindex="0" aria-label="Auto logging for local-only context"><code id="auto-logging-prompt">{{AUTO_LOGGING_PROMPT}}</code></pre></div>
+        <p id="auto-logging-status" class="copy-status" aria-live="polite"></p>
+        <p>Unverified paths leave logging unchanged. Audits stay read-only, and setup creates no event. The journal records selected events; complete document versions still need snapshots or backups. See the <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#optional-logging">full logging guide</a>.</p>
       </section>
       <section id="questions" class="guide-section guide-questions">
         <p class="eyebrow">WHEN YOU NEED IT</p><h2>A few common questions.</h2>

@@ -30,6 +30,9 @@ def fenced_section(text, heading, language):
 
 def render(root, template_name='index.html'):
     readme = (root / 'README.md').read_text(encoding='utf-8')
+    status = re.search(r'^\*\*Status: (.*?)\*\*$', readme, re.M)
+    if status is None:
+        raise ValueError('Missing canonical package status in README.md')
     example = (root / 'examples/maintenance.md').read_text(encoding='utf-8')
     values = {
         'SITE_URL': SITE_URL,
@@ -42,13 +45,20 @@ def render(root, template_name='index.html'):
         'EXAMPLE_AFTER': fenced_section(example, '## After: same context.md', 'markdown'),
         'CORE_VERSION': (root / 'skills/context-docs/VERSION').read_text(encoding='utf-8').strip(),
         'ADOPTION_VERSION': (root / 'skills/adopt-context-docs/VERSION').read_text(encoding='utf-8').strip(),
+        'PACKAGE_STATUS': 'Unreleased' if re.search(r'\bunreleased\b', status[1], re.I) else 'Released',
     }
+    if template_name == 'getting-started.html':
+        guide = (root / 'docs/getting-started.md').read_text(encoding='utf-8')
+        values.update({
+            'LOCAL_ONLY_PROMPT': fenced_section(guide, '## Local-only context (excluded from Git)', 'text'),
+            'AUTO_LOGGING_PROMPT': fenced_section(guide, '### Auto logging for local-only context', 'text'),
+        })
     template = (root / 'site' / template_name).read_text(encoding='utf-8')
     required = {
         'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'SAVE_PROMPT',
-        'RESUME_PROMPT', 'CORE_VERSION', 'ADOPTION_VERSION',
+        'RESUME_PROMPT', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
     }
-    required |= ({'QUICK_EXAMPLE'} if template_name == 'getting-started.html'
+    required |= ({'QUICK_EXAMPLE', 'LOCAL_ONLY_PROMPT', 'AUTO_LOGGING_PROMPT'} if template_name == 'getting-started.html'
                  else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER'})
     present = set(re.findall(r'{{([A-Z_]+)}}', template))
     if required - present:
@@ -64,7 +74,7 @@ def render(root, template_name='index.html'):
 
 
 def build(root=ROOT, output=OUTPUT):
-    # Never copy the repository, docs, journal or a recursive asset directory.
+    # Render selected public prompts; never copy context, journals or a recursive directory.
     sources = {
         'styles.css': root / 'site/styles.css',
         'main.js': root / 'site/main.js',

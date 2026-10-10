@@ -15,6 +15,41 @@ The latest published bundle is described in the [v0.1.6 release notes](docs/rele
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.1.8 — unreleased
+
+- Extend the opted-in `auto` preference to explicitly selected local-only context
+  inside Git. Preserve all existing logging settings before detection; require
+  both context and journal paths to be untracked and effectively ignored. Missing
+  scope, tracked/exposed paths, negation, symlinks, nested repositories and probe
+  errors leave settings unchanged. Shared-Git and no-Git defaults are preserved.
+- Update both skills' routing and the packaged/user guides. The website now
+  extracts local-only setup and auto prompts from the public guide; remove em
+  dashes from page/Open Graph SEO titles. No existing setup, ignore rule or saved
+  study is migrated.
+- Mechanical validation: 156 relevant tests pass, including 31 policy tests,
+  21 local-only controls, 17 static-checker, 19 audience, 28 public-adoption,
+  1 original auto-guard and 12 site tests; the remaining 27 tests exercise the
+  event journal. Static checks, both skill validators, isolated package links/helper
+  execution and the site build pass. All 1,881 saved study files are unchanged.
+- Exact Opus 5.5 drafted the helper and policy tests within a 240-second bound;
+  Codex integrated them, corrected a Git `check-ignore` invocation defect found
+  in the initial failing run, and strengthened access/error/config handling.
+- Six bounded native Claude Code/Codex sessions pass their execution/preservation
+  gates: four before review fixes (setup and repeat/audit per client), then two
+  fresh final-package setup sessions including case aliases and prospective
+  journal exceptions. One Opus review and one focused follow-up resolved the
+  tracking and site-status findings. The [validation record](evals/event-journal/auto-preference/local-only.md)
+  retains failures, candidate identities and limits; no broad behavioral or
+  JSONL-necessity claim is made.
+
+## adopt-context-docs 0.1.9 — unreleased
+
+- Resolve the extended opt-in auto policy during authorized adoption, preserving
+  explicit settings, agreed instruction locations, original adoption dates,
+  existing directories and event history. Selecting local-only storage alone,
+  skill installation, upgrades and audits do not enable logging. Validation is
+  shared with core 0.1.8 above.
+
 ## context-docs 0.1.7 — unreleased
 
 - Add opt-in local-only context guidance: check effective ignore rules separately

@@ -347,6 +347,11 @@ do not establish the adoption wrapper's behavior.
 
 ## Optional event journal
 
+The [local-only auto-policy validation](event-journal/auto-preference/local-only.md)
+records mechanical controls and six bounded native setup/repeat/audit sessions.
+It distinguishes final-package checks from the earlier candidate and preserves
+existing study results; it does not establish JSONL necessity or implicit selection.
+
 The repository-only [event journal evaluation](event-journal/README.md) exercises
 CLI failure handling, a synthetic history replay and local latency. It includes
 author-reviewed retrieval routes but no fresh-agent sessions. Those results do
