@@ -28,11 +28,12 @@ def fenced_section(text, heading, language):
     raise ValueError(f'Missing or unclosed {language} block in {heading}')
 
 
-def render(root):
+def render(root, template_name='index.html'):
     readme = (root / 'README.md').read_text(encoding='utf-8')
     example = (root / 'examples/maintenance.md').read_text(encoding='utf-8')
     values = {
         'SITE_URL': SITE_URL,
+        'QUICK_EXAMPLE': fenced_section(readme, '## What you get', 'markdown'),
         'CODEX_INSTALL': fenced_section(readme, '### Install in Codex', 'text'),
         'CLAUDE_INSTALL': fenced_section(readme, '### Install in Claude Code', 'sh'),
         'SAVE_PROMPT': fenced_section(readme, '### 2. Work normally, then save useful changes', 'text'),
@@ -42,15 +43,24 @@ def render(root):
         'CORE_VERSION': (root / 'skills/context-docs/VERSION').read_text(encoding='utf-8').strip(),
         'ADOPTION_VERSION': (root / 'skills/adopt-context-docs/VERSION').read_text(encoding='utf-8').strip(),
     }
-    template = (root / 'site/index.html').read_text(encoding='utf-8')
-    for key, value in values.items():
-        marker = '{{' + key + '}}'
-        if marker not in template:
-            raise ValueError(f'Missing template marker: {key}')
-        template = template.replace(marker, escape(value))
-    if re.search(r'{{[A-Z_]+}}', template):
-        raise ValueError('Unresolved template marker')
-    return template
+    template = (root / 'site' / template_name).read_text(encoding='utf-8')
+    required = {
+        'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'SAVE_PROMPT',
+        'RESUME_PROMPT', 'CORE_VERSION', 'ADOPTION_VERSION',
+    }
+    required |= ({'QUICK_EXAMPLE'} if template_name == 'getting-started.html'
+                 else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER'})
+    present = set(re.findall(r'{{([A-Z_]+)}}', template))
+    if required - present:
+        raise ValueError(f'Missing template markers: {sorted(required - present)}')
+
+    def substitute(match):
+        key = match[1]
+        if key not in values:
+            raise ValueError(f'Unknown template marker: {key}')
+        return escape(values[key])
+
+    return re.sub(r'{{([A-Z_]+)}}', substitute, template)
 
 
 def build(root=ROOT, output=OUTPUT):
@@ -65,12 +75,15 @@ def build(root=ROOT, output=OUTPUT):
         if source.is_symlink() or not source.is_file():
             raise ValueError(f'Expected a regular public asset: {source.name}')
     html = render(root)
+    guide = render(root, 'getting-started.html')
     if output.is_symlink():
         raise ValueError('Build destination must not be a symlink')
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
     (output / 'index.html').write_text(html, encoding='utf-8')
+    (output / 'getting-started').mkdir()
+    (output / 'getting-started/index.html').write_text(guide, encoding='utf-8')
     (output / '.nojekyll').write_text('', encoding='utf-8')
     # Only public pages belong here, never repository context or evidence exports.
     (output / 'robots.txt').write_text(
@@ -79,7 +92,8 @@ def build(root=ROOT, output=OUTPUT):
     (output / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        '  <url><loc>' + escape(SITE_URL) + '</loc></url>\n</urlset>\n',
+        '  <url><loc>' + escape(SITE_URL) + '</loc></url>\n'
+        '  <url><loc>' + escape(SITE_URL + 'getting-started/') + '</loc></url>\n</urlset>\n',
         encoding='utf-8')
     for name, source in sources.items():
         shutil.copyfile(source, output / name)

@@ -3,6 +3,7 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from html import unescape
 from html.parser import HTMLParser
 import urllib.robotparser
@@ -20,10 +21,11 @@ class LandingBuildTests(unittest.TestCase):
             output.mkdir()
             (output / 'private-note.txt').write_text('Must not survive a rebuild')
             landing.build(output=output)
-            self.assertEqual({p.name for p in output.iterdir()}, {
+            self.assertEqual({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()}, {
                 'index.html', 'styles.css', 'main.js', 'favicon.svg',
-                'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml'})
-            self.assertFalse(any(p.is_dir() or p.is_symlink() for p in output.iterdir()))
+                'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml',
+                'getting-started/index.html'})
+            self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
 
@@ -65,12 +67,42 @@ class LandingBuildTests(unittest.TestCase):
                              'https://context-docs.com/context-docs-overview.png')
             sitemap = ET.parse(output / 'sitemap.xml')
             self.assertEqual([item.text for item in sitemap.findall('.//{*}loc')],
-                             metadata.canonical)
+                             ['https://context-docs.com/', 'https://context-docs.com/getting-started/'])
+            guide_metadata = Metadata()
+            guide_metadata.feed((output / 'getting-started/index.html').read_text(encoding='utf-8'))
+            self.assertEqual(guide_metadata.canonical, ['https://context-docs.com/getting-started/'])
+            self.assertEqual(guide_metadata.open_graph['og:url'], guide_metadata.canonical[0])
             robots = urllib.robotparser.RobotFileParser()
             robots.parse((output / 'robots.txt').read_text(encoding='utf-8').splitlines())
             for bot in ['Googlebot', 'bingbot', 'OAI-SearchBot', 'Claude-SearchBot']:
                 self.assertTrue(robots.can_fetch(bot, landing.SITE_URL))
             self.assertEqual(robots.site_maps(), [landing.SITE_URL + 'sitemap.xml'])
+
+    def test_guide_reuses_canonical_instructions_and_example(self):
+        rendered = unescape(landing.render(landing.ROOT, 'getting-started.html'))
+        readme = (landing.ROOT / 'README.md').read_text(encoding='utf-8')
+        for heading, language in [
+            ('### Install in Codex', 'text'),
+            ('### Install in Claude Code', 'sh'),
+            ('### 2. Work normally, then save useful changes', 'text'),
+            ('### 3. Resume with the saved context', 'text'),
+            ('## What you get', 'markdown'),
+        ]:
+            self.assertIn(landing.fenced_section(readme, heading, language), rendered)
+        self.assertNotIn('{{', rendered)
+
+    def test_each_page_fails_closed_when_required_content_is_removed(self):
+        original_read = Path.read_text
+        for name in ['index.html', 'getting-started.html']:
+            with self.subTest(template=name):
+                def missing_prompt(path, *args, **kwargs):
+                    content = original_read(path, *args, **kwargs)
+                    if path == landing.ROOT / 'site' / name:
+                        return content.replace('{{SAVE_PROMPT}}', '')
+                    return content
+                with patch.object(Path, 'read_text', missing_prompt):
+                    with self.assertRaisesRegex(ValueError, 'Missing template markers'):
+                        landing.render(landing.ROOT, name)
 
     def test_missing_block_does_not_steal_next_sections_command(self):
         with self.assertRaises(ValueError):

@@ -20,6 +20,7 @@ for (const button of document.querySelectorAll('[data-copy]')) {
   button.hidden = false;
   button.addEventListener('click', async () => {
     const code = document.getElementById(button.dataset.copy);
+    const feedback = document.getElementById(button.dataset.status) || status;
     if (button.dataset.busy) return;
     button.dataset.busy = 'true';
     window.clearTimeout(feedbackTimer);
@@ -28,7 +29,7 @@ for (const button of document.querySelectorAll('[data-copy]')) {
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(code.textContent);
-      status.textContent = 'Copied. Paste into ' + button.dataset.destination + '.';
+      feedback.textContent = 'Copied. Paste into ' + button.dataset.destination + '.';
       button.textContent = 'Copied';
       button.setAttribute('aria-label', label.replace(/^Copy /, 'Copied '));
       feedbackTimer = window.setTimeout(() => {
@@ -41,7 +42,7 @@ for (const button of document.querySelectorAll('[data-copy]')) {
       range.selectNodeContents(code);
       selection.removeAllRanges();
       selection.addRange(range);
-      status.textContent = 'Copy was unavailable. The text is selected; use your device’s copy command.';
+      feedback.textContent = 'Copy was unavailable. The text is selected; use your device’s copy command.';
     } finally {
       delete button.dataset.busy;
     }
