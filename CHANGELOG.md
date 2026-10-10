@@ -11,9 +11,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest published bundle is described in the [v0.1.6 release notes](docs/releases/v0.1.6.md).
+The latest published bundle is described in the [v0.1.8 release notes](docs/releases/v0.1.8.md).
+Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.1.8 publication — 2026-10-10
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.8)
+  from `8bda86ce8e23d14874dcb22e0af7b2e581717ee7`, after release-commit
+  [static checks](https://github.com/jaredchu/context-docs/actions/runs/38062411488) and
+  [landing-page checks](https://github.com/jaredchu/context-docs/actions/runs/38062411476) passed.
+  Bundle core 0.1.8/adoption 0.1.9 and unchanged standard 0.1.1. The release-note
+  Opus 5.5 review findings were resolved before publication; package behavior,
+  existing setups and saved studies are unchanged by release preparation.
 
 ## v0.1.8 release preparation — 2026-10-10 (prepublication checks)
 
@@ -27,7 +38,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   unchanged. These checks add no native agent evaluation; release-note review
   and publication status are recorded in the linked notes and records.
 
-## context-docs 0.1.8 — unreleased
+## context-docs 0.1.8 — 2026-10-10 (bundled in `v0.1.8`)
 
 - Extend the opted-in `auto` preference to explicitly selected local-only context
   inside Git. Preserve all existing logging settings before detection; require
@@ -54,7 +65,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   retains failures, candidate identities and limits; no broad behavioral or
   JSONL-necessity claim is made.
 
-## adopt-context-docs 0.1.9 — unreleased
+## adopt-context-docs 0.1.9 — 2026-10-10 (bundled in `v0.1.8`)
 
 - Resolve the extended opt-in auto policy during authorized adoption, preserving
   explicit settings, agreed instruction locations, original adoption dates,
@@ -62,7 +73,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   skill installation, upgrades and audits do not enable logging. Validation is
   shared with core 0.1.8 above.
 
-## context-docs 0.1.7 — unreleased
+## context-docs 0.1.7 — 2026-10-10 (bundled in `v0.1.8`)
 
 - Add opt-in local-only context guidance: check effective ignore rules separately
   from Git tracking, read ignored entry points directly, and keep local content
@@ -85,7 +96,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   clarifications were applied. One focused follow-up accepted the fixes; version
   files and the guide's unreleased wording were verified independently.
 
-## adopt-context-docs 0.1.8 — unreleased
+## adopt-context-docs 0.1.8 — 2026-10-10 (bundled in `v0.1.8`)
 
 - Apply the core local-only procedure during explicit adoption and record the
   storage choice in the agreed instruction location. Keep upgrades and repeat

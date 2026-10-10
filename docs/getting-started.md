@@ -129,7 +129,7 @@ initialization workflow.
 
 ## Local-only context (excluded from Git)
 
-Unreleased core v0.1.7 and adoption v0.1.8 add an explicit local-only option. Existing
+Core v0.1.8 and adoption v0.1.9 provide an explicit local-only option. Existing
 projects keep their storage, paths and instructions unless you request a change;
 installing or upgrading the skills does not make context local-only.
 
@@ -222,7 +222,7 @@ Context Docs logging preference: auto
 During adoption or authorized maintenance, an existing project logging setting
 wins, including `off`, `jsonl` or another logging method. With no setting, auto
 enables JSONL outside Git (core v0.1.5/adoption v0.1.6 or later), or for explicitly
-selected local-only context inside Git (unreleased core v0.1.8/adoption v0.1.9).
+selected local-only context inside Git (core v0.1.8/adoption v0.1.9 or later).
 For the latter, every chosen context path and the journal directory must be
 verified untracked and ignored, including existing descendants and prospective
 new paths. A tracked file still fails even if an ignore rule matches it.
@@ -269,4 +269,4 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[v0.1.6 upgrade notes](releases/v0.1.6.md#installation-and-upgrade).
+[v0.1.8 upgrade notes](releases/v0.1.8.md#installation-and-upgrade).

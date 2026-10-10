@@ -41,9 +41,10 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Released bundle: [v0.1.6](releases/v0.1.6.md), with core **0.1.6**, adoption
-  **0.1.7** and standard **0.1.1**.
-- Working packages: core **0.1.8** and adoption **0.1.9**, unreleased. They add
+- Released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
+  **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
+  both release-commit Actions runs passed.
+- This bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
   controls pass 21 real-Git/canary tests, with seven broader local-only agent scenarios still
@@ -56,8 +57,8 @@ Earlier release approvals do not authorize new publication.
   records 156 mechanical tests and six bounded native sessions, distinguishing
   final setup checks from earlier repeat/audit checks and retaining review limits.
   [Changelog](../CHANGELOG.md) records validation and review limits.
-  [v0.1.8 release preparation](releases/v0.1.8.md) records package identities
-  and candidate CI; publication and website deployment are pending.
+  [v0.1.8 release records](releases/v0.1.8.md) retain package identities,
+  preparation checks and publication evidence.
 - Core supports audit, initialize and maintain. Adoption uses the sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.

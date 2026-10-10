@@ -54,5 +54,15 @@
     "new_native_sessions": 0,
     "initial_edit_failure": "An optional subn fixture edit omitted a comma and failed test-module import; corrected before the final 12-test pass."
   },
-  "publication": "pending"
+  "publication": {
+    "url": "https://github.com/jaredchu/context-docs/releases/tag/v0.1.8",
+    "is_prerelease": true,
+    "target_commit": "8bda86ce8e23d14874dcb22e0af7b2e581717ee7",
+    "published_at": "2026-10-10T15:09:04Z",
+    "release_commit_ci": {
+      "static_checks": "https://github.com/jaredchu/context-docs/actions/runs/38062411488",
+      "landing_page": "https://github.com/jaredchu/context-docs/actions/runs/38062411476",
+      "conclusions": "success"
+    }
+  }
 }

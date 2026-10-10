@@ -15,7 +15,7 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.1.8 and adoption skill v0.1.9 (unreleased).**
+**Status: experimental, core skill v0.1.8 and adoption skill v0.1.9.**
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
@@ -170,7 +170,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [Release notes](docs/releases/v0.1.6.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Release notes](docs/releases/v0.1.8.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)
