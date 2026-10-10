@@ -680,3 +680,203 @@ p {
 .prompt-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .prompt-copy { background:transparent; color:var(--teal); border:1px solid #87ab9b; border-radius:4px; padding:5px 10px; font:12px/1.5 var(--sans); }
 .prompt-copy:hover { background:#d4e5dd; }
+
+/* First-project guide: reuse the landing page's typography and controls. */
+.guide-hero {
+  padding-block:72px 64px;
+  max-width:860px;
+}
+.guide-hero h1 {
+  font-size:clamp(44px,5.5vw,72px);
+}
+.guide-lead {
+  max-width:680px;
+  font-size:20px;
+  margin-top:28px;
+}
+.guide-meta {
+  font:12px/1.8 var(--mono);
+  margin-top:22px;
+}
+.guide-layout {
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr);
+  gap:64px;
+  border-top:1px solid var(--line);
+}
+.guide-toc {
+  align-self:start;
+  position:sticky;
+  top:28px;
+  padding-top:40px;
+  font-size:14px;
+}
+.guide-toc .eyebrow {
+  margin-bottom:18px;
+}
+.guide-toc ol {
+  padding-left:22px;
+  margin:0 0 20px;
+}
+.guide-toc li {
+  padding-bottom:12px;
+}
+.guide-content {
+  min-width:0;
+  max-width:760px;
+}
+.guide-section {
+  padding-block:44px;
+  border-bottom:1px solid var(--line);
+}
+.guide-section .eyebrow {
+  margin-bottom:14px;
+}
+.guide-section h2,.guide-finish h2 {
+  font-size:clamp(29px,3.2vw,39px);
+  line-height:1.18;
+  margin-bottom:24px;
+}
+.guide-section>p,.guide-section>ul {
+  margin-block:18px;
+}
+.guide-section>h3 {
+  margin-top:28px;
+}
+.guide-section>ul {
+  color:var(--muted);
+  padding-left:24px;
+}
+.guide-section li {
+  padding-left:4px;
+  margin-bottom:12px;
+}
+.guide-section strong {
+  color:var(--ink);
+}
+.guide-section .client-switch {
+  margin-top:24px;
+}
+.guide-section .code-block pre {
+  font-size:13px;
+}
+.guide-note {
+  background:var(--pale);
+  border-left:3px solid #629984;
+  padding:22px 24px;
+  margin-top:26px;
+  border-radius:0 6px 6px 0;
+}
+.guide-note p {
+  margin-top:8px;
+  font-size:15px;
+}
+.guide-commands {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  margin-block:26px;
+}
+.guide-commands>div {
+  background:white;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:6px;
+}
+.guide-commands h3 {
+  font-size:15px;
+  margin-bottom:12px;
+}
+.guide-commands code {
+  font:13px/1.7 var(--mono);
+  color:var(--teal);
+  overflow-wrap:anywhere;
+}
+.guide-example {
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:white;
+  overflow:hidden;
+  margin-block:24px;
+}
+.guide-example figcaption {
+  padding:16px 22px;
+  background:var(--pale);
+  font-size:13px;
+  color:var(--teal);
+}
+.guide-example pre {
+  font:13px/1.8 var(--mono);
+  padding:22px;
+  margin:0;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.guide-questions details {
+  border-top:1px solid var(--line);
+  padding-block:18px;
+}
+.guide-questions summary {
+  cursor:pointer;
+  font-weight:600;
+}
+.guide-questions summary:focus-visible {
+  outline:3px solid #217eae;
+  outline-offset:5px;
+}
+.guide-questions details p {
+  margin-top:15px;
+}
+.guide-finish {
+  padding:40px 32px;
+  margin-block:44px 72px;
+  background:var(--pale);
+  border-radius:8px;
+}
+.guide-finish .text-link {
+  display:inline-block;
+  margin-top:24px;
+}
+@media(max-width:850px) {
+  .guide-layout {
+    grid-template-columns:minmax(0,1fr);
+    gap:0;
+  }
+  .guide-toc {
+    position:static;
+    padding-block:28px;
+    border-bottom:1px solid var(--line);
+  }
+  .guide-toc ol {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 26px;
+    margin-bottom:8px;
+  }
+}
+@media(max-width:480px) {
+  .guide-hero {
+    padding-block:48px 36px;
+  }
+  .guide-lead {
+    font-size:18px;
+  }
+  .guide-commands {
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+  .guide-note,.guide-finish {
+    padding:22px 18px;
+  }
+  .guide-section {
+    padding-block:34px;
+  }
+}
+@media(max-width:600px) {
+  .guide-page .site-header nav a:first-child {
+    display:inline;
+  }
+  .guide-page .site-header nav a:last-child {
+    display:none;
+  }
+}

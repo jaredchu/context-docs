@@ -21,12 +21,18 @@ JavaScript; JavaScript adds agent selection and copy buttons. Clipboard failure
 selects the text and gives manual-copy instructions. No external fonts, analytics,
 tracking, cookies or application backend are included.
 
-The output contains only eight explicitly named public files: `index.html`,
+The output contains only nine explicitly named public files: `index.html`,
 `styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
-`robots.txt` and `sitemap.xml`.
+`robots.txt`, `sitemap.xml` and `getting-started/index.html`.
 The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
+
+The [getting-started template](getting-started.html) owns the beginner walkthrough.
+Its installation commands, save/resume prompts, synthetic example and versions
+come from the same canonical sources as the landing page. The detailed
+[installation reference](../docs/getting-started.md) remains in the repository;
+the site links to it for client settings, upgrades and optional logging.
 
 ## Search discovery
 

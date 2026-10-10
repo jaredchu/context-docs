@@ -48,6 +48,8 @@ Earlier release approvals do not authorize new publication.
 - Discoverability changes are prepared for review: canonical metadata, a public
   sitemap and crawler policy. [Search registration steps](../site/README.md#search-discovery)
   remain manual after deployment; indexing and AI citations are not established.
+  A dependent [beginner guide](../site/getting-started.html) walks through one
+  project's setup, maintenance and resumption using canonical commands and prompts.
 
 ## Evidence and limits
 
