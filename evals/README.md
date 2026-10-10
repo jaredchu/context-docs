@@ -15,9 +15,21 @@ claim that every scenario below or automatic skill selection has been tested.
 For the original runner selection and proposed protocol, see the
 [framework comparison and proposed protocol](frameworks.md).
 
+The [evidence overview](../docs/evaluation-results.md) collects results, original
+comparison tables and their limitations.
+
 ## Evaluation priority
 
-Retained content, factual accuracy and consistency are primary. The completed
+The intended users do not already know how to save and maintain project context.
+The product goal is useful, accurate, consistent context with minimal setup and
+ongoing manual effort. Future practical validation should examine learning,
+organization, prompting and correction effort for those users, alongside retained
+knowledge and accuracy. Fast model runs or short files do not measure that effort.
+
+Competent ordinary maintenance remains a useful quality comparison, not the
+primary success gate for this audience. Do not weaken a comparison agent to
+manufacture an advantage. Existing frozen studies and scores remain unchanged;
+no new target-user usability result is claimed here. The completed
 [quality-first study](../docs/evaluation-2026-09-27-quality.md) compares scattered,
 conflicting and absent context against ordinary maintenance and Context Docs,
 then tests fresh readers. Both maintenance methods capture all required items;

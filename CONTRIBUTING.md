@@ -8,7 +8,10 @@ Keep the skill short and its references portable. Preserve existing project
 layouts, decision authority and evidence. Favor an instruction change over a new
 script unless deterministic tooling provides a clear, repeatable benefit.
 
-Evaluate knowledge retention, accuracy and consistency before speed or file size.
+Design for people who do not yet know how to save and maintain project context.
+Reduce the setup, organization, prompting and correction work users must do while
+preserving useful knowledge, accuracy and consistency. Model speed and file size
+alone do not measure that benefit; outperforming an expert workflow is not required.
 For claims about reader benefit, use the [quality-first protocol](evals/quality-protocol.md)
 with matched weak-documentation baselines. Maintenance pass rates alone do not
 establish better downstream answers.
@@ -23,7 +26,7 @@ For a skill change:
    verification limits and any lost information. Report semantic review separately
    from mechanical checks, and retain failed trials.
 3. Run `python3 evals/checks/static_checks.py` for packaging, links, declared
-   versions and agreement between README tables and published results. GitHub
+   versions and agreement between evidence-page tables and published results. GitHub
    Actions runs it with the container-free study self-tests on every push. Also
    check that the skill works when copied without the rest of this repository, and
    use your client's skill validator if available.

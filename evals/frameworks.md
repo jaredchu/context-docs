@@ -70,9 +70,11 @@ audit grade would not demonstrate this skill's documentation quality.
    downstream reader usefulness from formatting or compression.
 3. Keep development fixtures separate from held-out cases. After a skill change,
    rerun both the known regression and unseen variations.
-4. Add machine-readable results and derive the README table from those results
+4. Add machine-readable results and derive the published table from those results
    once a runner exists. Retain the eight-run local pilot as a separate historical
    dataset; do not relabel it as Harbor or SkillsBench output.
+
+The implemented tables now live in the [evaluation evidence page](../docs/evaluation-results.md).
 
 The skill already says to retain unresolved discrepancies explicitly. One miss
 does not establish that more instructions would help. Test compliance on varied

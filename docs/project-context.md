@@ -5,11 +5,14 @@ evaluation findings are retained from their linked reports, not rerun here.
 
 ## Purpose and scope
 
-Context Docs is an experimental convention and reusable agent skill for maintaining
-useful Markdown project knowledge across AI sessions. Retained content, factual
-accuracy and consistency are the product goals; speed and brevity are secondary.
-It adapts to existing layouts and distinguishes observations, approved decisions,
-proposals and unknowns. Ordinary maintenance has no runtime dependency. The
+Context Docs is an experimental convention and reusable agent skill for people who
+do not yet know how to save and maintain project context. The goal is useful,
+accurate, consistent project knowledge across AI sessions with as little setup
+and ongoing manual effort as possible. Users should not need to design their own
+context-management process. Reducing human effort is a primary product goal; model
+speed, token use and file length alone do not establish success. It adapts to
+existing layouts and distinguishes observations, approved decisions, proposals
+and unknowns. Ordinary maintenance has no runtime dependency. The
 optional journal helper requires Python 3.9+; no background service or sync exists.
 
 This is a public open-source repository. Shared context should serve contributors
@@ -19,6 +22,9 @@ Relevant runtime constraints and failed evaluations remain shared evidence.
 
 ## Decisions
 
+- Serve users without an established context-management practice. The owner
+  clarified this audience and minimal-effort goal on October 10, 2026. Outperforming
+  expert maintenance is not the product's success gate; accuracy still matters.
 - Keep Markdown/Git authoritative and cloud integrations optional. A hosted memory
   service or retrieval backend needs a concrete use case.
 - Keep logging optional. Its goal is efficient event capture for later
@@ -48,13 +54,18 @@ approvals. An earlier release approval does not authorize a new publication.
   Claude integration was merged in [PR #1](https://github.com/jaredchu/context-docs/pull/1).
 - Core supports audit, initialize and maintain. Adoption is a sibling-dependent
   wrapper that adds guidance and a marker to instructions actually loaded by the
-  client. [README](../README.md) owns installation and invocation details.
+  client. [README](../README.md) introduces the workflow; the
+  [user guide](getting-started.md) owns detailed setup, usage and logging guidance.
 - The core package owns the standard, references, templates and optional journal
   helper. This repository enables JSONL through [AGENTS.md](../AGENTS.md); its
   `CLAUDE.md` imports those instructions. No other project's setting is implied.
 - [Repository checks](../.github/workflows/checks.yml) cover packaging, versions,
   links, grader controls and report regeneration. They are mechanical checks;
   actual agent evaluations remain separate.
+- The README now introduces the intended audience with a work/save/resume
+  illustration and quick start. Detailed setup is in the user guide; the
+  [evidence page](evaluation-results.md) retains all five generated result tables
+  and their limitations. Skill behavior and package versions are unchanged.
 
 ## Evidence and limits
 

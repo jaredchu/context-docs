@@ -150,8 +150,9 @@ python3 evals/suite/report.py .local/review-export
 ```
 
 The report requires all 48 trials and their reviews, and derives `summary.json`
-and `table.md`. Add `--readme README.md` to replace its existing evaluation-table
-marker block from those same scores. Incomplete or errored experiments must remain explicitly labeled;
+and `table.md`. Add `--readme docs/evaluation-results.md` to replace the evidence
+page's existing evaluation-table marker block from those same scores. The option
+retains its original name for compatibility. Incomplete or errored experiments must remain explicitly labeled;
 do not replace them with favorable retries. Runtime is agent-phase time, excluding
 container build/setup. Repeated-task time and token usage sum all three sessions.
 Harbor's estimated dollar figures are not treated as observed subscription cost.

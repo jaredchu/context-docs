@@ -78,7 +78,7 @@ if __name__ == '__main__':
     if args.readme:
         body = args.readme.read_text()
         pattern = r'<!-- evaluation-table:start -->.*?<!-- evaluation-table:end -->'
-        assert len(re.findall(pattern, body, re.S)) == 1, 'README must contain exactly one evaluation-table marker block.'
+        assert len(re.findall(pattern, body, re.S)) == 1, 'Target document must contain exactly one evaluation-table marker block.'
         body = re.sub(pattern, lambda _: '<!-- evaluation-table:start -->\n' + table + '\n<!-- evaluation-table:end -->', body, flags=re.S)
         args.readme.write_text(body)
     print(table)

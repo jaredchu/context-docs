@@ -111,3 +111,14 @@ then-open harness decisions and recommendations. Later
 [native protocols and results](../evals/claude-code/README.md) record the executed
 conditions; the handoff's pre-execution status is historical. Cross-machine
 installed-path portability remains unestablished.
+
+On October 10, 2026, the owner clarified the intended audience: people who do not know
+how to save project context and want to maintain it better with the least effort
+possible, rather than people who already manage context well. This establishes
+accessible setup and low ongoing manual effort as product goals alongside useful,
+accurate retained knowledge. For implementation and evaluation, distinguish user
+learning, organization, prompting and correction effort from model runtime, token
+use or document length. Comparisons with competent ordinary maintenance remain
+quality diagnostics, not a requirement to outperform an expert workflow. Existing
+frozen criteria, scores and factual failures remain unchanged; no reduction in
+intended users' effort has been demonstrated by this clarification alone.
