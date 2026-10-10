@@ -1,5 +1,8 @@
 # Evaluation results
 
+The [September 27 study summary](evaluation-summary-2026-09-27.md) provides the
+earlier study map; the sections below retain subsequent evidence and limitations.
+
 Success means helping the intended users preserve useful, accurate project
 knowledge with minimal setup and ongoing manual effort. Relevant effort includes
 learning the workflow, deciding what to save, organizing documents, prompting the
@@ -234,6 +237,10 @@ A [targeted capture-gap fix](../evals/results/2026-09-28-journal-gap/README.md) 
 failed-capture reasons for later readers. Natural recording-cost advantages and
 general reliability remain unestablished. Installing or updating skills installs
 the helper but does not enable logging.
+
+The [auto-preference evaluation](../evals/results/2026-09-29-auto-preference/README.md)
+records setting precedence and no-Git enablement outcomes, including retained
+failures and the limits of its restricted sessions.
 
 ## More recent studies
 

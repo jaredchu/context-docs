@@ -1,131 +1,70 @@
 # Project context
 
-Current state reviewed: 2026-10-10. Cleanup was reviewed on October 9. Earlier
-evaluation findings are retained from their linked reports, not rerun here.
+Current state reviewed: 2026-10-10. Historical evaluations were not rerun.
 
 ## Purpose and scope
 
-Context Docs is an experimental convention and reusable agent skill for people who
-do not yet know how to save and maintain project context. The goal is useful,
-accurate, consistent project knowledge across AI sessions with as little setup
-and ongoing manual effort as possible. Users should not need to design their own
-context-management process. Reducing human effort is a primary product goal; model
-speed, token use and file length alone do not establish success. It adapts to
-existing layouts and distinguishes observations, approved decisions, proposals
-and unknowns. Ordinary maintenance has no runtime dependency. The
-optional journal helper requires Python 3.9+; no background service or sync exists.
-
-This is a public open-source repository. Shared context should serve contributors
-and skill users. Personal installations, backup locations and disposable session
-state belong in local notes when still useful, rather than this entry point.
-Relevant runtime constraints and failed evaluations remain shared evidence.
+Context Docs helps people without an established context-management practice keep
+useful, accurate project knowledge across AI sessions with minimal human effort.
+This public repository serves contributors and skill users. Shared context should
+retain project decisions, constraints and next actions; incidental personal
+installations, backup locations and temporary machine state belong in suitable
+local notes only when still useful.
 
 ## Decisions
 
-- Serve users without an established context-management practice. The owner
-  clarified this audience and minimal-effort goal on October 10, 2026. Outperforming
-  expert maintenance is not the product's success gate; accuracy still matters.
-- Keep Markdown/Git authoritative and cloud integrations optional. A hosted memory
-  service or retrieval backend needs a concrete use case.
-- Keep logging optional. Its goal is efficient event capture for later
-  investigation, not routine context savings. Broader integration requires need
-  beyond Markdown/Git, native Claude/Codex evidence and compatibility with existing
-  adopters. See the [journal requirements](event-journal-pilot.md#requirements-before-broader-integration).
-- An explicit project logging setting wins. The opt-in auto preference enables
-  JSONL only when no setting exists and Git confirms no repository; audits do not
-  enable it. See the [packaged guide](../skills/context-docs/references/event-journal.md).
-- Use GPT 6 Astra High and Claude Opus 5.5 for implementation and focused counterpart
-  review as described in [AGENTS.md](../AGENTS.md#model-collaboration).
-- Keep Jared Chu as creator/maintainer and credit actual AI contributions under
-  the [attribution policy](../CONTRIBUTING.md#commit-attribution).
-- Choose retained information for its audience, destination and lasting usefulness.
-  The owner requested this guidance and cleanup before release on October 9.
+- Keep Markdown/Git authoritative and cloud integrations optional; a hosted service
+  needs a concrete use case.
+- Select information by audience, destination and lasting usefulness. The agent
+  must filter what it writes; publication still requires project authorization.
+- Keep logging optional, for efficient event capture and later investigation.
+  Broader integration must meet the [journal requirements](event-journal-pilot.md#requirements-before-broader-integration).
+- Prioritize useful, accurate context and reduced human effort. Model speed, token
+  use and file length alone do not establish success; outperforming expert
+  maintenance is not the product's success gate.
 
-[Decision history](project-decisions.md) preserves authority, rationale and earlier
-approvals. An earlier release approval does not authorize a new publication.
+[Decision history](project-decisions.md) records authority and rationale.
+[AGENTS.md](../AGENTS.md) owns collaboration rules;
+[CONTRIBUTING.md](../CONTRIBUTING.md) owns contribution and attribution guidance.
+Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Released bundle: [v0.1.6](releases/v0.1.6.md), containing core **0.1.6** and
-  adoption **0.1.7**, with standard **0.1.1**. Release-commit remote CI passed;
-  [PR #2](https://github.com/jaredchu/context-docs/pull/2) merged the reviewed changes.
-- Core adds audience/destination guidance. Adoption preserves equivalent existing
-  rules while making newly added instructions client-neutral. The earlier native
-  Claude integration was merged in [PR #1](https://github.com/jaredchu/context-docs/pull/1).
-- Core supports audit, initialize and maintain. Adoption is a sibling-dependent
-  wrapper that adds guidance and a marker to instructions actually loaded by the
-  client. [README](../README.md) introduces the workflow; the
-  [user guide](getting-started.md) owns detailed setup, usage and logging guidance.
-- The core package owns the standard, references, templates and optional journal
-  helper. This repository enables JSONL through [AGENTS.md](../AGENTS.md); its
-  `CLAUDE.md` imports those instructions. No other project's setting is implied.
-- [Repository checks](../.github/workflows/checks.yml) cover packaging, versions,
-  links, grader controls and report regeneration. They are mechanical checks;
-  actual agent evaluations remain separate.
-- The README now introduces the intended audience with a work/save/resume
-  illustration and quick start. Detailed setup is in the user guide; the
-  [evidence page](evaluation-results.md) retains all five generated result tables
-  and their limitations. Skill behavior and package versions are unchanged.
+- Released bundle: [v0.1.6](releases/v0.1.6.md), with core **0.1.6**, adoption
+  **0.1.7** and standard **0.1.1**.
+- Core supports audit, initialize and maintain. Adoption uses the sibling core
+  and adds or reuses maintenance guidance in loaded project instructions.
+  [Installation and usage](getting-started.md) owns setup and runtime details.
+- This repository enables JSONL in [AGENTS.md](../AGENTS.md); `CLAUDE.md` imports it.
+  Consult history only when needed, not as routine context. Other projects keep
+  their own settings;
+  [logging precedence and auto rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
+  are defined in the packaged guide. There is no background service or sync.
 
 ## Evidence and limits
 
-The [changelog](../CHANGELOG.md) records per-version changes and validation;
-[evaluation documentation](../evals/README.md) and the
-[earlier study summary](evaluation-summary-2026-09-27.md) lead to detailed evidence.
-Keep failed attempts and frozen conditions; do not convert small author-reviewed
-studies into claims of general reliability or superiority over ordinary maintenance.
-
-- Earlier reader studies often tied because raw evidence was available. The
-  [public-source handoff pilot](evaluation-2026-09-27-public.md) did not establish
-  readers consumed the handoffs; the [routing follow-up](evaluation-2026-09-27-routing.md)
-  separates availability from verified reading.
-- Native integration passed restricted loading and boundary gates, with retained
-  factual errors and invocation limitations. The [guarded report](../evals/results/2026-09-28-native-guarded/README.md)
-  supports supervised experimental use, not unrestricted-client reliability.
-  Reliable implicit selection and cross-machine installed-path portability remain
-  unestablished.
-- Logging evaluations preserve capture, upgrade and read-gating results along with
-  their failures. [Integration findings](../evals/results/2026-09-28-journal-integration/README.md)
-  and [auto-preference results](../evals/results/2026-09-29-auto-preference/README.md)
-  do not establish JSONL necessity or natural recording-cost advantage.
-- The [October 9 adoption regression](../evals/results/2026-10-09-public-adoption/README.md)
-  retains execution 4/4 and mechanical 3/4, plus separate Astra/Claude semantic
-  assessments. The [v2 evaluator](../evals/public-adoption/protocol.md) handles
-  supported fenced markers for future freezes only; original scores remain intact.
-- The [October 10 audience/destination pilot](../evals/results/2026-10-10-audience/README.md)
-  passed execution 5/5. Both counterpart reviewers accepted 19 target and 15 general
-  criteria. The mixed case used an allowed handoff question; audit attempted no
-  writes or history access. Five authored synthetic cases establish no broader
-  reliability or comparative benefit.
-- The [October 10 public-history comparison](../evals/results/2026-10-10-public-history/README.md)
-  completed four native Claude Opus 5.5 handoffs across HTTPX and ripgrep, pairing
-  ordinary maintenance with explicit core-skill reading. Execution gates passed
-  4/4 with no denied actions; additional unsupported claims occurred in both
-  methods. Separate semantic reviews preserve the failures. No reader benefit,
-  native skill-discovery reliability or comparative accuracy advantage is established.
-- Preserve the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
-  and [history-study scope violation](evaluation-2026-09-27-history.md) when assessing
-  reliability. Perfect artifact scores do not establish full task compliance.
-- [Evidence redactions](evidence-redaction-2026-10-09.md) identify normalized public
-  copies, original hashes and unchanged scores. This is metadata cleanup, not a
-  new evaluation or a claim that older Git history was sanitized.
+Native integration remains experimental. Factual errors and scope violations are
+retained in the [evidence overview](evaluation-results.md); passing checks do not
+establish general reliability, comparative accuracy, privacy guarantees or savings
+in users' effort or tokens. Reliable implicit selection, cross-machine installed-path
+portability, JSONL necessity and natural recording-cost advantage remain unestablished.
+[Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
+[Metadata cleanup](evidence-redaction-2026-10-09.md) records original/public hashes
+and unchanged scores; it did not sanitize older Git history or constitute a
+comprehensive privacy audit.
 
 ## Next actions
 
-Prioritize normal daily use of the released skills and focused improvements when
-concrete issues arise. Routine use needs no evaluation log or outside reviewer.
-Reproduce significant failures with public evidence or synthetic examples, then
-validate targeted fixes. The [contribution packet](../evals/external-validation/README.md)
-is available for maintainer field feedback and outside contributions; distinguish
-those from independent validation. No specific field case or outside review has
-been captured for this follow-up. Any new comparison needs its own freeze and
-must preserve completed results; the [discrimination protocol](../evals/discrimination-protocol.md)
-remains a separate proposal.
+Use the released skills in normal daily work and improve them when concrete issues
+arise. Reproduce failures with public evidence or synthetic examples, then validate
+focused fixes. Routine use needs no evaluation log or outside reviewer. The
+[contribution packet](../evals/external-validation/README.md) welcomes maintainer
+feedback; it is not independent validation. New studies need a fresh freeze and
+must preserve earlier results; the [discrimination protocol](../evals/discrimination-protocol.md)
+is still a proposal.
 
 ## Canonical references
 
-- [README and installation](../README.md)
-- [Standard](../skills/context-docs/references/standard.md)
-- [Decision history](project-decisions.md)
-- [Contribution and validation](../CONTRIBUTING.md)
+- [Overview](../README.md) · [Standard](../skills/context-docs/references/standard.md)
+- [Evaluation scenarios](../evals/README.md)
 - [Per-version history](../CHANGELOG.md)
