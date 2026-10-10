@@ -28,6 +28,23 @@ not itself establish permission to redistribute it. Link to upstream material
 and retain its license/attribution; record permission for any supplied excerpts.
 Contributed template text follows this repository's [contribution terms](../../CONTRIBUTING.md).
 
+## Maintainer field feedback
+
+The maintainer and other regular users can also contribute cases using the same
+proposal form when useful; ordinary daily use needs no report. For a concrete
+issue, describe the task (generalized for private work), project type, skill
+version, expected outcome and observed result. Include the client/model, how the
+skill was loaded and local modifications when known. Share
+public evidence or a clearly labeled synthetic reproduction of private work;
+do not copy private project context into this repository.
+
+Label this **maintainer field validation** when the contributor is the maintainer.
+It can reveal practical defects and supply regression cases. It does not satisfy
+outside case-selection or review independence; record those separately. A report
+of daily use is useful evidence, not by itself a comparative effectiveness result.
+Other regular users disclose their relationship and prior skill use; assess
+independence under the rules below.
+
 ## Independence and selection
 
 An independently selected case comes from a contributor outside the current

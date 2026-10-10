@@ -41,6 +41,10 @@ You can [propose a public case or review a handoff](evals/external-validation/RE
 without running models or installing tools. Case selection and artifact review
 are separate contributions; disclose prior involvement and model assistance.
 Original study results remain intact when supplemental reviews are added.
+Maintainer and regular-user feedback is welcome too: record the task, version,
+expected behavior and observed result. Label maintainer cases as field validation,
+with public source evidence or a clearly labeled synthetic reproduction of private
+work, rather than independent review.
 
 ## Commit attribution
 

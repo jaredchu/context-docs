@@ -101,14 +101,15 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-The public-history comparison is complete; the released skills remain unchanged.
-The [external-contributor packet](../evals/external-validation/README.md) provides
-case proposal and review templates. No outside contributor is identified for this
-effort, and no case or review has been received. Obtain those contributions before
-claiming independent validation;
-any follow-up needs a new freeze and must preserve completed results. The
-[discrimination protocol](../evals/discrimination-protocol.md) remains a separate
-proposal.
+Prioritize normal daily use of the released skills and focused improvements when
+concrete issues arise. Routine use needs no evaluation log or outside reviewer.
+Reproduce significant failures with public evidence or synthetic examples, then
+validate targeted fixes. The [contribution packet](../evals/external-validation/README.md)
+is available for maintainer field feedback and outside contributions; distinguish
+those from independent validation. No specific field case or outside review has
+been captured for this follow-up. Any new comparison needs its own freeze and
+must preserve completed results; the [discrimination protocol](../evals/discrimination-protocol.md)
+remains a separate proposal.
 
 ## Canonical references
 

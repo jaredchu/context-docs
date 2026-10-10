@@ -104,5 +104,91 @@
     "README.md": "e571c5b8c5ce5c94f1d3984f2ac0a1810784c5c390e04343c946d25da0c6df24",
     "case-proposal.md": "b3afaad982c4278fac3baae287931937fcd0928a624bb30b59881b61c33ef782",
     "review-template.md": "f8a803ddc28d3bc6ec5cc06848b48bccb3c1ab614603bb05a3b5a94c71c2108b"
+  },
+  "maintainer_feedback_followup": {
+    "date": "2026-10-10",
+    "reviewer_model_observed": [
+      "claude-opus-5-5"
+    ],
+    "requested_effort": "high",
+    "review": {
+      "scope": "Focused counterpart review of the new maintainer field-feedback wording (CONTRIBUTING.md, docs/project-context.md, evals/external-validation/README.md) and the local PR body draft (.local/public-history-pr/body.md), checked against the supplied report. Internal counterpart review, not independent review.",
+      "findings": [
+        {
+          "severity": "medium",
+          "location": "evals/results/2026-10-10-public-history/README.md, 'Validation and limits': '1,074 relative links/anchors'",
+          "reason": "The report states 1,074 links/anchors. The supplied validation shows 1,083 at clean HEAD 8956ef4 and after the doc edits. The PR body gives no count, but it points readers to a report whose figure is stale.",
+          "fix": "Change the figure to 1,083 and tie it to the commit or export it was measured on. Alternatively, label 1,074 as the count at study close and add the current figure."
+        },
+        {
+          "severity": "medium",
+          "location": "CONTRIBUTING.md, added line: 'with source evidence or a synthetic reproduction'",
+          "reason": "'Source evidence' without 'public' can be read as permission to submit private source. The packet itself says 'public evidence or a clearly labeled synthetic reproduction of private work'.",
+          "fix": "Change to 'with public source evidence or a clearly labeled synthetic reproduction of private work'."
+        },
+        {
+          "severity": "medium",
+          "location": "evals/external-validation/README.md, 'Maintainer field feedback', sentence 2: 'Record the actual task, project type, ...'",
+          "reason": "'Actual task' for private daily work conflicts with the next sentence's ban on copying private project context. A contributor could paste a real private task description.",
+          "fix": "Change to 'Describe the task (generalized for private work), project type, ...' or add 'without private identifiers'."
+        },
+        {
+          "severity": "low",
+          "location": "evals/external-validation/README.md, 'Maintainer field feedback', paragraphs 1–2",
+          "reason": "The section invites 'the maintainer and other regular users' but only gives a label for the maintainer. A non-maintainer regular user may fall outside the author group, so their selection independence is undefined here. Daily users have also already seen the skill, which conflicts with the proposal form's 'select it before reading our skill' guidance unless that exposure is disclosed.",
+          "fix": "Add: 'Other regular users record their relationship and skill exposure; their independence is assessed under Independence and selection.' Optionally add 'Disclose prior skill use as exposure.'"
+        },
+        {
+          "severity": "low",
+          "location": "evals/external-validation/README.md, 'Maintainer field feedback', record fields",
+          "reason": "Field reports are the only likely source of native-invocation and discovery observations, which the study explicitly did not test. Without client, model and delivery-mode fields, such reports cannot be told apart from explicit-read use.",
+          "fix": "Add client/model and how the skill was loaded (native invocation, implicit discovery or explicit read) to the recorded fields. Also record any local modification from the released package."
+        },
+        {
+          "severity": "low",
+          "location": ".local/public-history-pr/body.md, paragraph 1: 'its restricted execution harness and CI controls'",
+          "reason": "The report describes 22 public-history harness controls and 7 reused guard controls run as mechanical validation. It does not establish that these are wired into CI.",
+          "fix": "Change to 'harness controls' unless CI integration exists in the diff. If it does, keep the wording."
+        },
+        {
+          "severity": "low",
+          "location": ".local/public-history-pr/body.md, paragraph 2: 'Both reviewers retained all 26 required facts' (same phrasing in report 'Semantic findings')",
+          "reason": "The handoffs retained the facts; the reviewers found them retained. As written, the sentence reads as a claim about the reviewers.",
+          "fix": "Change to 'Both reviewers found all 26 required facts retained'. Mirror the change in the report sentence if desired."
+        },
+        {
+          "severity": "low",
+          "location": ".local/public-history-pr/body.md, paragraph 4 (validation)",
+          "reason": "The clean-export run and the Astra readiness review both cover HEAD 8956ef4 and exclude the new doc edits. The doc edits passed only local static and diff checks plus this Claude counterpart review. The body's wording is accurate but does not make that coverage boundary visible. 'Recorded counterpart reviews' could also be read as covering the final edits.",
+          "fix": "Add: 'The final documentation edits received local static/diff checks and a Claude counterpart review only.' Before publication, commit the edits and rerun the clean-export validation, or keep this caveat."
+        }
+      ],
+      "checks_passed": [
+        "The new wording consistently frames maintainer daily use as valuable field validation (practical defects, regression cases). It explicitly says this does not satisfy outside case-selection or review independence and is not a comparative effectiveness result.",
+        "The packet allows private work only as public evidence or a labeled synthetic reproduction (CONTRIBUTING needs the 'public' qualifier noted above).",
+        "No new doc asserts actual field results. project-context.md states that no maintainer case has been captured and no outside contributor or independent review has been obtained. The PR body states that no outside contribution or new field evaluation is claimed.",
+        "Most PR body claims are supported by the report: four passing sessions, 26/26 required facts, residual errors in both arms, explicit-read treatment, no native-discovery or benefit claim, preserved failures and disagreements, internal (not independent) reviews.",
+        "'Released skill packages are unchanged; no version bump or local installation update is needed' is consistent with the report and the supplied verification (core 0.1.6 and adoption 0.1.7 installed for Codex and Claude, matching the release)."
+      ],
+      "user_question_answer_consistency": "The docs support the intended answer. The installed skills are current, so no update is needed. As creator and maintainer, the user cannot be an outside contributor, but their daily use can supply labeled maintainer field validation.",
+      "verdict": "approve_with_minor_fixes",
+      "blockers": [],
+      "publication_note": "No push, PR or publication is authorized. The body remains a local draft. Rerun the clean-export validation after committing the doc edits and before any publication."
+    },
+    "resolutions": [
+      "Historical study-close link count remains unchanged: it is an observation from that completed run, not a current repository count.",
+      "Added public/synthetic wording and generalized private tasks.",
+      "Prior skill use and optional client/model/delivery/local-modification context added for useful field reports. Ordinary daily use needs no report.",
+      "CI integration verified in .github/workflows/checks.yml; retained accurate PR wording.",
+      "Clarified reviewers found facts retained in the local draft; original scored evidence unchanged.",
+      "Clean-export controls cover 8956ef4; final edits are documentation only, checked locally and by focused counterpart review. No repeated model subjects or broad test rerun."
+    ],
+    "current_direction": "Normal daily use, then focused fixes for concrete issues; outside review is not a prerequisite for use.",
+    "original_hashes_note": "The top-level final_document_sha256 records the earlier packet snapshot at 8956ef4; it is preserved.",
+    "updated_document_sha256": {
+      "README.md": "89a5b7fe0fecb3cfca7c3ed75c7c6d344c42afb8aeeffbefa73547c0ddb58f62",
+      "case-proposal.md": "b3afaad982c4278fac3baae287931937fcd0928a624bb30b59881b61c33ef782",
+      "review-template.md": "f8a803ddc28d3bc6ec5cc06848b48bccb3c1ab614603bb05a3b5a94c71c2108b"
+    }
   }
 }
