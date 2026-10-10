@@ -4,6 +4,9 @@ from pathlib import Path
 import tempfile
 import unittest
 from html import unescape
+from html.parser import HTMLParser
+import urllib.robotparser
+import xml.etree.ElementTree as ET
 
 SPEC = importlib.util.spec_from_file_location('landing_build', Path(__file__).with_name('build.py'))
 landing = importlib.util.module_from_spec(SPEC)
@@ -19,7 +22,7 @@ class LandingBuildTests(unittest.TestCase):
             landing.build(output=output)
             self.assertEqual({p.name for p in output.iterdir()}, {
                 'index.html', 'styles.css', 'main.js', 'favicon.svg',
-                'context-docs-overview.png', '.nojekyll'})
+                'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml'})
             self.assertFalse(any(p.is_dir() or p.is_symlink() for p in output.iterdir()))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -37,6 +40,37 @@ class LandingBuildTests(unittest.TestCase):
             block = landing.fenced_section((landing.ROOT / path).read_text(), heading, language)
             self.assertIn(block, rendered)
         self.assertNotIn('{{', rendered)
+
+    def test_discovery_points_only_to_the_public_canonical_site(self):
+        class Metadata(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.canonical = []
+                self.open_graph = {}
+
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if tag == 'link' and attrs.get('rel') == 'canonical':
+                    self.canonical.append(attrs['href'])
+                if tag == 'meta' and attrs.get('property', '').startswith('og:'):
+                    self.open_graph[attrs['property']] = attrs['content']
+
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            metadata = Metadata()
+            metadata.feed((output / 'index.html').read_text(encoding='utf-8'))
+            self.assertEqual(metadata.canonical, ['https://context-docs.com/'])
+            self.assertEqual(metadata.open_graph['og:url'], metadata.canonical[0])
+            self.assertEqual(metadata.open_graph['og:image'],
+                             'https://context-docs.com/context-docs-overview.png')
+            sitemap = ET.parse(output / 'sitemap.xml')
+            self.assertEqual([item.text for item in sitemap.findall('.//{*}loc')],
+                             metadata.canonical)
+            robots = urllib.robotparser.RobotFileParser()
+            robots.parse((output / 'robots.txt').read_text(encoding='utf-8').splitlines())
+            for bot in ['Googlebot', 'bingbot', 'OAI-SearchBot', 'Claude-SearchBot']:
+                self.assertTrue(robots.can_fetch(bot, landing.SITE_URL))
+            self.assertEqual(robots.site_maps(), [landing.SITE_URL + 'sitemap.xml'])
 
     def test_missing_block_does_not_steal_next_sections_command(self):
         with self.assertRaises(ValueError):

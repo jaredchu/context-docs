@@ -21,11 +21,38 @@ JavaScript; JavaScript adds agent selection and copy buttons. Clipboard failure
 selects the text and gives manual-copy instructions. No external fonts, analytics,
 tracking, cookies or application backend are included.
 
-The output contains only six explicitly named public files: `index.html`,
-`styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png` and `.nojekyll`.
+The output contains only eight explicitly named public files: `index.html`,
+`styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
+`robots.txt` and `sitemap.xml`.
 The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
+
+## Search discovery
+
+`SITE_URL` in [build.py](build.py) owns the canonical HTTPS origin. The build uses
+it for the canonical link, Open Graph URLs, robots sitemap location and sitemap.
+The sitemap lists only public HTML pages; it has no invented modification dates.
+The crawler policy permits crawling the public artifact and introduces no
+training-specific restrictions. Search access and model-training preferences are
+separate; this policy is not a guarantee of indexing, citations or recommendations.
+
+After deploying these files:
+
+1. Check the live `robots.txt`, sitemap, canonical links and redirects. Cloudflare
+   can modify robots responses or challenge requests separately from repository
+   rules. Check the actual response and verified crawler traffic; a spoofed
+   user-agent request alone does not prove a real crawler has access.
+2. Verify the domain in [Google Search Console](https://search.google.com/search-console/about)
+   and [Bing Webmaster Tools](https://www.bing.com/webmasters/about), then submit
+   `https://context-docs.com/sitemap.xml`. These account registrations and
+   submissions are not performed by the build or deployment workflow.
+3. Inspect indexing and referral traffic before claiming discovery. Keep crawler
+   access controls separate from any decision about training reuse.
+
+See [OpenAI crawler guidance](https://developers.openai.com/api/docs/bots),
+[Anthropic crawler guidance](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
+and [Google's AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
 ## GitHub Pages
 
