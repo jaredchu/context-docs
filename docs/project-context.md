@@ -86,6 +86,12 @@ studies into claims of general reliability or superiority over ordinary maintena
   criteria. The mixed case used an allowed handoff question; audit attempted no
   writes or history access. Five authored synthetic cases establish no broader
   reliability or comparative benefit.
+- The [October 10 public-history comparison](../evals/results/2026-10-10-public-history/README.md)
+  completed four native Claude Opus 5.5 handoffs across HTTPX and ripgrep, pairing
+  ordinary maintenance with explicit core-skill reading. Execution gates passed
+  4/4 with no denied actions; additional unsupported claims occurred in both
+  methods. Separate semantic reviews preserve the failures. No reader benefit,
+  native skill-discovery reliability or comparative accuracy advantage is established.
 - Preserve the [private-pilot deployment-conflict miss](evaluation-2026-09-26.md)
   and [history-study scope violation](evaluation-2026-09-27-history.md) when assessing
   reliability. Perfect artifact scores do not establish full task compliance.
@@ -95,14 +101,11 @@ studies into claims of general reliability or superiority over ordinary maintena
 
 ## Next actions
 
-The [public-history comparison plan](../evals/public-history-plan.md) proposes four
-upgrade-handoff sessions across HTTPX and ripgrep, pairing ordinary maintenance
-with the released skill. Public source revisions are pinned; execution is not
-accepted or frozen. This evaluates documentation artifacts, not reader benefit.
-The [discrimination protocol](../evals/discrimination-protocol.md) remains a separate
-proposal. Seek independent cases/review before broader correctness claims; any
-future native run needs a new frozen manifest without retrying or rescoring
-completed studies.
+The public-history comparison is complete; the released skills remain unchanged.
+Seek cases and review independent of protocol authors before broader correctness
+claims. Any follow-up needs a new frozen manifest and must preserve completed
+results. The [discrimination protocol](../evals/discrimination-protocol.md) remains
+a separate proposal.
 
 ## Canonical references
 

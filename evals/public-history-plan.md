@@ -1,6 +1,8 @@
 # Small public-history maintenance plan
 
-Status: **execution accepted on October 10, 2026; implementation/freeze in progress.**
+Status: **completed on October 10, 2026**; see the [results](results/2026-10-10-public-history/README.md).
+The pre-run version of this plan and unchanged ledger were frozen in commit
+`87e80d7`. The design below is retained; this status update is post-execution.
 The owner's “next” follows the reviewed four-session plan and its stated next step
 to build isolated fixtures, freeze inputs and run the comparison. This authorizes
 that bounded execution; publication remains separate. Earlier studies are unchanged.
@@ -25,8 +27,8 @@ Keep upstream facts separate from the evaluator-authored maintenance request.
 
 | Case | Public project and layout | Source event and cutoff | Status |
 | --- | --- | --- | --- |
-| A | [encode/httpx](https://github.com/encode/httpx), Python package with `docs/`, BSD-3-Clause | [0.28.0](https://github.com/encode/httpx/tree/80960fa31918d7663c3f4c3ad61661cf0e80628f) → [0.28.1](https://github.com/encode/httpx/tree/26d48e0634e6ee9cdc0533996db289ce4b430177); [SSL client-certificate fix](https://github.com/encode/httpx/commit/89599a9541af14bcf906fc4ed58ccbdf403802ba) | Proposed; source hashes recorded, freeze pending |
-| B | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep), Rust workspace with root Markdown docs, MIT OR Unlicense | [14.1.0](https://github.com/BurntSushi/ripgrep/tree/e50df40a1967708b9781486b1c017e48040bceb0) → [14.1.1](https://github.com/BurntSushi/ripgrep/tree/4649aa9700619f94cf9c66876e9549d83420e16c); [inner-literal fix](https://github.com/BurntSushi/ripgrep/commit/9d738ad0c009e6632d75fa3d36051e5ae7f7cce6) | Proposed; source hashes recorded, freeze pending |
+| A | [encode/httpx](https://github.com/encode/httpx), Python package with `docs/`, BSD-3-Clause | [0.28.0](https://github.com/encode/httpx/tree/80960fa31918d7663c3f4c3ad61661cf0e80628f) → [0.28.1](https://github.com/encode/httpx/tree/26d48e0634e6ee9cdc0533996db289ce4b430177); [SSL client-certificate fix](https://github.com/encode/httpx/commit/89599a9541af14bcf906fc4ed58ccbdf403802ba) | Completed once per arm; see results |
+| B | [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep), Rust workspace with root Markdown docs, MIT OR Unlicense | [14.1.0](https://github.com/BurntSushi/ripgrep/tree/e50df40a1967708b9781486b1c017e48040bceb0) → [14.1.1](https://github.com/BurntSushi/ripgrep/tree/4649aa9700619f94cf9c66876e9549d83420e16c); [inner-literal fix](https://github.com/BurntSushi/ripgrep/commit/9d738ad0c009e6632d75fa3d36051e5ae7f7cce6) | Completed once per arm; see results |
 
 Candidate distinctions: HTTPX certificate handling versus retained deprecations;
 ripgrep's `grep-regex` optimization versus the upstream `regex` dependency and a
