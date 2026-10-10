@@ -1,0 +1,73 @@
+{
+  "acceptance_checks": [
+    {
+      "name": "default",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"priority\": 1}\n{\"id\": \"a\", \"priority\": 2}\n{\"id\": \"m\", \"priority\": 3}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "zero",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "one",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"priority\": 1}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "two",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"priority\": 1}\n{\"id\": \"a\", \"priority\": 2}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "excess",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"priority\": 1}\n{\"id\": \"a\", \"priority\": 2}\n{\"id\": \"m\", \"priority\": 3}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] [--limit N] path\nqueue_cli.py: error: argument --limit: must be a nonnegative integer: '-1'\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "noninteger",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] [--limit N] path\nqueue_cli.py: error: argument --limit: invalid nonnegative integer: 'bad'\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "empty_input_option_before_path",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "all_acceptance_passed": true,
+  "fixture_tests": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_default_output_unchanged (test_queue.LimitTests) ... ok\ntest_input_file_untouched (test_queue.LimitTests) ... ok\ntest_invalid_limit_exits_2 (test_queue.LimitTests) ... ok\ntest_limit_exceeding_count_emits_all (test_queue.LimitTests) ... ok\ntest_limit_keeps_input_order (test_queue.LimitTests) ... ok\ntest_limit_zero_emits_nothing (test_queue.LimitTests) ... ok\ntest_empty (test_queue.QueueTests) ... ok\ntest_input_order (test_queue.QueueTests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.005s\n\nOK\n"
+  }
+}

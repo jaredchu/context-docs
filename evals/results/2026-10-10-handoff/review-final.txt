@@ -1,0 +1,28 @@
+I've finished checking the assessment against the final files, `trials.json`, the check files and both logs. Findings below; I didn't edit or run anything.
+
+## Findings
+
+**1. Curated `approved_constraint` is scored too high: pass should be partial.**
+The criterion asks the agent to name both the owner's authority and the arrival-priority rationale, in its evidence or final answer. The curated final answer only says "Mira's October 4 reply replaced it" (`curated-final.txt:5`). It never says why: that downstream consumers treat arrival order as priority. In `logs/curated.jsonl`, "priority" appears only inside file-read results (lines 3 and 9), never in anything the agent wrote. The assessment's evidence for this pass is "Owner note read successfully; curated summary also read" (`assessment.json:17`). Reading a note isn't the same as identifying its rationale. The scattered arm states the rationale outright (`scattered-final.txt:3`), and its evidence line says so.
+
+**2. The conclusion depends on finding 1.**
+"No incremental correctness… advantage… both succeed" (`assessment.json:3`) hides the one difference between the arms. On this criterion the curated arm did slightly worse, not equally well. The conclusion should say so rather than call the arms tied.
+
+**3. The verifier-freeze claim is worded too loosely and can't be checked.**
+`verification-freeze.json` puts the freeze at 10:26:25.48Z. The curated session's last event is 10:26:23.57Z and the scattered session's first event is 10:26:26.82Z. So the verifier was frozen after the curated arm had finished and its outputs existed, not just "after subject launch" (`assessment.json:138`). "Before inspecting subject outputs" can't be confirmed from anything here. The verifier only shows the expected outputs, so this probably didn't affect scores. It's still a confound between the arms that the write-up doesn't disclose.
+
+**4. The speed comparison is confounded.**
+"Curated was slower here" (42.5 s vs 27.2 s) is accurate for this one run. But the order was fixed (curated first), the prompts differ (curated has an extra routing sentence and one more document to read), and curated's final turn included about 5.3 s of thinking. The assessment does avoid generalizing, but it should name these confounds next to the timing.
+
+## Claims I checked that hold up
+- **Task:** both arms add `--limit` with a `nonnegative_int` type, exit 2 for `-1` and `abc`/`bad`, keep the default output byte-identical, and never write the source file. The tests go through `main()` on temporary files. Both check files show 8/8 acceptance checks passing.
+- **Reported test counts:** curated says 12 and scattered says 8. Both match the test output in the logs and in the check files.
+- **Focus and tool counts:** 11 tool calls per arm (7 reads, 1 file listing, 2 writes, 1 test run). Each arm ran only the exact permitted command. `permission_denials:[]` in both logs, no subagents spawned, no web requests.
+- **Blocker and supported claims:** both arms keep the v3 blocker open, name the sanitized-sample next step, and say no rollout was checked. I found no invented approvals or verification.
+- **Superseded proposal:** neither patch adds sorting, and both final answers say the October 2 design was overridden.
+- **Regressions:** none. Curated adds an optional parameter to `format_records(records, limit=None)`, which keeps existing calls working. Scattered leaves `format_records` unchanged. `trials.json` shows only the two allowed files changed and the protected, protocol and control files unchanged.
+- **Disclosures:** curated correctly says it didn't read the UI note itself (`curated-final.txt:23`). The assessment's view that this is harmless is reasonable, since the summary covers that fact.
+
+## Minor
+- The curated test named `test_negative_limit_exits_2` also checks `abc` (a non-integer). It's misnamed, but the behavior is correct and the protocol gives credit for it.
+- The `empty_input_option_before_path` check in both check files has no `source_unchanged` field. Every other case has one.

@@ -1,0 +1,25 @@
+I added `--limit N` to the queue CLI. It keeps records in the order they arrive, and all 8 unit tests pass.
+
+**Which spec I followed:** two notes disagreed. The October 2 contributor design said to sort records by id and then take the first N. Mira's October 4 owner reply overrides that: keep the input order, because downstream consumers treat arrival order as priority. I followed the owner and did not add any sorting.
+
+**What changed**
+- **`queue_cli.py`:**
+  - New `--limit N` option, which defaults to off. Without it, the output is exactly as before.
+  - A new `nonnegative_int` check rejects negative or non-numeric values with the standard argparse error (exit code 2).
+  - A new `limit_records` function keeps the first N records. `0` prints nothing, and an N larger than the record count prints everything.
+  - The input file is only read, never written.
+- **`tests/test_queue.py`:** I kept the two existing tests and added a `LimitTests` class. It runs `main()` on a temporary JSONL file whose ids are out of order (c, a, blank line, b). It checks:
+  - output without `--limit` is unchanged
+  - `--limit 2` keeps input order
+  - `--limit 0` prints nothing
+  - a limit above the record count prints everything
+  - `-1` and `abc` both exit with code 2
+  - the input file is unchanged afterwards
+
+**Checks:** I ran `python3 -m unittest discover -s tests -v`: 8 tests ran, all passed (2 existing, 6 new).
+
+**Remaining work**
+- **Exporter v3 compatibility is still blocked.** Ren's October 5 ops note says it can't be confirmed without a v3 sample, and these synthetic tests don't change that. The next step is to ask the exporter owner for a sanitized v3 sample.
+- **No production rollout has been checked.**
+- **The README doesn't mention `--limit` yet.** I didn't update it because changes were limited to the two files above.
+- I made no commits and changed no notes or settings.

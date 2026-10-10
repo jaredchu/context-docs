@@ -66,6 +66,12 @@ establish general reliability, comparative accuracy, privacy guarantees or savin
 in users' effort or tokens. Reliable implicit selection, cross-machine installed-path
 portability, JSONL necessity and natural recording-cost advantage remain unestablished.
 [Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
+A separate [fresh-session handoff pilot](../evals/results/2026-10-10-handoff/README.md)
+ran one Opus 5.5 continuation per condition on identical synthetic code and raw
+facts. Both implementations passed; curated omitted restating the approved
+rationale (5/6 semantic criteria versus scattered 6/6). No curated advantage was
+observed. Actual human correction effort was not measured; the small fixture
+establishes no general benefit or subscription allowance savings.
 [Metadata cleanup](evidence-redaction-2026-10-09.md) records original/public hashes
 and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.

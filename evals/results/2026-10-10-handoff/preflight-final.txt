@@ -1,0 +1,25 @@
+I'm approving a bounded pilot, with two conditions that need to be met before the run. None of the four review areas has a hard blocker. I did not edit or run anything, so I could not check any SHA-256 hash, including the ones in `protocol.sha256`, and `control_hashes` stay unverified.
+
+## Equivalence of facts: passes
+- **Files match the protocol.** The files on disk match `protocol.json` line for line. The shared code, tests and notes have identical line counts. The only differences are that curated has `docs/project-context.md` and one extra README line.
+- **The curated summary adds no new facts.** Every claim in `docs/project-context.md` can be traced to a note: Mira's limit rules and arrival-order rationale (04-owner), the sorting proposal that was overruled (02-design), the v3 blocker and the request for a sanitized sample (05-ops), and the UI note (06-ui). It leaves out the name "Ops Ren," which doesn't matter. "The limit feature remains authorized" is supported by "implement --limit N."
+- **"Noninteger" isn't in either fixture.** The `task` criterion grades it, but no note mentions it. Both conditions can infer it from "nonnegative integer," and argparse's `type=int` exits with code 2 anyway, so the comparison stays fair. The scorer should give credit for this, not treat it as a stated requirement.
+
+## Executable scope: passes, with condition 1
+- **Hook checks work.** `hook.py:9-12` only allows Bash when the command exactly matches the test command. Any tool not on the list is denied, including Agent, Skill, Web and MCP tools. Paths are resolved before the containment check, Glob patterns that try to escape are denied, and Write/Edit are limited to `writable`. Event logs and config live outside both project roots.
+- **The allowed test command runs code the model wrote.** `guard_hook.py:3-4` says Bash "must be excluded by the caller," but `hook.py` allows it. A test file could therefore write to notes or settings, reach the network, or read `../../protocol.json`, which holds the grading criteria. The hook can't see any of that.
+- **Condition 1:** Before and after each session, hash every file the model isn't allowed to write (notes, README, `docs/`, `control/`, `protocol.json`). Also check the final test files for `subprocess`, `os.system`, `socket`/`urllib`, or any file access outside the temp dir or project. Record this in `limitations` as "hook-only control; test execution not OS-sandboxed." Writing temporary JSONL input files during tests is expected and fine.
+- **Write/Edit protection is slightly weaker.** `hook.py` drops guard_hook's check against non-regular files and hard links on Write/Edit. The fixture files look ordinary, so this is minor.
+
+## Answer leakage: none beyond the intended treatment
+- **No leakage.** The prompts are identical apart from the curated routing sentence. `protocol.json` can't be reached through the file tools; the only route is the test-code path covered in condition 1. Auto-memory is off.
+- **The treatment text is close to the rubric.** The curated doc's section labels map almost one-to-one onto the criteria. That is the treatment being tested, and `limitations` already admits it ("organization, status labels… explicit routing"). Results should be reported as such, not as evidence about routine documentation upkeep.
+
+## Unsupported inference and scoring: condition 2, plus one clarification
+- **Condition 2: confirm the runner settings.** `evals/handoff/run.py` and `build.py` aren't in this workspace, so I couldn't confirm three things:
+  - each session's working directory is the project root (otherwise `-s tests` and `from queue_cli import` fail);
+  - `requested_effort: high` is actually passed (the settings files don't set it);
+  - host or user CLAUDE.md files are excluded. The `InstructionsLoaded` hashes will show if any were loaded.
+- **Define "unrelated reads" before the runs.** In the scattered condition, reading all four notes is the only way to find the facts, so those reads shouldn't count against it. I suggest counting no file in either project as unrelated.
+- **Denied tool calls may need a separate count.** Tools like TodoWrite aren't hidden from the model, only denied by the hook. If the model reaches for them, they'll inflate the denied-call count. Either restrict tools at launch or report these separately.
+- **Overclaiming fits the existing limitation.** Results from one author-created case, run in a fixed order and assessed unblinded, can't support any generalization. The `limitations` field already says this, and the write-up should keep to it.

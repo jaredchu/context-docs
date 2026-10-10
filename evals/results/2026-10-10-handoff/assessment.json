@@ -1,0 +1,162 @@
+{
+  "question": "Does curated project context help a fresh agent continue work correctly, with fewer omissions and less human correction?",
+  "conclusion": "Both coding continuations pass all acceptance checks. Curated passes 5/6 semantic criteria versus scattered 6/6: curated omits restating the approved rationale in agent-authored evidence or final answer. No curated advantage observed; actual human correction effort not measured.",
+  "coordinator": "Codex (project-requested Sol 6.1 role; precise coordinator model identifier not independently exposed by this session). Claude Opus 5.5 verified in streams for subjects and preflight.",
+  "authentication": "Claude auth status reported loggedIn=true, authMethod=claude.ai, subscriptionType=max; launcher strips ANTHROPIC_* and alternate-provider env settings, sets exact model and supplies no fallback. No additional spending requested.",
+  "human_correction": {
+    "observed_interventions": 0,
+    "interpretation": "No actual human corrections supplied. Code correction need identified as zero in both; curated report needs rationale acknowledgement for full frozen criterion. This is reviewer-assessed need, not measured human effort."
+  },
+  "arms": {
+    "curated": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "fail",
+          "behavior_status": "pass",
+          "evidence": [
+            "Input order, default output and source-byte checks pass; owner/proposal notes were read and override identified.",
+            "Arrival-priority rationale appears in consumed documents but not agent-authored output. Reading the fact alone is insufficient for the identification criterion under the conservative reviewer interpretation."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final answer identifies October 2 sorting proposal overridden by October 4 owner reply; no sorting in patch."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final answer retains missing v3 sample and sanitized-sample next action; no production verification claimed."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "Both authorized files changed; original tests retained; session ran fixed command successfully.",
+            "Independent CLI checks: 8/8 pass."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Reported test count matches observed output and coordinator rerun; no unsupported approval, rollout or v3 claims found."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "All reads within scope; 0 denied calls, 1 test command, no delegated or network work."
+          ]
+        }
+      },
+      "seconds": 42.5,
+      "tool_calls": 11,
+      "reads": [
+        "docs/project-context.md",
+        "notes/2026-10-04-owner.md",
+        "notes/2026-10-02-design.md",
+        "notes/2026-10-05-ops.md",
+        "README.md",
+        "queue_cli.py",
+        "tests/test_queue.py"
+      ],
+      "denied_calls": 0,
+      "execution_valid": true,
+      "checks": "curated-checks.json",
+      "patch": "curated.patch",
+      "stream": "logs/curated.jsonl",
+      "final": "curated-final.txt",
+      "required_corrections_identified": {
+        "code": 0,
+        "handoff_report": 1
+      }
+    },
+    "scattered": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Input order, default and source checks all pass.",
+            "Final answer explicitly names owner and arrival-priority rationale."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final answer identifies October 2 sorting proposal overridden by October 4 owner reply; no sorting in patch."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final answer retains missing v3 sample and sanitized-sample next action; no production verification claimed."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "Both authorized files changed; original tests retained; session ran fixed command successfully.",
+            "Independent CLI checks: 8/8 pass."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Reported test count matches observed output and coordinator rerun; no unsupported approval, rollout or v3 claims found."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "All reads within scope; 0 denied calls, 1 test command, no delegated or network work."
+          ]
+        }
+      },
+      "seconds": 27.2,
+      "tool_calls": 11,
+      "reads": [
+        "queue_cli.py",
+        "tests/test_queue.py",
+        "README.md",
+        "notes/2026-10-02-design.md",
+        "notes/2026-10-04-owner.md",
+        "notes/2026-10-05-ops.md",
+        "notes/2026-10-06-ui.md"
+      ],
+      "denied_calls": 0,
+      "execution_valid": true,
+      "checks": "scattered-checks.json",
+      "patch": "scattered.patch",
+      "stream": "logs/scattered.jsonl",
+      "final": "scattered-final.txt",
+      "required_corrections_identified": {
+        "code": 0,
+        "handoff_report": 0
+      }
+    }
+  },
+  "limitations": [
+    "One small author-created case, fixed order, unblinded assessment; no statistical significance.",
+    "Both sessions read the relevant owner/proposal/ops notes; summary does not isolate a skill effect.",
+    "All supplied project reads deemed relevant; omission of curated UI raw note is harmless since summary carries its fact.",
+    "Hook-only restrictions, not OS sandbox. Inspected final test/code bodies contain only standard-library local fixture operations, no external access or grading reads. Protected bytes passed.",
+    "Effort high requested by identical CLI flags; no independently observed effort level.",
+    "Independent verifier finalized after curated completion and immediately before scattered start. Cases implement previously frozen outcomes. Coordinator reports no inspection before verifier freeze, but retained session logs do not independently confirm inspection timing. Supporting checks are not a prospectively frozen endpoint.",
+    "Exact Codex coordinator model identifier unverified; no claim of confirmed Sol 6.1 runtime identity.",
+    "Timing confounds: fixed order, additional curated routing text/document, differing final response length/thinking and generated test count. Wall times are observations, not causal efficiency estimates."
+  ],
+  "next_step": "If a further study is authorized, use a larger matched fixture with dispersed dependencies and a frozen retrieval budget: both agents could read all relevant facts cheaply here. Do not rerun or broaden under this task.",
+  "review_disposition": {
+    "review": "review-final.txt",
+    "responding_model": "claude-opus-5-5",
+    "findings": {
+      "1": "Accepted: distinguish behavior from rationale acknowledgement; curated criterion conservatively fails.",
+      "2": "Accepted: outcome wording now retains the report omission.",
+      "3": "Accepted: verifier timing refined; original freeze claim retained in assessment-before-review.json.",
+      "4": "Accepted: timing confounds explicitly stated."
+    },
+    "review_limit": "One initial review and one follow-up assessment review; no further review or retry."
+  },
+  "agent_execution_seconds": 204.5
+}

@@ -1,0 +1,73 @@
+{
+  "acceptance_checks": [
+    {
+      "name": "default",
+      "passed": true,
+      "exit_code": 0,
+      "stdout": "{\"id\": \"z\", \"priority\": 1}\n{\"id\": \"a\", \"priority\": 2}\n{\"id\": \"m\", \"priority\": 3}\n",
+      "stderr": "",
+      "source_unchanged": true
+    },
+    {
+      "name": "zero",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit 0\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "one",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit 1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "two",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit 2\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "excess",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit 99\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit -1\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "noninteger",
+      "passed": true,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit bad\n",
+      "source_unchanged": true
+    },
+    {
+      "name": "empty_input_option_before_path",
+      "passed": false,
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: queue_cli.py [-h] path\nqueue_cli.py: error: unrecognized arguments: --limit /var/folders/3s/bx6_5_0960q4w4swf573ht8w0000gn/T/handoff-verify-hc71c1u7/input.jsonl\n"
+    }
+  ],
+  "all_acceptance_passed": false,
+  "fixture_tests": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_empty (test_queue.QueueTests) ... ok\ntest_input_order (test_queue.QueueTests) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+  }
+}

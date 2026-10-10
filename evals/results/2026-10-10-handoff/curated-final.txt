@@ -1,0 +1,24 @@
+I added `--limit N` to the queue CLI. All 12 local tests pass, but the production exporter v3 blocker is still open.
+
+**What changed**
+- **`queue_cli.py`:**
+  - `format_records(records, limit=None)` now keeps only the first N records, in the order they arrived. I didn't use the sorting from the October 2 design because Mira's October 4 reply replaced it.
+  - A new `nonnegative_int` check handles the flag's value. A negative or non-number value makes the CLI exit with code 2.
+  - Without `--limit`, output is the same as before. The source file is only read, never written.
+- **`tests/test_queue.py`:** I kept the 2 existing tests and added 10. They cover:
+  - keeping input order when a limit is set
+  - `--limit 0` printing nothing
+  - a limit larger than the file printing every record
+  - the input list not being changed
+  - CLI default output unchanged
+  - the `--limit` flag on the CLI
+  - the source file unchanged after a run
+  - exit code 2 for `-1` and `abc`
+
+**Checks**
+I ran `python3 -m unittest discover -s tests -v`: 12 tests ran, all passed, result `OK`.
+
+**Remaining work**
+- **Exporter v3 compatibility is still blocked.** There is no v3 sample, and the local tests use made-up data, so they can't settle it. The next step is to ask the exporter owner for a sanitized v3 sample. Nobody has checked a production rollout yet.
+- I didn't read the October 6 UI note itself. The project context says it asks for no formatter changes, so I didn't act on it.
+- I didn't commit anything or change any notes or settings.

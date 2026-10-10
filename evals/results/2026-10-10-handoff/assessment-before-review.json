@@ -1,0 +1,142 @@
+{
+  "question": "Does curated project context help a fresh agent continue work correctly, with fewer omissions and less human correction?",
+  "conclusion": "No incremental correctness or correction advantage observed in this single matched pair; both succeed. Curated was slower here, with equal tool calls; no generalized cost or allowance inference.",
+  "coordinator": "Codex (project-requested Sol 6.1 role; precise coordinator model identifier not independently exposed by this session). Claude Opus 5.5 verified in streams for subjects and preflight.",
+  "authentication": "Claude auth status reported loggedIn=true, authMethod=claude.ai, subscriptionType=max; launcher strips ANTHROPIC_* and alternate-provider env settings, sets exact model and supplies no fallback. No additional spending requested.",
+  "human_correction": {
+    "observed_interventions": 0,
+    "interpretation": "No corrections supplied by design. No required code/spec correction identified after checks; actual novice-user correction effort not measured."
+  },
+  "arms": {
+    "curated": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Input order, default and source checks all pass.",
+            "Owner note read successfully; curated summary also read."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final answer identifies October 2 sorting proposal overridden by October 4 owner reply; no sorting in patch."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final answer retains missing v3 sample and sanitized-sample next action; no production verification claimed."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "Both authorized files changed; original tests retained; session ran fixed command successfully.",
+            "Independent CLI checks: 8/8 pass."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Reported test count matches observed output and coordinator rerun; no unsupported approval, rollout or v3 claims found."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "All reads within scope; 0 denied calls, 1 test command, no delegated or network work."
+          ]
+        }
+      },
+      "seconds": 42.5,
+      "tool_calls": 11,
+      "reads": [
+        "docs/project-context.md",
+        "notes/2026-10-04-owner.md",
+        "notes/2026-10-02-design.md",
+        "notes/2026-10-05-ops.md",
+        "README.md",
+        "queue_cli.py",
+        "tests/test_queue.py"
+      ],
+      "denied_calls": 0,
+      "execution_valid": true,
+      "checks": "curated-checks.json",
+      "patch": "curated.patch",
+      "stream": "logs/curated.jsonl",
+      "final": "curated-final.txt",
+      "required_corrections_identified": 0
+    },
+    "scattered": {
+      "criteria": {
+        "approved_constraint": {
+          "status": "pass",
+          "evidence": [
+            "Input order, default and source checks all pass.",
+            "Final answer explicitly names owner and arrival-priority rationale."
+          ]
+        },
+        "superseded_proposal": {
+          "status": "pass",
+          "evidence": [
+            "Final answer identifies October 2 sorting proposal overridden by October 4 owner reply; no sorting in patch."
+          ]
+        },
+        "blocker": {
+          "status": "pass",
+          "evidence": [
+            "Final answer retains missing v3 sample and sanitized-sample next action; no production verification claimed."
+          ]
+        },
+        "task": {
+          "status": "pass",
+          "evidence": [
+            "Both authorized files changed; original tests retained; session ran fixed command successfully.",
+            "Independent CLI checks: 8/8 pass."
+          ]
+        },
+        "supported_claims": {
+          "status": "pass",
+          "evidence": [
+            "Reported test count matches observed output and coordinator rerun; no unsupported approval, rollout or v3 claims found."
+          ]
+        },
+        "focus": {
+          "status": "pass",
+          "evidence": [
+            "All reads within scope; 0 denied calls, 1 test command, no delegated or network work."
+          ]
+        }
+      },
+      "seconds": 27.2,
+      "tool_calls": 11,
+      "reads": [
+        "queue_cli.py",
+        "tests/test_queue.py",
+        "README.md",
+        "notes/2026-10-02-design.md",
+        "notes/2026-10-04-owner.md",
+        "notes/2026-10-05-ops.md",
+        "notes/2026-10-06-ui.md"
+      ],
+      "denied_calls": 0,
+      "execution_valid": true,
+      "checks": "scattered-checks.json",
+      "patch": "scattered.patch",
+      "stream": "logs/scattered.jsonl",
+      "final": "scattered-final.txt",
+      "required_corrections_identified": 0
+    }
+  },
+  "limitations": [
+    "One small author-created case, fixed order, unblinded assessment; no statistical significance.",
+    "Both sessions read the relevant owner/proposal/ops notes; summary does not isolate a skill effect.",
+    "All supplied project reads deemed relevant; omission of curated UI raw note is harmless since summary carries its fact.",
+    "Hook-only restrictions, not OS sandbox. Inspected final test/code bodies contain only standard-library local fixture operations, no external access or grading reads. Protected bytes passed.",
+    "Effort high requested by identical CLI flags; no independently observed effort level.",
+    "Independent verifier written/frozen after subject launch before inspecting outputs; expected outcomes were already frozen. See verification-freeze.json.",
+    "Exact Codex coordinator model identifier unverified; no claim of confirmed Sol 6.1 runtime identity."
+  ],
+  "next_step": "If a further study is authorized, use a larger matched fixture with dispersed dependencies and a frozen retrieval budget: both agents could read all relevant facts cheaply here. Do not rerun or broaden under this task."
+}

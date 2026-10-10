@@ -1,0 +1,14 @@
+{
+  "accepted_by_coordinator": true,
+  "evidence": [
+    "preflight-final.txt",
+    "preflight-execution.json"
+  ],
+  "conditions": {
+    "cwd": "smoke.run_session uses cwd=project",
+    "effort": "run.py passes --effort high; runtime effort not independently observed",
+    "instructions": "empty observed InstructionsLoaded; launch project settings only and no ancestor instruction files; inspect subject events as gate",
+    "protection": "runner hashes immutable fixture/control/protocol bytes before/after; coordinator inspects final tests"
+  },
+  "scope": "One attempt per arm, no new facts in curated summary; all fixture reads relevant."
+}

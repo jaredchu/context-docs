@@ -1,0 +1,6 @@
+{
+  "sha256": "d67439012bffb738dfd88c4e05bdda6cae3b5444759f2c1c09e832a34b1456df",
+  "frozen_at": "2026-10-10T10:26:25.482037+00:00",
+  "scope": "Independent acceptance verifier authored after subject launch, before inspecting subject outputs; cases implement already frozen task criteria. Not part of the initial frozen harness.",
+  "baseline_control": "verifier-baseline-control.json"
+}
