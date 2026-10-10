@@ -35,6 +35,13 @@ evaluation. Keep those claims separate, including in the
 actually executed for it. A version whose only evidence is static checks says so. Contributions are provided under the
 repository's MIT license.
 
+## Contribute validation evidence
+
+You can [propose a public case or review a handoff](evals/external-validation/README.md)
+without running models or installing tools. Case selection and artifact review
+are separate contributions; disclose prior involvement and model assistance.
+Original study results remain intact when supplemental reviews are added.
+
 ## Commit attribution
 
 Keep the contributor's normal Git author identity. For work assisted by Codex,

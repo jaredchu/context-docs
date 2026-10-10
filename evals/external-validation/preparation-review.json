@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "kind": "internal preparation review, not independent validation",
+  "author_model": "GPT 6 Astra High",
+  "integration_owner": "Codex",
+  "reviewer_model_observed": [
+    "claude-opus-5-5"
+  ],
+  "reviewer_client": "Claude Code 2.1.295",
+  "reviewer_effort_requested": "high",
+  "effort_independently_observed": false,
+  "packet_sha256": "90101ad0695bad1b3b377fbcacedf1260e80d268456757683b6b741086904b2d",
+  "review_result": {
+    "subtype": "success",
+    "is_error": false,
+    "duration_ms": 114372
+  },
+  "review": {
+    "observed_review_scope": "Counterpart review by Claude Opus 5.5, a member of this project's model collaboration. This is not an independent external review. Reviewed only the new packet and its integration: evals/external-validation/README.md, case-proposal.md and review-template.md; the CONTRIBUTING.md 'Contribute validation evidence' section; the docs/project-context.md 'Next actions' update; AGENTS.md for consistency. I read evals/results/2026-10-10-public-history/README.md only to confirm the integration left it unchanged. It still records 1,074 links from its own run, while the current static check reports 1,081 after the packet added links. That difference is expected and should not be 'fixed'. No tools were used, and nothing was executed or fetched. Prior artifact scores were not re-reviewed. The supplied static checks (exit 0) are mechanical evidence only and say nothing about the semantic adequacy of the workflow.",
+    "findings": [
+      {
+        "severity": "medium",
+        "file": "evals/external-validation/README.md — 'Two ways to contribute'; case-proposal.md header; review-template.md header",
+        "issue": "The packet never says how to submit a proposal or how to get the 'coordinator's source packet'. An outside contributor who copies case-proposal.md has nowhere defined to send it. A reviewer has no way to request a corpus, and no way to lodge an initial assessment before unmasking. As written, the workflow cannot be completed without guessing. That fails the 'can actually be used' criterion.",
+        "fix": "Add one or two sentences using existing channels, with no new infrastructure. For example: open a GitHub issue (or PR) with the filled contributor portion to propose a case. To review, open an issue asking for a packet. Submit the initial assessment before receiving the mapping. The coordinator records its receipt date and only then discloses conditions. Note that issues are public, so reviewers should not read other reviewers' submissions before filing their own.",
+        "integration_resolution": "Accepted: use existing GitHub issues/PRs for nominations and packet requests, with initial assessment recorded before mapping and public-review exposure disclosed."
+      },
+      {
+        "severity": "medium",
+        "file": "evals/external-validation/README.md — status line and 'Review and reporting' (supplemental HTTPX/ripgrep review); review-template.md 'Disclosure'",
+        "issue": "The four existing artifacts and their per-condition findings are already public. The results README names which artifact made which error (e.g., 'ripgrep skill … avx-accel'), and results.json carries the handoffs. Neutral IDs therefore give no masking against anyone who has opened the linked results. The packet's first paragraph links those results before telling contributors to 'select … before reading our … results'. The general masking caveat exists but does not say that supplemental review of published artifacts is effectively unmasked for any reviewer who has seen the results.",
+        "fix": "Move the results link below the contributor instructions, or add a warning beside it: 'Prospective case proposers and supplemental reviewers: do not open the linked results or reviews before submitting.' In the supplemental-review paragraph, state that these artifacts and their labeled findings are public. Masking holds only for reviewers who have not seen them, and the report must say whether the reviewer had.",
+        "integration_resolution": "Accepted exposure problem; corrected factual premise. These study records contain labels, but publication of the new local results was not established. Guidance refers to reading existing labeled records and avoids claiming that they were already published."
+      },
+      {
+        "severity": "medium",
+        "file": "evals/external-validation/case-proposal.md — 'Contributor portion'; README.md coordinator checklist step 3",
+        "issue": "Step 3 separates the frozen request from the evaluator-only ledger. The contributor portion, though, also holds grading-relevant content: 'unique information/work to preserve', 'why an actual contributor would need updated context', and 'unresolved conflict or missing evidence'. Only the coordinator portion is labelled 'separate from subject inputs'. A coordinator could reasonably pass the contributor portion, or the whole proposal, into the subject workspace as 'the task', which would leak the criteria.",
+        "fix": "State explicitly in both files that the entire proposal file is evaluator-only. Subjects receive only the frozen task request, the declared write boundary and the pinned corpus. Add that pass/fail criteria must not be derived from material subjects can read.",
+        "integration_resolution": "Accepted exclusion of the entire proposal from subject inputs. Rejected suggested prohibition on deriving criteria from subject-readable material: the ledger must be grounded in the shared readable source corpus; evaluator answers and proposal notes are what must remain hidden."
+      },
+      {
+        "severity": "medium",
+        "file": "evals/external-validation/README.md — 'Independence and selection'; 'Review and reporting' last paragraph",
+        "issue": "'Independent' is defined only for case selection. Review independence is never defined. The 'current protocol-author group' is also not enumerated: the owner Jared Chu, GPT 6 Astra High, Claude Opus 5.5 and Codex as integrator. The ledger is still built by an author-group coordinator even for an externally selected case, yet reporting only separates selection independence from review independence. Readers could take 'independently selected case' to mean independently specified criteria.",
+        "fix": "Name the current author group. Add a parallel sentence: an independent review comes from a reviewer outside that group, and a fresh session of a collaborating model is not one. Report ledger/criteria authorship as a third, separate axis, and note when contributor confirmation is pending.",
+        "integration_resolution": "Accepted: distinguish case selection, ledger authorship and review independence; identify current model collaborators/integrator and maintainer relationships. A new session of an authoring model is not outside review."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/review-template.md — 'Initial assessment' table",
+        "issue": "The coordinator authors the ledger, and an outside reviewer is the main check on it. The initial table, however, has no place to record that a ledger item is unsupported, wrongly scoped, or that a necessary fact is missing. Evaluator errors only appear in the post-unmasking section, which delays ledger challenges until after condition labels are known.",
+        "fix": "Add one initial-assessment row: 'Ledger items unsupported, mis-scoped or missing (cite pinned evidence)'. Route those items to the existing repair trail, with original scores preserved.",
+        "integration_resolution": "Accepted: initial review includes unsupported, mis-scoped or missing ledger items before unmasking."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/review-template.md — paragraph after the table ('Read beyond subjects' recorded source reads')",
+        "issue": "The README hands reviewers the full corpus but not subjects' read traces, so this instruction refers to information the reviewer lacks. If traces were supplied, the skill arm's read of the skill file would reveal the treatment.",
+        "fix": "Reword to: 'Check claims against the full supplied corpus, not only files the artifact cites.' Add to the README that tool/read traces are withheld from reviewers until initial assessments are recorded.",
+        "integration_resolution": "Accepted: review full corpus rather than only cited sources; withhold condition-revealing tool/read traces until initial judgments, while providing scope-check evidence with stated limits."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/case-proposal.md — 'Intended audience and natural destination (existing document preferred)'",
+        "issue": "'Existing document preferred' mirrors the core skill's audience/destination guidance added in 0.1.6. Writing a treatment preference into case design nudges cases toward the skill's framing. The neutrality criterion is otherwise met well (no winning method, no encoded answers, no invented defects).",
+        "fix": "Change to 'where the update would naturally belong (existing document or new file, as the project would do it)'.",
+        "integration_resolution": "Accepted wording change: existing or new destination follows the public project rather than a template preference."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/case-proposal.md — 'Contributor portion'",
+        "issue": "There are eleven fields plus the task. Several ask for setup-level detail: layout to preserve, before/after revisions, allowed changes. The intro says links and short answers suffice, but the form does not show which fields are the minimum. This raises the burden for a non-technical contributor.",
+        "fix": "Mark a minimum set: identifier, disclosure/exposure, public project and license link, event link, why context needs updating, and the task request. Label the rest 'optional; the coordinator can fill these and confirm with you'.",
+        "integration_resolution": "Accepted: distinguish minimum nomination information from optional setup details."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/README.md — 'Independence and selection' (holdout) and checklist steps 2–3",
+        "issue": "The checklist applies to every case. If the author-group coordinator pins and builds the holdout ledger before or during pilot-informed tuning, the holdout is exposed to the same people who tune the skill or protocol. 'Record any preparation exposure' discloses the problem but does not limit it.",
+        "fix": "For the holdout, record the nomination and pin the source revision only. Defer ledger construction and other detailed preparation until after any post-pilot freeze.",
+        "integration_resolution": "Accepted with timing clarified: reserve nomination/revision, freeze post-pilot methodology and skill before detailed holdout preparation; then freeze holdout evidence/ledger before its execution. Record unavoidable exposure."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/README.md — coordinator checklist step 4",
+        "issue": "The prior study's main validity limit was that treatment came from an explicit Read of the skill, not native invocation. The manifest list does not require declaring the skill delivery mode, so a follow-up could change it silently.",
+        "fix": "Add 'skill delivery mode (explicit read, native invocation or discovery) and catalog state' to the frozen manifest items.",
+        "integration_resolution": "Accepted: include skill delivery mode and native catalog state in the frozen manifest."
+      },
+      {
+        "severity": "low",
+        "file": "evals/external-validation/README.md status line; docs/project-context.md 'Next actions'",
+        "issue": "'No … obtained through this packet' and 'received through it' are accurate but invite the reading that some independent input arrived another way. Per the current state, no outside person has been identified or contacted. The status text does not otherwise overclaim: no new evaluation, release or independence is asserted.",
+        "fix": "State it plainly: 'No outside contributor has been identified or contacted, and no independent case, review or new subject session exists.'",
+        "integration_resolution": "Accepted bounded status update: no outside contributor identified for this effort; no received outside case/review or new subject session. Do not rewrite unrelated historical evaluation claims."
+      }
+    ],
+    "conclusion": "Accept with fixes; no blockers. The packet meets most acceptance criteria. It is explicit that public upstream authorship is not independent selection and that a fresh authoring-model session is not an independent contributor. Contributors are told they need no model, Python or subscription. Receipt-order pilot/holdout assignment with recorded rejections guards against cherry-picking. The ledger template is source-pinned, with authority, date and evidence-rule columns. Licensing and privacy cautions are adequate. Masking limits, guessed-treatment disclosure and append-only post-unmasking records are present. Original HTTPX/ripgrep results stay intact: the results README is unedited, and supplemental review is explicitly not a retry, replacement score or independent selection. Project context does not claim new evaluation, release or independence. The main gaps are practical. There is no submission or packet-request path (finding 1). Supplemental review of already-published, condition-labelled artifacts is effectively unmasked for anyone who read the linked results (finding 2). Subject-input exclusion should cover the whole proposal file (finding 3). Review independence and the author group should be defined (finding 4). Each fix is a sentence or two and needs no new infrastructure. This review is a counterpart review within the existing model collaboration and should not be cited as independent validation."
+  },
+  "review_preservation": "Original finding text retained; integration resolutions are added fields, not replacements. Review scope described by the reviewer is self-report, not independent proof of repository immutability.",
+  "validation": "Final static checks passed: 1083 relative links/anchors, 5 published tables, 2 packages and versions. git diff --check passed. Codex checked the focused revisions against all findings; no unresolved material concern. No new model subject evaluation.",
+  "final_document_sha256": {
+    "README.md": "e571c5b8c5ce5c94f1d3984f2ac0a1810784c5c390e04343c946d25da0c6df24",
+    "case-proposal.md": "b3afaad982c4278fac3baae287931937fcd0928a624bb30b59881b61c33ef782",
+    "review-template.md": "f8a803ddc28d3bc6ec5cc06848b48bccb3c1ab614603bb05a3b5a94c71c2108b"
+  }
+}

@@ -33,6 +33,11 @@ history. All execution gates passed; both methods produced additional unsupporte
 claims. Separate artifact reviews and frozen inputs are retained. There were no
 fresh readers or retries, and no general comparative benefit is established.
 
+The [external-contributor packet](external-validation/README.md) provides case
+proposal and review templates. It is preparation for outside contributions, not
+an independent evaluation result. No outside contributor has yet supplied a case
+or review through this packet.
+
 ## Run a case
 
 Use a disposable project directory with only the synthetic fixture described

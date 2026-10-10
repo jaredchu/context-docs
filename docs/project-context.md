@@ -102,10 +102,13 @@ studies into claims of general reliability or superiority over ordinary maintena
 ## Next actions
 
 The public-history comparison is complete; the released skills remain unchanged.
-Seek cases and review independent of protocol authors before broader correctness
-claims. Any follow-up needs a new frozen manifest and must preserve completed
-results. The [discrimination protocol](../evals/discrimination-protocol.md) remains
-a separate proposal.
+The [external-contributor packet](../evals/external-validation/README.md) provides
+case proposal and review templates. No outside contributor is identified for this
+effort, and no case or review has been received. Obtain those contributions before
+claiming independent validation;
+any follow-up needs a new freeze and must preserve completed results. The
+[discrimination protocol](../evals/discrimination-protocol.md) remains a separate
+proposal.
 
 ## Canonical references
 
