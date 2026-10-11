@@ -47,9 +47,11 @@ Earlier release approvals do not authorize new publication.
 
 - The [v1.0.0 graduation criteria and release-readiness checklist](v1.0.0-readiness.md)
   are drafted as proposed gates, with v0.1.9 evidence and remaining work separated.
-  The support matrix, compatibility commitment and optional logging disposition
-  need a maintainer decision. No v1.0.0 candidate or release is approved; the
-  published skills remain experimental.
+  The proposed [support matrix and compatibility rules](v1.0.0-support.md) now
+  recommend local macOS Codex/Claude routes, preservation across upgrades and an
+  experimental logging extension. Scope, exact configurations and compatibility
+  commitments need a maintainer decision. No v1.0.0 candidate or release is
+  approved; the published skills remain experimental.
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
@@ -149,8 +151,9 @@ comprehensive privacy audit.
 ## Next actions
 
 For v1.0.0, review and accept the proposed [graduation gates](v1.0.0-readiness.md#proposed-graduation-gates)
-before freezing new validation. Remaining work includes supported native user
-journeys, candidate upgrade/preservation checks and an outside-user pilot with
+and [support matrix/compatibility rules](v1.0.0-support.md) before freezing new
+validation. Remaining work includes supported native user journeys, candidate
+upgrade/preservation checks and an outside-user pilot with
 outside artifact review. Existing authored tests and maintainer daily use support
 that work but do not close those gates. Criteria preparation authorizes no outreach,
 new study execution, installed upgrade or publication.
