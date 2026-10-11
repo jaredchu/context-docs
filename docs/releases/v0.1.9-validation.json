@@ -1,6 +1,6 @@
 {
   "date": "2026-10-11",
-  "status": "unreleased preparation",
+  "status": "published experimental prerelease",
   "fix_commit": "45bc88f756dcf6b76abba69bd9df8b29c4e543f4",
   "packages": {
     "context-docs": "0.1.9",
@@ -171,10 +171,87 @@
     "scope": "One initial and one focused follow-up read-only review; no independent hash recomputation or new behavior trial."
   },
   "publication": {
+    "date": "2026-10-11",
+    "github_release": {
+      "tagName": "v0.1.9",
+      "url": "https://github.com/jaredchu/context-docs/releases/tag/v0.1.9",
+      "isPrerelease": true,
+      "isDraft": false,
+      "publishedAt": "2026-10-11T01:36:53Z",
+      "targetCommitish": "14acc74dc7b51c3a4c512d1e555daac94c955216"
+    },
+    "tag_target_verified": "14acc74dc7b51c3a4c512d1e555daac94c955216",
+    "release_commit_ci": {
+      "Landing page": {
+        "conclusion": "success",
+        "databaseId": 38102390610,
+        "headSha": "14acc74dc7b51c3a4c512d1e555daac94c955216",
+        "status": "completed",
+        "url": "https://github.com/jaredchu/context-docs/actions/runs/38102390610",
+        "workflowName": "Landing page"
+      },
+      "Static checks": {
+        "conclusion": "success",
+        "databaseId": 38102390637,
+        "headSha": "14acc74dc7b51c3a4c512d1e555daac94c955216",
+        "status": "completed",
+        "url": "https://github.com/jaredchu/context-docs/actions/runs/38102390637",
+        "workflowName": "Static checks"
+      }
+    },
+    "website": {
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "headSha": "14acc74dc7b51c3a4c512d1e555daac94c955216",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38102425605"
+    },
+    "live_verification_record": "docs/website-deployment-2026-10-11.json",
+    "installed_skills": "not updated",
+    "latest_published_bundle": "v0.1.9"
+  },
+  "preparation_publication_snapshot": {
     "github_release": "not created",
     "tag": "not created",
     "website": "local build only; deployment not performed",
     "installed_skills": "not updated",
     "latest_published_bundle": "v0.1.8"
+  },
+  "publication_checks": {
+    "static_checks": "pass; 1219 relative links before publication record additions, five result tables and two skill packages/versions",
+    "site_unit_tests": 12,
+    "site_build": "pass; nine-file allowlist",
+    "public_artifact_files": {
+      ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "getting-started/index.html": "6c742d3bc670336f9503f6811b79cb2f026ebba06c6cf039445576911db6da10",
+      "index.html": "aec5bc2627dacef05388a01adf36c4cbebd1428eede074f5e8ac8f2d17cf0c2c",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+      "styles.css": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23"
+    },
+    "page_status": "Both HTML pages: experimental, released, core 0.1.9/adoption 0.1.9; SEO titles contain no em dash",
+    "preservation": {
+      "protected_original_files": 2129,
+      "result": "All original SHA-256 values match, including all 2031 evaluation files, 15 repository package files, 30 installed skill files, existing journal records and setup files. Release notes and validation status are the scoped exceptions; historical preparation hashes and review record are retained."
+    },
+    "new_native_subject_sessions": 0,
+    "final_record_checks": {
+      "static_checks": {
+        "relative_links": 1223,
+        "published_tables": 5,
+        "skills": 2,
+        "versions": 2,
+        "result": "pass"
+      },
+      "site_unit_tests": {
+        "count": 12,
+        "result": "pass"
+      },
+      "site_build": "pass; unchanged released build bytes",
+      "diff_check": "pass"
+    }
   }
 }

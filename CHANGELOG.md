@@ -16,6 +16,20 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.1.9 publication — 2026-10-11
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.9)
+  from `14acc74` after its static and landing-page Actions passed, retaining both
+  Codex and Claude credits. Bundle core 0.1.9, adoption 0.1.9 and standard 0.1.1.
+- Deploy the website from that commit. All eight checked live public responses
+  match the nine-file build; both pages show released status and SEO titles omit
+  em dashes. Retain [publication evidence](docs/website-deployment-2026-10-11.json)
+  separately from preparation/native checks. Local static checks, 12 site tests
+  and build pass; no new agent study or installed-skill update is performed.
+- Verify original package, installed skill, setup, saved study and existing journal
+  bytes against the pre-publication baseline. Preserve preparation hashes and
+  historical release/review records; append publication facts to current records.
+
 ## context-docs 0.1.9 — 2026-10-11 (bundled in `v0.1.9`)
 
 - Prepared [v0.1.9 release notes](docs/releases/v0.1.9.md) on October 11 and update

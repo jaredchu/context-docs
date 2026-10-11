@@ -1,7 +1,7 @@
 # Project context
 
-Release publication authorized: 2026-10-11. Release-status checks and deployment
-are in progress; historical evaluations are not rerun.
+Release and website verified: 2026-10-11. Historical evaluations were not rerun;
+installed skills and existing setups remain unchanged.
 
 ## Purpose and scope
 
@@ -48,7 +48,9 @@ Earlier release approvals do not authorize new publication.
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
-- Publishing bundle: core **0.1.9**; adoption remains **0.1.9**.
+- Current released bundle: [v0.1.9](releases/v0.1.9.md), with core **0.1.9**,
+  adoption **0.1.9** and standard **0.1.1**, published as an experimental prerelease
+  at `14acc74` after both release-commit Actions workflows passed.
   The [focused source-selection check](../evals/source-selection/README.md)
   reproduces importing a stale timeout from earlier notes in one of two released
   core trials. Initialization now explicitly checks relevant project sources
@@ -57,13 +59,12 @@ Earlier release approvals do not authorize new publication.
   existing setup and earlier study artifacts remain unchanged. Mechanical checks
   and native outcomes are recorded separately; these trials establish no general
   reliability improvement.
-  [v0.1.9 release notes](releases/v0.1.9.md) and the website update are
-  prepared and reviewed, with source-checking guidance. Release-status labels now
-  identify the experimental v0.1.9 bundle. The [preparation record](releases/v0.1.9-validation.json)
-  owns current local checks and package identities; the fix commit's passing
-  Actions precede this preparation. The owner authorized release creation and
-  deployment after preparation commit `f8c95d6` passed both Actions workflows.
-  Installed upgrades remain a separate action.
+  The [validation record](releases/v0.1.9-validation.json) retains earlier native
+  evidence and preparation checks separately from publication. The website is
+  deployed from the same release commit; all eight checked public responses match
+  its build, both pages show experimental/released status and SEO titles have no
+  em dash. The [verification record](website-deployment-2026-10-11.json) owns
+  release/deployment Actions, hashes and limits. Installed upgrades remain separate.
 - The released v0.1.8 bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
@@ -92,16 +93,12 @@ Earlier release approvals do not authorize new publication.
   are defined in the packaged guide. There is no background service or sync.
 
 - [Landing page](https://context-docs.com/): live on GitHub Pages,
-  built from selected public sources. The [v0.1.8 deployment](https://github.com/jaredchu/context-docs/actions/runs/38062572064)
-  passed; publication-time checks showed both live pages matched that build, with
-  released package versions and updated local-only guidance. The
-  [documentation follow-up deployment](https://github.com/jaredchu/context-docs/actions/runs/38067535734)
-  also passed from `a8e1e36`: both live HTML pages clarify optional prompts, and
-  all seven checked public responses match the build. The
-  [verification record](website-deployment-2026-10-10.json) retains commit credits,
-  Actions results, response hashes and verification limits. [Deployment](../site/README.md#github-pages)
-  is manual; Cloudflare proxies the custom domain with Full SSL and
-  Always Use HTTPS enabled.
+  built from selected public sources. The [v0.1.9 deployment](https://github.com/jaredchu/context-docs/actions/runs/38102425605)
+  passed from `14acc74`; the [October 11 verification](website-deployment-2026-10-11.json)
+  records matching live response bytes. Earlier
+  [October 10 verification](website-deployment-2026-10-10.json) is retained.
+  [Deployment](../site/README.md#github-pages) is manual; Cloudflare proxies the
+  custom domain with Full SSL and Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a
   [beginner guide](https://context-docs.com/getting-started/) built from canonical
   commands and prompts. The owner reports search registration and sitemap
@@ -146,13 +143,13 @@ feedback; it is not independent validation. New studies need a fresh freeze and
 must preserve earlier results; the [discrimination protocol](../evals/discrimination-protocol.md)
 is still a proposal.
 
-The source-selection fix is committed and pushed as `45bc88f`; its static and
-landing-page Actions passed. The v0.1.9 release notes and website update pass
-59 local tests, static checks and desktop/mobile previews; Opus 5.5's focused
-review has no material blocker. Preparation commit `f8c95d6` passed both Actions
-workflows. Check the release-status commit before publication and deployment,
-then verify the live artifact. Installed upgrades
-remain a separate action; existing setups and saved study evidence stay preserved.
+The source-selection fix and v0.1.9 release are published; release-commit static
+and landing-page Actions and website deployment passed. Earlier release preparation
+passed 59 local tests and desktop/mobile previews, with Opus 5.5 review. Publication
+reran static checks, 12 site tests and the build, then verified live response bytes;
+no native study was rerun. Continue normal use and address concrete findings.
+Installed upgrades remain a separate authorized action; preserve customizations,
+existing setups and saved study evidence.
 
 ## Canonical references
 
