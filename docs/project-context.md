@@ -67,6 +67,13 @@ Earlier release approvals do not authorize new publication.
   cache refreshes, qualified in the isolation record without rollback.
   Existing studies, installed skills and project setup files remain unchanged;
   full global-state preservation is not established.
+  The [concrete Wave 1 isolation setup proposal](v1.0.0-wave1-isolation-setup.md)
+  recommends independent macOS guest disks with guest-only authentication,
+  inaccessible evaluator/owner storage, memory controls and explicit setup/review/
+  execution gates. No qualifying existing environment was identified; provisioning
+  would require an accepted amendment to the existing-only scope and a reviewed
+  budget. Hardware virtualization capability is observed, but no runner or guest
+  is established. The proposal is pending counterpart review; nothing was provisioned.
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
@@ -170,6 +177,8 @@ and [support matrix/compatibility rules](v1.0.0-support.md), then review the
 [bounded validation plan](v1.0.0-validation-plan.md) before freezing new validation.
 Review the [Wave 1 preparation and blockers](../evals/v1-readiness/wave1/README.md#isolation-evidence-and-blockers)
 before selecting a protected native environment and a distinct candidate.
+Review the [isolation setup proposal](v1.0.0-wave1-isolation-setup.md#stop-conditions-and-review-decisions)
+and its resource/scope choices before authorizing any provisioning or login.
 Remaining work includes supported native user journeys, candidate
 upgrade/preservation checks and an outside-user pilot with
 outside artifact review. Existing authored tests and maintainer daily use support
