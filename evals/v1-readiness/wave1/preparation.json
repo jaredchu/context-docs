@@ -1,0 +1,167 @@
+{
+  "baseline_revision": "14acc74dc7b51c3a4c512d1e555daac94c955216",
+  "blockers": [
+    "Native user-scope, credential and memory isolation unverified",
+    "Maintainer scope/budget and trial execution not authorized",
+    "Per-phase inputs after actual J1/J2 outputs not frozen",
+    "Counterpart checker review pending",
+    "Candidate equals v0.1.9; no distinct upgrade can be certified",
+    "Owner global config/state drift detected, origin unknown; global preservation did not pass"
+  ],
+  "candidate_approved": false,
+  "candidate_revision": "3cd8bc809a20ae67fc87875769bd1520e8cf001d",
+  "candidate_versions": {
+    "adopt-context-docs": "0.1.9",
+    "context-docs": "0.1.9"
+  },
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/v1-readiness/wave1",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "stderr": "................................\n----------------------------------------------------------------------\nRan 32 tests in 4.472s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python3",
+        "evals/checks/static_checks.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "links: checked 1298 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected.\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "control_test_count": 32,
+  "counterpart_review": {
+    "requested_model": "Claude Opus 5.5",
+    "status": "not launched; isolated authenticated development profile not established"
+  },
+  "execution_ready": false,
+  "model_trials": 0,
+  "models_used": [
+    "GPT 6.1 Sol"
+  ],
+  "native_results": [],
+  "package_delta_from_v0.1.9": [],
+  "packages": {
+    "candidate": {
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+      "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "e4645bb76be8b313c4c8b4c1cadceacd0098d18ea60eceaa9d0bc8147ab398fb",
+      "skills/context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    },
+    "v0.1.9": {
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+      "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "e4645bb76be8b313c4c8b4c1cadceacd0098d18ea60eceaa9d0bc8147ab398fb",
+      "skills/context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "plan_sha256": "7807ce731726894c5c7f3ea01cd434ec01cc1ed8810bdbfe52a5f3e2c0fb0b1b",
+  "preservation": {
+    "changed_global_file_labels": [
+      "Codex config",
+      "Claude global state"
+    ],
+    "global_drift_origin": "unknown",
+    "global_preservation_pass": false,
+    "protected_files": 25105,
+    "rollback_performed": false,
+    "saved_studies_and_installed_skills_unchanged": true,
+    "unchanged_protected_files": 25103,
+    "unexpected_other_changes": []
+  },
+  "qualification": "Self-authored mechanical/reference controls only. Fixtures and package copies are staging, not proof of native isolated installations. No trials, login, upgrade, publication or execution freeze.",
+  "recipe_sha256": {
+    "README.md": "6a70e8198bb2f444f412d0538c7b895f44ece38f8fdc1ff4f1e4ff158aa32dd8",
+    "cases.json": "739497c0111c6e226ac909cf297609666b85f42b9e632921c29a8e87a7561ecb",
+    "checker.py": "bfbbf89948ca6356d56e5d5ace5db5372aedbd7b144ae8ce7e6cc1d720ac0c6c",
+    "fixtures.json": "e0e0ddc80c44d8b2d169f14ac73f797ea1528152dd78a356ee10568d31333dd9",
+    "isolation.json": "e505a4834246849e420f5e9e757b9911d242ee69e52d701dd6134c80bdb45781",
+    "ledger.json": "31bd30681c9b22f1a99d87115731a54667504dbb32b48a7d430417c456744a5d",
+    "prepare.py": "7057fb29d32c3cbb96e77ae8d8bd94db71629cda707d3d7876d8138e86fba716",
+    "review-packet.md": "6b412494ad83b3ac193e98d8ee3fdd4d0c39b7651e678bdc6fa20ace225c845e",
+    "test_wave1.py": "981deb6ec8db5a1ee97e56cdbfe947a3d8cba505b02f76daa76a5ca7e8d3a491"
+  },
+  "sessions": 22,
+  "status": "prepared-for-review",
+  "subject_seconds": 4080,
+  "upgrade_expected": {
+    "clean": {
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+      "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "e4645bb76be8b313c4c8b4c1cadceacd0098d18ea60eceaa9d0bc8147ab398fb",
+      "skills/context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    },
+    "custom": {
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+      "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "b09253e549802716d3bfec6af09d722b81d784566e3becc1122a27a1d792f9bd",
+      "skills/context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "skills/context-docs/references/local-note.md": "e485f36d1459ff0e0fcbdd9b78151cc4bb320f4bff5c0cd0ba8703c4f41b9041",
+      "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  }
+}

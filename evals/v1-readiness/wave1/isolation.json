@@ -1,0 +1,128 @@
+{
+  "status": "blocked-before-execution",
+  "observed_on": "2026-10-11",
+  "platform": {
+    "system": "Darwin",
+    "release": "27.0.1",
+    "architecture": "arm64"
+  },
+  "routes": {
+    "V1": {
+      "documented_boundaries": [
+        "CODEX_HOME holds config/state; credentials may use file or OS credential store",
+        "USER skills resolve from $HOME/.agents/skills; CODEX_HOME alone does not isolate them",
+        "--profile layers config rather than creating a separate user",
+        "--ephemeral suppresses session persistence; --ignore-user-config skips config, not authentication. Neither is proof of user-skill isolation."
+      ],
+      "unverified": [
+        "native user-scope resolution in isolated OS identity",
+        "credential refresh/write isolation",
+        "system/admin skills and settings",
+        "memory/history and parent instructions",
+        "subject cannot read evaluator ledger or owner files"
+      ],
+      "ready": false
+    },
+    "V6": {
+      "documented_boundaries": [
+        "CLAUDE_CONFIG_DIR relocates settings/history/plugins; official authentication docs also describe config-directory-keyed macOS Keychain entries and scoped credential-file fallback.",
+        "CLI help distinguishes --setting-sources from skill selection",
+        "Auto memory requires explicit supported disable in disposable profile"
+      ],
+      "unverified": [
+        "Separate authenticated test config, credential refresh and global-state boundaries on this installed build",
+        "native user skill resolution with complete siblings",
+        "memory/history and parent instructions",
+        "managed settings and inherited integrations",
+        "subject cannot read evaluator ledger or owner files"
+      ],
+      "ready": false
+    }
+  },
+  "proposed_method": "Existing separate test OS account with supported, authenticated client installs and store boundaries; no account creation or login performed. Availability is unknown. A config-directory-only alternative requires equivalent evidence before use.",
+  "next_evidence": [
+    "identify an existing supported isolated account/profile without changing owner setup",
+    "map stores and effective skill/instruction roots; no secret contents in receipts",
+    "verify permission boundaries deny owner/evaluator access",
+    "verify memory/resume suppression and no inherited hooks/MCP",
+    "freeze actual client/profile identity and native evidence requirements before any subject call"
+  ],
+  "sources": [
+    {
+      "url": "https://learn.chatgpt.com/docs/config-file/config-advanced",
+      "supports": "CODEX_HOME and profile/config layering; history and project instruction boundaries"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "supports": "native user/repo/admin/system skill locations"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/auth",
+      "supports": "credential stores and automatic token refresh"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/settings",
+      "supports": "settings scopes and home/global state"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/env-vars",
+      "supports": "CLAUDE_CONFIG_DIR relocations; separate credential assessment"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/memory",
+      "supports": "auto memory controls and history store boundaries"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/authentication",
+      "supports": "configuration-directory-specific login/credential boundaries; no isolated login was established here"
+    }
+  ],
+  "counterpart_review": {
+    "status": "not-launched",
+    "requested_model": "claude-opus-5-5",
+    "reason": "A separate already-authenticated development-review config/store has not been established. No owner-runtime launch, credential export, login, API fallback or model substitution performed."
+  },
+  "client_metadata_evidence": {
+    "codex_version": "codex-cli 0.162.0-alpha.17.2",
+    "claude_version": "2.1.296 (Claude Code)",
+    "commands": [
+      "codex --version",
+      "codex --help",
+      "claude --version",
+      "claude --help",
+      "codex exec --help"
+    ],
+    "model_requests": 0,
+    "native_catalog_checked": false,
+    "keychain_or_credential_files_inspected": false,
+    "side_effect_free": false,
+    "scope": "Non-inference help/version commands only; owner global state drift detected, origin unproved."
+  },
+  "preservation_observation": {
+    "status": "qualified; global-state preservation failed",
+    "protected_project_and_installed_skills": "unchanged at last hash comparison",
+    "saved_study_artifacts": "unchanged at last hash comparison",
+    "owner_global_config_or_state_files_changed": 2,
+    "claude_retained_pair": "Only cachedGrowthBookFeatures and cachedGrowthBookFeaturesAt differed in one recovered before/retained-after pair; do not generalize to all live changes.",
+    "codex_baseline_bytes": "Subsequent read-only audit reconstructed exact baseline contents with the retained SHA-256; four trust entries for unrelated local workspaces were added, with no other configuration changes.",
+    "origin": "unknown; do not infer actor from temporal overlap with metadata commands or concurrent app activity",
+    "action": "No rollback; stop further owner-client invocations; retain local non-public receipts and keep isolation gate blocked.",
+    "follow_up_read_only_audit": {
+      "observed_on": "2026-10-11",
+      "codex_added_trust_entries": 4,
+      "codex_other_changes": false,
+      "claude_live_changed_fields": [
+        "cachedGrowthBookFeatures",
+        "cachedGrowthBookFeaturesAt",
+        "cachedUsageUtilization"
+      ],
+      "claude_added_cached_feature_flags": 2,
+      "claude_other_fields_and_separate_settings": "unchanged",
+      "target_file_hashes_stable_during_audit": true,
+      "saved_studies_and_installed_skills": "matched preservation baseline",
+      "writer_identified": false,
+      "rollback_performed": false,
+      "raw_evidence": "retained locally outside public artifacts; unrelated workspace identities omitted"
+    }
+  }
+}

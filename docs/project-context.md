@@ -1,7 +1,8 @@
 # Project context
 
-Release and website verified: 2026-10-11. Historical evaluations were not rerun;
-installed skills and existing setups remain unchanged.
+Release and website verified: 2026-10-11. Historical evaluations were not rerun.
+Installed skills and project setup files are unchanged; Wave 1 preparation's
+global-state drift is qualified below.
 
 ## Purpose and scope
 
@@ -52,6 +53,20 @@ Earlier release approvals do not authorize new publication.
   experimental logging extension. Scope, exact configurations and compatibility
   commitments need a maintainer decision. No v1.0.0 candidate or release is
   approved; the published skills remain experimental.
+  The [bounded validation plan](v1.0.0-validation-plan.md) now proposes a 22-session
+  CLI pilot and separate 54-session expansion covering native journeys, two upgrade
+  variants per combination and preservation checks. Isolation, combinations and
+  budgets are for review; no new native subject run or execution freeze exists.
+  [Wave 1 preparation](../evals/v1-readiness/wave1/README.md) now supplies synthetic
+  fixtures, exact session prompts, preservation controls and read-only isolation
+  evidence. Execution remains blocked on native/profile/credential boundaries,
+  counterpart checker review and an accepted distinct candidate; current package
+  bytes still match v0.1.9. No model trials or installed upgrades were launched.
+  Preparation detected owner-global configuration/state drift of unproved origin;
+  a read-only follow-up established unrelated workspace trust additions and Claude
+  cache refreshes, qualified in the isolation record without rollback.
+  Existing studies, installed skills and project setup files remain unchanged;
+  full global-state preservation is not established.
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
@@ -151,8 +166,11 @@ comprehensive privacy audit.
 ## Next actions
 
 For v1.0.0, review and accept the proposed [graduation gates](v1.0.0-readiness.md#proposed-graduation-gates)
-and [support matrix/compatibility rules](v1.0.0-support.md) before freezing new
-validation. Remaining work includes supported native user journeys, candidate
+and [support matrix/compatibility rules](v1.0.0-support.md), then review the
+[bounded validation plan](v1.0.0-validation-plan.md) before freezing new validation.
+Review the [Wave 1 preparation and blockers](../evals/v1-readiness/wave1/README.md#isolation-evidence-and-blockers)
+before selecting a protected native environment and a distinct candidate.
+Remaining work includes supported native user journeys, candidate
 upgrade/preservation checks and an outside-user pilot with
 outside artifact review. Existing authored tests and maintainer daily use support
 that work but do not close those gates. Criteria preparation authorizes no outreach,

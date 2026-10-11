@@ -1,0 +1,123 @@
+{
+  "status": "synthetic review recipes; not native outputs",
+  "groups": {
+    "journey": [
+      "project"
+    ],
+    "upgrade-clean": [
+      "upgrade-clean"
+    ],
+    "upgrade-custom": [
+      "upgrade-custom"
+    ],
+    "core-only": [
+      "no-git"
+    ],
+    "boundaries": [
+      "tracked",
+      "privacy",
+      "off"
+    ]
+  },
+  "projects": {
+    "project": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n"
+      }
+    },
+    "upgrade-clean": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n\nContext entry point: notes/state.md\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n\nAfter meaningful work, use context-docs to maintain the context entry point. Preserve decisions, rationale, current work, blockers, next steps and uncertainty. Audit requests are read-only.\n\n## Context documentation\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/state.md\nEvent journal: off\nContext Docs logging preference: auto\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n",
+        "notes/state.md": "# Project context\n\nConfigured timeout: 45 seconds; retry attempts: 2 (config/service.json). Runtime deployment unverified. Earlier timeout of 10 seconds is superseded by current configuration.\n\nOwner-approved decision: keep the existing export API because consumers require compatibility (notes/owner-decisions.md).\n\nProposal: increase retry attempts to five; not approved.\n\nExport is implemented; empty-input regression testing remains pending.\nDataset review is blocked by a missing anonymized sample. Request the sample next.\nNext engineering task: add the empty-input regression test before declaring export complete.\n",
+        ".gitignore": ".context/events/\n",
+        ".context/events/old.jsonl": "{\"schema_version\":1,\"event_id\":\"00000000-0000-4000-8000-000000000001\",\"recorded_at\":\"2026-10-01T00:00:00Z\",\"session_id\":\"synthetic-original\",\"type\":\"context_update\",\"status\":\"observed\",\"actor\":\"Synthetic Fixture\",\"summary\":\"Synthetic historic sentinel; preserve byte-for-byte.\",\"sources\":[\"notes/owner-decisions.md\"],\"revision\":\"synthetic fixture baseline\"}\n"
+      }
+    },
+    "upgrade-custom": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n\nContext entry point: notes/state.md\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n\nAfter meaningful work, use context-docs to maintain the context entry point. Preserve decisions, rationale, current work, blockers, next steps and uncertainty. Audit requests are read-only.\n\n## Context documentation\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/state.md\nEvent journal: jsonl\nEvent journal directory: .context/events\nContext Docs logging preference: auto\n\nEquivalent local wording: retain the project term \"dataset review\".\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n",
+        "notes/state.md": "# Project context\n\nConfigured timeout: 45 seconds; retry attempts: 2 (config/service.json). Runtime deployment unverified. Earlier timeout of 10 seconds is superseded by current configuration.\n\nOwner-approved decision: keep the existing export API because consumers require compatibility (notes/owner-decisions.md).\n\nProposal: increase retry attempts to five; not approved.\n\nExport is implemented; empty-input regression testing remains pending.\nDataset review is blocked by a missing anonymized sample. Request the sample next.\nNext engineering task: add the empty-input regression test before declaring export complete.\n\nLocal terminology: dataset review.\n",
+        ".gitignore": ".context/events/\n",
+        ".context/events/old.jsonl": "{\"schema_version\":1,\"event_id\":\"00000000-0000-4000-8000-000000000001\",\"recorded_at\":\"2026-10-01T00:00:00Z\",\"session_id\":\"synthetic-original\",\"type\":\"context_update\",\"status\":\"observed\",\"actor\":\"Synthetic Fixture\",\"summary\":\"Synthetic historic sentinel; preserve byte-for-byte.\",\"sources\":[\"notes/owner-decisions.md\"],\"revision\":\"synthetic fixture baseline\"}\n"
+      }
+    },
+    "no-git": {
+      "git": false,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n"
+      }
+    },
+    "tracked": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n\nAfter meaningful work, use context-docs to maintain the context entry point. Preserve decisions, rationale, current work, blockers, next steps and uncertainty. Audit requests are read-only.\n\n## Context documentation\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: .context/local/context.md\nEvent journal: off\nContext Docs logging preference: auto\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n",
+        ".gitignore": ".context/events/\n",
+        ".context/events/old.jsonl": "{\"schema_version\":1,\"event_id\":\"00000000-0000-4000-8000-000000000001\",\"recorded_at\":\"2026-10-01T00:00:00Z\",\"session_id\":\"synthetic-original\",\"type\":\"context_update\",\"status\":\"observed\",\"actor\":\"Synthetic Fixture\",\"summary\":\"Synthetic historic sentinel; preserve byte-for-byte.\",\"sources\":[\"notes/owner-decisions.md\"],\"revision\":\"synthetic fixture baseline\"}\n",
+        ".context/local/context.md": "# Project context\n\nConfigured timeout: 45 seconds; retry attempts: 2 (config/service.json). Runtime deployment unverified. Earlier timeout of 10 seconds is superseded by current configuration.\n\nOwner-approved decision: keep the existing export API because consumers require compatibility (notes/owner-decisions.md).\n\nProposal: increase retry attempts to five; not approved.\n\nExport is implemented; empty-input regression testing remains pending.\nDataset review is blocked by a missing anonymized sample. Request the sample next.\nNext engineering task: add the empty-input regression test before declaring export complete.\n"
+      }
+    },
+    "privacy": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n\nAfter meaningful work, use context-docs to maintain the context entry point. Preserve decisions, rationale, current work, blockers, next steps and uncertainty. Audit requests are read-only.\n\n## Context documentation\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: .context/local/context.md\nContext storage: local-only\nEvent journal: off\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n",
+        ".gitignore": ".context/local/\n",
+        ".context/local/context.md": "# Project context\n\nConfigured timeout: 45 seconds; retry attempts: 2 (config/service.json). Runtime deployment unverified. Earlier timeout of 10 seconds is superseded by current configuration.\n\nOwner-approved decision: keep the existing export API because consumers require compatibility (notes/owner-decisions.md).\n\nProposal: increase retry attempts to five; not approved.\n\nExport is implemented; empty-input regression testing remains pending.\nDataset review is blocked by a missing anonymized sample. Request the sample next.\nNext engineering task: add the empty-input regression test before declaring export complete.\n\nPrivate synthetic canary: LOCAL_CONTEXT_CANARY_71BD\nPrivate owner-approved exploration: postpone a regional pricing experiment until internal approval; keep it out of shared docs.\n",
+        "public-api.json": "{\"export_endpoint\":\"/api/export.csv\"}\n"
+      }
+    },
+    "off": {
+      "git": true,
+      "files": {
+        "README.md": "# Harbor Export (synthetic fixture)\nSmall offline CSV utility. No production service or customer data.\n",
+        "AGENTS.md": "# Synthetic project instructions\nPreserve owner-work.txt and saved-study.bin, including staged state. No deployments or commits.\n\nAfter meaningful work, use context-docs to maintain the context entry point. Preserve decisions, rationale, current work, blockers, next steps and uncertainty. Audit requests are read-only.\n\n## Context documentation\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: .context/local/context.md\nContext storage: local-only\nEvent journal: off\nContext Docs logging preference: auto\nEvent journal directory: .context/events\n",
+        "CLAUDE.md": "@AGENTS.md\n",
+        "config/service.json": "{\"timeout_seconds\": 45, \"retry_attempts\": 2}\n",
+        "service.py": "import json\nfrom pathlib import Path\n\ndef configuration():\n    return json.loads((Path(__file__).parent / \"config/service.json\").read_text())\n\ndef export_csv(rows):\n    return \"\\n\".join(\",\".join(row) for row in rows)\n",
+        "notes/handoff.md": "# Earlier handoff\nConfigured timeout: 10 seconds (earlier note, not checked against current config).\nExport is implemented. Empty-input testing remains pending.\n",
+        "notes/owner-decisions.md": "# Synthetic owner evidence, October 1, 2026\nApproved: keep the existing export API, because consumers require compatibility.\nProposal only: increase retry attempts to five; no owner approval exists.\nDataset review remains blocked by a missing anonymized sample; request the sample next.\nRuntime deployment has not been observed. Configuration is not proof of deployment.\nNext engineering task: add an empty-input regression test before declaring export complete.\n",
+        ".gitignore": ".context/local/\n.context/events/*.jsonl\n!.context/events/exposed.jsonl\n",
+        ".context/local/context.md": "# Project context\n\nConfigured timeout: 45 seconds; retry attempts: 2 (config/service.json). Runtime deployment unverified. Earlier timeout of 10 seconds is superseded by current configuration.\n\nOwner-approved decision: keep the existing export API because consumers require compatibility (notes/owner-decisions.md).\n\nProposal: increase retry attempts to five; not approved.\n\nExport is implemented; empty-input regression testing remains pending.\nDataset review is blocked by a missing anonymized sample. Request the sample next.\nNext engineering task: add the empty-input regression test before declaring export complete.\n\nPrivate synthetic canary: LOCAL_CONTEXT_CANARY_71BD\nPrivate owner-approved exploration: postpone a regional pricing experiment until internal approval; keep it out of shared docs.\n",
+        ".context/events/exposed.jsonl": "{\"schema_version\":1,\"event_id\":\"00000000-0000-4000-8000-000000000001\",\"recorded_at\":\"2026-10-01T00:00:00Z\",\"session_id\":\"synthetic-original\",\"type\":\"context_update\",\"status\":\"observed\",\"actor\":\"Synthetic Fixture\",\"summary\":\"Synthetic historic sentinel; preserve byte-for-byte.\",\"sources\":[\"notes/owner-decisions.md\"],\"revision\":\"synthetic fixture baseline\"}\n"
+      }
+    }
+  }
+}
