@@ -11,19 +11,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest published bundle is described in the [v0.1.8 release notes](docs/releases/v0.1.8.md).
+The latest published bundle is described in the [v0.1.9 release notes](docs/releases/v0.1.9.md).
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## context-docs 0.1.9 — Unreleased
+## context-docs 0.1.9 — 2026-10-11 (bundled in `v0.1.9`)
 
-- Prepare [v0.1.9 release notes](docs/releases/v0.1.9.md) on October 11 and update
-  the website's setup guidance and draft-release links. Keep both pages marked
-  unreleased, SEO titles without em dashes and the nine-file public build boundary.
+- Prepared [v0.1.9 release notes](docs/releases/v0.1.9.md) on October 11 and update
+  the website's setup guidance and draft-release links. Preparation kept both
+  pages marked unreleased, SEO titles without em dashes and the nine-file public
+  build boundary. Publication switches those labels to released.
   The [preparation record](docs/releases/v0.1.9-validation.json) separates earlier
   fix-commit CI/native evidence from current local preparation checks. No new
-  agent study, publication, installation or setup change is performed.
+  agent study, publication, installation or setup change was performed by preparation.
 - Clarify initialization from earlier notes: check relevant project sources before
   importing current implementation/configuration claims, while retaining decisions
   and unresolved work. Adoption inherits the core rule; its package is unchanged.
@@ -38,7 +39,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   reliability or causal accuracy advantage. Local checks: seven focused controls,
   23 local-only controls, 17 static-checker tests, 12 site tests, repository static
   checks and site build. Existing installations, adoption setup and saved study
-  artifacts are preserved; this candidate is not published or installed.
+  artifacts were preserved; the focused fix did not update installed skills.
 - Claude Opus 5.5 reviewed the focused change and evidence; Sol integrated and
   validated it. Both package metadata validators pass using a disposable PyYAML
   environment; the initial system/bundled Python attempts lacked that dependency.

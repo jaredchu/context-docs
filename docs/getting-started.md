@@ -142,7 +142,7 @@ initialization workflow.
 
 ### Starting from earlier notes
 
-Core v0.1.9 (unreleased) makes the source check explicit during initialization:
+Core v0.1.9 makes the source check explicit during initialization:
 the agent should check current implementation or configuration claims against
 relevant project sources before carrying them into the new context. It should preserve approved
 decisions, their rationale and unfinished work. For example, old notes may report
@@ -292,6 +292,5 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[draft v0.1.9 upgrade notes](releases/v0.1.9.md#installation-and-upgrade) for the
-prepared source-selection update; [v0.1.8](releases/v0.1.8.md) remains the latest
-published bundle.
+[v0.1.9 upgrade notes](releases/v0.1.9.md#installation-and-upgrade) for the
+source-selection update.

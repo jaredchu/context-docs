@@ -1,7 +1,7 @@
 # Project context
 
-Current release preparation reviewed: 2026-10-11. Historical evaluations and live
-deployment were not rerun or reverified.
+Release publication authorized: 2026-10-11. Release-status checks and deployment
+are in progress; historical evaluations are not rerun.
 
 ## Purpose and scope
 
@@ -45,10 +45,10 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
+- Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
-- Working candidate: core **0.1.9**, unreleased; adoption remains **0.1.9**.
+- Publishing bundle: core **0.1.9**; adoption remains **0.1.9**.
   The [focused source-selection check](../evals/source-selection/README.md)
   reproduces importing a stale timeout from earlier notes in one of two released
   core trials. Initialization now explicitly checks relevant project sources
@@ -58,11 +58,12 @@ Earlier release approvals do not authorize new publication.
   and native outcomes are recorded separately; these trials establish no general
   reliability improvement.
   [v0.1.9 release notes](releases/v0.1.9.md) and the website update are
-  prepared and reviewed, with source-checking guidance and draft-release links. Both built
-  pages remain marked unreleased. The [preparation record](releases/v0.1.9-validation.json)
+  prepared and reviewed, with source-checking guidance. Release-status labels now
+  identify the experimental v0.1.9 bundle. The [preparation record](releases/v0.1.9-validation.json)
   owns current local checks and package identities; the fix commit's passing
-  Actions precede this preparation. Publication, deployment and installed upgrades
-  remain pending authorization for those actions.
+  Actions precede this preparation. The owner authorized release creation and
+  deployment after preparation commit `f8c95d6` passed both Actions workflows.
+  Installed upgrades remain a separate action.
 - The released v0.1.8 bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
@@ -148,8 +149,9 @@ is still a proposal.
 The source-selection fix is committed and pushed as `45bc88f`; its static and
 landing-page Actions passed. The v0.1.9 release notes and website update pass
 59 local tests, static checks and desktop/mobile previews; Opus 5.5's focused
-review has no material blocker. Check Actions for the preparation commit before
-authorized release creation and deployment. Installed upgrades
+review has no material blocker. Preparation commit `f8c95d6` passed both Actions
+workflows. Check the release-status commit before publication and deployment,
+then verify the live artifact. Installed upgrades
 remain a separate action; existing setups and saved study evidence stay preserved.
 
 ## Canonical references
