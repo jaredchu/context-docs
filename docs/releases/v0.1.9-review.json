@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-11",
+  "reviewer": "claude-opus-5-5",
+  "responding_models": [
+    "claude-opus-5-5"
+  ],
+  "scope": "One bounded read-only release-claim and website-copy review of supplied packet; no new subject evaluation, commands, network or independent hash recomputation.",
+  "execution": {
+    "exit_code": 0,
+    "timeout": false,
+    "seconds": 24.16,
+    "models": [
+      "claude-opus-5-5"
+    ],
+    "terminal_success": true
+  },
+  "review_text": "I found no material blocker. Two low-to-medium wording fixes are worth making before you commit.\n\nThis was one read-only review of the packet. I made no edits, ran no commands, used no network and delegated nothing. I didn't recompute any hashes or open the full site files.\n\n**Requested checks: all pass on the packet evidence**\n- **Unreleased status:** the notes, CHANGELOG, README, project-context and the publication block all say v0.1.9 is unreleased and v0.1.8 is the latest published bundle. No tag, release, deployment or installed-skill update is claimed.\n- **Adoption package and standard unchanged:** `changes_from_v0.1.8` lists only `context-docs/SKILL.md` and `VERSION`, and the standard stays at 0.1.1. The notes and CHANGELOG say this consistently.\n- **Mixed baseline and limits:** the notes report one stale baseline and one correct baseline. They keep the \"no causal accuracy advantage, general reliability, privacy, implicit-selection, instruction-loading or user-effort benefit\" limit, the canary caveat, the blocked attempt and the unconfirmed GPT 6.1 Sol identity.\n- **Earlier CI not claimed for these edits:** the notes, the validation record (`fix_commit_ci.scope`) and project-context all say the 45bc88f runs came before this diff and that the new commit needs its own Actions checks.\n- **Upgrades preserve rules and settings:** maintenance rules, adoption dates, paths, ignore rules, logging settings and event history are kept. The notes say an update doesn't enable logging, that explicit project settings win, and that no migration is needed.\n- **Website:** both pages say the source check \"needs no extra skill invocation\" or is \"part of setup\". The diff doesn't touch any `<title>` or meta tags, and the em dashes it does contain are in CHANGELOG and README text, not SEO titles. There's no new privacy or reliability guarantee, and the getting-started page keeps the \"configuration does not verify runtime\" caveat.\n\n**Findings**\n\n1. **Medium: the preservation claim is ahead of its evidence.** The notes say \"Saved study artifacts, previous release records and existing setups are preserved.\" But the validation record shows `\"preservation\": {\"status\": \"pending\"}` and `\"review\": {\"status\": \"pending\"}`. Either run and record the preservation check before committing, or reword the sentence as intent (\"are not modified by this preparation; preservation check pending\"). The same applies to `visual_preview: \"pending\"` if the notes or CHANGELOG suggest the website was visually checked. Currently they don't.\n\n2. **Low: one sentence in `docs/getting-started.md` reads as if v0.1.9 is released.** \"Core v0.1.9 makes the source check explicit\u2026\" has no draft qualifier in that section. The upgrade section is correctly qualified. Suggested wording: \"Core v0.1.9 (unreleased draft) makes\u2026\".\n\n3. **Low: the homepage loses the runtime caveat.** In `site/index.html` step 01, the new sentence describes source checking but drops \"configuration does not verify runtime behavior\", which the getting-started page keeps. It also says \"the adoption skill\u2026 asks\", while the rule actually comes from the core skill. That's acceptable shorthand, but adding the short caveat would keep the two pages consistent and avoid implying the check proves runtime behavior.\n\n4. **Low: the new draft links will 404 until the notes are pushed.** Both site pages link to `blob/main/docs/releases/v0.1.9.md`, which won't exist until this preparation is pushed. Your stated order (commit, push, check Actions, then deploy) already avoids this, so just keep deployment after the push.\n\nNo follow-up review is needed unless finding 1 is fixed by actually running the preservation check, since that would add new evidence.",
+  "integration": {
+    "preservation": "Fresh hash comparison passed for all existing evaluation files, skills, installed packages, journals, setup and prior release records; now recorded.",
+    "draft_guide": "Added explicit unreleased qualifier to the core v0.1.9 guide description.",
+    "runtime_scope": "Added configuration/runtime distinction to the landing page setup paragraph.",
+    "draft_links": "Release-note source links become available after committing/pushing preparation, before any authorized deployment."
+  },
+  "followup": {
+    "execution": {
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 21.74,
+      "models": [
+        "claude-opus-5-5"
+      ],
+      "terminal_success": true
+    },
+    "review_text": "No material blockers. I checked only what you asked for: whether the initial findings are resolved and whether the release-count and scope wording holds up. I made no edits, ran no commands, used no network and delegated nothing. I read the three files, listed `docs/releases/` and searched the guide and landing page for the changed wording. I did not recompute any hashes.\n\n**Initial findings**\n1. **Preservation claim (was Medium): resolved.** `preservation.status` is now `\"pass\"`, and the record states the method: a SHA-256 comparison against the fresh baseline. The counts in the record match your summary:\n   - 2031 evaluation files\n   - 15 package files, which matches the 15 entries in `packaged_files`\n   - 30 installed files (11 + 4 + 11 + 4)\n   - 39 journal files\n   - 9 earlier release records\n   - 3 setup files\n\n   The review record keeps my limit that I didn't recompute hashes.\n2. **Guide read as released: resolved.** `docs/getting-started.md:145` now says \"Core v0.1.9 (unreleased)\".\n3. **Landing page lost the runtime caveat: resolved.** `site/index.html:46` now ends with \"Configuration alone does not prove runtime behavior.\"\n4. **Draft links would 404 before pushing: handled.** This was about the order of steps, and both the notes and the review record keep deployment after the push.\n\n**Release count and scope:** the wording is accurate.\n- `docs/releases/` holds exactly 9 records from before v0.1.9: v0.1.3, v0.1.4 and v0.1.5 have notes only, and v0.1.6 and v0.1.8 each have notes, a review and a validation record.\n- \"Nine explicitly allowed public files\" matches the 9 entries in `public_artifact_files`.\n- The latest published bundle is still given as v0.1.8.\n- No tag, release, deployment, installed-skill update or new subject sessions are claimed.\n\n**Before committing (not blockers):**\n- `v0.1.9-validation.json` still has `\"visual_preview\": \"pending\"`, but `v0.1.9.md:63-64` says preparation runs \"with desktop/mobile previews\". Record the desktop/mobile pass once the refreshed screenshots are done.\n- Set `review.status` in the validation record and `followup` in the review record to their final values.",
+    "resolution": "No material blocker; final preview and review statuses now recorded."
+  }
+}

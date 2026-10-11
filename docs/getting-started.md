@@ -140,6 +140,16 @@ the linked context before working. A context file's presence alone does not ensu
 that an agent will read it. This routing is already part of the skill's
 initialization workflow.
 
+### Starting from earlier notes
+
+Core v0.1.9 (unreleased) makes the source check explicit during initialization:
+the agent should check current implementation or configuration claims against
+relevant project sources before carrying them into the new context. It should preserve approved
+decisions, their rationale and unfinished work. For example, old notes may report
+a 10-second timeout while configuration sets 20; record the configured value and
+distinguish the older claim. Configuration alone does not verify runtime behavior.
+This is part of the skill's setup guidance and needs no additional invocation.
+
 ## Local-only context (excluded from Git)
 
 Core v0.1.8 and adoption v0.1.9 provide an explicit local-only option. Existing
@@ -282,4 +292,6 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[v0.1.8 upgrade notes](releases/v0.1.8.md#installation-and-upgrade).
+[draft v0.1.9 upgrade notes](releases/v0.1.9.md#installation-and-upgrade) for the
+prepared source-selection update; [v0.1.8](releases/v0.1.8.md) remains the latest
+published bundle.

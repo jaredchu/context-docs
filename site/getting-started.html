@@ -28,6 +28,7 @@
     <h1>Start here.<br><span>Keep what matters.</span></h1>
     <p class="guide-lead">You don't need to design a documentation system. Install two skills, use them in one project, and leave the next session a useful place to start.</p>
     <p class="guide-meta">For Codex and Claude Code · Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
+    <p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.1.9.md">v0.1.9 release notes (draft)</a></p>
   </header>
   <div class="guide-layout">
     <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#local-only">Local-only context</a><a href="#questions">Common questions</a></nav>
@@ -48,6 +49,7 @@
         <p>Open <strong>the project you want to maintain</strong> in your coding agent. If you used the clone commands above, use <code>cd</code> to enter your own project folder, then start a new Claude Code session there.</p>
         <div class="guide-commands"><div><h3>In Codex</h3><code>$adopt-context-docs</code></div><div><h3>In Claude Code</h3><code>/adopt-context-docs</code></div></div>
         <p>The agent inspects existing documentation, reuses a suitable context entry point or creates one, and adds or reuses a maintenance rule in project instructions. It should fit the project's layout, rather than move everything into a new structure.</p>
+        <p>Starting from older notes? The skill asks the agent to check current-state claims against relevant code or configuration and preserve decisions and unfinished work. A configuration value does not verify runtime behavior. This is part of setup; it needs no extra skill invocation.</p>
         <h3>Before you move on</h3>
         <ul><li>Find the <strong>context entry point</strong>: the starting document linked from the README or documentation index. Its actual path is also recorded in the adoption marker.</li><li>Check that the maintenance rule is in instructions your agent actually loads. The <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#install-in-claude-code">Claude Code reference</a> explains how to confirm this.</li><li>Review what was written. Correct unsupported claims and keep private or machine-specific information out of shared docs.</li></ul>
         <p>You do not need to enable event logging to use this workflow. Existing logging settings are preserved; optional logging is explained in the <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#optional-logging">reference guide</a>.</p>

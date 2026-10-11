@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-11",
+  "status": "unreleased preparation",
+  "fix_commit": "45bc88f756dcf6b76abba69bd9df8b29c4e543f4",
+  "packages": {
+    "context-docs": "0.1.9",
+    "adopt-context-docs": "0.1.9",
+    "standard": "0.1.1"
+  },
+  "packaged_files": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "73d9520415566b26027337305274f5b95533825168cdd2444084d840f85d713d",
+    "skills/adopt-context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "e4645bb76be8b313c4c8b4c1cadceacd0098d18ea60eceaa9d0bc8147ab398fb",
+    "skills/context-docs/VERSION": "e358d84552808a5c0bd6679d690c283b938ebe15c2bd843c898681d093213107",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "changes_from_v0.1.8": [
+    "skills/context-docs/SKILL.md",
+    "skills/context-docs/VERSION"
+  ],
+  "native_identity": {
+    "source": "evals/source-selection/summary.json",
+    "matched_files_per_candidate": 15,
+    "candidate_sessions": 2,
+    "packages_match_current": true,
+    "new_native_sessions_in_preparation": 0,
+    "limit": "Frozen supplied-package identities match; prior native outcomes are not new release-preparation trials."
+  },
+  "fix_commit_ci": {
+    "static_checks": {
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38069028575",
+      "head_sha": "45bc88f756dcf6b76abba69bd9df8b29c4e543f4",
+      "conclusion": "success"
+    },
+    "landing_page": {
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38069028597",
+      "head_sha": "45bc88f756dcf6b76abba69bd9df8b29c4e543f4",
+      "conclusion": "success"
+    },
+    "scope": "These passing runs precede this local release-preparation diff. Its future commit needs its own Actions checks."
+  },
+  "preparation_checks": {
+    "unit_tests": {
+      "source_selection": 7,
+      "local_only": 23,
+      "static_checker": 17,
+      "site": 12,
+      "total": 59,
+      "result": "pass"
+    },
+    "static_checks": {
+      "relative_links": 1221,
+      "published_tables": 5,
+      "skills": 2,
+      "versions": 2,
+      "result": "pass"
+    },
+    "site_build": "pass",
+    "public_artifact_files": {
+      ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "getting-started/index.html": "bbc51f1010182fad75953343ff6cc4452adfb8591866d81bdfab144c4267a98d",
+      "index.html": "a9afe535db259b243f36bf525ec5db19f095be3a1c6d57e3bfb2b1f5befb74db",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+      "styles.css": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23"
+    },
+    "page_status": "Both HTML pages: experimental, unreleased, core 0.1.9/adoption 0.1.9",
+    "diff_check": "pass",
+    "visual_preview": {
+      "renderer": "Existing headless Chrome through bundled Playwright; isolated temporary profile, loopback-only page requests",
+      "checks": [
+        {
+          "page": "/",
+          "width": 1440,
+          "title": "Context Docs: pick up where you left off",
+          "status": "unreleased",
+          "horizontal_overflow": false,
+          "page_errors": []
+        },
+        {
+          "page": "/getting-started/",
+          "width": 1440,
+          "title": "Get started with Context Docs",
+          "status": "unreleased",
+          "horizontal_overflow": false,
+          "page_errors": []
+        },
+        {
+          "page": "/",
+          "width": 390,
+          "title": "Context Docs: pick up where you left off",
+          "status": "unreleased",
+          "horizontal_overflow": false,
+          "page_errors": []
+        },
+        {
+          "page": "/getting-started/",
+          "width": 390,
+          "title": "Get started with Context Docs",
+          "status": "unreleased",
+          "horizontal_overflow": false,
+          "page_errors": []
+        }
+      ],
+      "status": "pass",
+      "inspection": "Codex inspected final desktop landing/setup and mobile guide/setup screenshots; no clipped or overlapping content observed in those views.",
+      "limits": "Local preview only; no live deployment, crawler access or indexing verification."
+    },
+    "new_native_subject_sessions": 0
+  },
+  "preservation": {
+    "status": "pass",
+    "method": "SHA-256 comparison against the fresh pre-preparation baseline; exact existing file sets except new v0.1.9 release records.",
+    "checks": {
+      "evaluations": {
+        "original_files": 2031,
+        "original_bytes_preserved": true
+      },
+      "skills": {
+        "original_files": 15,
+        "original_bytes_preserved": true
+      },
+      "codex_core": {
+        "original_files": 11,
+        "original_bytes_preserved": true
+      },
+      "codex_adopt": {
+        "original_files": 4,
+        "original_bytes_preserved": true
+      },
+      "claude_core": {
+        "original_files": 11,
+        "original_bytes_preserved": true
+      },
+      "claude_adopt": {
+        "original_files": 4,
+        "original_bytes_preserved": true
+      },
+      "journals": {
+        "original_files": 39,
+        "original_bytes_preserved": true
+      },
+      "previous_releases": {
+        "original_files": 9,
+        "original_bytes_preserved": true
+      },
+      "setup": {
+        "original_files": 3,
+        "original_bytes_preserved": true
+      }
+    },
+    "final_check": "Passed after preparation: every baseline byte/file retained; only three new v0.1.9 release records and one new enabled-journal record added in protected directories."
+  },
+  "review": {
+    "status": "pass; no material blocker",
+    "record": "docs/releases/v0.1.9-review.json",
+    "responding_model": "claude-opus-5-5",
+    "scope": "One initial and one focused follow-up read-only review; no independent hash recomputation or new behavior trial."
+  },
+  "publication": {
+    "github_release": "not created",
+    "tag": "not created",
+    "website": "local build only; deployment not performed",
+    "installed_skills": "not updated",
+    "latest_published_bundle": "v0.1.8"
+  }
+}

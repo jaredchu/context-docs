@@ -1,6 +1,7 @@
 # Project context
 
-Current state reviewed: 2026-10-10. Historical evaluations were not rerun.
+Current release preparation reviewed: 2026-10-11. Historical evaluations and live
+deployment were not rerun or reverified.
 
 ## Purpose and scope
 
@@ -56,6 +57,12 @@ Earlier release approvals do not authorize new publication.
   existing setup and earlier study artifacts remain unchanged. Mechanical checks
   and native outcomes are recorded separately; these trials establish no general
   reliability improvement.
+  [v0.1.9 release notes](releases/v0.1.9.md) and the website update are
+  prepared and reviewed, with source-checking guidance and draft-release links. Both built
+  pages remain marked unreleased. The [preparation record](releases/v0.1.9-validation.json)
+  owns current local checks and package identities; the fix commit's passing
+  Actions precede this preparation. Publication, deployment and installed upgrades
+  remain pending authorization for those actions.
 - The released v0.1.8 bundle adds
   explicit [local-only context](getting-started.md#local-only-context-excluded-from-git)
   while preserving existing setups. Storage, ignored-entry discovery and sharing
@@ -138,10 +145,12 @@ feedback; it is not independent validation. New studies need a fresh freeze and
 must preserve earlier results; the [discrimination protocol](../evals/discrimination-protocol.md)
 is still a proposal.
 
-The local-only follow-up's stale-source finding now has a focused reproduction
-and an unreleased initialization fix. Review the candidate diff and its recorded
-checks before deciding whether to publish it; earlier release approval does not
-authorize this candidate's publication or updates to installed skills.
+The source-selection fix is committed and pushed as `45bc88f`; its static and
+landing-page Actions passed. The v0.1.9 release notes and website update pass
+59 local tests, static checks and desktop/mobile previews; Opus 5.5's focused
+review has no material blocker. Check Actions for the preparation commit before
+authorized release creation and deployment. Installed upgrades
+remain a separate action; existing setups and saved study evidence stay preserved.
 
 ## Canonical references
 

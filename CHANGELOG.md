@@ -18,6 +18,12 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 
 ## context-docs 0.1.9 — Unreleased
 
+- Prepare [v0.1.9 release notes](docs/releases/v0.1.9.md) on October 11 and update
+  the website's setup guidance and draft-release links. Keep both pages marked
+  unreleased, SEO titles without em dashes and the nine-file public build boundary.
+  The [preparation record](docs/releases/v0.1.9-validation.json) separates earlier
+  fix-commit CI/native evidence from current local preparation checks. No new
+  agent study, publication, installation or setup change is performed.
 - Clarify initialization from earlier notes: check relevant project sources before
   importing current implementation/configuration claims, while retaining decisions
   and unresolved work. Adoption inherits the core rule; its package is unchanged.

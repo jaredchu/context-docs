@@ -174,7 +174,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [Release notes](docs/releases/v0.1.8.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Draft v0.1.9 release notes](docs/releases/v0.1.9.md) · [Published v0.1.8 notes](docs/releases/v0.1.8.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)
