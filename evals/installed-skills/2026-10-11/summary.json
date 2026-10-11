@@ -1,0 +1,237 @@
+{
+  "date": "2026-10-11",
+  "release": "v0.1.9",
+  "package_versions": {
+    "core": "0.1.9",
+    "adoption": "0.1.9"
+  },
+  "status": "qualified smoke outcomes; original Claude isolated-loader checks do not pass installed-skill use",
+  "subjects": {
+    "codex-adopt": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 52.08,
+        "responding_models": [],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 180
+      },
+      "fixture_changes": [
+        "AGENTS.md",
+        "README.md",
+        "docs/context.md"
+      ],
+      "fixture_original_bytes_and_git_state_preserved": true,
+      "configured_timeout": 45,
+      "source_read_observed": true,
+      "context_output_sha256": "7370cb4a026fcbbdf13973d8f464deb4fdfcfb2cfa7ffbe9aa233a19c06281b3",
+      "context_output": "# Cedar project context\n\nCedar is a synthetic utility and public fixture; see the [README](../README.md).\nThis is the shared entry point for current facts, decisions and unfinished work.\nThe [2026-10-01 handoff](../notes/handoff.md) remains historical source evidence.\n\n## Current state\n\nOn 2026-10-11, [config/service.yaml](../config/service.yaml) sets\n`request_timeout_seconds: 45`. This supersedes the handoff's 15-second claim\nfor current configuration. It does not establish the runtime timeout.\nThe handoff reports no runtime or deployment verification evidence; none was\nestablished during this documentation adoption.\n\n## Decisions and constraints\n\nThe handoff records the owner's approval to retain SQLite for the pilot to avoid\nmigration work. It identifies PostgreSQL as a proposal, neither approved nor\nimplemented at the time of the handoff. Current storage implementation has not\nbeen verified; preserve the approval and proposal status.\n\nFollow the [project instructions](../AGENTS.md): preserve manual owner review\nbefore any release, preserve unfinished owner work, and do not edit configuration\nduring documentation tasks. Event logging remains off.\n\n## Unfinished work and next actions\n\nThe handoff reports restore testing blocked on a representative synthetic dataset.\nCarry this blocker forward: obtain that dataset before restore testing. Dataset\navailability and subsequent restore-test results have not been established.\n\nPreserve the unfinished work in [owner-work.txt](../owner-work.txt); adoption does\nnot complete or authorize changes to it.\n",
+      "decision_authority_rationale_proposal_blocker_next_step": "preserved on coordinator semantic inspection",
+      "runtime_deployment": "unverified in output",
+      "catalog": "not exposed in Codex JSON events",
+      "skill_tool_calls": [],
+      "installed_core_read": true,
+      "installed_skill_use_result": "pass",
+      "discovery_result": "Codex read both installed skills without supplied paths; inventory exposure unconfirmed",
+      "automatic_instruction_loading": "unconfirmed independently; agent self-report is not sufficient"
+    },
+    "codex-maintain": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 33.72,
+        "responding_models": [],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 180
+      },
+      "fixture_changes": [
+        "docs/context.md"
+      ],
+      "fixture_original_bytes_and_git_state_preserved": true,
+      "configured_timeout": 60,
+      "source_read_observed": true,
+      "context_output_sha256": "c3f8c8c19f52c9fd93113f52a9a0dfa474987b0733ffe3ed5bcdb2aaea616cd0",
+      "context_output": "# Cedar project context\n\nCedar is a synthetic utility and public fixture; see the [README](../README.md).\nThis is the shared entry point for current facts, decisions and unfinished work.\nThe [2026-10-01 handoff](../notes/handoff.md) remains historical source evidence.\n\n## Current state\n\nOn 2026-10-11, [config/service.yaml](../config/service.yaml) sets\n`request_timeout_seconds: 60`. This supersedes the 45-second value recorded during\ndocumentation adoption and the handoff's 15-second claim for current\nconfiguration. It does not establish the runtime timeout.\nThe handoff reports no runtime or deployment verification evidence; none was\nfound in the current project files during this documentation review.\n\n## Decisions and constraints\n\nThe handoff records the owner's approval to retain SQLite for the pilot to avoid\nmigration work. It identifies PostgreSQL as a proposal, neither approved nor\nimplemented at the time of the handoff. Current storage implementation has not\nbeen verified; preserve the approval and proposal status.\n\nFollow the [project instructions](../AGENTS.md): preserve manual owner review\nbefore any release, preserve unfinished owner work, and do not edit configuration\nduring documentation tasks. Event logging remains off.\n\n## Unfinished work and next actions\n\nThe handoff reports restore testing blocked on a representative synthetic dataset.\nCarry this blocker forward: obtain that dataset before restore testing. Dataset\navailability and subsequent restore-test results have not been established.\n\nPreserve the unfinished work in [owner-work.txt](../owner-work.txt); maintenance does\nnot complete or authorize changes to it.\n",
+      "decision_authority_rationale_proposal_blocker_next_step": "preserved on coordinator semantic inspection",
+      "runtime_deployment": "unverified in output",
+      "catalog": "not exposed in Codex JSON events",
+      "skill_tool_calls": [],
+      "installed_core_read": true,
+      "installed_skill_use_result": "pass",
+      "discovery_result": "Read installed core without supplied paths; inventory exposure unconfirmed",
+      "automatic_instruction_loading": "unconfirmed independently; agent self-report is not sufficient"
+    },
+    "claude-adopt": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 43.41,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 180
+      },
+      "fixture_changes": [
+        "AGENTS.md",
+        "README.md",
+        "docs/context.md"
+      ],
+      "fixture_original_bytes_and_git_state_preserved": true,
+      "configured_timeout": 45,
+      "source_read_observed": true,
+      "context_output_sha256": "cdd65291f192294533d997b9ac1a19134886bc673ccd5c13970a98540bd903a1",
+      "context_output": "# Cedar project context\n\n## Purpose and scope\n\nCedar is a synthetic utility kept as a public fixture. See the [README](../README.md)\nand the project rules in [AGENTS.md](../AGENTS.md).\n\n## Current state\n\n- Request timeout: `config/service.yaml` sets `request_timeout_seconds: 45`\n  (configuration checked 2026-10-11). The [earlier notes](../notes/handoff.md)\n  (2026-10-01) record 15 seconds; see open questions. Runtime behavior is not verified.\n- There is no runtime or deployment verification evidence (per earlier notes).\n- `owner-work.txt` is uncommitted owner work; preserve it as is.\n\n## Decisions and constraints\n\n- **Approved:** retain SQLite for the pilot to avoid migration work (owner, recorded\n  in the [earlier notes](../notes/handoff.md)).\n- **Proposed only:** PostgreSQL; it has not been approved or implemented.\n- Manual owner review is required before any release ([AGENTS.md](../AGENTS.md)).\n\n## Open questions and next actions\n\n- **Blocked:** restore testing needs a representative synthetic dataset.\n  Next step: obtain that dataset before restore testing.\n- **Unknown:** intended request timeout. Configuration says 45 seconds; the\n  2026-10-01 notes say 15 seconds. The owner should confirm which is intended.\n\n## Canonical references\n\n- [Earlier handoff notes (2026-10-01)](../notes/handoff.md) \u2014 historical source for\n  the decisions and blockers above.\n",
+      "decision_authority_rationale_proposal_blocker_next_step": "preserved on coordinator semantic inspection",
+      "runtime_deployment": "unverified in output",
+      "catalog": [],
+      "skill_tool_calls": [
+        "adopt-context-docs"
+      ],
+      "installed_core_read": true,
+      "installed_skill_use_result": "Manual installed-file use observed; registered Skill invocation failed",
+      "discovery_result": "Skill returned Unknown skill; manually read installed packages",
+      "automatic_instruction_loading": "unconfirmed independently; agent self-report is not sufficient"
+    },
+    "claude-maintain": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 26.55,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 180
+      },
+      "fixture_changes": [
+        "docs/context.md"
+      ],
+      "fixture_original_bytes_and_git_state_preserved": true,
+      "configured_timeout": 60,
+      "source_read_observed": true,
+      "context_output_sha256": "53b5412a3e8f029ac40f75e465849215b13551f23de84f76160baf987193c02a",
+      "context_output": "# Cedar project context\n\n## Purpose and scope\n\nCedar is a synthetic utility kept as a public fixture. See the [README](../README.md)\nand the project rules in [AGENTS.md](../AGENTS.md).\n\n## Current state\n\n- Request timeout: `config/service.yaml` sets `request_timeout_seconds: 60`\n  after a configuration update reported complete on 2026-10-11 (previously 45;\n  the change is not yet committed). The [earlier notes](../notes/handoff.md)\n  (2026-10-01) record 15 seconds, which is now historical. Runtime behavior is\n  not verified; see open questions.\n- There is no runtime or deployment verification evidence (per earlier notes).\n- `owner-work.txt` is uncommitted owner work; preserve it as is.\n\n## Decisions and constraints\n\n- **Approved:** retain SQLite for the pilot to avoid migration work (owner, recorded\n  in the [earlier notes](../notes/handoff.md)).\n- **Proposed only:** PostgreSQL; it has not been approved or implemented.\n- Manual owner review is required before any release ([AGENTS.md](../AGENTS.md)).\n\n## Open questions and next actions\n\n- **Blocked:** restore testing needs a representative synthetic dataset.\n  Next step: obtain that dataset before restore testing.\n- **Unknown:** who approved the 60-second request timeout and why. The\n  configuration was updated from 45 to 60 seconds on 2026-10-11, but no\n  approval or rationale is recorded. The 2026-10-01 notes said 15 seconds.\n  Next step: the owner should confirm that 60 seconds is intended and record\n  the reason, then verify runtime behavior.\n\n## Canonical references\n\n- [Earlier handoff notes (2026-10-01)](../notes/handoff.md) \u2014 historical source for\n  the decisions and blockers above.\n",
+      "decision_authority_rationale_proposal_blocker_next_step": "preserved on coordinator semantic inspection",
+      "runtime_deployment": "unverified in output",
+      "catalog": [],
+      "skill_tool_calls": [],
+      "installed_core_read": false,
+      "installed_skill_use_result": "fail; maintenance did not read/invoke installed core under project-only settings",
+      "discovery_result": "No installed core skill consulted; generic maintenance completed",
+      "automatic_instruction_loading": "unconfirmed independently; agent self-report is not sufficient"
+    }
+  },
+  "diagnostics": {
+    "claude_user_scope_catalog": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 3.07,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 60
+      },
+      "setting_sources": "user,project",
+      "tools": "none",
+      "catalog": [
+        "adopt-context-docs",
+        "context-docs"
+      ],
+      "result": "both skills listed; catalog visibility only"
+    },
+    "claude_user_scope_maintenance": {
+      "execution": {
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 26.68,
+        "responding_models": [
+          "claude-opus-5-5"
+        ],
+        "terminal": true,
+        "parse_error_lines": [],
+        "ok": true,
+        "seconds_cap": 180
+      },
+      "setting_sources": "user,project",
+      "catalog": [
+        "adopt-context-docs",
+        "context-docs"
+      ],
+      "skill_tool_calls": [
+        "context-docs"
+      ],
+      "skill_tool_result": "successful; installed core instructions delivered",
+      "task_names_skill": false,
+      "configured_timeout": 75,
+      "source_read_observed": true,
+      "context_output": "# Cedar project context\n\n## Purpose and scope\n\nCedar is a synthetic utility kept as a public fixture. See the [README](../README.md)\nand the project rules in [AGENTS.md](../AGENTS.md).\n\n## Current state\n\n- Request timeout: `config/service.yaml` sets `request_timeout_seconds: 75`\n  after a further configuration update reported complete on 2026-10-11. The\n  committed value is 45; the change is not yet committed. An earlier\n  uncommitted update the same day had set 60, and the\n  [earlier notes](../notes/handoff.md) (2026-10-01) record 15 seconds; both are\n  now historical. Runtime behavior is not verified; see open questions.\n- There is no runtime or deployment verification evidence (per earlier notes).\n- `owner-work.txt` is uncommitted owner work; preserve it as is.\n\n## Decisions and constraints\n\n- **Approved:** retain SQLite for the pilot to avoid migration work (owner, recorded\n  in the [earlier notes](../notes/handoff.md)).\n- **Proposed only:** PostgreSQL; it has not been approved or implemented.\n- Manual owner review is required before any release ([AGENTS.md](../AGENTS.md)).\n\n## Open questions and next actions\n\n- **Blocked:** restore testing needs a representative synthetic dataset.\n  Next step: obtain that dataset before restore testing.\n- **Unknown:** who approved the 75-second request timeout and why. The\n  configuration was updated on 2026-10-11 from the committed 45 seconds to 60,\n  then to 75, but no approval or rationale is recorded for either change. The\n  2026-10-01 notes said 15 seconds.\n  Next step: the owner should confirm that 75 seconds is intended and record\n  the reason, then verify runtime behavior.\n\n## Canonical references\n\n- [Earlier handoff notes (2026-10-01)](../notes/handoff.md) \u2014 historical source for\n  the decisions and blockers above.\n",
+      "context_output_sha256": "7c1756137909d511de062d6e2ff89f25bc30c9a137c3109fdf869f4e6370605c",
+      "decision_authority_rationale_proposal_blocker_next_step": "preserved on coordinator semantic inspection",
+      "runtime_deployment": "unverified in output",
+      "fixture_changes": [
+        ".git/index",
+        "docs/context.md"
+      ],
+      "strict_index_byte_preservation": "fail; Git index refreshed",
+      "staged_contents_and_history": "unchanged",
+      "result": "skill-use/source/preservation-of-content pass; strict fixture index-byte gate fails",
+      "index_baseline_evidence": "Pre-follow-up index SHA matches the original fixture index created by git commit; baseline has no staged changes. Post-follow-up index tree matches HEAD. Objects/ref/log hashes unchanged; index bytes refreshed."
+    }
+  },
+  "preservation": {
+    "original_repository_studies_packages_and_project_setups": "All original hash values preserved. No original repository file changed before result reporting.",
+    "installed_skill_files": 30,
+    "installed_skill_hashes": "unchanged; match release",
+    "claude_settings_json": "unchanged",
+    "codex_configuration": "Two trust entries for other workspaces (not these fixtures) appeared during the run. Removing them reconstructs the original hash, but their origin is not established. Left intact to preserve other work.",
+    "claude_global_state": "Global CLI state file changed during runtime. Nearby backups differ in feature-cache refresh timestamp; exact pre-run file was not recovered. User settings file unchanged; exact global-state preservation not claimed.",
+    "protected_baseline_file_count": 2277,
+    "baseline_exceptions": [
+      "Codex trust additions for other workspaces; origin unestablished",
+      "Claude CLI-managed global state changes"
+    ]
+  },
+  "model_limits": {
+    "codex": "Requested gpt-6.1-sol, medium. Responding identity not independently exposed.",
+    "claude": "All executed Claude sessions confirm claude-opus-5-5 in per-message fields; medium effort requested."
+  },
+  "inference_limits": [
+    "Author-created synthetic fixtures, few sessions and no matched baseline; no general reliability, implicit discovery, privacy, effort-savings or causal benefit claim.",
+    "Explicit adoption was named in the first task; later tasks omit the skill name but project maintenance guidance names it.",
+    "Raw traces and machine/account config remain local. Public records contain synthetic inputs, selected observations and hashes.",
+    "No independent native automatic-instruction-loading event was exposed; self-reports and file reads alone do not establish it.",
+    "Claude prompt boundaries are not a general OS sandbox; per-process overrides constrain hooks/MCP/auto-memory without editing settings.",
+    "Original failed discovery/use observations are retained; amended probes are additional evidence, not replacements."
+  ],
+  "provenance_inspection": {
+    "committed_config": "45 confirmed with git show HEAD:config/service.yaml",
+    "initial_notes": "Historical 15 in original notes; present in frozen source fixture",
+    "maintenance_input": "45 adoption context retained in frozen first maintenance input; coordinator changed config to 60 before prompt reported completion",
+    "followup_input": "Frozen context hash matches the prior 60 output; coordinator changed config to 75 before the next completion prompt",
+    "dates": "Sessions and frozen records are October 11, 2026; task says configuration update complete. This does not establish owner approval or deployed behavior."
+  },
+  "review": "review.json; initial and one focused follow-up; required corrections resolved by coordinator without re-review",
+  "native_execution_seconds": 185.51,
+  "static_checks": {
+    "command": "python3 evals/checks/static_checks.py",
+    "result": "pass",
+    "relative_links": 1228,
+    "published_tables": 5,
+    "skill_packages": 2,
+    "versions": 2,
+    "limit": "Mechanical repository checks, separate from native smoke outcomes."
+  }
+}

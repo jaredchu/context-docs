@@ -1,0 +1,42 @@
+{
+  "models": "Both reviews confirmed claude-opus-5-5; medium effort requested",
+  "scope": "One initial protocol review and one focused results follow-up, read-only with tools disabled; no independent execution or hash recomputation",
+  "initial": {
+    "execution": {
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 23.14,
+      "responding_models": [
+        "claude-opus-5-5"
+      ],
+      "terminal": true,
+      "parse_error_lines": [],
+      "ok": true
+    },
+    "text": "# Review: Context Docs v0.1.9 installed-skill smoke check\n\n**Verdict: Pass with limits.** There are no blockers, provided findings 1 and 2 are settled before you run it.\n\n## Findings\n\n1. **Session mapping is ambiguous.** The plan has 4 subject sessions but 3 criteria phases (adoption, initialization, maintenance). It reads as 2 sessions per CLI, with adoption and initialization in one session. Freeze that mapping in the plan. Report each CLI's result separately so a pass on one agent isn't presented as discovery on both.\n\n2. **Settings overrides might suppress user skills.** Disabling user config could also turn off user-scope skill loading. On Claude, that depends on how setting sources are restricted. On Codex, a config override could affect `~/.agents`. A suppressed skill could give a false negative, or the agent might read the file by path and look like it discovered the skill.\n   - Confirm from each trace's init or available-skill listing that the installed skills were offered.\n   - Separate a Skill tool call from an ad hoc file read.\n\n3. **Auto-load versus explicit read.** \"Loaded maintenance marker\" needs trace evidence that the instruction file entered context natively. For Claude that means a `CLAUDE.md` that is or imports `AGENTS.md`; for Codex, `AGENTS.md`. Reading it with a tool doesn't count. Also, if the marker names the skill, the second session tests instruction-following, not discovery. The plan already says this; keep the public report wording that strict.\n\n4. **Source verification can be satisfied without verifying anything.**\n   - Writing 45 over 15 only shows source checking if the trace shows the configuration file was read and neither the prompt nor the notes leak 45.\n   - The same applies to 60: if the maintenance prompt says \"60\", the output proves nothing. The fixture should change the config before the session, and the prompt should only ask for an update.\n   - That pre-session config edit must be in the baseline hash. It must not be counted as a session change or confused with the \"pending uncommitted work\" being preserved.\n\n5. **The preservation scope is underspecified.**\n   - Hash the whole tree, including untracked and ignored files, plus the index and refs. Listed files alone would miss scratch files the agent creates.\n   - \"Global config unchanged\" should explicitly exclude native session or trace files the CLIs write, and include both installed skill roots.\n   - For Claude, verify the exact model from the per-message model field in the trace, not the CLI flag. For Codex, report only \"requested.\"\n   - With zero retries, report timeouts as failures, not omit them.\n\nThese checks support a claim that the smoke check passed on this fixture. They don't support a claim of general reliability."
+  },
+  "followup": {
+    "execution": {
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 35.01,
+      "responding_models": [
+        "claude-opus-5-5"
+      ],
+      "terminal": true,
+      "parse_error_lines": [],
+      "ok": true
+    },
+    "text": "**Verdict: pass with two required corrections.** I found no material false claim about skill use or preservation. Two statements overstate the evidence, and three items need tightening.\n\n## Findings\n\n1. **Required: false \"both skills\" claim for Codex maintenance.**\n   - `codex-maintain.discovery_result` says \"Codex read both installed skills without supplied paths.\"\n   - The trace shows maintenance read only the installed **core**. \"Both\" was copied from the adoption subject.\n   - Change it to \"read installed core without supplied paths; inventory exposure unconfirmed.\"\n   - The public Markdown is already correct here.\n\n2. **Required: \"within their individual caps\" has no stated cap.**\n   - `codex-adopt` ran for 52.08 s. The only per-subject number shown is `configured_timeout: 45`, which is the fixture's config value, not a run cap.\n   - A reader could compare the two and see a contradiction.\n   - Either state the actual cap values (in the Markdown or `protocol.json`) or drop the sentence.\n   - Related wording risk: \"initialized context from configuration (45 seconds)\" reads like a duration. Use \"(`request_timeout_seconds: 45`)\" or \"45-second timeout value.\"\n\n3. **Narrow check: \"staged contents unchanged.\"**\n   - `git diff --cached --quiet` passing shows only that the index tree now equals HEAD.\n   - It supports \"unchanged\" only if the baseline also had nothing staged. Confirm that from the baseline record, or phrase it as \"index tree matches HEAD; objects/refs/logs hashes unchanged.\"\n   - \"git status plausibly refreshed\" is appropriately hedged. Keep it hedged.\n\n4. **Source accuracy in the Claude outputs is not covered by the semantic gate.**\n   - The Claude maintenance and follow-up outputs assert provenance: \"reported complete,\" \"not yet committed,\" \"committed value is 45,\" and \"an earlier uncommitted update the same day had set 60.\"\n   - The 60 claim in the 75 follow-up is valid only if the copied fixture's working tree or `docs/context.md` actually contained the 60 state.\n   - The assessment's \"preserved\" field covers decisions, blocker and next step, not these timeline assertions.\n   - Either confirm them against the fixture or add a limit: \"Provenance/timeline statements in outputs were not separately verified.\"\n\n5. **Wording: \"unrelated \u2026 concurrently\" in the Codex config note.**\n   - The public text says the trust additions are \"unrelated\" and appeared \"concurrently,\" but `summary.json` says their origin was not independently established. Both words rest on the basenames and timing alone.\n   - Suggest: \"Two trust entries for other workspaces (not the fixtures) appeared during the run; origin not established; left intact.\"\n\n## Confirmed sound\n- The Claude isolated-loader failure is retained and not overwritten.\n- Catalog listing is kept separate from use and from automatic loading.\n- The note that the project rule names the skill is present.\n- The 15 / 45 / 60 / 75 values match config-only sources.\n- Decisions, authority, rationale, proposal status, blocker and next step are present in all outputs.\n- Runtime is stated as unverified throughout.\n- No global-file byte preservation is claimed.\n\nModel used: claude-opus-5-5. Read-only; no tools run."
+  },
+  "integration": {
+    "verdict": "Reviewer passed with two required corrections; coordinator resolved all five findings by source/fixture inspection without a third review or subject rerun.",
+    "corrections": [
+      "Codex maintenance observed only core, not both skills.",
+      "Actual invocation caps now explicit; configuration values described as timeout values, not execution duration.",
+      "Follow-up baseline index hash equals original committed fixture index, and final staged tree equals HEAD; strict byte gate still fails.",
+      "45 committed and 60 predecessor provenance checked against Git and frozen copied context; no owner/runtime approval inferred.",
+      "Other-workspace trust entries described with origin unestablished; no causal/concurrency claim."
+    ]
+  }
+}

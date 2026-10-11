@@ -108,6 +108,17 @@ Earlier release approvals do not authorize new publication.
 
 ## Evidence and limits
 
+The [installed v0.1.9 smoke checks](../evals/installed-skills/2026-10-11/README.md)
+retain two fresh sessions per client and two additional Claude diagnostics.
+Codex used installed skills and corrected source-backed context. Claude's initial
+project-only settings hid user skills; its maintenance did not use installed core.
+A corrected-scope follow-up invoked core successfully, preserving decisions and
+pending work, but refreshed the temporary Git index metadata. Staged content and
+history stayed unchanged. Original studies/packages/setup files remain intact;
+Codex trust additions for other workspaces and Claude CLI global-state changes
+are qualified in the record. These guided cases do not establish general implicit
+selection or independent automatic-instruction-loading proof.
+
 Native integration remains experimental. Factual errors and scope violations are
 retained in the [evidence overview](evaluation-results.md); passing checks do not
 establish general reliability, comparative accuracy, privacy guarantees or savings
