@@ -74,6 +74,12 @@ Earlier release approvals do not authorize new publication.
   would require an accepted amendment to the existing-only scope and a reviewed
   budget. Hardware virtualization capability is observed, but no runner or guest
   is established. The proposal is pending counterpart review; nothing was provisioned.
+  The [feasibility and decision packet](v1.0.0-wave1-feasibility.md) proposes
+  reviewing VirtualBuddy first, while holding provisioning on network enforcement,
+  a hard new-storage limit and an accepted remaining/revised preparation budget.
+  Inspected Tart/Softnet startup writes host network preferences, conflicting with
+  existing-setup preservation. No runner or environment amendment is accepted;
+  counterpart review remains pending and historical fixtures/receipts are unchanged.
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
@@ -179,6 +185,8 @@ Review the [Wave 1 preparation and blockers](../evals/v1-readiness/wave1/README.
 before selecting a protected native environment and a distinct candidate.
 Review the [isolation setup proposal](v1.0.0-wave1-isolation-setup.md#stop-conditions-and-review-decisions)
 and its resource/scope choices before authorizing any provisioning or login.
+Use the [feasibility packet's pending decisions](v1.0.0-wave1-feasibility.md#maintainer-decisions-to-record)
+to select an environment direction and bounded implementation-review scope first.
 Remaining work includes supported native user journeys, candidate
 upgrade/preservation checks and an outside-user pilot with
 outside artifact review. Existing authored tests and maintainer daily use support
