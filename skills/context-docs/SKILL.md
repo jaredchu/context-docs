@@ -30,8 +30,9 @@ unclear. Preserve existing layouts and concurrent edits.
 ## Visualize progress in Markdown
 
 When documented, keep the goal, meaningful advances, blockers and next action
-findable in the existing layout during initialization and maintenance. Write a
-progress view when requested, using the [progress guide](references/progress.md).
+findable in the existing layout during initialization and maintenance. Use the
+[progress guide](references/progress.md) for requested views and adoption's
+default inline view when documented context supports it.
 For a visualization request, show a compact visual path through the documented
 work, with dependencies, blockers and the next action visible. A flat status
 table alone is insufficient; keep the view readable in plain Markdown.

@@ -1,0 +1,54 @@
+{
+  "assessment": "guided author-scored two-phase case, not independent validation",
+  "attempts_each": 1,
+  "cap_seconds_each": 180,
+  "cases_executed": [
+    "supported adoption without progress request",
+    "ordinary update without progress request"
+  ],
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "--sandbox",
+    "workspace-write",
+    "--model",
+    "gpt-6.1-sol",
+    "--config",
+    "model_reasoning_effort=\"medium\"",
+    "--config",
+    "features.multi_agent=false",
+    "--config",
+    "features.memories=false",
+    "--json",
+    "--color",
+    "never",
+    "-"
+  ],
+  "fixture": {
+    "AGENTS.md": "# Project rules\n\nUse Context Docs after meaningful changes to facts, decisions, blockers or next actions. For this synthetic candidate check, read ../skills/context-docs/SKILL.md before maintenance. Preserve record locations, decisions and source evidence; do not add a parallel tracker. No-change repeats and audits write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n\nOnly the task's named Markdown files may change. Do not modify instructions, installed skills, logging, Git or settings. No network, delegation, application tests or implementation.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Maple CLI\n\nSynthetic fixture. Start at [context](notes/context.md).\n",
+    "notes/context.md": "# Maple working context\n\n## Intent\nPrepare the config migration for maintainer review. Completion requires the backward-compatibility check and the interrupted-write check to pass. Deployment needs separate owner approval.\n\n## Work\nThe backward-compatibility check passed October 15. The interrupted-write check has not run; it is blocked on a missing interruption fixture. See [retained results](results.md).\n\nOwner note: keep the migration example in this file.\n\nExample: existing `mode=plain` config must remain accepted.\n\n## Decision trail\nThe owner approved retaining the existing config format for old clients. See [decisions](decisions.md).\n\n## Next move\nObtain the interruption fixture, then run the interrupted-write check.\n",
+    "notes/decisions.md": "# Decisions\n\n## Owner decision\nKeep the existing config format to preserve older clients. Deployment is not approved.\n\n## Proposal\nAn agent suggested a new binary format; it is unapproved and unimplemented.\n",
+    "notes/results.md": "# Retained synthetic results\n\nThese are fictional observations for a documentation check, not executed application tests.\n\n## Compatibility\nOctober 15, 2026: backward-compatibility check passed; old plain-mode config remains accepted.\n\n## Interrupted write\nOctober 15, 2026: check has not run because the interruption fixture is missing.\n",
+    "owner-work.txt": "PRESERVE OWNER BYTES\n"
+  },
+  "not_executed": [
+    "existing linked/nonvisual view",
+    "sparse context",
+    "local-only",
+    "explicit no-view",
+    "no-change repeat",
+    "audit"
+  ],
+  "prompts": {
+    "adopt": "Use adopt-context-docs at ../skills/adopt-context-docs/SKILL.md to adopt Context Docs in this project. Preserve equivalent instructions, the original marker/date, record locations, owner work and logging off. Only notes/context.md may change. Use local reads and documentation edits only; no settings, Git, network, delegation, implementation, application tests or installed-skill changes. Report what changed and any instruction-loading limits.\n",
+    "maintain": "Record the following new synthetic retained result in notes/results.md: October 16, 2026, the interruption fixture was provided and the interrupted-write check passed. Both documented checks have now passed; the next action is maintainer review, with deployment still requiring separate approval. Finish this task following the project rules. Only notes/results.md and notes/context.md may change. Preserve earlier evidence and owner work. No settings, Git, network, delegation, implementation, application tests or installed-skill changes.\n"
+  },
+  "requested_model": "gpt-6.1-sol",
+  "responding_model": "unconfirmed unless native stream exposes it",
+  "retries": 0
+}

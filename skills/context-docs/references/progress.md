@@ -5,6 +5,37 @@ Use the entry point and relevant linked documents as evidence. Markdown stays
 authoritative; this feature writes reviewable files during an authorized session,
 not a live dashboard or a separate tracking system.
 
+## Adoption: a small inline view by default
+
+During adoption, when the context documents a goal and enough supported work,
+status or next-step facts to show a useful path, create a simple inline tree,
+arrow path or nested checklist without requiring a separate visualization request.
+Use a suitable existing section and its terminology; preserve headings, owner
+edits, decisions, rationale and canonical record locations. Adapt the relevant
+status lines in place rather than adding a second account of the same work.
+
+Preserve an existing task list, status table, diagram or section/file designated
+as the project's progress view, including nonvisual or linked views. Ordinary
+status sentences in broader context may be grouped into a small inline path;
+do not reshape an established view just for adoption. When that distinction is
+unclear, retain the existing format. Keep detailed facts authoritative in one
+place; a compact summary may link to them, not maintain an independent task list. Where the view
+itself owns a fact, update it there and link to its supporting evidence.
+
+If the goal is undocumented or the known work cannot support a useful path,
+keep the supported facts in the existing context and skip the new view. Do not
+invent a goal, populate empty progress scaffolding or infer completion conditions
+merely to satisfy this default. Honor an explicit request to omit a view or use a
+separate Markdown file, and preserve local-only storage boundaries.
+
+An explicit adoption run may add a missing supported view even when an equivalent
+maintenance rule and adoption marker already exist; preserve those setup records.
+Once the view is current, repeating adoption with no new facts makes no edits.
+After adoption, refresh the view alongside affected context during authorized
+everyday maintenance; no repeated progress request is needed. Installation or
+upgrade alone does not apply this default to projects, and audit-only adoption
+remains read-only.
+
 ## Choose the destination
 
 Reuse a suitable section, such as current work or milestones. Write a separate

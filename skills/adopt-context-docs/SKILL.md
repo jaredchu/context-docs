@@ -22,11 +22,14 @@ context or maintain existing documents using the skill. Preserve useful layouts,
 approved decisions, rationale, source evidence, unresolved work and concurrent edits.
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
-Use the core skill's [Markdown progress view](../context-docs/references/progress.md)
-when requested, and refresh an existing view through core during ongoing
-maintenance while preserving its layout and source evidence. Reuse
-the project's context layout and storage choice; this needs no new tracker or
-replacement of an equivalent setup rule.
+Use the core skill's [Markdown progress guide](../context-docs/references/progress.md)
+during adoption. By default, create a simple inline visual path in a suitable
+existing context section when a documented goal and supported work/status or
+next-step facts make it useful. Reuse an existing progress view in its current
+location and format instead of adding another. Follow the guide's adoption rules
+for sparse context, authoritative details and preserving the existing layout.
+Refresh the view through core after meaningful changes during everyday work;
+the user need not ask for each update. Preserve storage and equivalent setup rules.
 
 Add or update a concise rule in the instruction file this project's agent actually
 loads, merging with existing guidance rather than duplicating it. Establish loading
@@ -46,7 +49,8 @@ invocation syntax:
 > to project facts, decisions, procedures, blockers or next actions. Read the skill
 > before maintenance. Preserve project rules, document roles and decision status.
 > Update affected canonical sections and check the diff, links and information
-> preservation. Keep audit-only requests read-only; make no bookkeeping edits
+> preservation, keeping any existing progress view current without duplicate
+> tracking. Keep audit-only requests read-only; make no bookkeeping edits
 > when nothing durable changed.
 
 Reuse the installed skills; do not create duplicate packages or change global
@@ -82,8 +86,8 @@ instruction loading, reporting an unresolved setup without claiming it is comple
 For new adoption, use the current date. Preserve an existing
 adoption date and equivalent marker rather than adding another. When adding a
 marker to previously adopted guidance, use a supported original date or `unknown`
-if none is recorded; do not invent the history. If equivalent maintenance guidance
-and context already exist, add only the missing marker. Preserve the guidance's
+if none is recorded; do not invent the history. For setup records, if equivalent
+maintenance guidance and context already exist, add only the missing marker. Preserve the guidance's
 wording; a missing marker alone is not a reason to reinitialize or rewrite it.
 Update the entry point only when its canonical location changes. Do not mark
 incomplete setup as adopted or add a marker during an audit-only request. Existing

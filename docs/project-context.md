@@ -16,12 +16,17 @@ local notes only when still useful.
 
 ## Current focus
 
-**Goal:** integrate useful progress visualization into the reusable Context Docs
-skill, with Markdown as the view. Jared Chu clarified on October 16 that a flat
-status table is insufficient: the view should show a visual path, dependencies,
-blockers and the next action. **Experimental v0.2.1 is published and its
-website is deployed and verified.** v0.2.0 remains the previous baseline, whose
-status/source checks did not establish visual usefulness.
+**Goal:** make progress easy to see during everyday context work, starting with a
+simple inline path during adoption when documented context supports one. Reuse
+existing views, layouts and canonical details rather than adding duplicate tracking.
+The owner requested this default; missing goals or insufficient facts do not
+justify scaffolding. The development candidate is core **0.2.2** / adoption
+**0.1.11**, with [checks and limits](../evals/progress/adoption-default-2026-10-16/README.md).
+
+**Experimental v0.2.1 remains published and its website verified.** It requires
+requesting the initial view, then maintains it during meaningful updates. Installed
+packages and setup rules remain unchanged. Its visual-path gate supersedes the
+earlier v0.2.0 status/source checks without changing that earlier evidence.
 
 Snapshot checked October 16, 2026; saved status does not imply live agent activity.
 
@@ -30,16 +35,21 @@ Markdown progress
 |
 |-- RELEASED  v0.2.0 baseline and focused smoke checks [R]
 |
-`-- RELEASED  Visual-path improvement, core 0.2.1 [V]
-    |-- DONE  Guidance and source-linked example [E]
-    |-- DONE  Visual acceptance criteria [A]
-    |-- DONE  Local validation and counterpart review [C]
-    |-- DONE  Focused Codex and Claude visual-path smoke [S]
-    |-- DONE  Release notes and website preparation [P]
-    |-- DONE  Experimental release, deployment and live verification [D]
-    `-- CHECKED  Installed visual-path smoke; Claude prose qualified [I]
+|-- RELEASED  Visual-path improvement, core 0.2.1 [V]
+|   |-- DONE  Guidance and source-linked example [E]
+|   |-- DONE  Visual acceptance criteria [A]
+|   |-- DONE  Local validation and counterpart review [C]
+|   |-- DONE  Focused Codex and Claude visual-path smoke [S]
+|   |-- DONE  Release notes and website preparation [P]
+|   |-- DONE  Experimental release, deployment and live verification [D]
+|   `-- CHECKED  Installed visual-path smoke; Claude prose qualified [I]
+|
+`-- CANDIDATE  Default inline progress during adoption [N]
+    |-- DONE  Guidance, three guided native sessions and local checks [N]
+    |-- DONE  Bounded Opus review and preservation checks [N]
+    `-- NEXT  Review prepared changes [N]
 
-NEXT: use the released guidance in ordinary work and report concrete gaps [D]
+NEXT: review prepared default-adoption changes [N]
 ```
 
 Sources for the visual:
@@ -48,7 +58,7 @@ Sources for the visual:
   and [installed Codex/Claude smoke](../evals/installed-skills/2026-10-16-progress/README.md).
   Eight live responses matched the release build; each installed create case had
   17 resolving links. These were narrow status/source checks, not the new visual gate.
-- **V:** [Released core version](../skills/context-docs/VERSION) and
+- **V:** [Published v0.2.1 bundle](releases/v0.2.1.md) and
   [development change](../CHANGELOG.md#context-docs-021--2026-10-16-bundled-in-v021). Adoption 0.1.10
   and standard 0.1.1 are unchanged; installed skills and earlier release records are untouched.
 - **E:** [Core guide](../skills/context-docs/references/progress.md),
@@ -79,6 +89,13 @@ Sources for the visual:
   view/context links resolve. Claude's prose adds an unsupported provider-choice
   prerequisite; its diagram preserves the documented sequence. No correction or
   retry is performed. This is author-scored evidence, not a general benefit claim.
+- **N:** [Default-adoption candidate checks](../evals/progress/adoption-default-2026-10-16/README.md).
+  Core 0.2.2 / adoption 0.1.11 is unreleased. The default inline checklist and
+  ordinary-work refresh pass two initial-candidate Codex phases; a third session
+  on the clarified candidate leaves a current nested checklist unchanged.
+  Opus review/follow-up resolve material findings. Fresh setup with a new rule,
+  linked/nonvisual views, sparse/local-only/no-view and audit cases remain
+  unexecuted natively. The record owns exact package identities and qualifications.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -93,9 +110,9 @@ retains its two advances bullets without direct inline links; newer outputs do
 not replace that result. The [initial v0.2.0 artifact review](../evals/progress/review.md)
 is also unchanged.
 
-**Next action:** use the installed v0.2.1 visual-path guidance during ordinary
-work and record concrete misses under the [next actions](#next-actions). Keep
-the prose qualification visible without launching another trial or fix cycle.
+**Next action:** see [next actions](#next-actions). The candidate's
+[check record](../evals/progress/adoption-default-2026-10-16/README.md) owns remaining
+validation qualifications; earlier installed v0.2.1 evidence remains unchanged.
 
 The owner set aside the broad v1.0.0 graduation campaign. Its retained
 [infrastructure proposals](#current-state) remain deferred. A local web viewer and
@@ -140,7 +157,7 @@ Earlier release approvals do not authorize new publication.
   separate from the copied-candidate evidence. Both clients produce the required
   visual path; Claude's extra prose prerequisite remains qualified. No installed
   skill, setup, earlier evidence or saved-study change is part of this check.
-- Core **0.2.1** tightens explicit visualization requests to show a visual path
+- Released core **0.2.1** tightens explicit visualization requests to show a visual path
   with supported dependencies, blockers and clickable sources. It is published in
   experimental v0.2.1; a focused copied-candidate create case passes acceptance in
   each native client, with [outputs and limits](../evals/progress/smoke-0.2.1-2026-10-16/README.md).
@@ -280,6 +297,11 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Review the prepared [default-adoption candidate](../evals/progress/adoption-default-2026-10-16/README.md).
+Commit/push, installation, release, deployment and existing project changes remain
+outside this completed edit/check task. Released and installed versions retain
+their original behavior.
 
 The [v0.2.1 bundle](releases/v0.2.1.md) is published and its website verified.
 Use the released guidance and preserve the historical

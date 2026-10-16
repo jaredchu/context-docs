@@ -1,0 +1,210 @@
+{
+  "candidate_scope": "Create and everyday-update phases use the initial candidate; the unchanged-repeat phase uses the clarified candidate. Exact package hashes retain both. No claim that native runs execute every final wording branch.",
+  "cases": {
+    "adopt": {
+      "actual_core_read_observed": true,
+      "changed": [
+        "notes/context.md"
+      ],
+      "link_failures": [],
+      "links": "3 relative links and anchors",
+      "local_anchors_checked": 1,
+      "observed": "Original Work status paragraph becomes an inline nested checklist, with supported blocker/next action and evidence links. Original headings, owner note/example, decisions and Next move retained; no parallel list/file or setup edit.",
+      "other_fixture_bytes_unchanged": true,
+      "outcome": "pass",
+      "outputs_sha256": {
+        "notes/context.md": "16c18896d13e1a3c023073dfb534d66df705158dff1ad5c6eaafd7d18d7feb64",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "d4a988ae621b8e5a2c432413c67e844cea4545c08e2805a3a92787d5d5f62b64"
+      },
+      "raw_sha256": {
+        "receipt.json": "c9b91e51aead16069d67d57a3e77e6e572cb44629746c6e365f7fb13698f2aae",
+        "stderr.txt": "e5f22adbcb8f666653880d9a7e00de2f246844bf97cc7053e411a5128a1e37ed",
+        "stdout.jsonl": "b25b8ae30ef8233d0e280e7d464378f34cf33d3f3edde9e8ad417448f28aaf9e"
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "elapsed_seconds": 33.99,
+        "exit_code": 0,
+        "finished_at": "2026-10-16T16:47:59.160689+00:00",
+        "phase": "adopt",
+        "started_at": "2026-10-16T16:47:25.166980+00:00",
+        "status": "completed"
+      }
+    },
+    "maintain": {
+      "actual_core_read_observed": true,
+      "changed": [
+        "notes/context.md",
+        "notes/results.md"
+      ],
+      "link_failures": [],
+      "links": "3 relative links and anchors",
+      "local_anchors_checked": 1,
+      "observed": "Ordinary result-recording task refreshes the same checklist and Next move without a progress request. Both checks complete; obsolete blocker removed, earlier dated blocked result retained, deployment approval boundary intact.",
+      "other_fixture_bytes_unchanged": true,
+      "outcome": "pass",
+      "outputs_sha256": {
+        "notes/context.md": "80cb2814f94a9a71e49c2476dbc4a577b97b17654f788ffb7f824118dc56570f",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "362cbdeb642b50c9c2af998d8c8854dedb675cba7343012dcf57762c3d317472"
+      },
+      "raw_sha256": {
+        "receipt.json": "b10f667819474bfa2ecc4a072d08b1d8419fa5a66a6c3d3db738f53db787adf5",
+        "stderr.txt": "b1f8a0268c3b92e56e0496adb72ea377cb31b35ebd1757da39994d7e0d8e5ff1",
+        "stdout.jsonl": "0bb3d0e6db8ad036de5385ecfe237eda1f523b5117fe95f3325beff62dad9501"
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "elapsed_seconds": 20.22,
+        "exit_code": 0,
+        "finished_at": "2026-10-16T16:48:36.243919+00:00",
+        "phase": "maintain",
+        "started_at": "2026-10-16T16:48:16.025578+00:00",
+        "status": "completed"
+      }
+    },
+    "repeat": {
+      "all_fixture_bytes_unchanged": true,
+      "changed": [],
+      "observed": "The clarified candidate preserves the existing nested checklist, setup and all context/evidence without edits on explicit unchanged re-adoption.",
+      "outcome": "pass",
+      "raw_sha256": {
+        "receipt.json": "ec1e5fad584f6773c075566d382ebe7757e9a089c6a0514a399be0897fa08f53",
+        "stderr.txt": "84d52538cf021aaf1664da71e7d340954363c1fabe176be2246f48823cc377af",
+        "stdout.jsonl": "5696f4d594492ea74cd30ddc259b9d940d5fa1b8c4d75d829766fe4af263d303"
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "elapsed_seconds": 18.79,
+        "exit_code": 0,
+        "finished_at": "2026-10-16T16:53:17.200140+00:00",
+        "phase": "repeat",
+        "started_at": "2026-10-16T16:52:58.414699+00:00",
+        "status": "completed"
+      }
+    }
+  },
+  "clarified_candidate_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "2acec6c05d6e85355a74d092177c325f3b98be3d1a3471a650af0874dfdd7896",
+    "skills/adopt-context-docs/VERSION": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f",
+    "skills/context-docs/VERSION": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "e3e62e6bce5a7a43b0b20575806cd47a923ae23a48d8cb020911bbc5b90db523",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "final_candidate_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "60b07371299bb40957ad9e0535c897aee4ddce01ddef616e36f44b9c4900d887",
+    "skills/adopt-context-docs/VERSION": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f",
+    "skills/context-docs/VERSION": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "e3e62e6bce5a7a43b0b20575806cd47a923ae23a48d8cb020911bbc5b90db523",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "initial_candidate_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "2acec6c05d6e85355a74d092177c325f3b98be3d1a3471a650af0874dfdd7896",
+    "skills/adopt-context-docs/VERSION": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f",
+    "skills/context-docs/VERSION": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "53ff43283a5e473f85ab99deb9ad42dc2cf30d168db536363e77f5bbadf6b3c2",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "limits": "Guided copied-candidate two-phase case, author-scored by Sol; not automatic loading, installed-version or full-suite evidence. Fictional retained application results, not application test execution.",
+  "mechanical_checks": {
+    "declared_versions": 2,
+    "isolated_packages": 2,
+    "metadata_validators": 2,
+    "native_behavior_reported_separately": true,
+    "packaging_static_tests": 18,
+    "private_site_build_files": 9,
+    "published_tables": 5,
+    "site_tests": 15,
+    "static_repository_links_anchors": 1578,
+    "whitespace": "pass"
+  },
+  "not_executed": [
+    "fresh adoption adding a new rule/marker",
+    "existing linked/nonvisual view",
+    "sparse context",
+    "local-only",
+    "explicit no-view",
+    "audit"
+  ],
+  "preservation": {
+    "entries_after": 63238,
+    "entries_before": 63220,
+    "scope": "Original repository/evidence and four installed skill trees; .git, new private scratch and routine client bookkeeping excluded.",
+    "unexpected_changes": [],
+    "verified_final": true,
+    "verified_precloseout": true
+  },
+  "review": {
+    "disposition": "Initial material ambiguities corrected; one focused follow-up has no unresolved material findings. Stale context counts and minor setup-marker scope wording are corrected after follow-up without a third review or native retry.",
+    "followup": {
+      "artifact_review_not_native_subject": true,
+      "cap_seconds": 120,
+      "elapsed_seconds": 42.44,
+      "exit_code": 0,
+      "permission_denials": [],
+      "raw_sha256": {
+        "review-followup-receipt.json": "1f33f71d58983e6e9a892ac6ee627c0bd9de83d758fcea4737845707138df661",
+        "review-followup-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "review-followup-stdout.jsonl": "82ebc130bb8af0dd094fbebf182f97b6aff70b7323d5ce19ced0958a22787d53"
+      },
+      "requested_reported_model": "claude-opus-5-5",
+      "tools": [
+        "Read"
+      ]
+    },
+    "initial": {
+      "artifact_review_not_native_subject": true,
+      "cap_seconds": 180,
+      "elapsed_seconds": 61.93,
+      "exit_code": 0,
+      "permission_denials": [],
+      "raw_sha256": {
+        "review-receipt.json": "43b6e962c56edcff0625cb471ebf665c6e761463e3c1e93e9a713f51ae71bf4a",
+        "review-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "review-stdout.jsonl": "685514ab8f72241ebc0f1e482216ef7903ab50a9c4062deaf5fd6a8e2e177601"
+      },
+      "requested_reported_model": "claude-opus-5-5",
+      "tools": [
+        "Read"
+      ]
+    }
+  },
+  "subject": "Native Codex CLI, requested gpt-6.1-sol medium; responding identity unconfirmed"
+}

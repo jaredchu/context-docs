@@ -15,7 +15,7 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.1 and adoption skill v0.1.10 (released).**
+**Status: experimental, core skill v0.2.2 and adoption skill v0.1.11 (unreleased).**
 The latest bundle is [v0.2.1](docs/releases/v0.2.1.md), an experimental prerelease.
 See its release notes for the visual-path improvement and focused synthetic checks.
 The [v0.2.0 notes](docs/releases/v0.2.0.md) retain the original progress feature
@@ -99,6 +99,13 @@ The adoption skill applies the context workflow and adds or reuses a maintenance
 rule in the project instructions your agent loads. It preserves equivalent
 existing rules and the project’s documentation layout, and reports when it cannot
 confirm instruction loading.
+
+The unreleased adoption **0.1.11** with core **0.2.2** directs the agent to start
+a simple inline progress path by default when the documented goal and work support
+one, including during an explicit re-adoption. The guidance preserves existing
+views and keeps them current during everyday context updates, without a second
+task list or repeated requests. Installed v0.2.1 retains request-based creation;
+this change does not upgrade installations or rewrite existing setup rules.
 
 ### 2. Save decisions, current work and next steps
 

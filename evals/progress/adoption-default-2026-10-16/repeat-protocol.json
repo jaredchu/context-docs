@@ -1,0 +1,52 @@
+{
+  "assessment": "guided author-scored two-phase case, not independent validation",
+  "attempts_each": 1,
+  "cap_seconds_each": 180,
+  "cases_executed": [
+    "unchanged explicit re-adoption with existing nested checklist"
+  ],
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--skip-git-repo-check",
+    "--ephemeral",
+    "--sandbox",
+    "workspace-write",
+    "--model",
+    "gpt-6.1-sol",
+    "--config",
+    "model_reasoning_effort=\"medium\"",
+    "--config",
+    "features.multi_agent=false",
+    "--config",
+    "features.memories=false",
+    "--json",
+    "--color",
+    "never",
+    "-"
+  ],
+  "fixture": {
+    "AGENTS.md": "# Project rules\n\nUse Context Docs after meaningful changes to facts, decisions, blockers or next actions. For this synthetic candidate check, read ../skills/context-docs/SKILL.md before maintenance. Preserve record locations, decisions and source evidence; do not add a parallel tracker. No-change repeats and audits write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n\nOnly the task's named Markdown files may change. Do not modify instructions, installed skills, logging, Git or settings. No network, delegation, application tests or implementation.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Maple CLI\n\nSynthetic fixture. Start at [context](notes/context.md).\n",
+    "notes/context.md": "# Maple working context\n\n## Intent\nPrepare the config migration for maintainer review. Completion requires the backward-compatibility check and the interrupted-write check to pass. Deployment needs separate owner approval.\n\n## Work\n- [x] Backward-compatibility check \u2014 passed October 15; see the [retained compatibility result](results.md#compatibility).\n- [x] Interrupted-write check \u2014 passed October 16; see the [retained interrupted-write result](results.md#interrupted-write).\n- **NEXT:** [Maintainer review](#next-move).\n\nOwner note: keep the migration example in this file.\n\nExample: existing `mode=plain` config must remain accepted.\n\n## Decision trail\nThe owner approved retaining the existing config format for old clients. See [decisions](decisions.md).\n\n## Next move\nBoth documented checks have passed; proceed to maintainer review. Deployment still requires separate owner approval.\n",
+    "notes/decisions.md": "# Decisions\n\n## Owner decision\nKeep the existing config format to preserve older clients. Deployment is not approved.\n\n## Proposal\nAn agent suggested a new binary format; it is unapproved and unimplemented.\n",
+    "notes/results.md": "# Retained synthetic results\n\nThese are fictional observations for a documentation check, not executed application tests.\n\n## Compatibility\nOctober 15, 2026: backward-compatibility check passed; old plain-mode config remains accepted.\n\n## Interrupted write\nOctober 15, 2026: check has not run because the interruption fixture is missing.\n\nOctober 16, 2026: the interruption fixture was provided and the interrupted-write check passed. Both documented checks have now passed; the next action is maintainer review. Deployment still requires separate approval.\n",
+    "owner-work.txt": "PRESERVE OWNER BYTES\n"
+  },
+  "not_executed": [
+    "fresh adoption adding new rule/marker",
+    "sparse context",
+    "local-only",
+    "explicit no-view",
+    "audit",
+    "existing linked/nonvisual view"
+  ],
+  "prompts": {
+    "repeat": "Use adopt-context-docs at ../skills/adopt-context-docs/SKILL.md to adopt Context Docs in this project again. There are no new project facts. Preserve existing instructions, marker/date, record locations, owner work and logging off. Only notes/context.md may change if necessary. Use local reads and documentation edits only; no settings, Git, network, delegation, implementation, application tests or installed-skill changes. Report changes or why none are needed.\n"
+  },
+  "requested_model": "gpt-6.1-sol",
+  "responding_model": "unconfirmed unless native stream exposes it",
+  "retries": 0
+}

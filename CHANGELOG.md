@@ -18,6 +18,38 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.2 — 2026-10-16 (unreleased)
+
+- Add the core guide for adoption's default inline progress path when a documented
+  goal and supported work make one useful. Adapt existing status lines in place,
+  preserve existing views and layouts, and keep detailed facts authoritative in
+  one place. Sparse context, explicit preferences and read-only audits retain
+  their boundaries. Everyday maintenance refreshes the view without another request.
+- Validation and counterpart review are recorded in the
+  [default-adoption check record](evals/progress/adoption-default-2026-10-16/README.md).
+  Two guided native Codex phases on an already-adopted fixture pass with the initial candidate: explicit
+  re-adoption adds the missing inline checklist without a progress request;
+  ordinary work refreshes it from a new result under the existing rule.
+  A third session checks the clarified candidate's unchanged re-adoption and
+  makes no edits. Opus artifact review and one focused follow-up resolve the
+  material findings; a minor marker-scope clarification follows without another review.
+  Only scoped fixture Markdown changes. Packaging/site checks pass (18 + 15),
+  as do metadata validators, isolated package links and a private website build.
+  Earlier smoke results retain their original request-based scope. Installed
+  skills, setup rules and saved studies are not upgraded or rewritten. Fresh
+  adoption with a new instruction rule/marker is not tested.
+
+## adopt-context-docs 0.1.11 — 2026-10-16 (unreleased)
+
+- Start the supported inline view by default during adoption through sibling core
+  0.2.2; reuse existing views and equivalent maintenance rules. New maintenance
+  wording includes keeping the view current without duplicate tracking. Preserve
+  original markers/dates, storage, owner edits and logging settings.
+- The [check record](evals/progress/adoption-default-2026-10-16/README.md) distinguishes
+  mechanical checks, guided native behavior and artifact review. This development
+  change does not install skills or publish a release. Explicit re-adoption may
+  update project context; existing setup rules and markers are preserved.
+
 ## Installed v0.2.1 visual progress smoke — 2026-10-16
 
 - Run one fresh synthetic create case per native client using the installed

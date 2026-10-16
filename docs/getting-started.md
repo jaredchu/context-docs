@@ -151,7 +151,25 @@ passes one guided create case per client; broader behavior and user benefit rema
 unestablished. The example and prompt below reflect that correction; installed
 v0.2.0 packages retain their earlier guidance.
 
-Ask the agent to write the view, using the same skill syntax as other requests:
+The unreleased adoption **0.1.11** with core **0.2.2** instructs the agent to start
+a small inline visual path by default when the documented goal and supported work
+make one useful. It directs the agent to group ordinary status sentences in place,
+keeping details authoritative and linked to evidence. Existing lists, tables,
+diagrams and designated progress sections/files keep their format and location;
+do not add a duplicate. When the goal or supporting work is too sparse, skip the
+new view rather than creating empty scaffolding. Explicit requests to omit the
+view or use another destination take precedence. An explicit adoption run may
+add a missing supported view to an already-adopted project, preserving its rule
+and original marker/date; subsequent unchanged repeats should make no edits.
+Installation or upgrade alone does not change project setups. The released and
+installed v0.2.1 guidance still creates a view when requested.
+
+Once a view exists, the loaded maintenance rule directs the agent to update it
+after meaningful changes during everyday work; you need not ask each time.
+This is session-time guidance, not background tracking. Review the resulting edits.
+
+You can request a view directly, or ask to reshape an existing view, using the
+same skill syntax as other requests:
 
 ```text
 Use $context-docs to visualize this project's progress in Markdown.
