@@ -15,9 +15,9 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.0 and adoption skill v0.1.10 (unreleased).**
-The latest published bundle is [v0.1.9](docs/releases/v0.1.9.md).
-See the [v0.2.0 draft release notes](docs/releases/v0.2.0.md) for the Markdown
+**Status: experimental, core skill v0.2.0 and adoption skill v0.1.10 (released).**
+The latest bundle is [v0.2.0](docs/releases/v0.2.0.md), an experimental prerelease.
+See the [v0.2.0 release notes](docs/releases/v0.2.0.md) for the Markdown
 progress feature and its validation limits.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
@@ -134,7 +134,7 @@ loads it. [More usage examples and setup details →](docs/getting-started.md#us
 
 ### 4. Visualize progress in Markdown
 
-The development skills add a progress view without a web app or separate tracker:
+The skills add a progress view without a web app or separate tracker:
 
 ```text
 Use context-docs to visualize this project's progress in Markdown.
@@ -146,8 +146,8 @@ context layout, or link a separate Markdown file if that reads better.
 The guidance directs the agent to maintain an existing view during authorized
 context updates and distinguish activity, useful learning and completed outcomes.
 A possible stall requires relevant historical evidence; invented completion
-percentages and claims of live agent activity are forbidden. This is **unreleased** and is not
-included in installed v0.1.9 skills. [Guide](docs/getting-started.md#progress-in-markdown)
+percentages and claims of live agent activity are forbidden. The feature ships in
+v0.2.0; existing v0.1.9 installations need a separate upgrade. [Guide](docs/getting-started.md#progress-in-markdown)
 and [synthetic example](examples/progress.md).
 
 ## Two skills, one workflow
@@ -196,7 +196,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.1.9 release notes](docs/releases/v0.1.9.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [v0.2.0 release notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

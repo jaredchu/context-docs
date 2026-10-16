@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-16",
+  "status": "publication_authorized_pending_checks",
+  "preparation_commit": "ae974a4f9db18eab356643fed448cb1b61fe9f55",
+  "preparation_record": "docs/releases/v0.2.0-validation.json",
+  "bundle": {
+    "core": "0.2.0",
+    "adoption": "0.1.10",
+    "standard": "0.1.1"
+  },
+  "authority": "Jared Chu: Publish v0.2.0 as an experimental release, then deploy and verify the website. Preserve existing setups and saved studies.",
+  "new_native_trials": false,
+  "installed_skills_updated": false,
+  "verification_model": "Codex",
+  "new_claude_review": false,
+  "limits": "Prior artifact review and guided smoke retain their original qualifications. Publication does not establish general reliability, user benefit, privacy or stall-detection accuracy.",
+  "local_checks": {
+    "site_tests_passed": 14,
+    "packaging_static_tests_passed": 18,
+    "static_repository_passed": true,
+    "relative_links_and_anchors": 1391,
+    "public_build_files": 9,
+    "prepared_package_files_unchanged": 16,
+    "retained_main_branch_files_unchanged": 21,
+    "new_native_trials": false
+  }
+}

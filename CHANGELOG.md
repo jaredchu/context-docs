@@ -11,12 +11,24 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest published bundle is described in the [v0.1.9 release notes](docs/releases/v0.1.9.md).
+The latest bundle is described in the [v0.2.0 release notes](docs/releases/v0.2.0.md).
+Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## v0.2.0 release preparation — 2026-10-16 (unreleased)
+## v0.2.0 publication — 2026-10-16
+
+- Publish core 0.2.0/adoption 0.1.10 as an experimental prerelease with unchanged
+  standard 0.1.1. Finalize release labels and website links without changing skill
+  packages or upgrading installations. Retain the initial review, guided smoke
+  and known source-link gap; no new native trial is performed.
+- Preserve the earlier main-branch v1.0 planning documents and fixtures as deferred
+  history, without making them release gates. The
+  [publication record](docs/releases/v0.2.0-publication.json) records checks,
+  deployment and preservation separately from preparation.
+
+## v0.2.0 release preparation — 2026-10-16 (prepublication checks)
 
 - Prepare [draft release notes](docs/releases/v0.2.0.md) for core 0.2.0,
   adoption 0.1.10 and unchanged standard 0.1.1. Add Markdown progress guidance
@@ -29,7 +41,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   model trial, release, deployment or installed upgrade is performed; skill
   packages, existing setups and saved studies are preserved.
 
-## context-docs 0.2.0 — unreleased
+## context-docs 0.2.0 — 2026-10-16 (bundled in `v0.2.0`)
 
 - Add Markdown progress visualization to initialization and maintenance: a view
   in existing context or a linked Markdown file, grounded in source links and
@@ -52,7 +64,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   although their sources are linked elsewhere. The remaining scenarios, native
   Codex behavior, default loading and user benefit are untested.
 
-## adopt-context-docs 0.1.10 — unreleased
+## adopt-context-docs 0.1.10 — 2026-10-16 (bundled in `v0.2.0`)
 
 - Route progress requests to the sibling core's Markdown guide while preserving
   existing layouts, storage, markers and equivalent setup rules. Packaging,

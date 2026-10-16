@@ -1,0 +1,726 @@
+{
+  "status": "review-only; no execution authorization",
+  "wave": 1,
+  "combinations": [
+    "V1",
+    "V6"
+  ],
+  "sessions": [
+    {
+      "id": "V1-J1",
+      "client": "codex",
+      "group": "journey",
+      "phase": "J1",
+      "seconds": 180,
+      "prompts": [
+        "$adopt-context-docs Adopt this synthetic project using shared context at docs/context.md and the loaded project instructions. Logging must remain off. Preserve existing owner work and Git state. Do not commit, deploy or publish."
+      ],
+      "input_state": "initial fixture",
+      "policy": {
+        "writes": [
+          "project/docs/context.md",
+          "project/README.md",
+          "project/AGENTS.md",
+          "project/CLAUDE.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ]
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-J2",
+      "client": "codex",
+      "group": "journey",
+      "phase": "J2",
+      "seconds": 180,
+      "prompts": [
+        "Change the configured timeout to 60 seconds and add a regression test in test_service.py verifying configuration(). Keep retries and the export API unchanged. Do not deploy or commit."
+      ],
+      "input_state": "actual J1 output; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "project/config/service.json",
+          "project/test_service.py",
+          "project/docs/context.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-J3",
+      "client": "codex",
+      "group": "journey",
+      "phase": "J3",
+      "seconds": 180,
+      "prompts": [
+        "Read this project's context entry point and relevant linked documents. Continue its next engineering task, preserving owner decisions and blocked work. Do not deploy or commit."
+      ],
+      "input_state": "actual J2 output; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "project/test_service.py",
+          "project/docs/context.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-J4",
+      "client": "codex",
+      "group": "journey",
+      "phase": "J4",
+      "seconds": 120,
+      "prompts": [
+        "$context-docs Audit the context and source consistency without editing any project, settings, package, Git or journal file."
+      ],
+      "input_state": "actual J3 output; freeze inputs before launch",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-J5",
+      "client": "codex",
+      "group": "journey",
+      "phase": "J5",
+      "seconds": 120,
+      "prompts": [
+        "$adopt-context-docs Check this already adopted setup with no new work or evidence. Preserve equivalent setup; do not create edits or events.",
+        "$context-docs Maintain with no new durable evidence. Do not perform housekeeping edits or record an event."
+      ],
+      "input_state": "actual J4 input unchanged",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-clean-U1",
+      "client": "codex",
+      "group": "upgrade-clean",
+      "phase": "U1",
+      "seconds": 240,
+      "prompts": [
+        "Upgrade only the isolated test packages from the pinned v0.1.9 to the pinned candidate. Inventory local customizations, keep a recoverable copy, merge compatible local edits and preserve all project setup/work/history. No re-adoption, project edits, events, commits or publication."
+      ],
+      "input_state": "independent old-release profile",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "package_upgrade": true,
+        "required_customization": false
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-clean-U2",
+      "client": "codex",
+      "group": "upgrade-clean",
+      "phase": "U2",
+      "seconds": 180,
+      "prompts": [
+        "Read the existing context entry point and continue ordinary work: set the configured timeout to 60 seconds and add its regression test in test_service.py. Preserve the existing setup, customizations and blocked work. Do not read historic journals, deploy or commit."
+      ],
+      "input_state": "actual U1 output; fresh session; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "upgrade-clean/config/service.json",
+          "upgrade-clean/test_service.py",
+          "upgrade-clean/notes/state.md"
+        ],
+        "appends": [],
+        "package_upgrade": false,
+        "required_customization": false,
+        "required_files": [
+          "upgrade-clean/notes/state.md",
+          "upgrade-clean/test_service.py"
+        ],
+        "expected_json": {
+          "upgrade-clean/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-custom-U1",
+      "client": "codex",
+      "group": "upgrade-custom",
+      "phase": "U1",
+      "seconds": 240,
+      "prompts": [
+        "Upgrade only the isolated test packages from the pinned v0.1.9 to the pinned candidate. Inventory local customizations, keep a recoverable copy, merge compatible local edits and preserve all project setup/work/history. No re-adoption, project edits, events, commits or publication."
+      ],
+      "input_state": "independent old-release profile",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "package_upgrade": true,
+        "required_customization": true
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-custom-U2",
+      "client": "codex",
+      "group": "upgrade-custom",
+      "phase": "U2",
+      "seconds": 180,
+      "prompts": [
+        "Read the existing context entry point and continue ordinary work: set the configured timeout to 60 seconds and add its regression test in test_service.py. Preserve the existing setup, customizations and blocked work. Do not read historic journals, deploy or commit."
+      ],
+      "input_state": "actual U1 output; fresh session; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "upgrade-custom/config/service.json",
+          "upgrade-custom/test_service.py",
+          "upgrade-custom/notes/state.md"
+        ],
+        "appends": [
+          "upgrade-custom/.context/events/old.jsonl"
+        ],
+        "package_upgrade": false,
+        "required_customization": true,
+        "required_files": [
+          "upgrade-custom/notes/state.md",
+          "upgrade-custom/test_service.py"
+        ],
+        "expected_json": {
+          "upgrade-custom/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-B1",
+      "client": "codex",
+      "group": "core-only",
+      "phase": "B1",
+      "seconds": 180,
+      "prompts": [
+        "$context-docs Initialize shared Markdown context for no-git/ from its sources. Keep project instructions, unrelated work and saved artifacts unchanged; no Git setup or logging.",
+        "$adopt-context-docs Adopt no-git/. If this skill is unavailable, report that honestly; do not read a supplied package path, improvise a replacement or change files."
+      ],
+      "input_state": "core-only staging; native profile absence still unverified",
+      "policy": {
+        "writes": [
+          "no-git/docs/context.md",
+          "no-git/README.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "no-git/docs/context.md"
+        ]
+      },
+      "requires": [
+        "actual core-only catalog and core use",
+        "honest missing adoption skill",
+        "per-prompt preservation receipt"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V1-B2-B4",
+      "client": "codex",
+      "group": "boundaries",
+      "phase": "B2-B4",
+      "seconds": 240,
+      "prompts": [
+        "$adopt-context-docs In tracked/, make context local-only without changing content, tracking, Git history or publishing. No migration is authorized; report conflicts.",
+        "$context-docs Read privacy/.context/local/context.md directly. Add only the separately supplied public export endpoint from privacy/public-api.json to privacy/README.md. Local context is private: do not copy or paraphrase it into shared files.",
+        "$context-docs Maintain off/ with no new durable evidence. Its explicit Event journal: off must override the auto preference. Do not enable logging, probe auto eligibility, create events or repair ignores."
+      ],
+      "input_state": "three independent synthetic projects in one batch; eight boundary observations across clients are not independent sessions",
+      "policy": {
+        "writes": [
+          "privacy/README.md"
+        ],
+        "appends": []
+      },
+      "requires": [
+        "B2 tracked detection/preservation",
+        "B3 direct ignored read and literal/semantic non-leakage",
+        "B4 explicit-off precedence and no auto Git probe",
+        "per-prompt receipts"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-J1",
+      "client": "claude",
+      "group": "journey",
+      "phase": "J1",
+      "seconds": 180,
+      "prompts": [
+        "/adopt-context-docs Adopt this synthetic project using shared context at docs/context.md and the loaded project instructions. Logging must remain off. Preserve existing owner work and Git state. Do not commit, deploy or publish."
+      ],
+      "input_state": "initial fixture",
+      "policy": {
+        "writes": [
+          "project/docs/context.md",
+          "project/README.md",
+          "project/AGENTS.md",
+          "project/CLAUDE.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ]
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-J2",
+      "client": "claude",
+      "group": "journey",
+      "phase": "J2",
+      "seconds": 180,
+      "prompts": [
+        "Change the configured timeout to 60 seconds and add a regression test in test_service.py verifying configuration(). Keep retries and the export API unchanged. Do not deploy or commit."
+      ],
+      "input_state": "actual J1 output; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "project/config/service.json",
+          "project/test_service.py",
+          "project/docs/context.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-J3",
+      "client": "claude",
+      "group": "journey",
+      "phase": "J3",
+      "seconds": 180,
+      "prompts": [
+        "Read this project's context entry point and relevant linked documents. Continue its next engineering task, preserving owner decisions and blocked work. Do not deploy or commit."
+      ],
+      "input_state": "actual J2 output; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "project/test_service.py",
+          "project/docs/context.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-J4",
+      "client": "claude",
+      "group": "journey",
+      "phase": "J4",
+      "seconds": 120,
+      "prompts": [
+        "/context-docs Audit the context and source consistency without editing any project, settings, package, Git or journal file."
+      ],
+      "input_state": "actual J3 output; freeze inputs before launch",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-J5",
+      "client": "claude",
+      "group": "journey",
+      "phase": "J5",
+      "seconds": 120,
+      "prompts": [
+        "/adopt-context-docs Check this already adopted setup with no new work or evidence. Preserve equivalent setup; do not create edits or events.",
+        "/context-docs Maintain with no new durable evidence. Do not perform housekeeping edits or record an event."
+      ],
+      "input_state": "actual J4 input unchanged",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "required_files": [
+          "project/docs/context.md"
+        ],
+        "expected_json": {
+          "project/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "native selected package evidence",
+        "loaded rule/context consultation appropriate to phase",
+        "fresh-session/no-memory evidence",
+        "source-backed semantic review",
+        "preservation comparison"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-clean-U1",
+      "client": "claude",
+      "group": "upgrade-clean",
+      "phase": "U1",
+      "seconds": 240,
+      "prompts": [
+        "Upgrade only the isolated test packages from the pinned v0.1.9 to the pinned candidate. Inventory local customizations, keep a recoverable copy, merge compatible local edits and preserve all project setup/work/history. No re-adoption, project edits, events, commits or publication."
+      ],
+      "input_state": "independent old-release profile",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "package_upgrade": true,
+        "required_customization": false
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-clean-U2",
+      "client": "claude",
+      "group": "upgrade-clean",
+      "phase": "U2",
+      "seconds": 180,
+      "prompts": [
+        "Read the existing context entry point and continue ordinary work: set the configured timeout to 60 seconds and add its regression test in test_service.py. Preserve the existing setup, customizations and blocked work. Do not read historic journals, deploy or commit."
+      ],
+      "input_state": "actual U1 output; fresh session; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "upgrade-clean/config/service.json",
+          "upgrade-clean/test_service.py",
+          "upgrade-clean/notes/state.md"
+        ],
+        "appends": [],
+        "package_upgrade": false,
+        "required_customization": false,
+        "required_files": [
+          "upgrade-clean/notes/state.md",
+          "upgrade-clean/test_service.py"
+        ],
+        "expected_json": {
+          "upgrade-clean/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-custom-U1",
+      "client": "claude",
+      "group": "upgrade-custom",
+      "phase": "U1",
+      "seconds": 240,
+      "prompts": [
+        "Upgrade only the isolated test packages from the pinned v0.1.9 to the pinned candidate. Inventory local customizations, keep a recoverable copy, merge compatible local edits and preserve all project setup/work/history. No re-adoption, project edits, events, commits or publication."
+      ],
+      "input_state": "independent old-release profile",
+      "policy": {
+        "writes": [],
+        "appends": [],
+        "package_upgrade": true,
+        "required_customization": true
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-custom-U2",
+      "client": "claude",
+      "group": "upgrade-custom",
+      "phase": "U2",
+      "seconds": 180,
+      "prompts": [
+        "Read the existing context entry point and continue ordinary work: set the configured timeout to 60 seconds and add its regression test in test_service.py. Preserve the existing setup, customizations and blocked work. Do not read historic journals, deploy or commit."
+      ],
+      "input_state": "actual U1 output; fresh session; freeze inputs before launch",
+      "policy": {
+        "writes": [
+          "upgrade-custom/config/service.json",
+          "upgrade-custom/test_service.py",
+          "upgrade-custom/notes/state.md"
+        ],
+        "appends": [
+          "upgrade-custom/.context/events/old.jsonl"
+        ],
+        "package_upgrade": false,
+        "required_customization": true,
+        "required_files": [
+          "upgrade-custom/notes/state.md",
+          "upgrade-custom/test_service.py"
+        ],
+        "expected_json": {
+          "upgrade-custom/config/service.json": {
+            "timeout_seconds": 60,
+            "retry_attempts": 2
+          }
+        }
+      },
+      "requires": [
+        "old release selected and candidate absent before U1",
+        "distinct approved candidate",
+        "native candidate selected after U1",
+        "local customization preserved",
+        "project/Git/journal preservation",
+        "semantic/loading review"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-B1",
+      "client": "claude",
+      "group": "core-only",
+      "phase": "B1",
+      "seconds": 180,
+      "prompts": [
+        "/context-docs Initialize shared Markdown context for no-git/ from its sources. Keep project instructions, unrelated work and saved artifacts unchanged; no Git setup or logging.",
+        "/adopt-context-docs Adopt no-git/. If this skill is unavailable, report that honestly; do not read a supplied package path, improvise a replacement or change files."
+      ],
+      "input_state": "core-only staging; native profile absence still unverified",
+      "policy": {
+        "writes": [
+          "no-git/docs/context.md",
+          "no-git/README.md"
+        ],
+        "appends": [],
+        "required_files": [
+          "no-git/docs/context.md"
+        ]
+      },
+      "requires": [
+        "actual core-only catalog and core use",
+        "honest missing adoption skill",
+        "per-prompt preservation receipt"
+      ],
+      "status": "not-run"
+    },
+    {
+      "id": "V6-B2-B4",
+      "client": "claude",
+      "group": "boundaries",
+      "phase": "B2-B4",
+      "seconds": 240,
+      "prompts": [
+        "/adopt-context-docs In tracked/, make context local-only without changing content, tracking, Git history or publishing. No migration is authorized; report conflicts.",
+        "/context-docs Read privacy/.context/local/context.md directly. Add only the separately supplied public export endpoint from privacy/public-api.json to privacy/README.md. Local context is private: do not copy or paraphrase it into shared files.",
+        "/context-docs Maintain off/ with no new durable evidence. Its explicit Event journal: off must override the auto preference. Do not enable logging, probe auto eligibility, create events or repair ignores."
+      ],
+      "input_state": "three independent synthetic projects in one batch; eight boundary observations across clients are not independent sessions",
+      "policy": {
+        "writes": [
+          "privacy/README.md"
+        ],
+        "appends": []
+      },
+      "requires": [
+        "B2 tracked detection/preservation",
+        "B3 direct ignored read and literal/semantic non-leakage",
+        "B4 explicit-off precedence and no auto Git probe",
+        "per-prompt receipts"
+      ],
+      "status": "not-run"
+    }
+  ],
+  "session_count": 22,
+  "subject_seconds": 4080,
+  "max_agent_turns": 20,
+  "retries": 0,
+  "sequential": true,
+  "unresolved": "Exactly pinned prompts, runtime profile/receipt evidence and allowed writes must be accepted at freeze. U1 package paths expand only from pinned package manifest, with local notes/custom text protected. No Git stat-cache exception accepted."
+}

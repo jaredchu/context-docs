@@ -1,7 +1,8 @@
 # Project context
 
-Project direction updated: 2026-10-16. Release and website verification below is
-from 2026-10-11; historical evaluations were not rerun.
+Project direction updated: 2026-10-16. v0.2.0 publication and website deployment
+are authorized; completion evidence is recorded separately. Historical evaluations
+were not rerun.
 
 ## Purpose and scope
 
@@ -17,17 +18,17 @@ local notes only when still useful.
 **Goal:** integrate progress visualization into the reusable Context Docs skill,
 with Markdown as the view. Jared Chu clarified on October 16 that this is a skill
 feature, not only a change to this project's context. The owner set aside the
-broad v1.0.0 graduation campaign. The current request prepares v0.2.0 release
-notes and website updates; publication is not authorized by preparation.
+broad v1.0.0 graduation campaign. The owner authorized experimental v0.2.0
+publication and website deployment on October 16; installed upgrades remain separate.
 
 Snapshot of saved work, not live agent activity:
 
 | Work | State | Evidence / remaining work |
 | --- | --- | --- |
 | Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
-| Markdown progress feature | Implemented in development; unreleased | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
+| Markdown progress feature | Implemented; v0.2.0 publication authorized | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
 | Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md) and [two-session Claude Code smoke](../evals/progress/smoke-2026-10-16/README.md): create/refresh behavior and write boundaries pass, with a minor per-item source-link gap. The full scenario suite and native Codex use remain untested. |
-| v0.2.0 release preparation | Ready for review; unpublished | [Draft notes](releases/v0.2.0.md) and [preparation checks](releases/v0.2.0-validation.json): website progress prompt, 32 local tests, static checks, build and desktop/mobile previews. No new native evaluation or installed upgrade. |
+| v0.2.0 release preparation | Complete; publication authorized | [Release notes](releases/v0.2.0.md) and [preparation checks](releases/v0.2.0-validation.json): website progress prompt, 32 local tests, static checks, build and desktop/mobile previews. No new native evaluation or installed upgrade. |
 
 **Blockers and unknowns:** no implementation blocker is identified for this
 development change. The smoke view's first two advances bullets lack direct
@@ -37,8 +38,9 @@ synthetic smoke does not prove usability. Earlier
 release-readiness infrastructure is not a gate for this work. A local web viewer
 and ChatGPT integration remain future possibilities.
 
-**Next action:** review the [v0.2.0 draft notes](releases/v0.2.0.md) and website
-update before authorizing publication. Continue [ordinary use](#next-actions). Markdown
+**Next action:** complete v0.2.0 publication, deployment and live verification;
+retain the [publication record](releases/v0.2.0-publication.json). Continue
+[ordinary use](#next-actions). Markdown
 remains authoritative, without an independent tracker, invented completion
 percentages or claims of live activity.
 
@@ -75,10 +77,21 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
+- The owner authorized the experimental v0.2.0 bundle: core **0.2.0**, adoption
+  **0.1.10** and standard **0.1.1**. The [publication record](releases/v0.2.0-publication.json)
+  distinguishes completed checks and publication from the unchanged preparation
+  evidence. This does not update installed skills or project setups.
+- Earlier main-branch [graduation criteria](v1.0.0-readiness.md),
+  [support proposal](v1.0.0-support.md), [validation plan](v1.0.0-validation-plan.md),
+  [Wave 1 fixtures](../evals/v1-readiness/wave1/README.md),
+  [isolation proposal](v1.0.0-wave1-isolation-setup.md) and
+  [feasibility packet](v1.0.0-wave1-feasibility.md) remain as deferred history.
+  Their proposed infrastructure and gates are not requirements for v0.2.0.
+
 - Previously released bundle: [v0.1.8](releases/v0.1.8.md), with core **0.1.8**, adoption
   **0.1.9** and standard **0.1.1**. Published as an experimental prerelease after
   both release-commit Actions runs passed.
-- Current released bundle: [v0.1.9](releases/v0.1.9.md), with core **0.1.9**,
+- Previous released bundle: [v0.1.9](releases/v0.1.9.md), with core **0.1.9**,
   adoption **0.1.9** and standard **0.1.1**, published as an experimental prerelease
   at `14acc74` after both release-commit Actions workflows passed.
   The [focused source-selection check](../evals/source-selection/README.md)
@@ -173,20 +186,17 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the prepared v0.2.0 release notes and website update. They retain the
-experimental status, prior evidence limits and v0.1.9 as the latest published
-bundle. Commit/push, release publication, deployment and installed upgrades are
-separate actions. Preparation changes no skill package or existing setup and
-adds no native trial; its local checks are recorded in the
-[preparation record](releases/v0.2.0-validation.json).
+Complete the authorized v0.2.0 publication and website deployment, checking
+release-commit Actions and comparing live public response bytes with the build.
+Keep the [preparation record](releases/v0.2.0-validation.json) unchanged and record
+publication separately. Installed upgrades remain a separate action.
 
 Use the development guidance during this project's next ordinary task: update
 the Markdown view from actual outcomes and check that its evidence, statuses and
 next action remain clear, including direct source links for each meaningful
 advance. Record concrete gaps without starting a new infrastructure campaign.
-The development
-versions are core 0.2.0 and adoption 0.1.10; installed upgrades and a new release
-are separate actions. A linked Markdown progress file is supported when useful
+The v0.2.0 bundle contains core 0.2.0 and adoption 0.1.10; installed upgrades
+remain separate. A linked Markdown progress file is supported when useful
 or requested; a web app and new evaluation infrastructure are outside this change.
 The two-session synthetic smoke is not a target-user usability evaluation.
 

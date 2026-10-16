@@ -142,9 +142,9 @@ initialization workflow.
 
 ### Progress in Markdown
 
-Development core v0.2.0 adds Markdown progress visualization; adoption v0.1.10
-routes to that guidance. Both are unreleased. Installed v0.1.9 skills do not yet
-include the feature; upgrading an installation remains a separate action.
+Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that
+guidance. They ship in the experimental v0.2.0 bundle. Existing v0.1.9 installations
+do not include the feature; upgrading an installation remains a separate action.
 
 Ask the agent to write the view, using the same skill syntax as other requests:
 
