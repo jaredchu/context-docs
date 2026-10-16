@@ -1,8 +1,9 @@
 # Project context
 
-Release and website verified: 2026-10-16. Experimental v0.2.1 is published; all
-eight checked public resources match its build. Historical evaluations are not
-rerun; installed skills, saved studies and existing project setups are preserved.
+Snapshot checked: 2026-10-16. Experimental v0.2.1 is published and its website
+verified. Installed v0.2.1 visual-path smoke checks complete in both clients,
+with one Claude prose qualification. Earlier evidence, installed skills,
+saved studies and existing project setups are preserved.
 
 ## Purpose and scope
 
@@ -35,7 +36,8 @@ Markdown progress
     |-- DONE  Local validation and counterpart review [C]
     |-- DONE  Focused Codex and Claude visual-path smoke [S]
     |-- DONE  Release notes and website preparation [P]
-    `-- DONE  Experimental release, deployment and live verification [D]
+    |-- DONE  Experimental release, deployment and live verification [D]
+    `-- CHECKED  Installed visual-path smoke; Claude prose qualified [I]
 
 NEXT: use the released guidance in ordinary work and report concrete gaps [D]
 ```
@@ -71,22 +73,29 @@ Sources for the visual:
   The experimental release and website use `0c897c0` after both release-commit
   Actions pass. Eight live HTTPS resources match the build, including the visual
   path, source maps and released labels. Installed skills remain unchanged.
+- **I:** [Installed v0.2.1 smoke and exact outputs](../evals/installed-skills/2026-10-16-progress-v021/README.md).
+  One fresh guided case per client uses the installed core and progress guide.
+  Both visual paths, dependencies and blockers pass; 17 Codex and 15 Claude
+  view/context links resolve. Claude's prose adds an unsupported provider-choice
+  prerequisite; its diagram preserves the documented sequence. No correction or
+  retry is performed. This is author-scored evidence, not a general benefit claim.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
 and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md) retained.
 
-**Blockers and gaps:** the focused candidate create cases pass. The full progress
+**Blockers and gaps:** focused candidate and installed visual paths pass; the
+installed Claude output has the [source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
+recorded above. The full progress
 suite, default/implicit loading and benefit to
 intended users remain unestablished. The [earlier copied-development smoke](../evals/progress/smoke-2026-10-16/README.md)
 retains its two advances bullets without direct inline links; newer outputs do
 not replace that result. The [initial v0.2.0 artifact review](../evals/progress/review.md)
 is also unchanged.
 
-**Next action:** use the released visual-path guidance during ordinary work and
-record concrete misses. Installed upgrades remain a separate authorized action.
-Continue normal work with
-released skills and record concrete misses under the [next actions](#next-actions).
+**Next action:** use the installed v0.2.1 visual-path guidance during ordinary
+work and record concrete misses under the [next actions](#next-actions). Keep
+the prose qualification visible without launching another trial or fix cycle.
 
 The owner set aside the broad v1.0.0 graduation campaign. Its retained
 [infrastructure proposals](#current-state) remain deferred. A local web viewer and
@@ -127,6 +136,10 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
+- Installed v0.2.1 now has a [focused native smoke record](../evals/installed-skills/2026-10-16-progress-v021/README.md),
+  separate from the copied-candidate evidence. Both clients produce the required
+  visual path; Claude's extra prose prerequisite remains qualified. No installed
+  skill, setup, earlier evidence or saved-study change is part of this check.
 - Core **0.2.1** tightens explicit visualization requests to show a visual path
   with supported dependencies, blockers and clickable sources. It is published in
   experimental v0.2.1; a focused copied-candidate create case passes acceptance in

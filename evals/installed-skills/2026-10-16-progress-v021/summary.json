@@ -1,0 +1,131 @@
+{
+  "assessment": "Both focused visual paths pass; Claude has one source-grounding qualification in prose. No correction or retry.",
+  "assessor": "Sol; author-scored, not independent validation",
+  "clients": {
+    "claude": {
+      "all_other_fixture_bytes_and_modes_unchanged": true,
+      "attempts": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "docs/context.md",
+        "notes/progress.md"
+      ],
+      "elapsed_seconds": 36.76,
+      "exit_code": 0,
+      "finished_at": "2026-10-16T14:46:57.716176+00:00",
+      "installed_core_use": "Installed context-docs Skill invocation and direct installed progress guide read",
+      "link_failures": [],
+      "links_checked": "15 relative links and anchors",
+      "native_result": {
+        "is_error": false,
+        "permission_denials": [],
+        "subtype": "success"
+      },
+      "outputs_sha256": {
+        "docs/context.md": "671b89fbccbd3822554b298412adae30d1daf2a740a4bfbe6ae1c74c1b3b9fa9",
+        "notes/progress.md": "55b029d546d17ab1fda3204544602219886f94d8d80b96efaf8b9a5163eff030"
+      },
+      "raw_sha256": {
+        "receipt.json": "8509bc92ba5dccab168b7e731048d80f6f4462f1f570e7eb2723ea6cee9194fc",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "8d61c8be01335492febccf8a84dc746b4362cd305b5f1507aa651b26ebe177ff"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": [
+        "claude-opus-5-5"
+      ],
+      "retries": 0,
+      "skill_expansion_in_stream": true,
+      "started_at": "2026-10-16T14:46:20.951315+00:00",
+      "status": "completed"
+    },
+    "codex": {
+      "all_other_fixture_bytes_and_modes_unchanged": true,
+      "attempts": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "docs/context.md",
+        "notes/progress.md"
+      ],
+      "elapsed_seconds": 37.19,
+      "exit_code": 0,
+      "finished_at": "2026-10-16T14:46:58.143459+00:00",
+      "installed_core_use": "Direct installed SKILL.md and packaged progress guide reads",
+      "link_failures": [],
+      "links_checked": "17 relative links and anchors",
+      "native_result": null,
+      "outputs_sha256": {
+        "docs/context.md": "775a88995e664004c5798031c3dc4b887f61562f14208bd334486c8b459dd765",
+        "notes/progress.md": "0f200ef3d9efa60ea3305476a317fa9478505e3d1294dfb8874a26b063da6f08"
+      },
+      "raw_sha256": {
+        "receipt.json": "18809f07313d68c4724d81e627c015379c270d6ebd1544946a9b93757e0c9635",
+        "stderr.txt": "96c66954427d6e34ff8da87351f517860178a89db206cffe0f5bc0655560d258",
+        "stdout.jsonl": "feb9c01ed302efc9abf221d332e5fa13fc2f415e025d6ce10b51dcc99f746942"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "retries": 0,
+      "skill_expansion_in_stream": null,
+      "started_at": "2026-10-16T14:46:20.951314+00:00",
+      "status": "completed"
+    }
+  },
+  "date": "2026-10-16",
+  "limits": [
+    "Two guided author-created sessions, no comparative or general reliability/privacy/usability benefit claim.",
+    "Explicit installed-skill request; no claim about implicit discovery or default interactive UI behavior.",
+    "No adoption, refresh, audit or no-change scenario in this smoke.",
+    "No Git fixture; retained-note history only.",
+    "Process settings differ from ordinary UI; Claude file-tool restrictions and Codex workspace sandbox plus prompt/write checks are narrow boundaries, not general isolation guarantees.",
+    "Author-scored visual-path create cases; no full-suite or general visual-usability claim.",
+    "The fixture is similar to the packaged illustrative example; no independent held-out generalization claim."
+  ],
+  "manual_assessment": {
+    "claude": {
+      "criteria_1_to_8": [
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "qualified",
+        "pass",
+        "pass"
+      ],
+      "qualification": "The Unknowns paragraph says assigning the sample source/owner is the decision that unblocks the next action. The fixture establishes obtain sample then run check, but does not establish provider assignment as a required prerequisite. The diagram itself preserves the documented dependency. Links resolving does not establish that every claim is supported."
+    },
+    "codex": {
+      "criteria_1_to_8": [
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass"
+      ],
+      "qualification": "Source key G says goal and next action but anchors Goal; next action is separately linked to its correct heading in prose. No material unsupported dependency found."
+    }
+  },
+  "preservation": {
+    "installed_package_hashes_rechecked": 32,
+    "public_fixture_copies_byte_equal": 8,
+    "scope": "All inventoried preexisting repository paths, earlier private evidence and four installed skill trees, bytes and modes; .git and current private scratch root excluded. Known native runtime bookkeeping outside this scope.",
+    "unexpected_changes": [],
+    "verified": true
+  },
+  "protocol_private_original_sha256": "16e89ffd9b745d9fa9ae502bb37bdec459af73966163836799515c0fe5ac9267",
+  "public_protocol_normalization": "Executable paths only are replaced with codex/claude; other frozen protocol fields and synthetic inputs are unchanged.",
+  "repository_checks": {
+    "command": "python3 -B evals/checks/static_checks.py",
+    "packages": 2,
+    "relative_links_and_anchors": 1559,
+    "result": "pass",
+    "result_tables": 5,
+    "separate_from_native_behavior": true,
+    "versions": 2,
+    "whitespace": "git diff --check passes"
+  }
+}

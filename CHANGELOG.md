@@ -18,6 +18,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Installed v0.2.1 visual progress smoke — 2026-10-16
+
+- Run one fresh synthetic create case per native client using the installed
+  core 0.2.1: Codex requests Sol 6.1, Claude Code requests/reports Opus 5.5.
+  Both show the visual path, dependencies, blocker and sourced next action;
+  all 17 Codex and 15 Claude view/context links resolve. Claude adds one
+  unsupported prerequisite in Unknowns prose; retain that qualification and
+  both exact outputs in the [smoke record](evals/installed-skills/2026-10-16-progress-v021/README.md).
+- Each completes within 180 seconds without retry; only the two permitted fixture
+  Markdown files change. These author-scored cases do not establish general
+  usability or flawless source grounding. Installed skills, setups, earlier
+  evidence and saved studies are preserved; no package or version change.
+
 ## v0.2.1 publication — 2026-10-16
 
 - Finalize the approved experimental release labels and website links for core
