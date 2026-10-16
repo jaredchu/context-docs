@@ -25,8 +25,11 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   and known source-link gap; no new native trial is performed.
 - Preserve the earlier main-branch v1.0 planning documents and fixtures as deferred
   history, without making them release gates. The
-  [publication record](docs/releases/v0.2.0-publication.json) records checks,
-  deployment and preservation separately from preparation.
+  [publication record](docs/releases/v0.2.0-publication.json) records passing
+  release-commit Actions and deployment from `d341695`. Eight live responses match
+  the build; both pages show progress guidance and released status. Existing
+  setups, installed skills and saved studies are unchanged. Preparation and
+  historical evidence remain intact.
 
 ## v0.2.0 release preparation — 2026-10-16 (prepublication checks)
 

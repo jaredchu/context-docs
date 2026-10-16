@@ -1,8 +1,8 @@
 # Project context
 
-Project direction updated: 2026-10-16. v0.2.0 publication and website deployment
-are authorized; completion evidence is recorded separately. Historical evaluations
-were not rerun.
+Release and website verified: 2026-10-16. The experimental v0.2.0 bundle is
+published; installed skills and existing setups remain unchanged. Historical
+evaluations were not rerun.
 
 ## Purpose and scope
 
@@ -26,9 +26,9 @@ Snapshot of saved work, not live agent activity:
 | Work | State | Evidence / remaining work |
 | --- | --- | --- |
 | Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
-| Markdown progress feature | Implemented; v0.2.0 publication authorized | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
+| Markdown progress feature | Released in experimental v0.2.0 | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
 | Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md) and [two-session Claude Code smoke](../evals/progress/smoke-2026-10-16/README.md): create/refresh behavior and write boundaries pass, with a minor per-item source-link gap. The full scenario suite and native Codex use remain untested. |
-| v0.2.0 release preparation | Complete; publication authorized | [Release notes](releases/v0.2.0.md) and [preparation checks](releases/v0.2.0-validation.json): website progress prompt, 32 local tests, static checks, build and desktop/mobile previews. No new native evaluation or installed upgrade. |
+| v0.2.0 publication and website | Published and verified | [Release notes](releases/v0.2.0.md), unchanged [preparation checks](releases/v0.2.0-validation.json) and [publication record](releases/v0.2.0-publication.json): release-commit Actions and deployment pass; eight live responses match the build. No new native evaluation or installed upgrade. |
 
 **Blockers and unknowns:** no implementation blocker is identified for this
 development change. The smoke view's first two advances bullets lack direct
@@ -38,9 +38,9 @@ synthetic smoke does not prove usability. Earlier
 release-readiness infrastructure is not a gate for this work. A local web viewer
 and ChatGPT integration remain future possibilities.
 
-**Next action:** complete v0.2.0 publication, deployment and live verification;
-retain the [publication record](releases/v0.2.0-publication.json). Continue
-[ordinary use](#next-actions). Markdown
+**Next action:** use the released Markdown progress guidance in ordinary work
+and record concrete gaps, preserving direct source links for meaningful advances.
+See [next actions](#next-actions). Markdown
 remains authoritative, without an independent tracker, invented completion
 percentages or claims of live activity.
 
@@ -77,10 +77,13 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- The owner authorized the experimental v0.2.0 bundle: core **0.2.0**, adoption
-  **0.1.10** and standard **0.1.1**. The [publication record](releases/v0.2.0-publication.json)
-  distinguishes completed checks and publication from the unchanged preparation
-  evidence. This does not update installed skills or project setups.
+- Current released bundle: [v0.2.0](releases/v0.2.0.md), with core **0.2.0**,
+  adoption **0.1.10** and standard **0.1.1**. Published as an experimental prerelease
+  at `d341695` after both main-branch release-commit Actions passed. Website
+  deployment passed from that commit; eight live public responses match the build.
+  The [publication record](releases/v0.2.0-publication.json) retains hashes and
+  limits separately from unchanged preparation evidence. Installed skills, project
+  setups, saved studies and prior main-branch planning records are preserved.
 - Earlier main-branch [graduation criteria](v1.0.0-readiness.md),
   [support proposal](v1.0.0-support.md), [validation plan](v1.0.0-validation-plan.md),
   [Wave 1 fixtures](../evals/v1-readiness/wave1/README.md),
@@ -135,11 +138,12 @@ Earlier release approvals do not authorize new publication.
   [logging precedence and auto rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
   are defined in the packaged guide. There is no background service or sync.
 
-- [Landing page](https://context-docs.com/): live on GitHub Pages,
-  built from selected public sources. The [v0.1.9 deployment](https://github.com/jaredchu/context-docs/actions/runs/38102425605)
-  passed from `14acc74`; the [October 11 verification](website-deployment-2026-10-11.json)
-  records matching live response bytes. Earlier
-  [October 10 verification](website-deployment-2026-10-10.json) is retained.
+- [Landing page](https://context-docs.com/): live on GitHub Pages, built from
+  selected public sources. The [v0.2.0 deployment](https://github.com/jaredchu/context-docs/actions/runs/38884766088)
+  passed from `d341695`; the [October 16 publication record](releases/v0.2.0-publication.json)
+  records matching live response bytes, Markdown progress sections and released
+  labels on both pages. Earlier [October 11](website-deployment-2026-10-11.json)
+  and [October 10](website-deployment-2026-10-10.json) verification is retained.
   [Deployment](../site/README.md#github-pages) is manual; Cloudflare proxies the
   custom domain with Full SSL and Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a
@@ -186,12 +190,12 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Complete the authorized v0.2.0 publication and website deployment, checking
-release-commit Actions and comparing live public response bytes with the build.
-Keep the [preparation record](releases/v0.2.0-validation.json) unchanged and record
-publication separately. Installed upgrades remain a separate action.
+The experimental v0.2.0 release and website are published and verified. Use the
+released guidance and address concrete findings; no graduation infrastructure
+campaign is required. Installed upgrades remain a separate authorized action,
+preserving customizations and existing setups.
 
-Use the development guidance during this project's next ordinary task: update
+Use the released guidance during this project's next ordinary task: update
 the Markdown view from actual outcomes and check that its evidence, statuses and
 next action remain clear, including direct source links for each meaningful
 advance. Record concrete gaps without starting a new infrastructure campaign.

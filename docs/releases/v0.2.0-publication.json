@@ -1,6 +1,6 @@
 {
   "date": "2026-10-16",
-  "status": "publication_authorized_pending_checks",
+  "status": "published_and_website_verified",
   "preparation_commit": "ae974a4f9db18eab356643fed448cb1b61fe9f55",
   "preparation_record": "docs/releases/v0.2.0-validation.json",
   "bundle": {
@@ -23,5 +23,181 @@
     "prepared_package_files_unchanged": 16,
     "retained_main_branch_files_unchanged": 21,
     "new_native_trials": false
+  },
+  "release_commit": "d341695fd278cc31b17bae0154b459574ebf4444",
+  "release": {
+    "isDraft": false,
+    "isPrerelease": true,
+    "publishedAt": "2026-10-16T10:04:11Z",
+    "tagName": "v0.2.0",
+    "targetCommitish": "d341695fd278cc31b17bae0154b459574ebf4444",
+    "url": "https://github.com/jaredchu/context-docs/releases/tag/v0.2.0"
+  },
+  "release_actions": {
+    "Static checks": {
+      "conclusion": "success",
+      "headSha": "d341695fd278cc31b17bae0154b459574ebf4444",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38884685314"
+    },
+    "Landing page": {
+      "conclusion": "success",
+      "headSha": "d341695fd278cc31b17bae0154b459574ebf4444",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38884685782"
+    }
+  },
+  "website_deployment": {
+    "conclusion": "success",
+    "event": "workflow_dispatch",
+    "headSha": "d341695fd278cc31b17bae0154b459574ebf4444",
+    "status": "completed",
+    "url": "https://github.com/jaredchu/context-docs/actions/runs/38884766088"
+  },
+  "public_artifact_files": {
+    "index.html": "9b682d01b719d7293ea53a501c6c2adbab2a578c78cecacff47fa1d925b29fa4",
+    "styles.css": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23",
+    "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+    "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+    "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+    "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+    "getting-started/index.html": "dc751239c09756ba1f37c243e38fe98b62ae7a143e3ac0c7c21f4bee6fa424d5"
+  },
+  "uploaded_artifact_verification": {
+    "downloaded_from_run": 38884766088,
+    "all_uploaded_files_match_local_build": true,
+    "uploaded_files": 8,
+    "local_build_files": 9,
+    "omitted_local_file": ".nojekyll",
+    "qualification": "The uploaded Actions artifact omits the hidden .nojekyll marker. All eight served resources match; this is an Actions Pages deployment, with no Jekyll build step.",
+    "file_hashes": {
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "styles.css": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "index.html": "9b682d01b719d7293ea53a501c6c2adbab2a578c78cecacff47fa1d925b29fa4",
+      "getting-started/index.html": "dc751239c09756ba1f37c243e38fe98b62ae7a143e3ac0c7c21f4bee6fa424d5",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd"
+    }
+  },
+  "live_verification": {
+    "observed_at": "2026-10-16T10:05:40.935219+00:00",
+    "source_commit": "d341695fd278cc31b17bae0154b459574ebf4444",
+    "method": "curl canonical HTTPS GETs using default user agent; initial urllib requests returned HTTP 403.",
+    "resources": [
+      {
+        "url": "https://context-docs.com/",
+        "status": 200,
+        "final_url": "https://context-docs.com/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "9b682d01b719d7293ea53a501c6c2adbab2a578c78cecacff47fa1d925b29fa4",
+        "expected_sha256": "9b682d01b719d7293ea53a501c6c2adbab2a578c78cecacff47fa1d925b29fa4",
+        "matches_build": true,
+        "seo_titles": [
+          "Context Docs: pick up where you left off",
+          "Context Docs: pick up where you left off"
+        ],
+        "seo_no_em_dash": true,
+        "released_status": true,
+        "progress_section": true,
+        "progress_prompt": true,
+        "release_link_not_draft": true
+      },
+      {
+        "url": "https://context-docs.com/styles.css",
+        "status": 200,
+        "final_url": "https://context-docs.com/styles.css",
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23",
+        "expected_sha256": "00b72dd44cfecfb362a1eef0e525a3b057bbf92e795df048a82d53806e54eb23",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/context-docs-overview.png",
+        "status": 200,
+        "final_url": "https://context-docs.com/context-docs-overview.png",
+        "content_type": "image/png",
+        "sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "expected_sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/main.js",
+        "status": 200,
+        "final_url": "https://context-docs.com/main.js",
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "expected_sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/sitemap.xml",
+        "status": 200,
+        "final_url": "https://context-docs.com/sitemap.xml",
+        "content_type": "application/xml",
+        "sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "expected_sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/robots.txt",
+        "status": 200,
+        "final_url": "https://context-docs.com/robots.txt",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "expected_sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/favicon.svg",
+        "status": 200,
+        "final_url": "https://context-docs.com/favicon.svg",
+        "content_type": "image/svg+xml",
+        "sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "expected_sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/getting-started/",
+        "status": 200,
+        "final_url": "https://context-docs.com/getting-started/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "dc751239c09756ba1f37c243e38fe98b62ae7a143e3ac0c7c21f4bee6fa424d5",
+        "expected_sha256": "dc751239c09756ba1f37c243e38fe98b62ae7a143e3ac0c7c21f4bee6fa424d5",
+        "matches_build": true,
+        "seo_titles": [
+          "Get started with Context Docs",
+          "Get started with Context Docs"
+        ],
+        "seo_no_em_dash": true,
+        "released_status": true,
+        "progress_section": true,
+        "progress_prompt": true,
+        "release_link_not_draft": true
+      }
+    ],
+    "all_match": true,
+    "limits": "Canonical HTTPS GETs verify public response bytes; no claim about rendered browser behavior, crawler access, indexing or AI citations."
+  },
+  "publication_attribution": {
+    "human_author": "Jared Chu",
+    "co_authors": [
+      "Codex <noreply@openai.com>"
+    ],
+    "scope": "Codex finalized publication and live verification. Claude assisted earlier feature/review/smoke work, credited in those commits; no new Claude review is claimed."
+  },
+  "preservation": {
+    "status": "passed_after_publication_and_verification",
+    "original_entries_checked": 62577,
+    "prepared_package_files_unchanged": 16,
+    "historical_preparation_record_unchanged": true,
+    "existing_setups_and_installed_skills_unchanged": true,
+    "saved_studies_and_private_evidence_unchanged": true,
+    "removed_original_files": 0,
+    "retained_main_branch_files_match_original": 21,
+    "scope": "Repository worktree, retained private evidence and installed skill directories; only release-status documents/templates are edited. Git metadata excluded; no global client-state equality claim."
   }
 }
