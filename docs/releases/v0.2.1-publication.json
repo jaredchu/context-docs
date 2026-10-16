@@ -1,0 +1,216 @@
+{
+  "date": "2026-10-16",
+  "status": "published_and_website_verified",
+  "preparation_commit": "ca3b758f353b749d737cda7e9dc2cc26fb94bab0",
+  "preparation_record": "docs/releases/v0.2.1-validation.json",
+  "preparation_record_sha256": "da452d953109e388619683d6690447807b586af6fe681a668b008d4a38a2f79b",
+  "bundle": {
+    "core": "0.2.1",
+    "adoption": "0.1.10",
+    "standard": "0.1.1"
+  },
+  "authority": "Jared Chu: Publish v0.2.1 as an experimental release, then deploy and verify the website. Preserve installed skills, existing setups and saved studies.",
+  "new_native_trials": false,
+  "installed_skills_updated": false,
+  "verification_model": "Codex",
+  "new_claude_review": false,
+  "limits": "Earlier artifact reviews, synthetic outcomes and their original qualifications remain intact. Publication does not establish general reliability, privacy, user benefit, implicit loading or accurate stall detection.",
+  "local_checks": {
+    "site_tests_passed": 15,
+    "packaging_static_tests_passed": 18,
+    "static_repository_passed": true,
+    "relative_links_and_anchors_before_publication": 1510,
+    "public_build_files": 9,
+    "prepared_package_files_unchanged": 16,
+    "new_native_trials": false
+  },
+  "release_commit": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+  "release": {
+    "isDraft": false,
+    "isPrerelease": true,
+    "publishedAt": "2026-10-16T13:54:01Z",
+    "tagName": "v0.2.1",
+    "targetCommitish": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+    "url": "https://github.com/jaredchu/context-docs/releases/tag/v0.2.1"
+  },
+  "release_actions": {
+    "Static checks": {
+      "conclusion": "success",
+      "headSha": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38911197083"
+    },
+    "Landing page": {
+      "conclusion": "success",
+      "headSha": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/38911196827"
+    }
+  },
+  "website_deployment": {
+    "conclusion": "success",
+    "event": "workflow_dispatch",
+    "headSha": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+    "status": "completed",
+    "url": "https://github.com/jaredchu/context-docs/actions/runs/38911491498"
+  },
+  "public_artifact_files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+    "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+    "getting-started/index.html": "3ea4b25adbc823f561349b683a6423fed751af23474a963a058697f40e999577",
+    "index.html": "b112c6ce4a928fab8149dea4fae56c7a5b6f992dd4acd7916c8bb6586672ced8",
+    "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+    "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+    "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+    "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+  },
+  "uploaded_artifact_verification": {
+    "downloaded_from_run": 38911491498,
+    "all_uploaded_files_match_local_build": true,
+    "uploaded_files": 8,
+    "local_build_files": 9,
+    "omitted_local_files": [
+      ".nojekyll"
+    ],
+    "qualification": "Actions Pages artifact may omit the hidden .nojekyll marker; every served public resource must match. No archive member is extracted into a project or setup.",
+    "archive_sha256": "7fdb738f5766e973f332bf6950becd50553b7d3ce20f0a3576e64beec6c1c414",
+    "file_hashes": {
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "index.html": "b112c6ce4a928fab8149dea4fae56c7a5b6f992dd4acd7916c8bb6586672ced8",
+      "getting-started/index.html": "3ea4b25adbc823f561349b683a6423fed751af23474a963a058697f40e999577",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd"
+    }
+  },
+  "live_verification": {
+    "observed_at": "2026-10-16T13:55:32.655657+00:00",
+    "source_commit": "0c897c007b0b2cdb66b23107875820b84e73b42b",
+    "method": "Canonical HTTPS GETs with default curl user agent; no cache-busting query or warning bypass.",
+    "resources": [
+      {
+        "url": "https://context-docs.com/",
+        "status": 200,
+        "final_url": "https://context-docs.com/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "b112c6ce4a928fab8149dea4fae56c7a5b6f992dd4acd7916c8bb6586672ced8",
+        "expected_sha256": "b112c6ce4a928fab8149dea4fae56c7a5b6f992dd4acd7916c8bb6586672ced8",
+        "matches_build": true,
+        "seo_titles": [
+          "Context Docs: pick up where you left off",
+          "Context Docs: pick up where you left off"
+        ],
+        "seo_no_em_dash": true,
+        "released_status": true,
+        "progress_section": true,
+        "visual_tree": true,
+        "canonical_visual": true,
+        "source_map_outside_diagram": true,
+        "release_link_not_draft": true
+      },
+      {
+        "url": "https://context-docs.com/getting-started/",
+        "status": 200,
+        "final_url": "https://context-docs.com/getting-started/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "3ea4b25adbc823f561349b683a6423fed751af23474a963a058697f40e999577",
+        "expected_sha256": "3ea4b25adbc823f561349b683a6423fed751af23474a963a058697f40e999577",
+        "matches_build": true,
+        "seo_titles": [
+          "Get started with Context Docs",
+          "Get started with Context Docs"
+        ],
+        "seo_no_em_dash": true,
+        "released_status": true,
+        "progress_section": true,
+        "visual_tree": true,
+        "canonical_visual": true,
+        "source_map_outside_diagram": true,
+        "release_link_not_draft": true
+      },
+      {
+        "url": "https://context-docs.com/styles.css",
+        "status": 200,
+        "final_url": "https://context-docs.com/styles.css",
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0",
+        "expected_sha256": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/main.js",
+        "status": 200,
+        "final_url": "https://context-docs.com/main.js",
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "expected_sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/context-docs-overview.png",
+        "status": 200,
+        "final_url": "https://context-docs.com/context-docs-overview.png",
+        "content_type": "image/png",
+        "sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "expected_sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/favicon.svg",
+        "status": 200,
+        "final_url": "https://context-docs.com/favicon.svg",
+        "content_type": "image/svg+xml",
+        "sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "expected_sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/robots.txt",
+        "status": 200,
+        "final_url": "https://context-docs.com/robots.txt",
+        "content_type": "text/plain; charset=utf-8",
+        "sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "expected_sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "matches_build": true
+      },
+      {
+        "url": "https://context-docs.com/sitemap.xml",
+        "status": 200,
+        "final_url": "https://context-docs.com/sitemap.xml",
+        "content_type": "application/xml",
+        "sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "expected_sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "matches_build": true
+      }
+    ],
+    "all_match": true,
+    "limits": "Checks response bytes and HTML metadata; no new rendered live-browser, crawler/indexing or usability claim."
+  },
+  "publication_attribution": {
+    "human_author": "Jared Chu",
+    "co_authors": [
+      "Codex <noreply@openai.com>"
+    ],
+    "scope": "Codex finalized publication and verification. Claude assisted earlier skill/review/smoke work, credited in those commits; no new Claude review or trial is claimed."
+  },
+  "preservation": {
+    "status": "passed_after_publication_and_verification",
+    "original_entries_checked": 62984,
+    "original_files_edited": 7,
+    "new_files": 2,
+    "removed_original_files": 0,
+    "prepared_package_files_unchanged": 16,
+    "historical_preparation_record_unchanged": true,
+    "existing_setups_and_installed_skills_unchanged": true,
+    "saved_studies_frozen_snapshots_and_prior_private_evidence_unchanged": true,
+    "scope": "Repository except .git; prior durable private evidence except the new publication root; all four installed skill directories. Only release-status docs/templates, current context, one new journal and one new publication receipt differ. No global client-state equality claim."
+  },
+  "receipt_checks": {
+    "static_repository": "passed; 1517 links/anchors, 5 result tables, 2 packages/versions",
+    "whitespace": "passed",
+    "deployed_html_unchanged_by_receipt_edits": true
+  }
+}

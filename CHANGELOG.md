@@ -18,13 +18,17 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## v0.2.1 publication — 2026-10-16 (authorized)
+## v0.2.1 publication — 2026-10-16
 
 - Finalize the approved experimental release labels and website links for core
   0.2.1, unchanged adoption 0.1.10 and standard 0.1.1. Keep preparation evidence,
   earlier native outcomes, installed packages, setups and saved studies unchanged.
-- Publication and live website results will be recorded after release-commit
-  checks and deployment. No new model trial or installed upgrade is part of this work.
+- Publish the experimental prerelease and deploy from `0c897c0` after both
+  release-commit Actions pass. All eight checked live resources return HTTP 200
+  and match the build, including the visual example/source maps and released
+  labels. The [publication record](docs/releases/v0.2.1-publication.json) preserves
+  hashes, Actions and limits separately from unchanged preparation evidence.
+  No new model trial or installed upgrade is part of this work.
 
 ## v0.2.1 release preparation — 2026-10-16 (unpublished)
 
