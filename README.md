@@ -15,12 +15,11 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.1 (unreleased) and adoption skill v0.1.10 (released).**
-The latest published bundle is [v0.2.0](docs/releases/v0.2.0.md), an experimental prerelease.
-See the [v0.2.0 release notes](docs/releases/v0.2.0.md) for the Markdown
-progress feature and its validation limits.
-The [draft v0.2.1 notes](docs/releases/v0.2.1.md) cover the visual-path improvement
-and its focused synthetic checks.
+**Status: experimental, core skill v0.2.1 and adoption skill v0.1.10 (released).**
+The latest bundle is [v0.2.1](docs/releases/v0.2.1.md), an experimental prerelease.
+See its release notes for the visual-path improvement and focused synthetic checks.
+The [v0.2.0 notes](docs/releases/v0.2.0.md) retain the original progress feature
+and its validation limits.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
@@ -153,7 +152,7 @@ percentages and claims of live agent activity are forbidden. The feature ships i
 v0.2.0; existing v0.1.9 installations need a separate upgrade. [Guide](docs/getting-started.md#progress-in-markdown)
 and [synthetic example](examples/progress.md).
 
-Unreleased core **0.2.1** tightens visualization to show a compact tree, arrow
+Core **0.2.1** tightens visualization to show a compact tree, arrow
 path or nested checklist with dependencies and blockers visible. A flat status
 table alone is insufficient. Existing v0.2.0 installations retain the earlier
 guidance; the earlier smoke checks did not test this stricter visual criterion.
@@ -204,7 +203,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [Draft v0.2.1 notes](docs/releases/v0.2.1.md) · [Published v0.2.0 notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [v0.2.1 release notes](docs/releases/v0.2.1.md) · [Published v0.2.0 notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

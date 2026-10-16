@@ -145,7 +145,7 @@ initialization workflow.
 Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that
 guidance. They ship in the experimental v0.2.0 bundle. Existing v0.1.9 installations
 do not include the feature; upgrading an installation remains a separate action.
-Development core **0.2.1** (unreleased) requires a clear visual path rather than a
+Core **0.2.1** requires a clear visual path rather than a
 flat status table alone. A [focused synthetic smoke](../evals/progress/smoke-0.2.1-2026-10-16/README.md)
 passes one guided create case per client; broader behavior and user benefit remain
 unestablished. The example and prompt below reflect that correction; installed
@@ -163,7 +163,7 @@ Link items to evidence, distinguish useful learning from completed outcomes,
 and mark unknowns. Preserve existing layouts and local-only storage boundaries.
 ```
 
-The candidate guidance asks for a small visual path in existing context, or a
+The progress guidance asks for a small visual path in existing context, or a
 linked Markdown file if requested or easier to navigate. Branch parallel
 conditions; show ordering only when supported. Keep proposals outside required
 completion conditions unless approved there. Link items and relationships to

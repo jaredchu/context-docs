@@ -11,13 +11,20 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.0 release notes](docs/releases/v0.2.0.md).
-The [draft v0.2.1 notes](docs/releases/v0.2.1.md) prepare the visual-path improvement;
-that bundle is not published.
+The latest bundle is described in the [v0.2.1 release notes](docs/releases/v0.2.1.md).
+Previous [v0.2.0 release notes](docs/releases/v0.2.0.md) are retained.
 Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.1 publication — 2026-10-16 (authorized)
+
+- Finalize the approved experimental release labels and website links for core
+  0.2.1, unchanged adoption 0.1.10 and standard 0.1.1. Keep preparation evidence,
+  earlier native outcomes, installed packages, setups and saved studies unchanged.
+- Publication and live website results will be recorded after release-commit
+  checks and deployment. No new model trial or installed upgrade is part of this work.
 
 ## v0.2.1 release preparation — 2026-10-16 (unpublished)
 
@@ -34,7 +41,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   installed skills, setups and saved studies are unchanged. No new native trial,
   release or deployment is performed.
 
-## context-docs 0.2.1 — unreleased
+## context-docs 0.2.1 — 2026-10-16 (bundled in v0.2.1)
 
 - Require an explicit progress visualization to show a compact visual path with
   completion branches, dependencies, blockers and the next action. Keep proposals

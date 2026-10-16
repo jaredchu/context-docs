@@ -1,8 +1,9 @@
 # Project context
 
-Release preparation and focused candidate/installed progress smoke checked: 2026-10-16.
-The experimental v0.2.0 bundle is published. Historical evaluations were not
-rerun; saved studies and existing project setups are preserved.
+Publication authorized: 2026-10-16; v0.2.1 release and live verification pending.
+The experimental v0.2.0 release is retained as the previous published baseline.
+Historical evaluations are not rerun; installed skills, saved studies and existing
+project setups are preserved.
 
 ## Purpose and scope
 
@@ -18,9 +19,10 @@ local notes only when still useful.
 **Goal:** integrate useful progress visualization into the reusable Context Docs
 skill, with Markdown as the view. Jared Chu clarified on October 16 that a flat
 status table is insufficient: the view should show a visual path, dependencies,
-blockers and the next action. **Current work is release preparation for the
-unreleased core 0.2.1 correction.** Published v0.2.0 remains the baseline; its passing status/source
-checks did not establish visual usefulness.
+blockers and the next action. **The owner authorized experimental v0.2.1
+publication and website deployment.** Finalization and verification are pending;
+v0.2.0 remains the previous baseline, whose status/source checks did not establish
+visual usefulness.
 
 Snapshot checked October 16, 2026; saved status does not imply live agent activity.
 
@@ -34,9 +36,10 @@ Markdown progress
     |-- DONE  Visual acceptance criteria [A]
     |-- DONE  Local validation and counterpart review [C]
     |-- DONE  Focused Codex and Claude visual-path smoke [S]
-    `-- PREPARED Release notes and website update [P]
+    |-- DONE  Release notes and website preparation [P]
+    `-- APPROVED Publish experimental release and deploy [P]
 
-NEXT: review the v0.2.1 release preparation before deciding publication [P]
+NEXT: check the release commit, publish, deploy and verify the live site [P]
 ```
 
 Sources for the visual:
@@ -46,8 +49,8 @@ Sources for the visual:
   Eight live responses matched the release build; each installed create case had
   17 resolving links. These were narrow status/source checks, not the new visual gate.
 - **V:** [Candidate version](../skills/context-docs/VERSION) and
-  [development change](../CHANGELOG.md#context-docs-021--unreleased). Adoption 0.1.10
-  and standard 0.1.1 are unchanged; installed skills and published releases are untouched.
+  [development change](../CHANGELOG.md#context-docs-021--2026-10-16-bundled-in-v021). Adoption 0.1.10
+  and standard 0.1.1 are unchanged; installed skills and earlier release records are untouched.
 - **E:** [Core guide](../skills/context-docs/references/progress.md),
   [source-linked visual example](../examples/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md)
   and [user guide](getting-started.md#progress-in-markdown). Ordinary maintenance
@@ -63,10 +66,11 @@ Sources for the visual:
   One copied-candidate case per client passes the visual-path, dependency, blocker
   and clickable-source gates; 18 Codex and 14 Claude view/context links resolve.
   These are guided, author-scored cases, not a general visual-usability result.
-- **P:** [Draft v0.2.1 notes](releases/v0.2.1.md) and
-  [preparation checks](releases/v0.2.1-validation.json). Both website pages show
-  the canonical synthetic tree with clickable source maps. Core 0.2.1 remains
-  unreleased; the published bundle and installed packages are unchanged.
+- **P:** [v0.2.1 notes](releases/v0.2.1.md) and unchanged
+  [preparation checks](releases/v0.2.1-validation.json). Jared Chu authorized the
+  experimental release and website deployment on October 16; release and live
+  verification are pending. Both templates show the canonical source-linked tree;
+  this does not yet verify the live site. Installed upgrades are not included.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -79,9 +83,9 @@ retains its two advances bullets without direct inline links; newer outputs do
 not replace that result. The [initial v0.2.0 artifact review](../evals/progress/review.md)
 is also unchanged.
 
-**Next action:** review the draft v0.2.1 notes and website preparation, including
-the retained smoke limits, before deciding whether to publish the correction.
-Publication, deployment and installed upgrades remain separate. Continue normal work with
+**Next action:** verify release-commit Actions, publish v0.2.1 as an experimental
+prerelease, deploy that same commit and verify live response bytes. Installed
+upgrades remain separate. Continue normal work with
 released skills and record concrete misses under the [next actions](#next-actions).
 
 The owner set aside the broad v1.0.0 graduation campaign. Its retained
@@ -123,21 +127,21 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Development core **0.2.1** tightens explicit visualization requests to show a
-  visual path with supported dependencies, blockers and clickable sources. It is
-  unreleased; a focused copied-candidate create case passes visual acceptance in
+- Core **0.2.1** tightens explicit visualization requests to show a visual path
+  with supported dependencies, blockers and clickable sources. Publication is
+  authorized and pending; a focused copied-candidate create case passes acceptance in
   each native client, with [outputs and limits](../evals/progress/smoke-0.2.1-2026-10-16/README.md).
   Adoption remains **0.1.10**;
   its existing sibling routing inherits the core guide. The [correction record](../evals/progress/visual-path-review-2026-10-16.md)
   owns local checks and the bounded Opus artifact review. Existing setups,
   installed packages and saved studies are unchanged.
-- Draft [v0.2.1 release preparation](releases/v0.2.1.md) adds the canonical
+- [v0.2.1 release preparation](releases/v0.2.1.md) adds the canonical
   source-linked visual example to both public website templates. The
   [preparation record](releases/v0.2.1-validation.json) owns current local checks
   and previews separately from earlier native evidence. No new model request,
   publication, deployment or installed upgrade is part of this preparation.
 
-- Current released bundle: [v0.2.0](releases/v0.2.0.md), with core **0.2.0**,
+- Previous released bundle: [v0.2.0](releases/v0.2.0.md), with core **0.2.0**,
   adoption **0.1.10** and standard **0.1.1**. Published as an experimental prerelease
   at `d341695` after both main-branch release-commit Actions passed. Website
   deployment passed from that commit; eight live public responses match the build.
@@ -257,12 +261,13 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [draft v0.2.1 notes](releases/v0.2.1.md) and
-[website preparation checks](releases/v0.2.1-validation.json) before publication.
+Publish the approved [v0.2.1 bundle](releases/v0.2.1.md) after release-commit
+checks, then deploy and verify the website. Preserve the historical
+[preparation checks](releases/v0.2.1-validation.json).
 The [candidate smoke outputs](../evals/progress/smoke-0.2.1-2026-10-16/README.md)
 retain both guided create cases passing the visual gate; the full suite and
-target-user benefit remain unestablished. Publication, deployment and installed
-upgrades require their own authorization.
+target-user benefit remain unestablished. The current owner request authorizes
+publication and deployment; installed upgrades still require separate authorization.
 
 The experimental v0.2.0 release and website are published and verified. Use the
 released guidance and address concrete findings; no graduation infrastructure
