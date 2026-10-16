@@ -29,9 +29,15 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   12 site tests, both skill validators and static repository checks. A focused
   Opus 5.5 artifact review is retained with Sol's source-checked dispositions;
   the revised text has no second model review. See the
-  [validation and review record](evals/progress/review.md). No native progress
-  scenario, implicit selection or user-benefit result is claimed.
+  [validation and review record](evals/progress/review.md).
   Installed skills, existing project setups and saved studies are unchanged.
+- A [focused synthetic smoke check](evals/progress/smoke-2026-10-16/README.md)
+  runs two fresh Claude Code sessions with an explicit copied development skill:
+  create a linked Markdown view, then refresh it from a new retained result.
+  Core status/approval/history behavior and write boundaries pass; 37 link
+  occurrences resolve. Two advances bullets lack direct inline source links,
+  although their sources are linked elsewhere. The remaining scenarios, native
+  Codex behavior, default loading and user benefit are untested.
 
 ## adopt-context-docs 0.1.10 — unreleased
 

@@ -1,6 +1,9 @@
 # Markdown progress regression scenarios
 
-Authored scenarios for the development feature, **not executed native trials**.
+Authored scenarios for the development feature; this full suite has not run.
+The [October 16 smoke check](smoke-2026-10-16/README.md) exercises linked-view
+creation and refresh in two guided Claude Code sessions, with one minor per-item
+link-placement gap. It does not establish a pass for every scenario below.
 Use a disposable synthetic project and the packaged skill; preserve original
 studies. Record actual client/model, input, output, changes and unmet criteria if
 running these later. Do not grade exact headings, table syntax or prose.

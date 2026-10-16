@@ -25,11 +25,13 @@ Snapshot of saved work, not live agent activity:
 | --- | --- | --- |
 | Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
 | Markdown progress feature | Implemented in development; unreleased | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
-| Validation and review | Mechanical checks and initial counterpart review completed | [Validation/review record](../evals/progress/review.md): 18 packaging/static tests, 12 site tests and both skill validators pass. Opus findings were corrected by Sol; no second model review or native progress trial ran. |
+| Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md) and [two-session Claude Code smoke](../evals/progress/smoke-2026-10-16/README.md): create/refresh behavior and write boundaries pass, with a minor per-item source-link gap. The full scenario suite and native Codex use remain untested. |
 
 **Blockers and unknowns:** no implementation blocker is identified for this
-development change. Whether the feature helps users assess progress remains
-unknown; authored examples and artifact review do not prove usability. Earlier
+development change. The smoke view's first two advances bullets lack direct
+inline source links, although those sources are linked elsewhere in the view.
+Whether the feature helps users assess progress remains unknown; a small guided
+synthetic smoke does not prove usability. Earlier
 release-readiness infrastructure is not a gate for this work. A local web viewer
 and ChatGPT integration remain future possibilities.
 
@@ -170,11 +172,13 @@ comprehensive privacy audit.
 
 Use the development guidance during this project's next ordinary task: update
 the Markdown view from actual outcomes and check that its evidence, statuses and
-next action remain clear. Record a concrete gap if one appears. The development
+next action remain clear, including direct source links for each meaningful
+advance. Record concrete gaps without starting a new infrastructure campaign.
+The development
 versions are core 0.2.0 and adoption 0.1.10; installed upgrades and a new release
 are separate actions. A linked Markdown progress file is supported when useful
 or requested; a web app and new evaluation infrastructure are outside this change.
-No native usability evaluation has run.
+The two-session synthetic smoke is not a target-user usability evaluation.
 
 Continue normal use of the released skills and reproduce concrete failures with
 public evidence or synthetic examples before validating focused fixes.
