@@ -16,6 +16,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.0 release preparation — 2026-10-16 (unreleased)
+
+- Prepare [draft release notes](docs/releases/v0.2.0.md) for core 0.2.0,
+  adoption 0.1.10 and unchanged standard 0.1.1. Add Markdown progress guidance
+  and the canonical prompt to both website pages, retaining unreleased labels,
+  the latest published v0.1.9 link and SEO titles without em dashes.
+- Pass 14 site tests, 18 packaging/static regression tests, repository static
+  checks, the nine-file public build and desktop/mobile previews. The
+  [preparation record](docs/releases/v0.2.0-validation.json) separates these
+  checks from earlier native smoke evidence and its source-link gap. No new
+  model trial, release, deployment or installed upgrade is performed; skill
+  packages, existing setups and saved studies are preserved.
+
 ## context-docs 0.2.0 — unreleased
 
 - Add Markdown progress visualization to initialization and maintenance: a view

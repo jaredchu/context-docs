@@ -17,6 +17,8 @@ as possible.
 
 **Status: experimental, core skill v0.2.0 and adoption skill v0.1.10 (unreleased).**
 The latest published bundle is [v0.1.9](docs/releases/v0.1.9.md).
+See the [v0.2.0 draft release notes](docs/releases/v0.2.0.md) for the Markdown
+progress feature and its validation limits.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get

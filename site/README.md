@@ -1,7 +1,7 @@
 # Landing page
 
 A static introduction for prospective Context Docs users. The Python standard-library
-build reads installation commands and save/resume prompts from the root [README](../README.md), before/after
+build reads installation commands and save/resume/progress prompts from the root [README](../README.md), before/after
 content from the [maintenance example](../examples/maintenance.md), and package
 versions from their `VERSION` files. Edit those sources for shared content; edit
 [index.html](index.html), [styles.css](styles.css) and [main.js](main.js) for presentation.
@@ -29,7 +29,7 @@ replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
-Its installation commands, save/resume prompts, synthetic example and versions
+Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed
 [installation reference](../docs/getting-started.md) remains in the repository;
 the site's local-only setup and auto-logging prompts are extracted from its public

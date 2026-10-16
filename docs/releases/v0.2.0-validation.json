@@ -1,0 +1,101 @@
+{
+  "status": "prepared_for_review_unpublished",
+  "prepared_date": "2026-10-16",
+  "source_commit": "40f5c7c8ad9f1c05142ffa3cade65e03becc4b79",
+  "bundle": {
+    "core": "0.2.0",
+    "adoption": "0.1.10",
+    "standard": "0.1.1"
+  },
+  "package_sha256": {
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "d0946e167e3eb54eb723d550e57b3736adb8d29d2d21410c32ae959050bf831c",
+    "skills/context-docs/VERSION": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "2a55f93f31af1670f62b67b961a1c7ae8e80e70addc7713839dbfce426332b70",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445",
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "5fc2120cacf686636915967b921c89928863965c6f16f1c9ac104a40e959f0b4",
+    "skills/adopt-context-docs/VERSION": "fecf23c4b3c2c29381d4c14cacb998939eb53f5791b99ab7e4e0bc7972c44524",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+  },
+  "prior_evidence": {
+    "artifact_review": "evals/progress/review.md",
+    "guided_claude_smoke": "evals/progress/smoke-2026-10-16/README.md",
+    "known_gap": "Two meaningful-advance bullets lack direct inline source links; sources occur elsewhere.",
+    "new_native_trials": false
+  },
+  "publication": {
+    "release_created": false,
+    "website_deployed": false,
+    "installed_skills_updated": false
+  },
+  "preparation_checks": {
+    "site_tests": {
+      "command": "python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "passed": 14
+    },
+    "packaging_static_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "passed": 18
+    },
+    "static_repository": {
+      "passed": true,
+      "relative_links_and_anchors": 1313,
+      "result_tables": 5,
+      "skill_packages": 2,
+      "declared_versions": 2
+    },
+    "diff_whitespace": "passed",
+    "public_site_build": {
+      "passed": true,
+      "file_count": 9,
+      "output_outside_repository": true
+    },
+    "local_browser_preview": {
+      "pages": [
+        "landing",
+        "getting-started"
+      ],
+      "widths_px": [
+        1440,
+        390
+      ],
+      "height_px": 1000,
+      "canonical_progress_prompt": true,
+      "horizontal_overflow": false,
+      "duplicate_ids": false,
+      "script_errors": false,
+      "unreleased_labels": true,
+      "screenshots_visually_inspected": true,
+      "remote_requests_blocked": true
+    },
+    "new_native_model_trials": false,
+    "live_website_verified": false
+  },
+  "collaboration": {
+    "preparation": "Codex (Sol)",
+    "new_claude_review": false,
+    "earlier_claude_evidence": "Retained separately under prior_evidence."
+  },
+  "preservation": {
+    "status": "passed",
+    "all_original_entries_outside_preparation_edit_list_unchanged": true,
+    "original_entries_checked": 62729,
+    "original_files_edited": 8,
+    "new_files": 3,
+    "removals": 0,
+    "skill_packages_unchanged": true,
+    "installed_skill_directories_unchanged": true,
+    "retained_private_evidence_unchanged": true,
+    "saved_studies_and_frozen_snapshots_unchanged": true,
+    "existing_project_setup_files_unchanged": true,
+    "scope": "Repository and retained private evidence; installed Codex and Claude skill directories. Only the documented release-preparation edits and one new journal event differ. No global client-state equality claim."
+  }
+}

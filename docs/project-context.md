@@ -17,7 +17,8 @@ local notes only when still useful.
 **Goal:** integrate progress visualization into the reusable Context Docs skill,
 with Markdown as the view. Jared Chu clarified on October 16 that this is a skill
 feature, not only a change to this project's context. The owner set aside the
-broad v1.0.0 graduation campaign; no new release target is selected.
+broad v1.0.0 graduation campaign. The current request prepares v0.2.0 release
+notes and website updates; publication is not authorized by preparation.
 
 Snapshot of saved work, not live agent activity:
 
@@ -26,6 +27,7 @@ Snapshot of saved work, not live agent activity:
 | Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
 | Markdown progress feature | Implemented in development; unreleased | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
 | Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md) and [two-session Claude Code smoke](../evals/progress/smoke-2026-10-16/README.md): create/refresh behavior and write boundaries pass, with a minor per-item source-link gap. The full scenario suite and native Codex use remain untested. |
+| v0.2.0 release preparation | Ready for review; unpublished | [Draft notes](releases/v0.2.0.md) and [preparation checks](releases/v0.2.0-validation.json): website progress prompt, 32 local tests, static checks, build and desktop/mobile previews. No new native evaluation or installed upgrade. |
 
 **Blockers and unknowns:** no implementation blocker is identified for this
 development change. The smoke view's first two advances bullets lack direct
@@ -35,7 +37,8 @@ synthetic smoke does not prove usability. Earlier
 release-readiness infrastructure is not a gate for this work. A local web viewer
 and ChatGPT integration remain future possibilities.
 
-**Next action:** [use the development guidance in ordinary work](#next-actions). Markdown
+**Next action:** review the [v0.2.0 draft notes](releases/v0.2.0.md) and website
+update before authorizing publication. Continue [ordinary use](#next-actions). Markdown
 remains authoritative, without an independent tracker, invented completion
 percentages or claims of live activity.
 
@@ -169,6 +172,13 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Review the prepared v0.2.0 release notes and website update. They retain the
+experimental status, prior evidence limits and v0.1.9 as the latest published
+bundle. Commit/push, release publication, deployment and installed upgrades are
+separate actions. Preparation changes no skill package or existing setup and
+adds no native trial; its local checks are recorded in the
+[preparation record](releases/v0.2.0-validation.json).
 
 Use the development guidance during this project's next ordinary task: update
 the Markdown view from actual outcomes and check that its evidence, statuses and

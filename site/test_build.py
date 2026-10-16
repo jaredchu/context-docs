@@ -109,6 +109,46 @@ class LandingBuildTests(unittest.TestCase):
         with patch.object(Path, 'read_text', forbid_private_sources):
             landing.render(landing.ROOT, 'getting-started.html')
 
+    def test_progress_prompt_uses_canonical_public_sources_on_both_pages(self):
+        readme = (landing.ROOT / 'README.md').read_text()
+        prompt = landing.fenced_section(readme, '### 4. Visualize progress in Markdown', 'text')
+        original_read = Path.read_text
+        public_inputs = {
+            'README.md', 'examples/maintenance.md', 'docs/getting-started.md',
+            'skills/context-docs/VERSION', 'skills/adopt-context-docs/VERSION',
+            'site/index.html', 'site/getting-started.html',
+        }
+
+        def public_sources_only(path, *args, **kwargs):
+            self.assertIn(path.relative_to(landing.ROOT).as_posix(), public_inputs)
+            return original_read(path, *args, **kwargs)
+
+        with patch.object(Path, 'read_text', public_sources_only):
+            for name in ['index.html', 'getting-started.html']:
+                rendered = landing.render(landing.ROOT, name)
+                self.assertIn(prompt, unescape(rendered))
+                self.assertIn('id="progress"', rendered)
+
+    def test_missing_progress_content_preserves_previous_public_artifact(self):
+        original_read = Path.read_text
+        for name in ['index.html', 'getting-started.html']:
+            with self.subTest(template=name), tempfile.TemporaryDirectory() as temporary:
+                output = Path(temporary) / 'public'
+                output.mkdir()
+                previous = output / 'previous-build.txt'
+                previous.write_text('Preserve until all content renders.')
+
+                def missing_progress(path, *args, **kwargs):
+                    text = original_read(path, *args, **kwargs)
+                    if path == landing.ROOT / 'site' / name:
+                        return text.replace('{{PROGRESS_PROMPT}}', '')
+                    return text
+
+                with patch.object(Path, 'read_text', missing_progress):
+                    with self.assertRaisesRegex(ValueError, 'Missing template markers'):
+                        landing.build(output=output)
+                self.assertEqual(previous.read_text(), 'Preserve until all content renders.')
+
     def test_seo_titles_have_no_em_dash(self):
         class Titles(HTMLParser):
             def __init__(self):

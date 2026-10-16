@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Set up Context Docs in an existing project, save useful changes, and resume your next AI coding session from readable Markdown.">
+  <meta name="description" content="Set up Context Docs, save useful changes, visualize progress in Markdown, and resume your next AI coding session with source-linked context.">
   <meta name="theme-color" content="#f7f9f8">
   <meta property="og:title" content="Get started with Context Docs">
-  <meta property="og:description" content="Your first project: install, adopt, save useful changes, and resume with context.">
+  <meta property="og:description" content="Your first project: install, adopt, save useful changes, view progress in Markdown and resume with context.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{SITE_URL}}getting-started/">
   <meta property="og:image" content="{{SITE_URL}}context-docs-overview.png">
@@ -28,10 +28,10 @@
     <h1>Start here.<br><span>Keep what matters.</span></h1>
     <p class="guide-lead">You don't need to design a documentation system. Install two skills, use them in one project, and leave the next session a useful place to start.</p>
     <p class="guide-meta">For Codex and Claude Code · Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
-    <p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.1.9.md">v0.1.9 release notes</a></p>
+    <p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.0.md">v0.2.0 draft release notes</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.1.9.md">Latest published: v0.1.9</a></p>
   </header>
   <div class="guide-layout">
-    <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#local-only">Local-only context</a><a href="#questions">Common questions</a></nav>
+    <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#progress">Progress in Markdown</a><a href="#local-only">Local-only context</a><a href="#questions">Common questions</a></nav>
     <article class="guide-content" aria-label="Getting started instructions">
       <section id="install" class="guide-section">
         <p class="eyebrow">STEP 01</p><h2>Install the skills.</h2>
@@ -72,6 +72,17 @@
         <p id="resume-status" class="copy-status" aria-live="polite"></p>
         <p>If the agent cannot find the entry point, provide the path recorded during setup. Ask it to check relevant code or other evidence before relying on a claim that may be stale.</p>
         <p>The saved document helps the agent get oriented. It does not automatically load every file or restore the previous conversation. You still decide what to work on next.</p>
+      </section>
+      <section id="progress" class="guide-section">
+        <p class="eyebrow">OPTIONAL VIEW</p><h2>Visualize progress in Markdown.</h2>
+        <p class="version-note">Core {{CORE_VERSION}} · {{PACKAGE_STATUS}}</p>
+        <p>Ask for a small table, checklist or grouped list that shows the documented goal, meaningful advances, blockers and next action. Use the existing context section or a linked Markdown file when that reads better.</p>
+        <div class="code-block"><button class="copy-button" type="button" data-copy="progress-prompt" data-status="progress-status" data-destination="your coding agent" hidden aria-label="Copy Markdown progress prompt">Copy</button><pre tabindex="0" aria-label="Markdown progress prompt"><code id="progress-prompt">{{PROGRESS_PROMPT}}</code></pre></div>
+        <p id="progress-status" class="copy-status" aria-live="polite"></p>
+        <p>The guidance asks the agent to refresh an existing view during authorized context updates, link each item to evidence and distinguish completed outcomes from useful learning. Keep proposed work separate from approved or implemented work; retain unknowns instead of inventing completion percentages.</p>
+        <p>For a question about repeated attempts, relevant Git history, retained dated notes or an existing journal may support a possible stall. This does not enable logging or change an explicit off setting. Without history, repetition remains unknown. A saved active item is not proof that an agent is running.</p>
+        <p>Keep a local-only view within the project's existing ignored, untracked storage. Do not copy private facts into shared summaries. Audits remain read-only. Review each source link and reported status.</p>
+        <p><a href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md">See the synthetic progress example</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#progress-in-markdown">Detailed progress guide</a></p>
       </section>
       <section id="local-only" class="guide-section">
         <p class="eyebrow">OPTIONAL STORAGE</p><h2>Keep context local-only.</h2>
