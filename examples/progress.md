@@ -31,11 +31,29 @@ Snapshot of the fictional October 1 evidence above; not live agent activity.
 **Goal:** deliver the pilot CSV export with both completion checks passing.
 [Goal and completion conditions](#source-goal-and-decisions).
 
-| Work | Status | Evidence and next step |
-| --- | --- | --- |
-| Preserve CSV columns | Done for this check | [Columns check passed](#source-checks-and-open-work). Deployment is unverified. |
-| Handle empty input | Blocked; goal remains incomplete | [Representative input missing](#source-checks-and-open-work). Prepare it, then run the check. |
-| Add five retries | Proposed | [Owner approval is absent](#source-goal-and-decisions); no implementation claimed. |
+```text
+Pilot CSV export [G]                       GOAL INCOMPLETE
+|
+|-- DONE     CSV columns check [C]
+|
+`-- BLOCKED  Empty-input check [E]
+    `-- NEEDS representative input [E]
+        `-- NEXT prepare input, then run empty-input check [E]
+
+Outside the completion path:
+PROPOSED five retries [G] (not approved or implemented)
+```
+
+Sources for the visual:
+
+- **G:** [Goal, both completion conditions and the separate retry proposal](#source-goal-and-decisions).
+- **C:** [Passed columns check](#source-checks-and-open-work); this completes one check, not the goal.
+- **E:** [Unrun empty-input check, missing input and next action](#source-checks-and-open-work).
+
+The two checks are parallel completion conditions; neither is shown as a
+prerequisite for the other. The missing input blocks only the empty-input check.
+`NEEDS` marks that prerequisite; `NEXT` marks the action to take.
+Deployment remains [unverified](#source-checks-and-open-work).
 
 **Meaningful advance:** the first failed attempt established the correct input
 path. That narrowed the problem without completing empty-input handling.
@@ -50,4 +68,5 @@ they do not prove a loop or rule out unrecorded work.
 empty-input handling. [Open work](#source-checks-and-open-work).
 
 A real project can keep this in its current context section or use a linked file.
-The headings and table are optional; the evidence and status distinctions matter.
+Adapt the visual shape to the documented work; retain source links and status
+distinctions. A nested checklist with explicit dependencies is another option.

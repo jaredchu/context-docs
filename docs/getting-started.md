@@ -145,6 +145,11 @@ initialization workflow.
 Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that
 guidance. They ship in the experimental v0.2.0 bundle. Existing v0.1.9 installations
 do not include the feature; upgrading an installation remains a separate action.
+Development core **0.2.1** (unreleased) requires a clear visual path rather than a
+flat status table alone. A [focused synthetic smoke](../evals/progress/smoke-0.2.1-2026-10-16/README.md)
+passes one guided create case per client; broader behavior and user benefit remain
+unestablished. The example and prompt below reflect that correction; installed
+v0.2.0 packages retain their earlier guidance.
 
 Ask the agent to write the view, using the same skill syntax as other requests:
 
@@ -152,14 +157,19 @@ Ask the agent to write the view, using the same skill syntax as other requests:
 Use $context-docs to visualize this project's progress in Markdown.
 Show its documented goal and completion conditions, milestones when available,
 completed, active, blocked and proposed work, and the next action.
+Use a compact tree, arrow path or nested checklist. Show dependencies and
+put each blocker beside the affected work, with its prerequisite and next step.
 Link items to evidence, distinguish useful learning from completed outcomes,
 and mark unknowns. Preserve existing layouts and local-only storage boundaries.
 ```
 
-The guidance asks for a readable table, checklist or grouped list in existing
-context, or a linked Markdown file if requested or easier to navigate. The view
-should summarize the same authoritative documents instead of introducing a
-second task tracker.
+The candidate guidance asks for a small visual path in existing context, or a
+linked Markdown file if requested or easier to navigate. Branch parallel
+conditions; show ordering only when supported. Keep proposals outside required
+completion conditions unless approved there. Link items and relationships to
+their sources; keys in a fenced text diagram need clickable Markdown links
+outside the fence. Keep unknown paths unknown. A table can support the visual;
+the same authoritative documents remain the source of truth.
 It directs the agent to refresh an existing view during authorized context
 maintenance, without a special invocation for each update. Audits are instructed
 to remain read-only. Review the edits and source links.

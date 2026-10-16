@@ -13,15 +13,54 @@ link it from the entry point and link its summaries back to canonical details.
 Do not require `progress.md`, move existing records, or maintain duplicate task
 lists with independent state. If facts already live in the view, update them there.
 
+Routine maintenance updates the existing view in its current format. Reshape it
+into a visual path when a visualization is requested, within the same agreed
+section or file and preserving owner edits and canonical record locations.
+Once a visual path exists, maintain that shape as relevant facts change; an
+identical repeat with no durable change makes no edits.
+
 Keep the existing audience and storage choice. For local-only context, apply the
 [local-only guide](local-only.md): verify the view is ignored and untracked and
 use local discovery. A shared progress summary must not expose private/local-only
 content, including paraphrases, just because the source documents are accessible.
 
+## Make the path visible
+
+For a progress visualization, lead with a compact text tree, arrow path or nested
+Markdown checklist that makes the structure visible: which work contributes to
+the documented goal, what is done, what is blocked and what to do next. Put a
+blocker's prerequisite beside the affected work. A flat status table or prose
+alone does not meet this request; a table may supply supporting detail.
+
+Use branches for parallel completion conditions. Use arrows or `depends on` only
+for supported ordering or dependencies; label and cite inferred relationships.
+Keep proposals outside the required completion path unless approved as part of
+it. When the goal or a relationship is unknown, show that unknown instead of
+inventing a path. Choose the smallest shape that fits the known work.
+
+Keep it useful as plain text: words such as `DONE`, `BLOCKED`, `PROPOSED` and
+`NEXT` carry status even without color, icons or a diagram renderer. Illustrative
+shape only; replace these labels and source keys with the project's evidence:
+
+```text
+Goal: pilot export (incomplete) [G]
+|-- DONE     Columns check [A]
+`-- BLOCKED  Empty-input check [B]
+    `-- NEXT Prepare missing sample, then run check [B]
+
+Outside completion path: PROPOSED five retries [G]
+```
+
+Use real Markdown source links beside or below the visual. A link written inside
+a fenced text diagram is not clickable: map each source key such as G/A/B to its
+linked document or section outside the fence. Every summarized item and dependency
+must be traceable; several may share a source. For a nested Markdown checklist,
+links can sit inline. Do not add a second independent status list just for citations.
+Mermaid is optional; retain a readable text explanation if using a special renderer.
+
 ## Show what the sources support
 
-Choose a small table, checklist or grouped bullets to fit the project. Include
-these when documented and useful, without requiring empty sections:
+Include these when documented and useful, without requiring empty sections:
 
 - The goal and conditions that would establish completion.
 - Milestones or steps, distinguishing completed, active, blocked and proposed work.
@@ -39,11 +78,8 @@ goal does not authorize deriving one from code or choosing it for the owner.
 Show dependencies when recorded, or label an inference and cite the evidence
 supporting that relationship; omit unsupported guesses. Note stale, conflicting
 or unverified claims where they affect an item rather than presenting them as
-current facts. Date only the
-snapshot or evidence actually checked. An active status means recorded work in
-that snapshot, not proof an agent is currently running. Simple Markdown must
-remain useful without a special renderer; a diagram is optional for relationships
-that a table or list does not explain clearly.
+current facts. Date only the snapshot or evidence actually checked. An active status means recorded work in
+that snapshot, not proof an agent is currently running.
 
 ## Assess possible stalls only with history
 

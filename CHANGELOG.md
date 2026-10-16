@@ -17,6 +17,31 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.1 — unreleased
+
+- Require an explicit progress visualization to show a compact visual path with
+  completion branches, dependencies, blockers and the next action. Keep proposals
+  separate, unknown relationships unknown and links clickable outside text diagrams.
+  A flat status table alone no longer meets visual acceptance.
+- Replace the authored example's status table with a source-keyed text tree and
+  revise the manual acceptance criteria, README prompt and user/website guide.
+  Adoption inherits the sibling core guide; its 0.1.10 package is unchanged.
+  Earlier smoke outputs and scores retain their original scope: they did not
+  validate this stricter visual criterion. No installed upgrade, setup migration
+  or new native behavior trial is performed by this correction.
+- Final validation passes 18 packaging/static tests, 14 site tests, both metadata
+  validators, 20 isolated package links, repository static checks and the nine-file
+  website build. Opus 5.5's initial review and one focused follow-up resolve the
+  fixture/format findings; a final minor fixture clarification is recorded without
+  another review. See the [checks and dispositions](evals/progress/visual-path-review-2026-10-16.md).
+- Subsequently run one small synthetic copied-candidate create case in each of
+  native Codex and Claude Code. Both show parallel completion branches, the
+  missing-sample dependency, blocker and next action, with clickable source maps;
+  all 18 Codex and 14 Claude view/context links resolve. Only the two permitted
+  fixture Markdown files change. The [smoke record](evals/progress/smoke-0.2.1-2026-10-16/README.md)
+  retains exact outputs, model qualifications and author-scored limits. No retry,
+  installed upgrade or full-suite run; existing setups and saved studies are preserved.
+
 ## Installed v0.2.0 progress smoke — 2026-10-16
 
 - Run one fresh native Codex session and one Claude Code session using installed

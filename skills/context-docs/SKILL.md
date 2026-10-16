@@ -32,6 +32,9 @@ unclear. Preserve existing layouts and concurrent edits.
 When documented, keep the goal, meaningful advances, blockers and next action
 findable in the existing layout during initialization and maintenance. Write a
 progress view when requested, using the [progress guide](references/progress.md).
+For a visualization request, show a compact visual path through the documented
+work, with dependencies, blockers and the next action visible. A flat status
+table alone is insufficient; keep the view readable in plain Markdown.
 Refresh an existing view when relevant facts change; no repeated invocation is
 needed when the loaded project rule already authorizes ongoing maintenance.
 

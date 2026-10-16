@@ -1,0 +1,118 @@
+{
+  "claude": {
+    "all_other_fixture_bytes_and_modes_unchanged": true,
+    "changed": [
+      "docs/context.md",
+      "notes/progress.md"
+    ],
+    "elapsed_seconds": 38.04,
+    "exit_code": 0,
+    "link_failures": [],
+    "link_occurrences": "14 relative links and anchors",
+    "outputs_sha256": {
+      "docs/context.md": "0599e89bf6c0e126859bfa6aeec76663973cb91a7c78cc61422253506f2c1280",
+      "notes/progress.md": "4cd9a14bab962e8be4cdd643280eaa7d1bb05627687fa5a302d02a59b9435275"
+    },
+    "status": "completed",
+    "client_version": "2.1.296",
+    "requested_model": "claude-opus-5-5",
+    "effort": "medium",
+    "responding_model": "claude-opus-5-5",
+    "model_identity_limit": "Native assistant messages and terminal modelUsage report claude-opus-5-5.",
+    "started_at": "2026-10-16T11:26:47.545266+00:00",
+    "finished_at": "2026-10-16T11:27:25.589946+00:00",
+    "cap_seconds": 180,
+    "attempts": 1,
+    "retries": 0,
+    "copied_core_and_progress_guide_read": true,
+    "visual_assessment": "pass for this fixture, manually scored by Sol",
+    "criteria_passed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "trace_limits": "Local reads and permitted Markdown writes only; no external tools/delegation/Git/application checks observed.",
+    "raw_sha256": {
+      "stdout.jsonl": "82c3045eed2ecf53ca64f93ae6e7ea4956d4eeda87321b72f89f5dbe8dcf2e70",
+      "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt.json": "9f2d6565122809e13f5e8cf5ae0b8bcac09824e9b1d86aef1934a1e529f314da"
+    }
+  },
+  "codex": {
+    "all_other_fixture_bytes_and_modes_unchanged": true,
+    "changed": [
+      "docs/context.md",
+      "notes/progress.md"
+    ],
+    "elapsed_seconds": 48.75,
+    "exit_code": 0,
+    "link_failures": [],
+    "link_occurrences": "18 relative links and anchors",
+    "outputs_sha256": {
+      "docs/context.md": "8eb45be90d64a83678178e631011e9b212e5937023920e515c7ea381aa7a7db7",
+      "notes/progress.md": "fcaa473930d247795e91d0054099c2210cae258ce0de141dd6de6c40ecfd1c5d"
+    },
+    "status": "completed",
+    "client_version": "0.162.0-alpha.17.2",
+    "requested_model": "gpt-6.1-sol",
+    "effort": "medium",
+    "responding_model": null,
+    "model_identity_limit": "Codex response identity is not exposed; requested model only.",
+    "started_at": "2026-10-16T11:26:47.545259+00:00",
+    "finished_at": "2026-10-16T11:27:36.295466+00:00",
+    "cap_seconds": 180,
+    "attempts": 1,
+    "retries": 0,
+    "copied_core_and_progress_guide_read": true,
+    "visual_assessment": "pass for this fixture, manually scored by Sol",
+    "criteria_passed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "trace_limits": "Local reads and permitted Markdown writes only; no external tools/delegation/Git/application checks observed.",
+    "raw_sha256": {
+      "stdout.jsonl": "279f0364d74cb7ee559b2c9d2751dc6bf858d7c1d45f626fb4b534dbe21e4a06",
+      "stderr.txt": "fffdbafc76a67e15fd93ff3248b7b7eb98d0700bb85a0c80ba8a0d03bc3a0e92",
+      "receipt.json": "ae74a2c04282368b2e436c631c42fa84d4f95f14355f7e83a85e2d9d1e16b252"
+    }
+  },
+  "assessment": {
+    "scorer": "Sol, author-scored; not an independent human or cross-model review",
+    "visual_path": "Both text trees show an incomplete two-check goal with parallel DONE/BLOCKED branches, no false ordering.",
+    "dependency_and_next_action": "Both nest obtaining the missing representative sample then running the empty-input check under the blocked check. Claude labels depends on explicitly; Codex puts the missing prerequisite in NEXT.",
+    "source_map": "All diagram keys map unambiguously to clickable Markdown links outside fences. Each meaningful advance also has a direct source link.",
+    "approval_and_unknowns": "Proposal outside required path; deployment separate/unapproved; source snapshot dated, later state and sample owner/time unknown. No percentages or live activity.",
+    "possible_stall": "Both distinguish October 1 path learning from completed outcomes and qualify October 2–3 repetition as possible stall with dated source links.",
+    "limits": [
+      "Two explicit copied-candidate, author-scored create cases; no implicit discovery or installed-version claim.",
+      "No refresh, no-change, audit, adoption, local-only, Git/journal-history or full-suite execution.",
+      "Process controls differ from ordinary interactive use and do not establish general isolation or reliability.",
+      "Raw transcripts remain in a durable private root; public generated documents remain byte-exact."
+    ]
+  },
+  "preservation": {
+    "result": "pass",
+    "before_entries": 62769,
+    "after_entries": 62787,
+    "boundary": "Existing repository except .git; prior durable evidence; all four installed packages. New private root excluded. Client bookkeeping/cache outside these roots not asserted globally unchanged.",
+    "installed_packages_unchanged": true,
+    "prior_durable_evidence_unchanged": true,
+    "all_preexisting_repo_entries_other_than_authorized_docs_unchanged": true
+  },
+  "repository_checks": {
+    "static_checks": "pass: 1493 relative links and anchors, 5 published result tables, 2 packages and 2 declared versions",
+    "diff_check": "pass",
+    "boundary": "Static checks are separate from native visual outcomes; no historical model evaluations rerun."
+  }
+}

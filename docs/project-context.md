@@ -1,6 +1,6 @@
 # Project context
 
-Release, website and focused installed progress smoke checked: 2026-10-16.
+Release, website and focused candidate/installed progress smoke checked: 2026-10-16.
 The experimental v0.2.0 bundle is published. Historical evaluations were not
 rerun; saved studies and existing project setups are preserved.
 
@@ -15,36 +15,75 @@ local notes only when still useful.
 
 ## Current focus
 
-**Goal:** integrate progress visualization into the reusable Context Docs skill,
-with Markdown as the view. Jared Chu clarified on October 16 that this is a skill
-feature, not only a change to this project's context. The owner set aside the
-broad v1.0.0 graduation campaign. The owner authorized experimental v0.2.0
-publication and website deployment on October 16; installed upgrades remain separate.
+**Goal:** integrate useful progress visualization into the reusable Context Docs
+skill, with Markdown as the view. Jared Chu clarified on October 16 that a flat
+status table is insufficient: the view should show a visual path, dependencies,
+blockers and the next action. **Current work is the unreleased core 0.2.1
+correction.** Published v0.2.0 remains the baseline; its passing status/source
+checks did not establish visual usefulness.
 
-Snapshot of saved work, not live agent activity:
+Snapshot checked October 16, 2026; saved status does not imply live agent activity.
 
-| Work | State | Evidence / remaining work |
-| --- | --- | --- |
-| Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
-| Markdown progress feature | Released in experimental v0.2.0 | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed upgrades remain separate from publication. |
-| Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md), [copied-skill Claude create/refresh](../evals/progress/smoke-2026-10-16/README.md) and [installed Codex/Claude create smoke](../evals/installed-skills/2026-10-16-progress/README.md). Both installed runs use core/progress guidance and preserve write boundaries; 17 links per client resolve. Earlier link-placement gaps remain recorded; the full scenario suite is unrun. |
-| v0.2.0 publication and website | Published and verified | [Release notes](releases/v0.2.0.md), unchanged [preparation checks](releases/v0.2.0-validation.json) and [publication record](releases/v0.2.0-publication.json): release-commit Actions and deployment pass; eight live responses match the build. No new native evaluation or installed upgrade. |
+```text
+Markdown progress
+|
+|-- RELEASED  v0.2.0 baseline and focused smoke checks [R]
+|
+`-- CANDIDATE Visual-path correction, core 0.2.1 [V]
+    |-- DONE  Guidance and source-linked example [E]
+    |-- DONE  Visual acceptance criteria [A]
+    |-- DONE  Local validation and counterpart review [C]
+    `-- DONE  Focused Codex and Claude visual-path smoke [S]
 
-**Blockers and unknowns:** no implementation blocker is identified for this
-released feature. The earlier copied-development smoke's first two advances
-bullets lack direct inline source links, although their sources occur elsewhere.
-The two installed create views include source links for their meaningful advances;
-they do not replace the earlier outputs or establish general compliance.
-Whether the feature helps users assess progress remains unknown; a small guided
-synthetic smoke does not prove usability. Earlier
-release-readiness infrastructure is not a gate for this work. A local web viewer
-and ChatGPT integration remain future possibilities.
+NEXT: review the generated visual paths before deciding publication [S]
+```
 
-**Next action:** use the released Markdown progress guidance in ordinary work
-and record concrete gaps, preserving direct source links for meaningful advances.
-See [next actions](#next-actions). Markdown
-remains authoritative, without an independent tracker, invented completion
-percentages or claims of live activity.
+Sources for the visual:
+
+- **R:** [v0.2.0 release](releases/v0.2.0.md), [publication/website record](releases/v0.2.0-publication.json)
+  and [installed Codex/Claude smoke](../evals/installed-skills/2026-10-16-progress/README.md).
+  Eight live responses matched the release build; each installed create case had
+  17 resolving links. These were narrow status/source checks, not the new visual gate.
+- **V:** [Candidate version](../skills/context-docs/VERSION) and
+  [development change](../CHANGELOG.md#context-docs-021--unreleased). Adoption 0.1.10
+  and standard 0.1.1 are unchanged; installed skills and published releases are untouched.
+- **E:** [Core guide](../skills/context-docs/references/progress.md),
+  [source-linked visual example](../examples/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md)
+  and [user guide](getting-started.md#progress-in-markdown). Ordinary maintenance
+  preserves an existing format; an explicit visualization request may reshape the
+  view within its existing section/file, preserving owner edits and record locations.
+- **A:** [Visual acceptance criteria](../evals/progress/README.md#visual-acceptance-criteria-core-021-candidate)
+  now require visible goal relationships, supported dependencies/blockers and
+  clickable sources. A focused create case now exercises them in each client;
+  the full manual suite remains unexecuted.
+- **C:** [Correction checks and review](../evals/progress/visual-path-review-2026-10-16.md).
+  Mechanical checks and Opus artifact review are separate from native evaluation.
+- **S:** [Candidate smoke and exact outputs](../evals/progress/smoke-0.2.1-2026-10-16/README.md).
+  One copied-candidate case per client passes the visual-path, dependency, blocker
+  and clickable-source gates; 18 Codex and 14 Claude view/context links resolve.
+  These are guided, author-scored cases, not a general visual-usability result.
+
+Earlier baseline: experimental v0.1.9 at `5433e47`, with its
+[release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
+and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md) retained.
+
+**Blockers and gaps:** the focused candidate create cases pass. The full progress
+suite, default/implicit loading and benefit to
+intended users remain unestablished. The [earlier copied-development smoke](../evals/progress/smoke-2026-10-16/README.md)
+retains its two advances bullets without direct inline links; newer outputs do
+not replace that result. The [initial v0.2.0 artifact review](../evals/progress/review.md)
+is also unchanged.
+
+**Next action:** inspect the two generated visual paths and their source maps in
+the candidate smoke record before deciding whether to publish the correction.
+Publication and installed upgrades remain separate. Continue normal work with
+released skills and record concrete misses under the [next actions](#next-actions).
+
+The owner set aside the broad v1.0.0 graduation campaign. Its retained
+[infrastructure proposals](#current-state) remain deferred. A local web viewer and
+ChatGPT integration are future possibilities, with no implementation selected.
+Markdown stays authoritative; no independent tracker, completion percentage or
+live-activity claim is introduced.
 
 ## Decisions
 
@@ -78,6 +117,15 @@ percentages or claims of live activity.
 Earlier release approvals do not authorize new publication.
 
 ## Current state
+
+- Development core **0.2.1** tightens explicit visualization requests to show a
+  visual path with supported dependencies, blockers and clickable sources. It is
+  unreleased; a focused copied-candidate create case passes visual acceptance in
+  each native client, with [outputs and limits](../evals/progress/smoke-0.2.1-2026-10-16/README.md).
+  Adoption remains **0.1.10**;
+  its existing sibling routing inherits the core guide. The [correction record](../evals/progress/visual-path-review-2026-10-16.md)
+  owns local checks and the bounded Opus artifact review. Existing setups,
+  installed packages and saved studies are unchanged.
 
 - Current released bundle: [v0.2.0](releases/v0.2.0.md), with core **0.2.0**,
   adoption **0.1.10** and standard **0.1.1**. Published as an experimental prerelease
@@ -198,6 +246,12 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Inspect the [candidate smoke outputs](../evals/progress/smoke-0.2.1-2026-10-16/README.md)
+alongside the [corrected example](../examples/progress.md) and
+[visual acceptance criteria](../evals/progress/README.md#visual-acceptance-criteria-core-021-candidate).
+Both guided create cases pass the visual gate; the full suite and target-user
+benefit remain unestablished. Publication and installed upgrades remain separate.
 
 The experimental v0.2.0 release and website are published and verified. Use the
 released guidance and address concrete findings; no graduation infrastructure
