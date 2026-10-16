@@ -1,8 +1,8 @@
 # Project context
 
-Release and website verified: 2026-10-16. The experimental v0.2.0 bundle is
-published; installed skills and existing setups remain unchanged. Historical
-evaluations were not rerun.
+Release, website and focused installed progress smoke checked: 2026-10-16.
+The experimental v0.2.0 bundle is published. Historical evaluations were not
+rerun; saved studies and existing project setups are preserved.
 
 ## Purpose and scope
 
@@ -26,13 +26,15 @@ Snapshot of saved work, not live agent activity:
 | Work | State | Evidence / remaining work |
 | --- | --- | --- |
 | Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
-| Markdown progress feature | Released in experimental v0.2.0 | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
-| Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md) and [two-session Claude Code smoke](../evals/progress/smoke-2026-10-16/README.md): create/refresh behavior and write boundaries pass, with a minor per-item source-link gap. The full scenario suite and native Codex use remain untested. |
+| Markdown progress feature | Released in experimental v0.2.0 | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed upgrades remain separate from publication. |
+| Validation and review | Initial review and focused guided smoke completed | [Artifact review](../evals/progress/review.md), [copied-skill Claude create/refresh](../evals/progress/smoke-2026-10-16/README.md) and [installed Codex/Claude create smoke](../evals/installed-skills/2026-10-16-progress/README.md). Both installed runs use core/progress guidance and preserve write boundaries; 17 links per client resolve. Earlier link-placement gaps remain recorded; the full scenario suite is unrun. |
 | v0.2.0 publication and website | Published and verified | [Release notes](releases/v0.2.0.md), unchanged [preparation checks](releases/v0.2.0-validation.json) and [publication record](releases/v0.2.0-publication.json): release-commit Actions and deployment pass; eight live responses match the build. No new native evaluation or installed upgrade. |
 
 **Blockers and unknowns:** no implementation blocker is identified for this
-development change. The smoke view's first two advances bullets lack direct
-inline source links, although those sources are linked elsewhere in the view.
+released feature. The earlier copied-development smoke's first two advances
+bullets lack direct inline source links, although their sources occur elsewhere.
+The two installed create views include source links for their meaningful advances;
+they do not replace the earlier outputs or establish general compliance.
 Whether the feature helps users assess progress remains unknown; a small guided
 synthetic smoke does not prove usability. Earlier
 release-readiness infrastructure is not a gate for this work. A local web viewer
@@ -154,6 +156,13 @@ Earlier release approvals do not authorize new publication.
   owns the process.
 
 ## Evidence and limits
+
+The [installed v0.2.0 progress smoke](../evals/installed-skills/2026-10-16-progress/README.md)
+passes one explicit linked-view creation request in each native client. Core and
+progress-guide use are observed; goals, blockers, proposals, useful learning and
+possible stalls remain distinct. This does not test implicit selection, default
+interactive UI behavior or the remaining progress scenarios. No skill change or
+new infrastructure follows from these two author-scored cases.
 
 The [installed v0.1.9 smoke checks](../evals/installed-skills/2026-10-11/README.md)
 retain two fresh sessions per client and two additional Claude diagnostics.

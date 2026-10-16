@@ -17,6 +17,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Installed v0.2.0 progress smoke — 2026-10-16
+
+- Run one fresh native Codex session and one Claude Code session using installed
+  core 0.2.0 to create a linked Markdown view from the same synthetic fixture.
+  Both observe installed guidance, preserve incomplete goals, blockers and
+  approval boundaries, distinguish learning from outcomes and qualify possible
+  stalls. All 17 view/context links per client resolve; only the two permitted
+  Markdown files change. Retain the [outputs and limits](evals/installed-skills/2026-10-16-progress/README.md).
+- Each session completes within its 180-second cap, with no retry, product change
+  or new test infrastructure. These guided author-scored cases add no general reliability,
+  user-benefit or implicit-loading claim. Existing setups, installed packages and
+  saved studies are preserved; earlier smoke gaps and records remain unchanged.
+
 ## v0.2.0 publication — 2026-10-16
 
 - Publish core 0.2.0/adoption 0.1.10 as an experimental prerelease with unchanged

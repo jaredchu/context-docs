@@ -1,0 +1,141 @@
+{
+  "outcome": "passed within narrow guided smoke scope",
+  "assessment": {
+    "claude": {
+      "added": [
+        "notes/progress.md"
+      ],
+      "assessment_author": "Codex coordinator; not independent",
+      "changed": [
+        "docs/context.md"
+      ],
+      "elapsed_seconds": 35.3,
+      "exit_code": 0,
+      "links": "17 relative links and anchors",
+      "per_item_meaningful_advance_links": "pass on manual inspection",
+      "removed": [],
+      "semantic_assessment": {
+        "goal_incomplete_and_check_statuses": "pass",
+        "installed_core_and_progress_used": "pass",
+        "learning_distinct_from_outcome": "pass",
+        "next_action_and_unknowns": "pass",
+        "no_invented_percentage_or_live_activity": "pass",
+        "owner_decisions_proposal_and_deployment_boundaries": "pass",
+        "qualified_possible_stall_with_history": "pass"
+      },
+      "output_sha256": {
+        "docs/context.md": "16544d692b0f616d2eddeece8a4d89aadcfa973fc43681b556f32e29276f9b71",
+        "docs/decisions.md": "20c019deed9cd64510bb2f9c995315c9444db6dc336d58621a4341444e5584f3",
+        "docs/evidence.md": "a60b461133466008ad457c939aa07620b4aeec616bfdaa99a18302a4ba8c3972",
+        "notes/progress.md": "5341552c271177543c9965f5716732426039bd5f58a6e15a668e849e6c64a7db"
+      }
+    },
+    "codex": {
+      "added": [
+        "notes/progress.md"
+      ],
+      "assessment_author": "Codex coordinator; not independent",
+      "changed": [
+        "docs/context.md"
+      ],
+      "elapsed_seconds": 40.42,
+      "exit_code": 0,
+      "links": "17 relative links and anchors",
+      "per_item_meaningful_advance_links": "pass on manual inspection",
+      "removed": [],
+      "semantic_assessment": {
+        "goal_incomplete_and_check_statuses": "pass",
+        "installed_core_and_progress_used": "pass",
+        "learning_distinct_from_outcome": "pass",
+        "next_action_and_unknowns": "pass",
+        "no_invented_percentage_or_live_activity": "pass",
+        "owner_decisions_proposal_and_deployment_boundaries": "pass",
+        "qualified_possible_stall_with_history": "pass"
+      },
+      "output_sha256": {
+        "docs/context.md": "af7992f9202b5cc21ae106938243cffadc4c14bdcc796a5c761e57db4fbc2037",
+        "docs/decisions.md": "20c019deed9cd64510bb2f9c995315c9444db6dc336d58621a4341444e5584f3",
+        "docs/evidence.md": "a60b461133466008ad457c939aa07620b4aeec616bfdaa99a18302a4ba8c3972",
+        "notes/progress.md": "78f3173eddd9728005453bc548ad53a13dcc8a9e90b17a2636ea708c2a2cd169"
+      }
+    }
+  },
+  "trace_observations": {
+    "codex": {
+      "installed_core_read": true,
+      "installed_progress_reference_read": true,
+      "responding_model_identity": "unconfirmed; gpt-6.1-sol requested",
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat README.md docs/context.md ~/.agents/skills/context-docs/SKILL.md ~/.agents/skills/context-docs/references/progress.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat AGENTS.md docs/decisions.md docs/evidence.md ~/.agents/skills/context-docs/references/event-journal.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"rg --files -g '*.md' -g '\"'!**/.git/**'\"' -g '\"'!**/.context-docs/**'\"'\"",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat docs/context.md notes/progress.md'",
+          "exit_code": 0
+        }
+      ],
+      "terminal_reason": "turn.completed",
+      "stderr_observation": "CLI emitted state-db discrepancy/falling_back warnings; command completed successfully. No repair or rerun."
+    },
+    "claude": {
+      "catalog_contains_context_docs": true,
+      "catalog_contains_adoption": true,
+      "native_skill_call": true,
+      "skill_base_directory": "~/.claude/skills/context-docs",
+      "installed_progress_reference_read": true,
+      "responding_models": [
+        "claude-opus-5-5"
+      ],
+      "apiKeySource": "none",
+      "mcp_servers": [],
+      "tool_counts": {
+        "Skill": 1,
+        "Read": 6,
+        "Write": 1,
+        "Edit": 2
+      },
+      "terminal_reason": "success",
+      "permission_denials": []
+    }
+  },
+  "preservation": {
+    "status": "passed",
+    "original_entries_checked": 62682,
+    "changed_existing_files": [
+      "CHANGELOG.md",
+      "docs/project-context.md",
+      "evals/progress/README.md"
+    ],
+    "removed": [],
+    "all_other_original_entries_unchanged": true,
+    "saved_studies_and_retained_private_evidence_unchanged": true,
+    "installed_package_files_unchanged": 32,
+    "existing_project_setup_files_unchanged": true,
+    "scope": "Repository outside Git metadata, retained private evidence excluding this new smoke root, and four installed skill directories. Runtime caches and accepted routine client bookkeeping are excluded; no global client-state equality claim."
+  },
+  "limits": [
+    "Two guided author-created sessions, no comparative or general reliability/privacy/usability benefit claim.",
+    "Explicit installed-skill request; no claim about implicit discovery or default interactive UI behavior.",
+    "No adoption, refresh, audit or no-change scenario in this smoke.",
+    "No Git fixture; retained-note history only.",
+    "Process settings differ from ordinary UI; Claude file-tool restrictions and Codex workspace sandbox plus prompt/write checks are narrow boundaries, not general isolation guarantees."
+  ],
+  "repository_mechanical_checks": {
+    "static_checks": "passed",
+    "relative_links_and_anchors": 1437,
+    "result_tables": 5,
+    "skill_packages": 2,
+    "declared_versions": 2,
+    "diff_whitespace": "passed",
+    "separate_from_native_sessions": true
+  }
+}
