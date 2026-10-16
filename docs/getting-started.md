@@ -140,6 +140,42 @@ the linked context before working. A context file's presence alone does not ensu
 that an agent will read it. This routing is already part of the skill's
 initialization workflow.
 
+### Progress in Markdown
+
+Development core v0.2.0 adds Markdown progress visualization; adoption v0.1.10
+routes to that guidance. Both are unreleased. Installed v0.1.9 skills do not yet
+include the feature; upgrading an installation remains a separate action.
+
+Ask the agent to write the view, using the same skill syntax as other requests:
+
+```text
+Use $context-docs to visualize this project's progress in Markdown.
+Show its documented goal and completion conditions, milestones when available,
+completed, active, blocked and proposed work, and the next action.
+Link items to evidence, distinguish useful learning from completed outcomes,
+and mark unknowns. Preserve existing layouts and local-only storage boundaries.
+```
+
+The guidance asks for a readable table, checklist or grouped list in existing
+context, or a linked Markdown file if requested or easier to navigate. The view
+should summarize the same authoritative documents instead of introducing a
+second task tracker.
+It directs the agent to refresh an existing view during authorized context
+maintenance, without a special invocation for each update. Audits are instructed
+to remain read-only. Review the edits and source links.
+
+For a historical question, ask which attempts produced new results or useful
+findings. Relevant Git history, retained dated attempt notes or an existing
+journal can support that comparison. Reading retained journal records for a
+historical question does not enable capture or change an explicit off setting.
+Repeated activity may suggest a stall, but does not prove a loop.
+Without suitable history, repetition remains unknown; this does not enable
+logging. The guidance forbids inventing completion percentages, missing goals
+or live activity; the [validation boundary](../evals/progress/README.md#validation-boundary)
+distinguishes the documented workflow from actual behavioral evidence.
+See the [synthetic example](../examples/progress.md) and the packaged
+[progress guidance](../skills/context-docs/references/progress.md).
+
 ### Starting from earlier notes
 
 Core v0.1.9 makes the source check explicit during initialization:

@@ -15,7 +15,7 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.1.9 and adoption skill v0.1.9.**
+**Status: experimental, core skill v0.2.0 and adoption skill v0.1.10 (unreleased).**
 The latest published bundle is [v0.1.9](docs/releases/v0.1.9.md).
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
@@ -28,6 +28,8 @@ work. Context Docs gives your agent instructions to:
 - **Keep it useful:** update stale sections, consolidate repetition and distinguish facts from proposals.
 - **Fit your project:** use existing documents and choose content for their audience.
 - **Help the next session start:** make the context discoverable from the README or documentation index.
+- **See progress in Markdown:** show the documented goal, meaningful advances,
+  blockers and next action in an existing section or a linked Markdown view.
 
 For example, after working on an export feature, your project context might contain:
 
@@ -127,6 +129,24 @@ Find the entry point in your README, documentation index, or the adoption marker
 `Entry point:` field. Explicitly
 ask the agent to read it: a saved file alone does not ensure that a new session
 loads it. [More usage examples and setup details →](docs/getting-started.md#use-it)
+
+### 4. Visualize progress in Markdown
+
+The development skills add a progress view without a web app or separate tracker:
+
+```text
+Use context-docs to visualize this project's progress in Markdown.
+Show the documented goal, completed and blocked work, meaningful advances
+and next action. Link to sources and mark unknowns. Reuse the existing
+context layout, or link a separate Markdown file if that reads better.
+```
+
+The guidance directs the agent to maintain an existing view during authorized
+context updates and distinguish activity, useful learning and completed outcomes.
+A possible stall requires relevant historical evidence; invented completion
+percentages and claims of live agent activity are forbidden. This is **unreleased** and is not
+included in installed v0.1.9 skills. [Guide](docs/getting-started.md#progress-in-markdown)
+and [synthetic example](examples/progress.md).
 
 ## Two skills, one workflow
 

@@ -16,6 +16,30 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.0 — unreleased
+
+- Add Markdown progress visualization to initialization and maintenance: a view
+  in existing context or a linked Markdown file, grounded in source links and
+  documented goals, outcomes, blockers and next actions. Distinguish useful
+  learning from completed outcomes; history can support a possible stall, not
+  prove a loop. Preserve local-only boundaries and read-only audits; no web app,
+  duplicate tracker, invented percentages or claim of live agent activity.
+- Package the progress guide with core; add a synthetic example and seven manual
+  regression scenarios. Validation covers 18 packaging/static regression tests,
+  12 site tests, both skill validators and static repository checks. A focused
+  Opus 5.5 artifact review is retained with Sol's source-checked dispositions;
+  the revised text has no second model review. See the
+  [validation and review record](evals/progress/review.md). No native progress
+  scenario, implicit selection or user-benefit result is claimed.
+  Installed skills, existing project setups and saved studies are unchanged.
+
+## adopt-context-docs 0.1.10 — unreleased
+
+- Route progress requests to the sibling core's Markdown guide while preserving
+  existing layouts, storage, markers and equivalent setup rules. Packaging,
+  version/link checks and skill validation pass; authored adoption behavior cases
+  are not executed. This development update does not upgrade installed skills.
+
 ## v0.1.9 publication — 2026-10-11
 
 - Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.1.9)

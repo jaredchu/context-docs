@@ -1,7 +1,7 @@
 # Project context
 
-Release and website verified: 2026-10-11. Historical evaluations were not rerun;
-installed skills and existing setups remain unchanged.
+Project direction updated: 2026-10-16. Release and website verification below is
+from 2026-10-11; historical evaluations were not rerun.
 
 ## Purpose and scope
 
@@ -11,6 +11,31 @@ This public repository serves contributors and skill users. Shared context shoul
 retain project decisions, constraints and next actions; incidental personal
 installations, backup locations and temporary machine state belong in suitable
 local notes only when still useful.
+
+## Current focus
+
+**Goal:** integrate progress visualization into the reusable Context Docs skill,
+with Markdown as the view. Jared Chu clarified on October 16 that this is a skill
+feature, not only a change to this project's context. The owner set aside the
+broad v1.0.0 graduation campaign; no new release target is selected.
+
+Snapshot of saved work, not live agent activity:
+
+| Work | State | Evidence / remaining work |
+| --- | --- | --- |
+| Experimental v0.1.9 bundle | Released | [Release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json) and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md), retaining their limits. Baseline: `5433e47`. |
+| Markdown progress feature | Implemented in development; unreleased | [Core guidance](../skills/context-docs/references/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md), [example](../examples/progress.md) and [guide](getting-started.md#progress-in-markdown). Installed skills are unchanged. |
+| Validation and review | Mechanical checks and initial counterpart review completed | [Validation/review record](../evals/progress/review.md): 18 packaging/static tests, 12 site tests and both skill validators pass. Opus findings were corrected by Sol; no second model review or native progress trial ran. |
+
+**Blockers and unknowns:** no implementation blocker is identified for this
+development change. Whether the feature helps users assess progress remains
+unknown; authored examples and artifact review do not prove usability. Earlier
+release-readiness infrastructure is not a gate for this work. A local web viewer
+and ChatGPT integration remain future possibilities.
+
+**Next action:** [use the development guidance in ordinary work](#next-actions). Markdown
+remains authoritative, without an independent tracker, invented completion
+percentages or claims of live activity.
 
 ## Decisions
 
@@ -143,9 +168,17 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Use the released skills in normal daily work and improve them when concrete issues
-arise. Reproduce failures with public evidence or synthetic examples, then validate
-focused fixes. The owner reports that context updates occur during normal work
+Use the development guidance during this project's next ordinary task: update
+the Markdown view from actual outcomes and check that its evidence, statuses and
+next action remain clear. Record a concrete gap if one appears. The development
+versions are core 0.2.0 and adoption 0.1.10; installed upgrades and a new release
+are separate actions. A linked Markdown progress file is supported when useful
+or requested; a web app and new evaluation infrastructure are outside this change.
+No native usability evaluation has run.
+
+Continue normal use of the released skills and reproduce concrete failures with
+public evidence or synthetic examples before validating focused fixes.
+The owner reports that context updates occur during normal work
 without naming the skill in each prompt; the guide now explains the loaded
 maintenance rule and optional explicit prompts. This is maintainer feedback,
 not a general implicit-selection evaluation. Routine use needs no evaluation log

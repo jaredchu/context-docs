@@ -1,6 +1,6 @@
 ---
 name: context-docs
-description: Create, audit, and maintain project context documents for continuity across AI sessions. Use when establishing a context-docs convention, refreshing project state after work, or consolidating stale or growing context files. Adapt to existing layouts and preserve decisions and evidence. Not for general copyediting or storing conversation transcripts.
+description: Create, audit, and maintain project context documents and Markdown progress views for continuity across AI sessions. Use when establishing context conventions, refreshing project state, visualizing progress toward a documented goal, or consolidating stale context. Adapt to existing layouts and preserve decisions and evidence. Not for general copyediting or storing conversation transcripts.
 ---
 
 # Context Docs
@@ -26,6 +26,20 @@ unclear. Preserve existing layouts and concurrent edits.
   Consult the standard when roles, conflicting statuses or restructuring need it.
   Ordinary document repairs are included; proposed product decisions are not approved
   by a maintenance request. A review without permission to edit remains an audit.
+
+## Visualize progress in Markdown
+
+When documented, keep the goal, meaningful advances, blockers and next action
+findable in the existing layout during initialization and maintenance. Write a
+progress view when requested, using the [progress guide](references/progress.md).
+Refresh an existing view when relevant facts change; no repeated invocation is
+needed when the loaded project rule already authorizes ongoing maintenance.
+
+Use the existing context section or a linked Markdown file when that improves
+navigation or the user requests it. Keep each detail authoritative in one place
+and link summaries to their sources. Preserve storage boundaries, layouts and
+setup rules; do not create a parallel tracker, web app or runtime dependency.
+An audit can assess progress clarity but does not write a view or enable logging.
 
 ## Make the smallest useful update
 

@@ -332,6 +332,13 @@ merge recommendation with factual limitations. Its restricted tools do not estab
 unrestricted-client reliability. Prior attempts retain their original criteria and
 scores; no skill-specific cause of the original errors is established.
 
+## Markdown progress views
+
+The [Markdown progress scenarios](progress/README.md) cover source-backed views,
+outcomes versus learning/activity, optional linked files, repeat maintenance,
+unknowns, local-only storage and read-only audits. They are authored cases for
+the development feature, not completed native evaluations.
+
 ## Optional adoption skill
 
 The [local-only controls and scenarios](local-only/README.md) cover Git-ignored

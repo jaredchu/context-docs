@@ -22,6 +22,12 @@ context or maintain existing documents using the skill. Preserve useful layouts,
 approved decisions, rationale, source evidence, unresolved work and concurrent edits.
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
+Use the core skill's [Markdown progress view](../context-docs/references/progress.md)
+when requested, and refresh an existing view through core during ongoing
+maintenance while preserving its layout and source evidence. Reuse
+the project's context layout and storage choice; this needs no new tracker or
+replacement of an equivalent setup rule.
+
 Add or update a concise rule in the instruction file this project's agent actually
 loads, merging with existing guidance rather than duplicating it. Establish loading
 from explicit session evidence or documented behavior for the observed client

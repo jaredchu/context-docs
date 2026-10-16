@@ -111,6 +111,17 @@ class StaticChecksTests(unittest.TestCase):
         self.assertTrue(any('scripts/event_journal.py' in failure
                             for failure in self.failures(checks.check_skills)))
 
+    def test_progress_reference_must_ship_without_repository_docs(self):
+        # No README/progress example is needed by the installed skill. Even if
+        # its routing link were accidentally removed, the resource must ship.
+        self.add_link('skills/context-docs/SKILL.md', 'references/progress.md')
+        self.assertEqual([], self.failures(checks.check_skills))
+        source = self.root / 'skills/context-docs/SKILL.md'
+        source.write_text(source.read_text().replace('[Reference](references/progress.md)', ''))
+        (self.root / 'skills/context-docs/references/progress.md').unlink()
+        self.assertTrue(any('missing packaged file references/progress.md' in failure
+                            for failure in self.failures(checks.check_skills)))
+
     def test_current_versions_pass(self):
         self.assertEqual([], self.failures(checks.check_versions))
 
