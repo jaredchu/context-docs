@@ -61,11 +61,14 @@
   </section>
 
   <section id="progress" class="section wrap" aria-labelledby="progress-title">
-    <div class="section-intro"><p class="eyebrow">MARKDOWN PROGRESS</p><h2 id="progress-title">See what moved forward.</h2><p>Ask your agent for a readable view of the documented goal, completed and blocked work, meaningful advances and next action. Keep it in your context or a linked Markdown file, with sources for each item.</p></div>
+    <div class="section-intro"><p class="eyebrow">MARKDOWN PROGRESS</p><h2 id="progress-title">See the path.<br>Find the blocker.</h2><p>Ask your agent for a compact tree, arrow path or nested checklist connecting the documented goal to completed and remaining work. Put each blocker beside the work it stops, with its prerequisite and next action. Keep the view in your context or a linked Markdown file.</p></div>
     <p class="version-note">Core {{CORE_VERSION}} · {{PACKAGE_STATUS}}</p>
+    <figure class="progress-example"><div class="code-block"><pre tabindex="0" aria-label="Synthetic Markdown progress path"><code>{{PROGRESS_EXAMPLE}}</code></pre></div><figcaption>Synthetic illustration, not a trial result or live project status. The checks are parallel; only the empty-input check needs the missing input.</figcaption></figure>
+    <p>Sources: <a href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md#source-goal-and-decisions">G: goal and proposal</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md#source-checks-and-open-work">C: passed check; E: blocker, prerequisite and next action</a>.</p>
     <div class="code-block"><button class="copy-button" type="button" data-copy="progress-prompt" data-status="progress-status" data-destination="your coding agent" hidden aria-label="Copy Markdown progress prompt">Copy</button><pre tabindex="0" aria-label="Markdown progress prompt"><code id="progress-prompt">{{PROGRESS_PROMPT}}</code></pre></div>
     <p id="progress-status" class="copy-status" aria-live="polite"></p>
-    <p>The skill guides updates to an existing view during authorized maintenance. An attempt can produce useful learning without completing an outcome. Possible stalls need relevant history; a saved status does not establish live activity.</p>
+    <p>A flat status table alone does not show the path. Keep ordering supported by evidence, proposals outside required work and sources clickable outside text diagrams. Ordinary maintenance preserves an existing format; ask for visualization to reshape it. The loaded project rule guides later updates to an existing visual view.</p>
+    <p>An attempt can produce useful learning without completing an outcome. Possible stalls need relevant history; a saved status does not establish live activity.</p>
     <p><a href="./getting-started/#progress">How to use the progress view</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md">Synthetic example</a></p>
   </section>
 
@@ -80,7 +83,7 @@
 
   <section id="get-started" class="install-section section" aria-labelledby="install-title">
     <div class="wrap install-layout">
-      <div class="install-intro"><p class="eyebrow">GET STARTED</p><h2 id="install-title">One setup.<br>Your usual workflow.</h2><p>Install the two sibling skills, then open the project whose context you want to maintain.</p><p class="version-note">Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p><a class="text-link" href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md">Full installation guide <span aria-hidden="true">↗</span></a><p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.0.md">v0.2.0 release notes</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.1.9.md">Previous: v0.1.9</a></p></div>
+      <div class="install-intro"><p class="eyebrow">GET STARTED</p><h2 id="install-title">One setup.<br>Your usual workflow.</h2><p>Install the two sibling skills, then open the project whose context you want to maintain.</p><p class="version-note">Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p><a class="text-link" href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md">Full installation guide <span aria-hidden="true">↗</span></a><p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.1.md">Draft v0.2.1 notes</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.0.md">Latest published: v0.2.0</a></p></div>
       <div class="install-content">
         <div class="client-switch" role="group" hidden aria-label="Choose your coding agent"><button type="button" data-client="codex" aria-pressed="true" aria-controls="install-codex">Codex</button><button type="button" data-client="claude" aria-pressed="false" aria-controls="install-claude">Claude Code</button></div>
         <section id="install-codex" class="client-panel" aria-labelledby="codex-label">

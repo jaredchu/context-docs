@@ -12,10 +12,27 @@ is not a behavioral evaluation, and adopting a version is an implementation choi
 not a demonstrated accuracy gain.
 
 The latest bundle is described in the [v0.2.0 release notes](docs/releases/v0.2.0.md).
+The [draft v0.2.1 notes](docs/releases/v0.2.1.md) prepare the visual-path improvement;
+that bundle is not published.
 Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.1 release preparation — 2026-10-16 (unpublished)
+
+- Prepare [draft notes](docs/releases/v0.2.1.md) for core 0.2.1, unchanged adoption
+  0.1.10 and standard 0.1.1, retaining the bounded artifact review and two guided
+  native smoke outcomes with their original limits.
+- Show the canonical synthetic text tree on both website pages, with clickable
+  source maps outside the diagram and horizontal scrolling to preserve branch
+  alignment on narrow screens. Retain experimental/unreleased labels, the latest
+  published v0.2.0 link and SEO titles without em dashes.
+  Include the canonical progress example in the website CI input filters.
+- The [preparation record](docs/releases/v0.2.1-validation.json) separates current
+  mechanical checks and local previews from earlier native evidence. Skill packages,
+  installed skills, setups and saved studies are unchanged. No new native trial,
+  release or deployment is performed.
 
 ## context-docs 0.2.1 — unreleased
 

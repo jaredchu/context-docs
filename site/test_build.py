@@ -114,7 +114,7 @@ class LandingBuildTests(unittest.TestCase):
         prompt = landing.fenced_section(readme, '### 4. Visualize progress in Markdown', 'text')
         original_read = Path.read_text
         public_inputs = {
-            'README.md', 'examples/maintenance.md', 'docs/getting-started.md',
+            'README.md', 'examples/maintenance.md', 'examples/progress.md', 'docs/getting-started.md',
             'skills/context-docs/VERSION', 'skills/adopt-context-docs/VERSION',
             'site/index.html', 'site/getting-started.html',
         }
@@ -129,10 +129,23 @@ class LandingBuildTests(unittest.TestCase):
                 self.assertIn(prompt, unescape(rendered))
                 self.assertIn('id="progress"', rendered)
 
+    def test_both_pages_show_the_canonical_visual_with_clickable_source_map(self):
+        example = landing.fenced_section((landing.ROOT / 'examples/progress.md').read_text(),
+                                         '## Example Markdown view', 'text')
+        for name in ['index.html', 'getting-started.html']:
+            rendered = landing.render(landing.ROOT, name)
+            self.assertIn(example, unescape(rendered))
+            # Source links must be usable outside the preformatted diagram.
+            outside_diagrams = re.sub(r'<pre\b[^>]*>.*?</pre>', '', rendered, flags=re.S)
+            for anchor in ['source-goal-and-decisions', 'source-checks-and-open-work']:
+                self.assertIn('href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md#'
+                              + anchor + '"', outside_diagrams)
+
     def test_missing_progress_content_preserves_previous_public_artifact(self):
         original_read = Path.read_text
-        for name in ['index.html', 'getting-started.html']:
-            with self.subTest(template=name), tempfile.TemporaryDirectory() as temporary:
+        for name, marker in ((name, marker) for name in ['index.html', 'getting-started.html']
+                             for marker in ['PROGRESS_PROMPT', 'PROGRESS_EXAMPLE']):
+            with self.subTest(template=name, marker=marker), tempfile.TemporaryDirectory() as temporary:
                 output = Path(temporary) / 'public'
                 output.mkdir()
                 previous = output / 'previous-build.txt'
@@ -141,7 +154,7 @@ class LandingBuildTests(unittest.TestCase):
                 def missing_progress(path, *args, **kwargs):
                     text = original_read(path, *args, **kwargs)
                     if path == landing.ROOT / 'site' / name:
-                        return text.replace('{{PROGRESS_PROMPT}}', '')
+                        return text.replace('{{' + marker + '}}', '')
                     return text
 
                 with patch.object(Path, 'read_text', missing_progress):

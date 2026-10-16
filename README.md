@@ -19,6 +19,8 @@ as possible.
 The latest published bundle is [v0.2.0](docs/releases/v0.2.0.md), an experimental prerelease.
 See the [v0.2.0 release notes](docs/releases/v0.2.0.md) for the Markdown
 progress feature and its validation limits.
+The [draft v0.2.1 notes](docs/releases/v0.2.1.md) cover the visual-path improvement
+and its focused synthetic checks.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
@@ -202,7 +204,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.0 release notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Draft v0.2.1 notes](docs/releases/v0.2.1.md) · [Published v0.2.0 notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

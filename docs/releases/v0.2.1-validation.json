@@ -1,0 +1,158 @@
+{
+  "status": "prepared_for_review_unpublished",
+  "prepared_date": "2026-10-16",
+  "source_commit": "90f45f163b04c0f8bceac1aeb71d7deff90d85fc",
+  "source_qualification": "Plus uncommitted release documentation and website preparation; package files are unchanged.",
+  "bundle": {
+    "core": "0.2.1",
+    "adoption": "0.1.10",
+    "standard": "0.1.1"
+  },
+  "package_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "5fc2120cacf686636915967b921c89928863965c6f16f1c9ac104a40e959f0b4",
+    "skills/adopt-context-docs/VERSION": "fecf23c4b3c2c29381d4c14cacb998939eb53f5791b99ab7e4e0bc7972c44524",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "4773a1c9849438fe320fc5d80059999ab9a91b9ce8b1e8da2d029ddf83b1d67c",
+    "skills/context-docs/VERSION": "71015c979ccb0fc8a0be7ca0ae83046ab045cdc2c8faa09fb2f0f7e440f9b4a6",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "f86942ce1eb3581c75d4aee6fead87613f9e1262dabbfe773eb7de2b311fe59c",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "prior_evidence": {
+    "artifact_review": "evals/progress/visual-path-review-2026-10-16.md",
+    "guided_native_smoke": "evals/progress/smoke-0.2.1-2026-10-16/README.md",
+    "codex": {
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "links": 18,
+      "visual_result": "pass for this fixture"
+    },
+    "claude": {
+      "reported_model": "claude-opus-5-5",
+      "links": 14,
+      "visual_result": "pass for this fixture"
+    },
+    "scoring": "Sol, author-scored; guided copied-candidate create cases, not independent usability evidence.",
+    "full_manual_suite": "unrun",
+    "new_native_trials": false
+  },
+  "publication": {
+    "release_created": false,
+    "website_deployed": false,
+    "installed_skills_updated": false,
+    "latest_published_bundle": "v0.2.0"
+  },
+  "preparation_checks": {
+    "site_tests": {
+      "command": "python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "passed": 15
+    },
+    "packaging_static_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "passed": 18
+    },
+    "skill_metadata_validators": {
+      "packages": [
+        "context-docs",
+        "adopt-context-docs"
+      ],
+      "passed": true
+    },
+    "static_repository": {
+      "passed": true,
+      "relative_links_and_anchors": 1511,
+      "result_tables": 5,
+      "skill_packages": 2,
+      "declared_versions": 2
+    },
+    "diff_whitespace": "passed",
+    "public_site_build": {
+      "passed": true,
+      "file_count": 9,
+      "output_outside_repository": true,
+      "sha256": {
+        ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "getting-started/index.html": "90b63d2961ae462cf10024517ce53191a8a40b08dc32d16ba64bb33d23895b7e",
+        "index.html": "3d6f30f98aac17ed0d666cf8307166bece128e33c1423f5771638739472fd069",
+        "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+      }
+    },
+    "local_browser_preview": {
+      "pages": [
+        "landing",
+        "getting-started"
+      ],
+      "widths_px": [
+        1440,
+        390
+      ],
+      "height_px": 1000,
+      "canonical_progress_prompt": true,
+      "canonical_visual_example": true,
+      "source_maps_outside_diagram": true,
+      "source_map_anchors_checked_against_local_canonical_example": true,
+      "horizontal_page_overflow": false,
+      "narrow_diagram_scrolls_in_its_own_box": true,
+      "duplicate_ids": false,
+      "script_errors": false,
+      "unreleased_labels": true,
+      "draft_and_latest_published_labels_distinct": true,
+      "seo_titles_without_em_dash": true,
+      "screenshots_visually_inspected": true,
+      "remote_requests_blocked": true,
+      "remote_requests_observed": 0
+    },
+    "new_native_model_trials": false,
+    "new_counterpart_reviews": false,
+    "live_website_verified": false
+  },
+  "collaboration": {
+    "preparation": "Codex (Sol)",
+    "new_claude_review": false,
+    "earlier_claude_evidence": "Retained under prior_evidence; no new model requests during preparation."
+  },
+  "preservation": {
+    "status": "passed",
+    "all_original_entries_outside_preparation_edit_list_unchanged": true,
+    "original_entries_checked": 62927,
+    "original_files_edited": 9,
+    "new_files": 3,
+    "removals": 0,
+    "skill_packages_unchanged": true,
+    "installed_skill_directories_unchanged": true,
+    "retained_private_evidence_unchanged": true,
+    "saved_studies_and_frozen_snapshots_unchanged": true,
+    "existing_project_setup_files_unchanged": true,
+    "scope": "Repository excluding .git; prior retained private evidence excluding new preparation root; all four installed Codex/Claude skill packages. Only documented preparation files and one new journal event differ. No byte-for-byte global client-state claim."
+  },
+  "package_manifest_scope": "Git-tracked files in both installable packages; excludes ignored local Python caches. Cache bytes and earlier frozen study manifests are preserved.",
+  "commit_preflight": {
+    "package_manifest": "Exclude two local cache hashes from release identities; original preparation record retained privately. No package/cache files changed.",
+    "website_ci_inputs": "Add examples/progress.md to push and pull-request filters because both pages now read that canonical public source.",
+    "new_model_requests": false,
+    "attribution": "Codex assisted this release preparation; no new Claude contribution. Prior Claude review and native smoke credits remain on the preceding commit.",
+    "checks": {
+      "packaging_static_tests_passed": 18,
+      "site_tests_passed": 15,
+      "repository_static": "passed; 1511 links/anchors, 5 result tables, 2 packages/versions",
+      "both_skill_validators": "passed",
+      "workflow_yaml_and_source_filters": "passed; deployment defaults off",
+      "site_build": "all nine files match the preparation/preview hashes",
+      "tracked_package_hashes": "all 16 match",
+      "diff_whitespace": "passed"
+    }
+  }
+}

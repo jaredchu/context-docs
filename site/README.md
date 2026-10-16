@@ -28,6 +28,11 @@ The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
 
+Both pages also show the text tree from the public [progress example](../examples/progress.md),
+with clickable source links outside the diagram. The build extracts its canonical
+fenced block; it does not read project context or study outputs. The diagram scrolls
+within its box on narrow screens to preserve branch alignment.
+
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed

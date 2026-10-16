@@ -409,6 +409,20 @@ p {
   white-space:pre-wrap;
   overflow-wrap:anywhere;
 }
+.progress-example {
+  margin:24px 0 12px;
+}
+.progress-example .code-block pre {
+  padding:23px;
+  white-space:pre;
+  overflow-wrap:normal;
+  overflow-x:auto;
+}
+.progress-example figcaption {
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+}
 .copy-button {
   position:absolute;
   top:12px;

@@ -42,6 +42,8 @@ def render(root, template_name='index.html'):
         'SAVE_PROMPT': fenced_section(readme, '### 2. Save decisions, current work and next steps', 'text'),
         'RESUME_PROMPT': fenced_section(readme, '### 3. Resume with the saved context', 'text'),
         'PROGRESS_PROMPT': fenced_section(readme, '### 4. Visualize progress in Markdown', 'text'),
+        'PROGRESS_EXAMPLE': fenced_section((root / 'examples/progress.md').read_text(encoding='utf-8'),
+                                           '## Example Markdown view', 'text'),
         'EXAMPLE_BEFORE': fenced_section(example, '## Before: existing context.md', 'markdown'),
         'EXAMPLE_AFTER': fenced_section(example, '## After: same context.md', 'markdown'),
         'CORE_VERSION': (root / 'skills/context-docs/VERSION').read_text(encoding='utf-8').strip(),
@@ -57,7 +59,7 @@ def render(root, template_name='index.html'):
     template = (root / 'site' / template_name).read_text(encoding='utf-8')
     required = {
         'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'SAVE_PROMPT',
-        'RESUME_PROMPT', 'PROGRESS_PROMPT', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
+        'RESUME_PROMPT', 'PROGRESS_PROMPT', 'PROGRESS_EXAMPLE', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
     }
     required |= ({'QUICK_EXAMPLE', 'LOCAL_ONLY_PROMPT', 'AUTO_LOGGING_PROMPT'} if template_name == 'getting-started.html'
                  else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER'})
