@@ -15,12 +15,12 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.4 and adoption skill v0.1.13 (unreleased).**
-The [v0.2.4 draft notes](docs/releases/v0.2.4.md) describe a small clarity preference
-that preserves meaning within authorized edits, with qualified smoke results.
-The latest published bundle is [v0.2.3](docs/releases/v0.2.3.md), an experimental prerelease
-favoring concise progress views with linked evidence. Its notes retain the
-qualified smoke results and upgrade boundaries. Installing it is a separate action.
+**Status: experimental, core skill v0.2.4 and adoption skill v0.1.13 (released).**
+The latest bundle is [v0.2.4](docs/releases/v0.2.4.md), an experimental prerelease
+adding a small clarity preference that preserves meaning within authorized edits.
+Its notes retain the qualified smoke results and upgrade boundaries. Installing it
+is a separate action. [Previous v0.2.3 notes](docs/releases/v0.2.3.md) retain concise
+progress views and their original qualifications.
 Previous [v0.2.2 notes](docs/releases/v0.2.2.md) retain default inline progress adoption.
 The [v0.2.1 notes](docs/releases/v0.2.1.md) retain the visual-path improvement
 and its original evidence.
@@ -222,7 +222,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.4 draft notes](docs/releases/v0.2.4.md) · [Published v0.2.3 notes](docs/releases/v0.2.3.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [v0.2.4 release notes](docs/releases/v0.2.4.md) · [Previous v0.2.3 notes](docs/releases/v0.2.3.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

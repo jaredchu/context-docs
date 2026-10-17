@@ -142,7 +142,7 @@ initialization workflow.
 
 ### Clarity during context updates
 
-The unreleased **v0.2.4 candidate** (core 0.2.4 / adoption 0.1.13) prefers clear,
+The **v0.2.4 bundle** (core 0.2.4 / adoption 0.1.13) prefers clear,
 direct sentences and consistent project terms within authorized edits. Preserve
 conditions, uncertainty, rationale and evidence; keep existing layouts and unrelated
 owner text. No ASD-STE100 compliance or special invocation is required.
@@ -150,8 +150,8 @@ owner text. No ASD-STE100 compliance or special invocation is required.
 Both clients pass the [focused Markdown checks](../evals/clarity/smoke-0.2.4-2026-10-17/README.md).
 Claude's final chat report adds an unsupported pronoun for Noor; saved Markdown is
 unaffected. These guided, author-scored cases do not demonstrate comprehension gains
-or automatic everyday application. See the [draft notes](releases/v0.2.4.md);
-v0.2.3 remains the latest published bundle, and upgrading is separate.
+or automatic everyday application. See the [release notes](releases/v0.2.4.md);
+existing v0.2.3 installations keep their guidance until separately upgraded.
 
 ### Progress in Markdown
 

@@ -11,8 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.3 release notes](docs/releases/v0.2.3.md).
-The [v0.2.4 draft notes](docs/releases/v0.2.4.md) describe unreleased clarity guidance.
+The latest bundle is described in the [v0.2.4 release notes](docs/releases/v0.2.4.md).
+Previous [v0.2.3 release notes](docs/releases/v0.2.3.md) are retained.
 Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
 Previous [v0.2.1 release notes](docs/releases/v0.2.1.md) are retained.
 Previous [v0.2.0 release notes](docs/releases/v0.2.0.md) are retained.
@@ -20,6 +20,14 @@ Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.4 publication — 2026-10-17
+
+- Finalize owner-authorized experimental release labels for core 0.2.4, adoption
+  0.1.13 and unchanged standard 0.1.1. Retain the report-only Claude pronoun
+  qualification, unchanged original evidence and limits on comprehension benefit
+  and automatic everyday application. Publication checks and deployment follow
+  from the pinned release commit; installed upgrades remain separate.
 
 ## v0.2.4 release preparation — 2026-10-17 (unpublished)
 
@@ -36,7 +44,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   native results and review. No new model trial, counterpart review, installed
   upgrade, release or deployment is part of preparation.
 
-## context-docs 0.2.4 — 2026-10-17 (unreleased)
+## context-docs 0.2.4 — 2026-10-17 (bundled in v0.2.4)
 
 - Prefer clear, direct sentences and consistent project terminology within
   authorized context edits. Preserve conditions, uncertainty, rationale and
@@ -59,7 +67,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   No correction or retry. These guided, author-scored writing cases do not establish
   comprehension gain, automatic everyday application or general reliability.
 
-## adopt-context-docs 0.1.13 — 2026-10-17 (unreleased)
+## adopt-context-docs 0.1.13 — 2026-10-17 (bundled in v0.2.4)
 
 - Follow sibling core's clarity preference within adoption's existing edit scope,
   preserving conditions, uncertainty, rationale and evidence without requiring

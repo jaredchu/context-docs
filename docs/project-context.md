@@ -25,15 +25,16 @@ and existing layouts. Publication and website verification are complete; install
 upgrades remain separate. The [publication record](releases/v0.2.3-publication.json)
 owns identities and verification limits.
 
-Unreleased core **0.2.4** / adoption **0.1.13** add the owner's requested small
+Core **0.2.4** / adoption **0.1.13**, selected for experimental v0.2.4, add the owner's requested small
 clarity preference within authorized edits, preserving meaning and existing layouts
-without requiring ASD-STE100 compliance. [Change notes](../CHANGELOG.md#context-docs-024--2026-10-17-unreleased)
+without requiring ASD-STE100 compliance. [Change notes](../CHANGELOG.md#context-docs-024--2026-10-17-bundled-in-v024)
 retain the tiny text comparison's 12/12 in both conditions and its limits; no
 comprehension gain is demonstrated. A [focused native smoke](../evals/clarity/smoke-0.2.4-2026-10-17/README.md)
 passes the saved-Markdown meaning and scope checks in both clients, retaining a
-Claude report-only pronoun qualification. [Draft release notes](releases/v0.2.4.md)
-and website copy are prepared; the [preparation record](releases/v0.2.4-validation.json)
-owns new local checks. Installed v0.2.3, existing setups and saved studies are unchanged.
+Claude report-only pronoun qualification. [Release notes](releases/v0.2.4.md)
+and website labels are finalized for owner-authorized publication and deployment;
+verification is pending. The [preparation record](releases/v0.2.4-validation.json)
+retains its original local checks and draft scope. Installed v0.2.3, existing setups and saved studies are unchanged.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -46,7 +47,7 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.3 concise views [Q]
 |   |-- DONE     Experimental release and website verification [U]
 |   `-- CHECKED  Installed Codex and Claude smoke checks [I]
-`-- UNRELEASED  Small clarity preference [L]
+`-- PUBLISHING  Small clarity preference [L]
 
 NEXT: use v0.2.3 in everyday work and record concrete misses [N].
 ```
@@ -60,7 +61,7 @@ Sources:
 - **U / I:** [Publication and website verification](releases/v0.2.3-publication.json)
   and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
-- **L:** [Clarity preference draft and qualified checks](releases/v0.2.4.md).
+- **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
 
 **Blockers:** no current implementation blocker is recorded.
 

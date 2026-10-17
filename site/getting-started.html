@@ -28,7 +28,7 @@
     <h1>Start here.<br><span>Keep what matters.</span></h1>
     <p class="guide-lead">You don't need to design a documentation system. Install two skills, use them in one project, and leave the next session a useful place to start.</p>
     <p class="guide-meta">For Codex and Claude Code · Experimental · {{PACKAGE_STATUS}}<br>Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
-    <p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.4.md">v0.2.4 draft notes (unreleased)</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.3.md">Latest published: v0.2.3</a></p>
+    <p><a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.4.md">v0.2.4 release notes</a> · <a href="https://github.com/jaredchu/context-docs/blob/main/docs/releases/v0.2.3.md">Previous: v0.2.3</a></p>
   </header>
   <div class="guide-layout">
     <nav class="guide-toc" aria-label="On this page"><p class="eyebrow">ON THIS PAGE</p><ol><li><a href="#install">Install the skills</a></li><li><a href="#adopt">Set up one project</a></li><li><a href="#save">Save useful changes</a></li><li><a href="#resume">Resume next time</a></li></ol><a href="#progress">Progress in Markdown</a><a href="#local-only">Local-only context</a><a href="#questions">Common questions</a></nav>
@@ -58,7 +58,7 @@
       <section id="save" class="guide-section">
         <p class="eyebrow">STEP 03</p><h2>Work, then save useful changes.</h2>
         <p>After adoption, a loaded project maintenance rule tells the agent to update context when work changes a decision, the current state or the next step. You do not need to mention Context Docs in every prompt. Review the updates and check that the rule is loaded.</p>
-        <p id="clarity">The v0.2.4 draft adds a small clarity preference during authorized context edits: use clear, direct sentences and consistent project terms while preserving conditions, uncertainty, rationale and evidence. Keep existing layouts and unrelated owner text. ASD-STE100 compliance is not required.</p>
+        <p id="clarity">The v0.2.4 release adds a small clarity preference during authorized context edits: use clear, direct sentences and consistent project terms while preserving conditions, uncertainty, rationale and evidence. Keep existing layouts and unrelated owner text. ASD-STE100 compliance is not required.</p>
         <p>Both clients pass the focused Markdown checks. Claude's chat report adds an unsupported pronoun; the saved Markdown is unaffected. These guided, author-scored cases do not demonstrate comprehension gains or automatic everyday application. Read the <a href="https://github.com/jaredchu/context-docs/blob/main/evals/clarity/smoke-0.2.4-2026-10-17/README.md">qualified clarity smoke results</a>.</p>
         <p>If an update was missed, or you want one explicitly, ask:</p>
         <div class="code-block"><button class="copy-button" type="button" data-copy="save-prompt" data-status="save-status" data-destination="your coding agent" hidden aria-label="Copy save context prompt">Copy</button><pre tabindex="0" aria-label="Save context prompt"><code id="save-prompt">{{SAVE_PROMPT}}</code></pre></div>
