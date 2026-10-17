@@ -36,6 +36,9 @@ default inline view when documented context supports it.
 For a visualization request, show a compact visual path through the documented
 work, with dependencies, blockers and the next action visible. A flat status
 table alone is insufficient; keep the view readable in plain Markdown.
+Favor a concise overview with links to detailed evidence, following the guide;
+preserve decisions, rationale, blockers, approval boundaries and unresolved work,
+with qualifications that affect the meaning of a status or next action.
 Refresh an existing view when relevant facts change; no repeated invocation is
 needed when the loaded project rule already authorizes ongoing maintenance.
 

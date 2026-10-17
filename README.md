@@ -15,8 +15,11 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.2 and adoption skill v0.1.11 (released).**
-The latest bundle is [v0.2.2](docs/releases/v0.2.2.md), an experimental prerelease
+**Status: experimental development candidate, core skill v0.2.3 and adoption skill v0.1.12 (unreleased).**
+Development guidance favors concise progress views with linked evidence while
+preserving decisions, blockers and existing layouts. Installing it is a separate action.
+The latest released bundle is [v0.2.2](docs/releases/v0.2.2.md), with core 0.2.2
+and adoption 0.1.11, an experimental prerelease
 adding default inline progress during supported adoption. See its notes for
 preservation rules, focused checks and their limits.
 The [v0.2.1 notes](docs/releases/v0.2.1.md) retain the visual-path improvement

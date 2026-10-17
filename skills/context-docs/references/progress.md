@@ -5,6 +5,23 @@ Use the entry point and relevant linked documents as evidence. Markdown stays
 authoritative; this feature writes reviewable files during an authorized session,
 not a live dashboard or a separate tracking system.
 
+## Keep the overview concise
+
+Favor the smallest useful view: a documented goal, meaningful milestones or
+outcomes, dependencies and blockers, and the next action. Link to canonical
+evidence instead of repeating test counts, review rounds, release receipts or
+attempt-by-attempt history. Use a small source map when helpful; several items
+may share a source if their claims and relationships remain traceable.
+
+Concision must not hide unresolved work, decisions and their rationale, approval
+boundaries or qualifications that change the meaning of a status or next action.
+Keep those visible where needed and preserve their canonical records. Do not
+delete unique information merely to shorten a view or create a new evidence file
+just to move it out of sight. Adapt detail to project complexity and explicit
+requests, without fixed line limits or a required template. Preserve established
+formats, owner edits and record locations; this preference alone does not authorize
+reshaping an existing view.
+
 ## Adoption: a small inline view by default
 
 During adoption, when the context documents a goal and enough supported work,

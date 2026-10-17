@@ -1,0 +1,177 @@
+{
+  "attempts_each": 1,
+  "candidate": {
+    "adoption": "0.1.12",
+    "core": "0.2.3"
+  },
+  "candidate_packages": {
+    "adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "adopt-context-docs/SKILL.md": {
+      "bytes": 7244,
+      "mode": "0o644",
+      "sha256": "9f831f3acf3542ce715f047a2dc59da3dba38f7fb9b4de5e5b5c2524cf2bab55"
+    },
+    "adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "0a6c8dc4148eed841498d2c2be544947a62f8f50c381b2e64bcd7ce40461cf34"
+    },
+    "adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "context-docs/SKILL.md": {
+      "bytes": 8155,
+      "mode": "0o644",
+      "sha256": "10d8b05f27fd1b4b49ead71d48670464934ae1fdb3b862f355ab55c648fbee58"
+    },
+    "context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "3ab94c04d24986f3af288ba1cda2c0bbddbc5a89dff097182805f54578e1ea75"
+    },
+    "context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "context-docs/references/progress.md": {
+      "bytes": 9297,
+      "mode": "0o644",
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+    },
+    "context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "cap_seconds_each": 180,
+  "commands": {
+    "claude": [
+      "claude",
+      "--print",
+      "--verbose",
+      "--output-format",
+      "stream-json",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "medium",
+      "--tools",
+      "Read,Write,Edit",
+      "--allowedTools",
+      "Read,Write,Edit",
+      "--permission-mode",
+      "acceptEdits",
+      "--no-session-persistence",
+      "--setting-sources",
+      "project",
+      "--settings",
+      "{\"disableAllHooks\": true, \"autoMemoryEnabled\": false}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}"
+    ],
+    "codex": [
+      "codex",
+      "exec",
+      "--ignore-user-config",
+      "--skip-git-repo-check",
+      "--ephemeral",
+      "--sandbox",
+      "workspace-write",
+      "--model",
+      "gpt-6.1-sol",
+      "--config",
+      "model_reasoning_effort=\"medium\"",
+      "--config",
+      "features.multi_agent=false",
+      "--config",
+      "features.memories=false",
+      "--json",
+      "--color",
+      "never",
+      "-"
+    ]
+  },
+  "criteria": [
+    "Read copied adoption/core/progress guide, not installed skills.",
+    "Task A creates a compact supported inline path without repeating detailed test/review history; source links resolve.",
+    "Documented goal, parallel checks, missing-fixture dependency and next action remain visible.",
+    "Owner decisions/rationale, pending export decision, unapproved proposal and deployment approval boundary remain distinct.",
+    "Task B refreshes the canonical linked table and next move, clears the resolved fixture blocker while preserving deployment approval, column order and owner edits.",
+    "Only four allowed Markdown paths change; candidate packages and original instructions/evidence outside approved updates remain unchanged.",
+    "No invented percentages, live-agent claims, dependencies or extra tracker/evidence store."
+  ],
+  "date": "2026-10-17",
+  "fixture": {
+    "AGENTS.md": "# Synthetic smoke rules\nRead README.md and the two named context entry points. Use copied candidate skills under candidate-skills/, not installed skills. Read candidate-skills/context-docs/SKILL.md and its references/progress.md before context work. No Git, network, delegation, application tests, implementation, settings or installed-skill changes. Only adopt/notes/context.md, maintain/docs/context.md, maintain/notes/delivery.md and maintain/notes/evidence.md may change. Preserve all other files, owner edits and source evidence. Do not create a parallel tracker or new evidence store.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Cedar Sync synthetic smoke\n\nTwo disposable documentation cases: re-adopt `adopt/` from its `notes/context.md`; then record the supplied result in `maintain/` using its `docs/context.md`. All application results are fictional.\n",
+    "adopt/AGENTS.md": "# Project instructions\nUse Context Docs after meaningful changes to facts, decisions, blockers and next actions; read the copied core skill before maintenance. Preserve decisions, evidence, owner edits and record locations. Keep existing views current without duplicate tracking. No-change repeats and audits write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n",
+    "adopt/CLAUDE.md": "@AGENTS.md\n",
+    "adopt/README.md": "# Cedar profile import\n\nSynthetic fixture. Read [context](notes/context.md).\n",
+    "adopt/notes/context.md": "# Cedar working context\n\n## Goal\nPrepare profile import for owner review. Completion requires format compatibility and duplicate-name checks to pass. Deployment is separate and requires owner approval.\n\n## Work\nFormat compatibility passed. The duplicate-name check has not run: its representative fixture is missing. See [retained evidence](evidence.md).\n\nOwner note: keep the `mode=plain` example here.\n\nExample: older profiles containing `mode=plain` must remain accepted.\n\n## Decisions\nThe owner approved keeping the existing profile format for older clients. A proposed binary format is not approved. Whether to add export support is undecided and outside the import-review goal. See [decision rationale](decisions.md).\n\n## Next move\nObtain the duplicate-name fixture, then run the check. Deployment is not approved.\n",
+    "adopt/notes/decisions.md": "# Decision record\n\n## Approved format\nOctober 10: the owner approved retaining plain profiles so older clients can still import them. Do not replace the format during this work.\n\n## Pending export decision\nThe owner has not decided whether to add export support. It is outside the import-review completion conditions.\n\n## Proposal and deployment\nAn agent proposed a binary format; it is unapproved and unimplemented. Deployment needs separate owner approval, which has not been given.\n",
+    "adopt/notes/evidence.md": "# Retained synthetic evidence\n\nFictional retained results for documentation testing only; no application checks were executed by this smoke.\n\n## Format compatibility\nOctober 14: all 24 format cases passed, including old mode=plain profiles. This narrow result establishes format compatibility, not duplicate-name behavior or deployment.\n\n## Duplicate names\nOctober 14: not run. The representative fixture is absent from fixtures/duplicate-profiles.json. Obtain it, then run the check; its outcome is unknown.\n\n## Detailed review history\nOctober 10: review R1 examined 12 samples and requested format preservation.\nOctober 11: review R2 checked 18 samples; no duplicate-name fixture was supplied.\nOctober 12: review R3 inspected 20 samples and retained a missing-fixture note.\nOctober 13: review R4 inspected 22 samples; deployment remained unapproved.\nOctober 14: review R5 covered 24 format cases; the duplicate-name check still did not run.\nThese records belong here; repeated review does not establish the unrun outcome.\n",
+    "maintain/AGENTS.md": "# Project instructions\nUse Context Docs after meaningful changes to facts, decisions, blockers or next actions. Read the copied core skill before maintenance. Update canonical facts and the existing linked progress view in place, preserving owner edits, decisions, source evidence and record locations. No-change repeats and audits write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-02\nEntry point: docs/context.md\nEvent journal: off\n",
+    "maintain/CLAUDE.md": "@AGENTS.md\n",
+    "maintain/README.md": "# Cedar import continuation\n\nSynthetic fixture. Read [context](docs/context.md).\n",
+    "maintain/docs/context.md": "# Cedar continuation\n\n## Goal\nPrepare profile import for owner review. Completion requires format compatibility and duplicate-name checks to pass; deployment is outside that goal and needs owner approval.\n\n## Work\nSee the canonical [delivery view](../notes/delivery.md). Keep its table format and owner note.\n\n## Decisions\nSee [owner decisions and rationale](../notes/decisions.md). Export support remains undecided and outside this goal.\n\n## Next move\nObtain the duplicate-name fixture, then run the check. Deployment remains unapproved.\n",
+    "maintain/notes/decisions.md": "# Decision record\n\n## Approved format\nOctober 10: the owner approved retaining plain profiles so older clients can still import them. Do not replace the format during this work.\n\n## Pending export decision\nThe owner has not decided whether to add export support. It is outside the import-review completion conditions.\n\n## Proposal and deployment\nAn agent proposed a binary format; it is unapproved and unimplemented. Deployment needs separate owner approval, which has not been given.\n",
+    "maintain/notes/delivery.md": "# Owner delivery board\n\nOwner note: keep this table and its column order; deployment is outside the import-review goal.\n\n| Work | Status | Evidence |\n| --- | --- | --- |\n| Format compatibility | DONE: passed October 14 | [Format result](evidence.md#format-compatibility) |\n| Duplicate-name check | BLOCKED: missing representative fixture; not run | [Missing fixture](evidence.md#duplicate-names) |\n| Deployment (outside goal) | BLOCKED: owner approval not given | [Approval boundary](decisions.md#proposal-and-deployment) |\n\nNext: obtain the duplicate-name fixture, then run the check. See [next move](../docs/context.md#next-move).\n",
+    "maintain/notes/evidence.md": "# Retained synthetic evidence\n\nFictional retained results for documentation testing only; no application checks were executed by this smoke.\n\n## Format compatibility\nOctober 14: all 24 format cases passed, including old mode=plain profiles. This narrow result establishes format compatibility, not duplicate-name behavior or deployment.\n\n## Duplicate names\nOctober 14: not run. The representative fixture is absent from fixtures/duplicate-profiles.json. Obtain it, then run the check; its outcome is unknown.\n\n## Detailed review history\nOctober 10: review R1 examined 12 samples and requested format preservation.\nOctober 11: review R2 checked 18 samples; no duplicate-name fixture was supplied.\nOctober 12: review R3 inspected 20 samples and retained a missing-fixture note.\nOctober 13: review R4 inspected 22 samples; deployment remained unapproved.\nOctober 14: review R5 covered 24 format cases; the duplicate-name check still did not run.\nThese records belong here; repeated review does not establish the unrun outcome.\n",
+    "owner-work.txt": "OWNER WORK: preserve these exact bytes.\n"
+  },
+  "limits": [
+    "Two guided copied-candidate sessions; Sol author-scored, not independent assessment.",
+    "Tasks A and B share a session per client; not fresh-session handoff or implicit-discovery evidence.",
+    "Already-adopted setup reused; no fresh-rule creation, audit, sparse/local-only, explicit-more-detail or no-change-repeat run.",
+    "No Git fixture/probes or application tests. Process controls differ from normal UI; Claude uses prompt/post-run boundaries, not an OS sandbox.",
+    "No general reliability, usability, user-effort or benefit claim; earlier studies unchanged."
+  ],
+  "prompt": "Read AGENTS.md and README.md. Use only the copied candidate at candidate-skills/adopt-context-docs/SKILL.md and candidate-skills/context-docs/SKILL.md, including the packaged progress guide; do not invoke or read installed skills.\n\nTask A: Adopt Context Docs in adopt/. Reuse its equivalent rules, marker/date, context layout, owner edits and logging off. Only adopt/notes/context.md may change; other setup and evidence files must stay byte-for-byte.\n\nTask B: In maintain/, record this new synthetic retained result in notes/evidence.md: October 16, 2026, the representative duplicate-name fixture was provided and the duplicate-name check passed. Both import-review completion checks have passed. The next action is owner review; deployment still needs separate approval and export support is still undecided. Finish this ordinary task following maintain/ project rules. Only maintain/notes/evidence.md, maintain/notes/delivery.md and maintain/docs/context.md may change.\n\nThese are fictional results for documentation testing, not permission to execute application checks. Preserve all earlier evidence, decisions, owner work and copied skills. Use local reads and documentation edits only; no Git operations or probes, network tools, settings, delegation, implementation, extra clients or installed-skill changes. Finish with a short report.\n",
+  "sessions": 2,
+  "source_revision": "4b78e7ea79d8e87e7e2bd349cb918499bcc1829d plus uncommitted concise candidate"
+}

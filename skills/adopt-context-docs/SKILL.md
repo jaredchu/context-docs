@@ -27,7 +27,9 @@ during adoption. By default, create a simple inline visual path in a suitable
 existing context section when a documented goal and supported work/status or
 next-step facts make it useful. Reuse an existing progress view in its current
 location and format instead of adding another. Follow the guide's adoption rules
-for sparse context, authoritative details and preserving the existing layout.
+for concise overviews with linked evidence, sparse context and preserving
+authoritative details and the existing layout. Favor an overview over test/review
+chronology when creating a view; do not reshape an established view merely to shorten it.
 Refresh the view through core after meaningful changes during everyday work;
 the user need not ask for each update. Preserve storage and equivalent setup rules.
 

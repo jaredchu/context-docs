@@ -136,6 +136,29 @@ notes and layout. A repeat with no new facts makes no edits or journal event;
 audit-only adoption recommendations still write nothing. This case does not prove
 automatic instruction loading or implicit skill selection.
 
+## 8. Concise overview and preservation (core 0.2.3 candidate)
+
+Use a synthetic project with a documented two-condition goal, one completed
+condition, one blocked condition, a pending owner decision, and a detailed retained
+evidence document containing test counts and dated review attempts. Ask for a
+progress view, or adopt it without a separate visualization request.
+
+Check that the overview makes the goal, meaningful outcomes, supported dependency,
+blocker and next action easy to find, with clickable evidence links. It should not
+reproduce the test/review chronology. Approval boundaries, relevant qualifications
+and decision rationale remain findable, with unique information preserved in its
+canonical location. Do not impose a word/line quota or add a new evidence store.
+
+Repeat ordinary maintenance on an existing owner-edited table or linked view,
+with one new result: retain its location, format and unrelated owner edits, update
+only affected facts and create no duplicate tracker. A separate request for more
+detail may provide it; concision is a default preference, not permission to hide
+blockers or trim necessary detail from a complex project. A
+[focused candidate smoke](smoke-0.2.3-2026-10-17/README.md) now exercises re-adoption
+and linked-table refresh in both clients; progress checks pass with a Codex
+temporary-file write/delete scope violation retained. Explicit extra detail and
+other unexecuted branches remain unrun; earlier results retain their original scope.
+
 ## Validation boundary
 
 Repository/package checks validate links, versions and self-contained references;

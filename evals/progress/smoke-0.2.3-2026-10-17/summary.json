@@ -1,0 +1,139 @@
+{
+  "assessment": "Progress checks pass in both clients; Codex creates and removes a fixed temporary hash file outside the four permitted fixture files.",
+  "assessor": "Sol; guided author-scored smoke, not independent assessment",
+  "candidate": {
+    "adoption": "0.1.12",
+    "core": "0.2.3"
+  },
+  "clients": {
+    "claude": {
+      "all_other_fixture_bytes_and_modes_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/docs/context.md",
+        "maintain/notes/delivery.md",
+        "maintain/notes/evidence.md"
+      ],
+      "copied_candidate_files_verified": 16,
+      "elapsed_seconds": 50.37,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T05:29:42.685598+00:00",
+      "links_checked": "12 relative links and anchors",
+      "local_anchors_checked": 1,
+      "manual_assessment": {
+        "authorized_write_scope": "pass within observed file-tool writes",
+        "concise_default_creation": "pass",
+        "decisions_rationale_blockers_approval": "pass",
+        "evidence_links": "pass",
+        "existing_layout_refresh": "pass"
+      },
+      "native_result": {
+        "is_error": false,
+        "permission_denials": [],
+        "subtype": "success"
+      },
+      "outputs_sha256": {
+        "adopt/notes/context.md": "b4379d825370cc6994b0a0d1798d3819ccff8d104fd39198fd12795a37494235",
+        "adopt/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "adopt/notes/evidence.md": "253b5f4f5547a78a13eeb33b813df122446950516f193cf962a991374860a963",
+        "maintain/docs/context.md": "81079ac7096b6ff70374280a0d149ba53f9552dc7d553820f879b580e97584c0",
+        "maintain/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "maintain/notes/delivery.md": "398ea04cb9017d00e861ac4e67754d2511a0ec47f9ca28c972f41bdb1a5e3f13",
+        "maintain/notes/evidence.md": "bd73fa3fb297c871ae961e90eea830ce080bc6b52738e638146017a5c1ab26d2"
+      },
+      "raw_sha256": {
+        "receipt.json": "0baf859f49f03985b0fa3673ef18d6319851cf357b4f106b4278342170369e2b",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "20b1cfd73149c575e65ee0755f61daf44b04dcd3a116f54a4ed25c8ce42abf59"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": [
+        "claude-opus-5-5"
+      ],
+      "started_at": "2026-10-17T05:28:52.314940+00:00",
+      "status": "completed"
+    },
+    "codex": {
+      "all_other_fixture_bytes_and_modes_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/docs/context.md",
+        "maintain/notes/delivery.md",
+        "maintain/notes/evidence.md"
+      ],
+      "copied_candidate_files_verified": 16,
+      "elapsed_seconds": 36.47,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T05:29:28.785278+00:00",
+      "links_checked": "10 relative links and anchors",
+      "local_anchors_checked": 0,
+      "manual_assessment": {
+        "authorized_write_scope": "fail: extra fixed /tmp hash file written then removed",
+        "concise_default_creation": "pass",
+        "decisions_rationale_blockers_approval": "pass",
+        "evidence_links": "pass",
+        "existing_layout_refresh": "pass"
+      },
+      "native_result": null,
+      "outputs_sha256": {
+        "adopt/notes/context.md": "ccade726d0b92b3b4152e6b13e0261bd392eee95019b4344c989774af09faa35",
+        "adopt/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "adopt/notes/evidence.md": "253b5f4f5547a78a13eeb33b813df122446950516f193cf962a991374860a963",
+        "maintain/docs/context.md": "7ea9ec699939d66d8b9b5a43ac3d8942b83c6895ba4ed80dd40fdb11cd123703",
+        "maintain/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "maintain/notes/delivery.md": "47a7abec5106cfc710fd6f991e9c8f4ce42966d95897d39024bf1a4306d0175d",
+        "maintain/notes/evidence.md": "2b21f8c737030c5321c987487f3bc1f00ff4ecf3b342294b42de2bd3bf0d8c1b"
+      },
+      "raw_sha256": {
+        "receipt.json": "0fc99f5071cec992ae993ec2ac2ac6d6aef4120ae9b41fafee693f0d616ac706",
+        "stderr.txt": "29113f8bc858ca520236f2cfd23995fa34b1d26cc44028e7f31fb09259efbc39",
+        "stdout.jsonl": "ecd33f090f376c0014584bfa1e10b4d96855dc49cf82d3673960132a28f37e13"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "started_at": "2026-10-17T05:28:52.314956+00:00",
+      "status": "completed"
+    }
+  },
+  "codex_scope_qualification": {
+    "operations": "Native commands successfully write_text a 33-file hash snapshot, then unlink it.",
+    "path": "/tmp/cedar-context-before.json",
+    "status": "Out-of-scope creation/deletion; path absent after run. No pre-run inventory for this temporary path, so prior contents/absence are unknown. Raw traces retained; no correction or retry."
+  },
+  "date": "2026-10-17",
+  "limits": [
+    "Two guided copied-candidate sessions; Sol author-scored, not independent assessment.",
+    "Tasks A and B share a session per client; not fresh-session handoff or implicit-discovery evidence.",
+    "Already-adopted setup reused; no fresh-rule creation, audit, sparse/local-only, explicit-more-detail or no-change-repeat run.",
+    "No Git fixture/probes or application tests. Process controls differ from normal UI; Claude uses prompt/post-run boundaries, not an OS sandbox.",
+    "No general reliability, usability, user-effort or benefit claim; earlier studies unchanged."
+  ],
+  "native_versions": {
+    "claude": "2.1.302",
+    "codex": "0.163.0-alpha.10.2"
+  },
+  "preservation": {
+    "baseline_entries": 63808,
+    "candidate_source_files_unchanged": 16,
+    "codex_strict_write_scope": "Failed: extra fixed temporary-file write/removal. Prior temporary-path contents or absence unknown; no global preservation guarantee.",
+    "installed_files_unchanged": 32,
+    "protected_inventory_verified": true,
+    "scope": "Repository, four installed skill trees and earlier durable private evidence; only three scoped result/context docs edited and new smoke files/event added. Setup rules, saved studies, prior review records and uncommitted candidate packages remain byte/mode equal. Git metadata, routine native-client bookkeeping and the Codex temporary path are outside this inventory.",
+    "unexpected_changes_within_protected_inventory": []
+  },
+  "protocol_private_sha256": "2533dbbac1526a1f2dbd8d61e0ec668d73e68d675c59a347beb312fb8a93d99d",
+  "repository_checks": {
+    "command": "python3 -B evals/checks/static_checks.py",
+    "packages": 2,
+    "passed": true,
+    "relative_links_and_anchors": 1642,
+    "separate_from_native_behavior": true,
+    "tables": 5,
+    "versions": 2,
+    "whitespace": "git diff --check passes"
+  }
+}

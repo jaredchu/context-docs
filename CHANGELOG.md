@@ -19,6 +19,34 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.3 — unreleased
+
+- Favor concise progress overviews with links to canonical evidence. Keep the goal,
+  meaningful outcomes, dependencies, blockers and next action visible, retaining
+  decisions, approval boundaries and qualifications without a fixed line limit.
+  Preserve existing formats and unique information; do not create a new evidence
+  store merely to shorten a view.
+- Validation: repository/package/link checks, 18 static-check regression tests,
+  15 site tests and both metadata validators pass. Initial Opus artifact review
+  finds a missing authorization condition in the context summary; corrected with
+  one focused follow-up finding no unresolved material issue. The
+  [check/review record](evals/progress/concise-view-review-2026-10-17.md) distinguishes
+  artifact review and its original pre-smoke scope. Installed skills, setup rules
+  and saved studies remain unchanged.
+- A [focused copied-candidate smoke](evals/progress/smoke-0.2.3-2026-10-17/README.md)
+  runs re-adoption and linked-table maintenance in one session per native client.
+  Both produce concise, source-linked views and preserve decisions, blockers and
+  existing layouts. Codex creates/removes an extra fixed temporary hash file,
+  failing the strict write boundary; the qualified result is retained without
+  correction or retry. The full suite and general benefit remain unestablished.
+
+## adopt-context-docs 0.1.12 — unreleased
+
+- Follow sibling core's concise-overview guidance during adoption. Link detailed
+  evidence rather than expanding a view into test/review history, preserving
+  established views, owner edits, decisions and setup records.
+- Validation shares the core 0.2.3 checks above; no installed upgrade or release.
+
 ## v0.2.2 publication — 2026-10-17
 
 - Finalize the owner-authorized experimental release labels and website links

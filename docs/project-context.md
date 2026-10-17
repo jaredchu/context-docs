@@ -20,6 +20,10 @@ The owner requested default inline progress when documented context supports it.
 Reuse existing views and canonical details; missing goals or insufficient facts
 must not produce invented scaffolding.
 
+Development candidate: core **0.2.3** / adoption **0.1.12** favors concise
+overviews with linked evidence, preserving decisions, blockers and existing layouts.
+This is unreleased; installed skills and setup rules remain unchanged.
+
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
 ```text
@@ -27,14 +31,16 @@ Goal: make progress clear during everyday context work
 |
 |-- RELEASED  v0.2.0 Markdown progress [B]
 |-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
-`-- RELEASED  v0.2.2 default inline progress adoption
-    |-- DONE     Guidance, checks and counterpart review [C]
-    |-- DONE     Experimental release and website verification [R]
-    `-- CHECKED  Installed Codex and Claude smoke [S]
-        |-- PASS  Adoption creates an inline view by default
-        `-- PASS  Everyday maintenance refreshes that same view
+|-- RELEASED  v0.2.2 default inline progress adoption
+|   |-- DONE     Guidance, checks and counterpart review [C]
+|   |-- DONE     Experimental release and website verification [R]
+|   `-- CHECKED  Installed Codex and Claude smoke [S]
+|       |-- PASS  Adoption creates an inline view by default
+|       `-- PASS  Everyday maintenance refreshes that same view
+|
+`-- CHECKED   Concise candidate; Codex write scope qualified [P, T]
 
-NEXT: use v0.2.2 in ordinary work; report concrete misses [N].
+NEXT: use v0.2.2; review candidate evidence and scope qualification [N].
 ```
 
 Sources:
@@ -47,6 +53,11 @@ Sources:
   Both phases pass in both clients; guided, author-scored synthetic re-adoption
   and result recording do not establish general reliability or user benefit.
 - **N:** [Next actions](#next-actions).
+- **P:** [Unreleased concise-view guidance](../CHANGELOG.md#context-docs-023--unreleased)
+  with [checks and review](../evals/progress/concise-view-review-2026-10-17.md).
+- **T:** [Concise candidate smoke](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
+  Progress, evidence links and existing-layout checks pass in both clients;
+  Codex's extra temporary hash-file write/delete violates the strict write scope.
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -55,6 +66,8 @@ loading and benefit to intended users remain unestablished. The
 [earlier v0.2.1 Claude source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
 and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md)
 remain retained; newer checks do not replace earlier results.
+The concise candidate's focused checks are author-scored, with the Codex scope
+violation retained; the full suite and broader reliability remain unestablished.
 
 **Deferred:** the owner set aside the broad v1.0.0 graduation campaign. Its
 [infrastructure proposals](#current-state) remain history. A local web viewer
@@ -248,6 +261,11 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Review the unreleased concise candidate and its
+[qualified smoke evidence](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
+Commit/publication and installed upgrades remain separate authorized actions;
+no automatic correction or retry is selected for the recorded scope violation.
 
 Continue ordinary work with the [released v0.2.2 guidance](releases/v0.2.2.md)
 and record concrete misses. Preserve its earlier native evidence and unchanged
