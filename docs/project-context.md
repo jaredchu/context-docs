@@ -32,54 +32,32 @@ Goal: make progress clear during everyday context work
 |
 |-- RELEASED  v0.2.0 Markdown progress [B]
 |-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
-|-- RELEASED  v0.2.2 default inline progress adoption
-|   |-- DONE     Guidance, checks and counterpart review [C]
-|   |-- DONE     Experimental release and website verification [R]
-|   `-- CHECKED  Installed Codex and Claude smoke [S]
-|       |-- PASS  Adoption creates an inline view by default
-|       `-- PASS  Everyday maintenance refreshes that same view
-|
-`-- RELEASED  v0.2.3 concise views; Codex write scope qualified [P, T]
-    |-- DONE  Experimental release, deployment and live verification [U]
-    `-- CHECKED  Installed concise views and existing-layout updates [I]
+|-- RELEASED  v0.2.2 default inline progress adoption [R]
+`-- RELEASED  v0.2.3 concise views [Q]
+    |-- DONE     Experimental release and website verification [U]
+    `-- CHECKED  Installed Codex and Claude smoke checks [I]
 
-NEXT: use v0.2.3 guidance in ordinary work; installed upgrades are separate [N].
+NEXT: use v0.2.3 in everyday work and record concrete misses [N].
 ```
 
 Sources:
 
-- **B:** [v0.2.0 release and checks](releases/v0.2.0.md).
-- **V:** [v0.2.1 visual-path release and checks](releases/v0.2.1.md).
-- **C:** [Default-adoption guidance, candidate checks and Opus review](../evals/progress/adoption-default-2026-10-16/README.md).
-- **R:** [v0.2.2 publication and website verification](releases/v0.2.2-publication.json).
-- **S:** [Installed v0.2.2 smoke and exact outputs](../evals/installed-skills/2026-10-17-progress-v022/README.md).
-  Both phases pass in both clients; guided, author-scored synthetic re-adoption
-  and result recording do not establish general reliability or user benefit.
+- **B / V / R / Q:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
+  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes link
+  to their guidance, reviews and checks. Earlier
+  [v0.2.2 installed checks](../evals/installed-skills/2026-10-17-progress-v022/README.md) remain retained.
+- **U / I:** [Publication and website verification](releases/v0.2.3-publication.json)
+  and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
-- **P:** [Concise-view guidance](../CHANGELOG.md#context-docs-023--2026-10-17-bundled-in-v023)
-  with [checks and review](../evals/progress/concise-view-review-2026-10-17.md).
-- **T:** [Concise candidate smoke](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
-  Progress, evidence links and existing-layout checks pass in both clients;
-  Codex's extra temporary hash-file write/delete violates the strict write scope.
-- **Q:** [v0.2.3 release notes](releases/v0.2.3.md) and
-  [preparation checks](releases/v0.2.3-validation.json) retain that qualification.
-  The original preparation snapshot remains unchanged beside the publication record [U].
-- **U:** [v0.2.3 publication and live verification](releases/v0.2.3-publication.json).
-  Release checks and deployment pass from `0c053d6`; eight live responses match
-  its build, including the smoke qualification. No native trial or installed upgrade.
-- **I:** [Installed v0.2.3 smoke](../evals/installed-skills/2026-10-17-progress-v023/README.md).
-  Both clients pass the focused cases; installed paths and a tighter temporary-write
-  boundary are explicit. This does not replace the earlier candidate qualification.
 
 **Blockers:** no current implementation blocker is recorded.
 
-**Evidence gaps:** fresh adoption, the full progress suite, default/implicit
-loading and benefit to intended users remain unestablished. The
-[earlier v0.2.1 Claude source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
-and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md)
-remain retained; newer checks do not replace earlier results.
-The concise candidate's focused checks are author-scored, with the Codex scope
-violation retained; the full suite and broader reliability remain unestablished.
+**Qualifications:** the [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
+remains retained. Focused smoke checks pass, with explicit installed paths and a
+stricter temporary-write boundary; they are guided and author-scored. Fresh
+adoption, the full suite, broad reliability, implicit loading and user benefit
+remain unestablished. Earlier [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
+and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain retained.
 
 **Deferred:** the owner set aside the broad v1.0.0 graduation campaign. Its
 [infrastructure proposals](#current-state) remain history. A local web viewer
