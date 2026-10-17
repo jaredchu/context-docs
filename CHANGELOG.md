@@ -18,6 +18,25 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.2 release preparation — 2026-10-17 (unpublished)
+
+- Prepare [draft bundle notes](docs/releases/v0.2.2.md) for core 0.2.2, adoption
+  0.1.11 and unchanged standard 0.1.1. Retain all three earlier native Codex
+  sessions, the Opus reviews and their exact candidate/final-wording qualifications.
+- Explain default inline creation during supported adoption and everyday
+  maintenance on both website pages. Keep explicit visualization prompts optional,
+  existing views canonical, sparse context free of scaffolding and upgrades
+  separate from project changes. Retain draft/unreleased labels, the published
+  v0.2.1 link, the canonical visual example and SEO titles without em dashes.
+- The [preparation record](docs/releases/v0.2.2-validation.json) owns current local
+  checks and previews separately from unchanged earlier behavior evidence. Skill
+  packages, installed skills, setups and saved studies are preserved; this work
+  performs no new native trial, model review, publication, deployment or upgrade.
+  Local checks pass: 18 packaging/static and 15 site tests, both metadata
+  validators, isolated package links and the nine-file public build. Both pages
+  pass desktop/mobile previews with inspected progress screenshots and no page
+  overflow, script errors or remote requests.
+
 ## context-docs 0.2.2 — 2026-10-16 (unreleased)
 
 - Add the core guide for adoption's default inline progress path when a documented

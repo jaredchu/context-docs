@@ -18,6 +18,8 @@ as possible.
 **Status: experimental, core skill v0.2.2 and adoption skill v0.1.11 (unreleased).**
 The latest bundle is [v0.2.1](docs/releases/v0.2.1.md), an experimental prerelease.
 See its release notes for the visual-path improvement and focused synthetic checks.
+The [v0.2.2 draft notes](docs/releases/v0.2.2.md) describe default inline progress
+during adoption; that bundle is not yet published.
 The [v0.2.0 notes](docs/releases/v0.2.0.md) retain the original progress feature
 and its validation limits.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
@@ -210,7 +212,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.1 release notes](docs/releases/v0.2.1.md) · [Published v0.2.0 notes](docs/releases/v0.2.0.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Draft v0.2.2 notes](docs/releases/v0.2.2.md) · [Published v0.2.1 notes](docs/releases/v0.2.1.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

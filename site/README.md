@@ -33,6 +33,11 @@ with clickable source links outside the diagram. The build extracts its canonica
 fenced block; it does not read project context or study outputs. The diagram scrolls
 within its box on narrow screens to preserve branch alignment.
 
+The draft v0.2.2 copy explains default inline creation during supported adoption,
+reuse of existing views and everyday maintenance under a loaded project rule.
+Explicit progress prompts remain optional; installation/upgrade alone changes no
+project context. Both templates distinguish draft notes from published v0.2.1.
+
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed

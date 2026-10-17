@@ -163,6 +163,8 @@ add a missing supported view to an already-adopted project, preserving its rule
 and original marker/date; subsequent unchanged repeats should make no edits.
 Installation or upgrade alone does not change project setups. The released and
 installed v0.2.1 guidance still creates a view when requested.
+The [draft v0.2.2 notes](releases/v0.2.2.md) retain upgrade boundaries and the
+focused native checks' limits; this bundle is not yet published.
 
 Once a view exists, the loaded maintenance rule directs the agent to update it
 after meaningful changes during everyday work; you need not ask each time.

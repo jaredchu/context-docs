@@ -1,9 +1,9 @@
 # Project context
 
-Snapshot checked: 2026-10-16. Experimental v0.2.1 is published and its website
-verified. Installed v0.2.1 visual-path smoke checks complete in both clients,
-with one Claude prose qualification. Earlier evidence, installed skills,
-saved studies and existing project setups are preserved.
+Release preparation: 2026-10-17. Draft v0.2.2 notes and website copy cover default
+inline progress during adoption; the bundle remains unpublished. Experimental
+v0.2.1 and its October 16 website verification remain the published baseline.
+Installed skills, existing setups and saved studies are preserved.
 
 ## Purpose and scope
 
@@ -22,13 +22,16 @@ existing views, layouts and canonical details rather than adding duplicate track
 The owner requested this default; missing goals or insufficient facts do not
 justify scaffolding. The development candidate is core **0.2.2** / adoption
 **0.1.11**, with [checks and limits](../evals/progress/adoption-default-2026-10-16/README.md).
+The implementation is committed at `39e3839`; current work prepares its
+[draft v0.2.2 release and website](releases/v0.2.2.md), keeping earlier native
+outcomes separate from release-preparation checks.
 
 **Experimental v0.2.1 remains published and its website verified.** It requires
 requesting the initial view, then maintains it during meaningful updates. Installed
 packages and setup rules remain unchanged. Its visual-path gate supersedes the
 earlier v0.2.0 status/source checks without changing that earlier evidence.
 
-Snapshot checked October 16, 2026; saved status does not imply live agent activity.
+Preparation snapshot October 17, 2026; saved status does not imply live agent activity.
 
 ```text
 Markdown progress
@@ -47,9 +50,10 @@ Markdown progress
 `-- CANDIDATE  Default inline progress during adoption [N]
     |-- DONE  Guidance, three guided native sessions and local checks [N]
     |-- DONE  Bounded Opus review and preservation checks [N]
-    `-- NEXT  Review prepared changes [N]
+    |-- DONE  Committed change and passing GitHub Actions [N]
+    `-- DONE  Draft release notes, website copy and preparation checks [Q]
 
-NEXT: review prepared default-adoption changes [N]
+NEXT: review the draft release notes and website preparation [Q]
 ```
 
 Sources for the visual:
@@ -96,6 +100,16 @@ Sources for the visual:
   Opus review/follow-up resolve material findings. Fresh setup with a new rule,
   linked/nonvisual views, sparse/local-only/no-view and audit cases remain
   unexecuted natively. The record owns exact package identities and qualifications.
+  The [implementation commit](https://github.com/jaredchu/context-docs/commit/39e3839db2131fc6ace44e06009a92939dc2a3b5)
+  has passing [main static checks](https://github.com/jaredchu/context-docs/actions/runs/38941626693)
+  and [website build](https://github.com/jaredchu/context-docs/actions/runs/38941626653).
+- **Q:** [Draft v0.2.2 notes](releases/v0.2.2.md) and
+  [preparation checks](releases/v0.2.2-validation.json). Both pages explain
+  supported default adoption, optional explicit prompts and everyday maintenance,
+  with draft labels separate from published v0.2.1. This preparation changes no
+  skill package or installed setup and runs no new native trial or model review.
+  Local tests, static/package checks and desktop/mobile previews pass; the record
+  separates these from the earlier native behavior evidence and live publication.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -298,10 +312,10 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the prepared [default-adoption candidate](../evals/progress/adoption-default-2026-10-16/README.md).
-Commit/push, installation, release, deployment and existing project changes remain
-outside this completed edit/check task. Released and installed versions retain
-their original behavior.
+Review the [draft v0.2.2 notes and website preparation](releases/v0.2.2.md), with
+its [current checks](releases/v0.2.2-validation.json) and unchanged earlier native
+evidence. Commit/push, publication, deployment and installed upgrades are separate
+actions; this task prepares reviewable files only.
 
 The [v0.2.1 bundle](releases/v0.2.1.md) is published and its website verified.
 Use the released guidance and preserve the historical
