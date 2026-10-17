@@ -25,9 +25,11 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   for core 0.2.2, adoption 0.1.11 and unchanged standard 0.1.1. Preserve all package
   files, preparation evidence, earlier native results, installed skills and setups.
 - The [publication record](docs/releases/v0.2.2-publication.json) owns release-commit
-  checks, prerelease identity, deployment and live verification. Publication and
-  verification are pending while the release labels are finalized; no new model
-  trial or installed upgrade is part of this task.
+  checks, prerelease identity, deployment and live verification. Publish from
+  `7aa2d5d` after both main-branch checks pass and deploy the same revision.
+  All eight checked live resources return HTTP 200 and match its build, including
+  default-adoption copy, source maps, released labels and SEO titles without em dashes.
+  No new model trial, review or installed upgrade is part of publication.
 
 ## v0.2.2 release preparation — 2026-10-17 (unpublished)
 
