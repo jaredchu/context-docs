@@ -50,6 +50,11 @@ An audit can assess progress clarity but does not write a view or enable logging
 
 ## Make the smallest useful update
 
+Within authorized context edits, prefer clear, direct sentences and consistent
+project terminology. Split crowded sentences without losing conditions,
+uncertainty, rationale or evidence. This preference does not require ASD-STE100
+compliance or justify changing existing layouts or rewriting unrelated owner text.
+
 Preserve the existing storage choice unless the user requests a change. For an
 explicit local-only (Git-ignored) request, or maintenance of an existing local-only
 setup, read the [local-only guide](references/local-only.md). Verify tracking and

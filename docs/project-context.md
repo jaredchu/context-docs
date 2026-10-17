@@ -25,6 +25,14 @@ and existing layouts. Publication and website verification are complete; install
 upgrades remain separate. The [publication record](releases/v0.2.3-publication.json)
 owns identities and verification limits.
 
+Unreleased core **0.2.4** / adoption **0.1.13** add the owner's requested small
+clarity preference within authorized edits, preserving meaning and existing layouts
+without requiring ASD-STE100 compliance. [Change notes](../CHANGELOG.md#context-docs-024--2026-10-17-unreleased)
+retain the tiny text comparison's 12/12 in both conditions and its limits; no
+comprehension gain is demonstrated. A [focused native smoke](../evals/clarity/smoke-0.2.4-2026-10-17/README.md)
+passes the saved-Markdown meaning and scope checks in both clients, retaining a
+Claude report-only pronoun qualification. Installed v0.2.3 and existing setups are unchanged.
+
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
 ```text
@@ -33,9 +41,10 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.0 Markdown progress [B]
 |-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
 |-- RELEASED  v0.2.2 default inline progress adoption [R]
-`-- RELEASED  v0.2.3 concise views [Q]
-    |-- DONE     Experimental release and website verification [U]
-    `-- CHECKED  Installed Codex and Claude smoke checks [I]
+|-- RELEASED  v0.2.3 concise views [Q]
+|   |-- DONE     Experimental release and website verification [U]
+|   `-- CHECKED  Installed Codex and Claude smoke checks [I]
+`-- UNRELEASED  Small clarity preference [L]
 
 NEXT: use v0.2.3 in everyday work and record concrete misses [N].
 ```
@@ -49,6 +58,7 @@ Sources:
 - **U / I:** [Publication and website verification](releases/v0.2.3-publication.json)
   and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
+- **L:** [Clarity preference and qualified checks](../CHANGELOG.md#context-docs-024--2026-10-17-unreleased).
 
 **Blockers:** no current implementation blocker is recorded.
 

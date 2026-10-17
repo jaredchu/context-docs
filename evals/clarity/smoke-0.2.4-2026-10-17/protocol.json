@@ -1,0 +1,182 @@
+{
+  "attempts_each": 1,
+  "candidate": {
+    "adoption": "0.1.13",
+    "core": "0.2.4"
+  },
+  "candidate_packages": {
+    "adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "adopt-context-docs/SKILL.md": {
+      "bytes": 7415,
+      "mode": "0o644",
+      "sha256": "8a6dda0a9420549f1bbba7aa0ca0ba2b17db8f6c9c823216ce9c65b4e14095b4"
+    },
+    "adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "976e7492a0ab4e0e742f1c8af5c345fde0d450bfb22c01b0e40c4cf80a42cd10"
+    },
+    "adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "context-docs/SKILL.md": {
+      "bytes": 8470,
+      "mode": "0o644",
+      "sha256": "9c40a942c8dd14ddbf8aec5083592d99f6c78f0cf4a9aaf9255285b76781daa2"
+    },
+    "context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "1725bfa6524c5265e7c171cf06568417d39b947fff49c242f03859479c82334b"
+    },
+    "context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "context-docs/references/progress.md": {
+      "bytes": 9297,
+      "mode": "0o644",
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+    },
+    "context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "cap_seconds_each": 180,
+  "commands": {
+    "claude": [
+      "claude",
+      "--print",
+      "--verbose",
+      "--output-format",
+      "stream-json",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "medium",
+      "--tools",
+      "Read,Write,Edit",
+      "--allowedTools",
+      "Read,Write,Edit",
+      "--permission-mode",
+      "acceptEdits",
+      "--no-session-persistence",
+      "--setting-sources",
+      "project",
+      "--settings",
+      "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--no-chrome"
+    ],
+    "codex": [
+      "codex",
+      "exec",
+      "--ignore-user-config",
+      "--skip-git-repo-check",
+      "--ephemeral",
+      "--sandbox",
+      "workspace-write",
+      "--model",
+      "gpt-6.1-sol",
+      "--config",
+      "model_reasoning_effort=\"medium\"",
+      "--config",
+      "features.multi_agent=false",
+      "--config",
+      "features.memories=false",
+      "--json",
+      "--color",
+      "never",
+      "-"
+    ]
+  },
+  "criteria": {
+    "A1": "Two sample files passed October 12; full suite unrun, not passed.",
+    "A2": "Empty-input fixture missing; run only when available; outcome unknown, not failed.",
+    "A3": "Mira approved CSV retention, not deployment; JSON remains a proposal.",
+    "A4": "CSV compatibility rationale retained, in context and unchanged linked decision.",
+    "B1": "Cache reset occurred; actor remains unknown.",
+    "B2": "Small-dataset retry passed only; missing large result is not a failure.",
+    "B3": "If large check passes ask Noor; pass is not approval; release still unapproved.",
+    "B4": "SQLite retention rationale and undecided Postgres preserved.",
+    "links": "Original source link targets preserved and all final local context links resolve.",
+    "loading": "Direct candidate adoption/core reads observed; no installed-skill reads.",
+    "scope": "Only the two allowed sections change; packages, source evidence, decisions, rules and owner text unchanged; inspect observed write operations as well as final tree.",
+    "style": "Crowded Progress/Next action prose becomes clearer without a new layout or unrelated rewriting; no STE conformance required."
+  },
+  "date": "2026-10-17",
+  "fixture": {
+    "AGENTS.md": "# Synthetic smoke rules\nUse only the copied candidate skills under candidate-skills/, not installed skills. Read README.md and project instructions. Only adopt/notes/context.md and maintain/notes/context.md may be edited, within their Progress and Next action sections. Preserve existing headings, layouts, decisions, owner text, evidence, rules and logging off. Use local reads and named Markdown edits only. No Git, network, application tests, implementation, delegation, configuration or installed-skill changes. Do not write temporary, snapshot, helper, backup or extra files anywhere.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Harbor documentation smoke\nTwo fictional projects: re-adopt adopt/ and maintain maintain/. Each entry point is notes/context.md. Evidence is synthetic; do not run application checks.\n",
+    "adopt/AGENTS.md": "# Project instructions\nUse Context Docs after meaningful changes to project facts, decisions, blockers or next actions. Read copied core before maintenance. Preserve the existing context layout and owner text, and keep the progress section current without duplicate tracking. Audits and no-change repeats write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n",
+    "adopt/CLAUDE.md": "@AGENTS.md\n",
+    "adopt/README.md": "# Harbor synthetic project\n\nRead [context](notes/context.md).\n",
+    "adopt/notes/checks.md": "# Synthetic export checks\n\n## Sample export\nOctober 12: verification passed for two sample files only. The full suite was not run.\n\n## Empty input\nThe fixture is missing. Run this check when the fixture is available. No result exists yet; unknown does not mean failed.\n",
+    "adopt/notes/context.md": "# Harbor export context\n\n## Goal\nPrepare CSV export for owner review. Deployment needs separate approval.\n\n## Progress\nThe export verification passed for two sample files on October 12, but the full suite was not run, and Mira approved keeping CSV so older clients still work rather than approving deployment; JSON support is only a proposal, and the next step is to run the empty-input check when its fixture is available, with that check's outcome still unknown. Evidence: [sample export](checks.md#sample-export); decision: [CSV](decisions.md#csv).\n\n## Decisions\nMira approved retaining CSV for compatibility with older clients. JSON support is proposed, not approved. Deployment approval has not been given. See [CSV decision](decisions.md#csv).\n\n## Next action\nWhen the empty-input fixture becomes available, run its check; the missing fixture currently blocks it, and the result is unknown. See [empty input](checks.md#empty-input).\n\n## Owner note\nOwner wording: keep `format=csv`; do not polish this note.\n",
+    "adopt/notes/decisions.md": "# Synthetic export decisions\n\n## CSV\nMira approved retaining CSV so older clients remain compatible. JSON support is only a proposal. Keeping CSV does not grant deployment approval; deployment is not approved.\n",
+    "maintain/AGENTS.md": "# Project instructions\nUse Context Docs after meaningful changes to project facts, decisions, blockers or next actions. Read copied core before maintenance. Preserve the existing context layout and owner text, and keep the progress section current without duplicate tracking. Audits and no-change repeats write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-02\nEntry point: notes/context.md\nEvent journal: off\n",
+    "maintain/CLAUDE.md": "@AGENTS.md\n",
+    "maintain/README.md": "# Harbor synthetic project\n\nRead [context](notes/context.md).\n",
+    "maintain/notes/checks.md": "# Synthetic retry checks\n\n## Small\nThe cache was reset before retry, but the actor is not recorded. Retry passed on the small dataset only.\n\n## Large\nNo large-dataset result has been recorded. That is missing evidence, not a failure result. If this check passes, ask Noor for release approval; approval has not been given.\n",
+    "maintain/notes/context.md": "# Harbor cache context\n\n## Goal\nPrepare the cache retry results for release review. Release needs Noor's approval.\n\n## Progress\nThe cache was reset before the retry, although the record does not identify who did it; the retry passed only on the small dataset, and release is still blocked because the large-dataset result has not been recorded; if that check passes, ask Noor for release approval, which has not been given, while a switch from SQLite to Postgres remains undecided. Evidence: [small retry](checks.md#small); decision: [storage](decisions.md#storage).\n\n## Decisions\nKeep SQLite until measured needs justify a change, to avoid an unproven migration cost. A switch to Postgres remains undecided. Noor has not approved release. See [storage rationale](decisions.md#storage).\n\n## Next action\nObtain the large-dataset result, whose absence does not establish failure; if the check passes, ask Noor for release approval, without treating the passing check as that approval. See [large retry](checks.md#large).\n\n## Owner note\nOwner wording: retain `cache_mode=normal`; do not polish this note.\n",
+    "maintain/notes/decisions.md": "# Synthetic storage decisions\n\n## Storage\nKeep SQLite until measured needs justify change. This avoids an unproven migration cost. A switch to Postgres remains undecided; no migration is approved. Noor's release approval has not been given.\n",
+    "owner-work.txt": "OWNER WORK: preserve these exact bytes.\n"
+  },
+  "limits": [
+    "Guided copied-candidate writing check, one session per client with two tasks; Sol authors and scores.",
+    "Not an independent review, implicit discovery, cross-session continuity, fresh setup or human comprehension experiment.",
+    "No original/after model comparison or general benefit/reliability claim; earlier studies unchanged.",
+    "Codex workspace-write sandbox; Claude file boundaries are prompt-based and inspected afterward, not OS sandbox isolation.",
+    "Routine native-client global bookkeeping and Git metadata outside protected inventory."
+  ],
+  "prompt": "Read AGENTS.md and README.md. Use the copied candidate at candidate-skills/adopt-context-docs/SKILL.md and its sibling candidate-skills/context-docs/SKILL.md, not installed skills.\n\nTask A: Re-adopt Context Docs in adopt/. Reuse the existing equivalent rule, marker/date, logging off and layout. Clarify the crowded Progress and Next action prose in notes/context.md for the next session, using the existing evidence.\n\nTask B: Maintain maintain/notes/context.md with copied core. Clarify its crowded Progress and Next action prose for the next session, using its existing sources. No new application result or decision is supplied.\n\nOnly those two context files, within their Progress and Next action sections, may change. Preserve all other text and files, including decisions, evidence and owner notes. Do not add a new view or tracker. Use local reads and named documentation edits only; do not run application checks, Git or network commands. No delegation, settings changes, installed-skill reads/edits, implementation, or temporary/helper/snapshot/backup writes anywhere. Finish with a short report.\n",
+  "sessions": 2,
+  "source_revision": "cb05b62ef2ed9202a510cc386caf382854f5e30b plus uncommitted clarity candidate"
+}

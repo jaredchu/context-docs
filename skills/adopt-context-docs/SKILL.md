@@ -10,6 +10,9 @@ to the current project and establish ongoing use. Read that skill first; it owns
 the maintenance method. If unavailable, report the missing dependency rather than
 silently inventing a substitute.
 
+Apply core's clarity preference within adoption's existing edit scope, preserving
+conditions, uncertainty, rationale and evidence; ASD-STE100 compliance is not required.
+
 Read the project's instructions and entry points. Confirm the target from the
 workspace; ask only when the intended project is ambiguous. Preserve existing
 storage choices. If the user requests local-only context, follow the core skill's

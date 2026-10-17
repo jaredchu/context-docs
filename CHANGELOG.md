@@ -20,6 +20,36 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.4 — 2026-10-17 (unreleased)
+
+- Prefer clear, direct sentences and consistent project terminology within
+  authorized context edits. Preserve conditions, uncertainty, rationale and
+  evidence. The preference requires no ASD-STE100 compliance and grants no scope
+  to change existing layouts or unrelated owner text.
+- Earlier tiny text comparison: two fictional notes and 12 shared questions,
+  with a fresh Claude Opus 5.5 reader per condition. Original and clarity-rewritten
+  notes both score 12/12; no information loss or comprehension gain is observed.
+  Codex authored and scored the examples. This is not a native evaluation of the
+  updated skills or a measure of human reading effort; original evidence is unchanged.
+- Package/metadata/link/version checks, 18 static-check regression tests and 15 site
+  tests pass. Opus artifact review and one focused follow-up close owner-text
+  wording and preservation-evidence findings. Byte/mode comparisons verify installed
+  skills, setup rules and saved studies unchanged. This is not a release or upgrade.
+- A [small copied-candidate smoke](evals/clarity/smoke-0.2.4-2026-10-17/README.md)
+  now runs one native session per client, each covering re-adoption and maintenance
+  of synthetic prose. Both preserve conditions, uncertainty, rationale and all eight
+  source links, changing only permitted sections of two context files. Claude's final chat
+  report adds an unsupported gendered pronoun for Noor; saved Markdown is unaffected.
+  No correction or retry. These guided, author-scored writing cases do not establish
+  comprehension gain, automatic everyday application or general reliability.
+
+## adopt-context-docs 0.1.13 — 2026-10-17 (unreleased)
+
+- Follow sibling core's clarity preference within adoption's existing edit scope,
+  preserving conditions, uncertainty, rationale and evidence without requiring
+  ASD-STE100 compliance. Existing setup and layout preservation rules remain in place.
+- Validation shares core 0.2.4's checks and limitations above.
+
 ## v0.2.3 publication — 2026-10-17
 
 - Finalize owner-authorized experimental release labels for core 0.2.3, adoption

@@ -15,8 +15,9 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.3 and adoption skill v0.1.12 (released).**
-The latest bundle is [v0.2.3](docs/releases/v0.2.3.md), an experimental prerelease
+**Status: experimental, core skill v0.2.4 and adoption skill v0.1.13 (unreleased).**
+Development adds a small clarity preference that preserves meaning within authorized edits.
+The latest published bundle is [v0.2.3](docs/releases/v0.2.3.md), an experimental prerelease
 favoring concise progress views with linked evidence. Its notes retain the
 qualified smoke results and upgrade boundaries. Installing it is a separate action.
 Previous [v0.2.2 notes](docs/releases/v0.2.2.md) retain default inline progress adoption.
