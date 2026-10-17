@@ -1,0 +1,558 @@
+{
+  "assessment": "Both pass writer assignment, staged handoff, initial forced-conflict recovery and final preservation. Claude has a strict procedural failure on its second text-mismatch error: no fresh read before retry. Codex passes the observed concurrency criteria, with one corrected read-only self-check failure retained.",
+  "assessor": "Sol authored and scored; Claude is subject, not independent reviewer.",
+  "candidate": {
+    "adoption": "0.1.14",
+    "core": "0.2.5"
+  },
+  "clients": {
+    "claude": {
+      "assessment": {
+        "assignment": "pass",
+        "conflict": "pass for deliberately queued mismatch",
+        "follow_rule_after_every_observed_mismatch": "fail: second mismatch retried without rereading",
+        "handoff": "pass",
+        "links": "pass",
+        "narrow": "pass",
+        "reconcile": "pass",
+        "report": "pass"
+      },
+      "candidate_files_equal": 16,
+      "changed_fixture_files": [
+        "handoff/notes/context.md"
+      ],
+      "exact_output_hashes": {
+        "handoff/notes/checks.md": {
+          "bytes": 282,
+          "mode": "0o644",
+          "sha256": "a5ad0b2b8fcb00337f829c8b8d35b491209ac3ec7e92a6c57c0c0a5b4cf2c13c"
+        },
+        "handoff/notes/context.md": {
+          "bytes": 863,
+          "mode": "0o644",
+          "sha256": "50bd319e23f8f84bc38aedb06dcd6c31a2dacccd06748f8e452c1e35c8e0262e"
+        },
+        "handoff/notes/decisions.md": {
+          "bytes": 180,
+          "mode": "0o644",
+          "sha256": "194d689a63d21d31da0597c94e849dcd05a52eff1809097dedfb673337ebd144"
+        },
+        "peer/notes/checks.md": {
+          "bytes": 116,
+          "mode": "0o644",
+          "sha256": "2ba447db132567faf00846a96b2fa9f5be9077b63350406300137499accc5b75"
+        },
+        "peer/notes/context.md": {
+          "bytes": 407,
+          "mode": "0o644",
+          "sha256": "b6a428f38b660f93c615dabc1f34999e3cd2ab90f4f3f368ac27b0c678d9cfa9"
+        },
+        "peer/notes/decisions.md": {
+          "bytes": 156,
+          "mode": "0o644",
+          "sha256": "bce676493bfa93c99ecd847278673e8643c3ac3384a7002bd179f2f57857a717"
+        }
+      },
+      "links_checked": 7,
+      "local_context_links": [
+        {
+          "source": "peer/notes/context.md",
+          "target": "checks.md#sample"
+        },
+        {
+          "source": "peer/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#schema"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#sample"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#empty-input"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#empty-input"
+        }
+      ],
+      "operation_audit": {
+        "api_key_source": "none",
+        "calls": [
+          {
+            "id": "toolu_0169CwAC4mBmXD3pxNRtDeAy",
+            "input": {
+              "file_path": "<fixture>/README.md"
+            },
+            "tool": "Read",
+            "trace_line": 3
+          },
+          {
+            "id": "toolu_013pzRendKCz3Y2r4SuQWqLE",
+            "input": {
+              "file_path": "<fixture>/candidate/skills/adopt-context-docs/SKILL.md"
+            },
+            "tool": "Read",
+            "trace_line": 5
+          },
+          {
+            "id": "toolu_01RGNcxj1LzPpcFmjzDKD4yF",
+            "input": {
+              "file_path": "<fixture>/candidate/skills/context-docs/SKILL.md"
+            },
+            "tool": "Read",
+            "trace_line": 7
+          },
+          {
+            "id": "toolu_01AowMcUzEyMLtDM4ckMNwog",
+            "input": {
+              "file_path": "<fixture>/peer/coordination.md"
+            },
+            "tool": "Read",
+            "trace_line": 10
+          },
+          {
+            "id": "toolu_01WPA5xpzrJ7cHbBPMXD63Q4",
+            "input": {
+              "file_path": "<fixture>/handoff/coordination.md"
+            },
+            "tool": "Read",
+            "trace_line": 12
+          },
+          {
+            "id": "toolu_01GZdm6Pb46PJqtietgdfRzF",
+            "input": {
+              "file_path": "<fixture>/peer/notes/context.md"
+            },
+            "tool": "Read",
+            "trace_line": 14
+          },
+          {
+            "id": "toolu_01NQH34E1EGykuAG6HtLjpBN",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md"
+            },
+            "tool": "Read",
+            "trace_line": 16
+          },
+          {
+            "id": "toolu_01D2sovRgnQTLyyLWhj94jay",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/checks.md"
+            },
+            "tool": "Read",
+            "trace_line": 18
+          },
+          {
+            "id": "toolu_01U8zCx3JkPpenqmiiW7X29C",
+            "input": {
+              "file_path": "<fixture>/peer/notes/checks.md"
+            },
+            "tool": "Read",
+            "trace_line": 20
+          },
+          {
+            "id": "toolu_01RNjsXGCYY19xgXtNpAw7Up",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/decisions.md"
+            },
+            "tool": "Read",
+            "trace_line": 22
+          },
+          {
+            "id": "toolu_01JiMKsd9TMqq2kKBBcJZLe6",
+            "input": {
+              "file_path": "<fixture>/peer/notes/decisions.md"
+            },
+            "tool": "Read",
+            "trace_line": 24
+          },
+          {
+            "id": "toolu_01AS2GqsbLWvgAeuf4VmxZfc",
+            "input": {
+              "file_path": "<fixture>/candidate/skills/context-docs/references/progress.md"
+            },
+            "tool": "Read",
+            "trace_line": 26
+          },
+          {
+            "id": "toolu_01JyCnzmnhLNAyofXBr6Eso2",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md",
+              "new_string": "Schema review is pending; sample export passed for two sample files only.",
+              "old_string": "Schema review is pending; sample export verification is pending.",
+              "replace_all": false
+            },
+            "tool": "Edit",
+            "trace_line": 30
+          },
+          {
+            "id": "toolu_01Cnx5e1jmxsbxNQacbccyRW",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md"
+            },
+            "tool": "Read",
+            "trace_line": 39
+          },
+          {
+            "id": "toolu_01BxvUNsfiS2YNFS4NAmpUnM",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md",
+              "new_string": "## Progress\n```text\nGoal: export ready for owner review (incomplete)\n|-- DONE     Schema review [S]\n|-- PASSED   Sample export, two sample files only; full suite not run [P]\n`-- BLOCKED  Empty-input check: fixture missing; no result (unknown, not failed) [E]\n```\n\nSources: [S] [schema](checks.md#schema), [P] [sample](checks.md#sample), [E] [empty input](checks.md#empty-input).\n\n## Next action\nObtain the empty-input result when its fixture is available. See [empty input](checks.md#empty-input).",
+              "old_string": "## Progress\nSchema review is complete; sample export verification is pending. See [schema](checks.md#schema).\n\n## Next action\nCollect the sample export result, then obtain the empty-input result when its fixture is available. See [empty input](checks.md#empty-input).",
+              "replace_all": false
+            },
+            "tool": "Edit",
+            "trace_line": 64
+          },
+          {
+            "id": "toolu_01A4gkjsayAMb1CgmWV6F3GA",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md",
+              "new_string": "```text\nGoal: export ready for owner review (incomplete)\n|-- DONE     Schema review [S]\n|-- PASSED   Sample export, two sample files only; full suite not run [P]\n`-- BLOCKED  Empty-input check: fixture missing; no result (unknown, not failed) [E]\n```\n\nSources: [S] [schema](checks.md#schema), [P] [sample](checks.md#sample), [E] [empty input](checks.md#empty-input).",
+              "old_string": "Schema review is complete; sample export verification is pending. See [schema](checks.md#schema).",
+              "replace_all": false
+            },
+            "tool": "Edit",
+            "trace_line": 68
+          },
+          {
+            "id": "toolu_01Gc4VgiohoZ7EfXH6HiJbyz",
+            "input": {
+              "file_path": "<fixture>/handoff/notes/context.md",
+              "new_string": "Obtain the empty-input result when its fixture is available.",
+              "old_string": "Collect the sample export result, then obtain the empty-input result when its fixture is available.",
+              "replace_all": false
+            },
+            "tool": "Edit",
+            "trace_line": 70
+          }
+        ],
+        "errors": [
+          {
+            "content": "<tool_use_error>String to replace not found in file.\nString: Schema review is pending; sample export verification is pending.</tool_use_error>",
+            "tool_use_id": "toolu_01JyCnzmnhLNAyofXBr6Eso2",
+            "trace_line": 31
+          },
+          {
+            "content": "<tool_use_error>String to replace not found in file.\nString: ## Progress\nSchema review is complete; sample export verification is pending. See [schema](checks.md#schema).\n\n## Next action\nCollect the sample export result, then obtain the empty-input result when its fixture is available. See [empty input](checks.md#empty-input).</tool_use_error>",
+            "tool_use_id": "toolu_01BxvUNsfiS2YNFS4NAmpUnM",
+            "trace_line": 65
+          }
+        ],
+        "every_observed_text_mismatch_followed_by_reread": false,
+        "initial_error_reread": true,
+        "permission_denials": [],
+        "reported_model": "claude-opus-5-5",
+        "reread_sequences": [
+          {
+            "error_line": 31,
+            "next_edit_line": 64,
+            "read_lines": [
+              39
+            ]
+          },
+          {
+            "error_line": 65,
+            "next_edit_line": 68,
+            "read_lines": []
+          }
+        ],
+        "result_subtype": "success"
+      },
+      "other_fixture_bytes_modes_equal": true,
+      "private_trace_hashes": {
+        "receipt.json": {
+          "bytes": 817,
+          "mode": "0o644",
+          "sha256": "264e3863a7966004f092b459fad79459b99b285b9e4bc6d36d68bf972a965364"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "mode": "0o644",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.jsonl": {
+          "bytes": 137263,
+          "mode": "0o644",
+          "sha256": "de4b545be4d4f8cf5ddc8d3af93aeaf9a74746b945a998475252f9e301b0c98f"
+        }
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "client": "claude",
+        "command": [
+          "claude",
+          "--print",
+          "--verbose",
+          "--output-format",
+          "stream-json",
+          "--model",
+          "claude-opus-5-5",
+          "--effort",
+          "medium",
+          "--tools",
+          "Read,Write,Edit",
+          "--allowedTools",
+          "Read,Write,Edit",
+          "--permission-mode",
+          "acceptEdits",
+          "--no-session-persistence",
+          "--setting-sources",
+          "project",
+          "--settings",
+          "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false}",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "{\"mcpServers\":{}}",
+          "--no-chrome"
+        ],
+        "elapsed_seconds": 52.9,
+        "ended_at": "2026-10-17T11:00:19.664343+00:00",
+        "exit_code": 0,
+        "started_at": "2026-10-17T10:59:26.760361+00:00",
+        "timed_out": false,
+        "version": "2.1.302 (Claude Code)"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": "claude-opus-5-5"
+    },
+    "codex": {
+      "assessment": {
+        "assignment": "pass",
+        "conflict": "pass for deliberately queued mismatch",
+        "follow_rule_after_every_observed_mismatch": "pass",
+        "handoff": "pass",
+        "links": "pass",
+        "narrow": "pass",
+        "reconcile": "pass",
+        "report": "pass"
+      },
+      "candidate_files_equal": 16,
+      "changed_fixture_files": [
+        "handoff/notes/context.md"
+      ],
+      "exact_output_hashes": {
+        "handoff/notes/checks.md": {
+          "bytes": 282,
+          "mode": "0o644",
+          "sha256": "a5ad0b2b8fcb00337f829c8b8d35b491209ac3ec7e92a6c57c0c0a5b4cf2c13c"
+        },
+        "handoff/notes/context.md": {
+          "bytes": 801,
+          "mode": "0o644",
+          "sha256": "177c79e0653d0bd38886e5bdcc5c69820a2c2d592b88b4e75480fbcae326f70a"
+        },
+        "handoff/notes/decisions.md": {
+          "bytes": 180,
+          "mode": "0o644",
+          "sha256": "194d689a63d21d31da0597c94e849dcd05a52eff1809097dedfb673337ebd144"
+        },
+        "peer/notes/checks.md": {
+          "bytes": 116,
+          "mode": "0o644",
+          "sha256": "2ba447db132567faf00846a96b2fa9f5be9077b63350406300137499accc5b75"
+        },
+        "peer/notes/context.md": {
+          "bytes": 407,
+          "mode": "0o644",
+          "sha256": "b6a428f38b660f93c615dabc1f34999e3cd2ab90f4f3f368ac27b0c678d9cfa9"
+        },
+        "peer/notes/decisions.md": {
+          "bytes": 156,
+          "mode": "0o644",
+          "sha256": "bce676493bfa93c99ecd847278673e8643c3ac3384a7002bd179f2f57857a717"
+        }
+      },
+      "links_checked": 7,
+      "local_context_links": [
+        {
+          "source": "peer/notes/context.md",
+          "target": "checks.md#sample"
+        },
+        {
+          "source": "peer/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#schema"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#sample"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#empty-input"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "handoff/notes/context.md",
+          "target": "checks.md#empty-input"
+        }
+      ],
+      "operation_audit": {
+        "commands": [
+          {
+            "command": "/bin/zsh -lc \"pwd && rg --files -g 'AGENTS.md' -g 'README.md' -g '*coord*' -g '*checks*' -g '*decision*' -g '*context.md' -g 'SKILL.md'\"",
+            "exit_code": 0,
+            "item_id": "item_1"
+          },
+          {
+            "command": "/bin/zsh -lc 'cat AGENTS.md README.md candidate/skills/adopt-context-docs/SKILL.md candidate/skills/context-docs/SKILL.md'",
+            "exit_code": 0,
+            "item_id": "item_2"
+          },
+          {
+            "command": "/bin/zsh -lc 'cat peer/coordination.md handoff/coordination.md peer/notes/checks.md peer/notes/decisions.md peer/notes/context.md handoff/notes/checks.md handoff/notes/decisions.md handoff/notes/context.md candidate/skills/context-docs/references/progress.md candidate/skills/context-docs/references/standard.md'",
+            "exit_code": 0,
+            "item_id": "item_3"
+          },
+          {
+            "command": "/bin/zsh -lc 'cat handoff/notes/context.md peer/coordination.md handoff/coordination.md'",
+            "exit_code": 0,
+            "item_id": "item_5"
+          },
+          {
+            "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nimport re\np = Path('handoff/notes/context.md')\nactual = p.read_bytes()\noriginal = b'''# Handoff export context\n\n## Goal\nPrepare the export for owner review. Deployment needs separate approval.\n\n## Progress\nSchema review is complete; sample export verification is pending. See [schema](checks.md#schema).\n\n## Decisions\nMira approved retaining CSV for compatibility with older clients. JSON support is only a proposal. Deployment remains unapproved. See [CSV decision](decisions.md#csv).\n\n## Next action\nCollect the sample export result, then obtain the empty-input result when its fixture is available. See [empty input](checks.md#empty-input).\n\n## Owner note\nOwner wording: keep \"'`format=csv`; do not rewrite this note.\n'\"'''\ndef outside_sections(data):\n    return re.sub(rb'(## (?:Progress|Next action)\\\\n).*?(?=\\\\n## |\\\\Z)', rb'\\\\1', data, flags=re.S)\nassert outside_sections(actual) == outside_sections(original), 'Out-of-scope content changed'\nfor target, anchor in re.findall(r'\\\\]\\\\(([\"'^)#]+)#([''^)]+)'\"\\\\)', actual.decode()):\n    source = (p.parent / target).read_text()\n    assert '## ' + anchor.replace('-', ' ').capitalize() in source, (target, anchor)\nprint('Verified: only Progress and Next action changed; all handoff source anchors resolve.')\nprint(actual.decode())\nprint('Peer context (read-only; Quinn owns writing):')\nprint(Path('peer/notes/context.md').read_text())\nPY\"",
+            "exit_code": 1,
+            "item_id": "item_7"
+          },
+          {
+            "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nimport re\np = Path('handoff/notes/context.md')\ndata = p.read_text()\nexpected = {'Goal': 'Prepare the export for owner review. Deployment needs separate approval.\\\\n\\\\n', 'Decisions': 'Mira approved retaining CSV for compatibility with older clients. JSON support is only a proposal. Deployment remains unapproved. See [CSV decision](decisions.md#csv).\\\\n\\\\n', 'Owner note': 'Owner wording: keep \"'`format=csv`; do not rewrite this note.'\"\\\\n'}\nassert data.startswith('# Handoff export context\\\\n\\\\n')\nparts = re.split(r'\"'^## (.+)'\"\\\\n', data, flags=re.M)\nassert parts[1::2] == ['Goal', 'Progress', 'Decisions', 'Next action', 'Owner note']\nfor heading, body in zip(parts[1::2], parts[2::2]):\n    if heading in expected:\n        assert body.encode() == expected[heading].encode(), heading\nfor target, anchor in re.findall(r'\\\\]\\\\(([\"'^)#]+)#([''^)]+)'\"\\\\)', data):\n    source = (p.parent / target).read_text()\n    anchors = [h.lower().replace(' ', '-') for h in re.findall(r'\"'^## (.+)$'\"', source, re.M)]\n    assert anchor in anchors, (target, anchor)\nprint('Verified preserved headings and out-of-scope sections byte-for-byte; all handoff links resolve.')\nprint(data)\nprint('Peer context remains assigned to Quinn:')\nprint(Path('peer/notes/context.md').read_text())\nPY\"",
+            "exit_code": 0,
+            "item_id": "item_8"
+          }
+        ],
+        "every_observed_text_mismatch_followed_by_reread": true,
+        "file_changes": [
+          {
+            "kind": "update",
+            "path": "<fixture>/handoff/notes/context.md"
+          }
+        ],
+        "initial_error_reread": true,
+        "read_only_check_qualification": "First in-session read-only checker fails on case-sensitive CSV anchor comparison; corrected read-only checker succeeds. Assessor independently checks final links and scope. No extra writes observed.",
+        "stale_error_evidence": "stderr router reports expected old line absent; stdout reports error then item_5 rereads context before item_6 update. Failed patch is not a separate stdout file-change event."
+      },
+      "other_fixture_bytes_modes_equal": true,
+      "private_trace_hashes": {
+        "receipt.json": {
+          "bytes": 676,
+          "mode": "0o644",
+          "sha256": "0ce63c3f9a4a09669ae7dcd5bbe7d7347e1cc99a8eb5f96efb8f81a87f199604"
+        },
+        "stderr.txt": {
+          "bytes": 1825,
+          "mode": "0o644",
+          "sha256": "45cf9c494a3db95b4fd6c0bebd67571da644ec9b83555f701cec36d95faf5602"
+        },
+        "stdout.jsonl": {
+          "bytes": 54067,
+          "mode": "0o644",
+          "sha256": "c494b6eb91fd20173bd2fe39fe8639041e5e0b64b3faf138191c3b60e8d525f3"
+        }
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "client": "codex",
+        "command": [
+          "codex",
+          "exec",
+          "--ignore-user-config",
+          "--skip-git-repo-check",
+          "--ephemeral",
+          "--sandbox",
+          "workspace-write",
+          "--model",
+          "gpt-6.1-sol",
+          "--config",
+          "model_reasoning_effort=\"medium\"",
+          "--config",
+          "features.multi_agent=false",
+          "--config",
+          "features.memories=false",
+          "--json",
+          "--color",
+          "never",
+          "-"
+        ],
+        "elapsed_seconds": 39.46,
+        "ended_at": "2026-10-17T11:00:06.232004+00:00",
+        "exit_code": 0,
+        "started_at": "2026-10-17T10:59:26.769593+00:00",
+        "timed_out": false,
+        "version": "codex-cli 0.163.0-alpha.10.2"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null
+    }
+  },
+  "date": "2026-10-17",
+  "limits": [
+    "One guided session per client in separate copied fixtures; Sol authors and scores, not independent or held-out validation.",
+    "Peer is simulated by immutable coordination records; handoff is staged, not live simultaneous multi-agent execution or a lock test.",
+    "Queued stale edit is deliberately required to exercise post-error behavior, not independently discovered. Its rejection depends on the file-edit tool.",
+    "Explicit candidate paths are supplied; no installed upgrade, implicit discovery, automatic everyday behavior, cross-session continuity or incident-rate claim.",
+    "Codex workspace-write sandbox; Claude file tools constrained by prompt and checked afterward, not OS sandbox isolation.",
+    "No model retries or output repairs; reread/reconcile within the original session is the tested behavior.",
+    "Git metadata, this new private root and routine native-client bookkeeping outside protected trees excluded; all earlier studies remain unchanged."
+  ],
+  "preservation": {
+    "baseline_entries": 64967,
+    "changed_existing_files": [
+      "CHANGELOG.md",
+      "docs/project-context.md"
+    ],
+    "context_decisions_and_following_sections_equal": true,
+    "current_entries": 64995,
+    "exclusions": [
+      "Git metadata",
+      "this new private smoke root",
+      "routine native-client bookkeeping outside protected roots"
+    ],
+    "existing_setups_saved_studies_and_prior_private_evidence_equal": true,
+    "installed_package_files_equal": 32,
+    "new_entries": 28,
+    "source_package_files_equal": 16,
+    "unexpected_changes": []
+  },
+  "private_evidence_id": "candidate-v025-concurrency-smoke-ee538c19-2468-41ff-8283-6972b8b914aa",
+  "repository_checks": {
+    "diff": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "static": {
+      "command": [
+        "python3",
+        "-B",
+        "evals/checks/static_checks.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "links: checked 1801 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected.\n"
+    }
+  },
+  "source_revision": "8e25fe417bbe7dfc6af117a4b92595505e91f609"
+}

@@ -35,8 +35,12 @@ Unreleased core **0.2.5** / adoption **0.1.14** add the owner's requested
 [conditional concurrency rule](getting-started.md#when-sessions-share-a-context-file):
 one writer per shared context file, narrow edits and reread/reconcile after conflicts.
 This is coordination guidance without locking infrastructure; installed v0.2.4
-and existing setups remain unchanged. [Change notes](../CHANGELOG.md#context-docs-025--2026-10-17-unreleased)
-keep the earlier offline diagnostic separate from native validation.
+and existing setups remain unchanged. A separate
+[candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md) observes
+both clients respecting ownership, handoff and the first stale-edit recovery.
+Claude retries a second mismatch without rereading: a procedural failure, with
+final content preserved. These guided cases do not test simultaneous writers;
+the earlier offline evidence remains unchanged.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -67,7 +71,8 @@ Sources:
 - **N:** [Next actions](#next-actions).
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
 - **J:** [Installed v0.2.4 clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
-- **C:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file).
+- **C:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
+  and [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
 
 **Blockers:** no current implementation blocker is recorded.
 

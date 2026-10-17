@@ -32,8 +32,10 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - The earlier offline diagnostic forced two processes to read the same snapshot:
   either whole-file write order lost an update. Available-tool patches
   preserved disjoint edits and rejected a stale overlapping patch. These are
-  mechanism checks, not native trials or an incident-rate estimate; the new rule
-  has not been behavior-tested in native sessions. Original evidence is unchanged.
+  mechanism checks, not native trials or an incident-rate estimate. At the
+  guidance commit, the new rule had not been behavior-tested in native sessions.
+  Original evidence is unchanged; the separate candidate smoke below adds native
+  observations with its own qualifications.
 - Validation: repository static checks, 18 evaluation-check unit tests, 15 site
   unit tests, standalone checks of both packaged skills and whitespace checks pass.
   Sol integrated and checked the change; Opus 5.5 reviewed the diff, requested
@@ -41,6 +43,15 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   in one focused follow-up. This was artifact review, not a native behavior trial.
   Installed skills, existing setup rules, prior evidence and saved studies remain
   unchanged.
+- A [focused native candidate smoke](evals/concurrency/smoke-0.2.5-2026-10-17/README.md)
+  runs once per client with copied core 0.2.5/adoption 0.1.14. Both respect assigned
+  writers and explicit handoff, reread after the deliberately stale queued edit,
+  and preserve newer content and source links. Claude's own second edit mismatch
+  is retried without another reread: a procedural failure despite preserved final
+  Markdown. Codex's first read-only self-check has an anchor-case error; its
+  corrected check passes. All original traces and outputs are retained without
+  repair or rerun. These guided, author-scored cases do not test simultaneous
+  writers, installed behavior or general conflict prevention.
 
 ## adopt-context-docs 0.1.14 — 2026-10-17 (unreleased)
 
