@@ -42,6 +42,11 @@ Claude retries a second mismatch without rereading: a procedural failure, with
 final content preserved. These guided cases do not test simultaneous writers;
 the earlier offline evidence remains unchanged.
 
+[v0.2.5 draft release notes](releases/v0.2.5.md) and website copy are prepared
+for review, retaining those qualifications and upgrade boundaries. The
+[preparation record](releases/v0.2.5-validation.json) owns local checks and
+previews. Publication, deployment and installed upgrades remain separate steps.
+
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
 ```text
@@ -57,7 +62,7 @@ Goal: make progress clear during everyday context work
 |   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
 `-- DRAFT     Conditional concurrency guidance [C]
 
-NEXT: use v0.2.4 in everyday work and record concrete misses [N].
+NEXT: review the v0.2.5 draft notes and qualified evidence [N].
 ```
 
 Sources:
@@ -292,6 +297,11 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Review the [v0.2.5 draft notes](releases/v0.2.5.md), including the qualified
+concurrency smoke and [local preparation checks](releases/v0.2.5-validation.json).
+Publication, deployment and installed upgrades require separate authorization.
+Continue using installed v0.2.4 until an upgrade is requested.
 
 The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
 and verified. Keep the qualified native smoke, original preparation record and

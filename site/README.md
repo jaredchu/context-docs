@@ -54,6 +54,16 @@ confirms deployment from `73b15ac` and eight matching live public resources,
 including released labels and the smoke qualification. Live verification checks
 response bytes and metadata, not new browser rendering or user benefit.
 
+The v0.2.5 draft adds conditional shared-file coordination to both pages: assign
+one writer before concurrent edits, hand ownership over explicitly, prefer narrow
+edits and reread/reconcile after conflicts. It provides no locking or automatic
+merge guarantee. Both pages retain Claude's second-mismatch reread failure and
+Codex's corrected read-only checking error, without claiming simultaneous-write
+safety. [Draft notes](../docs/releases/v0.2.5.md) and the
+[preparation record](../docs/releases/v0.2.5-validation.json) keep draft labels,
+local checks and previews separate from the published v0.2.4 site. No deployment
+is part of preparation.
+
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed

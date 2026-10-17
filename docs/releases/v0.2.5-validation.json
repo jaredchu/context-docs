@@ -1,0 +1,273 @@
+{
+  "bundle": {
+    "adoption": "0.1.14",
+    "core": "0.2.5",
+    "standard": "0.1.1"
+  },
+  "collaboration": {
+    "earlier_claude_evidence": "Original artifact review and native smoke subject evidence retained unchanged; no new model request for preparation.",
+    "new_claude_review": false,
+    "preparation": "Codex (Sol)"
+  },
+  "package_manifest_scope": "All 16 Git-tracked files across both installable packages, excluding ignored caches.",
+  "package_pins": {
+    "skills/adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "skills/adopt-context-docs/SKILL.md": {
+      "bytes": 7707,
+      "mode": "0o644",
+      "sha256": "68a1ef6e8359fd0e574cba132d8028e88ad7e08ea08179d653860474757f15c5"
+    },
+    "skills/adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "9940d4b5219de8404015bc18af844c88d7e9e9105682a5d47b1d369d027dbd25"
+    },
+    "skills/adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "skills/context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "skills/context-docs/SKILL.md": {
+      "bytes": 9042,
+      "mode": "0o644",
+      "sha256": "dde370dcab106f119c9c9ec860570c4915753836b9d2ddca7958a47d0a841218"
+    },
+    "skills/context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0"
+    },
+    "skills/context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "skills/context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "skills/context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "skills/context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "skills/context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "skills/context-docs/references/progress.md": {
+      "bytes": 9297,
+      "mode": "0o644",
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+    },
+    "skills/context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "skills/context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "skills/context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "preparation_checks": {
+    "diff_whitespace": {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    },
+    "isolated_package_links_and_metadata": {
+      "copied_tracked_files": 16,
+      "errors": [],
+      "repository_docs_unavailable": true,
+      "result": "2 installable skill packages"
+    },
+    "local_browser_preview": {
+      "errors": [],
+      "failed_responses": [],
+      "live_website_verified": false,
+      "remote_requests": [],
+      "results": [
+        {
+          "canonical": "https://context-docs.com/",
+          "concurrency_and_qualifications_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Context Docs: pick up where you left off",
+          "overflow": false,
+          "page": "landing",
+          "screenshot": "landing-1440-concurrency.png",
+          "title": "Context Docs: pick up where you left off",
+          "width": 1440
+        },
+        {
+          "canonical": "https://context-docs.com/",
+          "concurrency_and_qualifications_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Context Docs: pick up where you left off",
+          "overflow": false,
+          "page": "landing",
+          "screenshot": "landing-390-concurrency.png",
+          "title": "Context Docs: pick up where you left off",
+          "width": 390
+        },
+        {
+          "canonical": "https://context-docs.com/getting-started/",
+          "concurrency_and_qualifications_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Get started with Context Docs",
+          "overflow": false,
+          "page": "guide",
+          "screenshot": "guide-1440-concurrency.png",
+          "title": "Get started with Context Docs",
+          "width": 1440
+        },
+        {
+          "canonical": "https://context-docs.com/getting-started/",
+          "concurrency_and_qualifications_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Get started with Context Docs",
+          "overflow": false,
+          "page": "guide",
+          "screenshot": "guide-390-concurrency.png",
+          "title": "Get started with Context Docs",
+          "width": 390
+        }
+      ],
+      "scope": "Local headless browser preview only; no live website verification.",
+      "screenshot_sha256": {
+        "guide-1440-concurrency.png": "e7b7dcd3079a53699e9f1de601fa26dcc49689025ee46e3b175ec711a46b58d4",
+        "guide-390-concurrency.png": "dce3af6c383b0df367835d1cdbfcd5670fff105b50aab505a96026f601829b61",
+        "landing-1440-concurrency.png": "8dfa95188c2642b85da68f87695bf9df46a93bb2c99d5c687289d704ffc9c6be",
+        "landing-390-concurrency.png": "196fddad1bf01247e2ac37bdd8ada4d1fde3c58aa6d674aebd033a4220074ca7"
+      },
+      "screenshots_visually_inspected": true
+    },
+    "new_counterpart_reviews": false,
+    "new_native_model_trials": false,
+    "packaging_static_tests": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "exit_code": 0,
+      "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.081s\n\nOK\n",
+      "passed": 18
+    },
+    "public_site_build": {
+      "file_count": 9,
+      "matches_final_sources": true,
+      "output_outside_repository": true,
+      "passed": true,
+      "sha256": {
+        ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "getting-started/index.html": "eeccb14d76fbeeca0e6cc6279b357cd0298fc98ff58ed38bc540147e4206b9b3",
+        "index.html": "196c5776c2b73a120d609d63d0535535797ab5a533e3af18bf2666f83b0f5010",
+        "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+      }
+    },
+    "site_tests": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "exit_code": 0,
+      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.026s\n\nOK\n",
+      "passed": 15
+    },
+    "static_repository": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "exit_code": 0,
+      "output": "links: checked 1819 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected.\n"
+    }
+  },
+  "prepared_date": "2026-10-17",
+  "preservation": {
+    "after_entries": 65117,
+    "baseline_entries_checked": 65114,
+    "changed_paths": [
+      ".context/events/v025-preparation-20261017.jsonl",
+      "CHANGELOG.md",
+      "README.md",
+      "docs/getting-started.md",
+      "docs/project-context.md",
+      "docs/releases/v0.2.5-validation.json",
+      "docs/releases/v0.2.5.md",
+      "site/README.md",
+      "site/getting-started.html",
+      "site/index.html"
+    ],
+    "context_edit_scope": "Current focus, progress next-action line and a new paragraph before existing Next actions; decisions and all prior Next actions retained.",
+    "decisions_and_other_context_sections_unchanged": true,
+    "existing_setup_rules_unchanged": true,
+    "existing_site_build_unchanged": true,
+    "installed_skill_files_unchanged": 32,
+    "modified_existing_files": 7,
+    "new_files": 3,
+    "package_source_files_unchanged": 16,
+    "removed_original_files": 0,
+    "saved_studies_and_prior_evidence_unchanged": true,
+    "scope": "Repository except .git, all four installed skill trees and earlier durable private evidence except only this new preparation root. Byte hashes and modes; no global runtime/temp-state equality claim.",
+    "status": "passed_after_checks_and_previews",
+    "unexpected_changes": []
+  },
+  "prior_evidence": {
+    "qualification": "Both respect assigned writers, staged handoff and initial forced-stale-edit recovery, preserving final content and all seven context links per client. Claude retries its own second mismatch without another reread: procedural failure. Codex corrects a read-only anchor-case self-check error. Guided, author-scored; not simultaneous agents or evidence of general conflict prevention. Original outputs and raw traces retained without repair or rerun.",
+    "record": "evals/concurrency/smoke-0.2.5-2026-10-17/README.md",
+    "sha256": {
+      "evals/concurrency/smoke-0.2.5-2026-10-17/README.md": "f10ee300e3dd9a0a2edc01d02fdc8816909b6ca3e0bb9d81c2f8dfdf217f9d2d",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/handoff/notes/checks.md": "a5ad0b2b8fcb00337f829c8b8d35b491209ac3ec7e92a6c57c0c0a5b4cf2c13c",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/handoff/notes/context.md": "50bd319e23f8f84bc38aedb06dcd6c31a2dacccd06748f8e452c1e35c8e0262e",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/handoff/notes/decisions.md": "194d689a63d21d31da0597c94e849dcd05a52eff1809097dedfb673337ebd144",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/peer/notes/checks.md": "2ba447db132567faf00846a96b2fa9f5be9077b63350406300137499accc5b75",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/peer/notes/context.md": "b6a428f38b660f93c615dabc1f34999e3cd2ab90f4f3f368ac27b0c678d9cfa9",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/claude/peer/notes/decisions.md": "bce676493bfa93c99ecd847278673e8643c3ac3384a7002bd179f2f57857a717",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/handoff/notes/checks.md": "a5ad0b2b8fcb00337f829c8b8d35b491209ac3ec7e92a6c57c0c0a5b4cf2c13c",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/handoff/notes/context.md": "177c79e0653d0bd38886e5bdcc5c69820a2c2d592b88b4e75480fbcae326f70a",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/handoff/notes/decisions.md": "194d689a63d21d31da0597c94e849dcd05a52eff1809097dedfb673337ebd144",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/peer/notes/checks.md": "2ba447db132567faf00846a96b2fa9f5be9077b63350406300137499accc5b75",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/peer/notes/context.md": "b6a428f38b660f93c615dabc1f34999e3cd2ab90f4f3f368ac27b0c678d9cfa9",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/codex/peer/notes/decisions.md": "bce676493bfa93c99ecd847278673e8643c3ac3384a7002bd179f2f57857a717",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/protocol.json": "3cad25f8e261df22669b612fa76d0200ae9abf800bb158a8fd600bbd6fb80043",
+      "evals/concurrency/smoke-0.2.5-2026-10-17/summary.json": "3c2fab899355614f548b315697b2f3e3bbb3cbd73938b5831d90d3062bdd6790"
+    },
+    "unchanged": true
+  },
+  "publication": {
+    "installed_skills_updated": false,
+    "latest_published_bundle": "v0.2.4",
+    "release_created": false,
+    "website_deployed": false
+  },
+  "source_commit": "c9e4c4fe70ca5c4a535cf4f1595121649a04762c",
+  "source_qualification": "Plus uncommitted release notes, website copy, guide and current context. All 16 package files match source commit; earlier smoke records are unchanged.",
+  "status": "prepared_for_review_unpublished"
+}

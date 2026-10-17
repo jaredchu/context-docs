@@ -16,7 +16,8 @@ as possible.
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
 **Status: experimental, core skill v0.2.5 and adoption skill v0.1.14 (unreleased).**
-Source development adds conditional coordination for sessions sharing a context file.
+The [v0.2.5 draft notes](docs/releases/v0.2.5.md) describe conditional coordination
+for sessions sharing a context file, with the qualified smoke results retained.
 The latest bundle is [v0.2.4](docs/releases/v0.2.4.md), an experimental prerelease
 adding a small clarity preference that preserves meaning within authorized edits.
 Its notes retain the qualified smoke results and upgrade boundaries. Installing it
@@ -223,7 +224,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.4 release notes](docs/releases/v0.2.4.md) · [Previous v0.2.3 notes](docs/releases/v0.2.3.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [v0.2.5 draft notes](docs/releases/v0.2.5.md) · [Published v0.2.4 notes](docs/releases/v0.2.4.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

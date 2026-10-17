@@ -172,6 +172,14 @@ This rule guides coordination and provides no file locking or automatic merge
 guarantee. Existing project setup rules and installed v0.2.4 skills stay unchanged
 until separately updated. See the [core rule](../skills/context-docs/SKILL.md#make-the-smallest-useful-update).
 
+The [v0.2.5 draft release notes](releases/v0.2.5.md) retain the
+[qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md):
+both clients respect ownership and handoff and reread after the forced stale edit.
+Claude retries a second mismatch without another reread, a procedural failure
+despite preserved final content. Codex corrects a read-only anchor-check error.
+These guided cases do not test simultaneous writers or establish general
+conflict prevention. The latest published bundle remains v0.2.4.
+
 ### Progress in Markdown
 
 Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that

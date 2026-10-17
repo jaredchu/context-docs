@@ -21,6 +21,23 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.5 release preparation — 2026-10-17 (prepublication checks)
+
+- Prepare [draft release notes](docs/releases/v0.2.5.md) for core 0.2.5/adoption
+  0.1.14 and update both website pages, the guide and current context. Keep draft
+  labels distinct from published v0.2.4. Describe writer assignment, explicit
+  handoff, narrow edits and reread/reconcile without locking or merge guarantees.
+- Retain the native smoke qualifications: Claude retries its own second mismatch
+  without rereading despite preserved final content; Codex corrects a read-only
+  anchor-check error. Guided cases do not test simultaneous writers or establish
+  general conflict prevention. Original smoke/review evidence remains unchanged.
+- Local static/package checks, 18 checker tests and 15 site tests pass. The
+  [preparation record](docs/releases/v0.2.5-validation.json) separates these checks,
+  the nine-file public build, desktop/mobile previews and preservation from the
+  earlier native evidence. No new model trial, counterpart review, publication,
+  deployment or installed upgrade is performed. Skill source files, installed
+  packages, setup rules and saved studies are preserved.
+
 ## context-docs 0.2.5 — 2026-10-17 (unreleased)
 
 - When agents or sessions work concurrently on the same context file, coordinate
