@@ -31,7 +31,9 @@ without requiring ASD-STE100 compliance. [Change notes](../CHANGELOG.md#context-
 retain the tiny text comparison's 12/12 in both conditions and its limits; no
 comprehension gain is demonstrated. A [focused native smoke](../evals/clarity/smoke-0.2.4-2026-10-17/README.md)
 passes the saved-Markdown meaning and scope checks in both clients, retaining a
-Claude report-only pronoun qualification. Installed v0.2.3 and existing setups are unchanged.
+Claude report-only pronoun qualification. [Draft release notes](releases/v0.2.4.md)
+and website copy are prepared; the [preparation record](releases/v0.2.4-validation.json)
+owns new local checks. Installed v0.2.3, existing setups and saved studies are unchanged.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -58,7 +60,7 @@ Sources:
 - **U / I:** [Publication and website verification](releases/v0.2.3-publication.json)
   and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
-- **L:** [Clarity preference and qualified checks](../CHANGELOG.md#context-docs-024--2026-10-17-unreleased).
+- **L:** [Clarity preference draft and qualified checks](releases/v0.2.4.md).
 
 **Blockers:** no current implementation blocker is recorded.
 

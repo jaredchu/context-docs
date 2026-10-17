@@ -1,0 +1,292 @@
+{
+  "bundle": {
+    "adoption": "0.1.13",
+    "core": "0.2.4",
+    "standard": "0.1.1"
+  },
+  "collaboration": {
+    "earlier_claude_evidence": "Original artifact review and smoke subject evidence retained unchanged; no new model request for preparation.",
+    "new_claude_review": false,
+    "preparation": "Codex (Sol)"
+  },
+  "package_manifest_scope": "All 16 Git-tracked files across both installable packages, excluding ignored caches.",
+  "package_pins": {
+    "skills/adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "skills/adopt-context-docs/SKILL.md": {
+      "bytes": 7415,
+      "mode": "0o644",
+      "sha256": "8a6dda0a9420549f1bbba7aa0ca0ba2b17db8f6c9c823216ce9c65b4e14095b4"
+    },
+    "skills/adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "976e7492a0ab4e0e742f1c8af5c345fde0d450bfb22c01b0e40c4cf80a42cd10"
+    },
+    "skills/adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "skills/context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "skills/context-docs/SKILL.md": {
+      "bytes": 8470,
+      "mode": "0o644",
+      "sha256": "9c40a942c8dd14ddbf8aec5083592d99f6c78f0cf4a9aaf9255285b76781daa2"
+    },
+    "skills/context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "1725bfa6524c5265e7c171cf06568417d39b947fff49c242f03859479c82334b"
+    },
+    "skills/context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "skills/context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "skills/context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "skills/context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "skills/context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "skills/context-docs/references/progress.md": {
+      "bytes": 9297,
+      "mode": "0o644",
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+    },
+    "skills/context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "skills/context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "skills/context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "preparation_checks": {
+    "diff_whitespace": "passed",
+    "isolated_package_links_and_metadata": {
+      "copied_tracked_files": 16,
+      "errors": [],
+      "repository_docs_unavailable": true,
+      "result": "2 installable skill packages"
+    },
+    "local_browser_preview": {
+      "clarity_screenshots_visually_inspected": true,
+      "errors": [],
+      "failed_responses": [],
+      "live_website_verified": false,
+      "remote_requests": [],
+      "results": [
+        {
+          "canonical": "https://context-docs.com/",
+          "clarity_and_qualification_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Context Docs: pick up where you left off",
+          "overflow": false,
+          "page": "landing",
+          "screenshot": "landing-1440-clarity.png",
+          "title": "Context Docs: pick up where you left off",
+          "width": 1440
+        },
+        {
+          "canonical": "https://context-docs.com/",
+          "clarity_and_qualification_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Context Docs: pick up where you left off",
+          "overflow": false,
+          "page": "landing",
+          "screenshot": "landing-390-clarity.png",
+          "title": "Context Docs: pick up where you left off",
+          "width": 390
+        },
+        {
+          "canonical": "https://context-docs.com/getting-started/",
+          "clarity_and_qualification_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Get started with Context Docs",
+          "overflow": false,
+          "page": "guide",
+          "screenshot": "guide-1440-clarity.png",
+          "title": "Get started with Context Docs",
+          "width": 1440
+        },
+        {
+          "canonical": "https://context-docs.com/getting-started/",
+          "clarity_and_qualification_visible_in_dom": true,
+          "draft_and_latest_published_labels_distinct": true,
+          "duplicateIds": [],
+          "height": 1000,
+          "ogTitle": "Get started with Context Docs",
+          "overflow": false,
+          "page": "guide",
+          "screenshot": "guide-390-clarity.png",
+          "title": "Get started with Context Docs",
+          "width": 390
+        }
+      ],
+      "scope": "Local headless browser preview only; no live website verification.",
+      "screenshot_sha256": {
+        "guide-1440-clarity.png": "9d01f11275ddb7e906f733cedad74a260125291324adcce8a72aad952579f867",
+        "guide-390-clarity.png": "86befd88f5987f2f4ba082fed3559f1661b92406ba274eaa50cda2d278c488e4",
+        "landing-1440-clarity.png": "7f68e58396c4d398535d976da8b2dc1731627d60bfafeb92de88bfcad8ec738c",
+        "landing-390-clarity.png": "c3781b4fdf58ae184fa871d328ba31a6f3bedd3f4f23ee5bf148af506e36a53f"
+      }
+    },
+    "new_counterpart_reviews": false,
+    "new_native_model_trials": false,
+    "packaging_static_tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "evals/checks",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": 18
+    },
+    "public_site_build": {
+      "file_count": 9,
+      "matches_final_sources": true,
+      "output_outside_repository": true,
+      "passed": true,
+      "sha256": {
+        ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "getting-started/index.html": "8e6e93c8360645de4e1d951277d7e9231e55d9d5ce19da2026decf3585a85c2e",
+        "index.html": "fcc973e85cb39befeb5dcb156f6f1110973411ea6f97899af83bae470e170b03",
+        "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+      }
+    },
+    "site_tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "site",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "passed": 15
+    },
+    "static_repository": {
+      "command": [
+        "python3",
+        "-B",
+        "evals/checks/static_checks.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "links: checked 1736 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected.\n"
+    }
+  },
+  "prepared_date": "2026-10-17",
+  "preservation": {
+    "after_entries": 64549,
+    "baseline_entries_checked": 64546,
+    "changed_paths": [
+      ".context/events/v024-preparation-20261017.jsonl",
+      "CHANGELOG.md",
+      "README.md",
+      "docs/getting-started.md",
+      "docs/project-context.md",
+      "docs/releases/v0.2.4-validation.json",
+      "docs/releases/v0.2.4.md",
+      "site/README.md",
+      "site/getting-started.html",
+      "site/index.html"
+    ],
+    "decisions_and_later_context_sections_unchanged": true,
+    "existing_setup_rules_unchanged": true,
+    "existing_site_build_unchanged": true,
+    "installed_skill_files_unchanged": 32,
+    "modified_existing_files": 7,
+    "new_files": 3,
+    "package_source_files_unchanged": 16,
+    "removed_original_files": 0,
+    "saved_studies_and_prior_evidence_unchanged": true,
+    "scope": "Repository except .git, all four installed skill trees and earlier durable private evidence except only this new preparation root. Byte hashes and modes; no global runtime/temp-state equality claim.",
+    "status": "passed_after_checks_and_previews",
+    "unexpected_changes": []
+  },
+  "prior_evidence": {
+    "earlier_text_comparison": "Original and rewritten notes both score 12/12; private original evidence preserved, no demonstrated comprehension gain.",
+    "qualification": "Both clients pass the saved-Markdown meaning/link/scope checks. Claude final chat report adds an unsupported gendered pronoun for Noor, absent from saved Markdown. Guided author-scored writing cases; no demonstrated comprehension gain or automatic everyday application. No fix or retry.",
+    "record": "evals/clarity/smoke-0.2.4-2026-10-17/README.md",
+    "sha256": {
+      "evals/clarity/smoke-0.2.4-2026-10-17/README.md": "32c7392aa45cae3687c86831852cdf87e6547ccbc35f14684254ae49b2f11871",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/adopt/notes/checks.md": "39170ae4c36df64444e780a5a0911857ec96bec4373c4d80d3753cd97460b17e",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/adopt/notes/context.md": "56d8544504fffddbc7dfd0402c98db153410e305a6c4f56dc2f6d465ba849caf",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/adopt/notes/decisions.md": "59ffd7464ce433cd719f7fbe414dd2d94ae35e1299cc44bc09cdb80fa32b485a",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/maintain/notes/checks.md": "2d341ebc6bc701f9c0e8cb1e8677595f318b8b7090c55ea7165e2296b4162269",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/maintain/notes/context.md": "1390416da64e7634da1da679fd47a618513620d0c954e403e442dc27ff89b3f6",
+      "evals/clarity/smoke-0.2.4-2026-10-17/claude/maintain/notes/decisions.md": "cd3c7070ba104253ea4e9909bd5f61119863250e4208af28f81d217dd68dbb37",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/adopt/notes/checks.md": "39170ae4c36df64444e780a5a0911857ec96bec4373c4d80d3753cd97460b17e",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/adopt/notes/context.md": "2900f66d3dcf30df589ee2a76712f0099232a5c06e9cc2f18c46eb89e9a802c3",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/adopt/notes/decisions.md": "59ffd7464ce433cd719f7fbe414dd2d94ae35e1299cc44bc09cdb80fa32b485a",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/maintain/notes/checks.md": "2d341ebc6bc701f9c0e8cb1e8677595f318b8b7090c55ea7165e2296b4162269",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/maintain/notes/context.md": "8226c5fb6514c9af861114761ca92521c98c6a2315eab0b01a16fb62504c4185",
+      "evals/clarity/smoke-0.2.4-2026-10-17/codex/maintain/notes/decisions.md": "cd3c7070ba104253ea4e9909bd5f61119863250e4208af28f81d217dd68dbb37",
+      "evals/clarity/smoke-0.2.4-2026-10-17/protocol.json": "1a83b7fe2be4f73d9e1429166620ed52c96fc4bbd928e05c3d515c8c60838eee",
+      "evals/clarity/smoke-0.2.4-2026-10-17/summary.json": "3f643fd4d6430059cc52533bbe225d971745ef58d9ef74de78287ca3b8b7f241"
+    },
+    "unchanged": true
+  },
+  "publication": {
+    "installed_skills_updated": false,
+    "latest_published_bundle": "v0.2.3",
+    "release_created": false,
+    "website_deployed": false
+  },
+  "source_commit": "bd5a7b464079b337535bb73f1fce8ba9a0e945be",
+  "source_qualification": "Plus uncommitted release notes, website copy, guide and current context. All 16 package files match source commit; earlier smoke records are unchanged.",
+  "status": "prepared_for_review_unpublished"
+}

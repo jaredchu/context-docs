@@ -37,9 +37,19 @@ The v0.2.3 copy explains concise overviews with linked evidence, retaining
 meaningful outcomes, decisions, blockers, approval boundaries and existing layouts.
 Both pages retain default inline adoption and everyday maintenance, and state the
 qualified smoke result: Codex created and removed an extra temporary hash file,
-failing strict write scope. Both templates link v0.2.3 notes and previous v0.2.2 notes.
+failing strict write scope. Published v0.2.3 notes retain that qualification.
 Explicit progress prompts remain optional; installation/upgrade alone changes no
 project context.
+
+The v0.2.4 draft adds clear, direct sentences and consistent project terms within
+authorized context edits, preserving conditions, uncertainty, rationale, evidence,
+layouts and unrelated owner text without ASD-STE100 compliance. Both pages link
+the draft notes and identify v0.2.3 as the latest published bundle. They retain
+the clarity smoke qualification: saved Markdown passes in both clients, while
+Claude's final chat report adds an unsupported pronoun. These guided checks do
+not establish comprehension gains or automatic everyday application. The
+[preparation record](../docs/releases/v0.2.4-validation.json) records local checks
+and previews; this copy has not been deployed.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions

@@ -140,6 +140,19 @@ the linked context before working. A context file's presence alone does not ensu
 that an agent will read it. This routing is already part of the skill's
 initialization workflow.
 
+### Clarity during context updates
+
+The unreleased **v0.2.4 candidate** (core 0.2.4 / adoption 0.1.13) prefers clear,
+direct sentences and consistent project terms within authorized edits. Preserve
+conditions, uncertainty, rationale and evidence; keep existing layouts and unrelated
+owner text. No ASD-STE100 compliance or special invocation is required.
+
+Both clients pass the [focused Markdown checks](../evals/clarity/smoke-0.2.4-2026-10-17/README.md).
+Claude's final chat report adds an unsupported pronoun for Noor; saved Markdown is
+unaffected. These guided, author-scored cases do not demonstrate comprehension gains
+or automatic everyday application. See the [draft notes](releases/v0.2.4.md);
+v0.2.3 remains the latest published bundle, and upgrading is separate.
+
 ### Progress in Markdown
 
 Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that

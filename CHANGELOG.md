@@ -12,6 +12,7 @@ is not a behavioral evaluation, and adopting a version is an implementation choi
 not a demonstrated accuracy gain.
 
 The latest bundle is described in the [v0.2.3 release notes](docs/releases/v0.2.3.md).
+The [v0.2.4 draft notes](docs/releases/v0.2.4.md) describe unreleased clarity guidance.
 Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
 Previous [v0.2.1 release notes](docs/releases/v0.2.1.md) are retained.
 Previous [v0.2.0 release notes](docs/releases/v0.2.0.md) are retained.
@@ -19,6 +20,21 @@ Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.4 release preparation — 2026-10-17 (unpublished)
+
+- Prepare draft notes and both website pages for the small clarity preference,
+  preserving conditions, uncertainty, rationale, evidence and existing layouts
+  without requiring ASD-STE100 compliance. Distinguish unreleased source versions
+  from the published v0.2.3 bundle; keep SEO titles without em dashes.
+- Retain the smoke qualification: both clients pass the saved-Markdown checks,
+  while Claude's final chat report adds an unsupported pronoun absent from the
+  saved context. The guided checks do not establish comprehension gains or
+  automatic everyday application. Earlier evidence is unchanged.
+- The [preparation record](docs/releases/v0.2.4-validation.json) owns new local
+  checks, package identities, previews and preservation separately from earlier
+  native results and review. No new model trial, counterpart review, installed
+  upgrade, release or deployment is part of preparation.
 
 ## context-docs 0.2.4 — 2026-10-17 (unreleased)
 
