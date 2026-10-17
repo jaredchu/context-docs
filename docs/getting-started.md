@@ -153,6 +153,25 @@ unaffected. These guided, author-scored cases do not demonstrate comprehension g
 or automatic everyday application. See the [release notes](releases/v0.2.4.md);
 existing v0.2.3 installations keep their guidance until separately upgraded.
 
+### When sessions share a context file
+
+Unreleased core **0.2.5** / adoption **0.1.14** add conditional concurrency guidance:
+when multiple agents or sessions work on the same context file concurrently,
+coordinate one writer at a time for that file. Other participants pass their
+findings to the writer. Prefer narrow edits. If an edit conflicts or reports stale text,
+reread the current file and reconcile everyone's changes before retrying;
+do not replace newer contributions with an old snapshot.
+
+Installing the skill in both Codex and Claude Code does not coordinate sessions.
+Concurrent sessions in a shared checkout can still target the same context file.
+When splitting work across models, assign context maintenance to one participant
+before parallel work begins; others return context findings instead of editing
+that file independently. Change writers through an explicit handoff.
+
+This rule guides coordination and provides no file locking or automatic merge
+guarantee. Existing project setup rules and installed v0.2.4 skills stay unchanged
+until separately updated. See the [core rule](../skills/context-docs/SKILL.md#make-the-smallest-useful-update).
+
 ### Progress in Markdown
 
 Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that

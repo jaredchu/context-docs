@@ -31,6 +31,13 @@ Both clients pass its focused clarity and meaning-preservation checks; guided
 cases do not establish comprehension gains or automatic everyday application.
 Existing setups and saved studies are unchanged.
 
+Unreleased core **0.2.5** / adoption **0.1.14** add the owner's requested
+[conditional concurrency rule](getting-started.md#when-sessions-share-a-context-file):
+one writer per shared context file, narrow edits and reread/reconcile after conflicts.
+This is coordination guidance without locking infrastructure; installed v0.2.4
+and existing setups remain unchanged. [Change notes](../CHANGELOG.md#context-docs-025--2026-10-17-unreleased)
+keep the earlier offline diagnostic separate from native validation.
+
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
 ```text
@@ -41,9 +48,10 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.2 default inline progress adoption [R]
 |-- RELEASED  v0.2.3 concise views [Q]
 |   `-- CHECKED  Installed Codex and Claude smoke checks [I]
-`-- RELEASED  v0.2.4 clarity preference [L]
-    |-- DONE     Experimental release and website verification [U]
-    `-- CHECKED  Installed Codex and Claude clarity smoke [J]
+|-- RELEASED  v0.2.4 clarity preference [L]
+|   |-- DONE     Experimental release and website verification [U]
+|   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
+`-- DRAFT     Conditional concurrency guidance [C]
 
 NEXT: use v0.2.4 in everyday work and record concrete misses [N].
 ```
@@ -59,6 +67,7 @@ Sources:
 - **N:** [Next actions](#next-actions).
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
 - **J:** [Installed v0.2.4 clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
+- **C:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file).
 
 **Blockers:** no current implementation blocker is recorded.
 

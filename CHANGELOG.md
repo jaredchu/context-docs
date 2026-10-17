@@ -21,6 +21,34 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.5 — 2026-10-17 (unreleased)
+
+- When agents or sessions work concurrently on the same context file, coordinate
+  one writer per file before concurrent edits begin, hand off ownership explicitly,
+  and pass other participants' findings to that writer.
+  Prefer narrow edits; after conflicts or stale-text failures, reread and reconcile
+  current contributions before retrying. Preserve newer work instead of replacing
+  it from a stale snapshot. This adds guidance, with no locking infrastructure.
+- The earlier offline diagnostic forced two processes to read the same snapshot:
+  either whole-file write order lost an update. Available-tool patches
+  preserved disjoint edits and rejected a stale overlapping patch. These are
+  mechanism checks, not native trials or an incident-rate estimate; the new rule
+  has not been behavior-tested in native sessions. Original evidence is unchanged.
+- Validation: repository static checks, 18 evaluation-check unit tests, 15 site
+  unit tests, standalone checks of both packaged skills and whitespace checks pass.
+  Sol integrated and checked the change; Opus 5.5 reviewed the diff, requested
+  explicit writer assignment/handoff in the skills, and approved the correction
+  in one focused follow-up. This was artifact review, not a native behavior trial.
+  Installed skills, existing setup rules, prior evidence and saved studies remain
+  unchanged.
+
+## adopt-context-docs 0.1.14 — 2026-10-17 (unreleased)
+
+- Follow sibling core's conditional shared-file coordination during adoption and
+  re-adoption: one writer, narrow edits and reread/reconcile after conflicts.
+  Existing setup-preservation rules remain in place. Validation and limitations
+  are shared with core 0.2.5 above.
+
 ## Installed v0.2.4 clarity smoke — 2026-10-17
 
 - Run one fresh native session per client with installed core 0.2.4/adoption

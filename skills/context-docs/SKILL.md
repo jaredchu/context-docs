@@ -55,6 +55,15 @@ project terminology. Split crowded sentences without losing conditions,
 uncertainty, rationale or evidence. This preference does not require ASD-STE100
 compliance or justify changing existing layouts or rewriting unrelated owner text.
 
+When agents or sessions work concurrently on the same context file, coordinate
+one writer at a time for that file; others pass their findings to the writer.
+Agree on the writer before concurrent edits begin, including across Codex and
+Claude sessions in a shared checkout. Change writers through an explicit handoff.
+Prefer narrow edits. After an edit conflict or stale-text failure, reread the
+current file and reconcile contributors' changes before retrying. Do not overwrite
+newer work from a stale snapshot. This is a coordination rule; file access remains
+unlocked.
+
 Preserve the existing storage choice unless the user requests a change. For an
 explicit local-only (Git-ignored) request, or maintenance of an existing local-only
 setup, read the [local-only guide](references/local-only.md). Verify tracking and

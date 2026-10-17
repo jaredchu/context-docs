@@ -15,7 +15,8 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.4 and adoption skill v0.1.13 (released).**
+**Status: experimental, core skill v0.2.5 and adoption skill v0.1.14 (unreleased).**
+Source development adds conditional coordination for sessions sharing a context file.
 The latest bundle is [v0.2.4](docs/releases/v0.2.4.md), an experimental prerelease
 adding a small clarity preference that preserves meaning within authorized edits.
 Its notes retain the qualified smoke results and upgrade boundaries. Installing it

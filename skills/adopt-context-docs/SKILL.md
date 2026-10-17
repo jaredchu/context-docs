@@ -13,6 +13,11 @@ silently inventing a substitute.
 Apply core's clarity preference within adoption's existing edit scope, preserving
 conditions, uncertainty, rationale and evidence; ASD-STE100 compliance is not required.
 
+For concurrent work on the same context file, follow core's
+[shared-file coordination](../context-docs/SKILL.md#make-the-smallest-useful-update):
+assign one writer at a time per file, hand off ownership explicitly, prefer narrow
+edits, and reread/reconcile current contents after conflicts.
+
 Read the project's instructions and entry points. Confirm the target from the
 workspace; ask only when the intended project is ambiguous. Preserve existing
 storage choices. If the user requests local-only context, follow the core skill's
