@@ -1,8 +1,9 @@
 # Project context
 
-Release and website verified: October 17, 2026. Experimental v0.2.4 is published;
-all eight checked live public resources match its release build. The report-only
-Claude smoke qualification is retained. Existing setups and saved studies are preserved.
+Release and website verified: October 18, 2026. Experimental v0.2.5 is published;
+all eight checked live public resources match its release build. Claude's second
+mismatch without a reread and Codex's corrected checking error remain qualified.
+Installed skills, existing setups and saved studies are preserved.
 
 ## Purpose and scope
 
@@ -15,7 +16,12 @@ local notes only when still useful.
 
 ## Current focus
 
-The released experimental bundle is v0.2.4: core **0.2.4** / adoption **0.1.13**.
+The released experimental bundle is **v0.2.5**: core **0.2.5** / adoption
+**0.1.14**. Publication and live website verification are complete; the
+[publication record](releases/v0.2.5-publication.json) owns pinned identities and
+verification limits. Installed copies remain v0.2.4; no upgrade is part of publication.
+
+The previous experimental bundle is v0.2.4: core **0.2.4** / adoption **0.1.13**.
 It adds a small clarity preference within authorized context edits: preserve
 conditions, uncertainty, rationale, evidence and existing layouts without
 ASD-STE100 compliance. [Release notes](releases/v0.2.4.md) retain the guided smoke's
@@ -42,11 +48,10 @@ Claude retries a second mismatch without rereading: a procedural failure, with
 final content preserved. These guided cases do not test simultaneous writers;
 the earlier offline evidence remains unchanged.
 
-The owner authorized experimental v0.2.5 publication and website deployment on
-October 18. Release labels are finalized; publication and live verification are
-in progress. The [release notes](releases/v0.2.5.md) retain the qualifications;
-the [preparation record](releases/v0.2.5-validation.json) retains its original
-draft scope. Installed upgrades are outside this publication task.
+The [v0.2.5 release notes](releases/v0.2.5.md) retain those qualifications and
+upgrade boundaries. The [preparation record](releases/v0.2.5-validation.json)
+retains its original draft scope; the separate publication record records the
+completed release and website verification. Installed upgrades remain separate.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
@@ -61,9 +66,9 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.4 clarity preference [L]
 |   |-- DONE     Experimental release and website verification [U]
 |   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
-`-- PENDING   v0.2.5 publication and website verification [C]
+`-- RELEASED  v0.2.5 concurrency guidance; website verified [C]
 
-NEXT: publish experimental v0.2.5 and verify its website [N].
+NEXT: continue everyday work; installed upgrades remain separate [N].
 ```
 
 Sources:
@@ -78,7 +83,8 @@ Sources:
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
 - **J:** [Installed v0.2.4 clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
 - **C:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
-  and [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
+  and [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md);
+  [publication and website verification](releases/v0.2.5-publication.json).
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -131,7 +137,12 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Current released bundle: [v0.2.4](releases/v0.2.4.md), core **0.2.4**,
+- Current released bundle: [v0.2.5](releases/v0.2.5.md), core **0.2.5**,
+  adoption **0.1.14**, standard **0.1.1**. Published and deployed from `89c91f4`;
+  the [publication record](releases/v0.2.5-publication.json) owns pinned identities,
+  eight matching live resources and qualifications. Installed copies remain
+  v0.2.4; setups, saved studies and prior evidence are preserved.
+- Previous released bundle: [v0.2.4](releases/v0.2.4.md), core **0.2.4**,
   adoption **0.1.13**, standard **0.1.1**. Published and deployed from `73b15ac`;
   the [publication record](releases/v0.2.4-publication.json) owns identities,
   eight matching live resources and the retained smoke qualification. Source
@@ -299,10 +310,11 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Complete the authorized experimental [v0.2.5 publication](releases/v0.2.5.md)
-and website verification, preserving the qualified smoke and original
-[preparation record](releases/v0.2.5-validation.json). Installed upgrades remain
-separate; continue using installed v0.2.4 until an upgrade is requested.
+The [experimental v0.2.5 release](releases/v0.2.5.md) and website are published
+and verified. Keep the qualified smoke, original preparation record and
+[publication receipt](releases/v0.2.5-publication.json) together. Continue everyday
+work with installed v0.2.4 until an upgrade is requested; preserve customizations,
+existing setups and saved studies during any separately authorized upgrade.
 
 The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
 and verified. Keep the qualified native smoke, original preparation record and

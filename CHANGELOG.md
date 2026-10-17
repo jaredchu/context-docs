@@ -22,6 +22,20 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.5 publication — 2026-10-18
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.2.5)
+  from `89c91f4` after all three release-commit Actions runs pass. Deploy from
+  the same revision; all eight checked live resources return HTTP 200 and match
+  the build, including released labels, both smoke qualifications and SEO titles
+  without em dashes. The [publication record](docs/releases/v0.2.5-publication.json)
+  owns identities, hashes, preservation and limits; the original preparation
+  record and all earlier native/review evidence remain unchanged.
+- Publication and verification are Codex-assisted. Earlier Claude contributions
+  remain credited in the guidance and smoke commits. No new native model trial,
+  counterpart review or installed upgrade is performed. Existing setups,
+  installed packages and saved studies are preserved.
+
 ## v0.2.5 release preparation — 2026-10-17 (prepublication checks)
 
 - Prepare [draft release notes](docs/releases/v0.2.5.md) for core 0.2.5/adoption

@@ -54,15 +54,17 @@ confirms deployment from `73b15ac` and eight matching live public resources,
 including released labels and the smoke qualification. Live verification checks
 response bytes and metadata, not new browser rendering or user benefit.
 
-The v0.2.5 draft adds conditional shared-file coordination to both pages: assign
+The v0.2.5 release adds conditional shared-file coordination to both pages: assign
 one writer before concurrent edits, hand ownership over explicitly, prefer narrow
 edits and reread/reconcile after conflicts. It provides no locking or automatic
 merge guarantee. Both pages retain Claude's second-mismatch reread failure and
 Codex's corrected read-only checking error, without claiming simultaneous-write
-safety. [Draft notes](../docs/releases/v0.2.5.md) and the
-[preparation record](../docs/releases/v0.2.5-validation.json) keep draft labels,
-local checks and previews separate from the published v0.2.4 site. No deployment
-is part of preparation.
+safety. The [release notes](../docs/releases/v0.2.5.md) retain both qualifications.
+The [preparation record](../docs/releases/v0.2.5-validation.json) keeps its original
+draft scope and local previews. The [publication record](../docs/releases/v0.2.5-publication.json)
+confirms deployment from `89c91f4` and eight matching live resources on October 18.
+The uploaded artifact omits the empty `.nojekyll` marker; all eight served files
+match the release build. Publication adds no installed upgrade or new native trial.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions
