@@ -11,14 +11,22 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The [draft v0.2.3 notes](docs/releases/v0.2.3.md) describe the unreleased concise-view candidate.
-The latest published bundle is described in the [v0.2.2 release notes](docs/releases/v0.2.2.md).
+The latest bundle is described in the [v0.2.3 release notes](docs/releases/v0.2.3.md).
+Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
 Previous [v0.2.1 release notes](docs/releases/v0.2.1.md) are retained.
 Previous [v0.2.0 release notes](docs/releases/v0.2.0.md) are retained.
 Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.3 publication — 2026-10-17
+
+- Finalize owner-authorized experimental release labels for core 0.2.3, adoption
+  0.1.12 and unchanged standard 0.1.1. Retain the Codex temporary-file scope failure,
+  unknown prior path state and original native/review qualifications.
+- Remote release, deployment and live verification are pending at this source
+  snapshot. Preserve all package files, installed skills, setup rules and studies.
 
 ## v0.2.3 release preparation — 2026-10-17 (unpublished)
 
@@ -34,7 +42,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   and the nine-file build pass. Both pages pass desktop/mobile preview checks;
   this is not live-site verification or a new native model evaluation.
 
-## context-docs 0.2.3 — unreleased
+## context-docs 0.2.3 — 2026-10-17 (bundled in v0.2.3)
 
 - Favor concise progress overviews with links to canonical evidence. Keep the goal,
   meaningful outcomes, dependencies, blockers and next action visible, retaining
@@ -55,7 +63,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   failing the strict write boundary; the qualified result is retained without
   correction or retry. The full suite and general benefit remain unestablished.
 
-## adopt-context-docs 0.1.12 — unreleased
+## adopt-context-docs 0.1.12 — 2026-10-17 (bundled in v0.2.3)
 
 - Follow sibling core's concise-overview guidance during adoption. Link detailed
   evidence rather than expanding a view into test/review history, preserving

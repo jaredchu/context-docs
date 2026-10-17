@@ -166,13 +166,13 @@ installed v0.2.1 guidance still creates a view when requested.
 The [v0.2.2 release notes](releases/v0.2.2.md) retain upgrade boundaries and the
 focused native checks' limits.
 
-The **v0.2.3 candidate** (core 0.2.3 / adoption 0.1.12, unreleased) favors a
+The **v0.2.3 bundle** (core 0.2.3 / adoption 0.1.12) favors a
 concise overview: goal, meaningful outcomes, dependencies/blockers and next action.
 Link detailed test/review evidence instead of repeating its chronology. Keep
 decisions, rationale, approval boundaries and relevant qualifications visible;
 preserve existing formats and unique information. Detail can grow with project
 complexity or an explicit request; there is no fixed length limit or new evidence store.
-The [draft release notes](releases/v0.2.3.md) retain the qualified smoke result:
+The [release notes](releases/v0.2.3.md) retain the qualified smoke result:
 both clients pass progress checks, but Codex creates/removes an extra temporary
 hash file outside its allowed paths, failing strict write scope. Installed
 v0.2.2 keeps its existing guidance until separately upgraded.

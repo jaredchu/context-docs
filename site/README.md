@@ -33,10 +33,13 @@ with clickable source links outside the diagram. The build extracts its canonica
 fenced block; it does not read project context or study outputs. The diagram scrolls
 within its box on narrow screens to preserve branch alignment.
 
-The v0.2.2 copy explains default inline creation during supported adoption,
-reuse of existing views and everyday maintenance under a loaded project rule.
+The v0.2.3 copy explains concise overviews with linked evidence, retaining
+meaningful outcomes, decisions, blockers, approval boundaries and existing layouts.
+Both pages retain default inline adoption and everyday maintenance, and state the
+qualified smoke result: Codex created and removed an extra temporary hash file,
+failing strict write scope. Both templates link v0.2.3 notes and previous v0.2.2 notes.
 Explicit progress prompts remain optional; installation/upgrade alone changes no
-project context. Both templates link the v0.2.2 notes and previous v0.2.1 notes.
+project context.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions

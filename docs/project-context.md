@@ -1,8 +1,8 @@
 # Project context
 
-Release and website verified: 2026-10-17. Experimental v0.2.2 is published;
-all eight checked public resources match its release build. Installed skills,
-existing setups, saved studies and earlier evidence are preserved.
+v0.2.3 publication and website deployment authorized: October 17, 2026.
+Remote publication and live verification are pending. Earlier v0.2.2 verification
+and saved study evidence remain unchanged; installed upgrades are separate.
 
 ## Purpose and scope
 
@@ -15,14 +15,14 @@ local notes only when still useful.
 
 ## Current focus
 
-The experimental v0.2.2 bundle is released: core **0.2.2** / adoption **0.1.11**.
+The authorized experimental bundle is v0.2.3: core **0.2.3** / adoption **0.1.12**.
 The owner requested default inline progress when documented context supports it.
 Reuse existing views and canonical details; missing goals or insufficient facts
 must not produce invented scaffolding.
 
-Development candidate: core **0.2.3** / adoption **0.1.12** favors concise
-overviews with linked evidence, preserving decisions, blockers and existing layouts.
-This is unreleased; installed skills and setup rules remain unchanged.
+Release labels are finalized for concise overviews with linked evidence, preserving
+decisions, blockers and existing layouts. Remote publication/deployment are pending;
+installed skills and setup rules remain unchanged.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -38,10 +38,10 @@ Goal: make progress clear during everyday context work
 |       |-- PASS  Adoption creates an inline view by default
 |       `-- PASS  Everyday maintenance refreshes that same view
 |
-`-- CHECKED   Concise candidate; Codex write scope qualified [P, T]
-    `-- PREPARED  Draft v0.2.3 notes and website copy [Q]
+`-- APPROVED  v0.2.3 publication; Codex write scope qualified [P, T]
+    `-- PENDING  Release, deployment and live verification [Q]
 
-NEXT: review v0.2.3 preparation; publication needs separate authorization [N].
+NEXT: publish the pinned v0.2.3 release, deploy and verify its website [N].
 ```
 
 Sources:
@@ -54,14 +54,14 @@ Sources:
   Both phases pass in both clients; guided, author-scored synthetic re-adoption
   and result recording do not establish general reliability or user benefit.
 - **N:** [Next actions](#next-actions).
-- **P:** [Unreleased concise-view guidance](../CHANGELOG.md#context-docs-023--unreleased)
+- **P:** [Concise-view guidance](../CHANGELOG.md#context-docs-023--2026-10-17-bundled-in-v023)
   with [checks and review](../evals/progress/concise-view-review-2026-10-17.md).
 - **T:** [Concise candidate smoke](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
   Progress, evidence links and existing-layout checks pass in both clients;
   Codex's extra temporary hash-file write/delete violates the strict write scope.
-- **Q:** [Draft v0.2.3 notes](releases/v0.2.3.md) and
+- **Q:** [v0.2.3 release notes](releases/v0.2.3.md) and
   [preparation checks](releases/v0.2.3-validation.json) retain that qualification.
-  The website copy is prepared locally; v0.2.2 remains the published bundle.
+  Release/deployment are authorized; remote publication and verification are pending.
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -266,10 +266,10 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [draft v0.2.3 release notes](releases/v0.2.3.md), website copy and
-[preparation checks](releases/v0.2.3-validation.json), retaining the qualified smoke
-evidence. Commit, publication/deployment and installed upgrades remain separate
-authorized actions. No correction or retry is selected for the recorded scope violation.
+Complete the owner-authorized v0.2.3 experimental publication, deploy its pinned
+source and verify live response bytes, release labels and retained smoke qualification.
+Preserve the preparation record, installed skills, setup rules and studies. Installed
+upgrades remain a separate action; no smoke correction or retry is selected.
 
 Continue ordinary work with the [released v0.2.2 guidance](releases/v0.2.2.md)
 and record concrete misses. Preserve its earlier native evidence and unchanged
