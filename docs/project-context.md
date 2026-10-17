@@ -15,141 +15,55 @@ local notes only when still useful.
 
 ## Current focus
 
-**Goal:** make progress easy to see during everyday context work, starting with a
-simple inline path during adoption when documented context supports one. Reuse
-existing views, layouts and canonical details rather than adding duplicate tracking.
-The owner requested this default; missing goals or insufficient facts do not
-justify scaffolding. The published release bundle is core **0.2.2** / adoption
-**0.1.11**, with [checks and limits](../evals/progress/adoption-default-2026-10-16/README.md).
-The implementation is committed at `39e3839`; preparation at `83587de` preserves
-earlier native outcomes separately from mechanical checks. The
-[experimental v0.2.2 bundle](releases/v0.2.2.md) is published and its website
-verified from `7aa2d5d`; the [publication record](releases/v0.2.2-publication.json)
-owns identities, checks and limits.
+The experimental v0.2.2 bundle is released: core **0.2.2** / adoption **0.1.11**.
+The owner requested default inline progress when documented context supports it.
+Reuse existing views and canonical details; missing goals or insufficient facts
+must not produce invented scaffolding.
 
-Existing v0.2.1 installations retain request-based initial creation until separately
-upgraded; publication does not change installed packages or setup rules. The
-earlier visual-path and status/source checks retain their original scope.
-
-Publication snapshot October 17, 2026; saved status does not imply live agent activity.
+Saved snapshot: October 17, 2026; this is not live agent activity.
 
 ```text
-Markdown progress
+Goal: make progress clear during everyday context work
 |
-|-- RELEASED  v0.2.0 baseline and focused smoke checks [R]
-|
-|-- RELEASED  Visual-path improvement, core 0.2.1 [V]
-|   |-- DONE  Guidance and source-linked example [E]
-|   |-- DONE  Visual acceptance criteria [A]
-|   |-- DONE  Local validation and counterpart review [C]
-|   |-- DONE  Focused Codex and Claude visual-path smoke [S]
-|   |-- DONE  Release notes and website preparation [P]
-|   |-- DONE  Experimental release, deployment and live verification [D]
-|   `-- CHECKED  Installed visual-path smoke; Claude prose qualified [I]
-|
-`-- RELEASED  v0.2.2 default inline progress during adoption [N, U]
-    |-- DONE  Guidance, three guided native sessions and local checks [N]
-    |-- DONE  Bounded Opus review and preservation checks [N]
-    |-- DONE  Committed change and passing GitHub Actions [N]
-    |-- DONE  Release notes, website copy and preparation checks [Q]
-    |-- DONE  Experimental prerelease, deployment and live verification [U]
-    `-- CHECKED  Installed default inline adoption and everyday maintenance [W]
+|-- RELEASED  v0.2.0 Markdown progress [B]
+|-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
+`-- RELEASED  v0.2.2 default inline progress adoption
+    |-- DONE     Guidance, checks and counterpart review [C]
+    |-- DONE     Experimental release and website verification [R]
+    `-- CHECKED  Installed Codex and Claude smoke [S]
+        |-- PASS  Adoption creates an inline view by default
+        `-- PASS  Everyday maintenance refreshes that same view
 
-NEXT: use the released guidance in ordinary work and report concrete gaps [U]
+NEXT: use v0.2.2 in ordinary work; report concrete misses [N].
 ```
 
-Sources for the visual:
+Sources:
 
-- **R:** [v0.2.0 release](releases/v0.2.0.md), [publication/website record](releases/v0.2.0-publication.json)
-  and [installed Codex/Claude smoke](../evals/installed-skills/2026-10-16-progress/README.md).
-  Eight live responses matched the release build; each installed create case had
-  17 resolving links. These were narrow status/source checks, not the new visual gate.
-- **V:** [Published v0.2.1 bundle](releases/v0.2.1.md) and
-  [development change](../CHANGELOG.md#context-docs-021--2026-10-16-bundled-in-v021). Adoption 0.1.10
-  and standard 0.1.1 are unchanged; installed skills and earlier release records are untouched.
-- **E:** [Core guide](../skills/context-docs/references/progress.md),
-  [source-linked visual example](../examples/progress.md), [adoption routing](../skills/adopt-context-docs/SKILL.md)
-  and [user guide](getting-started.md#progress-in-markdown). Ordinary maintenance
-  preserves an existing format; an explicit visualization request may reshape the
-  view within its existing section/file, preserving owner edits and record locations.
-- **A:** [Visual acceptance criteria](../evals/progress/README.md#visual-acceptance-criteria-core-021-candidate)
-  now require visible goal relationships, supported dependencies/blockers and
-  clickable sources. A focused create case now exercises them in each client;
-  the full manual suite remains unexecuted.
-- **C:** [Correction checks and review](../evals/progress/visual-path-review-2026-10-16.md).
-  Mechanical checks and Opus artifact review are separate from native evaluation.
-- **S:** [Candidate smoke and exact outputs](../evals/progress/smoke-0.2.1-2026-10-16/README.md).
-  One copied-candidate case per client passes the visual-path, dependency, blocker
-  and clickable-source gates; 18 Codex and 14 Claude view/context links resolve.
-  These are guided, author-scored cases, not a general visual-usability result.
-- **P:** [v0.2.1 notes](releases/v0.2.1.md) and unchanged
-  [preparation checks](releases/v0.2.1-validation.json) retain the original checks,
-  local previews and limits separately from publication.
-- **D:** [Publication and live verification](releases/v0.2.1-publication.json).
-  The experimental release and website use `0c897c0` after both release-commit
-  Actions pass. Eight live HTTPS resources match the build, including the visual
-  path, source maps and released labels. Installed skills remain unchanged.
-- **I:** [Installed v0.2.1 smoke and exact outputs](../evals/installed-skills/2026-10-16-progress-v021/README.md).
-  One fresh guided case per client uses the installed core and progress guide.
-  Both visual paths, dependencies and blockers pass; 17 Codex and 15 Claude
-  view/context links resolve. Claude's prose adds an unsupported provider-choice
-  prerequisite; its diagram preserves the documented sequence. No correction or
-  retry is performed. This is author-scored evidence, not a general benefit claim.
-- **N:** [Default-adoption candidate checks](../evals/progress/adoption-default-2026-10-16/README.md).
-  Core 0.2.2 / adoption 0.1.11 is bundled in v0.2.2. The default inline checklist and
-  ordinary-work refresh pass two initial-candidate Codex phases; a third session
-  on the clarified candidate leaves a current nested checklist unchanged.
-  Opus review/follow-up resolve material findings. Fresh setup with a new rule,
-  linked/nonvisual views, sparse/local-only/no-view and audit cases remain
-  unexecuted natively. The record owns exact package identities and qualifications.
-  The [implementation commit](https://github.com/jaredchu/context-docs/commit/39e3839db2131fc6ace44e06009a92939dc2a3b5)
-  has passing [main static checks](https://github.com/jaredchu/context-docs/actions/runs/38941626693)
-  and [website build](https://github.com/jaredchu/context-docs/actions/runs/38941626653).
-- **Q:** [v0.2.2 notes](releases/v0.2.2.md) and unchanged
-  [preparation checks](releases/v0.2.2-validation.json). Both pages explain
-  supported default adoption, optional explicit prompts and everyday maintenance.
-  The preparation record retains the earlier draft labels and previews. It changes no
-  skill package or installed setup and runs no new native trial or model review.
-  Local tests, static/package checks and desktop/mobile previews pass; the record
-  separates these from the earlier native behavior evidence and live publication.
-- **U:** [Publication authorization and verification](releases/v0.2.2-publication.json).
-  The experimental prerelease and website use `7aa2d5d` after both main-branch
-  release checks pass. Eight uploaded/served resources match the build, including
-  released labels, default-adoption copy and source-linked visual. Package files,
-  installed skills and earlier evidence stay unchanged; no native trial or new
-  model review is added.
-- **W:** [Installed v0.2.2 smoke and exact outputs](../evals/installed-skills/2026-10-17-progress-v022/README.md).
-  Two fresh sessions per client use installed core 0.2.2 / adoption 0.1.11.
-  Re-adoption creates a source-linked inline path without a progress request;
-  ordinary result recording refreshes it without naming a skill or progress.
-  Both pass, preserving setup records and the separate deployment-approval gate.
-  These are guided, author-scored checks with synthetic retained results, not
-  proof of fresh setup, future loading, full-suite reliability or user benefit.
+- **B:** [v0.2.0 release and checks](releases/v0.2.0.md).
+- **V:** [v0.2.1 visual-path release and checks](releases/v0.2.1.md).
+- **C:** [Default-adoption guidance, candidate checks and Opus review](../evals/progress/adoption-default-2026-10-16/README.md).
+- **R:** [v0.2.2 publication and website verification](releases/v0.2.2-publication.json).
+- **S:** [Installed v0.2.2 smoke and exact outputs](../evals/installed-skills/2026-10-17-progress-v022/README.md).
+  Both phases pass in both clients; guided, author-scored synthetic re-adoption
+  and result recording do not establish general reliability or user benefit.
+- **N:** [Next actions](#next-actions).
+
+**Blockers:** no current implementation blocker is recorded.
+
+**Evidence gaps:** fresh adoption, the full progress suite, default/implicit
+loading and benefit to intended users remain unestablished. The
+[earlier v0.2.1 Claude source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
+and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md)
+remain retained; newer checks do not replace earlier results.
+
+**Deferred:** the owner set aside the broad v1.0.0 graduation campaign. Its
+[infrastructure proposals](#current-state) remain history. A local web viewer
+and ChatGPT integration are future possibilities; no implementation is selected.
+Markdown remains authoritative, without an independent tracker or completion percentage.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
 and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md) retained.
-
-**Blockers and gaps:** focused candidate and installed visual paths pass; the
-installed Claude output has the [source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
-recorded above. Installed v0.2.2 default re-adoption and everyday maintenance now
-pass in both clients; fresh setup and the other unexecuted branches remain gaps.
-The full progress
-suite, default/implicit loading and benefit to
-intended users remain unestablished. The [earlier copied-development smoke](../evals/progress/smoke-2026-10-16/README.md)
-retains its two advances bullets without direct inline links; newer outputs do
-not replace that result. The [initial v0.2.0 artifact review](../evals/progress/review.md)
-is also unchanged.
-
-**Next action:** see [next actions](#next-actions). The candidate's
-[check record](../evals/progress/adoption-default-2026-10-16/README.md) owns remaining
-validation qualifications; earlier installed v0.2.1 evidence remains unchanged.
-
-The owner set aside the broad v1.0.0 graduation campaign. Its retained
-[infrastructure proposals](#current-state) remain deferred. A local web viewer and
-ChatGPT integration are future possibilities, with no implementation selected.
-Markdown stays authoritative; no independent tracker, completion percentage or
-live-activity claim is introduced.
 
 ## Decisions
 
