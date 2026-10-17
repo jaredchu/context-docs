@@ -17,7 +17,8 @@ as possible.
 
 **Status: experimental development candidate, core skill v0.2.3 and adoption skill v0.1.12 (unreleased).**
 Development guidance favors concise progress views with linked evidence while
-preserving decisions, blockers and existing layouts. Installing it is a separate action.
+preserving decisions, blockers and existing layouts. See the [draft v0.2.3 notes](docs/releases/v0.2.3.md)
+for the qualified smoke results and upgrade boundaries. Installing it is a separate action.
 The latest released bundle is [v0.2.2](docs/releases/v0.2.2.md), with core 0.2.2
 and adoption 0.1.11, an experimental prerelease
 adding default inline progress during supported adoption. See its notes for
@@ -170,6 +171,12 @@ path or nested checklist with dependencies and blockers visible. A flat status
 table alone is insufficient. Existing v0.2.0 installations retain the earlier
 guidance; the earlier smoke checks did not test this stricter visual criterion.
 
+The **v0.2.3 candidate** favors a concise overview with links to detailed evidence,
+preserving decisions, blockers and existing layouts without a fixed length limit.
+The [focused smoke](evals/progress/smoke-0.2.3-2026-10-17/README.md) passes progress
+checks in both clients, with Codex's extra temporary-file write/delete recorded
+as a strict-scope failure. See the [draft release notes](docs/releases/v0.2.3.md).
+
 ## Two skills, one workflow
 
 | Skill | When to use it |
@@ -216,7 +223,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.2 release notes](docs/releases/v0.2.2.md) · [Previous v0.2.1 notes](docs/releases/v0.2.1.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Draft v0.2.3 notes](docs/releases/v0.2.3.md) · [Published v0.2.2 notes](docs/releases/v0.2.2.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)

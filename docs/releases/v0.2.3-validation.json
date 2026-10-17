@@ -1,0 +1,145 @@
+{
+  "bundle": {
+    "adoption": "0.1.12",
+    "core": "0.2.3",
+    "standard": "0.1.1"
+  },
+  "collaboration": {
+    "earlier_claude_evidence": "Original artifact review and subject smoke retained unchanged; no new model request during release preparation.",
+    "new_claude_review": false,
+    "preparation": "Codex (Sol)"
+  },
+  "package_manifest_scope": "All 16 Git-tracked files across both installable packages, excluding ignored local caches; equal to source commit and preparation baseline.",
+  "package_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "9f831f3acf3542ce715f047a2dc59da3dba38f7fb9b4de5e5b5c2524cf2bab55",
+    "skills/adopt-context-docs/VERSION": "0a6c8dc4148eed841498d2c2be544947a62f8f50c381b2e64bcd7ce40461cf34",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "10d8b05f27fd1b4b49ead71d48670464934ae1fdb3b862f355ab55c648fbee58",
+    "skills/context-docs/VERSION": "3ab94c04d24986f3af288ba1cda2c0bbddbc5a89dff097182805f54578e1ea75",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "preparation_checks": {
+    "diff_whitespace": "passed",
+    "isolated_package_links": {
+      "packages": 2,
+      "passed": true
+    },
+    "live_website_verified": false,
+    "local_browser_preview": {
+      "canonical_progress_prompt": true,
+      "canonical_visual_example": true,
+      "concise_overview_and_preservation_copy": true,
+      "draft_and_latest_published_labels_distinct": true,
+      "duplicate_ids": false,
+      "height_px": 1000,
+      "horizontal_page_overflow": false,
+      "narrow_diagram_scrolls_in_its_own_box": true,
+      "pages": [
+        "landing",
+        "getting-started"
+      ],
+      "progress_screenshots_visually_inspected": true,
+      "remote_requests_blocked": true,
+      "remote_requests_observed": 0,
+      "screenshot_sha256": {
+        "guide-1440-progress.png": "79b77f85df745482352ff3900ddabbac4fa004cc9aa2eae559202275f5b1c557",
+        "guide-390-progress.png": "9f6be3d99d561b2982bc3caaf94701ff33edaa47b63cfe9d5ca9b56c2461e2a1",
+        "landing-1440-progress.png": "b37eaae8bef125bf9771268d4bed0487f17245d0b4626534b46818c0a0d09861",
+        "landing-390-progress.png": "0f144117a3b2644bde12a690786ba6dedde75765cd371475dbb5551c55beb4c2"
+      },
+      "script_errors": false,
+      "seo_titles_without_em_dash": true,
+      "smoke_scope_failure_visible_on_both_pages": true,
+      "source_map_anchors_checked_against_local_example": true,
+      "source_maps_outside_diagram": true,
+      "widths_px": [
+        1440,
+        390
+      ]
+    },
+    "new_counterpart_reviews": false,
+    "new_native_model_trials": false,
+    "packaging_static_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "passed": 18
+    },
+    "public_site_build": {
+      "file_count": 9,
+      "matches_final_sources": true,
+      "output_outside_repository": true,
+      "passed": true,
+      "sha256": {
+        ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "getting-started/index.html": "5e90f8dc053fbef2a75b641dd7b8c9cf991a39d52c05ef584ec2bb3d3ff4f122",
+        "index.html": "0f6145ef166bb1a5ebebacf0d563dc455eccdfa906baeeda1e5aea6ff73016d0",
+        "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+      }
+    },
+    "site_tests": {
+      "command": "python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "passed": 15
+    },
+    "skill_metadata_validators": {
+      "packages": 2,
+      "passed": true
+    },
+    "static_repository": {
+      "declared_versions": 2,
+      "passed": true,
+      "relative_links_and_anchors": 1657,
+      "result_tables": 5,
+      "skill_packages": 2
+    }
+  },
+  "prepared_date": "2026-10-17",
+  "preservation": {
+    "baseline_entries_checked": 63965,
+    "decisions_unchanged": true,
+    "existing_setup_rules_unchanged": true,
+    "installed_skill_files_unchanged": 32,
+    "modified_existing_files": 6,
+    "new_files": 3,
+    "package_source_files_unchanged": 16,
+    "removed_original_files": 0,
+    "saved_studies_and_prior_evidence_unchanged": true,
+    "scope": "Repository except .git, all four installed skill trees, and earlier durable private evidence except this new preparation root. Only scoped release/site/context docs and a new event differ. Existing build output is unchanged; no global client-state equality claim.",
+    "status": "passed_after_local_preparation_and_previews"
+  },
+  "prior_evidence": {
+    "new_counterpart_reviews": false,
+    "new_native_trials": false,
+    "qualification": "Progress checks pass in both clients; Codex strict write scope fails for fixed /tmp hash-file creation/removal. Prior temporary-path state unknown. Two author-scored sessions, two tasks each, not general reliability.",
+    "record": "evals/progress/smoke-0.2.3-2026-10-17/README.md",
+    "sha256": {
+      "evals/progress/concise-view-review-2026-10-17.md": "0bdfb335f5c0382e7f75fc07ea522d2461fe55189e8b6b22255bd3220a2bcf1c",
+      "evals/progress/smoke-0.2.3-2026-10-17/README.md": "f3a4eea46d9cceb3e7225c7ee470caf4e99678c8e537417138d5af4712bccd3d",
+      "evals/progress/smoke-0.2.3-2026-10-17/protocol.json": "c648c27c2787d15bcadff8bc1fbff9c89ed585df6b8febf0104c31638d727a1f",
+      "evals/progress/smoke-0.2.3-2026-10-17/summary.json": "0f20e5e4b44c3e62e955f3c56a9dfd1461e1897ce9797583c81dd953b6b0961a"
+    },
+    "unchanged": true
+  },
+  "publication": {
+    "installed_skills_updated": false,
+    "latest_published_bundle": "v0.2.2",
+    "release_created": false,
+    "website_deployed": false
+  },
+  "source_commit": "71a83b0add4cc216fea0ff71e7896ce68cc243c8",
+  "source_qualification": "Plus uncommitted release notes, guide, website copy and current context; all 16 package files unchanged.",
+  "status": "prepared_for_review_unpublished"
+}

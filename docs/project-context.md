@@ -39,8 +39,9 @@ Goal: make progress clear during everyday context work
 |       `-- PASS  Everyday maintenance refreshes that same view
 |
 `-- CHECKED   Concise candidate; Codex write scope qualified [P, T]
+    `-- PREPARED  Draft v0.2.3 notes and website copy [Q]
 
-NEXT: use v0.2.2; review candidate evidence and scope qualification [N].
+NEXT: review v0.2.3 preparation; publication needs separate authorization [N].
 ```
 
 Sources:
@@ -58,6 +59,9 @@ Sources:
 - **T:** [Concise candidate smoke](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
   Progress, evidence links and existing-layout checks pass in both clients;
   Codex's extra temporary hash-file write/delete violates the strict write scope.
+- **Q:** [Draft v0.2.3 notes](releases/v0.2.3.md) and
+  [preparation checks](releases/v0.2.3-validation.json) retain that qualification.
+  The website copy is prepared locally; v0.2.2 remains the published bundle.
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -262,10 +266,10 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the unreleased concise candidate and its
-[qualified smoke evidence](../evals/progress/smoke-0.2.3-2026-10-17/README.md).
-Commit/publication and installed upgrades remain separate authorized actions;
-no automatic correction or retry is selected for the recorded scope violation.
+Review the [draft v0.2.3 release notes](releases/v0.2.3.md), website copy and
+[preparation checks](releases/v0.2.3-validation.json), retaining the qualified smoke
+evidence. Commit, publication/deployment and installed upgrades remain separate
+authorized actions. No correction or retry is selected for the recorded scope violation.
 
 Continue ordinary work with the [released v0.2.2 guidance](releases/v0.2.2.md)
 and record concrete misses. Preserve its earlier native evidence and unchanged
