@@ -49,8 +49,10 @@ the clarity smoke qualification: saved Markdown passes in both clients, while
 Claude's final chat report adds an unsupported pronoun. These guided checks do
 not establish comprehension gains or automatic everyday application. The
 [preparation record](../docs/releases/v0.2.4-validation.json) records local checks
-and previews with its original draft scope. Publication checks and deployment
-are recorded separately.
+and previews with its original draft scope. The [publication record](../docs/releases/v0.2.4-publication.json)
+confirms deployment from `73b15ac` and eight matching live public resources,
+including released labels and the smoke qualification. Live verification checks
+response bytes and metadata, not new browser rendering or user benefit.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions

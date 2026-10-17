@@ -1,8 +1,8 @@
 # Project context
 
-Release and website verified: October 17, 2026. Experimental v0.2.3 is published;
-all eight checked live public resources match its release build. The Codex smoke
-scope qualification is retained. Installed skills, setups and studies are preserved.
+Release and website verified: October 17, 2026. Experimental v0.2.4 is published;
+all eight checked live public resources match its release build. The report-only
+Claude smoke qualification is retained. Installed skills, setups and studies are preserved.
 
 ## Purpose and scope
 
@@ -15,26 +15,17 @@ local notes only when still useful.
 
 ## Current focus
 
-The released experimental bundle is v0.2.3: core **0.2.3** / adoption **0.1.12**.
-The owner requested default inline progress when documented context supports it.
-Reuse existing views and canonical details; missing goals or insufficient facts
-must not produce invented scaffolding.
+The released experimental bundle is v0.2.4: core **0.2.4** / adoption **0.1.13**.
+It adds a small clarity preference within authorized context edits: preserve
+conditions, uncertainty, rationale, evidence and existing layouts without
+ASD-STE100 compliance. [Release notes](releases/v0.2.4.md) retain the guided smoke's
+passing Markdown checks, Claude's report-only pronoun qualification and limits
+on comprehension gains and automatic everyday application.
 
-v0.2.3 ships concise overviews with linked evidence, preserving decisions, blockers
-and existing layouts. Publication and website verification are complete; installed
-upgrades remain separate. The [publication record](releases/v0.2.3-publication.json)
-owns identities and verification limits.
-
-Core **0.2.4** / adoption **0.1.13**, selected for experimental v0.2.4, add the owner's requested small
-clarity preference within authorized edits, preserving meaning and existing layouts
-without requiring ASD-STE100 compliance. [Change notes](../CHANGELOG.md#context-docs-024--2026-10-17-bundled-in-v024)
-retain the tiny text comparison's 12/12 in both conditions and its limits; no
-comprehension gain is demonstrated. A [focused native smoke](../evals/clarity/smoke-0.2.4-2026-10-17/README.md)
-passes the saved-Markdown meaning and scope checks in both clients, retaining a
-Claude report-only pronoun qualification. [Release notes](releases/v0.2.4.md)
-and website labels are finalized for owner-authorized publication and deployment;
-verification is pending. The [preparation record](releases/v0.2.4-validation.json)
-retains its original local checks and draft scope. Installed v0.2.3, existing setups and saved studies are unchanged.
+Publication and website verification are complete; the [publication record](releases/v0.2.4-publication.json)
+owns pinned identities and verification limits. The [preparation record](releases/v0.2.4-validation.json)
+and earlier evidence stay unchanged. Installed v0.2.3 and existing setups are preserved;
+upgrading remains a separate action.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -45,9 +36,9 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
 |-- RELEASED  v0.2.2 default inline progress adoption [R]
 |-- RELEASED  v0.2.3 concise views [Q]
-|   |-- DONE     Experimental release and website verification [U]
 |   `-- CHECKED  Installed Codex and Claude smoke checks [I]
-`-- PUBLISHING  Small clarity preference [L]
+`-- RELEASED  v0.2.4 clarity preference [L]
+    `-- DONE     Experimental release and website verification [U]
 
 NEXT: use v0.2.3 in everyday work and record concrete misses [N].
 ```
@@ -58,7 +49,7 @@ Sources:
   [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes link
   to their guidance, reviews and checks. Earlier
   [v0.2.2 installed checks](../evals/installed-skills/2026-10-17-progress-v022/README.md) remain retained.
-- **U / I:** [Publication and website verification](releases/v0.2.3-publication.json)
+- **U / I:** [Publication and website verification](releases/v0.2.4-publication.json)
   and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
@@ -114,7 +105,12 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
-- Current released bundle: [v0.2.3](releases/v0.2.3.md), core **0.2.3**,
+- Current released bundle: [v0.2.4](releases/v0.2.4.md), core **0.2.4**,
+  adoption **0.1.13**, standard **0.1.1**. Published and deployed from `73b15ac`;
+  the [publication record](releases/v0.2.4-publication.json) owns identities,
+  eight matching live resources and the retained smoke qualification. Source
+  packages, installed skills, setup rules, studies and earlier evidence are preserved.
+- Previous released bundle: [v0.2.3](releases/v0.2.3.md), core **0.2.3**,
   adoption **0.1.12**, standard **0.1.1**. Published and deployed from `0c053d6`;
   the [publication record](releases/v0.2.3-publication.json) owns checked identities,
   eight matching live resources and the retained smoke-scope qualification.
@@ -213,10 +209,10 @@ Earlier release approvals do not authorize new publication.
   are defined in the packaged guide. There is no background service or sync.
 
 - [Landing page](https://context-docs.com/): live on GitHub Pages, built from
-  selected public sources. The [v0.2.3 deployment](https://github.com/jaredchu/context-docs/actions/runs/39009310394)
-  passes from `0c053d6`; the [publication record](releases/v0.2.3-publication.json)
-  records eight matching live responses, released concise-view copy and the smoke
-  qualification. Earlier [v0.2.2](releases/v0.2.2-publication.json),
+  selected public sources. The [v0.2.4 deployment](https://github.com/jaredchu/context-docs/actions/runs/39021889853)
+  passes from `73b15ac`; the [publication record](releases/v0.2.4-publication.json)
+  records eight matching live responses, released clarity copy and the smoke
+  qualification. Earlier [v0.2.3](releases/v0.2.3-publication.json), [v0.2.2](releases/v0.2.2-publication.json),
   [v0.2.1](releases/v0.2.1-publication.json), [v0.2.0](releases/v0.2.0-publication.json),
   [October 11](website-deployment-2026-10-11.json) and
   [October 10](website-deployment-2026-10-10.json) records remain unchanged.
@@ -272,6 +268,12 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
+and verified. Keep the qualified native smoke, original preparation record and
+[publication receipt](releases/v0.2.4-publication.json) together. Continue everyday
+work with the installed skills; an optional v0.2.4 upgrade requires a separate
+request, preserving local customizations and project setups.
 
 The [v0.2.3 experimental release](releases/v0.2.3.md) and website are published
 and verified. Keep the original preparation, qualified smoke and review records

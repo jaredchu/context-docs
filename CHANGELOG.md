@@ -26,8 +26,11 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - Finalize owner-authorized experimental release labels for core 0.2.4, adoption
   0.1.13 and unchanged standard 0.1.1. Retain the report-only Claude pronoun
   qualification, unchanged original evidence and limits on comprehension benefit
-  and automatic everyday application. Publication checks and deployment follow
-  from the pinned release commit; installed upgrades remain separate.
+  and automatic everyday application. The [publication record](docs/releases/v0.2.4-publication.json)
+  confirms passing release-commit checks and deployment from `73b15ac`. All eight
+  checked live public resources match the build, including released labels, clarity
+  guidance and the qualification. Installed upgrades remain separate; source packages,
+  installed skills, setups, earlier evidence and saved studies are preserved.
 
 ## v0.2.4 release preparation — 2026-10-17 (unpublished)
 
