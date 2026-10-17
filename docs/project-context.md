@@ -1,9 +1,8 @@
 # Project context
 
-Release preparation: 2026-10-17. Draft v0.2.2 notes and website copy cover default
-inline progress during adoption; the bundle remains unpublished. Experimental
-v0.2.1 and its October 16 website verification remain the published baseline.
-Installed skills, existing setups and saved studies are preserved.
+Publication authorized: 2026-10-17. v0.2.2 release labels cover default inline
+progress during supported adoption; GitHub publication, deployment and live checks
+are pending. Installed skills, existing setups and saved studies are preserved.
 
 ## Purpose and scope
 
@@ -20,18 +19,19 @@ local notes only when still useful.
 simple inline path during adoption when documented context supports one. Reuse
 existing views, layouts and canonical details rather than adding duplicate tracking.
 The owner requested this default; missing goals or insufficient facts do not
-justify scaffolding. The development candidate is core **0.2.2** / adoption
+justify scaffolding. The approved release bundle is core **0.2.2** / adoption
 **0.1.11**, with [checks and limits](../evals/progress/adoption-default-2026-10-16/README.md).
-The implementation is committed at `39e3839`; current work prepares its
-[draft v0.2.2 release and website](releases/v0.2.2.md), keeping earlier native
-outcomes separate from release-preparation checks.
+The implementation is committed at `39e3839`; preparation at `83587de` preserves
+earlier native outcomes separately from mechanical checks. Current work publishes
+the [experimental v0.2.2 bundle](releases/v0.2.2.md) and verifies its website
+under the owner's [publication authorization](releases/v0.2.2-publication.json).
 
 **Experimental v0.2.1 remains published and its website verified.** It requires
 requesting the initial view, then maintains it during meaningful updates. Installed
 packages and setup rules remain unchanged. Its visual-path gate supersedes the
 earlier v0.2.0 status/source checks without changing that earlier evidence.
 
-Preparation snapshot October 17, 2026; saved status does not imply live agent activity.
+Publication snapshot October 17, 2026; saved status does not imply live agent activity.
 
 ```text
 Markdown progress
@@ -47,13 +47,14 @@ Markdown progress
 |   |-- DONE  Experimental release, deployment and live verification [D]
 |   `-- CHECKED  Installed visual-path smoke; Claude prose qualified [I]
 |
-`-- CANDIDATE  Default inline progress during adoption [N]
+`-- APPROVED RELEASE  Default inline progress during adoption [N, U]
     |-- DONE  Guidance, three guided native sessions and local checks [N]
     |-- DONE  Bounded Opus review and preservation checks [N]
     |-- DONE  Committed change and passing GitHub Actions [N]
-    `-- DONE  Draft release notes, website copy and preparation checks [Q]
+    |-- DONE  Release notes, website copy and preparation checks [Q]
+    `-- PENDING  Prerelease publication, deployment and live verification [U]
 
-NEXT: review the draft release notes and website preparation [Q]
+NEXT: publish the checked release, deploy and verify the same source [U]
 ```
 
 Sources for the visual:
@@ -94,7 +95,7 @@ Sources for the visual:
   prerequisite; its diagram preserves the documented sequence. No correction or
   retry is performed. This is author-scored evidence, not a general benefit claim.
 - **N:** [Default-adoption candidate checks](../evals/progress/adoption-default-2026-10-16/README.md).
-  Core 0.2.2 / adoption 0.1.11 is unreleased. The default inline checklist and
+  Core 0.2.2 / adoption 0.1.11 targets v0.2.2. The default inline checklist and
   ordinary-work refresh pass two initial-candidate Codex phases; a third session
   on the clarified candidate leaves a current nested checklist unchanged.
   Opus review/follow-up resolve material findings. Fresh setup with a new rule,
@@ -103,13 +104,18 @@ Sources for the visual:
   The [implementation commit](https://github.com/jaredchu/context-docs/commit/39e3839db2131fc6ace44e06009a92939dc2a3b5)
   has passing [main static checks](https://github.com/jaredchu/context-docs/actions/runs/38941626693)
   and [website build](https://github.com/jaredchu/context-docs/actions/runs/38941626653).
-- **Q:** [Draft v0.2.2 notes](releases/v0.2.2.md) and
+- **Q:** [v0.2.2 notes](releases/v0.2.2.md) and unchanged
   [preparation checks](releases/v0.2.2-validation.json). Both pages explain
-  supported default adoption, optional explicit prompts and everyday maintenance,
-  with draft labels separate from published v0.2.1. This preparation changes no
+  supported default adoption, optional explicit prompts and everyday maintenance.
+  The preparation record retains the earlier draft labels and previews. It changes no
   skill package or installed setup and runs no new native trial or model review.
   Local tests, static/package checks and desktop/mobile previews pass; the record
   separates these from the earlier native behavior evidence and live publication.
+- **U:** [Publication authorization and verification](releases/v0.2.2-publication.json).
+  The owner approved an experimental prerelease, followed by deployment and live
+  verification. Current labels are finalized for publication; GitHub release and
+  website checks remain pending. Package files, installed skills and prior evidence
+  stay unchanged; this task adds no native trial or new model review.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -312,10 +318,10 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [draft v0.2.2 notes and website preparation](releases/v0.2.2.md), with
-its [current checks](releases/v0.2.2-validation.json) and unchanged earlier native
-evidence. Commit/push, publication, deployment and installed upgrades are separate
-actions; this task prepares reviewable files only.
+Publish the approved [experimental v0.2.2 bundle](releases/v0.2.2.md) after its
+release-commit checks pass, deploy the same checked main revision and verify the
+served resources against its build. The [publication record](releases/v0.2.2-publication.json)
+owns progress and results; installed upgrades remain a separate action.
 
 The [v0.2.1 bundle](releases/v0.2.1.md) is published and its website verified.
 Use the released guidance and preserve the historical

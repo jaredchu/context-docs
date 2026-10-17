@@ -11,12 +11,23 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.1 release notes](docs/releases/v0.2.1.md).
+The latest bundle is described in the [v0.2.2 release notes](docs/releases/v0.2.2.md).
+Previous [v0.2.1 release notes](docs/releases/v0.2.1.md) are retained.
 Previous [v0.2.0 release notes](docs/releases/v0.2.0.md) are retained.
 Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.2 publication — 2026-10-17
+
+- Finalize the owner-authorized experimental release labels and website links
+  for core 0.2.2, adoption 0.1.11 and unchanged standard 0.1.1. Preserve all package
+  files, preparation evidence, earlier native results, installed skills and setups.
+- The [publication record](docs/releases/v0.2.2-publication.json) owns release-commit
+  checks, prerelease identity, deployment and live verification. Publication and
+  verification are pending while the release labels are finalized; no new model
+  trial or installed upgrade is part of this task.
 
 ## v0.2.2 release preparation — 2026-10-17 (unpublished)
 
@@ -37,7 +48,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   pass desktop/mobile previews with inspected progress screenshots and no page
   overflow, script errors or remote requests.
 
-## context-docs 0.2.2 — 2026-10-16 (unreleased)
+## context-docs 0.2.2 — 2026-10-16 (bundled in v0.2.2)
 
 - Add the core guide for adoption's default inline progress path when a documented
   goal and supported work make one useful. Adapt existing status lines in place,
@@ -58,7 +69,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   skills, setup rules and saved studies are not upgraded or rewritten. Fresh
   adoption with a new instruction rule/marker is not tested.
 
-## adopt-context-docs 0.1.11 — 2026-10-16 (unreleased)
+## adopt-context-docs 0.1.11 — 2026-10-16 (bundled in v0.2.2)
 
 - Start the supported inline view by default during adoption through sibling core
   0.2.2; reuse existing views and equivalent maintenance rules. New maintenance

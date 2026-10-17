@@ -151,7 +151,7 @@ passes one guided create case per client; broader behavior and user benefit rema
 unestablished. The example and prompt below reflect that correction; installed
 v0.2.0 packages retain their earlier guidance.
 
-The unreleased adoption **0.1.11** with core **0.2.2** instructs the agent to start
+Adoption **0.1.11** with core **0.2.2**, bundled in v0.2.2, instructs the agent to start
 a small inline visual path by default when the documented goal and supported work
 make one useful. It directs the agent to group ordinary status sentences in place,
 keeping details authoritative and linked to evidence. Existing lists, tables,
@@ -163,8 +163,8 @@ add a missing supported view to an already-adopted project, preserving its rule
 and original marker/date; subsequent unchanged repeats should make no edits.
 Installation or upgrade alone does not change project setups. The released and
 installed v0.2.1 guidance still creates a view when requested.
-The [draft v0.2.2 notes](releases/v0.2.2.md) retain upgrade boundaries and the
-focused native checks' limits; this bundle is not yet published.
+The [v0.2.2 release notes](releases/v0.2.2.md) retain upgrade boundaries and the
+focused native checks' limits.
 
 Once a view exists, the loaded maintenance rule directs the agent to update it
 after meaningful changes during everyday work; you need not ask each time.

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-17",
+  "status": "publication_authorized_pending",
+  "preparation_commit": "83587de23e517f938680458783056ec7d6c09c4a",
+  "preparation_record": "docs/releases/v0.2.2-validation.json",
+  "preparation_record_sha256": "cee75947b6d36e0c2295ef6023ef05efc3214a26080a47b121ac62ee7583e80f",
+  "bundle": {
+    "core": "0.2.2",
+    "adoption": "0.1.11",
+    "standard": "0.1.1"
+  },
+  "authority": "Jared Chu: Publish v0.2.2 as an experimental release, then deploy and verify the website. Preserve installed skills, existing setups and saved studies.",
+  "new_native_trials": false,
+  "new_claude_review": false,
+  "installed_skills_updated": false,
+  "verification_model": "Codex",
+  "package_sha256": {
+    "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/adopt-context-docs/SKILL.md": "60b07371299bb40957ad9e0535c897aee4ddce01ddef616e36f44b9c4900d887",
+    "skills/adopt-context-docs/VERSION": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132",
+    "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "skills/context-docs/SKILL.md": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f",
+    "skills/context-docs/VERSION": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103",
+    "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "skills/context-docs/references/progress.md": "e3e62e6bce5a7a43b0b20575806cd47a923ae23a48d8cb020911bbc5b90db523",
+    "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "limits": "Original candidate identities, native outcomes and Opus review qualifications remain unchanged. Publication establishes no general reliability, implicit loading, privacy, user benefit or stall-detection accuracy.",
+  "local_checks": {
+    "site_tests_passed": 15,
+    "packaging_static_tests_passed": 18,
+    "static_repository_passed": true,
+    "relative_links_and_anchors_before_publication": 1598,
+    "public_build_files": 9,
+    "prepared_package_files_unchanged": 16,
+    "new_native_trials": false
+  },
+  "public_artifact_files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+    "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+    "getting-started/index.html": "1c8654bcfbeb65d2fe1e11a15df9ffa2377e6095d4611862ed1134f16bdde1d6",
+    "index.html": "bfbda46cc4b8e57988a22e261d87fe0025486eaeb44a292c84ff2a4f5d8e95b5",
+    "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+    "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+    "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+    "styles.css": "ec64d58d3368b45f3951c4c0d52f094a29af7b04c2c3d5349c359de5d6ac60a0"
+  }
+}
