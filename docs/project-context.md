@@ -40,7 +40,8 @@ Goal: make progress clear during everyday context work
 |       `-- PASS  Everyday maintenance refreshes that same view
 |
 `-- RELEASED  v0.2.3 concise views; Codex write scope qualified [P, T]
-    `-- DONE  Experimental release, deployment and live verification [U]
+    |-- DONE  Experimental release, deployment and live verification [U]
+    `-- CHECKED  Installed concise views and existing-layout updates [I]
 
 NEXT: use v0.2.3 guidance in ordinary work; installed upgrades are separate [N].
 ```
@@ -66,6 +67,9 @@ Sources:
 - **U:** [v0.2.3 publication and live verification](releases/v0.2.3-publication.json).
   Release checks and deployment pass from `0c053d6`; eight live responses match
   its build, including the smoke qualification. No native trial or installed upgrade.
+- **I:** [Installed v0.2.3 smoke](../evals/installed-skills/2026-10-17-progress-v023/README.md).
+  Both clients pass the focused cases; installed paths and a tighter temporary-write
+  boundary are explicit. This does not replace the earlier candidate qualification.
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -123,7 +127,11 @@ Earlier release approvals do not authorize new publication.
   adoption **0.1.12**, standard **0.1.1**. Published and deployed from `0c053d6`;
   the [publication record](releases/v0.2.3-publication.json) owns checked identities,
   eight matching live resources and the retained smoke-scope qualification.
-- Installed v0.2.1 now has a [focused native smoke record](../evals/installed-skills/2026-10-16-progress-v021/README.md),
+- Installed v0.2.3 has a [focused native smoke record](../evals/installed-skills/2026-10-17-progress-v023/README.md).
+  Both clients pass concise-view, source-link, decision/blocker and existing-layout
+  checks. One guided session per client, with two tasks and explicit installed paths;
+  no implicit-loading or general reliability claim. Earlier evidence remains unchanged.
+- Installed v0.2.1 has an earlier [focused native smoke record](../evals/installed-skills/2026-10-16-progress-v021/README.md),
   separate from the copied-candidate evidence. Both clients produce the required
   visual path; Claude's extra prose prerequisite remains qualified. No installed
   skill, setup, earlier evidence or saved-study change is part of this check.

@@ -1,0 +1,261 @@
+{
+  "assessment": "Both installed clients pass the focused progress, preservation and observed write-scope checks; prior candidate qualification unchanged.",
+  "assessor": "Sol; guided author-scored installed smoke, not independent assessment",
+  "bundle": {
+    "adoption": "0.1.12",
+    "core": "0.2.3"
+  },
+  "clients": {
+    "claude": {
+      "all_other_fixture_bytes_and_modes_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/docs/context.md",
+        "maintain/notes/delivery.md",
+        "maintain/notes/evidence.md"
+      ],
+      "client": "claude",
+      "elapsed_seconds": 61.32,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T06:32:55.045662+00:00",
+      "installed_guidance_reads_observed": true,
+      "link_details": [
+        {
+          "source": "adopt/README.md",
+          "target": "notes/context.md"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "evidence.md#format-compatibility"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "evidence.md#duplicate-names"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "evidence.md"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md"
+        },
+        {
+          "source": "maintain/README.md",
+          "target": "docs/context.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/delivery.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/decisions.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/evidence.md#duplicate-names"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "evidence.md#format-compatibility"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "evidence.md#duplicate-names"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "decisions.md#proposal-and-deployment"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "../docs/context.md#next-move"
+        }
+      ],
+      "local_anchors_checked": 2,
+      "manual_assessment": {
+        "authorized_write_scope": "pass within observed file-tool writes: four approved paths",
+        "concise_default_creation": "pass",
+        "decisions_rationale_blockers_approval": "pass",
+        "evidence_links": "pass",
+        "existing_layout_refresh": "pass"
+      },
+      "native_result": {
+        "apiKeySource": "none",
+        "is_error": false,
+        "model": "claude-opus-5-5",
+        "permissionMode": "acceptEdits",
+        "permission_denials": [],
+        "subtype": "success",
+        "tools": [
+          "Edit",
+          "Read",
+          "Write"
+        ]
+      },
+      "outputs_sha256": {
+        "adopt/notes/context.md": "564e18f9b85675d09ef2204cb80434dfca35d760fde674c469ed88d082c49504",
+        "adopt/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "adopt/notes/evidence.md": "253b5f4f5547a78a13eeb33b813df122446950516f193cf962a991374860a963",
+        "maintain/docs/context.md": "69c231acd8ba90895a97018855ae5760cfe18be656bc052dd0998996539836cb",
+        "maintain/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "maintain/notes/delivery.md": "d65893042ce70afb99c39be21bf8d3552ae253f77b0114f9f4df18d8c6e1614e",
+        "maintain/notes/evidence.md": "9697c4eae661581a205f1ced1f476f3eeba9e3965878344a1d55fca8fe5ec2c1"
+      },
+      "raw_sha256": {
+        "receipt.json": "4905067c983b9e0dd1227c5c23463850722a62b511cd5a2f10bfeaa7b99a9926",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "d61d400f3114e69e0735b16580788d7ac79a9643612372ed097e48b6c127e49c"
+      },
+      "relative_links_checked": 14,
+      "requested_model": "claude-opus-5-5",
+      "responding_model": [
+        "claude-opus-5-5"
+      ],
+      "started_at": "2026-10-17T06:31:53.730063+00:00",
+      "status": "completed"
+    },
+    "codex": {
+      "all_other_fixture_bytes_and_modes_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/docs/context.md",
+        "maintain/notes/delivery.md",
+        "maintain/notes/evidence.md"
+      ],
+      "client": "codex",
+      "elapsed_seconds": 39.88,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T06:32:33.609100+00:00",
+      "installed_guidance_reads_observed": true,
+      "link_details": [
+        {
+          "source": "adopt/README.md",
+          "target": "notes/context.md"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "evidence.md#format-compatibility"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "evidence.md#duplicate-names"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md"
+        },
+        {
+          "source": "maintain/README.md",
+          "target": "docs/context.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/delivery.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/decisions.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/delivery.md"
+        },
+        {
+          "source": "maintain/docs/context.md",
+          "target": "../notes/evidence.md#duplicate-names"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "evidence.md#format-compatibility"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "evidence.md#duplicate-names"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "decisions.md#proposal-and-deployment"
+        },
+        {
+          "source": "maintain/notes/delivery.md",
+          "target": "../docs/context.md#next-move"
+        }
+      ],
+      "local_anchors_checked": 1,
+      "manual_assessment": {
+        "authorized_write_scope": "pass within observed commands: only four approved writes; no temporary snapshot/helper writes observed",
+        "concise_default_creation": "pass",
+        "decisions_rationale_blockers_approval": "pass",
+        "evidence_links": "pass",
+        "existing_layout_refresh": "pass"
+      },
+      "native_result": null,
+      "outputs_sha256": {
+        "adopt/notes/context.md": "d638804e67ae31e97c55f6d5489c36e339b0038e9ed86ef8e71dd1b0023e6d8f",
+        "adopt/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "adopt/notes/evidence.md": "253b5f4f5547a78a13eeb33b813df122446950516f193cf962a991374860a963",
+        "maintain/docs/context.md": "b5517f73f9ffdedc95878bddb7a8cacdab03166f9e596981bbb7dac9f1df4ce3",
+        "maintain/notes/decisions.md": "3d66da144cd35949a40178ec0e59cece2513a28d842b36f62fa36d12f889a70f",
+        "maintain/notes/delivery.md": "47a7abec5106cfc710fd6f991e9c8f4ce42966d95897d39024bf1a4306d0175d",
+        "maintain/notes/evidence.md": "97462409612cabcb7cee688c5302f3cd2df7539167678fccc23509426a433283"
+      },
+      "raw_sha256": {
+        "receipt.json": "cd7fc9ec4556a6cd807451ca2723ec7b84e959f1be8c597cd38cc0e2538d6888",
+        "stderr.txt": "c58368b0cf7eb9cbf400770900c4bbd3e33a5a5e0c3b272bc3479e88f60a3850",
+        "stdout.jsonl": "d317fd45ea235fcd2e6f0ae1e866796a9801f165a096f30bdba06a95bd4ce5c1"
+      },
+      "relative_links_checked": 13,
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "started_at": "2026-10-17T06:31:53.730063+00:00",
+      "status": "completed"
+    }
+  },
+  "date": "2026-10-17",
+  "earlier_candidate_scope_failure": "Unchanged and not repaired or retried; this separate installed study explicitly forbids temporary/helper files.",
+  "limits": [
+    "Two guided installed-package sessions; Sol author-scored, not independent assessment.",
+    "Tasks A and B share a session per client; not fresh-session handoff or implicit-discovery evidence.",
+    "Already-adopted setup reused; no fresh-rule creation, audit, sparse/local-only, explicit-more-detail or no-change-repeat run.",
+    "No Git fixture/probes or application tests. Process controls differ from normal UI; Claude uses prompt/post-run boundaries, not an OS sandbox.",
+    "No general reliability, usability, user-effort or benefit claim; earlier studies unchanged.",
+    "Installed paths explicitly supplied; not implicit skill discovery.",
+    "Prompt additionally forbids temporary/scratch/helper files in response to the earlier candidate scope failure; this is a separate study, not a repair or retry of that run."
+  ],
+  "native_versions": {
+    "claude": "2.1.302 (Claude Code)",
+    "codex": "codex-cli 0.163.0-alpha.10.2"
+  },
+  "preservation": {
+    "after_entries": 64242,
+    "baseline_entries": 64211,
+    "decisions_unchanged": true,
+    "installed_files_unchanged": 32,
+    "protected_inventory_verified": true,
+    "scope": "Repository excluding .git, four installed skill trees and earlier durable private evidence excluding only this task new private root. Only current context, new study artifacts and a new journal event differ. Setup rules, saved studies, prior review/release records and installation backups remain byte/mode equal. Routine native-client global bookkeeping and Git metadata are outside this inventory. Observed operation checks do not establish global/temporary-state equality.",
+    "source_package_files_unchanged": 16,
+    "unexpected_changes_within_protected_inventory": []
+  },
+  "protocol_private_sha256": "3515d5efc96e2478416bcbd8034e4b891b8531d71da66ed134cf436a80f194a8",
+  "release_commit": "0c053d6ec37eaa57640d4330e11ae257c86a61a1",
+  "repository_checks": {
+    "command": "python3 -B evals/checks/static_checks.py",
+    "packages": 2,
+    "passed": true,
+    "relative_links_and_anchors": 1699,
+    "separate_from_native_behavior": true,
+    "tables": 5,
+    "versions": 2,
+    "whitespace": "git diff --check passes"
+  }
+}
