@@ -31,7 +31,7 @@ Both clients pass its focused clarity and meaning-preservation checks; guided
 cases do not establish comprehension gains or automatic everyday application.
 Existing setups and saved studies are unchanged.
 
-Unreleased core **0.2.5** / adoption **0.1.14** add the owner's requested
+Core **0.2.5** / adoption **0.1.14** add the owner's requested
 [conditional concurrency rule](getting-started.md#when-sessions-share-a-context-file):
 one writer per shared context file, narrow edits and reread/reconcile after conflicts.
 This is coordination guidance without locking infrastructure; installed v0.2.4
@@ -42,12 +42,13 @@ Claude retries a second mismatch without rereading: a procedural failure, with
 final content preserved. These guided cases do not test simultaneous writers;
 the earlier offline evidence remains unchanged.
 
-[v0.2.5 draft release notes](releases/v0.2.5.md) and website copy are prepared
-for review, retaining those qualifications and upgrade boundaries. The
-[preparation record](releases/v0.2.5-validation.json) owns local checks and
-previews. Publication, deployment and installed upgrades remain separate steps.
+The owner authorized experimental v0.2.5 publication and website deployment on
+October 18. Release labels are finalized; publication and live verification are
+in progress. The [release notes](releases/v0.2.5.md) retain the qualifications;
+the [preparation record](releases/v0.2.5-validation.json) retains its original
+draft scope. Installed upgrades are outside this publication task.
 
-Saved snapshot: October 17, 2026; this is not live agent activity.
+Saved snapshot: October 18, 2026; this is not live agent activity.
 
 ```text
 Goal: make progress clear during everyday context work
@@ -60,9 +61,9 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.4 clarity preference [L]
 |   |-- DONE     Experimental release and website verification [U]
 |   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
-`-- DRAFT     Conditional concurrency guidance [C]
+`-- PENDING   v0.2.5 publication and website verification [C]
 
-NEXT: review the v0.2.5 draft notes and qualified evidence [N].
+NEXT: publish experimental v0.2.5 and verify its website [N].
 ```
 
 Sources:
@@ -298,10 +299,10 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [v0.2.5 draft notes](releases/v0.2.5.md), including the qualified
-concurrency smoke and [local preparation checks](releases/v0.2.5-validation.json).
-Publication, deployment and installed upgrades require separate authorization.
-Continue using installed v0.2.4 until an upgrade is requested.
+Complete the authorized experimental [v0.2.5 publication](releases/v0.2.5.md)
+and website verification, preserving the qualified smoke and original
+[preparation record](releases/v0.2.5-validation.json). Installed upgrades remain
+separate; continue using installed v0.2.4 until an upgrade is requested.
 
 The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
 and verified. Keep the qualified native smoke, original preparation record and

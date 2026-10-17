@@ -11,7 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.4 release notes](docs/releases/v0.2.4.md).
+The latest bundle is described in the [v0.2.5 release notes](docs/releases/v0.2.5.md).
+Previous [v0.2.4 release notes](docs/releases/v0.2.4.md) are retained.
 Previous [v0.2.3 release notes](docs/releases/v0.2.3.md) are retained.
 Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
 Previous [v0.2.1 release notes](docs/releases/v0.2.1.md) are retained.
@@ -38,7 +39,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   deployment or installed upgrade is performed. Skill source files, installed
   packages, setup rules and saved studies are preserved.
 
-## context-docs 0.2.5 — 2026-10-17 (unreleased)
+## context-docs 0.2.5 — 2026-10-18 (bundled in v0.2.5)
 
 - When agents or sessions work concurrently on the same context file, coordinate
   one writer per file before concurrent edits begin, hand off ownership explicitly,
@@ -70,7 +71,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   repair or rerun. These guided, author-scored cases do not test simultaneous
   writers, installed behavior or general conflict prevention.
 
-## adopt-context-docs 0.1.14 — 2026-10-17 (unreleased)
+## adopt-context-docs 0.1.14 — 2026-10-18 (bundled in v0.2.5)
 
 - Follow sibling core's conditional shared-file coordination during adoption and
   re-adoption: one writer, narrow edits and reread/reconcile after conflicts.

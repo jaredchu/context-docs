@@ -155,7 +155,8 @@ existing v0.2.3 installations keep their guidance until separately upgraded.
 
 ### When sessions share a context file
 
-Unreleased core **0.2.5** / adoption **0.1.14** add conditional concurrency guidance:
+Core **0.2.5** / adoption **0.1.14**, bundled in experimental **v0.2.5**, add
+conditional concurrency guidance:
 when multiple agents or sessions work on the same context file concurrently,
 coordinate one writer at a time for that file. Other participants pass their
 findings to the writer. Prefer narrow edits. If an edit conflicts or reports stale text,
@@ -172,13 +173,13 @@ This rule guides coordination and provides no file locking or automatic merge
 guarantee. Existing project setup rules and installed v0.2.4 skills stay unchanged
 until separately updated. See the [core rule](../skills/context-docs/SKILL.md#make-the-smallest-useful-update).
 
-The [v0.2.5 draft release notes](releases/v0.2.5.md) retain the
+The [v0.2.5 release notes](releases/v0.2.5.md) retain the
 [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md):
 both clients respect ownership and handoff and reread after the forced stale edit.
 Claude retries a second mismatch without another reread, a procedural failure
 despite preserved final content. Codex corrects a read-only anchor-check error.
 These guided cases do not test simultaneous writers or establish general
-conflict prevention. The latest published bundle remains v0.2.4.
+conflict prevention. Publication alone does not upgrade installed skills.
 
 ### Progress in Markdown
 
