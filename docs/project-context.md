@@ -52,7 +52,8 @@ Markdown progress
     |-- DONE  Bounded Opus review and preservation checks [N]
     |-- DONE  Committed change and passing GitHub Actions [N]
     |-- DONE  Release notes, website copy and preparation checks [Q]
-    `-- DONE  Experimental prerelease, deployment and live verification [U]
+    |-- DONE  Experimental prerelease, deployment and live verification [U]
+    `-- CHECKED  Installed default inline adoption and everyday maintenance [W]
 
 NEXT: use the released guidance in ordinary work and report concrete gaps [U]
 ```
@@ -117,6 +118,13 @@ Sources for the visual:
   released labels, default-adoption copy and source-linked visual. Package files,
   installed skills and earlier evidence stay unchanged; no native trial or new
   model review is added.
+- **W:** [Installed v0.2.2 smoke and exact outputs](../evals/installed-skills/2026-10-17-progress-v022/README.md).
+  Two fresh sessions per client use installed core 0.2.2 / adoption 0.1.11.
+  Re-adoption creates a source-linked inline path without a progress request;
+  ordinary result recording refreshes it without naming a skill or progress.
+  Both pass, preserving setup records and the separate deployment-approval gate.
+  These are guided, author-scored checks with synthetic retained results, not
+  proof of fresh setup, future loading, full-suite reliability or user benefit.
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -124,7 +132,9 @@ and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md) ret
 
 **Blockers and gaps:** focused candidate and installed visual paths pass; the
 installed Claude output has the [source-grounding qualification](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
-recorded above. The full progress
+recorded above. Installed v0.2.2 default re-adoption and everyday maintenance now
+pass in both clients; fresh setup and the other unexecuted branches remain gaps.
+The full progress
 suite, default/implicit loading and benefit to
 intended users remain unestablished. The [earlier copied-development smoke](../evals/progress/smoke-2026-10-16/README.md)
 retains its two advances bullets without direct inline links; newer outputs do

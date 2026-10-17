@@ -1,0 +1,251 @@
+{
+  "attempts_each": 1,
+  "bundle": {
+    "adoption": "0.1.11",
+    "core": "0.2.2"
+  },
+  "cap_seconds_each": 180,
+  "commands": {
+    "claude": [
+      "claude",
+      "--print",
+      "--verbose",
+      "--output-format",
+      "stream-json",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "medium",
+      "--tools",
+      "Read,Write,Edit,Skill",
+      "--allowedTools",
+      "Read,Write,Edit,Skill",
+      "--permission-mode",
+      "acceptEdits",
+      "--no-session-persistence",
+      "--setting-sources",
+      "user,project",
+      "--settings",
+      "{\"disableAllHooks\": true, \"autoMemoryEnabled\": false}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}"
+    ],
+    "codex": [
+      "codex",
+      "exec",
+      "--ignore-user-config",
+      "--skip-git-repo-check",
+      "--ephemeral",
+      "--sandbox",
+      "workspace-write",
+      "--model",
+      "gpt-6.1-sol",
+      "--config",
+      "model_reasoning_effort=\"medium\"",
+      "--config",
+      "features.multi_agent=false",
+      "--config",
+      "features.memories=false",
+      "--json",
+      "--color",
+      "never",
+      "-"
+    ]
+  },
+  "criteria": [
+    "supported adoption without progress request",
+    "ordinary update without progress request"
+  ],
+  "date": "2026-10-17",
+  "fixture": {
+    "AGENTS.md": "# Project rules\n\nUse Context Docs after meaningful changes to facts, decisions, blockers or next actions. Read the installed context-docs skill before maintenance. Preserve record locations, decisions and source evidence; do not add a parallel tracker. No-change repeats and audits write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n\nOnly the task's named Markdown files may change. Do not modify instructions, installed skills, logging, Git or settings. No network, delegation, application tests or implementation.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Maple CLI\n\nSynthetic fixture. Start at [context](notes/context.md).\n",
+    "notes/context.md": "# Maple working context\n\n## Intent\nPrepare the config migration for maintainer review. Completion requires the backward-compatibility check and the interrupted-write check to pass. Deployment needs separate owner approval.\n\n## Work\nThe backward-compatibility check passed October 15. The interrupted-write check has not run; it is blocked on a missing interruption fixture. See [retained results](results.md).\n\nOwner note: keep the migration example in this file.\n\nExample: existing `mode=plain` config must remain accepted.\n\n## Decision trail\nThe owner approved retaining the existing config format for old clients. See [decisions](decisions.md).\n\n## Next move\nObtain the interruption fixture, then run the interrupted-write check.\n",
+    "notes/decisions.md": "# Decisions\n\n## Owner decision\nKeep the existing config format to preserve older clients. Deployment is not approved.\n\n## Proposal\nAn agent suggested a new binary format; it is unapproved and unimplemented.\n",
+    "notes/results.md": "# Retained synthetic results\n\nThese are fictional observations for a documentation check, not executed application tests.\n\n## Compatibility\nOctober 15, 2026: backward-compatibility check passed; old plain-mode config remains accepted.\n\n## Interrupted write\nOctober 15, 2026: check has not run because the interruption fixture is missing.\n",
+    "owner-work.txt": "PRESERVE OWNER BYTES\n"
+  },
+  "installed_packages": {
+    "claude/adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "claude/adopt-context-docs/SKILL.md": {
+      "bytes": 7076,
+      "mode": "0o644",
+      "sha256": "60b07371299bb40957ad9e0535c897aee4ddce01ddef616e36f44b9c4900d887"
+    },
+    "claude/adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132"
+    },
+    "claude/adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "claude/context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "claude/context-docs/SKILL.md": {
+      "bytes": 7922,
+      "mode": "0o644",
+      "sha256": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f"
+    },
+    "claude/context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103"
+    },
+    "claude/context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "claude/context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "claude/context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "claude/context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "claude/context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "claude/context-docs/references/progress.md": {
+      "bytes": 8294,
+      "mode": "0o644",
+      "sha256": "e3e62e6bce5a7a43b0b20575806cd47a923ae23a48d8cb020911bbc5b90db523"
+    },
+    "claude/context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "claude/context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "claude/context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    },
+    "codex/adopt-context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "codex/adopt-context-docs/SKILL.md": {
+      "bytes": 7076,
+      "mode": "0o644",
+      "sha256": "60b07371299bb40957ad9e0535c897aee4ddce01ddef616e36f44b9c4900d887"
+    },
+    "codex/adopt-context-docs/VERSION": {
+      "bytes": 7,
+      "mode": "0o644",
+      "sha256": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132"
+    },
+    "codex/adopt-context-docs/agents/openai.yaml": {
+      "bytes": 273,
+      "mode": "0o644",
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+    },
+    "codex/context-docs/LICENSE": {
+      "bytes": 1066,
+      "mode": "0o644",
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+    },
+    "codex/context-docs/SKILL.md": {
+      "bytes": 7922,
+      "mode": "0o644",
+      "sha256": "fe3b54b58cd81c7d37d52a02cdb34fd3e0b170e966253113a4c4b04a0eaa060f"
+    },
+    "codex/context-docs/VERSION": {
+      "bytes": 6,
+      "mode": "0o644",
+      "sha256": "998f6b887ed7a6ef44e84210d0237b715bed42ea7254f48dc418afec0a484103"
+    },
+    "codex/context-docs/agents/openai.yaml": {
+      "bytes": 224,
+      "mode": "0o644",
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+    },
+    "codex/context-docs/assets/decision-record.md": {
+      "bytes": 724,
+      "mode": "0o644",
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+    },
+    "codex/context-docs/assets/project-context.md": {
+      "bytes": 1116,
+      "mode": "0o644",
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+    },
+    "codex/context-docs/references/event-journal.md": {
+      "bytes": 13080,
+      "mode": "0o644",
+      "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+    },
+    "codex/context-docs/references/local-only.md": {
+      "bytes": 6065,
+      "mode": "0o644",
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+    },
+    "codex/context-docs/references/progress.md": {
+      "bytes": 8294,
+      "mode": "0o644",
+      "sha256": "e3e62e6bce5a7a43b0b20575806cd47a923ae23a48d8cb020911bbc5b90db523"
+    },
+    "codex/context-docs/references/standard.md": {
+      "bytes": 9301,
+      "mode": "0o644",
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+    },
+    "codex/context-docs/scripts/event_journal.py": {
+      "bytes": 8897,
+      "mode": "0o644",
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+    },
+    "codex/context-docs/scripts/journal_policy.py": {
+      "bytes": 11193,
+      "mode": "0o644",
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "limits": [
+    "Already-adopted fixture; fresh-rule setup not tested.",
+    "Explicit adoption and rule-guided maintenance; default UI discovery and general reliability not established.",
+    "Synthetic retained results only; no application tests.",
+    "Sol author-scored, not independent review.",
+    "No Git fixture; runtime bookkeeping outside preservation inventory."
+  ],
+  "prompts": {
+    "claude": {
+      "adopt": "Use /adopt-context-docs.\n\nAdopt Context Docs in this project using the installed skills. Preserve equivalent instructions, the original marker/date, record locations, owner work and logging off. Only notes/context.md may change. Use local reads and documentation edits only; no settings, Git, network, delegation, implementation, application tests or installed-skill changes. Report what changed and any instruction-loading limits.\n",
+      "maintain": "Record the following new synthetic retained result in notes/results.md: October 16, 2026, the interruption fixture was provided and the interrupted-write check passed. Both documented checks have now passed; the next action is maintainer review, with deployment still requiring separate approval. Finish this task following the project rules. Only notes/results.md and notes/context.md may change. Preserve earlier evidence and owner work. No settings, Git, network, delegation, implementation, application tests or installed-skill changes.\n"
+    },
+    "codex": {
+      "adopt": "$adopt-context-docs\n\nAdopt Context Docs in this project using the installed skills. Preserve equivalent instructions, the original marker/date, record locations, owner work and logging off. Only notes/context.md may change. Use local reads and documentation edits only; no settings, Git, network, delegation, implementation, application tests or installed-skill changes. Report what changed and any instruction-loading limits.\n",
+      "maintain": "Record the following new synthetic retained result in notes/results.md: October 16, 2026, the interruption fixture was provided and the interrupted-write check passed. Both documented checks have now passed; the next action is maintainer review, with deployment still requiring separate approval. Finish this task following the project rules. Only notes/results.md and notes/context.md may change. Preserve earlier evidence and owner work. No settings, Git, network, delegation, implementation, application tests or installed-skill changes.\n"
+    }
+  },
+  "release_commit": "7aa2d5d1b925a02ca5efd29bcee6eb76aee6e466",
+  "sessions": 4
+}

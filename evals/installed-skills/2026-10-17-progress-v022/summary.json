@@ -1,0 +1,192 @@
+{
+  "assessment": {
+    "default_inline_adoption": "pass in both clients, without visualization request",
+    "everyday_maintenance": "pass in both clients, without progress or skill request in the task",
+    "limits": "Guided re-adoption and rule-based maintenance, not proof of fresh adoption, future automatic loading, full suite coverage or general reliability.",
+    "status_and_preservation": "pass; current blocker removed after retained pass, historic result retained, owner decisions and deployment approval unchanged",
+    "visual_path_dependencies_blockers_sources": "pass; supported work and obtain-fixture-then-check ordering, resolving source map"
+  },
+  "assessor": "Sol; author-scored, not independent validation",
+  "bundle": {
+    "adoption": "0.1.11",
+    "core": "0.2.2"
+  },
+  "date": "2026-10-17",
+  "limits": [
+    "Already-adopted fixture; fresh-rule setup not tested.",
+    "Explicit adoption and rule-guided maintenance; default UI discovery and general reliability not established.",
+    "Synthetic retained results only; no application tests.",
+    "Sol author-scored, not independent review.",
+    "No Git fixture; runtime bookkeeping outside preservation inventory."
+  ],
+  "native_versions": {
+    "claude": "2.1.302",
+    "codex": "0.163.0-alpha.10.2"
+  },
+  "preservation": {
+    "baseline_entries": 63660,
+    "installed_files_verified": 32,
+    "scope": "All inventoried preexisting repository paths, earlier durable private evidence and four installed skill trees preserve bytes/modes except the authorized project-context update. Only new smoke outputs and one new event are added. Git metadata and routine native-client global bookkeeping are outside the inventory.",
+    "unexpected_changes": [],
+    "verified": true
+  },
+  "protocol_private_sha256": "cfff711a0d8c21ab417987d0c57566b87fe683a5c990126f1c819b10476d4e96",
+  "repository_checks": {
+    "command": "python3 -B evals/checks/static_checks.py",
+    "packages": 2,
+    "relative_links_and_anchors": 1624,
+    "result": "pass",
+    "result_tables": 5,
+    "separate_from_native_behavior": true,
+    "versions": 2,
+    "whitespace": "git diff --check passes"
+  },
+  "sessions": {
+    "claude_adopt": {
+      "all_other_fixture_content_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "notes/context.md"
+      ],
+      "elapsed_seconds": 29.43,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T04:48:33.321828+00:00",
+      "installed_skill_use": "Installed Skill(adopt-context-docs), direct core/progress reads",
+      "links_checked": "4 relative links and anchors",
+      "local_anchors_checked": 2,
+      "native_result": {
+        "is_error": false,
+        "permission_denials": [],
+        "subtype": "success"
+      },
+      "output_sha256": {
+        "AGENTS.md": "b6581a0facbb548ff32a5cbdbc782124b5c98841179e0c878c1123a0209b756b",
+        "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "README.md": "018b9850dffe2ea01da5209ff849a596a5319a3238f4f5a5674b6994040b9ec4",
+        "notes/context.md": "83b433d77161feb4334b05c3c0cbae0f4b21fc634b87826ce81dfe7c89edab6f",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "d4a988ae621b8e5a2c432413c67e844cea4545c08e2805a3a92787d5d5f62b64",
+        "owner-work.txt": "b7692be31dd2767b94d9f670a824fcfe831caacc321fd1c0501d307a47038b64"
+      },
+      "raw_sha256": {
+        "receipt.json": "566a7ec1e1e2f5cb5f4b93a4791a073deb268f866c9bd3b70320eae902ad5b81",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "0a2c36a12e6ccfb03d1e7f835f204f4278555e48392b5355994be6b9b516ef3e"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": [
+        "claude-opus-5-5"
+      ],
+      "started_at": "2026-10-17T04:48:03.890216+00:00",
+      "status": "completed"
+    },
+    "claude_maintain": {
+      "all_other_fixture_content_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "notes/context.md",
+        "notes/results.md"
+      ],
+      "elapsed_seconds": 18.33,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T04:48:57.896206+00:00",
+      "installed_skill_use": "Installed Skill(context-docs) without explicit skill request in the task",
+      "links_checked": "4 relative links and anchors",
+      "local_anchors_checked": 2,
+      "native_result": {
+        "is_error": false,
+        "permission_denials": [],
+        "subtype": "success"
+      },
+      "output_sha256": {
+        "AGENTS.md": "b6581a0facbb548ff32a5cbdbc782124b5c98841179e0c878c1123a0209b756b",
+        "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "README.md": "018b9850dffe2ea01da5209ff849a596a5319a3238f4f5a5674b6994040b9ec4",
+        "notes/context.md": "a58df985f98a6971b824fe72ffe2fc0e3c51ddfdaff196fb204c0f0d021fb56e",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "95114a603d02048d418aa44e57c9c21b71f3ca3d23da82efc47b18de1e699c02",
+        "owner-work.txt": "b7692be31dd2767b94d9f670a824fcfe831caacc321fd1c0501d307a47038b64"
+      },
+      "raw_sha256": {
+        "receipt.json": "c08f5b2f926f8b4589943924f51b871116c9d9a90b9b60f9a05e9966f20b3cb4",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "98fd47a7ea25f3e8fe6815995d2e273869b75f6ad2fb691b235e154bc4cc707e"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": [
+        "claude-opus-5-5"
+      ],
+      "started_at": "2026-10-17T04:48:39.567211+00:00",
+      "status": "completed"
+    },
+    "codex_adopt": {
+      "all_other_fixture_content_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "notes/context.md"
+      ],
+      "elapsed_seconds": 26.42,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T04:48:29.171287+00:00",
+      "installed_skill_use": "Direct reads of installed core, adoption and progress guide",
+      "links_checked": "4 relative links and anchors",
+      "local_anchors_checked": 2,
+      "native_result": null,
+      "output_sha256": {
+        "AGENTS.md": "b6581a0facbb548ff32a5cbdbc782124b5c98841179e0c878c1123a0209b756b",
+        "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "README.md": "018b9850dffe2ea01da5209ff849a596a5319a3238f4f5a5674b6994040b9ec4",
+        "notes/context.md": "11035bacae92843232402f4d2bbf9b06ca4634e6ff8ed8ab4a2ffd5badae7da2",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "d4a988ae621b8e5a2c432413c67e844cea4545c08e2805a3a92787d5d5f62b64",
+        "owner-work.txt": "b7692be31dd2767b94d9f670a824fcfe831caacc321fd1c0501d307a47038b64"
+      },
+      "raw_sha256": {
+        "receipt.json": "5819cef7ef22d741853098950b9f21d284ddccee26b16ea39a95663202758ad2",
+        "stderr.txt": "d95df1676e5231cc43485ca8f4f9b0a26aac4a53364bb2411aa619ec58d815cb",
+        "stdout.jsonl": "15798e761425f8edb791853efd6f897b1bd1dbbc68b43d0de62e0458a3926ad8"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "started_at": "2026-10-17T04:48:02.752167+00:00",
+      "status": "completed"
+    },
+    "codex_maintain": {
+      "all_other_fixture_content_preserved": true,
+      "attempt": 1,
+      "cap_seconds": 180,
+      "changed": [
+        "notes/context.md",
+        "notes/results.md"
+      ],
+      "elapsed_seconds": 19.12,
+      "exit_code": 0,
+      "finished_at": "2026-10-17T04:48:57.545221+00:00",
+      "installed_skill_use": "Direct reads of installed core and progress guide",
+      "links_checked": "4 relative links and anchors",
+      "local_anchors_checked": 2,
+      "native_result": null,
+      "output_sha256": {
+        "AGENTS.md": "b6581a0facbb548ff32a5cbdbc782124b5c98841179e0c878c1123a0209b756b",
+        "CLAUDE.md": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "README.md": "018b9850dffe2ea01da5209ff849a596a5319a3238f4f5a5674b6994040b9ec4",
+        "notes/context.md": "3ae21400e923ac161c7892ec72d6385f3ddf1e708cc9b673068256fd633d0a97",
+        "notes/decisions.md": "9adc0e74df63828ff01f09b481f8ac21e4a4d47055fb61acd64b95e416c58f18",
+        "notes/results.md": "83719c72c5b9a69ff656df8aaf1fe584e3510b30a3bee7c6644886a0113fb2fc",
+        "owner-work.txt": "b7692be31dd2767b94d9f670a824fcfe831caacc321fd1c0501d307a47038b64"
+      },
+      "raw_sha256": {
+        "receipt.json": "89121e0c72727a32e4ff54a3fa4a6030baf038b8c8ac88d1d2b279649e492e88",
+        "stderr.txt": "84c95758056f8c336fc10805b2b88b93d7400abdbb1a0201ba2f17d2151e88b9",
+        "stdout.jsonl": "8d82958ba2377f98b93cd7c6aa2f4ac6bd0dc7ad0ab00e029233acb05d2561d5"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "started_at": "2026-10-17T04:48:38.429692+00:00",
+      "status": "completed"
+    }
+  }
+}
