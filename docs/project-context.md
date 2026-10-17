@@ -1,8 +1,8 @@
 # Project context
 
-v0.2.3 publication and website deployment authorized: October 17, 2026.
-Remote publication and live verification are pending. Earlier v0.2.2 verification
-and saved study evidence remain unchanged; installed upgrades are separate.
+Release and website verified: October 17, 2026. Experimental v0.2.3 is published;
+all eight checked live public resources match its release build. The Codex smoke
+scope qualification is retained. Installed skills, setups and studies are preserved.
 
 ## Purpose and scope
 
@@ -15,14 +15,15 @@ local notes only when still useful.
 
 ## Current focus
 
-The authorized experimental bundle is v0.2.3: core **0.2.3** / adoption **0.1.12**.
+The released experimental bundle is v0.2.3: core **0.2.3** / adoption **0.1.12**.
 The owner requested default inline progress when documented context supports it.
 Reuse existing views and canonical details; missing goals or insufficient facts
 must not produce invented scaffolding.
 
-Release labels are finalized for concise overviews with linked evidence, preserving
-decisions, blockers and existing layouts. Remote publication/deployment are pending;
-installed skills and setup rules remain unchanged.
+v0.2.3 ships concise overviews with linked evidence, preserving decisions, blockers
+and existing layouts. Publication and website verification are complete; installed
+upgrades remain separate. The [publication record](releases/v0.2.3-publication.json)
+owns identities and verification limits.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -38,10 +39,10 @@ Goal: make progress clear during everyday context work
 |       |-- PASS  Adoption creates an inline view by default
 |       `-- PASS  Everyday maintenance refreshes that same view
 |
-`-- APPROVED  v0.2.3 publication; Codex write scope qualified [P, T]
-    `-- PENDING  Release, deployment and live verification [Q]
+`-- RELEASED  v0.2.3 concise views; Codex write scope qualified [P, T]
+    `-- DONE  Experimental release, deployment and live verification [U]
 
-NEXT: publish the pinned v0.2.3 release, deploy and verify its website [N].
+NEXT: use v0.2.3 guidance in ordinary work; installed upgrades are separate [N].
 ```
 
 Sources:
@@ -61,7 +62,10 @@ Sources:
   Codex's extra temporary hash-file write/delete violates the strict write scope.
 - **Q:** [v0.2.3 release notes](releases/v0.2.3.md) and
   [preparation checks](releases/v0.2.3-validation.json) retain that qualification.
-  Release/deployment are authorized; remote publication and verification are pending.
+  The original preparation snapshot remains unchanged beside the publication record [U].
+- **U:** [v0.2.3 publication and live verification](releases/v0.2.3-publication.json).
+  Release checks and deployment pass from `0c053d6`; eight live responses match
+  its build, including the smoke qualification. No native trial or installed upgrade.
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -115,6 +119,10 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
+- Current released bundle: [v0.2.3](releases/v0.2.3.md), core **0.2.3**,
+  adoption **0.1.12**, standard **0.1.1**. Published and deployed from `0c053d6`;
+  the [publication record](releases/v0.2.3-publication.json) owns checked identities,
+  eight matching live resources and the retained smoke-scope qualification.
 - Installed v0.2.1 now has a [focused native smoke record](../evals/installed-skills/2026-10-16-progress-v021/README.md),
   separate from the copied-candidate evidence. Both clients produce the required
   visual path; Claude's extra prose prerequisite remains qualified. No installed
@@ -132,7 +140,7 @@ Earlier release approvals do not authorize new publication.
   [preparation record](releases/v0.2.1-validation.json) owns current local checks
   and previews separately from earlier native evidence. No new model request,
   publication, deployment or installed upgrade is part of that historical preparation.
-- Current released bundle: [v0.2.2](releases/v0.2.2.md), with core **0.2.2**,
+- Previous released bundle: [v0.2.2](releases/v0.2.2.md), with core **0.2.2**,
   adoption **0.1.11** and standard **0.1.1**. Published and deployed from `7aa2d5d`
   after both main-branch release checks pass. Eight live resources match the build;
   the [publication record](releases/v0.2.2-publication.json) owns identities and
@@ -206,13 +214,13 @@ Earlier release approvals do not authorize new publication.
   are defined in the packaged guide. There is no background service or sync.
 
 - [Landing page](https://context-docs.com/): live on GitHub Pages, built from
-  selected public sources. The [v0.2.2 deployment](https://github.com/jaredchu/context-docs/actions/runs/39003170474)
-  passed from `7aa2d5d`; the [publication record](releases/v0.2.2-publication.json)
-  records eight matching live responses, supported default-adoption copy and
-  released visual paths/source maps on both pages. The
-  [v0.2.1 record](releases/v0.2.1-publication.json), [v0.2.0 record](releases/v0.2.0-publication.json),
-  [October 11](website-deployment-2026-10-11.json)
-  and [October 10](website-deployment-2026-10-10.json) verification is retained.
+  selected public sources. The [v0.2.3 deployment](https://github.com/jaredchu/context-docs/actions/runs/39009310394)
+  passes from `0c053d6`; the [publication record](releases/v0.2.3-publication.json)
+  records eight matching live responses, released concise-view copy and the smoke
+  qualification. Earlier [v0.2.2](releases/v0.2.2-publication.json),
+  [v0.2.1](releases/v0.2.1-publication.json), [v0.2.0](releases/v0.2.0-publication.json),
+  [October 11](website-deployment-2026-10-11.json) and
+  [October 10](website-deployment-2026-10-10.json) records remain unchanged.
   [Deployment](../site/README.md#github-pages) is manual; Cloudflare proxies the
   custom domain with Full SSL and Always Use HTTPS enabled.
 - The site publishes canonical metadata, a sitemap, crawler policy and a
@@ -266,14 +274,14 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Complete the owner-authorized v0.2.3 experimental publication, deploy its pinned
-source and verify live response bytes, release labels and retained smoke qualification.
-Preserve the preparation record, installed skills, setup rules and studies. Installed
-upgrades remain a separate action; no smoke correction or retry is selected.
+The [v0.2.3 experimental release](releases/v0.2.3.md) and website are published
+and verified. Keep the original preparation, qualified smoke and review records
+unchanged alongside the [publication receipt](releases/v0.2.3-publication.json).
+Installed upgrades remain separately authorized; no smoke correction/retry is selected.
 
-Continue ordinary work with the [released v0.2.2 guidance](releases/v0.2.2.md)
-and record concrete misses. Preserve its earlier native evidence and unchanged
-preparation record alongside the [publication receipt](releases/v0.2.2-publication.json).
+Continue ordinary work with the [released v0.2.3 guidance](releases/v0.2.3.md)
+and record concrete misses. Preserve its qualified native evidence and unchanged
+preparation record alongside the [publication receipt](releases/v0.2.3-publication.json).
 Installed upgrades remain a separately authorized action, preserving customizations
 and project setups; release publication does not apply the default to existing projects.
 

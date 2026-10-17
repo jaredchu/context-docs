@@ -25,8 +25,12 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - Finalize owner-authorized experimental release labels for core 0.2.3, adoption
   0.1.12 and unchanged standard 0.1.1. Retain the Codex temporary-file scope failure,
   unknown prior path state and original native/review qualifications.
-- Remote release, deployment and live verification are pending at this source
-  snapshot. Preserve all package files, installed skills, setup rules and studies.
+- The [publication record](docs/releases/v0.2.3-publication.json) records the
+  experimental prerelease, passing release-commit checks and successful Pages
+  deployment from pinned source `0c053d6`. All eight checked live responses match
+  the build, including released labels, concise guidance and the smoke qualification.
+  Package files, installed skills, setup rules and saved studies are preserved;
+  no new model trial, counterpart review or installed upgrade.
 
 ## v0.2.3 release preparation — 2026-10-17 (unpublished)
 
