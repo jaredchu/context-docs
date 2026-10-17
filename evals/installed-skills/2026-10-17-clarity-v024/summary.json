@@ -1,0 +1,390 @@
+{
+  "assessment": "Both clients pass the focused installed clarity and saved-meaning checks, with authorized fixture edit scope. Automatic loading remains unconfirmed; Claude loading statement is a subject self-report. No output fixes or retries.",
+  "assessor": "Sol; guided author-scored smoke, not independent assessment",
+  "bundle": "v0.2.4",
+  "clients": {
+    "claude": {
+      "additional_valid_links": [],
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/notes/context.md"
+      ],
+      "final_report_domain_facts": "No new unsupported gender, result or approval assumption observed. Automatic-loading statements remain qualified.",
+      "links_checked": [
+        {
+          "source": "adopt/notes/context.md",
+          "target": "checks.md#sample-export"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "checks.md#empty-input"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "checks.md#small"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "decisions.md#storage"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "decisions.md#storage"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "checks.md#large"
+        }
+      ],
+      "local_context_link_count": 8,
+      "native_result": {
+        "is_error": false,
+        "permission_denials": [],
+        "subtype": "success"
+      },
+      "only_permitted_sections_changed": true,
+      "operation_audit": {
+        "api_key_source": "none",
+        "calls": [
+          {
+            "path": "<fixture>/README.md",
+            "tool": "Read"
+          },
+          {
+            "path": "~/.claude/skills/adopt-context-docs/SKILL.md",
+            "tool": "Read"
+          },
+          {
+            "path": "~/.claude/skills/context-docs/SKILL.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/adopt/notes/context.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/maintain/notes/context.md",
+            "tool": "Read"
+          },
+          {
+            "path": "~/.claude/skills/context-docs/references/progress.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/adopt/notes/checks.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/adopt/notes/decisions.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/maintain/notes/checks.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/maintain/notes/decisions.md",
+            "tool": "Read"
+          },
+          {
+            "path": "<fixture>/adopt/notes/context.md",
+            "tool": "Edit"
+          },
+          {
+            "path": "<fixture>/adopt/notes/context.md",
+            "tool": "Edit"
+          },
+          {
+            "path": "<fixture>/maintain/notes/context.md",
+            "tool": "Edit"
+          },
+          {
+            "path": "<fixture>/maintain/notes/context.md",
+            "tool": "Edit"
+          }
+        ],
+        "instruction_loading": "Subject says AGENTS/CLAUDE contents loaded; not independently established by this smoke trace.",
+        "manual_inspection": "Ten Read calls and four Edit calls, edits only within the two allowed sections/files; no installed-skill writes or extra file operations observed."
+      },
+      "other_fixture_bytes_and_modes_equal": true,
+      "outputs_sha256": {
+        "adopt/notes/checks.md": "39170ae4c36df64444e780a5a0911857ec96bec4373c4d80d3753cd97460b17e",
+        "adopt/notes/context.md": "6b9b0c5d87d4917b43cb67468f1cd21c733e6c3d0728324be93920ee1a04f928",
+        "adopt/notes/decisions.md": "59ffd7464ce433cd719f7fbe414dd2d94ae35e1299cc44bc09cdb80fa32b485a",
+        "maintain/notes/checks.md": "2d341ebc6bc701f9c0e8cb1e8677595f318b8b7090c55ea7165e2296b4162269",
+        "maintain/notes/context.md": "7cb626f4ed72b8342d63536c94a9da820dbfbb12ad03a1f116eba3c41486dda1",
+        "maintain/notes/decisions.md": "cd3c7070ba104253ea4e9909bd5f61119863250e4208af28f81d217dd68dbb37"
+      },
+      "raw_private_sha256": {
+        "receipt.json": "d7ca5730e7a15d021cd3f635dd768e966c1367aa0d1371369ca413fb7f9fc7c1",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout.jsonl": "be9430aa2fcb35a31cbe4fb24988f46d2954001c117ba7011beecdeba5a08ee6"
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "client": "claude",
+        "command": [
+          "claude",
+          "--print",
+          "--verbose",
+          "--output-format",
+          "stream-json",
+          "--model",
+          "claude-opus-5-5",
+          "--effort",
+          "medium",
+          "--tools",
+          "Read,Write,Edit",
+          "--allowedTools",
+          "Read,Write,Edit",
+          "--permission-mode",
+          "acceptEdits",
+          "--no-session-persistence",
+          "--setting-sources",
+          "project",
+          "--settings",
+          "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false}",
+          "--strict-mcp-config",
+          "--mcp-config",
+          "{\"mcpServers\":{}}",
+          "--no-chrome"
+        ],
+        "elapsed_seconds": 42.62,
+        "ended_at": "2026-10-17T09:52:36.575293+00:00",
+        "exit_code": 0,
+        "started_at": "2026-10-17T09:51:53.957602+00:00",
+        "timed_out": false,
+        "version": "2.1.302 (Claude Code)"
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": "claude-opus-5-5",
+      "semantic_assessment": {
+        "A1": "pass",
+        "A2": "pass",
+        "A3": "pass",
+        "A4": "pass",
+        "B1": "pass",
+        "B2": "pass",
+        "B3": "pass",
+        "B4": "pass",
+        "links": "pass",
+        "loading": "pass",
+        "scope": "pass",
+        "style": "pass"
+      }
+    },
+    "codex": {
+      "additional_valid_links": [
+        "checks.md#empty-input",
+        "checks.md#large"
+      ],
+      "changed_fixture_files": [
+        "adopt/notes/context.md",
+        "maintain/notes/context.md"
+      ],
+      "final_report_domain_facts": "No new unsupported gender, result or approval assumption observed. Automatic-loading statements remain qualified.",
+      "links_checked": [
+        {
+          "source": "adopt/notes/context.md",
+          "target": "checks.md#sample-export"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "decisions.md#csv"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "checks.md#empty-input"
+        },
+        {
+          "source": "adopt/notes/context.md",
+          "target": "checks.md#empty-input"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "checks.md#small"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "checks.md#large"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "checks.md#large"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "decisions.md#storage"
+        },
+        {
+          "source": "maintain/notes/context.md",
+          "target": "decisions.md#storage"
+        }
+      ],
+      "local_context_link_count": 10,
+      "native_result": null,
+      "only_permitted_sections_changed": true,
+      "operation_audit": {
+        "commands": [
+          "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'README.md' -g '*.md' adopt maintain; cat AGENTS.md README.md ~/.agents/skills/adopt-context-docs/SKILL.md ~/.agents/skills/context-docs/SKILL.md\"",
+          "/bin/zsh -lc 'cat adopt/AGENTS.md adopt/CLAUDE.md adopt/README.md adopt/notes/context.md adopt/notes/checks.md adopt/notes/decisions.md maintain/AGENTS.md maintain/CLAUDE.md maintain/README.md maintain/notes/context.md maintain/notes/checks.md maintain/notes/decisions.md ~/.agents/skills/context-docs/references/progress.md'",
+          "/bin/zsh -lc 'cat adopt/notes/context.md maintain/notes/context.md'",
+          "/bin/zsh -lc 'cat adopt/notes/context.md maintain/notes/context.md'"
+        ],
+        "file_changes": [
+          {
+            "kind": "update",
+            "path": "adopt/notes/context.md"
+          },
+          {
+            "kind": "update",
+            "path": "maintain/notes/context.md"
+          }
+        ],
+        "manual_inspection": "Four read-only shell commands and one patch touching the two allowed files; no extra writes, Git, network, repository/candidate skill use or installed-skill edits observed."
+      },
+      "other_fixture_bytes_and_modes_equal": true,
+      "outputs_sha256": {
+        "adopt/notes/checks.md": "39170ae4c36df64444e780a5a0911857ec96bec4373c4d80d3753cd97460b17e",
+        "adopt/notes/context.md": "433dbc15c0f0ed7f66b6a35d683ae2fe49ff372617f4953ca858365893a7561d",
+        "adopt/notes/decisions.md": "59ffd7464ce433cd719f7fbe414dd2d94ae35e1299cc44bc09cdb80fa32b485a",
+        "maintain/notes/checks.md": "2d341ebc6bc701f9c0e8cb1e8677595f318b8b7090c55ea7165e2296b4162269",
+        "maintain/notes/context.md": "05c2eb1990862b814ddc891e12be82fba20735b7b15fd596dea1a92616cda90b",
+        "maintain/notes/decisions.md": "cd3c7070ba104253ea4e9909bd5f61119863250e4208af28f81d217dd68dbb37"
+      },
+      "raw_private_sha256": {
+        "receipt.json": "4cbf59f3efa6aaf1f64bb8d51db41b3adcfd03761c20806cfd8c526ac40a20e3",
+        "stderr.txt": "d08cf22d90eeeb1181d8e47e963829a4c69f1692202e8f52b0e210de45d57a26",
+        "stdout.jsonl": "f6b98b046888bc58d58a3fef67d335acafdd6ee69147f85af16ecb05df89eb90"
+      },
+      "receipt": {
+        "attempt": 1,
+        "cap_seconds": 180,
+        "client": "codex",
+        "command": [
+          "codex",
+          "exec",
+          "--ignore-user-config",
+          "--skip-git-repo-check",
+          "--ephemeral",
+          "--sandbox",
+          "workspace-write",
+          "--model",
+          "gpt-6.1-sol",
+          "--config",
+          "model_reasoning_effort=\"medium\"",
+          "--config",
+          "features.multi_agent=false",
+          "--config",
+          "features.memories=false",
+          "--json",
+          "--color",
+          "never",
+          "-"
+        ],
+        "elapsed_seconds": 35.4,
+        "ended_at": "2026-10-17T09:52:29.380511+00:00",
+        "exit_code": 0,
+        "started_at": "2026-10-17T09:51:53.978012+00:00",
+        "timed_out": false,
+        "version": "codex-cli 0.163.0-alpha.10.2"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": null,
+      "semantic_assessment": {
+        "A1": "pass",
+        "A2": "pass",
+        "A3": "pass",
+        "A4": "pass",
+        "B1": "pass",
+        "B2": "pass",
+        "B3": "pass",
+        "B4": "pass",
+        "links": "pass",
+        "loading": "pass",
+        "scope": "pass",
+        "style": "pass"
+      }
+    }
+  },
+  "criteria": {
+    "A1": "Two sample files passed October 12; full suite unrun, not passed.",
+    "A2": "Empty-input fixture missing; run only when available; outcome unknown, not failed.",
+    "A3": "Mira approved CSV retention, not deployment; JSON remains a proposal.",
+    "A4": "CSV compatibility rationale retained, in context and unchanged linked decision.",
+    "B1": "Cache reset occurred; actor remains unknown.",
+    "B2": "Small-dataset retry passed only; missing large result is not a failure.",
+    "B3": "If large check passes ask Noor; pass is not approval; release still unapproved.",
+    "B4": "SQLite retention rationale and undecided Postgres preserved.",
+    "links": "Original source link targets preserved and all final local context links resolve.",
+    "loading": "Direct installed adoption/core reads observed; no copied candidate or repository skill use.",
+    "scope": "Only the two allowed sections change; packages, source evidence, decisions, rules and owner text unchanged; inspect observed write operations as well as final tree.",
+    "style": "Crowded Progress/Next action prose becomes clearer without a new layout or unrelated rewriting; no STE conformance required."
+  },
+  "date": "2026-10-17",
+  "earlier_evidence": "Earlier copied-candidate Claude report-only pronoun qualification and all original studies unchanged; this separate run does not replace them.",
+  "limits": [
+    "One guided installed-skill session per client, two tiny tasks sharing each session. Sol authors and scores; not independent validation.",
+    "Reuses the earlier copied-candidate fixture and semantic criteria, with installed paths supplied explicitly; not a novel or held-out fixture.",
+    "No implicit discovery, automatic everyday maintenance, fresh setup, cross-session continuity, human comprehension gain or general reliability claim.",
+    "Codex uses workspace-write sandbox; Claude file boundaries are prompt-based and checked afterward, not OS sandbox isolation.",
+    "Git metadata and routine native-client global bookkeeping outside installed skill trees are excluded from preservation inventory.",
+    "Earlier candidate report-only pronoun qualification and all earlier studies remain unchanged; no output fixes or retries."
+  ],
+  "preservation": {
+    "allowed_existing_file_changes": [
+      "CHANGELOG.md",
+      "docs/project-context.md"
+    ],
+    "earlier_uncommitted_upgrade_event_equal": true,
+    "exclusions": [
+      "Git metadata",
+      "this new private smoke root",
+      "routine native-client global bookkeeping outside installed skill trees"
+    ],
+    "existing_project_setups_saved_studies_prior_private_evidence_equal": true,
+    "installed_package_files_equal": 32,
+    "new_paths": [
+      "evals/installed-skills/2026-10-17-clarity-v024/",
+      ".context/events/installed-v024-smoke-20261017.jsonl"
+    ],
+    "protected_baseline_entries": 64778,
+    "source_package_files_equal": 16
+  },
+  "private_evidence_id": "installed-v024-clarity-smoke-ec01dba9-b254-4574-b07c-dd3b04a9827c",
+  "repository_checks": {
+    "diff": {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "static": {
+      "command": [
+        "python3",
+        "-B",
+        "evals/checks/static_checks.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "links: checked 1774 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected.\n"
+    }
+  }
+}

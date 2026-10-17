@@ -2,7 +2,7 @@
 
 Release and website verified: October 17, 2026. Experimental v0.2.4 is published;
 all eight checked live public resources match its release build. The report-only
-Claude smoke qualification is retained. Installed skills, setups and studies are preserved.
+Claude smoke qualification is retained. Existing setups and saved studies are preserved.
 
 ## Purpose and scope
 
@@ -24,8 +24,12 @@ on comprehension gains and automatic everyday application.
 
 Publication and website verification are complete; the [publication record](releases/v0.2.4-publication.json)
 owns pinned identities and verification limits. The [preparation record](releases/v0.2.4-validation.json)
-and earlier evidence stay unchanged. Installed v0.2.3 and existing setups are preserved;
-upgrading remains a separate action.
+and earlier evidence stay unchanged. Installed Codex and Claude Code copies now
+match v0.2.4; package checks pass. The [upgrade record](../.context/events/installed-v024-upgrade-20261017.jsonl)
+keeps file verification separate from the [installed native smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
+Both clients pass its focused clarity and meaning-preservation checks; guided
+cases do not establish comprehension gains or automatic everyday application.
+Existing setups and saved studies are unchanged.
 
 Saved snapshot: October 17, 2026; this is not live agent activity.
 
@@ -38,9 +42,10 @@ Goal: make progress clear during everyday context work
 |-- RELEASED  v0.2.3 concise views [Q]
 |   `-- CHECKED  Installed Codex and Claude smoke checks [I]
 `-- RELEASED  v0.2.4 clarity preference [L]
-    `-- DONE     Experimental release and website verification [U]
+    |-- DONE     Experimental release and website verification [U]
+    `-- CHECKED  Installed Codex and Claude clarity smoke [J]
 
-NEXT: use v0.2.3 in everyday work and record concrete misses [N].
+NEXT: use v0.2.4 in everyday work and record concrete misses [N].
 ```
 
 Sources:
@@ -53,6 +58,7 @@ Sources:
   and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
 - **N:** [Next actions](#next-actions).
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
+- **J:** [Installed v0.2.4 clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
 
 **Blockers:** no current implementation blocker is recorded.
 
@@ -114,6 +120,10 @@ Earlier release approvals do not authorize new publication.
   adoption **0.1.12**, standard **0.1.1**. Published and deployed from `0c053d6`;
   the [publication record](releases/v0.2.3-publication.json) owns checked identities,
   eight matching live resources and the retained smoke-scope qualification.
+- Installed v0.2.4 has a [focused clarity smoke record](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
+  Both clients pass the saved-Markdown meaning, link and edit-scope checks. Explicit
+  installed paths and a reused synthetic fixture limit the result; earlier studies
+  and their qualifications remain unchanged.
 - Installed v0.2.3 has a [focused native smoke record](../evals/installed-skills/2026-10-17-progress-v023/README.md).
   Both clients pass concise-view, source-link, decision/blocker and existing-layout
   checks. One guided session per client, with two tasks and explicit installed paths;
@@ -272,8 +282,10 @@ comprehensive privacy audit.
 The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
 and verified. Keep the qualified native smoke, original preparation record and
 [publication receipt](releases/v0.2.4-publication.json) together. Continue everyday
-work with the installed skills; an optional v0.2.4 upgrade requires a separate
-request, preserving local customizations and project setups.
+work with the upgraded v0.2.4 skills. Both installed sibling pairs match the release
+and pass package checks. The [installed clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md)
+adds narrow native evidence; keep its limits and earlier qualifications. Existing
+project setups and saved studies remain unchanged.
 
 The [v0.2.3 experimental release](releases/v0.2.3.md) and website are published
 and verified. Keep the original preparation, qualified smoke and review records

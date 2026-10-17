@@ -21,6 +21,17 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Installed v0.2.4 clarity smoke — 2026-10-17
+
+- Run one fresh native session per client with installed core 0.2.4/adoption
+  0.1.13, each covering two synthetic clarity tasks. Both preserve conditions,
+  uncertainty, rationale, evidence and the permitted edit scope; 10 Codex and
+  eight Claude context links resolve. The [installed smoke record](evals/installed-skills/2026-10-17-clarity-v024/README.md)
+  retains exact outputs, operation checks and limits separately from the unchanged
+  copied-candidate pronoun qualification. Installed skills, setups and saved studies
+  remain unchanged. Guided, author-scored and explicitly routed; no comprehension
+  gain, automatic everyday application or independent loading proof is established.
+
 ## v0.2.4 publication — 2026-10-17
 
 - Finalize owner-authorized experimental release labels for core 0.2.4, adoption
