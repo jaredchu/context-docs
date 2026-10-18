@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "context-docs",
+  "version": "0.2.5-candidate.1",
+  "description": "Maintain project decisions, current work and next steps in Markdown.",
+  "author": {
+    "name": "Jared Chu",
+    "url": "https://github.com/jaredchu"
+  },
+  "homepage": "https://context-docs.com/",
+  "repository": "https://github.com/jaredchu/context-docs",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "requires_local_executor": true,
+      "interface": {
+        "displayName": "Context Docs",
+        "shortDescription": "Keep project context useful",
+        "longDescription": "For coding projects: adopt a Markdown context workflow, then maintain decisions, current work, blockers and next steps. Uses existing project documents and preserves their layouts. This experimental candidate bundles context-docs 0.2.5 and adopt-context-docs 0.1.14. It requires access to the selected project workspace; general chat and hosted environments are unvalidated. Optional local journal helpers require Python 3.9+ and use Git for applicable storage checks. No hosted service or automatic background activity is provided.",
+        "developerName": "Jared Chu",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

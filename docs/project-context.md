@@ -38,6 +38,11 @@ passes; both public skill pages now show content, while owner-filtered search st
 returns zero results in two October 18 snapshots. Telemetry receives HTTP 200;
 indexing completion and counted installs remain unconfirmed. No native behavior is retested.
 
+A [minimal plugin candidate](plugin-candidate.md) bundles both unchanged skills for
+review. Local packaging checks pass; Claude directory eligibility remains unresolved
+because its user-file extraction policy overlaps document maintenance. No plugin
+installation, submission or publication has occurred.
+
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
 ```text

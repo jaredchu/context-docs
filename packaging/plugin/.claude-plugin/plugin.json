@@ -1,0 +1,16 @@
+{
+  "name": "context-docs",
+  "displayName": "Context Docs",
+  "version": "0.2.5-candidate.1",
+  "description": "Maintain project decisions, current work and next steps in Markdown.",
+  "author": {
+    "name": "Jared Chu",
+    "url": "https://github.com/jaredchu"
+  },
+  "homepage": "https://context-docs.com/",
+  "repository": "https://github.com/jaredchu/context-docs",
+  "license": "MIT",
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://context-docs.com/getting-started/",
+  "supportUrl": "https://github.com/jaredchu/context-docs/issues"
+}

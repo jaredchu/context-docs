@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-18",
+  "status": "local candidate; no submission/publication",
+  "private_evidence_id": "plugin-candidate-dda6af84-3fc3-4067-a5fd-ec85b75d3319",
+  "source_revision": "34958ce1e45671f04ea9025dedd25a14376681b6",
+  "candidate_version": "0.2.5-candidate.1",
+  "skill_versions": {
+    "context-docs": "0.2.5",
+    "adopt-context-docs": "0.1.14"
+  },
+  "build": {
+    "skill_source_commit": "89c91f424476c8194a89cd38f4f48c5078fa1574",
+    "files": 21,
+    "unpacked_bytes": 85953,
+    "archive_bytes": 38559,
+    "archive_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+    "sha256": {
+      ".claude-plugin/plugin.json": "0ba4e2180fc3bf8233ba625648a5eeb7c2b0561945809101b4a82e27460aadd3",
+      "LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "README.md": "dce13c54ece8b70eeb57607ff3f1e80b1c41d6ca7098acb96e7caac72c4b735b",
+      "assets/icon.svg": "888176c1abf1f80cd10b6101b89696a75813baf39c30db2c79e6d94d059287b3",
+      "plugin.json": "af753e55fce3f472bcf48586c581ea7cda9fb3b302d59d61a2b5117e4245be39",
+      "skills/adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/adopt-context-docs/SKILL.md": "68a1ef6e8359fd0e574cba132d8028e88ad7e08ea08179d653860474757f15c5",
+      "skills/adopt-context-docs/VERSION": "9940d4b5219de8404015bc18af844c88d7e9e9105682a5d47b1d369d027dbd25",
+      "skills/adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "skills/context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "skills/context-docs/SKILL.md": "dde370dcab106f119c9c9ec860570c4915753836b9d2ddca7958a47d0a841218",
+      "skills/context-docs/VERSION": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0",
+      "skills/context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "skills/context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "skills/context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "skills/context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+      "skills/context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "skills/context-docs/references/progress.md": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+      "skills/context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "skills/context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "skills/context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+    }
+  },
+  "checks": {
+    "links": "21 relative links and anchors",
+    "skills": "2 installable skill packages",
+    "released_skill_files_equal": 16,
+    "zip_members": 21,
+    "zip_content_and_modes": "pass",
+    "declared_local_executor": true,
+    "forbidden_components_absent": true,
+    "helper_startups": [
+      {
+        "helper": "event_journal.py",
+        "exit_code": 0
+      },
+      {
+        "helper": "journal_policy.py",
+        "exit_code": 0
+      }
+    ],
+    "existing_output_refused": true,
+    "second_offline_build_same_sha256": true,
+    "released_files_equal": 16,
+    "archive_files": 21,
+    "standalone_links": "21 relative links and anchors",
+    "sha256_inventory": "pass",
+    "all_files_below_256KiB": true,
+    "dirty_working_tree_source_ignored_same_zip": true,
+    "existing_output_refused_without_changes": true,
+    "final_claude_strict_manifest_exit": 0,
+    "runtime_or_directory_approval_claim": false,
+    "repository_static": "pass; 1888 links/anchors, 5 tables, 2 skill packages/versions",
+    "whitespace": "pass"
+  },
+  "yaml": {
+    "exit_code": 0,
+    "stdout": "Two skill frontmatters and two Codex YAML files parse.\n",
+    "stderr": ""
+  },
+  "claude_manifest_validation": {
+    "client": "Claude Code 2.1.302",
+    "exit_code": 0,
+    "strict": true,
+    "isolated_configuration": true,
+    "advice": "README has no marketplace install line; no marketplace exists, so an unverified install line is not added."
+  },
+  "counterpart_review": {
+    "status": "completed on initial draft; verified findings corrected or dispositioned; final corrections checked locally, no second review",
+    "model": "claude-opus-5-5",
+    "route": "existing Claude Code subscription access; tools disabled; filesystem writes confined to new private root",
+    "exit_code": 0,
+    "elapsed_seconds": 44.4,
+    "automatic_follow_up": false,
+    "dispositions": [
+      {
+        "finding": 1,
+        "outcome": "Qualified 1.D explicitly: excess context collection is prohibited, not all logging; event necessity and directory interpretation remain unverified. Added it to the unsent policy question."
+      },
+      {
+        "finding": 2,
+        "outcome": "Added saved conversation summaries as a possible project-file source and to the unsent clarification. Did not infer a blanket prohibition on creating summaries from a rule about extracting from them."
+      },
+      {
+        "finding": 3,
+        "outcome": "Disclosed standing AGENTS.md/CLAUDE.md edits and retained project rules after uninstall; selection/reference checks remain a runtime gate."
+      },
+      {
+        "finding": 4,
+        "outcome": "Builder now reads fixed release Git objects rather than working-tree skills. A dirty private source fixture produces the identical final ZIP."
+      },
+      {
+        "finding": 5,
+        "outcome": "Documented root OpenAI manifest schema/portal validation as unrun. Distinguished it from the unavailable Python skill validator; existing YAML parsing and repository checks are not schema approval."
+      },
+      {
+        "finding": 6,
+        "outcome": "Changed plugin command wording to expected; invocation remains untested."
+      },
+      {
+        "finding": 7,
+        "outcome": "Verified existing sources: Claude checklist repository/folder rows cover containing-repository size limits; OpenAI submission page and portable example were opened. Schema URL comes from official portable example; the schema itself was not executed."
+      },
+      {
+        "finding": 8,
+        "outcome": "Official Claude manifest reference documents the listing fields; local tolerance does not prove actual portal/CLI consumption. Existing portal/runtime qualification retained."
+      },
+      {
+        "finding": 9,
+        "outcome": "Retained and strengthened the gate on enabling alongside standalone installs; no duplicate-skill selection claim."
+      }
+    ]
+  },
+  "policy_assessment": {
+    "claude_eligibility": "unresolved; section 1.F overlaps project-file maintenance; no documented local/user-authorization exception established",
+    "policy_question_sent": false,
+    "openai_eligibility": "not established; portable manifest requests local executor; portal/account checks unrun"
+  },
+  "limits": [
+    "Skills and source setup rules unchanged. This is packaging, not a skill release.",
+    "No plugin installation, marketplace configuration, behavior trial, portal scan, submission or publication.",
+    "Claude strict validation and local static checks do not prove directory acceptance or safe runtime loading.",
+    "OpenAI quick_validate.py is unavailable without PyYAML; existing Node YAML parsing and repository skill/link checks used instead. No dependency installed.",
+    "General chat, hosted execution, Cowork, implicit selection, duplicate standalone skills and plugin upgrades remain unvalidated."
+  ],
+  "sources": [
+    "https://developers.openai.com/plugins/build/plugins",
+    "https://developers.openai.com/plugins/deploy/submission",
+    "https://developers.openai.com/plugins/deploy/desktop-only",
+    "https://code.claude.com/docs/en/plugins-reference",
+    "https://claude.com/docs/plugins/pre-submission-checklist",
+    "https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy"
+  ],
+  "preservation": {
+    "protected_entries_checked": 22811,
+    "unexpected_changes": [],
+    "installed_skills_setup_preferences_saved_studies_and_source_skills_preserved": true,
+    "saved_progress_decisions_and_setup_rules_unchanged": true,
+    "private_receipt_retains_routine_runtime_metadata_qualification": true
+  }
+}
