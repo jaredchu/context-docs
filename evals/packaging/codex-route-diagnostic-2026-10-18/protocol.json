@@ -1,0 +1,21 @@
+{
+  "start": "2026-10-18T10:04:55Z",
+  "deadline": "2026-10-18T10:19:55Z",
+  "cap_minutes": 15,
+  "candidate_zip_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+  "model_requests_allowed": 0,
+  "persistent_install_allowed": false,
+  "permission_expansion_allowed": false,
+  "controls": [
+    "direct outer-sandbox fixture read and owned write; owned sibling/package write denials and real-project read denial",
+    "nested native Codex sandbox performs the same fixture read",
+    "one native app-server session: plugin/read, skills/list, command/exec workspaceWrite versus externalSandbox under the unchanged outer profile",
+    "one optional offline prompt-input render, only if local metadata route completes without broader permissions"
+  ],
+  "native_session_cap_seconds": 45,
+  "offline_render_cap_seconds": 30,
+  "no_turn_start_or_thread_start": true,
+  "no_enable_install_or_skill_root_substitution": true,
+  "early_stop": "Do not grant any extra write/read/network scope, enable/install the candidate or start a model turn. Preserve each failure; stop after named controls.",
+  "preliminary_help_error": "Before these controls, codex sandbox macos --help used obsolete command syntax and failed trying to execute macos. Current native help confirms codex sandbox [COMMAND]; no model or setup action occurred."
+}

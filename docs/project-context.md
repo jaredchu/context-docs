@@ -43,9 +43,11 @@ review. Local packaging checks pass. An [isolated loading check](../evals/packag
 registers both Claude Code commands. A [Codex follow-up](../evals/packaging/codex-plugin-loading-2026-10-18/README.md)
 parses both skill entries with a narrow shared-runtime identity exception; checked
 identity contents and metadata remain unchanged. A [synthetic runtime smoke](../evals/packaging/plugin-runtime-2026-10-18/README.md)
-passes explicit Claude adoption/maintenance; Codex execution remains blocked by
-the test route, with harness qualifications retained. Directory eligibility is
-unresolved; no persistent install, submission or publication occurred.
+passes explicit Claude adoption/maintenance. A [non-model Codex diagnostic](../evals/packaging/codex-route-diagnostic-2026-10-18/README.md)
+reproduces sandbox nesting and verifies one command under the unchanged outer
+boundary; active plugin registration and execution remain unverified. Earlier
+harness qualifications and directory eligibility questions remain; no persistent
+install, submission or publication occurred.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 

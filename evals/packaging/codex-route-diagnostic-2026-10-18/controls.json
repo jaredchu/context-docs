@@ -1,0 +1,50 @@
+{
+  "direct_boundary": {
+    "label": "direct-boundary",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "<private-root>/work/control.py"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"fixture_read\": true, \"frozen_package_write_denied\": true, \"owned_write\": true, \"real_project_read_denied\": true, \"sibling_guard_write_denied\": true}\n",
+    "stderr": "",
+    "elapsed_seconds": 0.029
+  },
+  "native_sandbox_cli": {
+    "label": "nested-native",
+    "command": [
+      "<codex-binary>",
+      "sandbox",
+      "-c",
+      "sandbox_mode=\"workspace-write\"",
+      "-c",
+      "approval_policy=\"never\"",
+      "-C",
+      "<private-root>/work/project",
+      "--",
+      "/bin/cat",
+      "README.md"
+    ],
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Operation not permitted (os error 1)\nerror: the following required arguments were not provided:\n  --permission-profile <NAME>\n\nUsage: codex sandbox --permission-profile <NAME> --config <key=value> --cd <DIR> <COMMAND>...\n\nFor more information, try '--help'.\n",
+    "elapsed_seconds": 0.014
+  },
+  "command_exec_workspace_write": {
+    "id": 4,
+    "result": {
+      "exitCode": 71,
+      "stdout": "",
+      "stderr": "sandbox-exec: sandbox_apply: Operation not permitted\n"
+    }
+  },
+  "command_exec_external_sandbox": {
+    "id": 5,
+    "result": {
+      "exitCode": 0,
+      "stdout": "{\"fixture_read\": true, \"frozen_package_write_denied\": true, \"owned_write\": true, \"real_project_read_denied\": true, \"sibling_guard_write_denied\": true}\n",
+      "stderr": ""
+    }
+  }
+}

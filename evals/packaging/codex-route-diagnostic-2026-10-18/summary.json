@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-18",
+  "source_revision": "f275308fa6c956f2928614562e73202bf9061fb8",
+  "private_evidence_id": "codex-route-diagnostic-tpdmcuri",
+  "candidate_zip_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+  "result": "nested sandbox failure reproduced and same-boundary non-model command route verified; plugin activation remains unverified",
+  "client_version": "0.163.0-alpha.10.2",
+  "budget": {
+    "started_at": "2026-10-18T10:04:55Z",
+    "deadline": "2026-10-18T10:19:55Z",
+    "cap_minutes": 15,
+    "recorded_at": "2026-10-18T10:10:00.917018+00:00"
+  },
+  "model_requests": 0,
+  "reviews": 0,
+  "thread_or_turn_start_sent": false,
+  "file_access": {
+    "direct_outer_control_exit": 0,
+    "workspace_write_native_command_exit": 71,
+    "workspace_write_stderr": "sandbox-exec: sandbox_apply: Operation not permitted\n",
+    "external_sandbox_native_command_exit": 0,
+    "external_sandbox_guards": {
+      "fixture_read": true,
+      "frozen_package_write_denied": true,
+      "owned_write": true,
+      "real_project_read_denied": true,
+      "sibling_guard_write_denied": true
+    },
+    "interpretation": "Same argv and outer macOS profile. workspaceWrite fails applying an inner sandbox; externalSandbox delegates containment to the unchanged outer profile and passes fixture/read/write denial controls. This verifies this command, not all model tools or skill execution.",
+    "native_cli_control_limit": "Separate codex sandbox CLI check exits 2 because this client requires --permission-profile; no nested-sandbox conclusion is drawn from that CLI invocation. Before freezing, an obsolete macos subcommand syntax also failed. Both are diagnostic command errors, not product failures."
+  },
+  "skill_selection": {
+    "native_plugin_read_names": [
+      "context-docs:adopt-context-docs",
+      "context-docs:context-docs"
+    ],
+    "plugin_installed": false,
+    "plugin_enabled": false,
+    "active_skills_count": 11,
+    "candidate_names_in_active_catalog": [],
+    "skills_list_errors": [],
+    "interpretation": "Local catalog parsing and active skill registration are separate in this observed client. Earlier explicit native skill input did not establish plugin activation. The missing active entries are consistent with the uninstalled/disabled state; this does not prove the complete internal selector behavior.",
+    "no_activation_attempt": true,
+    "no_extra_skill_roots_or_standalone_substitution": true
+  },
+  "route_disposition": {
+    "verified": "Use the existing outer boundary for the tested non-model command; no filesystem scope added.",
+    "remaining": "No supported no-install active-plugin route verified. Resolve or separately authorize temporary activation before a model runtime rerun. Do not broaden permissions or treat direct skill loading as installed-plugin evidence.",
+    "optional_offline_prompt_render": "Skipped: active skills/list already establishes the catalog gap; no additional native launches needed.",
+    "official_reference": "https://developers.openai.com/plugins/build/plugins",
+    "reference_qualification": "Official guidance distinguishes local marketplace discovery, configuration enablement and installed cache copies. It does not establish a session-only no-install Codex route for this candidate."
+  },
+  "containment": {
+    "same_effective_filesystem_boundary": true,
+    "new_write_allowances": [],
+    "network_denied": true,
+    "existing_identity_exception_retained": true,
+    "identity_bytes_and_stat_unchanged": true,
+    "original_candidate_and_21_extracted_files_equal": true,
+    "no_HOME_or_CODEX_HOME_reassignment": true
+  },
+  "preservation": {
+    "protected_entries": 23611,
+    "unexpected_changes": [],
+    "installed_skills_setups_saved_studies_and_old_private_evidence_unchanged": true
+  },
+  "limits": [
+    "No model or counterpart review request, thread/turn start, product or skill fix, persistent installation, enablement, submission or publication.",
+    "Commands are author-selected non-model controls, not a model runtime pass or independent reproduction.",
+    "Existing real runtime configuration/identity are still shared; blocked optional remote warmers and PATH alias warnings remain retained.",
+    "The earlier runtime outputs and harness qualifications remain unchanged."
+  ],
+  "raw_evidence_sha256": {
+    "native.transcript.jsonl": "c2b26f8d38cebf5d8cb3d35502fab670aa5b7b078c997d02b2ea35803c980daf",
+    "native.stderr": "41d78f58b23f1e94a78b1a6e4d3d87ddf49f5c9008ce3c40def27e5afd46eb1f",
+    "native-receipt.json": "e2fce6e54bee78f4b5f241c7b85fc651995df9fc1c7f8d9a6d5a3196ab724b84",
+    "native-responses.json": "e56ea0b85ac9281c18410565dbfd31ec827526ce9440ec753beeb839778545f6",
+    "direct-boundary.json": "2240c431cd95804303464d4508f316b38f86671f5dd2a31b2beacb5b2e2e18cf",
+    "nested-native.json": "b0099eaa5c87f8b1d4c6e8bfcd695f18e016421433120668f39470ec2f6d45ba"
+  },
+  "repository_checks": {
+    "static": "pass; 1932 relative links/anchors, 5 published tables, 2 skill packages and 2 versions",
+    "whitespace": "pass"
+  },
+  "control_source": {
+    "private_sha256": "b07c26e07e4cfd0088954bdd53b37303e566e6821a1f9248be94d04bc88e7ca2",
+    "public_sha256": "713e3b8f11668ba29ea1f2506a991cac01314d6ef6b634b6fe058568e0c6ba45",
+    "normalization": "Real checkout README absolute path replaced with <real-project>/README.md; execution used the retained private source."
+  }
+}
