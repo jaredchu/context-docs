@@ -1,6 +1,9 @@
 # Standalone v0.2.5 demo and outreach draft
 
-**Draft for owner review, October 18, 2026. Nothing posted or submitted.**
+**Outreach post drafted October 18, 2026; not posted or submitted.**
+The illustrative demo is [live on the website](https://context-docs.com/#demo)
+as of October 19; its [deployment record](website-demo-deployment-2026-10-19.json)
+retains verification and limits. The outreach post below remains a draft.
 The demo below is synthetic and illustrative, not an executed session, transcript
 or new evaluation result. The post is ready to copy after owner approval.
 

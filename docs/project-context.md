@@ -1,8 +1,9 @@
 # Project context
 
-Release and website verified: October 18, 2026. Experimental v0.2.5 is published;
-all eight checked live public resources match its release build. Claude's second
-mismatch without a reread and Codex's corrected checking error remain qualified.
+Experimental v0.2.5 was published October 18, 2026. Its website demo was deployed
+and verified October 19 from `d8c624c`; all eight checked live public resources
+match that demo build. Claude's second mismatch without a reread and Codex's
+corrected checking error remain qualified.
 Installed skills, existing setups and saved studies are preserved.
 
 ## Purpose and scope
@@ -20,7 +21,9 @@ Use installed standalone experimental **v0.2.5** in everyday work and record con
 The bundle contains core **0.2.5**, adoption **0.1.14** and standard **0.1.1**.
 Publication and website verification are complete from `89c91f4`; the
 [publication record](releases/v0.2.5-publication.json) owns pinned identities,
-eight matching public resources and verification limits.
+the October 18 resource verification and its limits. The separate
+[website demo deployment record](website-demo-deployment-2026-10-19.json) owns
+the October 19 build and live checks.
 
 Installed Codex and Claude Code sibling pairs match the release; all 32 package
 files and packaged references are checked in the
@@ -53,10 +56,12 @@ standalone v0.2.5 remains the everyday-use path.
 
 A [short synthetic demo and outreach post](outreach-v0.2.5.md) invites standalone
 Codex and Claude Code users to try the experimental release and report concrete
-misses. It is drafted for owner review, not published; the illustrative demo adds
-no agent evaluation result. The [landing page source](../site/index.html#demo)
-now reuses its three demo blocks near “What you get,” with experimental limits;
-the website demo is prepared but undeployed. Official directory work remains deferred.
+misses. The outreach post remains a draft, not posted or submitted. The
+[live website demo](https://context-docs.com/#demo) reuses its three example
+blocks near “What you get,” with experimental limits. Its
+[deployment record](website-demo-deployment-2026-10-19.json) verifies eight matching
+live resources and desktop/mobile rendering with JavaScript disabled. The demo
+is illustrative, not an agent evaluation. Official directory work remains deferred.
 
 Saved snapshot: October 19, 2026; this is not live agent activity.
 
@@ -71,7 +76,7 @@ Goal: make progress clear during everyday context work
     |-- DONE     Installed in Codex and Claude Code
     `-- CHECKED  Focused installed smoke; qualifications retained
 
-NEXT: review the demo and outreach draft; keep using standalone v0.2.5.
+NEXT: review the outreach draft; keep using standalone v0.2.5.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -83,6 +88,7 @@ and the broad v1.0.0 campaign. Plugin activation and execution remain unverified
 do not establish broad reliability or simultaneous-write safety.
 
 Sources: [release and feature history](releases/README.md),
+[live demo verification](website-demo-deployment-2026-10-19.json),
 [qualified installed checks](../evals/installed-skills/2026-10-18-concurrency-v025/README.md),
 [detailed sources and limits](#evidence-and-limits), and [next action](#next-actions).
 
@@ -198,9 +204,9 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [demo and outreach draft](outreach-v0.2.5.md) and its
-[local website integration](../site/README.md) before choosing where to share it.
-No posting, submission or deployment is authorized by these preparation requests.
+Review the [outreach draft](outreach-v0.2.5.md) before choosing where to share it.
+The website demo is deployed; outreach posting and directory submission remain
+unauthorized.
 
 Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next

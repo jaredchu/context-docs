@@ -1,0 +1,197 @@
+{
+  "browser_checks": {
+    "javaScriptEnabled": false,
+    "results": [
+      {
+        "experimental": true,
+        "illustrative": true,
+        "label": "desktop",
+        "localLinksResolve": true,
+        "pageWidth": 1280,
+        "qualifications": true,
+        "sourceCardVisible": true,
+        "viewport": 1280
+      },
+      {
+        "experimental": true,
+        "illustrative": true,
+        "label": "mobile",
+        "localLinksResolve": true,
+        "pageWidth": 390,
+        "qualifications": true,
+        "sourceCardVisible": true,
+        "viewport": 390
+      }
+    ],
+    "status": 200,
+    "url": "https://context-docs.com/"
+  },
+  "content_checks": {
+    "canonical_demo_blocks_match": true,
+    "illustrative_experimental_limits_present": true,
+    "outreach_post_not_in_site": true,
+    "seo_titles_without_em_dash": [
+      "Context Docs: pick up where you left off",
+      "Context Docs: pick up where you left off",
+      "Get started with Context Docs",
+      "Get started with Context Docs"
+    ],
+    "source_installation_and_evidence_links_present": true
+  },
+  "date": "2026-10-19",
+  "demo_url": "https://context-docs.com/#demo",
+  "deployment": {
+    "conclusion": "success",
+    "createdAt": "2026-10-18T22:37:59Z",
+    "databaseId": 39173080788,
+    "event": "workflow_dispatch",
+    "headSha": "d8c624c6c02b09e129755d52372b4b1954cd799f",
+    "status": "completed",
+    "updatedAt": "2026-10-18T22:38:20Z",
+    "url": "https://github.com/jaredchu/context-docs/actions/runs/39173080788"
+  },
+  "installed_skills_updated": false,
+  "jobs": [
+    {
+      "completedAt": "2026-10-18T22:38:09Z",
+      "conclusion": "success",
+      "name": "build",
+      "startedAt": "2026-10-18T22:38:02Z",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/39173080788/job/117810035865"
+    },
+    {
+      "completedAt": "2026-10-18T22:38:19Z",
+      "conclusion": "success",
+      "name": "deploy",
+      "startedAt": "2026-10-18T22:38:11Z",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/39173080788/job/117810067128"
+    }
+  ],
+  "limits": [
+    "Synthetic illustrative demo, not an agent recording or new behavioral evaluation.",
+    "Browser verification uses headless Chromium at 1280px and 390px with JavaScript disabled; not an exhaustive browser or accessibility audit.",
+    "No claim of broad reliability, automatic everyday compliance, user-effort savings or simultaneous-writer safety.",
+    "The complete outreach post is excluded from the site artifact and remains a draft; no social or directory submission was made."
+  ],
+  "live_verification": {
+    "all_match": true,
+    "method": "Canonical HTTPS GETs with curl default user agent; no cache-busting or bypass.",
+    "observed_at_utc": "2026-10-18T22:39:00.390252+00:00",
+    "resources": [
+      {
+        "content_type": "image/png",
+        "expected_sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "final_url": "https://context-docs.com/context-docs-overview.png",
+        "matches_build": true,
+        "path": "context-docs-overview.png",
+        "sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "status": 200,
+        "url": "https://context-docs.com/context-docs-overview.png"
+      },
+      {
+        "content_type": "image/svg+xml",
+        "expected_sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "final_url": "https://context-docs.com/favicon.svg",
+        "matches_build": true,
+        "path": "favicon.svg",
+        "sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "status": 200,
+        "url": "https://context-docs.com/favicon.svg"
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "expected_sha256": "4f3efb80839aa94a237b914b4b76fbcf000f50f9730fa173eb5ab7d0dac12a72",
+        "final_url": "https://context-docs.com/getting-started/",
+        "matches_build": true,
+        "path": "getting-started/index.html",
+        "sha256": "4f3efb80839aa94a237b914b4b76fbcf000f50f9730fa173eb5ab7d0dac12a72",
+        "status": 200,
+        "url": "https://context-docs.com/getting-started/"
+      },
+      {
+        "content_type": "text/html; charset=utf-8",
+        "expected_sha256": "e24762f9daf6a20fcccddeb63f46dfeeb5b8bd042eca4ced66ca06cadb67c273",
+        "final_url": "https://context-docs.com/",
+        "matches_build": true,
+        "path": "index.html",
+        "sha256": "e24762f9daf6a20fcccddeb63f46dfeeb5b8bd042eca4ced66ca06cadb67c273",
+        "status": 200,
+        "url": "https://context-docs.com/"
+      },
+      {
+        "content_type": "application/javascript; charset=utf-8",
+        "expected_sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "final_url": "https://context-docs.com/main.js",
+        "matches_build": true,
+        "path": "main.js",
+        "sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "status": 200,
+        "url": "https://context-docs.com/main.js"
+      },
+      {
+        "content_type": "text/plain; charset=utf-8",
+        "expected_sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "final_url": "https://context-docs.com/robots.txt",
+        "matches_build": true,
+        "path": "robots.txt",
+        "sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "status": 200,
+        "url": "https://context-docs.com/robots.txt"
+      },
+      {
+        "content_type": "application/xml",
+        "expected_sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "final_url": "https://context-docs.com/sitemap.xml",
+        "matches_build": true,
+        "path": "sitemap.xml",
+        "sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "status": 200,
+        "url": "https://context-docs.com/sitemap.xml"
+      },
+      {
+        "content_type": "text/css; charset=utf-8",
+        "expected_sha256": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35",
+        "final_url": "https://context-docs.com/styles.css",
+        "matches_build": true,
+        "path": "styles.css",
+        "sha256": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35",
+        "status": 200,
+        "url": "https://context-docs.com/styles.css"
+      }
+    ],
+    "source_commit": "d8c624c6c02b09e129755d52372b4b1954cd799f"
+  },
+  "new_native_trials": false,
+  "operator": "Codex; no new Claude review or assistance in deployment.",
+  "outreach_post_published": false,
+  "preservation": {
+    "changed_paths": [],
+    "protected_entries": 31538,
+    "scope": "Byte hashes and modes of installed skill pairs, repository skills, evals, .local artifacts, AGENTS.md, CLAUDE.md and .github. Excludes Git metadata, new deployment evidence and unrelated runtime bookkeeping.",
+    "status": "passed"
+  },
+  "screenshots": {
+    "live-demo-desktop.png": "f23c198332fd069a30aedddf49031d15b71e59ca1633a12099c18517f09a3165",
+    "live-demo-mobile.png": "6ba6a54fee886d860a0800554552993af46f773291a23067ddfa447cb93ebbff"
+  },
+  "source_commit": "d8c624c6c02b09e129755d52372b4b1954cd799f",
+  "status": "deployed_and_live_verified",
+  "uploaded_artifact": {
+    "all_uploaded_files_match": true,
+    "archive_sha256": "dad0f6ef528a37846c6dcea7917f99a0bf25ec30050a5eb36ac00247aba93adc",
+    "hashes": {
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "getting-started/index.html": "4f3efb80839aa94a237b914b4b76fbcf000f50f9730fa173eb5ab7d0dac12a72",
+      "index.html": "e24762f9daf6a20fcccddeb63f46dfeeb5b8bd042eca4ced66ca06cadb67c273",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+      "styles.css": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35"
+    },
+    "omitted_local_files": [
+      ".nojekyll"
+    ],
+    "uploaded_files": 8
+  }
+}

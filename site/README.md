@@ -37,6 +37,12 @@ retains the experimental limits, and links to installation and evidence.
 The existing workflow includes this public source in its build path filters;
 deployment remains manual and separately authorized.
 
+The demo was deployed from `d8c624c` on October 19, 2026. The
+[deployment record](../docs/website-demo-deployment-2026-10-19.json) verifies all
+eight served files against the build and desktop/mobile rendering with JavaScript
+disabled. The complete outreach post remains an unposted draft; no installed
+upgrade or new agent evaluation was part of deployment.
+
 Both pages also show the text tree from the public [progress example](../examples/progress.md),
 with clickable source links outside the diagram. The build extracts its canonical
 fenced block; it does not read project context or study outputs. The diagram scrolls
