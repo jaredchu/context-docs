@@ -19,7 +19,14 @@ local notes only when still useful.
 The released experimental bundle is **v0.2.5**: core **0.2.5** / adoption
 **0.1.14**. Publication and live website verification are complete; the
 [publication record](releases/v0.2.5-publication.json) owns pinned identities and
-verification limits. Installed copies remain v0.2.4; no upgrade is part of publication.
+verification limits. Installed Codex and Claude Code copies now match v0.2.5
+(core **0.2.5** / adoption **0.1.14**); all 32 package files and packaged references
+are checked. The [upgrade record](../.context/events/installed-v025-upgrade-20261018.jsonl)
+keeps file verification separate from the
+[installed native smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
+Both clients pass its focused ownership, handoff and forced-conflict checks.
+Only one mismatch occurs per client; this does not retest or clear the earlier
+Claude second-mismatch qualification. Copied-candidate evidence stays unchanged.
 
 The previous experimental bundle is v0.2.4: core **0.2.4** / adoption **0.1.13**.
 It adds a small clarity preference within authorized context edits: preserve
@@ -30,8 +37,9 @@ on comprehension gains and automatic everyday application.
 
 Publication and website verification are complete; the [publication record](releases/v0.2.4-publication.json)
 owns pinned identities and verification limits. The [preparation record](releases/v0.2.4-validation.json)
-and earlier evidence stay unchanged. Installed Codex and Claude Code copies now
-match v0.2.4; package checks pass. The [upgrade record](../.context/events/installed-v024-upgrade-20261017.jsonl)
+and earlier evidence stay unchanged. Before the October 18 upgrade, installed
+Codex and Claude Code copies matched v0.2.4; their package checks passed. The
+[upgrade record](../.context/events/installed-v024-upgrade-20261017.jsonl)
 keeps file verification separate from the [installed native smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
 Both clients pass its focused clarity and meaning-preservation checks; guided
 cases do not establish comprehension gains or automatic everyday application.
@@ -40,8 +48,8 @@ Existing setups and saved studies are unchanged.
 Core **0.2.5** / adoption **0.1.14** add the owner's requested
 [conditional concurrency rule](getting-started.md#when-sessions-share-a-context-file):
 one writer per shared context file, narrow edits and reread/reconcile after conflicts.
-This is coordination guidance without locking infrastructure; installed v0.2.4
-and existing setups remain unchanged. A separate
+This is coordination guidance without locking infrastructure. The installed
+upgrade preserves existing setups. A separate
 [candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md) observes
 both clients respecting ownership, handoff and the first stale-edit recovery.
 Claude retries a second mismatch without rereading: a procedural failure, with
@@ -51,7 +59,8 @@ the earlier offline evidence remains unchanged.
 The [v0.2.5 release notes](releases/v0.2.5.md) retain those qualifications and
 upgrade boundaries. The [preparation record](releases/v0.2.5-validation.json)
 retains its original draft scope; the separate publication record records the
-completed release and website verification. Installed upgrades remain separate.
+completed release and website verification. The separately requested installed
+upgrade is complete; it changes no project setup rules or saved studies.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
@@ -68,7 +77,7 @@ Goal: make progress clear during everyday context work
 |   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
 `-- RELEASED  v0.2.5 concurrency guidance; website verified [C]
 
-NEXT: continue everyday work; installed upgrades remain separate [N].
+NEXT: use installed v0.2.5 in everyday work and record concrete misses [N].
 ```
 
 Sources:
@@ -140,8 +149,10 @@ Earlier release approvals do not authorize new publication.
 - Current released bundle: [v0.2.5](releases/v0.2.5.md), core **0.2.5**,
   adoption **0.1.14**, standard **0.1.1**. Published and deployed from `89c91f4`;
   the [publication record](releases/v0.2.5-publication.json) owns pinned identities,
-  eight matching live resources and qualifications. Installed copies remain
-  v0.2.4; setups, saved studies and prior evidence are preserved.
+  eight matching live resources and qualifications. Installed copies now match
+  v0.2.5, with package checks in the
+  [upgrade record](../.context/events/installed-v025-upgrade-20261018.jsonl).
+  Setups, saved studies and prior evidence are preserved.
 - Previous released bundle: [v0.2.4](releases/v0.2.4.md), core **0.2.4**,
   adoption **0.1.13**, standard **0.1.1**. Published and deployed from `73b15ac`;
   the [publication record](releases/v0.2.4-publication.json) owns identities,
@@ -313,14 +324,18 @@ comprehensive privacy audit.
 The [experimental v0.2.5 release](releases/v0.2.5.md) and website are published
 and verified. Keep the qualified smoke, original preparation record and
 [publication receipt](releases/v0.2.5-publication.json) together. Continue everyday
-work with installed v0.2.4 until an upgrade is requested; preserve customizations,
-existing setups and saved studies during any separately authorized upgrade.
+work with installed v0.2.5. Both complete sibling pairs match the pinned release
+and pass metadata/reference checks; [the upgrade record](../.context/events/installed-v025-upgrade-20261018.jsonl)
+records backups and preservation separately from the
+[installed native smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
+Both pass its guided checks; keep the one-mismatch limit and earlier qualifications.
+Existing setups and saved studies remain unchanged.
 
 The [v0.2.4 experimental release](releases/v0.2.4.md) and website are published
 and verified. Keep the qualified native smoke, original preparation record and
-[publication receipt](releases/v0.2.4-publication.json) together. Continue everyday
-work with the upgraded v0.2.4 skills. Both installed sibling pairs match the release
-and pass package checks. The [installed clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md)
+[publication receipt](releases/v0.2.4-publication.json) together. Before the v0.2.5
+upgrade, both installed v0.2.4 sibling pairs matched that release and passed
+package checks. The [installed clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md)
 adds narrow native evidence; keep its limits and earlier qualifications. Existing
 project setups and saved studies remain unchanged.
 

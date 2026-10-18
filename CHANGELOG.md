@@ -22,6 +22,22 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Installed v0.2.5 concurrency smoke — 2026-10-18
+
+- Run one fresh native session per client using installed core 0.2.5/adoption
+  0.1.14 directly. Both respect writer ownership and explicit handoff, reread
+  after the forced stale edit, and preserve newer content, decisions, blockers
+  and all seven final context links per client. Only Progress and Next action
+  in the handed-over file change. The [record](evals/installed-skills/2026-10-18-concurrency-v025/README.md)
+  retains the reused fixture, protocol, exact outputs, trace ordering and limits.
+- Each session has only the forced mismatch; no additional mismatch path is
+  exercised. This does not clear Claude's earlier second-mismatch reread failure
+  or erase Codex's earlier corrected read-only checker error. These guided,
+  author-scored cases with explicit installed paths establish no simultaneous
+  writer safety, implicit loading or general conflict-prevention guarantee.
+  Installed skills, existing setups, saved studies, prior evidence and the
+  uncommitted upgrade event remain unchanged. No output repair or model rerun.
+
 ## v0.2.5 publication — 2026-10-18
 
 - Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.2.5)

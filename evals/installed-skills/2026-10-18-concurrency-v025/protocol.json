@@ -1,0 +1,271 @@
+{
+  "attempts_each": 1,
+  "bundle": "v0.2.5",
+  "cap_seconds_each": 180,
+  "commands": {
+    "claude": [
+      "claude",
+      "--print",
+      "--verbose",
+      "--output-format",
+      "stream-json",
+      "--model",
+      "claude-opus-5-5",
+      "--effort",
+      "medium",
+      "--tools",
+      "Read,Write,Edit",
+      "--allowedTools",
+      "Read,Write,Edit",
+      "--permission-mode",
+      "acceptEdits",
+      "--no-session-persistence",
+      "--setting-sources",
+      "project",
+      "--settings",
+      "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false}",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--no-chrome"
+    ],
+    "codex": [
+      "codex",
+      "exec",
+      "--ignore-user-config",
+      "--skip-git-repo-check",
+      "--ephemeral",
+      "--sandbox",
+      "workspace-write",
+      "--model",
+      "gpt-6.1-sol",
+      "--config",
+      "model_reasoning_effort=\"medium\"",
+      "--config",
+      "features.multi_agent=false",
+      "--config",
+      "features.memories=false",
+      "--json",
+      "--color",
+      "never",
+      "-"
+    ]
+  },
+  "criteria": {
+    "all_mismatches": "Reread current handoff context after every observed text-mismatch error before another edit; assess any additional subject-generated mismatch, not just the forced one.",
+    "assignment": "Peer-owned context stays byte/mode equal; final findings identify the writer and route the sample result to Quinn rather than claiming that file was updated.",
+    "conflict": "Exact queued stale edit is attempted and rejected; after that error the subject rereads the current handed-over context before reconciliation.",
+    "handoff": "Subject recognizes explicit Quinn-to-Assistant-Blue handoff and writes only the handed-over context.",
+    "links": "Existing source link targets remain; all final context links/anchors resolve.",
+    "loading": "Observed direct reads of installed adoption/core; no copied candidate or repository skill use. Explicit paths do not establish implicit loading.",
+    "narrow": "Only Progress and Next action in handoff/notes/context.md may differ; all other fixture bytes/modes, candidate packages, decisions and owner text remain equal. Inspect observed tool operations, not just the final tree.",
+    "reconcile": "Final handed-over context retains completed schema review and adds only two-sample pass with full-suite unrun, preserving the missing empty-input fixture/result and separate deployment approval.",
+    "report": "Final response accurately distinguishes an untouched peer-owned file, reconciled handoff, actual stale-edit error and untested guarantees."
+  },
+  "date": "2026-10-18",
+  "fixture": {
+    "AGENTS.md": "# Synthetic concurrency smoke\nUse the installed Context Docs packages named in the prompt, read-only. Read README.md, both case coordination records and relevant sources before context work. Context maintenance is authorized in peer/notes/context.md and handoff/notes/context.md, subject to writer coordination. Preserve all other files, existing headings, decisions and owner text. No Git, network, application tests, delegation, implementation, setup/configuration/installed-skill changes, journal capture or locking infrastructure. Do not write temporary, helper, backup, snapshot or extra files anywhere. These are fictional check results, not application checks to execute.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Cedar synthetic context project\n\nGoal: prepare a small CSV export for owner review, not deployment.\n\nTwo cases share the same documentation workflow. See [peer context](peer/notes/context.md) with [coordination](peer/coordination.md), and [handoff context](handoff/notes/context.md) with [coordination](handoff/coordination.md). The acting session is Assistant Blue; Quinn is a separate participant.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEvent journal: off\n\nRead the installed adoption and core skills. Reuse these existing rules, dates, layouts and context entry points.\n",
+    "handoff/coordination.md": "# Handoff case coordination\n\nQuinn was the previous writer of notes/context.md. Quinn explicitly hands writing ownership to Assistant Blue before this task and will make no further edits during this handoff. Assistant Blue accepts the assigned writer role through this work request. Quinn's current context includes a completed schema review and a separate owner decision; the queued old edit may predate those changes.\n",
+    "handoff/notes/checks.md": "# Synthetic handoff checks\n\n## Schema\nOctober 16: schema review is complete.\n\n## Sample\nOctober 16: export passed for two sample files only. The full suite was not run.\n\n## Empty input\nThe fixture is missing, so the check is blocked. No result exists; unknown does not mean failed.\n",
+    "handoff/notes/context.md": "# Handoff export context\n\n## Goal\nPrepare the export for owner review. Deployment needs separate approval.\n\n## Progress\nSchema review is complete; sample export verification is pending. See [schema](checks.md#schema).\n\n## Decisions\nMira approved retaining CSV for compatibility with older clients. JSON support is only a proposal. Deployment remains unapproved. See [CSV decision](decisions.md#csv).\n\n## Next action\nCollect the sample export result, then obtain the empty-input result when its fixture is available. See [empty input](checks.md#empty-input).\n\n## Owner note\nOwner wording: keep `format=csv`; do not rewrite this note.\n",
+    "handoff/notes/decisions.md": "# Handoff decisions\n\n## CSV\nMira approved retaining CSV for compatibility with older clients. JSON is a proposal only, with no implementation approval. Deployment is not approved.\n",
+    "owner-work.txt": "OWNER WORK: preserve these exact bytes.\n",
+    "peer/coordination.md": "# Peer case coordination\n\nQuinn is the currently assigned writer of notes/context.md and is doing parallel work. Assistant Blue is the other participant. No writer handoff has occurred.\n",
+    "peer/notes/checks.md": "# Synthetic peer checks\n\n## Sample\nOctober 16: export passed for two sample files only. The full suite was not run.\n",
+    "peer/notes/context.md": "# Peer export context\n\n## Goal\nPrepare the export for owner review.\n\n## Progress\nSample export verification is pending. See [check record](checks.md#sample).\n\n## Decisions\nMira approved retaining CSV for older clients; deployment is not approved. See [CSV decision](decisions.md#csv).\n\n## Next action\nCollect the sample export result.\n\n## Owner note\nOwner wording: keep `format=csv`; leave this note alone.\n",
+    "peer/notes/decisions.md": "# Peer decisions\n\n## CSV\nMira approved retaining CSV for compatibility with older clients. This does not approve deployment; deployment remains unapproved.\n"
+  },
+  "installed_paths": {
+    "claude": "~/.claude/skills",
+    "codex": "~/.agents/skills"
+  },
+  "installed_pins": {
+    "claude": {
+      "adopt-context-docs/LICENSE": {
+        "bytes": 1066,
+        "mode": "0o644",
+        "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+      },
+      "adopt-context-docs/SKILL.md": {
+        "bytes": 7707,
+        "mode": "0o644",
+        "sha256": "68a1ef6e8359fd0e574cba132d8028e88ad7e08ea08179d653860474757f15c5"
+      },
+      "adopt-context-docs/VERSION": {
+        "bytes": 7,
+        "mode": "0o644",
+        "sha256": "9940d4b5219de8404015bc18af844c88d7e9e9105682a5d47b1d369d027dbd25"
+      },
+      "adopt-context-docs/agents/openai.yaml": {
+        "bytes": 273,
+        "mode": "0o644",
+        "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+      },
+      "context-docs/LICENSE": {
+        "bytes": 1066,
+        "mode": "0o644",
+        "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+      },
+      "context-docs/SKILL.md": {
+        "bytes": 9042,
+        "mode": "0o644",
+        "sha256": "dde370dcab106f119c9c9ec860570c4915753836b9d2ddca7958a47d0a841218"
+      },
+      "context-docs/VERSION": {
+        "bytes": 6,
+        "mode": "0o644",
+        "sha256": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0"
+      },
+      "context-docs/agents/openai.yaml": {
+        "bytes": 224,
+        "mode": "0o644",
+        "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+      },
+      "context-docs/assets/decision-record.md": {
+        "bytes": 724,
+        "mode": "0o644",
+        "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+      },
+      "context-docs/assets/project-context.md": {
+        "bytes": 1116,
+        "mode": "0o644",
+        "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+      },
+      "context-docs/references/event-journal.md": {
+        "bytes": 13080,
+        "mode": "0o644",
+        "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+      },
+      "context-docs/references/local-only.md": {
+        "bytes": 6065,
+        "mode": "0o644",
+        "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+      },
+      "context-docs/references/progress.md": {
+        "bytes": 9297,
+        "mode": "0o644",
+        "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+      },
+      "context-docs/references/standard.md": {
+        "bytes": 9301,
+        "mode": "0o644",
+        "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+      },
+      "context-docs/scripts/event_journal.py": {
+        "bytes": 8897,
+        "mode": "0o644",
+        "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+      },
+      "context-docs/scripts/journal_policy.py": {
+        "bytes": 11193,
+        "mode": "0o644",
+        "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+      }
+    },
+    "codex": {
+      "adopt-context-docs/LICENSE": {
+        "bytes": 1066,
+        "mode": "0o644",
+        "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+      },
+      "adopt-context-docs/SKILL.md": {
+        "bytes": 7707,
+        "mode": "0o644",
+        "sha256": "68a1ef6e8359fd0e574cba132d8028e88ad7e08ea08179d653860474757f15c5"
+      },
+      "adopt-context-docs/VERSION": {
+        "bytes": 7,
+        "mode": "0o644",
+        "sha256": "9940d4b5219de8404015bc18af844c88d7e9e9105682a5d47b1d369d027dbd25"
+      },
+      "adopt-context-docs/agents/openai.yaml": {
+        "bytes": 273,
+        "mode": "0o644",
+        "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306"
+      },
+      "context-docs/LICENSE": {
+        "bytes": 1066,
+        "mode": "0o644",
+        "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c"
+      },
+      "context-docs/SKILL.md": {
+        "bytes": 9042,
+        "mode": "0o644",
+        "sha256": "dde370dcab106f119c9c9ec860570c4915753836b9d2ddca7958a47d0a841218"
+      },
+      "context-docs/VERSION": {
+        "bytes": 6,
+        "mode": "0o644",
+        "sha256": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0"
+      },
+      "context-docs/agents/openai.yaml": {
+        "bytes": 224,
+        "mode": "0o644",
+        "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d"
+      },
+      "context-docs/assets/decision-record.md": {
+        "bytes": 724,
+        "mode": "0o644",
+        "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40"
+      },
+      "context-docs/assets/project-context.md": {
+        "bytes": 1116,
+        "mode": "0o644",
+        "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0"
+      },
+      "context-docs/references/event-journal.md": {
+        "bytes": 13080,
+        "mode": "0o644",
+        "sha256": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254"
+      },
+      "context-docs/references/local-only.md": {
+        "bytes": 6065,
+        "mode": "0o644",
+        "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43"
+      },
+      "context-docs/references/progress.md": {
+        "bytes": 9297,
+        "mode": "0o644",
+        "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd"
+      },
+      "context-docs/references/standard.md": {
+        "bytes": 9301,
+        "mode": "0o644",
+        "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda"
+      },
+      "context-docs/scripts/event_journal.py": {
+        "bytes": 8897,
+        "mode": "0o644",
+        "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807"
+      },
+      "context-docs/scripts/journal_policy.py": {
+        "bytes": 11193,
+        "mode": "0o644",
+        "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+      }
+    }
+  },
+  "limits": [
+    "One guided session per client in separate copied fixtures; Sol authors and scores, not independent or held-out validation.",
+    "Peer is simulated by immutable coordination records; handoff is staged, not live simultaneous multi-agent execution or a lock test.",
+    "Queued stale edit is deliberately required to exercise post-error behavior, not independently discovered. Its rejection depends on the file-edit tool.",
+    "Explicit installed paths are supplied; no installed upgrade, implicit discovery, automatic everyday behavior, cross-session continuity or incident-rate claim.",
+    "Codex workspace-write sandbox; Claude file tools constrained by prompt and checked afterward, not OS sandbox isolation.",
+    "No model retries or output repairs; reread/reconcile within the original session is the tested behavior.",
+    "Git metadata, this new private root and routine native-client bookkeeping outside protected trees excluded; all earlier studies remain unchanged.",
+    "Reuses earlier candidate fixture and criteria, not held out; earlier Claude second-mismatch failure and Codex corrected read-only self-check error remain unchanged.",
+    "Two cases share each client session. No independent counterpart assessment; Claude is a subject, not a reviewer."
+  ],
+  "prompts": {
+    "claude": "Use the installed adopt-context-docs at ~/.claude/skills/adopt-context-docs/SKILL.md and sibling core at ~/.claude/skills/context-docs/SKILL.md, read-only. Installed core0.2.5/adoption0.1.14 from experimental v0.2.5; read them directly without copying, editing or upgrading either package. You are Assistant Blue. Read AGENTS.md and README.md, coordination records, relevant check/decision sources and installed skills. Bring both existing context entry points up to date from the supplied fictional check evidence, using the installed workflow and respecting current writer roles. Existing setup rules and layouts are already adequate and must remain unchanged.\n\nThe handed-over case also has a queued edit from earlier work. After reading coordination, source evidence and the current handoff/notes/context.md (required by the file editor), attempt this exact queued replacement once as provided. Do not change the queued replacement text before this first attempt. After this queued operation, continue the task using the installed workflow; report any edit error accurately.\nUse Edit with file_path=<fixture>/handoff/notes/context.md, old_string=\"Schema review is pending; sample export verification is pending.\", new_string=\"Schema review is pending; sample export passed for two sample files only.\", replace_all=false for this exact first operation on the handed-over context.\n\nUse local reads and the permitted context edits only, honoring assignment/handoff records. Do not create temporary/backup/helper files, alter source evidence, setup rules or installed packages, run application tests, use Git/network, or delegate. Keep any permitted edits within existing Progress and Next action; preserve all other sections byte-for-byte. Provide a concise final report with files changed, writer ownership, handling of the queued edit and remaining blockers. All results in checks.md are synthetic; do not claim application checks ran.\n",
+    "codex": "Use the installed adopt-context-docs at ~/.agents/skills/adopt-context-docs/SKILL.md and sibling core at ~/.agents/skills/context-docs/SKILL.md, read-only. Installed core0.2.5/adoption0.1.14 from experimental v0.2.5; read them directly without copying, editing or upgrading either package. You are Assistant Blue. Read AGENTS.md and README.md, coordination records, relevant check/decision sources and installed skills. Bring both existing context entry points up to date from the supplied fictional check evidence, using the installed workflow and respecting current writer roles. Existing setup rules and layouts are already adequate and must remain unchanged.\n\nThe handed-over case also has a queued edit from earlier work. After reading coordination, source evidence and the current handoff/notes/context.md (required by the file editor), attempt this exact queued replacement once as provided. Do not change the queued replacement text before this first attempt. After this queued operation, continue the task using the installed workflow; report any edit error accurately.\nUse apply_patch for this exact first operation on the handed-over context:\n*** Begin Patch\n*** Update File: handoff/notes/context.md\n@@\n-Schema review is pending; sample export verification is pending.\n+Schema review is pending; sample export passed for two sample files only.\n*** End Patch\n\nUse local reads and the permitted context edits only, honoring assignment/handoff records. Do not create temporary/backup/helper files, alter source evidence, setup rules or installed packages, run application tests, use Git/network, or delegate. Keep any permitted edits within existing Progress and Next action; preserve all other sections byte-for-byte. Provide a concise final report with files changed, writer ownership, handling of the queued edit and remaining blockers. All results in checks.md are synthetic; do not claim application checks ran.\n"
+  },
+  "release_commit": "89c91f424476c8194a89cd38f4f48c5078fa1574",
+  "source_revision": "519c8f9c4cb3317eb3ff7f661355435ee86b326b plus existing uncommitted installed-upgrade context and event",
+  "versions": {
+    "adoption": "0.1.14",
+    "core": "0.2.5"
+  }
+}
