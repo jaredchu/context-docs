@@ -113,9 +113,14 @@ selective logging, persistent project rules and unverified invocation. Final
 corrections received local packaging checks, not a second counterpart review.
 
 The later [isolated loading check](../evals/packaging/plugin-loading-2026-10-18/README.md)
-registers both namespaced Claude Code commands without a model prompt. Codex's
-isolated app-server initialization fails before plugin discovery; its loading
-remains unverified. Both original candidate evidence and failed probes are retained.
+registers both namespaced Claude Code commands without a model prompt. Its Codex
+startup failures remain retained. A separate [Codex follow-up](../evals/packaging/codex-plugin-loading-2026-10-18/README.md)
+now parses both skill entries natively using scratch SQLite/logs and an exact
+runtime-identity file exception, with network denied. Identity bytes and checked
+metadata remain unchanged; this shares existing runtime identity rather than
+providing a clean profile. The plugin remains uninstalled and disabled. Neither
+native check sends a model prompt; a separate Opus review of the diagnostic route
+retains its qualifications. Original evidence is unchanged.
 No plugin has been persistently installed. Sibling reads during adoption,
 namespaced invocation, implicit selection, duplicate standalone
 skills and preservation during a plugin upgrade need a small isolated runtime
@@ -123,6 +128,6 @@ check before any supported-plugin claim. In particular, do not enable this candi
 beside existing standalone skills until their selection and project-rule references
 are tested. General chat, hosted execution and Cowork
 remain unvalidated; the existing standalone evidence retains its qualifications.
-The loading probe uses only a private scratch catalog and configuration; no
+The checks use a private scratch catalog and process-only configuration; no
 existing setup was reconfigured. No package/dependency installation, submission,
 publication, policy inquiry or maintainer message occurred.

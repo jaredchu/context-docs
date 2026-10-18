@@ -40,9 +40,10 @@ indexing completion and counted installs remain unconfirmed. No native behavior 
 
 A [minimal plugin candidate](plugin-candidate.md) bundles both unchanged skills for
 review. Local packaging checks pass. An [isolated loading check](../evals/packaging/plugin-loading-2026-10-18/README.md)
-registers both Claude Code commands; Codex initialization fails under the write
-sandbox, leaving its loading unverified. Claude directory eligibility remains
-unresolved; no persistent plugin installation, submission or publication occurred.
+registers both Claude Code commands. A [Codex follow-up](../evals/packaging/codex-plugin-loading-2026-10-18/README.md)
+parses both skill entries with a narrow shared-runtime identity exception; checked
+identity contents and metadata remain unchanged. Execution and Claude directory
+eligibility remain unverified; no persistent install, submission or publication occurred.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
