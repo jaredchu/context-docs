@@ -31,10 +31,12 @@ client. It does not clear earlier qualifications. Existing setups and saved stud
 are preserved. [Release history](releases/README.md) links earlier versions,
 preparation/publication records and original candidate and installed evidence.
 
-A separate [skills.sh installation check](../evals/installed-skills/2026-10-18-skills-sh/README.md)
-passes direct GitHub discovery and one isolated project install of both skills in
-both client layouts. Public catalog search/pages do not surface them as of October 18;
-directory discovery remains separate from installation. No native behavior is retested.
+The [initial skills.sh check](../evals/installed-skills/2026-10-18-skills-sh/README.md)
+passes direct discovery and isolated installation. A separate
+[telemetry-enabled install](../evals/installed-skills/2026-10-18-skills-sh-telemetry/README.md)
+passes; both public skill pages now show content, while owner-filtered search still
+returns zero results in two October 18 snapshots. Telemetry receives HTTP 200;
+indexing completion and counted installs remain unconfirmed. No native behavior is retested.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 

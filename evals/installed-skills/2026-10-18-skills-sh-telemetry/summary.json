@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-18",
+  "private_evidence_id": "skills-sh-telemetry-1fd3da6a-d9d6-4b15-b08a-b482e8c349a3",
+  "type": "one isolated installation with telemetry enabled; public visibility snapshots; no native model trial",
+  "cli": "skills@1.7.2",
+  "source": "https://github.com/jaredchu/context-docs/tree/v0.2.5/skills",
+  "source_commit": "89c91f424476c8194a89cd38f4f48c5078fa1574",
+  "installation": {
+    "invocations": 1,
+    "exit_code": 0,
+    "elapsed_seconds": 6.15,
+    "command": [
+      "npx",
+      "--yes",
+      "--package=skills@1.7.2",
+      "skills",
+      "add",
+      "https://github.com/jaredchu/context-docs/tree/v0.2.5/skills",
+      "--skill",
+      "context-docs",
+      "adopt-context-docs",
+      "--agent",
+      "codex",
+      "claude-code",
+      "--yes",
+      "--json"
+    ],
+    "scope": "new private project; default symlink mode; filesystem writes sandboxed to scratch",
+    "telemetry_opt_out_variables_removed_in_child_only": true,
+    "CI": "1",
+    "agent": "codex",
+    "npm_lifecycle_scripts_disabled": true
+  },
+  "telemetry_observation": {
+    "event": "install",
+    "source": "jaredchu/context-docs",
+    "skills": "adopt-context-docs,context-docs",
+    "skillFiles": "{\"adopt-context-docs\":\"skills/adopt-context-docs/SKILL.md\",\"context-docs\":\"skills/context-docs/SKILL.md\"}",
+    "ci": "1",
+    "agent": "codex",
+    "status": 200,
+    "ok": true
+  },
+  "verification": {
+    "codex": {
+      "release_files_byte_equal": 16,
+      "versions": {
+        "context-docs": "0.2.5",
+        "adopt-context-docs": "0.1.14"
+      }
+    },
+    "claude": {
+      "release_files_byte_equal": 16,
+      "versions": {
+        "context-docs": "0.2.5",
+        "adopt-context-docs": "0.1.14"
+      }
+    },
+    "npm_cli_equal_previously_integrity_verified_package": true
+  },
+  "release_file_hashes": "../2026-10-18-skills-sh/summary.json#source_package_sha256",
+  "visibility_snapshots": {
+    "immediate": {
+      "search-core": {
+        "url": "https://www.skills.sh/api/search?q=context-docs&owner=jaredchu&limit=50",
+        "checked_at": "2026-10-18T06:20:02.460803+00:00",
+        "http_status": 200,
+        "count": 0,
+        "skills": []
+      },
+      "search-adopt": {
+        "url": "https://www.skills.sh/api/search?q=adopt-context-docs&owner=jaredchu&limit=50",
+        "checked_at": "2026-10-18T06:20:02.478657+00:00",
+        "http_status": 200,
+        "count": 0,
+        "skills": []
+      },
+      "repository": {
+        "url": "https://www.skills.sh/jaredchu/context-docs",
+        "checked_at": "2026-10-18T06:20:02.687686+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": false,
+        "both_skills_listed": true,
+        "unavailable_404_content": false
+      },
+      "core": {
+        "url": "https://www.skills.sh/jaredchu/context-docs/context-docs",
+        "checked_at": "2026-10-18T06:20:03.125720+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": true,
+        "both_skills_listed": false,
+        "unavailable_404_content": false
+      },
+      "adopt": {
+        "url": "https://www.skills.sh/jaredchu/context-docs/adopt-context-docs",
+        "checked_at": "2026-10-18T06:20:02.863837+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": true,
+        "both_skills_listed": false,
+        "unavailable_404_content": false
+      }
+    },
+    "delayed": {
+      "search-core": {
+        "url": "https://www.skills.sh/api/search?q=context-docs&owner=jaredchu&limit=50",
+        "checked_at": "2026-10-18T06:20:40.564196+00:00",
+        "http_status": 200,
+        "count": 0,
+        "skills": []
+      },
+      "search-adopt": {
+        "url": "https://www.skills.sh/api/search?q=adopt-context-docs&owner=jaredchu&limit=50",
+        "checked_at": "2026-10-18T06:20:40.755384+00:00",
+        "http_status": 200,
+        "count": 0,
+        "skills": []
+      },
+      "repository": {
+        "url": "https://www.skills.sh/jaredchu/context-docs",
+        "checked_at": "2026-10-18T06:20:40.579260+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": false,
+        "both_skills_listed": true,
+        "unavailable_404_content": false
+      },
+      "core": {
+        "url": "https://www.skills.sh/jaredchu/context-docs/context-docs",
+        "checked_at": "2026-10-18T06:20:40.592892+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": true,
+        "both_skills_listed": false,
+        "unavailable_404_content": false
+      },
+      "adopt": {
+        "url": "https://www.skills.sh/jaredchu/context-docs/adopt-context-docs",
+        "checked_at": "2026-10-18T06:20:40.596813+00:00",
+        "http_status": 200,
+        "actual_skill_content_visible": true,
+        "both_skills_listed": false,
+        "unavailable_404_content": false
+      }
+    }
+  },
+  "preservation_before_recording": {
+    "protected_entries": 23511,
+    "all_equal": true,
+    "head_unchanged": true
+  },
+  "limits": [
+    "HTTP 200 acknowledges the telemetry request; it does not establish indexing completion, counted installs or popularity.",
+    "This automated check is explicitly labeled CI=1 and agent=codex; no human-install or leaderboard-count claim.",
+    "Both skill pages show actual skill content, unlike the earlier unavailable pages; repository lists both with zero total installs.",
+    "Both owner-filtered searches remain empty in immediate and delayed snapshots, approximately 38 seconds apart. No indexing deadline is established.",
+    "Page availability after the request does not independently prove the request caused the change.",
+    "No installation retry, global update, project adoption, client launch, model trial or upstream issue submission.",
+    "The previous discovery/installation study and raw receipts remain unchanged."
+  ]
+}
