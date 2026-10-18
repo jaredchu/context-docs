@@ -39,9 +39,10 @@ returns zero results in two October 18 snapshots. Telemetry receives HTTP 200;
 indexing completion and counted installs remain unconfirmed. No native behavior is retested.
 
 A [minimal plugin candidate](plugin-candidate.md) bundles both unchanged skills for
-review. Local packaging checks pass; Claude directory eligibility remains unresolved
-because its user-file extraction policy overlaps document maintenance. No plugin
-installation, submission or publication has occurred.
+review. Local packaging checks pass. An [isolated loading check](../evals/packaging/plugin-loading-2026-10-18/README.md)
+registers both Claude Code commands; Codex initialization fails under the write
+sandbox, leaving its loading unverified. Claude directory eligibility remains
+unresolved; no persistent plugin installation, submission or publication occurred.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 

@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-18",
+  "private_evidence_id": "plugin-loading-65561ec2-4d1e-47a6-8844-febf116c1044",
+  "source_revision": "13d27691d3314d10dba9168147330ff2a47cefea",
+  "candidate_zip_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+  "scope": "Native plugin discovery/initialization only; no model prompts or skill behavior",
+  "result": "partial: Claude Code registers both skills; Codex loading unverified because initialization exits under the write sandbox",
+  "claude": {
+    "version": "2.1.302",
+    "route": "--plugin-dir scratch extraction; stream-JSON control initialize; no user message",
+    "configuration": "new private CLAUDE_CONFIG_DIR; original HOME preserved; hooks/memory/MCP/Chrome disabled",
+    "exit_code": 0,
+    "registered_candidate_commands": [
+      {
+        "name": "context-docs:adopt-context-docs",
+        "description": "(Context Docs) Adopt Context Docs in a new or existing project and add its ongoing maintenance rule to the project's agent instruction file, such as AGENTS.md or CLAUDE.md. Use for project setup or adoption requests; use context-docs directly for routine maintenance or audits.",
+        "argumentHint": "",
+        "aliases": [
+          "adopt-context-docs"
+        ]
+      },
+      {
+        "name": "context-docs:context-docs",
+        "description": "(Context Docs) Create, audit, and maintain project context documents and Markdown progress views for continuity across AI sessions. Use when establishing context conventions, refreshing project state, visualizing progress toward a documented goal, or consolidating stale context. Adapt to existing layouts and preserve decisions and evidence. Not for general copyediting or storing conversation transcripts.",
+        "argumentHint": "",
+        "aliases": [
+          "context-docs"
+        ]
+      }
+    ],
+    "model_prompts_sent": 0,
+    "persistent_install_performed": false
+  },
+  "codex": {
+    "version": "0.163.0-alpha.10.2",
+    "route": "stdio app-server with intended read-only plugin/read and local plugin/list; no thread/turn start",
+    "attempts": [
+      {
+        "exit_code": 1,
+        "outcome": "RuntimeError: app-server exited",
+        "evidence": "failed to initialize sqlite state runtime under existing Codex home; write sandbox blocks it"
+      },
+      {
+        "exit_code": 1,
+        "outcome": "RuntimeError: app-server exited",
+        "evidence": "per-process sqlite_home/log_dir directed to scratch; initialization still exits Operation not permitted; exact blocked operation not established"
+      }
+    ],
+    "harness_warning": "features.remote_plugins is unrecognized and ignored in this client; no claim remote catalogs were disabled by this override",
+    "plugin_discovery_responses_received": false,
+    "model_prompts_sent": 0,
+    "real_config_or_codex_home_environment_reassigned": false,
+    "further_retries": false
+  },
+  "artifact_checks": {
+    "codex": {
+      "all_21_candidate_file_hashes_equal": true,
+      "links": "21 relative links and anchors"
+    },
+    "claude": {
+      "all_21_candidate_file_hashes_equal": true,
+      "links": "21 relative links and anchors"
+    }
+  },
+  "preservation": {
+    "protected_entries_checked": 22989,
+    "unexpected_changes": [],
+    "installed_skills_setup_preferences_saved_studies_and_original_candidate_evidence_preserved": true,
+    "saved_progress_decisions_and_setup_rules_unchanged": true,
+    "head_and_index_unchanged": true
+  },
+  "limits": [
+    "Claude initialization registers names/descriptions/aliases, not execution of either skill or reliable implicit selection.",
+    "The client probes send no model inference request, perform no adoption, context edit or journal helper execution, and make no persistent plugin install or marketplace registration in either real setup.",
+    "Codex did not reach plugin parsing; no candidate incompatibility or successful loading is established.",
+    "The write sandbox confined child writes to the new private root; first-start failures remain retained, not overwritten.",
+    "Original candidate ZIP, previous studies and qualification records stay unchanged.",
+    "Directory policy concern, portal validation, plugin behavior, upgrades and duplicate standalone-skill selection remain unresolved or untested.",
+    "No submission or publication; no policy inquiry sent."
+  ],
+  "repository_checks": {
+    "static": "pass; 1893 links/anchors, 5 tables, 2 skills/versions",
+    "whitespace": "pass"
+  }
+}

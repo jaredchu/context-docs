@@ -112,12 +112,17 @@ pins released Git objects, and the policy/README clarify saved summaries,
 selective logging, persistent project rules and unverified invocation. Final
 corrections received local packaging checks, not a second counterpart review.
 
-Neither plugin has been installed or exercised through plugin discovery. Sibling
-path resolution, namespaced invocation, implicit selection, duplicate standalone
+The later [isolated loading check](../evals/packaging/plugin-loading-2026-10-18/README.md)
+registers both namespaced Claude Code commands without a model prompt. Codex's
+isolated app-server initialization fails before plugin discovery; its loading
+remains unverified. Both original candidate evidence and failed probes are retained.
+No plugin has been persistently installed. Sibling reads during adoption,
+namespaced invocation, implicit selection, duplicate standalone
 skills and preservation during a plugin upgrade need a small isolated runtime
 check before any supported-plugin claim. In particular, do not enable this candidate
 beside existing standalone skills until their selection and project-rule references
 are tested. General chat, hosted execution and Cowork
 remain unvalidated; the existing standalone evidence retains its qualifications.
-No package or dependency was installed, no directory was configured, and no
-submission, publication, policy inquiry or maintainer message was sent.
+The loading probe uses only a private scratch catalog and configuration; no
+existing setup was reconfigured. No package/dependency installation, submission,
+publication, policy inquiry or maintainer message occurred.
