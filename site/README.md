@@ -28,6 +28,15 @@ The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
 
+Near “What you get,” the landing page also shows the three fenced blocks from
+the [prepared outreach demo](../docs/outreach-v0.2.5.md): fictional work notes,
+saved context and a fresh-session prompt. Edit that source to change the example;
+the build escapes its text and does not publish the full draft or outreach post.
+The page labels it illustrative rather than an executed session or evaluation,
+retains the experimental limits, and links to installation and evidence.
+The existing workflow includes this public source in its build path filters;
+deployment remains manual and separately authorized.
+
 Both pages also show the text tree from the public [progress example](../examples/progress.md),
 with clickable source links outside the diagram. The build extracts its canonical
 fenced block; it does not read project context or study outputs. The diagram scrolls

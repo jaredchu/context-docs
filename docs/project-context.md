@@ -51,7 +51,14 @@ install, submission or publication occurred.
 The owner has [deferred Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral);
 standalone v0.2.5 remains the everyday-use path.
 
-Saved snapshot: October 18, 2026; this is not live agent activity.
+A [short synthetic demo and outreach post](outreach-v0.2.5.md) invites standalone
+Codex and Claude Code users to try the experimental release and report concrete
+misses. It is drafted for owner review, not published; the illustrative demo adds
+no agent evaluation result. The [landing page source](../site/index.html#demo)
+now reuses its three demo blocks near “What you get,” with experimental limits;
+the website demo is prepared but undeployed. Official directory work remains deferred.
+
+Saved snapshot: October 19, 2026; this is not live agent activity.
 
 ```text
 Goal: make progress clear during everyday context work
@@ -64,7 +71,7 @@ Goal: make progress clear during everyday context work
     |-- DONE     Installed in Codex and Claude Code
     `-- CHECKED  Focused installed smoke; qualifications retained
 
-NEXT: use standalone v0.2.5 and record concrete misses.
+NEXT: review the demo and outreach draft; keep using standalone v0.2.5.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -190,6 +197,10 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit.
 
 ## Next actions
+
+Review the [demo and outreach draft](outreach-v0.2.5.md) and its
+[local website integration](../site/README.md) before choosing where to share it.
+No posting, submission or deployment is authorized by these preparation requests.
 
 Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next

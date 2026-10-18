@@ -50,6 +50,13 @@ def render(root, template_name='index.html'):
         'ADOPTION_VERSION': (root / 'skills/adopt-context-docs/VERSION').read_text(encoding='utf-8').strip(),
         'PACKAGE_STATUS': 'Unreleased' if re.search(r'\bunreleased\b', status[1], re.I) else 'Released',
     }
+    if template_name == 'index.html':
+        demo = (root / 'docs/outreach-v0.2.5.md').read_text(encoding='utf-8')
+        values.update({
+            'DEMO_NOTES': fenced_section(demo, '### 1. Show the fictional work notes', 'text'),
+            'DEMO_CONTEXT': fenced_section(demo, '### 2. Show the saved Markdown', 'text'),
+            'DEMO_RESUME': fenced_section(demo, '### 3. Resume in a fresh session', 'text'),
+        })
     if template_name == 'getting-started.html':
         guide = (root / 'docs/getting-started.md').read_text(encoding='utf-8')
         values.update({
@@ -62,7 +69,7 @@ def render(root, template_name='index.html'):
         'RESUME_PROMPT', 'PROGRESS_PROMPT', 'PROGRESS_EXAMPLE', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
     }
     required |= ({'QUICK_EXAMPLE', 'LOCAL_ONLY_PROMPT', 'AUTO_LOGGING_PROMPT'} if template_name == 'getting-started.html'
-                 else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER'})
+                 else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER', 'DEMO_NOTES', 'DEMO_CONTEXT', 'DEMO_RESUME'})
     present = set(re.findall(r'{{([A-Z_]+)}}', template))
     if required - present:
         raise ValueError(f'Missing template markers: {sorted(required - present)}')

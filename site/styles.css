@@ -256,6 +256,14 @@ p {
 .example-section {
   background:#eef3f1;
 }
+.demo .comparison {
+  margin-top:24px;
+}
+.demo .after pre {
+  white-space:pre;
+  overflow-wrap:normal;
+  overflow-x:auto;
+}
 .section-heading {
   display:flex;
   align-items:end;

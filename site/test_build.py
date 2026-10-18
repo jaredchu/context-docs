@@ -44,6 +44,50 @@ class LandingBuildTests(unittest.TestCase):
             self.assertIn(block, rendered)
         self.assertNotIn('{{', rendered)
 
+    def test_demo_reuses_only_selected_blocks_and_escapes_source_updates(self):
+        source = landing.ROOT / 'docs/outreach-v0.2.5.md'
+        text = source.read_text()
+        original_read = Path.read_text
+        headings = ['### 1. Show the fictional work notes',
+                    '### 2. Show the saved Markdown',
+                    '### 3. Resume in a fresh session']
+        for heading in headings:
+            block = landing.fenced_section(text, heading, 'text')
+
+            def changed_source(path, *args, **kwargs):
+                content = original_read(path, *args, **kwargs)
+                if path == source:
+                    return content.replace(block, block + '\n<demo-update>&', 1) + '\nPRIVATE-DRAFT-SENTINEL'
+                return content
+
+            with self.subTest(heading=heading), patch.object(Path, 'read_text', changed_source):
+                rendered = landing.render(landing.ROOT)
+                self.assertIn(block, unescape(rendered))
+                self.assertIn('&lt;demo-update&gt;&amp;', rendered)
+                self.assertNotIn('<demo-update>', rendered)
+                self.assertNotIn('PRIVATE-DRAFT-SENTINEL', rendered)
+                self.assertNotIn('If you try it,', rendered)
+                self.assertIn('href="#demo-source-notes"', rendered)
+                self.assertIn('id="demo-source-notes"', rendered)
+
+    def test_missing_demo_source_preserves_previous_public_artifact(self):
+        original_read = Path.read_text
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'public'
+            output.mkdir()
+            previous = output / 'previous-build.txt'
+            previous.write_text('Preserve until all content renders.')
+
+            def missing_demo(path, *args, **kwargs):
+                if path == landing.ROOT / 'docs/outreach-v0.2.5.md':
+                    return 'No canonical demo blocks.'
+                return original_read(path, *args, **kwargs)
+
+            with patch.object(Path, 'read_text', missing_demo):
+                with self.assertRaisesRegex(ValueError, 'Missing canonical section'):
+                    landing.build(output=output)
+            self.assertEqual(previous.read_text(), 'Preserve until all content renders.')
+
     def test_discovery_points_only_to_the_public_canonical_site(self):
         class Metadata(HTMLParser):
             def __init__(self):
@@ -115,6 +159,7 @@ class LandingBuildTests(unittest.TestCase):
         original_read = Path.read_text
         public_inputs = {
             'README.md', 'examples/maintenance.md', 'examples/progress.md', 'docs/getting-started.md',
+            'docs/outreach-v0.2.5.md',
             'skills/context-docs/VERSION', 'skills/adopt-context-docs/VERSION',
             'site/index.html', 'site/getting-started.html',
         }
@@ -141,10 +186,12 @@ class LandingBuildTests(unittest.TestCase):
                 self.assertIn('href="https://github.com/jaredchu/context-docs/blob/main/examples/progress.md#'
                               + anchor + '"', outside_diagrams)
 
-    def test_missing_progress_content_preserves_previous_public_artifact(self):
+    def test_missing_required_examples_preserve_previous_public_artifact(self):
         original_read = Path.read_text
-        for name, marker in ((name, marker) for name in ['index.html', 'getting-started.html']
-                             for marker in ['PROGRESS_PROMPT', 'PROGRESS_EXAMPLE']):
+        cases = [(name, marker) for name in ['index.html', 'getting-started.html']
+                 for marker in ['PROGRESS_PROMPT', 'PROGRESS_EXAMPLE']]
+        cases += [('index.html', marker) for marker in ['DEMO_NOTES', 'DEMO_CONTEXT', 'DEMO_RESUME']]
+        for name, marker in cases:
             with self.subTest(template=name, marker=marker), tempfile.TemporaryDirectory() as temporary:
                 output = Path(temporary) / 'public'
                 output.mkdir()

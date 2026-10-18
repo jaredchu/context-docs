@@ -32,7 +32,7 @@
     <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> OPEN SOURCE · FOR CODEX &amp; CLAUDE CODE</p>
     <h1 id="hero-title">Your next session.<br><span>Less starting over.</span></h1>
     <p class="hero-description">Give your AI coding agent a simple way to save decisions, current work and next steps in Markdown. Pick up the project without inventing a context-management system.</p>
-    <div class="hero-actions"><a class="button primary" href="./getting-started/">Get started <span aria-hidden="true">→</span></a><a class="text-link" href="#example">See an example <span aria-hidden="true">↓</span></a></div>
+    <div class="hero-actions"><a class="button primary" href="./getting-started/">Get started <span aria-hidden="true">→</span></a><a class="text-link" href="#demo">See an example <span aria-hidden="true">↓</span></a></div>
     <p class="hero-note">Your files. Your repository. A workflow you can review.</p>
     <figure class="overview">
       <img src="./context-docs-overview.png" width="1983" height="793" fetchpriority="high" alt="Work produces code, chats and notes. Save decisions, current state and next steps in a Markdown document, then read that document to resume in a new session.">
@@ -51,6 +51,20 @@
     <p>Both clients pass the focused Markdown checks. Claude's chat report adds an unsupported pronoun; the saved Markdown is unaffected. These guided, author-scored cases do not demonstrate comprehension gains or automatic everyday application. Read the <a href="https://github.com/jaredchu/context-docs/blob/main/evals/clarity/smoke-0.2.4-2026-10-17/README.md">qualified clarity smoke results</a>.</p>
     <p id="concurrency">The v0.2.5 release adds conditional guidance for concurrent sessions editing the same context file: agree on one writer before edits begin, send other participants' findings to that writer, and change writers through an explicit handoff. Prefer narrow edits; after a conflict or stale-text failure, reread the current file and reconcile changes before retrying. Installing skills in both Codex and Claude does not coordinate sessions. There is no file locking or automatic merge guarantee.</p>
     <p>In the guided candidate smoke, both clients respect ownership and handoff and reread after the forced stale edit. Claude retries its own second mismatch without another reread, a procedural failure despite preserved final content. Codex corrects a read-only anchor-check error. These author-scored cases do not test simultaneous writers or establish general conflict prevention. Read the <a href="https://github.com/jaredchu/context-docs/blob/main/evals/concurrency/smoke-0.2.5-2026-10-17/README.md">qualified concurrency smoke results</a>.</p>
+  </section>
+
+  <section id="demo" class="demo section wrap" aria-labelledby="demo-title">
+    <div class="section-heading"><div><p class="eyebrow">SHORT DEMO</p><h2 id="demo-title">What you get:<br>a clear next step.</h2></div><p>Save the useful parts of your work, then give a fresh Codex or Claude Code session a starting point.</p></div>
+    <p class="version-note">Experimental · Core {{CORE_VERSION}} · Adoption {{ADOPTION_VERSION}}</p>
+    <p><strong>Illustrative, not an agent recording or evaluation result.</strong> These fictional notes show the intended workflow after adoption with the maintenance rule loaded. Review the Markdown diff; ask for an update if one is missed.</p>
+    <div class="comparison">
+      <article id="demo-source-notes" class="document before"><header><span class="document-label">1. WORK NOTES</span><span>Fictional inputs</span></header><pre tabindex="0" aria-label="Fictional export work notes"><code>{{DEMO_NOTES}}</code></pre></article>
+      <article class="document after"><header><span class="document-label">2. SAVED CONTEXT</span><span>docs/context.md</span></header><pre tabindex="0" aria-label="Illustrative saved Markdown context"><code>{{DEMO_CONTEXT}}</code></pre></article>
+    </div>
+    <p class="example-caption">Source S: <a href="#demo-source-notes">fictional work notes above</a>. Real context links to its project decision and check records. Two sample passes do not mean the export is complete.</p>
+    <div class="next-prompt"><h3>3. Resume in a fresh session</h3><blockquote>{{DEMO_RESUME}}</blockquote><p>Look for the missing fixture as the next task, the compatibility decision preserved and full validation still pending. This is the intended handoff, not an observed result. Use your project's actual context entry point.</p></div>
+    <p class="example-caption">Focused checks are guided and author-scored, with retained failures. Broad reliability, automatic everyday compliance and user-effort savings are not established. <a href="https://github.com/jaredchu/context-docs/blob/main/docs/evaluation-results.md">Read the evidence and limits</a>.</p>
+    <p class="example-caption"><a href="./getting-started/">Install and adopt the standalone skills</a>. The workflow provides no background service or file locking.</p>
   </section>
 
   <section id="example" class="example-section section" aria-labelledby="example-title">
