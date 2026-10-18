@@ -67,15 +67,13 @@ Saved snapshot: October 18, 2026; this is not live agent activity.
 ```text
 Goal: make progress clear during everyday context work
 |
-|-- RELEASED  v0.2.0 Markdown progress [B]
-|-- RELEASED  v0.2.1 visual paths, dependencies and blockers [V]
-|-- RELEASED  v0.2.2 default inline progress adoption [R]
-|-- RELEASED  v0.2.3 concise views [Q]
-|   `-- CHECKED  Installed Codex and Claude smoke checks [I]
-|-- RELEASED  v0.2.4 clarity preference [L]
-|   |-- DONE     Experimental release and website verification [U]
-|   `-- CHECKED  Installed Codex and Claude clarity smoke [J]
-`-- RELEASED  v0.2.5 concurrency guidance; website verified [C]
+|-- RELEASED  Markdown progress and visual paths [B / V]
+|-- RELEASED  Default adoption and concise views [R / Q]
+|-- RELEASED  Clarity preference [L]
+`-- RELEASED  v0.2.5 shared-file coordination [C]
+    |-- DONE     Publication and website verification [P]
+    |-- DONE     Installed in Codex and Claude Code [U]
+    `-- CHECKED  Focused installed smoke; qualifications retained [S]
 
 NEXT: use installed v0.2.5 in everyday work and record concrete misses [N].
 ```
@@ -83,21 +81,20 @@ NEXT: use installed v0.2.5 in everyday work and record concrete misses [N].
 Sources:
 
 - **B / V / R / Q:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
-  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes link
-  to their guidance, reviews and checks. Earlier
-  [v0.2.2 installed checks](../evals/installed-skills/2026-10-17-progress-v022/README.md) remain retained.
-- **U / I:** [Publication and website verification](releases/v0.2.4-publication.json)
-  and [installed v0.2.3 smoke results](../evals/installed-skills/2026-10-17-progress-v023/README.md).
-- **N:** [Next actions](#next-actions).
+  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes.
 - **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
-- **J:** [Installed v0.2.4 clarity smoke](../evals/installed-skills/2026-10-17-clarity-v024/README.md).
-- **C:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
-  and [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md);
-  [publication and website verification](releases/v0.2.5-publication.json).
+- **C / P:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
+  and [publication and website verification](releases/v0.2.5-publication.json).
+- **U / S:** [Installed upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl)
+  and [qualified installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
+- **N:** [Next actions](#next-actions).
 
 **Blockers:** no current implementation blocker is recorded.
 
-**Qualifications:** the [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
+**Qualifications:** the installed smoke checks one forced conflict per client;
+it does not establish simultaneous-write safety or clear the earlier
+[Claude second-mismatch failure and Codex checking error](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
+The [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
 remains retained. Focused smoke checks pass, with explicit installed paths and a
 stricter temporary-write boundary; they are guided and author-scored. Fresh
 adoption, the full suite, broad reliability, implicit loading and user benefit
