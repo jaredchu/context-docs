@@ -53,8 +53,11 @@ upgrade preserves existing setups. A separate
 [candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md) observes
 both clients respecting ownership, handoff and the first stale-edit recovery.
 Claude retries a second mismatch without rereading: a procedural failure, with
-final content preserved. These guided cases do not test simultaneous writers;
-the earlier offline evidence remains unchanged.
+final content preserved. These guided cases do not test simultaneous writers.
+The [offline diagnostic](../evals/concurrency/offline-2026-10-17/README.md) now has
+a public record with exact retained inputs/results; its private originals remain
+unchanged. The [evidence overview](evaluation-results.md#more-recent-studies)
+indexes the recent progress, clarity and concurrency smokes with their qualifications.
 
 The [v0.2.5 release notes](releases/v0.2.5.md) retain those qualifications and
 upgrade boundaries. The [preparation record](releases/v0.2.5-validation.json)

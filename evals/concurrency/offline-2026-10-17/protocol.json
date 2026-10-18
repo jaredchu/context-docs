@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "acceptance": "Both new decision/rationale/approval boundary and sample result/evidence would need to survive for successful concurrent preservation.",
+      "name": "stale-whole-file",
+      "schedule": "Both Python processes read the same original before either writes. Force A then B and B then A, once each."
+    },
+    {
+      "acceptance": "Both updates survive, unrelated next action unchanged.",
+      "name": "guarded-disjoint",
+      "schedule": "Freeze two disjoint patches from original text; apply decision patch then progress patch with available apply_patch tool."
+    },
+    {
+      "acceptance": "Observe whether stale edit is rejected or silently removes A, without repairing or retrying.",
+      "name": "guarded-overlap",
+      "schedule": "Freeze two patches replacing the same Progress line; apply A then the stale B patch with available apply_patch tool."
+    }
+  ],
+  "date": "2026-10-17",
+  "evidence": "# Synthetic evidence\n\n## CSV\nFictional new owner decision supplied to writer A: Mira approved keeping CSV for older clients. Deployment requires separate approval, which is not given.\n\n## Samples\nFictional new result supplied to writer B: two sample exports passed. The full suite was not run. The empty-input fixture remains missing and its check unrun.\n",
+  "input": "# Harbor context\n\n## Decision\nNo format decision is recorded.\n\n## Progress\nNo sample-export result is recorded.\n\n## Next action\nObtain the empty-input fixture; its check is unrun.\n",
+  "limits": [
+    "Deliberately forced stale schedules; not a measured incident rate or comparison of native clients.",
+    "Guarded patch tests use the current available apply_patch tool, not a new native Codex/Claude trial.",
+    "Disjoint success does not prove semantic consistency or general concurrent safety.",
+    "No lock implementation, Git coordination experiment, journal integration or new infrastructure."
+  ],
+  "scope": "Tiny controlled offline filesystem diagnostic; no model requests or native Codex/Claude sessions, no product guidance edits.",
+  "writer_a": "Mira approved retaining CSV so older clients remain compatible. Deployment still needs separate approval. See [decision](evidence.md#csv).",
+  "writer_b": "Two sample exports passed. The full suite was not run. See [samples](evidence.md#samples)."
+}

@@ -1,0 +1,18 @@
+{
+  "disjoint_a": {
+    "old": "No format decision is recorded.",
+    "new": "Mira approved retaining CSV so older clients remain compatible. Deployment still needs separate approval. See [decision](evidence.md#csv)."
+  },
+  "disjoint_b": {
+    "old": "No sample-export result is recorded.",
+    "new": "Two sample exports passed. The full suite was not run. See [samples](evidence.md#samples)."
+  },
+  "overlap_a": {
+    "old": "No sample-export result is recorded.",
+    "new": "Two sample exports passed. The full suite was not run. See [samples](evidence.md#samples)."
+  },
+  "overlap_b": {
+    "old": "No sample-export result is recorded.",
+    "new": "The empty-input fixture is missing; its check is unrun."
+  }
+}

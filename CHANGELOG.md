@@ -77,7 +77,8 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   Prefer narrow edits; after conflicts or stale-text failures, reread and reconcile
   current contributions before retrying. Preserve newer work instead of replacing
   it from a stale snapshot. This adds guidance, with no locking infrastructure.
-- The earlier offline diagnostic forced two processes to read the same snapshot:
+- The earlier [offline diagnostic](evals/concurrency/offline-2026-10-17/README.md)
+  forced two processes to read the same snapshot:
   either whole-file write order lost an update. Available-tool patches
   preserved disjoint edits and rejected a stale overlapping patch. These are
   mechanism checks, not native trials or an incident-rate estimate. At the

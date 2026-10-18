@@ -1,0 +1,17 @@
+{
+  "guarded_disjoint": {
+    "tool": "available apply_patch",
+    "attempts": 2,
+    "both_updates_survive": true,
+    "next_action_preserved": true
+  },
+  "guarded_overlap": {
+    "tool": "available apply_patch",
+    "attempts": 2,
+    "first_patch_applied": true,
+    "stale_second_patch_rejected": true,
+    "first_update_unchanged": true,
+    "error": "apply_patch verification failed: Failed to find expected lines in guarded-overlap/context.md: No sample-export result is recorded.",
+    "retry_or_repair": false
+  }
+}

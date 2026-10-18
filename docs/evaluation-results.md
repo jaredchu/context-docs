@@ -255,6 +255,31 @@ The [audience/destination pilot](../evals/results/2026-10-10-audience/README.md)
 retain their individual outcomes, errors and review disagreements. These authored
 studies do not establish effort savings for users new to context management.
 
+The v0.2.x records cover [Markdown progress](../evals/progress/smoke-2026-10-16/README.md),
+[visual paths](../evals/progress/smoke-0.2.1-2026-10-16/README.md) and
+[default inline adoption](../evals/progress/adoption-default-2026-10-16/README.md).
+Later focused smokes retain these qualifications:
+
+- [Concise progress, v0.2.3](../evals/progress/smoke-0.2.3-2026-10-17/README.md):
+  both clients pass the progress checks; Codex violates the permitted write scope
+  by creating and removing a temporary hash file whose prior state is unknown.
+- [Clarity, v0.2.4](../evals/clarity/smoke-0.2.4-2026-10-17/README.md):
+  saved-Markdown checks pass in both clients; Claude's final chat report adds an
+  unsupported gendered pronoun. No comprehension gain is established.
+- [Shared-file coordination, v0.2.5](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md):
+  both respect ownership and handoff and recover from the forced stale edit;
+  Claude retries its own second mismatch without rereading, and Codex corrects a
+  read-only checking error. The separate
+  [installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md)
+  passes one forced mismatch per client; it does not retest or clear those earlier
+  qualifications. The [offline diagnostic](../evals/concurrency/offline-2026-10-17/README.md)
+  records forced filesystem/tool outcomes separately from native sessions.
+
+These guided, author-scored cases do not establish implicit loading, automatic
+everyday reliability or user benefit. The concurrency checks do not establish
+simultaneous-writer safety or general conflict prevention. Original outputs and
+their study-specific limits remain authoritative in the linked records.
+
 Current work prioritizes daily use and focused fixes when concrete issues arise.
 Broader claims would need independently contributed cases or histories, independent
 review with condition labels concealed, and evidence of the intended users' effort
