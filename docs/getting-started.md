@@ -1,6 +1,6 @@
 # Installation and usage
 
-[Back to Context Docs](../README.md) · [Evaluation evidence](evaluation-results.md)
+[Back to Context Docs](../README.md) · [Evaluation evidence](evaluation-results.md) · [Release history](releases/README.md)
 
 Install both skills once, adopt them in a project, and let its maintenance rule keep
 context current after meaningful work. No background service is installed.
@@ -57,7 +57,7 @@ disable that fallback. The Project instructions setting can instead load both
 file types, only Claude files, or only managed instructions at launch. Older or
 otherwise unsupported sessions can import `AGENTS.md` from `CLAUDE.md`.
 
-Since v0.1.3, adoption targets the instructions actually loaded in the session. Confirm
+Adoption targets the instructions actually loaded in the session. Confirm
 the result: the rule should be in a loaded file, or included through that file's
 supported import. Check `/context` and the Project instructions setting rather
 than inferring loading solely from filenames. See the
@@ -126,8 +126,8 @@ Use $context-docs to establish a minimal context entry point for this project.
 Use existing docs and code as evidence; mark anything you cannot verify.
 ```
 
-Core v0.1.6 adds guidance for selecting information by audience and destination,
-with public, private-team and personal-project examples in the
+Select information by audience and destination, using the public, private-team
+and personal-project examples in the
 [standard](../skills/context-docs/references/standard.md#audience-and-destination).
 
 The workflow reads existing context, checks relevant evidence, updates canonical
@@ -142,22 +142,17 @@ initialization workflow.
 
 ### Clarity during context updates
 
-The **v0.2.4 bundle** (core 0.2.4 / adoption 0.1.13) prefers clear,
-direct sentences and consistent project terms within authorized edits. Preserve
+Prefer clear, direct sentences and consistent project terms within authorized edits. Preserve
 conditions, uncertainty, rationale and evidence; keep existing layouts and unrelated
 owner text. No ASD-STE100 compliance or special invocation is required.
 
-Both clients pass the [focused Markdown checks](../evals/clarity/smoke-0.2.4-2026-10-17/README.md).
-Claude's final chat report adds an unsupported pronoun for Noor; saved Markdown is
-unaffected. These guided, author-scored cases do not demonstrate comprehension gains
-or automatic everyday application. See the [release notes](releases/v0.2.4.md);
-existing v0.2.3 installations keep their guidance until separately upgraded.
+The [qualified clarity checks](../evals/clarity/smoke-0.2.4-2026-10-17/README.md)
+retain Claude's unsupported pronoun in its chat report, with saved Markdown
+unaffected. They do not establish comprehension gains or automatic everyday application.
 
 ### When sessions share a context file
 
-Core **0.2.5** / adoption **0.1.14**, bundled in experimental **v0.2.5**, add
-conditional concurrency guidance:
-when multiple agents or sessions work on the same context file concurrently,
+When multiple agents or sessions work on the same context file concurrently,
 coordinate one writer at a time for that file. Other participants pass their
 findings to the writer. Prefer narrow edits. If an edit conflicts or reports stale text,
 reread the current file and reconcile everyone's changes before retrying;
@@ -170,31 +165,19 @@ before parallel work begins; others return context findings instead of editing
 that file independently. Change writers through an explicit handoff.
 
 This rule guides coordination and provides no file locking or automatic merge
-guarantee. Existing project setup rules and installed v0.2.4 skills stay unchanged
-until separately updated. See the [core rule](../skills/context-docs/SKILL.md#make-the-smallest-useful-update).
+guarantee. Existing project setups stay unchanged unless separately updated.
+See the [core rule](../skills/context-docs/SKILL.md#make-the-smallest-useful-update).
 
-The [v0.2.5 release notes](releases/v0.2.5.md) retain the
-[qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md):
-both clients respect ownership and handoff and reread after the forced stale edit.
-Claude retries a second mismatch without another reread, a procedural failure
-despite preserved final content. Codex corrects a read-only anchor-check error.
+The [qualified candidate smoke](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md)
+retains Claude's second mismatch without a reread and Codex's corrected checking error.
 These guided cases do not test simultaneous writers or establish general
 conflict prevention. Publication alone does not upgrade installed skills.
 
 ### Progress in Markdown
 
-Core v0.2.0 adds Markdown progress visualization; adoption v0.1.10 routes to that
-guidance. They ship in the experimental v0.2.0 bundle. Existing v0.1.9 installations
-do not include the feature; upgrading an installation remains a separate action.
-Core **0.2.1** requires a clear visual path rather than a
-flat status table alone. A [focused synthetic smoke](../evals/progress/smoke-0.2.1-2026-10-16/README.md)
-passes one guided create case per client; broader behavior and user benefit remain
-unestablished. The example and prompt below reflect that correction; installed
-v0.2.0 packages retain their earlier guidance.
-
-Adoption **0.1.11** with core **0.2.2**, bundled in v0.2.2, instructs the agent to start
-a small inline visual path by default when the documented goal and supported work
-make one useful. It directs the agent to group ordinary status sentences in place,
+Show a clear visual path rather than a flat status table alone. During adoption,
+start a small inline path by default when the documented goal and supported work
+make one useful. Group ordinary status sentences in place,
 keeping details authoritative and linked to evidence. Existing lists, tables,
 diagrams and designated progress sections/files keep their format and location;
 do not add a duplicate. When the goal or supporting work is too sparse, skip the
@@ -202,21 +185,18 @@ new view rather than creating empty scaffolding. Explicit requests to omit the
 view or use another destination take precedence. An explicit adoption run may
 add a missing supported view to an already-adopted project, preserving its rule
 and original marker/date; subsequent unchanged repeats should make no edits.
-Installation or upgrade alone does not change project setups. The released and
-installed v0.2.1 guidance still creates a view when requested.
-The [v0.2.2 release notes](releases/v0.2.2.md) retain upgrade boundaries and the
-focused native checks' limits.
+Installation or upgrade alone does not change project setups.
 
-The **v0.2.3 bundle** (core 0.2.3 / adoption 0.1.12) favors a
-concise overview: goal, meaningful outcomes, dependencies/blockers and next action.
+Favor a concise overview: goal, meaningful outcomes, dependencies/blockers and next action.
 Link detailed test/review evidence instead of repeating its chronology. Keep
 decisions, rationale, approval boundaries and relevant qualifications visible;
 preserve existing formats and unique information. Detail can grow with project
 complexity or an explicit request; there is no fixed length limit or new evidence store.
-The [release notes](releases/v0.2.3.md) retain the qualified smoke result:
+The [qualified concise-progress smoke](../evals/progress/smoke-0.2.3-2026-10-17/README.md) retains its scope failure:
 both clients pass progress checks, but Codex creates/removes an extra temporary
-hash file outside its allowed paths, failing strict write scope. Installed
-v0.2.2 keeps its existing guidance until separately upgraded.
+hash file outside its allowed paths. Earlier installed packages keep their own
+guidance until separately upgraded; [release history](releases/README.md#feature-boundaries-for-older-installations)
+records feature boundaries and the original validation limits.
 
 Once a view exists, the loaded maintenance rule directs the agent to update it
 after meaningful changes during everyday work; you need not ask each time.
@@ -260,8 +240,7 @@ See the [synthetic example](../examples/progress.md) and the packaged
 
 ### Starting from earlier notes
 
-Core v0.1.9 makes the source check explicit during initialization:
-the agent should check current implementation or configuration claims against
+During initialization, the agent should check current implementation or configuration claims against
 relevant project sources before carrying them into the new context. It should preserve approved
 decisions, their rationale and unfinished work. For example, old notes may report
 a 10-second timeout while configuration sets 20; record the configured value and
@@ -270,7 +249,7 @@ This is part of the skill's setup guidance and needs no additional invocation.
 
 ## Local-only context (excluded from Git)
 
-Core v0.1.8 and adoption v0.1.9 provide an explicit local-only option. Existing
+Local-only context is an explicit storage option. Existing
 projects keep their storage, paths and instructions unless you request a change;
 installing or upgrading the skills does not make context local-only.
 
@@ -328,11 +307,11 @@ and repeat adoption preserves matching rules, paths and the original adoption da
 
 ## Optional logging
 
-Ordinary adoption and upgrades preserve existing projects and leave logging off
-unless a user-selected auto preference applies. Basic JSONL logging requires at
-least core v0.1.3 and adoption v0.1.5 together; older core
-packages do not include its guide or helper. Preserve locally customized package
-files when reviewing an upgrade.
+Preserve existing logging settings. With no setting, logging stays off unless
+explicitly enabled or a user-selected auto preference applies. Before enabling,
+check that the installed packages include the journal guide and helper; see
+[older-package boundaries](releases/README.md#feature-boundaries-for-older-installations).
+Preserve locally customized package files when reviewing an upgrade.
 To enable it explicitly, ask the adoption skill to enable JSONL in the project's
 existing maintenance section, optionally naming a directory. For example:
 
@@ -362,8 +341,7 @@ Context Docs logging preference: auto
 
 During adoption or authorized maintenance, an existing project logging setting
 wins, including `off`, `jsonl` or another logging method. With no setting, auto
-enables JSONL outside Git (core v0.1.5/adoption v0.1.6 or later), or for explicitly
-selected local-only context inside Git (core v0.1.8/adoption v0.1.9 or later).
+enables JSONL outside Git, or for explicitly selected local-only context inside Git.
 For the latter, every chosen context path and the journal directory must be
 verified untracked and ignored, including existing descendants and prospective
 new paths. A tracked file still fails even if an ignore rule matches it.
@@ -410,5 +388,5 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[v0.1.9 upgrade notes](releases/v0.1.9.md#installation-and-upgrade) for the
-source-selection update.
+[current upgrade notes](releases/v0.2.5.md#existing-projects-and-upgrades) and
+[release history](releases/README.md) for feature boundaries and retained evidence.

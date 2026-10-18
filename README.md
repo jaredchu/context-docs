@@ -19,14 +19,8 @@ as possible.
 The latest bundle is [v0.2.5](docs/releases/v0.2.5.md), an experimental prerelease
 adding conditional coordination for sessions sharing a context file. Its notes
 retain the qualified smoke results and upgrade boundaries. Installing it is a
-separate action. [Previous v0.2.4 notes](docs/releases/v0.2.4.md) retain the clarity
-preference and its original qualifications. [Previous v0.2.3 notes](docs/releases/v0.2.3.md) retain concise
-progress views and their original qualifications.
-Previous [v0.2.2 notes](docs/releases/v0.2.2.md) retain default inline progress adoption.
-The [v0.2.1 notes](docs/releases/v0.2.1.md) retain the visual-path improvement
-and its original evidence.
-The [v0.2.0 notes](docs/releases/v0.2.0.md) retain the original progress feature
-and its validation limits.
+separate action. See [release history](docs/releases/README.md) for earlier
+versions, feature boundaries and retained evidence.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
@@ -107,12 +101,11 @@ rule in the project instructions your agent loads. It preserves equivalent
 existing rules and the project’s documentation layout, and reports when it cannot
 confirm instruction loading.
 
-Adoption **0.1.11** with core **0.2.2**, bundled in v0.2.2, directs the agent to start
-a simple inline progress path by default when the documented goal and work support
-one, including during an explicit re-adoption. The guidance preserves existing
-views and keeps them current during everyday context updates, without a second
-task list or repeated requests. Installed v0.2.1 retains request-based creation;
-this change does not upgrade installations or rewrite existing setup rules.
+Adoption directs the agent to start a simple inline progress path by default when
+the documented goal and work support one, including during explicit re-adoption.
+The guidance reuses existing views and keeps them current during everyday context
+updates, without a second task list or repeated requests. Installation and upgrade
+alone do not rewrite existing project setups.
 
 ### 2. Save decisions, current work and next steps
 
@@ -162,20 +155,14 @@ existing context layout, or link a separate Markdown file if that reads better.
 The guidance directs the agent to maintain an existing view during authorized
 context updates and distinguish activity, useful learning and completed outcomes.
 A possible stall requires relevant historical evidence; invented completion
-percentages and claims of live agent activity are forbidden. The feature ships in
-v0.2.0; existing v0.1.9 installations need a separate upgrade. [Guide](docs/getting-started.md#progress-in-markdown)
-and [synthetic example](examples/progress.md).
+percentages and claims of live agent activity are forbidden.
 
-Core **0.2.1** tightens visualization to show a compact tree, arrow
-path or nested checklist with dependencies and blockers visible. A flat status
-table alone is insufficient. Existing v0.2.0 installations retain the earlier
-guidance; the earlier smoke checks did not test this stricter visual criterion.
-
-The **v0.2.3 release** favors a concise overview with links to detailed evidence,
-preserving decisions, blockers and existing layouts without a fixed length limit.
-The [focused smoke](evals/progress/smoke-0.2.3-2026-10-17/README.md) passes progress
-checks in both clients, with Codex's extra temporary-file write/delete recorded
-as a strict-scope failure. See the [release notes](docs/releases/v0.2.3.md).
+Favor a concise tree, arrow path or nested checklist with dependencies and blockers
+visible, linking to detailed evidence while preserving decisions and existing
+layouts. A flat status table alone is insufficient; there is no fixed length limit.
+See the [guide](docs/getting-started.md#progress-in-markdown),
+[synthetic example](examples/progress.md) and
+[qualified checks](docs/evaluation-results.md#more-recent-studies).
 
 ## Two skills, one workflow
 
@@ -223,7 +210,7 @@ remains experimental.
 
 ## Explore
 
-- [Installation and usage](docs/getting-started.md) · [v0.2.5 release notes](docs/releases/v0.2.5.md) · [Published v0.2.4 notes](docs/releases/v0.2.4.md) · [Changelog](CHANGELOG.md)
+- [Installation and usage](docs/getting-started.md) · [Release history](docs/releases/README.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)
 - [Evaluation scenarios](evals/README.md) · [This project’s context](docs/project-context.md)
