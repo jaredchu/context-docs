@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-18",
+  "source_revision": "14207388c7c7771c9da53788c94f80ac057ac7d3",
+  "private_evidence_id": "plugin-runtime-hb6bndlq",
+  "candidate_zip_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+  "result": "partial: Claude session-only namespaced adoption/maintenance passes; Codex runtime blocked",
+  "budget": {
+    "approved_minutes": 20,
+    "started_at": "2026-10-18T09:50:37Z",
+    "deadline": "2026-10-18T10:10:37Z",
+    "per_client_cap_seconds": 300,
+    "one_process_per_client": true,
+    "turns_per_client": 2,
+    "retries_or_output_repairs": 0
+  },
+  "codex": {
+    "version": "0.163.0-alpha.10.2",
+    "requested_model": "gpt-6.1-sol",
+    "effort": "medium",
+    "responding_model_identity": "unconfirmed",
+    "route": "stdio app-server plugin/read then explicit native skill UserInput from returned packaged entry; ephemeral thread; not persistent plugin activation",
+    "elapsed_seconds": 34.12,
+    "exit_code": 0,
+    "native_parser_skill_names": [
+      "context-docs:adopt-context-docs",
+      "context-docs:context-docs"
+    ],
+    "plugin_installed": false,
+    "plugin_enabled": false,
+    "runtime_result": "blocked; neither skill execution established",
+    "final_responses": [
+      "No files changed. File access failed with `sandbox-exec: sandbox_apply: Operation not permitted`, preventing me from reading the project files or locating the selected packaged adoption skill.\n\nExact skill source used: none; no skill was accessible. Adoption remains blocked until local file access works and the selected namespaced skill can be located. No checks or prohibited actions were performed.",
+      "No files changed. Local reads still fail with `sandbox-exec: sandbox_apply: Operation not permitted`, so I couldn’t inspect or reconcile notes/checks-update.md and notes/context.md.\n\nExact skill source used: none. The selected namespaced Context Docs core skill is also absent from the available skill catalog.\n\nMaintenance remains blocked by file access and skill availability. No checks or prohibited actions were performed."
+    ],
+    "fixture_edits": [],
+    "observed_stderr": [
+      "sandbox filesystem violations",
+      "blocked global shell snapshot/model cache/plugin identity cache writes",
+      "installed standalone skill root scan denied intentionally"
+    ],
+    "diagnostic_limit": "The final messages report sandbox-exec sandbox_apply Operation not permitted and unavailable namespaced skills. Stderr confirms sandbox violations, but the captured app-server stream contains no native tool call/results establishing the exact failing shell operation or why explicit skill selection was unavailable. No product incompatibility is established.",
+    "harness_limit": "The runner treated protocol status completed as task completion and dispatched the preplanned maintenance turn despite the no-op adoption result. Both turns are retained as blocked; no retry, permission expansion or fixture repair followed.",
+    "observed_auth_mode": "chatgpt"
+  },
+  "claude": {
+    "version": "2.1.302",
+    "requested_model": "claude-opus-5-5",
+    "reported_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "medium",
+    "route": "session-only --plugin-dir, namespaced Skill tool invocation; Read/Write/Edit/Skill only",
+    "elapsed_seconds": 67.11,
+    "exit_code": 0,
+    "runtime_result": "pass for the guided explicit two-turn journey",
+    "skill_invocations": [
+      "context-docs:adopt-context-docs",
+      "context-docs:context-docs"
+    ],
+    "tools_used": {
+      "Skill": 2,
+      "Read": 11,
+      "Edit": 7
+    },
+    "tool_source_sequence": [
+      {
+        "tool": "Skill",
+        "skill": "context-docs:adopt-context-docs",
+        "path": ""
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "plugins/context-docs/skills/context-docs/SKILL.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "plugins/context-docs/skills/context-docs/references/progress.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "README.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "AGENTS.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/checks.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/decision.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "AGENTS.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Skill",
+        "skill": "context-docs:context-docs",
+        "path": ""
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/checks-update.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Read",
+        "skill": null,
+        "path": "notes/context.md"
+      },
+      {
+        "tool": "Edit",
+        "skill": null,
+        "path": "notes/context.md"
+      }
+    ],
+    "turn_results": [
+      {
+        "subtype": "success",
+        "is_error": false,
+        "permission_denials": []
+      },
+      {
+        "subtype": "success",
+        "is_error": false,
+        "permission_denials": []
+      }
+    ],
+    "adoption_changed_files": [
+      "AGENTS.md",
+      "notes/context.md"
+    ],
+    "maintenance_changed_files": [
+      "notes/context.md"
+    ],
+    "adoption_context_links_checked": 6,
+    "final_context_links_checked": 8,
+    "criteria": {
+      "packaged_adoption_invoked_and_bundled_core_progress_read": true,
+      "one_inline_path_created_then_reused": true,
+      "headings_goal_decisions_rationale_owner_note_preserved": true,
+      "two_sample_only_pass_missing_fixture_unrun_full_suite_preserved": true,
+      "owner_rule_prefix_logging_off_and_claude_import_preserved": true,
+      "maintenance_changes_context_only": true,
+      "all_final_context_links_resolve": true
+    },
+    "observed_api_key_source": "none",
+    "other_native_init_plugin_names": [
+      "cc-plugin-agents-md",
+      "cc-plugin-plugin-authoring"
+    ]
+  },
+  "preservation": {
+    "protected_entries": 23462,
+    "unexpected_protected_changes": [],
+    "both_candidate_extractions_all_21_files_equal": true,
+    "original_candidate_and_prior_studies_unchanged": true,
+    "installed_skills_and_setup_preferences_unchanged": true,
+    "codex_runtime_identity_bytes_and_checked_stat_unchanged": true,
+    "only_new_synthetic_evidence_current_status_and_new_journal_record_added": true
+  },
+  "containment": {
+    "os_write_boundary": "per-client scratch tree; extracted candidate read-only; Codex has the previously assessed exact runtime identity write-access exception",
+    "os_read_denials": [
+      "real project checkout",
+      "standalone Codex skills",
+      "standalone Claude skills"
+    ],
+    "network": "native subscription inference and client startup traffic permitted; network tools forbidden",
+    "home_or_codex_home_reassignment": false,
+    "codex_runtime": "existing user/runtime configuration and remote catalog state still shared; no clean-profile claim",
+    "claude_runtime": "project settings only, no session persistence, hooks/auto-memory disabled, MCP empty, Chrome disabled; real authentication reused"
+  },
+  "author_checking_correction": "Initial private post-run checker used an over-greedy section heading regex and raised KeyError Goal. Original checker retained; corrected checker passed without changing model outputs or rerunning either client.",
+  "limits": [
+    "Sol authored fixtures and scored outputs; Claude was a subject, not an independent reviewer.",
+    "Explicit guided namespaced invocation only; no evidence for automatic everyday maintenance or implicit selection.",
+    "Codex metadata discovery is not installed/enabled plugin activation; its execution remains blocked.",
+    "Existing layout reuse is tested, not a full fresh-project adoption or cross-session continuity campaign.",
+    "Duplicate standalone selection, persistent install/upgrade, general chat, hosted execution and directory eligibility remain untested or unresolved.",
+    "No application checks ran; input results are fictional. No candidate edits, broader permissions, extra model follow-up, persistent installation, submission, publication or policy inquiry.",
+    "Claude native initialization also lists built-in cc-plugin-agents-md and cc-plugin-plugin-authoring. Only the two selected Context Docs Skill invocations occur; this is not a claim that all other native plugin metadata was absent."
+  ],
+  "raw_evidence_sha256": {
+    "codex/transcript.jsonl": "a7f7172c3715ad1a9d43d35e37550906b76693840977d157233423b7680cee7f",
+    "codex/stderr.txt": "8822bedbd540069b3a5085137691ac4a3d534bbc0ca040615888b433efa80d4b",
+    "codex/receipt.json": "87b3f795be147d6767da793d4b984fab4aa0a2b5ef871d61b5bce1e578469e0d",
+    "claude/transcript.jsonl": "5585a0795b413e31b5b5ae8f6e615ff7722e5ba5184803ea0c9bdba8e4aa2c61",
+    "claude/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "claude/receipt.json": "19111faeac313b816981efc32f3dfa155b9a49c01a8f38dbd423fbaadb81ab06"
+  },
+  "repository_checks": {
+    "static": "pass; 1925 relative links/anchors, 5 published tables, 2 skill packages and 2 versions",
+    "whitespace": "pass"
+  }
+}

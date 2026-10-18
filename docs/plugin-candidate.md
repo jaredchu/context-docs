@@ -121,10 +121,13 @@ metadata remain unchanged; this shares existing runtime identity rather than
 providing a clean profile. The plugin remains uninstalled and disabled. Neither
 native check sends a model prompt; a separate Opus review of the diagnostic route
 retains its qualifications. Original evidence is unchanged.
-No plugin has been persistently installed. Sibling reads during adoption,
-namespaced invocation, implicit selection, duplicate standalone
-skills and preservation during a plugin upgrade need a small isolated runtime
-check before any supported-plugin claim. In particular, do not enable this candidate
+A [bounded synthetic runtime check](../evals/packaging/plugin-runtime-2026-10-18/README.md)
+now passes explicit Claude Code adoption and maintenance, including its bundled
+core read and one reused progress path. Codex's runtime remains blocked by the
+test route; metadata discovery is unchanged. The no-op second Codex turn and
+post-run checker correction remain qualified. No plugin has been persistently
+installed. Codex execution, implicit selection, duplicate standalone skills and
+preservation during a plugin upgrade remain unverified before any supported-plugin claim. In particular, do not enable this candidate
 beside existing standalone skills until their selection and project-rule references
 are tested. General chat, hosted execution and Cowork
 remain unvalidated; the existing standalone evidence retains its qualifications.

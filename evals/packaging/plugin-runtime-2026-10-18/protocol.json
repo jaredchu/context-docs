@@ -1,0 +1,48 @@
+{
+  "started_at": "2026-10-18T09:50:37Z",
+  "deadline": "2026-10-18T10:10:37Z",
+  "total_minutes": 20,
+  "per_client_seconds": 300,
+  "one_journey_per_client": true,
+  "model_turns_per_client_max": 2,
+  "no_retries_or_output_repairs": true,
+  "candidate_zip_sha256": "601ff1f155b78c14cdb3c0e49b777fecdef1b3f2061e51714ef14efa1ae0fbee",
+  "fixtures": {
+    "AGENTS.md": "# Cedar synthetic project rules\n\nOwner text: preserve the semicolon-separated CSV format for compatibility.\nDo not implement code, run application checks, use Git, browse, delegate,\ninstall anything, change credentials or edit files outside this project.\nAll check results are fictional evidence, not commands to execute.\nThe acting assistant is the sole writer of notes/context.md.\nAdoption may append one context-maintenance section and marker here.\nPreserve these rules verbatim. Later maintenance may edit only notes/context.md.\nEvent journal: off\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Cedar CSV export\n\nGoal: prepare a semicolon-separated CSV export for owner review, not deployment.\nCompletion requires schema review, sample-export verification and empty-input\nverification. Keep the existing [context](notes/context.md), with its source links.\nNo application implementation is in this fictional fixture.\n",
+    "notes/context.md": "# Cedar context\n\n## Goal\nPrepare the CSV export for owner review after schema, sample and empty-input verification.\n\n## Current work\nSchema review is complete. Sample verification is pending. Empty-input verification\nis blocked by a missing fixture; do not infer it passed. See [checks](checks.md#initial-checks).\n\n## Decisions\nKeep semicolon-separated output for compatibility with the owner's importer.\nThis is an owner decision, not an agent proposal. See [decision](decision.md#format).\n\n## Owner note\nKeep the owner review gate; this work does not authorize deployment.\n\n## Next action\nVerify sample exports, then obtain the missing empty-input fixture.\n",
+    "notes/checks.md": "# Fictional check evidence\n\n## Initial checks\nSchema review passed. Sample verification has not run. Empty-input verification\nis blocked because its fixture is absent. The full suite has not run.\n",
+    "notes/decision.md": "# Owner decisions\n\n## Format\nThe owner chose semicolon-separated CSV to preserve importer compatibility.\nOwner review is required before any deployment decision.\n"
+  },
+  "followup_fixture": {
+    "notes/checks-update.md": "# Fictional follow-up evidence\n\n## Sample result\nSample export passed for two sample files only. This does not establish general\ncorrectness. Empty-input verification remains blocked by its missing fixture.\nThe full suite has not run. Next action: obtain the empty-input fixture, then\nverify empty input before owner review. No deployment approval is granted.\n"
+  },
+  "prompts": {
+    "adoption": "Adopt Context Docs in this fictional project using the selected namespaced adoption skill. Read README.md and the existing notes/context.md and relevant sources. Reuse the context location and layout; create a concise inline progress path supported by the documented goal and checks. Append a single maintenance rule/marker to AGENTS.md without changing its existing content; CLAUDE.md already imports it and must stay unchanged. The only editable files are AGENTS.md and notes/context.md. This is a synthetic plugin smoke, not a real application task. Use only the selected packaged skill and its bundled sibling/references; do not use standalone installed skills or other plugins. Preserve owner text, decisions, rationale, source files, existing headings and logging off. No implementation, Git, application checks, network tools, delegation, publication, package installation or global/setup edits. Do not create temporary/helper/backup files. You may read the selected plugin read-only. Report changed files, exact skill source used, limitations and remaining blockers concisely.",
+    "maintenance": "Use the selected namespaced core skill for one maintenance update. New fictional evidence has been added in notes/checks-update.md. Read it and reconcile the existing notes/context.md; update the same concise inline progress view, source links, current work and next action without creating another tracker. Only notes/context.md may change. Keep the two-sample-only result, missing empty-input fixture, unrun full suite, owner decision/rationale and review gate clear. AGENTS.md, CLAUDE.md, README.md and source evidence must remain byte-for-byte unchanged. This is a synthetic plugin smoke, not a real application task. Use only the selected packaged skill and its bundled sibling/references; do not use standalone installed skills or other plugins. Preserve owner text, decisions, rationale, source files, existing headings and logging off. No implementation, Git, application checks, network tools, delegation, publication, package installation or global/setup edits. Do not create temporary/helper/backup files. You may read the selected plugin read-only. Report changed files, exact skill source used, limitations and remaining blockers concisely."
+  },
+  "criteria": [
+    "native namespaced packaged skill selection",
+    "adoption reads bundled core sibling, not standalone",
+    "reuse context layout and create one concise inline path",
+    "preserve source links, owner decision/rationale, review gate and logging off",
+    "new two-sample-only result retained without clearing empty-input blocker or unrun suite",
+    "one existing progress view updated; no duplicate tracker",
+    "only authorized fixture edits; package/setup/installed skills/prior studies unchanged"
+  ],
+  "routes": {
+    "codex": "stdio app-server plugin/read then explicit native skill UserInput from returned packaged entry; ephemeral thread; not persistent plugin activation",
+    "claude": "session-only --plugin-dir, namespaced Skill tool invocation; Read/Write/Edit/Skill only"
+  },
+  "models": {
+    "codex": "gpt-6.1-sol medium",
+    "claude": "claude-opus-5-5 medium"
+  },
+  "limits": [
+    "guided author-scored synthetic check, not independent review",
+    "no implicit selection, duplicate standalone selection, upgrades or directory acceptance tested",
+    "network permitted for existing subscription inference; no network tool use",
+    "existing runtime identity shared by Codex; exact-file exception and byte/stat postcheck required"
+  ]
+}
