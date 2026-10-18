@@ -56,45 +56,28 @@ Saved snapshot: October 18, 2026; this is not live agent activity.
 ```text
 Goal: make progress clear during everyday context work
 |
-|-- RELEASED  Markdown progress and visual paths [B / V]
-|-- RELEASED  Default adoption and concise views [R / Q]
-|-- RELEASED  Clarity preference [L]
-`-- RELEASED  v0.2.5 shared-file coordination [C]
-    |-- DONE     Publication and website verification [P]
-    |-- DONE     Installed in Codex and Claude Code [U]
-    `-- CHECKED  Focused installed smoke; qualifications retained [S]
+|-- RELEASED  Markdown progress and visual paths
+|-- RELEASED  Default adoption and concise views
+|-- RELEASED  Clarity preference
+`-- RELEASED  v0.2.5 shared-file coordination
+    |-- DONE     Release and website verification
+    |-- DONE     Installed in Codex and Claude Code
+    `-- CHECKED  Focused installed smoke; qualifications retained
 
-NEXT: use installed standalone v0.2.5 and record concrete misses [N].
+NEXT: use standalone v0.2.5 and record concrete misses.
 ```
 
-Sources:
-
-- **B / V / R / Q:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
-  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes.
-- **L:** [Clarity preference and qualified checks](releases/v0.2.4.md).
-- **C / P:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
-  and [publication and website verification](releases/v0.2.5-publication.json).
-- **U / S:** [Installed upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl)
-  and [qualified installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
-- **N:** [Next actions](#next-actions).
-
-**Blockers:** no current implementation blocker is recorded.
-
-**Qualifications:** the installed smoke checks one forced conflict per client;
-it does not establish simultaneous-write safety or clear the earlier
-[Claude second-mismatch failure and Codex checking error](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
-The [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
-remains retained. Focused smoke checks pass, with explicit installed paths and a
-stricter temporary-write boundary; they are guided and author-scored. Fresh
-adoption, the full suite, broad reliability, implicit loading and user benefit
-remain unestablished. Earlier [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
-and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain retained.
+**Blockers:** none recorded for the current standalone everyday-use path.
 
 **Deferred:** [Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral)
-is paused by owner decision. The owner also set aside the broad v1.0.0 graduation campaign. Its
-[infrastructure proposals](#current-state) remain history. A local web viewer
-and ChatGPT integration are future possibilities; no implementation is selected.
-Markdown remains authoritative, without an independent tracker or completion percentage.
+and the broad v1.0.0 campaign. Plugin activation and execution remain unverified.
+
+**Qualifications:** focused checks retain earlier failures and limitations; they
+do not establish broad reliability or simultaneous-write safety.
+
+Sources: [release and feature history](releases/README.md),
+[qualified installed checks](../evals/installed-skills/2026-10-18-concurrency-v025/README.md),
+[detailed sources and limits](#evidence-and-limits), and [next action](#next-actions).
 
 Earlier baseline: experimental v0.1.9 at `5433e47`, with its
 [release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
@@ -167,6 +150,33 @@ privacy guarantees or savings in users' effort or tokens. Reliable implicit
 selection, cross-machine installed-path portability, JSONL necessity and natural
 recording-cost advantage remain unestablished.
 [Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
+
+Progress source details:
+
+- **Markdown progress, adoption and concise views:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
+  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes.
+- **Clarity:** [Clarity preference and qualified checks](releases/v0.2.4.md).
+- **Coordination and publication:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
+  and [publication and website verification](releases/v0.2.5-publication.json).
+- **Installation and focused checks:** [Installed upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl)
+  and [qualified installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
+- **Everyday next action:** [Next actions](#next-actions).
+
+**Qualifications:** the installed smoke checks one forced conflict per client;
+it does not establish simultaneous-write safety or clear the earlier
+[Claude second-mismatch failure and Codex checking error](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
+The [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
+remains retained. Focused smoke checks pass, with explicit installed paths and a
+stricter temporary-write boundary; they are guided and author-scored. Fresh
+adoption, the full suite, broad reliability, implicit loading and user benefit
+remain unestablished. Earlier [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
+and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain retained.
+
+**Deferred:** [Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral)
+is paused by owner decision. The owner also set aside the broad v1.0.0 graduation campaign. Its
+[infrastructure proposals](#current-state) remain history. A local web viewer
+and ChatGPT integration are future possibilities; no implementation is selected.
+Markdown remains authoritative, without an independent tracker or completion percentage.
 
 The [offline concurrency diagnostic](../evals/concurrency/offline-2026-10-17/README.md)
 retains exact synthetic inputs/results and forced filesystem/tool outcomes; it
