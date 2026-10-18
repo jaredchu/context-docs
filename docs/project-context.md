@@ -31,6 +31,11 @@ client. It does not clear earlier qualifications. Existing setups and saved stud
 are preserved. [Release history](releases/README.md) links earlier versions,
 preparation/publication records and original candidate and installed evidence.
 
+A separate [skills.sh installation check](../evals/installed-skills/2026-10-18-skills-sh/README.md)
+passes direct GitHub discovery and one isolated project install of both skills in
+both client layouts. Public catalog search/pages do not surface them as of October 18;
+directory discovery remains separate from installation. No native behavior is retested.
+
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
 ```text

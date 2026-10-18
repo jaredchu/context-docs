@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-18",
+  "private_evidence_id": "skills-sh-install-4adc30c2-21ca-4188-8e65-fb26113831df",
+  "type": "isolated installation and discovery check; no native model trial",
+  "cli_package": "skills@1.7.2",
+  "cli_npm_integrity": "sha512-j+GzyF/oNahsjjjup6y3lJpFkC1lQjIkf4kAMXICA1hboBqi0fAGXAGoE4x9FRZiP1br/YE9+L3/Tqq6PIAe0A==",
+  "source": "https://github.com/jaredchu/context-docs/tree/v0.2.5/skills",
+  "source_commit": "89c91f424476c8194a89cd38f4f48c5078fa1574",
+  "discovery": {
+    "query": "context-docs",
+    "owner": "jaredchu",
+    "public_search_http_status": 200,
+    "public_search_count": 0,
+    "repository_page_http_status": 404,
+    "skill_pages_http_status": 200,
+    "skill_pages_display": "404; requested skill is not available in this repository",
+    "github_shorthand_lists_exactly_two_skills": true,
+    "pinned_release_lists_exactly_two_skills": true,
+    "flag_error_retained": "Initial --list --json rejected before install. Plain --list then succeeds. No installation retry."
+  },
+  "installation": {
+    "invocations": 1,
+    "exit_code": 0,
+    "elapsed_seconds": 2.72,
+    "scope": "project in new private scratch tree",
+    "mode": "default symlink; canonical .agents/skills and Claude Code links under .claude/skills",
+    "command": [
+      "npx",
+      "--yes",
+      "--package=skills@1.7.2",
+      "skills",
+      "add",
+      "https://github.com/jaredchu/context-docs/tree/v0.2.5/skills",
+      "--skill",
+      "context-docs",
+      "adopt-context-docs",
+      "--agent",
+      "codex",
+      "claude-code",
+      "--yes",
+      "--json"
+    ],
+    "telemetry_disabled": true,
+    "macos_sandbox_writes_confined_to_scratch": true,
+    "npm_cache_temporary_directories_and_xdg_state_in_scratch": true,
+    "lifecycle_scripts_and_node_compile_cache_disabled": true
+  },
+  "layouts": {
+    "codex": {
+      "package_files_equal": 16,
+      "relative_links_and_anchors_checked": 21,
+      "versions": {
+        "core": "0.2.5",
+        "adoption": "0.1.14"
+      }
+    },
+    "claude": {
+      "package_files_equal": 16,
+      "relative_links_and_anchors_checked": 21,
+      "versions": {
+        "core": "0.2.5",
+        "adoption": "0.1.14"
+      }
+    }
+  },
+  "helpers": [
+    {
+      "client": "codex",
+      "helper": "event_journal.py",
+      "exit_code": 0
+    },
+    {
+      "client": "codex",
+      "helper": "journal_policy.py",
+      "exit_code": 0
+    },
+    {
+      "client": "claude",
+      "helper": "event_journal.py",
+      "exit_code": 0
+    },
+    {
+      "client": "claude",
+      "helper": "journal_policy.py",
+      "exit_code": 0
+    }
+  ],
+  "source_package_sha256": {
+    "adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "adopt-context-docs/SKILL.md": "68a1ef6e8359fd0e574cba132d8028e88ad7e08ea08179d653860474757f15c5",
+    "adopt-context-docs/VERSION": "9940d4b5219de8404015bc18af844c88d7e9e9105682a5d47b1d369d027dbd25",
+    "adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+    "context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+    "context-docs/SKILL.md": "dde370dcab106f119c9c9ec860570c4915753836b9d2ddca7958a47d0a841218",
+    "context-docs/VERSION": "e959f750e92dbb7614ae28ac96f0a37272caed81d8bbb758791af7bfbb6106a0",
+    "context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+    "context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+    "context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+    "context-docs/references/event-journal.md": "e721c1ca877c039dedcb2ca3e032f353b229c808c0d99e33948ba20fbf7ee254",
+    "context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+    "context-docs/references/progress.md": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+    "context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+    "context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+    "context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+  },
+  "npm_cli_files_equal_integrity_verified_archive": true,
+  "all_installed_links_stay_within_scratch": true,
+  "preservation_before_recording": {
+    "protected_entries_equal": 22803,
+    "real_installed_skills_setups_saved_studies_and_existing_project_files_unchanged": true
+  },
+  "limits": [
+    "Discovery snapshot only; public indexing/search visibility may change.",
+    "Project-scoped default symlink install only; no global installation, upgrade, copy-mode or other-client claim.",
+    "Four helper --help checks establish startup only; no journal capture/policy runtime rerun.",
+    "No client/model launch, skill invocation, project adoption, automatic instruction-loading or everyday reliability evaluation.",
+    "No telemetry registration or marketplace submission performed.",
+    "Raw receipts, fetched page bodies, source archive, isolation profile and installed scratch fixture retained privately."
+  ]
+}
