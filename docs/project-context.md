@@ -16,7 +16,7 @@ local notes only when still useful.
 
 ## Current focus
 
-Use experimental **v0.2.5** in everyday work and record concrete misses.
+Use installed standalone experimental **v0.2.5** in everyday work and record concrete misses.
 The bundle contains core **0.2.5**, adoption **0.1.14** and standard **0.1.1**.
 Publication and website verification are complete from `89c91f4`; the
 [publication record](releases/v0.2.5-publication.json) owns pinned identities,
@@ -48,6 +48,8 @@ reproduces sandbox nesting and verifies one command under the unchanged outer
 boundary; active plugin registration and execution remain unverified. Earlier
 harness qualifications and directory eligibility questions remain; no persistent
 install, submission or publication occurred.
+The owner has [deferred Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral);
+standalone v0.2.5 remains the everyday-use path.
 
 Saved snapshot: October 18, 2026; this is not live agent activity.
 
@@ -62,7 +64,7 @@ Goal: make progress clear during everyday context work
     |-- DONE     Installed in Codex and Claude Code [U]
     `-- CHECKED  Focused installed smoke; qualifications retained [S]
 
-NEXT: use installed v0.2.5 in everyday work and record concrete misses [N].
+NEXT: use installed standalone v0.2.5 and record concrete misses [N].
 ```
 
 Sources:
@@ -88,7 +90,8 @@ adoption, the full suite, broad reliability, implicit loading and user benefit
 remain unestablished. Earlier [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
 and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain retained.
 
-**Deferred:** the owner set aside the broad v1.0.0 graduation campaign. Its
+**Deferred:** [Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral)
+is paused by owner decision. The owner also set aside the broad v1.0.0 graduation campaign. Its
 [infrastructure proposals](#current-state) remain history. A local web viewer
 and ChatGPT integration are future possibilities; no implementation is selected.
 Markdown remains authoritative, without an independent tracker or completion percentage.
@@ -178,7 +181,7 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Continue everyday work with installed v0.2.5. After meaningful outcomes, update
+Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next
 action. Reproduce concrete misses with public evidence or synthetic examples
 before focused fixes; no new infrastructure campaign or smoke rerun is selected.

@@ -174,3 +174,22 @@ only actual assistance is credited, preserving human authorship, existing
 co-author trailers and published history. The
 [commit attribution policy](../CONTRIBUTING.md#commit-attribution) owns the exact
 trailers; the stable Claude trailer name is a project implementation choice.
+
+## Codex plugin runtime deferral
+
+On October 18, 2026, the owner requested: "Record the Codex plugin runtime deferral
+and keep standalone v0.2.5 as the everyday-use path."
+
+Defer Codex plugin activation and runtime validation. Keep using installed
+standalone experimental v0.2.5 (core 0.2.5, adoption 0.1.14). Preserve the frozen
+candidate, [qualified runtime results](../evals/packaging/plugin-runtime-2026-10-18/README.md)
+and [non-model diagnostic](../evals/packaging/codex-route-diagnostic-2026-10-18/README.md).
+Claude's focused journey passed; Codex discovery and one command route were
+verified, while active plugin registration and execution remain unverified.
+The bounded read-only follow-up did not establish a supported disposable
+activation route under the preservation constraints. This is a verification
+limit, not proof that such a route cannot exist.
+
+This decision authorizes recording the deferral only. Preserve installed skills,
+setups, credentials and saved studies. No activation, model reruns, installation,
+submission or publication is selected; reopening the work needs a new owner request.

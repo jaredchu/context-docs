@@ -1,6 +1,10 @@
 # Minimal plugin candidate
 
 Prepared October 18, 2026. **Local packaging candidate, not a directory submission.**
+**Codex plugin runtime validation is [deferred by owner decision](project-decisions.md#codex-plugin-runtime-deferral).**
+Installed standalone v0.2.5 remains the everyday-use path; no activation or further
+runtime work is selected. Existing plugin evidence and qualifications remain intact.
+
 Both released skills remain unchanged: core **0.2.5**, adoption **0.1.14**. Keep
 adoption as the setup workflow and core as the maintenance/audit workflow; this
 candidate bundles their existing sibling dependency rather than merging them.
