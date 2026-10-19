@@ -85,20 +85,15 @@ Saved snapshot: October 19, 2026; this is not live agent activity.
 
 ```text
 Goal: make progress clear during everyday context work
-|
-|-- RELEASED  Markdown progress and visual paths
-|-- RELEASED  Default adoption and concise views
-|-- RELEASED  Clarity preference
-|-- RELEASED  v0.2.5 shared-file coordination
-|   |-- DONE     Release and website verification
-|   |-- DONE     Installed in Codex and Claude Code
-|   `-- CHECKED  Focused installed smoke; qualifications retained
-`-- RELEASED  v0.2.6 metadata filtering and portable references
-    |-- DONE     Release and website verification
-    |-- DONE     Installed in Codex and Claude Code; package checks pass
-    `-- CHECKED  Installed filtering smoke; earlier qualifications retained
+│
+├─ RELEASED  Markdown progress, adoption and concise views
+├─ RELEASED  Clarity and shared-file coordination
+└─ RELEASED  v0.2.6 metadata filtering and portable references
+   ├─ DONE     Release and website verification
+   ├─ DONE     Installed in Codex and Claude Code
+   └─ CHECKED  Focused installed smoke; qualifications retained
 
-NEXT: use installed v0.2.6 in everyday work; record concrete misses.
+NEXT: use v0.2.6 in everyday work; record concrete misses.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
