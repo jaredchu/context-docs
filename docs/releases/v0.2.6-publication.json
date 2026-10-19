@@ -1,0 +1,279 @@
+{
+  "status": "published_and_live_verified",
+  "date": "2026-10-19",
+  "authority": "Project owner: Publish v0.2.6 as an experimental release, then deploy and verify the website. Retain the smoke-check qualification and preserve installed skills, existing setups and saved studies.",
+  "bundle": {
+    "core": "0.2.6",
+    "adoption": "0.1.15",
+    "standard": "0.1.1"
+  },
+  "release_commit": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+  "release": {
+    "assets": [],
+    "isDraft": false,
+    "isPrerelease": true,
+    "publishedAt": "2026-10-19T04:26:42Z",
+    "tagName": "v0.2.6",
+    "targetCommitish": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+    "url": "https://github.com/jaredchu/context-docs/releases/tag/v0.2.6",
+    "tag_commit_sha": "d74e69d3268676cf7eab19d241e8b590ddb1c60a"
+  },
+  "release_actions": [
+    {
+      "conclusion": "success",
+      "databaseId": 39199450777,
+      "event": "push",
+      "headBranch": "main",
+      "headSha": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+      "name": "Landing page",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/39199450777"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39199450846,
+      "event": "push",
+      "headBranch": "main",
+      "headSha": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+      "name": "Static checks",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/39199450846"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39199450850,
+      "event": "push",
+      "headBranch": "codex/progress-visualization",
+      "headSha": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+      "name": "Static checks",
+      "status": "completed",
+      "url": "https://github.com/jaredchu/context-docs/actions/runs/39199450850"
+    }
+  ],
+  "website_deployment": {
+    "conclusion": "success",
+    "createdAt": "2026-10-19T04:27:01Z",
+    "databaseId": 39199518618,
+    "event": "workflow_dispatch",
+    "headBranch": "main",
+    "headSha": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+    "jobs": [
+      {
+        "name": "build",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T04:27:03Z",
+        "completedAt": "2026-10-19T04:27:11Z",
+        "url": "https://github.com/jaredchu/context-docs/actions/runs/39199518618/job/117889394786"
+      },
+      {
+        "name": "deploy",
+        "conclusion": "success",
+        "startedAt": "2026-10-19T04:27:14Z",
+        "completedAt": "2026-10-19T04:27:22Z",
+        "url": "https://github.com/jaredchu/context-docs/actions/runs/39199518618/job/117889430757"
+      }
+    ],
+    "name": "Landing page",
+    "status": "completed",
+    "updatedAt": "2026-10-19T04:27:23Z",
+    "url": "https://github.com/jaredchu/context-docs/actions/runs/39199518618"
+  },
+  "local_checks": {
+    "static_repository": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "result": "pass",
+      "links_and_anchors": 2008,
+      "tables": 5,
+      "packages": 2
+    },
+    "checker_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "passed": 28
+    },
+    "site_tests": {
+      "command": "python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "passed": 17
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    "source_package_pins": "all 16 unchanged",
+    "release_note_qualification_section": "byte-for-byte unchanged from preparation",
+    "final_static_repository": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "result": "pass",
+      "links_and_anchors": 2012,
+      "tables": 5,
+      "packages": 2
+    }
+  },
+  "public_artifact_files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+    "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+    "getting-started/index.html": "d8a8234334ffe6f20444e0cb86a1fa38cd0c3a2341ec6b376c8838c77bfcd105",
+    "index.html": "dfda8d223c4f0dda19984912ee06740b5f4c23c99180ff3922fb057be3291dae",
+    "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+    "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+    "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+    "styles.css": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35"
+  },
+  "uploaded_artifact_verification": {
+    "source_commit": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+    "downloaded_from_run": 39199518618,
+    "archive_sha256": "21c6402578615d316f88b7486962b88da50da0128e55b062b0eadf7aaef5aab0",
+    "all_uploaded_files_match_local_build": true,
+    "file_hashes": {
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "styles.css": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "index.html": "dfda8d223c4f0dda19984912ee06740b5f4c23c99180ff3922fb057be3291dae",
+      "getting-started/index.html": "d8a8234334ffe6f20444e0cb86a1fa38cd0c3a2341ec6b376c8838c77bfcd105",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd"
+    },
+    "omitted_local_files": [
+      ".nojekyll"
+    ],
+    "qualification": "Upload omits the empty .nojekyll marker, as in prior releases. All eight served files match. Tar members hashed in memory without filesystem extraction."
+  },
+  "live_verification": {
+    "all_match": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "observed_at": "2026-10-19T04:27:42.101461+00:00",
+        "all_match": true,
+        "resources": [
+          {
+            "url": "https://context-docs.com/context-docs-overview.png",
+            "final_url": "https://context-docs.com/context-docs-overview.png",
+            "status": 200,
+            "content_type": "image/png",
+            "sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+            "expected_sha256": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+            "matches_build": true
+          },
+          {
+            "url": "https://context-docs.com/favicon.svg",
+            "final_url": "https://context-docs.com/favicon.svg",
+            "status": 200,
+            "content_type": "image/svg+xml",
+            "sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+            "expected_sha256": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+            "matches_build": true
+          },
+          {
+            "url": "https://context-docs.com/getting-started/",
+            "final_url": "https://context-docs.com/getting-started/",
+            "status": 200,
+            "content_type": "text/html; charset=utf-8",
+            "sha256": "d8a8234334ffe6f20444e0cb86a1fa38cd0c3a2341ec6b376c8838c77bfcd105",
+            "expected_sha256": "d8a8234334ffe6f20444e0cb86a1fa38cd0c3a2341ec6b376c8838c77bfcd105",
+            "matches_build": true,
+            "released_status": true,
+            "release_link_not_draft": true,
+            "metadata_guidance": true,
+            "smoke_qualification": true,
+            "native_journal_limit": true,
+            "privacy_limit": true,
+            "earlier_concurrency_qualification": true,
+            "seo_no_em_dash": true,
+            "seo_titles": [
+              "Get started with Context Docs",
+              "Get started with Context Docs"
+            ],
+            "html_checks_pass": true
+          },
+          {
+            "url": "https://context-docs.com/",
+            "final_url": "https://context-docs.com/",
+            "status": 200,
+            "content_type": "text/html; charset=utf-8",
+            "sha256": "dfda8d223c4f0dda19984912ee06740b5f4c23c99180ff3922fb057be3291dae",
+            "expected_sha256": "dfda8d223c4f0dda19984912ee06740b5f4c23c99180ff3922fb057be3291dae",
+            "matches_build": true,
+            "released_status": true,
+            "release_link_not_draft": true,
+            "metadata_guidance": true,
+            "smoke_qualification": true,
+            "native_journal_limit": true,
+            "privacy_limit": true,
+            "earlier_concurrency_qualification": true,
+            "seo_no_em_dash": true,
+            "seo_titles": [
+              "Context Docs: pick up where you left off",
+              "Context Docs: pick up where you left off"
+            ],
+            "html_checks_pass": true
+          },
+          {
+            "url": "https://context-docs.com/main.js",
+            "final_url": "https://context-docs.com/main.js",
+            "status": 200,
+            "content_type": "application/javascript; charset=utf-8",
+            "sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+            "expected_sha256": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+            "matches_build": true
+          },
+          {
+            "url": "https://context-docs.com/robots.txt",
+            "final_url": "https://context-docs.com/robots.txt",
+            "status": 200,
+            "content_type": "text/plain; charset=utf-8",
+            "sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+            "expected_sha256": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+            "matches_build": true
+          },
+          {
+            "url": "https://context-docs.com/sitemap.xml",
+            "final_url": "https://context-docs.com/sitemap.xml",
+            "status": 200,
+            "content_type": "application/xml",
+            "sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+            "expected_sha256": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+            "matches_build": true
+          },
+          {
+            "url": "https://context-docs.com/styles.css",
+            "final_url": "https://context-docs.com/styles.css",
+            "status": 200,
+            "content_type": "text/css; charset=utf-8",
+            "sha256": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35",
+            "expected_sha256": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35",
+            "matches_build": true
+          }
+        ]
+      }
+    ],
+    "method": "Canonical HTTPS GETs using curl default user agent, no cache-busting query or warning bypass. At most three reads for propagation, 15 seconds apart.",
+    "limits": "Response bytes and HTML metadata only; no new live-browser rendering, indexing, usability or agent-behavior claim."
+  },
+  "preparation_record": "docs/releases/v0.2.6-validation.json",
+  "preparation_record_sha256": "c740be1ab4afe23c51b017e92e0d661358d838ba9e93b7d4c88950f6920c3f70",
+  "package_pins": "All 16 source files match the preparation record; unchanged for publication.",
+  "smoke_qualification": "Both clients pass visible saved-Markdown checks. Claude could not locate an unlinked private operator note with restricted discovery tools; incoming-note filtering in Claude remains untested. Guided, author-scored, explicit copied candidate paths. No rerun or output repair. No installed-behavior, implicit-loading, automatic everyday application, native-journal or general privacy guarantee.",
+  "new_native_trials": false,
+  "new_claude_review": false,
+  "installed_skills_updated": false,
+  "publication_attribution": "Codex performs release labeling, publication, deployment and verification. Earlier Claude assistance remains credited in guidance and smoke commits; no new Claude contribution to publication.",
+  "preservation": {
+    "status": "passed_after_publication_and_live_verification",
+    "baseline_entries": 31903,
+    "expected_modified_existing_files": 9,
+    "unexpected_changes": [],
+    "installed_skill_files_unchanged": 32,
+    "source_package_files_unchanged": 16,
+    "setup_rules_saved_studies_and_preparation_record_unchanged": true,
+    "scope": "Existing repository entries except Git metadata, four installed skill trees and the original v0.2.6 preparation evidence. Hashes and modes compared; only release documentation/status changes are allowed. No equality claim for unrelated global runtime/cache state."
+  },
+  "limits": [
+    "Live verification checks canonical HTTPS response bytes and HTML metadata, not new live-browser rendering, user benefit or agent behavior.",
+    "The upload omits empty .nojekyll; all eight served files match the local release build.",
+    "Installed upgrades remain separate; installed core 0.2.5/adoption 0.1.14 are unchanged."
+  ],
+  "private_evidence_id": "v026-publication-5be46bd8-0f05-4dbe-b19a-c25bcf81496c",
+  "evidence_access_limit": "Private raw checks, artifact and preservation receipts are retained. This ID and hashes do not grant access or establish independent verification."
+}

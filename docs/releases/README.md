@@ -10,7 +10,7 @@ installed skills or change existing project setups.
 ## v0.2.x
 
 - **[v0.2.6](v0.2.6.md):**
-  [preparation](v0.2.6-validation.json),
+  [preparation](v0.2.6-validation.json), [publication](v0.2.6-publication.json),
   [qualified candidate smoke](../../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
   and [offline controls](../../evals/content-filtering/README.md).
 - **[v0.2.5](v0.2.5.md):** [preparation](v0.2.5-validation.json),

@@ -90,8 +90,10 @@ passes visible saved-Markdown checks; Claude could not locate the unlinked priva
 note, so its incoming-note filtering remains untested. No automatic redaction,
 secret scanner or general privacy guarantee is claimed. The
 [preparation record](../docs/releases/v0.2.6-validation.json) owns local build and
-preview checks with their original unpublished scope. Publication and deployment
-are separately authorized; the final verification record will identify the deployed build.
+preview checks with their original unpublished scope. The
+[publication record](../docs/releases/v0.2.6-publication.json) verifies release and
+deployment from `d74e69d`; all eight live public files match that build. Verification
+checks HTTPS bytes and metadata, not a new live-browser rendering or agent trial.
 
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions

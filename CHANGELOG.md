@@ -23,7 +23,17 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## v0.2.6 release preparation — 2026-10-19 (unpublished)
+## v0.2.6 publication — 2026-10-19
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.2.6)
+  and deploy its website from `d74e69d` after all three release-commit Actions pass.
+  All eight checked live resources match the pinned build. The
+  [publication record](docs/releases/v0.2.6-publication.json) owns verification and
+  limits; Claude’s private-note coverage gap and all original studies remain intact.
+- Publication is Codex-assisted, with no new Claude review, native trial or installed
+  upgrade. Existing installed packages, setup rules and saved studies are preserved.
+
+## v0.2.6 release preparation — 2026-10-19 (prepublication checks)
 
 - Prepare [draft release notes](docs/releases/v0.2.6.md) and both website pages for
   metadata filtering, portable references and meaningful event selection. Keep

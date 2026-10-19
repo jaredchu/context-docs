@@ -1,14 +1,12 @@
 # Project context
 
-Experimental v0.2.5 was published October 18, 2026. Its website demo was deployed
-and verified October 19 from `d8c624c`; all eight checked live public resources
-match that demo build. Claude's second mismatch without a reread and Codex's
-corrected checking error remain qualified.
-Unreleased source core 0.2.6/adoption 0.1.15 strengthens destination filtering,
-portable references and concise event selection. The
-[focused synthetic checks](../evals/content-filtering/README.md) describe its
-acceptance examples and verification limits; published standalone v0.2.5 remains
-the everyday-use release.
+Experimental v0.2.6 was published October 19, 2026 and its website deployed
+from `d74e69d`. All eight checked live public files match that build; the
+[publication record](releases/v0.2.6-publication.json) owns identities and limits.
+It strengthens destination filtering, portable references and meaningful event
+selection. The [qualified candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+passes visible saved-Markdown checks; incoming-note filtering from Claude's
+undiscovered private note remains untested. Installed v0.2.5 is unchanged.
 
 ## Purpose and scope
 
@@ -21,25 +19,23 @@ local notes only when still useful.
 
 ## Current focus
 
-The filtering candidate has passing offline checks and qualified counterpart
-review; its final schema correction was checked locally. A
-[copied-candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
-passes visible saved-Markdown checks; Claude's private-note coverage gap is retained.
-The owner authorized v0.2.6 experimental publication and website deployment.
-Release labels are finalized; publication and live verification are pending.
-The [release notes](releases/v0.2.6.md) retain the qualification; the
-[preparation record](releases/v0.2.6-validation.json) owns prepublication checks. Keep operational outreach in separate local notes.
-This work does not clean historical records or change logging settings.
+The v0.2.6 experimental release and website verification are complete.
+The [release notes](releases/v0.2.6.md) and
+[publication record](releases/v0.2.6-publication.json) retain the qualification;
+the [preparation record](releases/v0.2.6-validation.json) keeps its original
+prepublication scope. An installed upgrade is separate and has not been performed.
+Keep operational outreach in separate local notes; publication does not clean
+historical records or change logging settings.
 
 Use installed standalone experimental **v0.2.5** in everyday work and record concrete misses.
 The bundle contains core **0.2.5**, adoption **0.1.14** and standard **0.1.1**.
-Publication and website verification are complete from `89c91f4`; the
+The earlier v0.2.5 publication and website verification used `89c91f4`; its
 [publication record](releases/v0.2.5-publication.json) owns pinned identities,
 the October 18 resource verification and its limits. The separate
 [website demo deployment record](website-demo-deployment-2026-10-19.json) owns
 the October 19 build and live checks.
 
-Installed Codex and Claude Code sibling pairs match the release; all 32 package
+Installed Codex and Claude Code sibling pairs still match v0.2.5; all 32 package
 files and packaged references are checked in the
 [upgrade record](../.context/events/installed-v025-upgrade-20261018.jsonl).
 The separate [installed native smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md)
@@ -66,7 +62,7 @@ boundary; active plugin registration and execution remain unverified. Earlier
 harness qualifications and directory eligibility questions remain; no persistent
 install, submission or publication occurred.
 The owner has [deferred Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral);
-standalone v0.2.5 remains the everyday-use path.
+standalone skills remain the everyday-use path; installed v0.2.5 is unchanged.
 
 A [short synthetic demo and outreach post](outreach-v0.2.5.md) invites standalone
 Codex and Claude Code users to try the experimental release and report concrete
@@ -89,10 +85,11 @@ Goal: make progress clear during everyday context work
 |   |-- DONE     Release and website verification
 |   |-- DONE     Installed in Codex and Claude Code
 |   `-- CHECKED  Focused installed smoke; qualifications retained
-`-- PENDING   v0.2.6 publication and website verification
+`-- RELEASED  v0.2.6 metadata filtering and portable references
+    |-- DONE     Release and website verification
     `-- CHECKED  Candidate smoke; private-note coverage gap retained
 
-NEXT: publish and verify v0.2.6; installed v0.2.5 remains unchanged.
+NEXT: consider a separate v0.2.6 upgrade; installed v0.2.5 is unchanged.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -104,7 +101,7 @@ and the broad v1.0.0 campaign. Plugin activation and execution remain unverified
 do not establish broad reliability or simultaneous-write safety.
 
 Sources: [release and feature history](releases/README.md),
-[live demo verification](website-demo-deployment-2026-10-19.json),
+[current website verification](releases/v0.2.6-publication.json),
 [qualified installed checks](../evals/installed-skills/2026-10-18-concurrency-v025/README.md),
 [detailed sources and limits](#evidence-and-limits), and [next action](#next-actions).
 
@@ -220,9 +217,9 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Complete the authorized v0.2.6 experimental publication and website verification,
-retaining the [qualified candidate checks](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md).
-No installed upgrade or historical metadata cleanup is selected.
+Consider a separately authorized upgrade to both v0.2.6 sibling skills, preserving
+customizations and the [qualified candidate checks](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md).
+Installed v0.2.5 remains usable; no upgrade or historical cleanup has been performed.
 Operational outreach belongs in separate local notes; directory work remains deferred.
 
 Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
