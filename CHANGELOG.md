@@ -11,7 +11,7 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.5 release notes](docs/releases/v0.2.5.md).
+The latest published bundle is described in the [v0.2.5 release notes](docs/releases/v0.2.5.md).
 Previous [v0.2.4 release notes](docs/releases/v0.2.4.md) are retained.
 Previous [v0.2.3 release notes](docs/releases/v0.2.3.md) are retained.
 Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
@@ -21,6 +21,16 @@ Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## v0.2.6 release preparation — 2026-10-19 (unpublished)
+
+- Prepare [draft release notes](docs/releases/v0.2.6.md) and both website pages for
+  metadata filtering, portable references and meaningful event selection. Keep
+  v0.2.6 unreleased and v0.2.5 as the latest published bundle. Retain Claude's
+  private-note discovery coverage gap and the guided smoke's limits.
+- The [preparation record](docs/releases/v0.2.6-validation.json) owns local checks,
+  build identities and preservation. No new native model trial, counterpart review,
+  publication, deployment or installed upgrade is part of this preparation.
 
 ## context-docs 0.2.6 — unreleased
 

@@ -16,10 +16,10 @@ as possible.
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
 **Status: experimental, core skill v0.2.6 and adoption skill v0.1.15 (unreleased).**
-The latest published bundle is [v0.2.5](docs/releases/v0.2.5.md), an experimental prerelease
-adding conditional coordination for sessions sharing a context file. Its notes
-retain the qualified smoke results and upgrade boundaries. Installing it is a
-separate action. See [release history](docs/releases/README.md) for earlier
+The [v0.2.6 draft notes](docs/releases/v0.2.6.md) cover metadata filtering,
+portable references and qualified synthetic checks. The latest published bundle
+remains [v0.2.5](docs/releases/v0.2.5.md), an experimental prerelease. Publication
+and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 

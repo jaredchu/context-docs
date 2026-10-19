@@ -9,6 +9,10 @@ installed skills or change existing project setups.
 
 ## v0.2.x
 
+- **[v0.2.6 draft, unpublished](v0.2.6.md):**
+  [preparation](v0.2.6-validation.json),
+  [qualified candidate smoke](../../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+  and [offline controls](../../evals/content-filtering/README.md).
 - **[v0.2.5](v0.2.5.md):** [preparation](v0.2.5-validation.json),
   [publication](v0.2.5-publication.json),
   [installed upgrade](../../.context/events/installed-v025-upgrade-20261018.jsonl),
@@ -57,8 +61,9 @@ installed skills or change existing project setups.
 
 ## Feature boundaries for older installations
 
-The current bundle includes these features. Older installed packages keep their
-own guidance until separately upgraded; use the linked notes for exact scope.
+Current source includes these features; the linked notes distinguish unpublished
+candidates from releases. Older installed packages keep their own guidance until
+separately upgraded; use the linked notes for exact scope.
 Core and adoption have separate versions, so retain both complete sibling packages.
 
 | Feature | Introduced core / adoption | Bundle notes |
@@ -73,3 +78,4 @@ Core and adoption have separate versions, so retain both complete sibling packag
 | Concise progress views | 0.2.3 / 0.1.12 | [v0.2.3](v0.2.3.md) |
 | Clarity preference | 0.2.4 / 0.1.13 | [v0.2.4](v0.2.4.md) |
 | Shared-file coordination | 0.2.5 / 0.1.14 | [v0.2.5](v0.2.5.md) |
+| Metadata filtering and portable references | 0.2.6 / 0.1.15 (candidate) | [v0.2.6 draft](v0.2.6.md) |

@@ -157,6 +157,12 @@ action clear. This is guidance for selecting new content, not automatic redactio
 a guarantee against disclosure, or permission to rewrite history or move records.
 Existing layouts, storage choices and logging settings remain in effect.
 
+In the [v0.2.6 candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md),
+both clients pass visible saved-Markdown checks. Claude could not locate an
+unlinked private operator note with its restricted tools; filtering incoming
+content from that note remains untested. These guided checks establish no general
+privacy guarantee or automatic everyday application.
+
 Make shared context discoverable: link it from the project README or
 documentation index. For a fresh session, ask the agent to start there and read
 the linked context before working. A context file's presence alone does not ensure
@@ -411,5 +417,6 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[current upgrade notes](releases/v0.2.5.md#existing-projects-and-upgrades) and
+[v0.2.6 draft upgrade notes](releases/v0.2.6.md#existing-projects-and-upgrades) and
 [release history](releases/README.md) for feature boundaries and retained evidence.
+The latest published bundle remains v0.2.5 until v0.2.6 is separately published.

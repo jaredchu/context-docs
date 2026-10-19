@@ -81,6 +81,17 @@ confirms deployment from `89c91f4` and eight matching live resources on October 
 The uploaded artifact omits the empty `.nojekyll` marker; all eight served files
 match the release build. Publication adds no installed upgrade or new native trial.
 
+The v0.2.6 website candidate adds metadata selection, portable references and
+less routine bookkeeping while preserving useful local knowledge and diagnostic
+conditions. Both pages link the [draft notes](../docs/releases/v0.2.6.md), retain
+the latest published v0.2.5 link, and show unreleased source labels. The
+[qualified smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+passes visible saved-Markdown checks; Claude could not locate the unlinked private
+note, so its incoming-note filtering remains untested. No automatic redaction,
+secret scanner or general privacy guarantee is claimed. The
+[preparation record](../docs/releases/v0.2.6-validation.json) owns local build and
+preview checks; this candidate has not been deployed.
+
 The [getting-started template](getting-started.html) owns the beginner walkthrough.
 Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed

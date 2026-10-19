@@ -1,0 +1,255 @@
+{
+  "status": "prepared_for_review_unpublished",
+  "prepared_date": "2026-10-19",
+  "source_commit": "a14ecdafd9701cf5a1973de446cd33df2b7ffb15",
+  "source_qualification": "Plus uncommitted release notes, website copy, guide, release index, changelog and current context. All 16 package files match the prior smoke candidate.",
+  "bundle": {
+    "core": "0.2.6",
+    "adoption": "0.1.15",
+    "standard": "0.1.1"
+  },
+  "package_pins": {
+    "skills/adopt-context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/SKILL.md": {
+      "sha256": "ba10127897aa218202a701a145c3aa07d13b5cb7b179d704131675e2b8967a54",
+      "bytes": 8217,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/VERSION": {
+      "sha256": "e0a25b3b7adde370a854cb1b4866bdc4b565236f0ee65dcdb1b7cd1bc3b6f071",
+      "bytes": 7,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/agents/openai.yaml": {
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "bytes": 273,
+      "mode": "0o644"
+    },
+    "skills/context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "skills/context-docs/SKILL.md": {
+      "sha256": "b6c191e81bd8d93a8a8774b9dda53a633b5b51ffcc8298153c25c8e32bf98a1a",
+      "bytes": 10535,
+      "mode": "0o644"
+    },
+    "skills/context-docs/VERSION": {
+      "sha256": "be3c6d2c6c406a64d44f0b6464a887e290416dd90c524094485b1be00936d6d7",
+      "bytes": 6,
+      "mode": "0o644"
+    },
+    "skills/context-docs/agents/openai.yaml": {
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "bytes": 224,
+      "mode": "0o644"
+    },
+    "skills/context-docs/assets/decision-record.md": {
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "bytes": 724,
+      "mode": "0o644"
+    },
+    "skills/context-docs/assets/project-context.md": {
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "bytes": 1116,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/event-journal.md": {
+      "sha256": "5ab10b468d59aafe88ba015a2b765662c6444857dffbfb6dd8bfdfbe4f6e8bb8",
+      "bytes": 13570,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/local-only.md": {
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "bytes": 6065,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/progress.md": {
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+      "bytes": 9297,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/standard.md": {
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "bytes": 9301,
+      "mode": "0o644"
+    },
+    "skills/context-docs/scripts/event_journal.py": {
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "bytes": 8897,
+      "mode": "0o644"
+    },
+    "skills/context-docs/scripts/journal_policy.py": {
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445",
+      "bytes": 11193,
+      "mode": "0o644"
+    }
+  },
+  "validation": {
+    "static_repository": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "result": "pass; 2009 relative links/anchors, 5 tables, 2 packages and versions"
+    },
+    "checker_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "result": "pass",
+      "passed": 28
+    },
+    "site_tests": {
+      "command": "python3 -B -m unittest discover -s site -p 'test_*.py'",
+      "result": "pass",
+      "passed": 17
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    "public_site_build": {
+      "file_count": 9,
+      "output_outside_repository": true,
+      "sha256": {
+        ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+        "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+        "getting-started/index.html": "09f3e30cb3f616b81ab18fca84ec596c2141be0d32541baaf17327f3c7af42e8",
+        "index.html": "47cce9a94ec8822b6cffe0c59338b4c0ddf55f30317595513cce1e45e0b1f04a",
+        "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+        "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+        "sitemap.xml": "3b127fe03362d8dd796958b820b0e0cdd5b3b9e326582006f5e4acd1b03605bd",
+        "styles.css": "0aaabde48e1e1a559eadde9aa312a8d1d909e8f051f0b5e8b9116922ec78dc35"
+      },
+      "draft_labels_and_qualification_on_both_pages": true,
+      "matches_final_sources": true
+    },
+    "previews": {
+      "route": "Local headless Chrome with a new temporary profile; no existing browser profile or website deployment used.",
+      "checks": [
+        {
+          "page": "landing",
+          "viewport": {
+            "name": "desktop",
+            "width": 1440,
+            "height": 1000
+          },
+          "status": 200,
+          "javascript": false,
+          "bodyOverflow": false,
+          "seoTitleHasEmDash": false,
+          "installPanelsVisible": true,
+          "qualificationVisible": true,
+          "sourceLink": "https://github.com/jaredchu/context-docs/blob/main/evals/content-filtering/smoke-0.2.6-2026-10-19/README.md",
+          "pageErrors": [],
+          "screenshots": [
+            "landing-desktop-metadata.png",
+            "landing-desktop-qualification.png"
+          ]
+        },
+        {
+          "page": "guide",
+          "viewport": {
+            "name": "desktop",
+            "width": 1440,
+            "height": 1000
+          },
+          "status": 200,
+          "javascript": false,
+          "bodyOverflow": false,
+          "seoTitleHasEmDash": false,
+          "installPanelsVisible": true,
+          "qualificationVisible": true,
+          "sourceLink": "https://github.com/jaredchu/context-docs/blob/main/evals/content-filtering/smoke-0.2.6-2026-10-19/README.md",
+          "pageErrors": [],
+          "screenshots": [
+            "guide-desktop-metadata.png",
+            "guide-desktop-qualification.png"
+          ]
+        },
+        {
+          "page": "landing",
+          "viewport": {
+            "name": "mobile",
+            "width": 390,
+            "height": 844
+          },
+          "status": 200,
+          "javascript": false,
+          "bodyOverflow": false,
+          "seoTitleHasEmDash": false,
+          "installPanelsVisible": true,
+          "qualificationVisible": true,
+          "sourceLink": "https://github.com/jaredchu/context-docs/blob/main/evals/content-filtering/smoke-0.2.6-2026-10-19/README.md",
+          "pageErrors": [],
+          "screenshots": [
+            "landing-mobile-metadata.png",
+            "landing-mobile-qualification.png"
+          ]
+        },
+        {
+          "page": "guide",
+          "viewport": {
+            "name": "mobile",
+            "width": 390,
+            "height": 844
+          },
+          "status": 200,
+          "javascript": false,
+          "bodyOverflow": false,
+          "seoTitleHasEmDash": false,
+          "installPanelsVisible": true,
+          "qualificationVisible": true,
+          "sourceLink": "https://github.com/jaredchu/context-docs/blob/main/evals/content-filtering/smoke-0.2.6-2026-10-19/README.md",
+          "pageErrors": [],
+          "screenshots": [
+            "guide-mobile-metadata.png",
+            "guide-mobile-qualification.png"
+          ]
+        }
+      ],
+      "representative_screenshots_visually_inspected": true,
+      "screenshot_sha256": {
+        "guide-desktop-metadata.png": "29f6b572374dbf7e1b1b7d13b5a1657e3f244cee910420629b0714b9d49881b5",
+        "guide-desktop-qualification.png": "3f5f9f4c1b80e620d30703ec20e2aaef20343c05ebd68efcf6e3750e4f454909",
+        "guide-mobile-metadata.png": "a33cdcd1791cd25814f8ef7048caed06559f7639e41d3be770de02b84d3f0962",
+        "guide-mobile-qualification.png": "651473b97b51c6a1fc6e54d51d4f15f6809b0aec4b1a6929d5c86eaf4d8dac41",
+        "landing-desktop-metadata.png": "7c364184d41bf5f773cb7564678be6274a08bb3a997d28a43683be31652b2a5b",
+        "landing-desktop-qualification.png": "7c364184d41bf5f773cb7564678be6274a08bb3a997d28a43683be31652b2a5b",
+        "landing-mobile-metadata.png": "810c6eda173edb2e83d5babd19db38e7dddd9fa5f42c9619d768daf5834d0997",
+        "landing-mobile-qualification.png": "b15c18534c1f678d22a99ffed64e8470b6963d8877966054d2d96473995178d0"
+      },
+      "capture_note": "Initial off-viewport clipping failed; viewport scrolling captures were corrected locally, including instant scrolling. These changes affected preview tooling only."
+    }
+  },
+  "prior_evidence": {
+    "record": "evals/content-filtering/smoke-0.2.6-2026-10-19/README.md",
+    "unchanged": true,
+    "qualification": "Both clients pass visible saved-Markdown checks; Claude could not locate the unlinked private note with restricted discovery tools. Incoming-note filtering in Claude is untested. Guided, author-scored, explicit copied candidates; no implicit-loading, installed-behavior, native-journal or general privacy guarantee."
+  },
+  "preservation": {
+    "protected_original_entries_checked": 31753,
+    "unexpected_changes": [],
+    "source_package_files_unchanged": 16,
+    "installed_skill_files_unchanged": 32,
+    "setup_rules_and_saved_studies_unchanged": true,
+    "context_decisions_and_prior_evidence_sections_unchanged": true,
+    "scope": "Recorded hashes/modes for repository skills, original evaluations and journals, saved .local studies, setup rules and four installed skill trees. Git metadata and global runtime/cache state are outside the equality claim."
+  },
+  "collaboration": {
+    "preparation": "Codex (Sol)",
+    "new_model_requests": 0,
+    "new_claude_review": false,
+    "earlier_claude_evidence": "Prior artifact review and native subject results retained without rerun or repair."
+  },
+  "publication": {
+    "latest_published_bundle": "v0.2.5",
+    "release_created": false,
+    "website_deployed": false,
+    "installed_skills_updated": false
+  },
+  "private_evidence_id": "v026-release-preparation-9f89d41f-1a20-4175-b5b8-d2540a778a04",
+  "evidence_access_limit": "Build/preview and preservation receipts are retained privately; the identifier and hashes do not grant access or establish independent verification."
+}
