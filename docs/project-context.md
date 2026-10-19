@@ -22,7 +22,10 @@ local notes only when still useful.
 ## Current focus
 
 The filtering candidate has passing offline checks and qualified counterpart
-review; its final schema correction was checked locally. Keep operational outreach
+review; its final schema correction was checked locally. A
+[copied-candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+passes visible saved-Markdown checks; Claude's private-note coverage gap is retained.
+Keep operational outreach
 in separate local notes; this work does not clean historical records or change
 logging settings.
 

@@ -35,6 +35,11 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   validator dependency limit. Opus reviewed the candidate and one focused
   follow-up; the final schema correction was verified locally, without another
   model review. Published and installed v0.2.5 are unchanged.
+- A [native copied-candidate smoke](evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+  passes visible saved-Markdown filtering, portability and quality checks in both
+  clients. Claude cannot locate the unlinked private operator note with its
+  restricted discovery tools; incoming-note filtering remains untested there.
+  These guided, author-scored results retain that gap without a session rerun.
 
 ## adopt-context-docs 0.1.15 — unreleased
 

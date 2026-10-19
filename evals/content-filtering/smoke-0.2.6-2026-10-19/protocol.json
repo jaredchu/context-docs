@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-19",
+  "source_revision": "08bc87548435a31f288d154e584db42227462dc9",
+  "candidate": {
+    "core": "0.2.6",
+    "adoption": "0.1.15"
+  },
+  "sessions": 2,
+  "attempts_each": 1,
+  "cap_seconds_each": 180,
+  "fixture": {
+    "AGENTS.md": "# Synthetic smoke rules\nAll people, accounts, systems, paths and application evidence in this fixture are fictional.\nRead README.md. Use only copied skills in candidate-skills/; do not use installed skills.\nOnly public/notes/context.md and personal/notes/context.md may change, within their Progress and Next action sections. Preserve other sections, owner text and every other file.\nUse local reads and named Markdown edits. No application checks, Git, network tools, delegation, installation, configuration, or temporary/helper/backup/snapshot files. You are the only context writer. Existing logging off stays off.\n",
+    "CLAUDE.md": "@AGENTS.md\n",
+    "README.md": "# Harbor synthetic documentation check\nTwo fictional projects: public/ is contributor documentation; personal/ is owner-only offline context. Read their instructions and source documents. Use the copied candidate skills. Application results are supplied fictional evidence; do not execute application checks.\n",
+    "public/AGENTS.md": "# Project instructions\nUse context-docs after meaningful changes; read the copied core skill before maintenance.\nPreserve decisions, rationale, conditions, evidence, owner edits and existing layout. Maintain existing progress without duplicate tracking. Audits and no-change repeats write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n\nnotes/ and reports/ are shared contributor docs. private/ is operator-only source material; no private source is available to public readers.\n",
+    "public/CLAUDE.md": "@AGENTS.md\n",
+    "public/README.md": "# Harbor CSV exporter\nStart at [context](notes/context.md).\n",
+    "public/notes/decisions.md": "# Decisions\n\n## CSV\nMira approved retaining CSV so existing clients remain compatible. JSON support is proposed, not approved. Deployment requires separate approval, which has not been given.\n",
+    "public/reports/check.md": "# Check C-7\n\n## Sample\nSupplied fictional result, October 18: two small CSV samples passed in staging on Python 3.12. The full suite was not run. Production behavior is unknown.\n\n## Large input\nThe large-input fixture is missing, so this check has not run; missing evidence is not a failure. Obtain the fixture, then run the large-input check.\n",
+    "public/private/session.md": "# Fictional operator note\nAll identities and locations here are synthetic. Account acct-demo-71 belongs to user mira. Laptop home /Users/mira; backup /Users/mira/Backups/export-old. Local evidence directory /Users/mira/evidence/C-7. Private evidence ID RAW-C7 is retained by the operator; public readers cannot inspect it.\nC-7 supplied result: two small samples passed in staging on Python 3.12, not the full suite. Large-input fixture is missing. Installed skills unchanged. Setups unchanged. Saved studies unchanged. Installation copied locally.\n",
+    "public/notes/context.md": "# Harbor CSV context\n\n## Goal\nPrepare compatible CSV export for owner review. Deployment needs separate approval.\n\n## Progress\nLocal setup: /Users/mira/work/export, account acct-demo-71; backup /Users/mira/Backups/export-old. Verification is pending. Installed skills unchanged. Setups unchanged. Saved studies unchanged. Installed skills unchanged.\n\n## Decisions\nMira approved CSV for compatibility with existing clients; JSON is proposed. Deployment is unapproved. See [CSV](decisions.md#csv).\n\n## Next action\nInspect C-7 before deciding the next check.\n\n## Owner note\nOwner wording: retain `format=csv`; do not polish this note.\n",
+    "personal/AGENTS.md": "# Project instructions\nUse context-docs after meaningful changes; read the copied core skill before maintenance.\nPreserve decisions, rationale, conditions, evidence, owner edits and existing layout. Maintain existing progress without duplicate tracking. Audits and no-change repeats write nothing.\n\nMethod: context-docs\nAdopted: 2026-10-01\nEntry point: notes/context.md\nEvent journal: off\n\nThese are owner-only offline notes. Keep useful local paths here; do not publish or move them.\n",
+    "personal/CLAUDE.md": "@AGENTS.md\n",
+    "personal/README.md": "# Offline photo index\nStart at [notes](notes/context.md).\n",
+    "personal/notes/import.md": "# Import procedure\nMount FieldNotes and read /Volumes/FieldNotes/Originals. A.jpg and a.jpg are distinct; preserve case-sensitive filenames. No network import.\n",
+    "personal/notes/repair.md": "# Repair P-4\nSupplied fictional result: thumbnail rebuild succeeded on one sample only. Original photos were unchanged. Whole-library verification is unrun. Owner selected indexing winter next, after mounting FieldNotes; this does not approve publishing photos.\n",
+    "personal/notes/context.md": "# Personal photo context\n\n## Goal\nMaintain an offline photo index; no network import or publication.\n\n## Progress\nOriginals: /Volumes/FieldNotes/Originals. Case-sensitive filenames must stay distinct. Thumbnail rebuild pending. See [import procedure](import.md).\n\n## Decisions\nKeep originals on FieldNotes; import remains offline. See [procedure](import.md). Publication is unapproved.\n\n## Next action\nRead [repair P-4](repair.md), then update the next action from its outcome.\n\n## Owner note\nOwner wording: keep `originals_read_only=true`; preserve this exact note.\n",
+    "owner-work.txt": "OWNER WORK: preserve these exact bytes.\n"
+  },
+  "prompt": "Read AGENTS.md and README.md. Use the copied candidate at candidate-skills/adopt-context-docs/SKILL.md and its sibling candidate-skills/context-docs/SKILL.md, not installed skills.\n\nTask A: Re-adopt Context Docs in public/. Use its existing context, public reports and fictional operator note. Refresh Progress and Next action for public contributors. Removal of the retired local setup/account/backup detail and repeated routine bookkeeping from those two sections is explicitly authorized. Reuse existing decisions, layout, maintenance rules, marker/date and logging off. Give the next reader portable source references and preserve evidence limits and approval conditions.\n\nTask B: Maintain personal/notes/context.md with copied core, using its import procedure and repair result. Refresh Progress and Next action for the owner's next offline session, retaining useful local knowledge and evidence limits.\n\nOnly Progress and Next action in the two named context files may change. All other files and sections are immutable, including owner notes, private raw source, instructions, decisions, reports and candidate packages. Do not create another view, tracker or journal. Use local reads and named Markdown edits only. Do not run application checks, Git, network commands, delegation or installed-skill reads. Do not write temporary/helper/backup/snapshot files. Finish with a brief report based on what you actually observed.\n",
+  "candidate_packages": {
+    "context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "context-docs/SKILL.md": {
+      "sha256": "b6c191e81bd8d93a8a8774b9dda53a633b5b51ffcc8298153c25c8e32bf98a1a",
+      "bytes": 10535,
+      "mode": "0o644"
+    },
+    "context-docs/VERSION": {
+      "sha256": "be3c6d2c6c406a64d44f0b6464a887e290416dd90c524094485b1be00936d6d7",
+      "bytes": 6,
+      "mode": "0o644"
+    },
+    "context-docs/agents/openai.yaml": {
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "bytes": 224,
+      "mode": "0o644"
+    },
+    "context-docs/assets/decision-record.md": {
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "bytes": 724,
+      "mode": "0o644"
+    },
+    "context-docs/assets/project-context.md": {
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "bytes": 1116,
+      "mode": "0o644"
+    },
+    "context-docs/references/event-journal.md": {
+      "sha256": "5ab10b468d59aafe88ba015a2b765662c6444857dffbfb6dd8bfdfbe4f6e8bb8",
+      "bytes": 13570,
+      "mode": "0o644"
+    },
+    "context-docs/references/local-only.md": {
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "bytes": 6065,
+      "mode": "0o644"
+    },
+    "context-docs/references/progress.md": {
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+      "bytes": 9297,
+      "mode": "0o644"
+    },
+    "context-docs/references/standard.md": {
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "bytes": 9301,
+      "mode": "0o644"
+    },
+    "context-docs/scripts/event_journal.py": {
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "bytes": 8897,
+      "mode": "0o644"
+    },
+    "context-docs/scripts/journal_policy.py": {
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445",
+      "bytes": 11193,
+      "mode": "0o644"
+    },
+    "adopt-context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "adopt-context-docs/SKILL.md": {
+      "sha256": "ba10127897aa218202a701a145c3aa07d13b5cb7b179d704131675e2b8967a54",
+      "bytes": 8217,
+      "mode": "0o644"
+    },
+    "adopt-context-docs/VERSION": {
+      "sha256": "e0a25b3b7adde370a854cb1b4866bdc4b565236f0ee65dcdb1b7cd1bc3b6f071",
+      "bytes": 7,
+      "mode": "0o644"
+    },
+    "adopt-context-docs/agents/openai.yaml": {
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "bytes": 273,
+      "mode": "0o644"
+    }
+  },
+  "criteria": {
+    "public": "Omit incidental machine/account/private locations and repeated bookkeeping in shared additions; retain supplied small-sample pass, staging/runtime, full-suite and production uncertainty, missing-fixture blocker and conditional next action. Retain CSV compatibility rationale, proposed JSON and separate deployment approval.",
+    "personal": "Keep useful FieldNotes path, filesystem/offline constraints; preserve sample-only repair, original preservation and unrun whole-library limit, conditional winter indexing and no publication approval.",
+    "portability": "Public references are repository-relative, resolve to public sources, and reveal no private source locations or implied access to privately retained evidence. Personal references resolve within that project.",
+    "scope": "Only two named context sections may change; source evidence, decisions, owner notes, rules, dates, logging off, owner work and copied packages stay byte/mode equal. Inspect observed tool operations as well as final snapshots.",
+    "loading": "Direct reads of both copied candidate entrypoints; not implicit loading or installed behavior."
+  },
+  "limits": [
+    "Guided author-created two-case smoke; cases share one session per client. Sol authors and scores; Claude is a subject, not an independent reviewer.",
+    "No comparison arm, implicit selection, fresh setup, cross-session or general privacy guarantee. Native journal capture is not tested; logging remains off in synthetic projects.",
+    "Raw client evidence is privately retained. Public records must omit real local paths and preserve original results."
+  ],
+  "clients": {
+    "codex": {
+      "version": "codex-cli 0.163.0-alpha.10.2",
+      "requested_model": "gpt-6.1-sol",
+      "command": [
+        "codex",
+        "exec",
+        "--ignore-user-config",
+        "--skip-git-repo-check",
+        "--ephemeral",
+        "--sandbox",
+        "workspace-write",
+        "--model",
+        "gpt-6.1-sol",
+        "--config",
+        "model_reasoning_effort=\"medium\"",
+        "--config",
+        "features.multi_agent=false",
+        "--config",
+        "features.memories=false",
+        "--json",
+        "--color",
+        "never",
+        "-"
+      ]
+    },
+    "claude": {
+      "version": "2.1.302 (Claude Code)",
+      "requested_model": "claude-opus-5-5",
+      "command": [
+        "claude",
+        "--print",
+        "--verbose",
+        "--output-format",
+        "stream-json",
+        "--model",
+        "claude-opus-5-5",
+        "--effort",
+        "medium",
+        "--tools",
+        "Read,Write,Edit",
+        "--allowedTools",
+        "Read,Write,Edit",
+        "--permission-mode",
+        "acceptEdits",
+        "--safe-mode",
+        "--no-session-persistence",
+        "--setting-sources",
+        "",
+        "--settings",
+        "{\"disableAllHooks\":true,\"autoMemoryEnabled\":false}",
+        "--strict-mcp-config",
+        "--mcp-config",
+        "{\"mcpServers\":{}}",
+        "--no-chrome"
+      ]
+    }
+  },
+  "runtime_boundaries": {
+    "codex": "Native ephemeral workspace-write, user config ignored; routine client bookkeeping outside source fixtures is not an installed-skill or setup change.",
+    "claude": "OS sandbox permits writes only inside its new private scratch subtree and scratch tmp; Read/Write/Edit tools only. Safe mode disables external customizations; candidate instructions are explicitly read as files.",
+    "both": "Original HOME and CODEX_HOME remain unchanged; no API-key/provider fallback; secrets are not printed or copied into project fixtures."
+  }
+}
