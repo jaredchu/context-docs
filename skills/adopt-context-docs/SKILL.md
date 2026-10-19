@@ -30,6 +30,13 @@ context or maintain existing documents using the skill. Preserve useful layouts,
 approved decisions, rationale, source evidence, unresolved work and concurrent edits.
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
+Apply core's [destination and reference filtering](../context-docs/SKILL.md#make-the-smallest-useful-update)
+to new context, progress summaries and any enabled journal payloads. Prefer
+portable project references; keep incidental machine/account details and repeated
+setup bookkeeping out of shared additions. Preserve useful local knowledge,
+diagnostic meaning and evidence boundaries. Adoption does not authorize rewriting
+frozen records, moving private material or changing existing storage/logging rules.
+
 Use the core skill's [Markdown progress guide](../context-docs/references/progress.md)
 during adoption. By default, create a simple inline visual path in a suitable
 existing context section when a documented goal and supported work/status or

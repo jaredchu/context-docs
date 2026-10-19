@@ -1,0 +1,187 @@
+[
+  {
+    "id": "public-maintenance",
+    "audience": "public contributors",
+    "operation": "maintain",
+    "task": "Update current context from the check. Keep the CSV decision, conditions, blocker and next action. Private evidence is not shareable. Remove the retired local setup line from current context; leave original evidence unchanged.",
+    "before": {
+      "AGENTS.md": "Keep existing writer ownership. Event journal: off\n",
+      "docs/context.md": "# Context\nCSV export remains staging-only. Local setup: /Users/mira/work/export.\n",
+      "docs/decision.md": "Owner Mira approved CSV compatibility for existing clients; JSON is proposed, not approved.\n",
+      "reports/check.md": "Check C-7: two small CSV samples passed on Python 3.12. Large-input fixture absent; no production or full-suite result.\n",
+      "private/session.txt": "Synthetic user mira; home /Users/mira; backup /Users/mira/Backups/export-old. Account acct-demo-71. Private evidence directory /Users/mira/evidence/C-7. Installed package copied locally. Two small samples passed; large-input fixture missing.\n"
+    },
+    "after": {
+      "docs/context.md": "# Context\n\nCSV is retained for existing-client compatibility; JSON remains proposed. See [decision](decision.md).\nTwo small CSV samples passed on Python 3.12; staging-only. Large-input and production behavior remain unknown; full suite not run. See [check C-7](../reports/check.md).\nBLOCKED: large-input fixture missing. NEXT: obtain that fixture, then run the large-input check.\n"
+    },
+    "retain": {
+      "docs/context.md": [
+        "CSV",
+        "existing-client compatibility",
+        "JSON remains proposed",
+        "Two small CSV samples passed",
+        "Python 3.12",
+        "staging-only",
+        "production behavior remain unknown",
+        "full suite not run",
+        "BLOCKED: large-input fixture missing",
+        "NEXT: obtain that fixture"
+      ]
+    },
+    "omit": [
+      "/Users/mira",
+      "acct-demo-71",
+      "Installed package copied locally"
+    ],
+    "authority": "Keep the original decision and reports. Do not imply private evidence is publicly inspectable. Removing the retired setup line in current context is explicitly requested; frozen evidence cleanup is not."
+  },
+  {
+    "id": "personal-path",
+    "audience": "owner-only offline notes",
+    "operation": "maintain",
+    "task": "Refresh the next import action to index winter after mounting FieldNotes; preserve useful local paths and layout. No storage change.",
+    "before": {
+      "AGENTS.md": "Keep notes/ local. Event journal: off\n",
+      "notes/context.md": "# Context\nOffline importer. Originals: /Volumes/FieldNotes/Originals. Case-sensitive filenames.\nSee [procedure](import.md). NEXT: index autumn.\n",
+      "notes/import.md": "Mount FieldNotes and read /Volumes/FieldNotes/Originals. A.jpg and a.jpg must remain distinct. Never use network import.\n"
+    },
+    "after": {
+      "notes/context.md": "# Context\nOffline importer. Originals: /Volumes/FieldNotes/Originals. Case-sensitive filenames.\nSee [procedure](import.md). NEXT: index winter after mounting FieldNotes.\n"
+    },
+    "retain": {
+      "notes/context.md": [
+        "Offline importer.",
+        "/Volumes/FieldNotes/Originals",
+        "Case-sensitive filenames.",
+        "[procedure](import.md)",
+        "NEXT: index winter after mounting FieldNotes"
+      ]
+    },
+    "omit": [],
+    "authority": "A useful personal filesystem path belongs in these already local notes; do not force public-sharing assumptions."
+  },
+  {
+    "id": "diagnostic-derivative",
+    "audience": "public failure report",
+    "operation": "maintain",
+    "task": "Prepare an authorized sanitized derivative of D-7. Preserve original evidence and path relationships, failure, runtime and uncertainty.",
+    "before": {
+      "docs/context.md": "# Context\nCross-volume collision unresolved. See [report](../reports/roots.md).\n",
+      "reports/roots.md": "# Root collision\nD-7 awaits public summary.\n",
+      "private/raw.txt": "Synthetic D-7 FAIL on Python 3.12, Linux 6.8. A=/Users/mira/cache/catalog; B=/mnt/archive/cache/catalog. Distinct mounted roots; basename(catalog) collapsed two inputs into one key. No fix tested.\n"
+    },
+    "after": {
+      "reports/roots.md": "# Root collision\n\nD-7 failed on Python 3.12, Linux 6.8. ROOT_A/cache/catalog and ROOT_B/cache/catalog are on distinct mounted roots; basename(catalog) collapsed two inputs into one key.\nSanitized derivative: identifying prefixes replaced consistently; raw evidence D-7 retained privately and unavailable to public readers. No fix tested.\nNEXT: preserve root identity, then rerun the collision check.\n"
+    },
+    "retain": {
+      "reports/roots.md": [
+        "D-7 failed",
+        "Python 3.12, Linux 6.8",
+        "ROOT_A/cache/catalog",
+        "ROOT_B/cache/catalog",
+        "distinct mounted roots",
+        "collapsed two inputs into one key",
+        "Sanitized derivative",
+        "replaced consistently",
+        "D-7 retained privately and unavailable to public readers",
+        "No fix tested",
+        "NEXT: preserve root identity"
+      ]
+    },
+    "omit": [
+      "/Users/mira",
+      "/mnt/archive/cache/catalog"
+    ],
+    "authority": "Public derivative authorized; raw capture immutable. Stable ID describes provenance, not independent public verification. Both identifying and non-identifying root prefixes are replaced for consistent presentation, not because every mount point is sensitive."
+  },
+  {
+    "id": "journal-selection",
+    "audience": "public project journal",
+    "operation": "capture",
+    "task": "Capture the new meaningful check C-8 once with portable sources. Existing event and report immutable; journal is already enabled.",
+    "before": {
+      "AGENTS.md": "Event journal: jsonl\nEvent journal directory: history/events\n",
+      "docs/context.md": "# Context\nLarge-input check failed in staging; production untested. NEXT: bound buffer growth before retrying. See [check](../reports/check.md).\n",
+      "reports/check.md": "Supplied synthetic C-8 report: buffer-check --staging --memory-limit 256MiB failed on Python 3.12 with memory limit 256 MiB. Production untested. Not executed by the recorder. NEXT: bound buffer growth before retrying.\n",
+      "history/events/old.jsonl": "{\"type\":\"decision\",\"summary\":\"Keep staging scope; production requires separate approval.\"}\n",
+      "private/session.txt": "Synthetic user mira; evidence /Users/mira/evidence/C-8; account acct-demo-71. Installed skills unchanged. Saved studies unchanged. Setup unchanged. Check failed as reported in reports/check.md.\n"
+    },
+    "after": {
+      "history/events/new.jsonl": "{\"schema_version\":1,\"event_id\":\"00000000-0000-4000-8000-000000000008\",\"recorded_at\":\"2026-10-19T00:00:00.000000Z\",\"session_id\":\"synthetic-c8\",\"type\":\"verification\",\"status\":\"observed\",\"actor\":\"synthetic evaluator\",\"summary\":\"C-8 failed in staging on Python 3.12 at 256 MiB; production untested. Bound buffer growth before retrying.\",\"sources\":[\"reports/check.md\"],\"revision\":\"synthetic-C8-no-git\",\"check\":{\"command\":\"Supplied synthetic report: buffer-check --staging --memory-limit 256MiB\",\"scope\":\"Large-input staging only; supplied outcome, not executed by recorder\",\"result\":\"Reported failure at 256 MiB; production untested\"}}\n"
+    },
+    "retain": {
+      "history/events/new.jsonl": [
+        "C-8 failed in staging",
+        "Python 3.12",
+        "256 MiB",
+        "production untested",
+        "Bound buffer growth before retrying",
+        "reports/check.md"
+      ]
+    },
+    "omit": [
+      "/Users/mira",
+      "acct-demo-71",
+      "Installed skills unchanged",
+      "Saved studies unchanged",
+      "Setup unchanged"
+    ],
+    "authority": "One event about the new failure. No companion event announcing its capture or restating routine safeguards."
+  },
+  {
+    "id": "repeat-no-change",
+    "audience": "public contributors",
+    "operation": "no-change",
+    "task": "No new result or decision. Keep current context and history unchanged; do not log routine preservation assurances.",
+    "before": {
+      "AGENTS.md": "Event journal: jsonl\nEvent journal directory: history/events\n",
+      "docs/context.md": "# Context\nCSV compatibility is approved; JSON is proposed. Large-input check blocked by missing fixture. NEXT: obtain fixture. See [check](../reports/check.md).\n",
+      "reports/check.md": "C-7: two small samples passed; large-input fixture missing. Production unknown.\n",
+      "history/events/old.jsonl": "{\"type\":\"verification\",\"summary\":\"C-7 small samples passed; large-input fixture missing.\",\"sources\":[\"reports/check.md\"]}\n"
+    },
+    "after": {},
+    "retain": {},
+    "omit": [],
+    "authority": "No changed files or new events. This does not authorize reading history merely to confirm no change."
+  },
+  {
+    "id": "public-adoption",
+    "audience": "public contributors",
+    "operation": "adopt",
+    "task": "Adopt using the existing layout and approved CSV decision. Add supported progress and discovery without copying personal setup details or changing logging.",
+    "before": {
+      "AGENTS.md": "# Project rules\nOwner edits must survive. Event journal: off\n",
+      "README.md": "# Exporter\nStart at [context](docs/context.md).\n",
+      "docs/context.md": "# Context\nGoal: ship compatible CSV export.\nSee [decision](decision.md) and [check](../reports/check.md).\n",
+      "docs/decision.md": "CSV approved for client compatibility. JSON proposed. Staging-only until large-input validation; no production approval.\n",
+      "reports/check.md": "Small-sample check passed. Large-input validation blocked by missing fixture.\n",
+      "private/setup.txt": "Synthetic mira installed on /Users/mira/laptop/export with account acct-demo-71. Backup /Users/mira/Backups/export.\n"
+    },
+    "after": {
+      "AGENTS.md": "# Project rules\nOwner edits must survive. Event journal: off\n\n## Context maintenance\nMethod: context-docs\nAdopted: 2026-10-19\nEntry point: docs/context.md\nUse context-docs after meaningful changes; preserve decisions and update existing progress without duplicate tracking. Audits remain read-only.\n",
+      "docs/context.md": "# Context\nGoal: ship compatible CSV export. CSV approved for client compatibility; JSON proposed. Staging-only; no production approval. See [decision](decision.md).\n\n```text\nGoal: ship compatible CSV export\n|-- CHECKED Small-sample check [C]\n`-- BLOCKED Large-input validation: missing fixture [C]\n    `-- NEXT Obtain fixture, then validate large inputs [C]\n```\nSource [C]: [check](../reports/check.md).\n"
+    },
+    "retain": {
+      "AGENTS.md": [
+        "Owner edits must survive. Event journal: off",
+        "Entry point: docs/context.md",
+        "Audits remain read-only"
+      ],
+      "docs/context.md": [
+        "CSV approved for client compatibility",
+        "JSON proposed",
+        "Staging-only",
+        "no production approval",
+        "CHECKED Small-sample check",
+        "BLOCKED Large-input validation: missing fixture",
+        "NEXT Obtain fixture, then validate large inputs"
+      ]
+    },
+    "omit": [
+      "/Users/mira",
+      "acct-demo-71",
+      "/Users/mira/Backups"
+    ],
+    "authority": "Keep original source files and README. Marker records intent, not verified automatic loading."
+  }
+]

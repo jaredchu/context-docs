@@ -75,6 +75,27 @@ Select durable information for the intended reader and actual sharing destinatio
 For decisions about what to retain or where it belongs, use the standard's
 [audience and destination guidance](references/standard.md#audience-and-destination).
 Project labels alone do not decide what is useful or appropriate to share.
+Before saving, review proposed additions and enabled journal payloads for incidental
+usernames, home/backup/scratch paths, account identifiers and personal installation
+state. Omit details that do not help the intended reader; summarize relevant tool
+findings instead of copying raw output. Keep secrets out of every destination.
+
+Prefer repository-relative references for project files. In shared content, refer
+to private evidence through a suitable public summary, stable evidence ID or hash
+without exposing its local location or implying readers can access or independently
+verify it. Retain useful local paths in appropriate local notes. When exact paths or environment
+details explain a failure, preserve the diagnostic relationships and necessary
+constraints; any authorized public derivative must retain provenance and limits.
+Do not rewrite frozen evidence, relocate records or change storage rules just to
+make references portable.
+
+Record an outcome and material qualification once in its canonical location;
+link from summaries. Include preservation or installation bookkeeping only when
+it establishes a relevant compatibility condition, failure or requested check.
+Do not append a diary of routine checks or repeat unchanged safeguards. Review
+the changed content, without requiring a repository-wide scan or a separate
+filtering report. Filtering must preserve decisions, conditions, rationale,
+uncertainty, blockers and supporting evidence, including useful personal context.
 
 Check factual claims against the source that establishes that exact claim before
 recording them. Keep the evidence's scope: a reference document's version is not

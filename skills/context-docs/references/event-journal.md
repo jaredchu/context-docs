@@ -131,6 +131,12 @@ no-change maintenance, setup and restatements of already recorded events. Do not
 add a second summary event merely to announce that the first was written. Keep
 current Markdown focused; link historical detail rather than copying the log into
 it. Record only the facts needed to understand the event, with their qualifications.
+Apply core's [destination and reference filtering](../SKILL.md#make-the-smallest-useful-update)
+to the payload before capture: summarize relevant findings, use portable source
+references and omit incidental personal metadata. Logging being enabled does not
+make raw tool output or repeated preservation/setup assurances useful events.
+Keep necessary diagnostic conditions and evidence limits; no automatic redaction
+or secret detection is provided by the helper. Preserve existing records.
 
 Use the [packaged helper](../scripts/event_journal.py) from this installed skill,
 not a path to the development repository. Python 3.9+ and its standard library

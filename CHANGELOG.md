@@ -22,6 +22,26 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.6 — unreleased
+
+- Review proposed context and journal additions for their intended destination;
+  filter incidental personal metadata, prefer portable references and summarize
+  findings without repeated bookkeeping. Preserve useful local knowledge,
+  diagnostic relationships, decisions, conditions, rationale and evidence limits.
+  No automatic redaction, storage migration or historical cleanup is added.
+- Ten offline synthetic tests and repository checks pass; the
+  [check record](evals/content-filtering/README.md#results--october-19-2026)
+  separates these authored examples from native behavior and records the optional
+  validator dependency limit. Opus reviewed the candidate and one focused
+  follow-up; the final schema correction was verified locally, without another
+  model review. Published and installed v0.2.5 are unchanged.
+
+## adopt-context-docs 0.1.15 — unreleased
+
+- Apply sibling core's destination/reference filtering during adoption, preserving
+  existing layouts, private boundaries and storage/logging rules. Shares the
+  validation scope of core 0.2.6.
+
 ## Installed v0.2.5 concurrency smoke — 2026-10-18
 
 - Run one fresh native session per client using installed core 0.2.5/adoption

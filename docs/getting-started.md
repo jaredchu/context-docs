@@ -134,6 +134,29 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
+### Sharing and portable references
+
+Before saving context or an enabled journal event, the agent reviews its additions
+for the intended readers. Shared project context should omit incidental usernames,
+private evidence locations, account identifiers and personal installation state.
+Summarize the relevant tool finding instead of copying raw output. Keep secrets
+out of both shared and local context. An enabled journal can be tracked and shared;
+logging does not make its contents private.
+
+Use repository-relative links to project files. For privately retained evidence,
+cite a suitable public summary, stable evidence ID or hash and state access limits;
+a hash alone does not let another reader inspect the evidence. Useful machine
+paths can remain in appropriate local notes. If paths or environment versions
+explain a failure, retain the necessary conditions and relationships in an
+authorized public derivative, with provenance and limits. Preserve originals.
+
+Record meaningful outcomes once and link to their canonical detail. Avoid repeated
+installation/preservation assurances unless they establish a relevant condition
+or requested check. Keep decisions, rationale, uncertainty, blockers and the next
+action clear. This is guidance for selecting new content, not automatic redaction,
+a guarantee against disclosure, or permission to rewrite history or move records.
+Existing layouts, storage choices and logging settings remain in effect.
+
 Make shared context discoverable: link it from the project README or
 documentation index. For a fresh session, ask the agent to start there and read
 the linked context before working. A context file's presence alone does not ensure

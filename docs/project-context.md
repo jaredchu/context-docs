@@ -4,7 +4,11 @@ Experimental v0.2.5 was published October 18, 2026. Its website demo was deploye
 and verified October 19 from `d8c624c`; all eight checked live public resources
 match that demo build. Claude's second mismatch without a reread and Codex's
 corrected checking error remain qualified.
-Installed skills, existing setups and saved studies are preserved.
+Unreleased source core 0.2.6/adoption 0.1.15 strengthens destination filtering,
+portable references and concise event selection. The
+[focused synthetic checks](../evals/content-filtering/README.md) describe its
+acceptance examples and verification limits; published standalone v0.2.5 remains
+the everyday-use release.
 
 ## Purpose and scope
 
@@ -16,6 +20,11 @@ installations, backup locations and temporary machine state belong in suitable
 local notes only when still useful.
 
 ## Current focus
+
+The filtering candidate has passing offline checks and qualified counterpart
+review; its final schema correction was checked locally. Keep operational outreach
+in separate local notes; this work does not clean historical records or change
+logging settings.
 
 Use installed standalone experimental **v0.2.5** in everyday work and record concrete misses.
 The bundle contains core **0.2.5**, adoption **0.1.14** and standard **0.1.1**.
@@ -76,7 +85,7 @@ Goal: make progress clear during everyday context work
     |-- DONE     Installed in Codex and Claude Code
     `-- CHECKED  Focused installed smoke; qualifications retained
 
-NEXT: review the outreach draft; keep using standalone v0.2.5.
+NEXT: review the filtering candidate; keep using standalone v0.2.5.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -204,9 +213,9 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [outreach draft](outreach-v0.2.5.md) before choosing where to share it.
-The website demo is deployed; outreach posting and directory submission remain
-unauthorized.
+Review the [filtering candidate and qualified checks](../evals/content-filtering/README.md).
+No release, installed upgrade or historical metadata cleanup is selected.
+Operational outreach belongs in separate local notes; directory work remains deferred.
 
 Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next
