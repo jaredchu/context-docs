@@ -1,0 +1,471 @@
+{
+  "date": "2026-10-19",
+  "versions": {
+    "core": "0.2.6",
+    "adoption": "0.1.15"
+  },
+  "release_commit": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+  "source_revision": "a2d700277be575643b9d6d7603db37da5da068c5 plus pre-existing uncommitted installed-upgrade context/event",
+  "protocol_sha256": "e19ac04a4f819b8b78c1b1dfe8d88b271c2f03fb8e8044ccba8d9122c4ee5d01",
+  "assessment": "Both clients pass the focused saved-Markdown checks with explicit installed paths and an explicit incoming-note pointer. Claude retains five failed reads while locating the public report, then successfully reads it. Earlier candidate discovery gap and all previous qualifications remain unchanged.",
+  "assessor": "Sol authors and scores; Claude Opus 5.5 is a native subject, not an independent reviewer.",
+  "clients": {
+    "codex": {
+      "receipt": {
+        "client": "codex",
+        "status": "completed",
+        "exit_code": 0,
+        "elapsed_seconds": 32.64,
+        "cap_seconds": 180,
+        "protocol_sha256": "e19ac04a4f819b8b78c1b1dfe8d88b271c2f03fb8e8044ccba8d9122c4ee5d01"
+      },
+      "requested_model": "gpt-6.1-sol",
+      "responding_model": "unconfirmed",
+      "api_key_source": "not exposed by this trace",
+      "changed_fixture_files": [
+        "public/notes/context.md",
+        "personal/notes/context.md"
+      ],
+      "changed_sections": {
+        "public/notes/context.md": [
+          "Next action",
+          "Progress"
+        ],
+        "personal/notes/context.md": [
+          "Next action",
+          "Progress"
+        ]
+      },
+      "unexpected_changes": [],
+      "unexpected_added_files": [],
+      "unchanged_source_fixture_files": 15,
+      "public_incidental_metadata_and_bookkeeping_omitted": true,
+      "useful_personal_path_retained": true,
+      "links": [
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#sample",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#large-input",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#large-input",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "repair.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "repair.md",
+          "pass": true
+        }
+      ],
+      "all_links_pass": true,
+      "operation_audit": {
+        "calls": [
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'cat AGENTS.md README.md <installed-codex>/adopt-context-docs/SKILL.md <installed-codex>/context-docs/SKILL.md'",
+            "exit_code": 0
+          },
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'cat public/AGENTS.md public/README.md public/notes/context.md personal/AGENTS.md personal/README.md personal/notes/context.md <installed-codex>/context-docs/references/standard.md <installed-codex>/context-docs/references/progress.md'",
+            "exit_code": 0
+          },
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'cat public/private/session.md public/notes/decisions.md personal/notes/import.md personal/notes/repair.md'",
+            "exit_code": 0
+          },
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'rg --files public/reports'",
+            "exit_code": 0
+          },
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'cat public/reports/check.md'",
+            "exit_code": 0
+          },
+          {
+            "tool": "file_change",
+            "path": "<fixture>/personal/notes/context.md",
+            "kind": "update"
+          },
+          {
+            "tool": "file_change",
+            "path": "<fixture>/public/notes/context.md",
+            "kind": "update"
+          },
+          {
+            "tool": "command_execution",
+            "command": "/bin/zsh -lc 'cat public/notes/context.md personal/notes/context.md'",
+            "exit_code": 0
+          }
+        ],
+        "tool_errors": 0,
+        "error_details": []
+      },
+      "raw_private_sha256": {
+        "stdout.jsonl": "111d373a5bcb8858511e90135a16548f4e4cb87c13fc8dd7fa713518c1c27d51",
+        "stderr.txt": "91d5730da62d9444d0e1d2883b066d778e02c712c88cc65fb5e5224fe2ee97d5",
+        "receipt.json": "da4592159ae8cf9312f53f28656da30dda6262be662b38dd8bfa50c48c7813b5"
+      },
+      "read_coverage": {
+        "both_installed_entrypoints_read": true,
+        "incoming_note_read_successfully": true,
+        "public_report_read_successfully": true
+      },
+      "outputs_sha256": {
+        "public/notes/context.md": "fca0bd7cfa9e9a0d4f7c53e2b67f7d5b66d8553180a184915b508d3e2bc6d350",
+        "public/notes/decisions.md": "29323aff316687bde1737a71da5e06da992e4b592b1d9bb56d6094468391316a",
+        "public/reports/check.md": "fd048dfd5df7ca7a0841bee599a051e63de187e2d30b4b77f553e2379da8aed4",
+        "personal/notes/context.md": "b205b7de0e66c552cff82b30e70929773949611d4a65f50742d90628d1ddede2",
+        "personal/notes/import.md": "a54b739a550f38aec12e190994f02c04800f823409ddd93f875f57d1929384cb",
+        "personal/notes/repair.md": "c768c33c7a72f4cefcf9bfa068b81509cd32c956985f3237bad80f7847adb269"
+      }
+    },
+    "claude": {
+      "receipt": {
+        "client": "claude",
+        "status": "completed",
+        "exit_code": 0,
+        "elapsed_seconds": 65.94,
+        "cap_seconds": 180,
+        "protocol_sha256": "e19ac04a4f819b8b78c1b1dfe8d88b271c2f03fb8e8044ccba8d9122c4ee5d01",
+        "native_result_subtype": "success",
+        "native_is_error": false,
+        "permission_denials": []
+      },
+      "requested_model": "claude-opus-5-5",
+      "responding_model": "claude-opus-5-5",
+      "api_key_source": "none",
+      "changed_fixture_files": [
+        "public/notes/context.md",
+        "personal/notes/context.md"
+      ],
+      "changed_sections": {
+        "public/notes/context.md": [
+          "Next action",
+          "Progress"
+        ],
+        "personal/notes/context.md": [
+          "Next action",
+          "Progress"
+        ]
+      },
+      "unexpected_changes": [],
+      "unexpected_added_files": [],
+      "unchanged_source_fixture_files": 15,
+      "public_incidental_metadata_and_bookkeeping_omitted": true,
+      "useful_personal_path_retained": true,
+      "links": [
+        {
+          "document": "public/notes/context.md",
+          "target": "#goal",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#sample",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#large-input",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "../reports/check.md#large-input",
+          "pass": true
+        },
+        {
+          "document": "public/notes/context.md",
+          "target": "decisions.md#csv",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "repair.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "repair.md",
+          "pass": true
+        },
+        {
+          "document": "personal/notes/context.md",
+          "target": "import.md",
+          "pass": true
+        }
+      ],
+      "all_links_pass": true,
+      "operation_audit": {
+        "calls": [
+          {
+            "tool": "Read",
+            "path": "<fixture>/AGENTS.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/README.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<installed-claude>/adopt-context-docs/SKILL.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<installed-claude>/context-docs/SKILL.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/notes/context.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/private/session.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/personal/notes/context.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<installed-claude>/context-docs/references/progress.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<installed-claude>/context-docs/references/standard.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/AGENTS.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/notes/decisions.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/personal/notes/import.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/personal/notes/repair.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/README.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/personal/AGENTS.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports/C-7.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports/c7.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports/c-7.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports/README.md"
+          },
+          {
+            "tool": "Read",
+            "path": "<fixture>/public/reports/check.md"
+          },
+          {
+            "tool": "Edit",
+            "path": "<fixture>/public/notes/context.md"
+          },
+          {
+            "tool": "Edit",
+            "path": "<fixture>/public/notes/context.md"
+          },
+          {
+            "tool": "Edit",
+            "path": "<fixture>/personal/notes/context.md"
+          },
+          {
+            "tool": "Edit",
+            "path": "<fixture>/personal/notes/context.md"
+          }
+        ],
+        "tool_errors": 5,
+        "error_details": [
+          "File does not exist. Note: your current working directory is <fixture>.",
+          "EISDIR: illegal operation on a directory, read '<fixture>/public/reports'",
+          "File does not exist. Note: your current working directory is <fixture>.",
+          "File does not exist. Note: your current working directory is <fixture>.",
+          "File does not exist. Note: your current working directory is <fixture>."
+        ]
+      },
+      "raw_private_sha256": {
+        "stdout.jsonl": "27414821341850ea82c68bdc20e143ed43376f9e5422a422e5e95530bb99cec2",
+        "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "receipt.json": "c9ebeb10e177d9459525664ac821b33aabac22f43aa83a6e4423ae16cf33678c"
+      },
+      "read_coverage": {
+        "both_installed_entrypoints_read": true,
+        "incoming_note_read_successfully": true,
+        "public_report_read_successfully": true
+      },
+      "outputs_sha256": {
+        "public/notes/context.md": "381e9195cd05a6a7a87de9f40af6be92bc6384fbead767cb67a9e09049454a56",
+        "public/notes/decisions.md": "29323aff316687bde1737a71da5e06da992e4b592b1d9bb56d6094468391316a",
+        "public/reports/check.md": "fd048dfd5df7ca7a0841bee599a051e63de187e2d30b4b77f553e2379da8aed4",
+        "personal/notes/context.md": "2b18e214df9f69c7ac409282b0ef6b246cf8012e15bb3b7cba0428fbb45c1e2f",
+        "personal/notes/import.md": "a54b739a550f38aec12e190994f02c04800f823409ddd93f875f57d1929384cb",
+        "personal/notes/repair.md": "c768c33c7a72f4cefcf9bfa068b81509cd32c956985f3237bad80f7847adb269"
+      }
+    }
+  },
+  "limits": [
+    "Guided Sol-authored/scored two-case smoke, not independent, held-out or comparative. Claude is a subject, not an independent reviewer.",
+    "Reuses prior synthetic case with explicit incoming-source pointer and unique incidental note metadata; original candidate gap is preserved. Two tasks share a session per client.",
+    "Explicit installed entrypoints; no implicit discovery, fresh adoption, cross-session continuity, automatic everyday application, general privacy guarantee or user-benefit claim.",
+    "Logging remains off; no native event-journal test. No retries or output repairs.",
+    "Raw traces/receipts retained privately; public exports normalize real paths. Routine runtime/cache bookkeeping outside protected source, setup and skill trees is excluded."
+  ],
+  "private_evidence_id": "installed-v026-filtering-smoke-58908f1f-ff4d-43bc-86d6-751ba6263d01",
+  "evidence_access_limit": "Raw traces, receipts and inventories are retained privately. IDs/hashes do not grant public access or establish independent verification.",
+  "preservation": {
+    "protected_original_entries_checked": 32136,
+    "unexpected_changes": [],
+    "installed_files_preserved": 32,
+    "setup_rules_source_packages_saved_studies_and_original_upgrade_event_unchanged": true,
+    "scope": "Recorded existing repository entries excluding Git metadata, four installed skill trees, original candidate/upgrade/publication evidence and named global instruction/settings files. Routine native-client caches and this new private root excluded."
+  },
+  "semantic_assessment": {
+    "method": "Sol manually inspected final Markdown, supplied source evidence and recorded operations; not an automatic semantic grader or independent review.",
+    "checks": {
+      "public_grounding": {
+        "criterion": "Two small CSV samples passed in staging on Python 3.12 only; full suite unrun and production behavior unknown.",
+        "codex": "pass",
+        "claude": "pass"
+      },
+      "public_conditions": {
+        "criterion": "Missing large-input fixture blocks an unrun check, not a failure; next obtain it and run the check.",
+        "codex": "pass",
+        "claude": "pass"
+      },
+      "decisions_and_authority": {
+        "criterion": "CSV compatibility rationale and owner approval survive; JSON is proposed and deployment lacks approval.",
+        "codex": "pass",
+        "claude": "pass"
+      },
+      "incoming_filtering": {
+        "criterion": "Named private note successfully read; unique account/path omitted from shared output; raw evidence ID retained with lack of public access and a relative public-summary link.",
+        "codex": "pass",
+        "claude": "pass"
+      },
+      "personal_quality": {
+        "criterion": "Useful volume path, case-sensitive A.jpg/a.jpg, offline import, one-sample repair, originals unchanged and unrun whole-library verification retained.",
+        "codex": "pass",
+        "claude": "pass"
+      },
+      "personal_next_action": {
+        "criterion": "Owner-selected winter indexing after mounting FieldNotes, without publication approval.",
+        "codex": "pass",
+        "claude": "pass"
+      }
+    }
+  },
+  "repository_checks": {
+    "static_repository": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "result": "pass",
+      "links_and_anchors": 2047,
+      "tables": 5,
+      "installable_packages": 2,
+      "declared_versions": 2
+    },
+    "checker_tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p 'test_*.py'",
+      "passed": 28
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "result": "pass"
+    },
+    "qualification": "Mechanical repository checks; separate from the two native sessions and manual semantic assessment."
+  }
+}
