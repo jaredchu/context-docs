@@ -11,7 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest published bundle is described in the [v0.2.5 release notes](docs/releases/v0.2.5.md).
+The latest bundle is described in the [v0.2.6 release notes](docs/releases/v0.2.6.md).
+Previous [v0.2.5 release notes](docs/releases/v0.2.5.md) are retained.
 Previous [v0.2.4 release notes](docs/releases/v0.2.4.md) are retained.
 Previous [v0.2.3 release notes](docs/releases/v0.2.3.md) are retained.
 Previous [v0.2.2 release notes](docs/releases/v0.2.2.md) are retained.
@@ -32,7 +33,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   build identities and preservation. No new native model trial, counterpart review,
   publication, deployment or installed upgrade is part of this preparation.
 
-## context-docs 0.2.6 — unreleased
+## context-docs 0.2.6 — 2026-10-19
 
 - Review proposed context and journal additions for their intended destination;
   filter incidental personal metadata, prefer portable references and summarize
@@ -44,14 +45,14 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   separates these authored examples from native behavior and records the optional
   validator dependency limit. Opus reviewed the candidate and one focused
   follow-up; the final schema correction was verified locally, without another
-  model review. Published and installed v0.2.5 are unchanged.
+  model review. At candidate validation, published and installed v0.2.5 were unchanged.
 - A [native copied-candidate smoke](evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
   passes visible saved-Markdown filtering, portability and quality checks in both
   clients. Claude cannot locate the unlinked private operator note with its
   restricted discovery tools; incoming-note filtering remains untested there.
   These guided, author-scored results retain that gap without a session rerun.
 
-## adopt-context-docs 0.1.15 — unreleased
+## adopt-context-docs 0.1.15 — 2026-10-19
 
 - Apply sibling core's destination/reference filtering during adoption, preserving
   existing layouts, private boundaries and storage/logging rules. Shares the

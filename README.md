@@ -15,10 +15,10 @@ as possible.
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.6 and adoption skill v0.1.15 (unreleased).**
-The [v0.2.6 draft notes](docs/releases/v0.2.6.md) cover metadata filtering,
-portable references and qualified synthetic checks. The latest published bundle
-remains [v0.2.5](docs/releases/v0.2.5.md), an experimental prerelease. Publication
+**Status: experimental, core skill v0.2.6 and adoption skill v0.1.15.**
+The [v0.2.6 release notes](docs/releases/v0.2.6.md) cover metadata filtering,
+portable references and qualified synthetic checks. This is an experimental
+prerelease; Claude’s private-note coverage gap remains untested. Publication
 and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)

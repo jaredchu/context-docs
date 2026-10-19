@@ -417,6 +417,6 @@ Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
 maintenance rules, adoption dates, context paths and logging settings; no document
 migration is required. Installing an update does not enable logging. See the
-[v0.2.6 draft upgrade notes](releases/v0.2.6.md#existing-projects-and-upgrades) and
+[v0.2.6 upgrade notes](releases/v0.2.6.md#existing-projects-and-upgrades) and
 [release history](releases/README.md) for feature boundaries and retained evidence.
-The latest published bundle remains v0.2.5 until v0.2.6 is separately published.
+The v0.2.6 experimental prerelease does not upgrade existing installations.

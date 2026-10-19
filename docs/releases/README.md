@@ -9,7 +9,7 @@ installed skills or change existing project setups.
 
 ## v0.2.x
 
-- **[v0.2.6 draft, unpublished](v0.2.6.md):**
+- **[v0.2.6](v0.2.6.md):**
   [preparation](v0.2.6-validation.json),
   [qualified candidate smoke](../../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
   and [offline controls](../../evals/content-filtering/README.md).
@@ -78,4 +78,4 @@ Core and adoption have separate versions, so retain both complete sibling packag
 | Concise progress views | 0.2.3 / 0.1.12 | [v0.2.3](v0.2.3.md) |
 | Clarity preference | 0.2.4 / 0.1.13 | [v0.2.4](v0.2.4.md) |
 | Shared-file coordination | 0.2.5 / 0.1.14 | [v0.2.5](v0.2.5.md) |
-| Metadata filtering and portable references | 0.2.6 / 0.1.15 (candidate) | [v0.2.6 draft](v0.2.6.md) |
+| Metadata filtering and portable references | 0.2.6 / 0.1.15 | [v0.2.6](v0.2.6.md) |

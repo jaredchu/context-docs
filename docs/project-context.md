@@ -25,10 +25,11 @@ The filtering candidate has passing offline checks and qualified counterpart
 review; its final schema correction was checked locally. A
 [copied-candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
 passes visible saved-Markdown checks; Claude's private-note coverage gap is retained.
-The [v0.2.6 draft release notes](releases/v0.2.6.md) and website update are prepared
-for review; the [preparation record](releases/v0.2.6-validation.json) owns local checks
-and preservation. Keep operational outreach in separate local notes. This work
-does not clean historical records or change logging settings.
+The owner authorized v0.2.6 experimental publication and website deployment.
+Release labels are finalized; publication and live verification are pending.
+The [release notes](releases/v0.2.6.md) retain the qualification; the
+[preparation record](releases/v0.2.6-validation.json) owns prepublication checks. Keep operational outreach in separate local notes.
+This work does not clean historical records or change logging settings.
 
 Use installed standalone experimental **v0.2.5** in everyday work and record concrete misses.
 The bundle contains core **0.2.5**, adoption **0.1.14** and standard **0.1.1**.
@@ -88,10 +89,10 @@ Goal: make progress clear during everyday context work
 |   |-- DONE     Release and website verification
 |   |-- DONE     Installed in Codex and Claude Code
 |   `-- CHECKED  Focused installed smoke; qualifications retained
-`-- DRAFT     v0.2.6 metadata filtering and portable references
+`-- PENDING   v0.2.6 publication and website verification
     `-- CHECKED  Candidate smoke; private-note coverage gap retained
 
-NEXT: review v0.2.6 notes and website; keep using standalone v0.2.5.
+NEXT: publish and verify v0.2.6; installed v0.2.5 remains unchanged.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -219,9 +220,9 @@ comprehensive privacy audit.
 
 ## Next actions
 
-Review the [v0.2.6 draft release notes and website preparation](releases/v0.2.6.md#preparation-status),
+Complete the authorized v0.2.6 experimental publication and website verification,
 retaining the [qualified candidate checks](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md).
-No publication, deployment, installed upgrade or historical metadata cleanup is selected.
+No installed upgrade or historical metadata cleanup is selected.
 Operational outreach belongs in separate local notes; directory work remains deferred.
 
 Continue everyday work with installed standalone v0.2.5. After meaningful outcomes, update
