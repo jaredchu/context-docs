@@ -274,6 +274,16 @@ Later focused smokes retain these qualifications:
   passes one forced mismatch per client; it does not retest or clear those earlier
   qualifications. The [offline diagnostic](../evals/concurrency/offline-2026-10-17/README.md)
   records forced filesystem/tool outcomes separately from native sessions.
+- [Metadata filtering and portable references, v0.2.6](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md):
+  both clients pass visible saved-Markdown checks. Claude cannot locate an unlinked
+  private note with the restricted tools, leaving incoming-note filtering untested
+  in that candidate run. In the separate
+  [installed smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md),
+  both read the explicitly named note and pass focused filtering, portability and
+  context-quality checks. Claude's five failed reads while finding the public
+  report remain recorded; it does not reread its edits, which Sol checks separately.
+  The installed run does not repair the candidate outputs or clear the earlier gap.
+  Both runs are guided, author-scored checks; no general privacy guarantee is established.
 
 These guided, author-scored cases do not establish implicit loading, automatic
 everyday reliability or user benefit. The concurrency checks do not establish

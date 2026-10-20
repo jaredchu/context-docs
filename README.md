@@ -17,9 +17,10 @@ as possible.
 
 **Status: experimental, core skill v0.2.6 and adoption skill v0.1.15.**
 The [v0.2.6 release notes](docs/releases/v0.2.6.md) cover metadata filtering,
-portable references and qualified synthetic checks. This is an experimental
-prerelease; Claude’s private-note coverage gap remains untested. Publication
-and installation are separate actions. See [release history](docs/releases/README.md) for earlier
+portable references and qualified synthetic checks. The earlier candidate’s
+unlinked-note coverage gap remains; the separate installed check names the note
+explicitly. See [results and qualifications](docs/evaluation-results.md#more-recent-studies).
+Publication and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
 For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
 

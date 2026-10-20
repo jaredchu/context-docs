@@ -1,14 +1,8 @@
 # Project context
 
-Experimental v0.2.6 was published October 19, 2026 and its website deployed
-from `d74e69d`. All eight checked live public files match that build; the
-[publication record](releases/v0.2.6-publication.json) owns identities and limits.
-It strengthens destination filtering, portable references and meaningful event
-selection. The [qualified candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
-passes visible saved-Markdown checks but retains Claude’s undiscovered-note gap.
-A separate [installed smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md)
-passes focused filtering, portability and context-quality checks with the note
-explicitly named. Both installed sibling pairs match v0.2.6.
+Use standalone experimental **v0.2.6** for everyday work. The
+[progress view](#current-focus) summarizes status; [evidence and limits](#evidence-and-limits)
+links release, installation and qualified checks.
 
 ## Purpose and scope
 
@@ -21,65 +15,9 @@ local notes only when still useful.
 
 ## Current focus
 
-The v0.2.6 experimental release and website verification are complete.
-The [release notes](releases/v0.2.6.md) and
-[publication record](releases/v0.2.6-publication.json) retain the qualification;
-the [preparation record](releases/v0.2.6-validation.json) keeps its original
-prepublication scope. The separately authorized installed upgrade is complete;
-its [record](../.context/events/installed-v026-upgrade-20261019.jsonl) owns package
-verification and preservation. The separate
-[installed native smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md)
-passes focused Markdown checks; both read the named incoming note. Claude’s five
-failed reads while locating the public report remain recorded. These explicit-path,
-guided checks do not establish implicit loading or general privacy guarantees.
-Keep operational outreach in separate local notes; publication does not clean
-historical records or change logging settings.
-
-Use installed standalone experimental **v0.2.6** in everyday work and record concrete misses.
-The bundle contains core **0.2.6**, adoption **0.1.15** and standard **0.1.1**.
-The earlier v0.2.5 publication and website verification used `89c91f4`; its
-[publication record](releases/v0.2.5-publication.json) owns pinned identities,
-the October 18 resource verification and its limits. The separate
-[website demo deployment record](website-demo-deployment-2026-10-19.json) owns
-the October 19 build and live checks.
-
-All 32 installed package files match the published v0.2.6 bytes; metadata,
-packaged links and anchors pass. No local customizations needed merging; verified
-private backups are retained. The earlier [v0.2.5 upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl)
-remains historical evidence. Its separate [installed native smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md)
-passed focused ownership, handoff and recovery checks, with only one mismatch per
-client. It does not validate v0.2.6 or clear earlier qualifications. Existing setups and saved studies
-are preserved. [Release history](releases/README.md) links earlier versions,
-preparation/publication records and original candidate and installed evidence.
-
-The [initial skills.sh check](../evals/installed-skills/2026-10-18-skills-sh/README.md)
-passes direct discovery and isolated installation. A separate
-[telemetry-enabled install](../evals/installed-skills/2026-10-18-skills-sh-telemetry/README.md)
-passes; both public skill pages now show content, while owner-filtered search still
-returns zero results in two October 18 snapshots. Telemetry receives HTTP 200;
-indexing completion and counted installs remain unconfirmed. No native behavior is retested.
-
-A [minimal plugin candidate](plugin-candidate.md) bundles both unchanged skills for
-review. Local packaging checks pass. An [isolated loading check](../evals/packaging/plugin-loading-2026-10-18/README.md)
-registers both Claude Code commands. A [Codex follow-up](../evals/packaging/codex-plugin-loading-2026-10-18/README.md)
-parses both skill entries with a narrow shared-runtime identity exception; checked
-identity contents and metadata remain unchanged. A [synthetic runtime smoke](../evals/packaging/plugin-runtime-2026-10-18/README.md)
-passes explicit Claude adoption/maintenance. A [non-model Codex diagnostic](../evals/packaging/codex-route-diagnostic-2026-10-18/README.md)
-reproduces sandbox nesting and verifies one command under the unchanged outer
-boundary; active plugin registration and execution remain unverified. Earlier
-harness qualifications and directory eligibility questions remain; no persistent
-install, submission or publication occurred.
-The owner has [deferred Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral);
-standalone skills remain the everyday-use path, now with installed v0.2.6.
-
-A [short synthetic demo and outreach post](outreach-v0.2.5.md) invites standalone
-Codex and Claude Code users to try the experimental release and report concrete
-misses. The outreach post remains a draft, not posted or submitted. The
-[live website demo](https://context-docs.com/#demo) reuses its three example
-blocks near “What you get,” with experimental limits. Its
-[deployment record](website-demo-deployment-2026-10-19.json) verifies eight matching
-live resources and desktop/mobile rendering with JavaScript disabled. The demo
-is illustrative, not an agent evaluation. Official directory work remains deferred.
+Continue everyday use and record concrete misses. No skill change, new release,
+infrastructure campaign or smoke rerun is selected. Release and installation
+outcomes are recorded under [evidence and limits](#evidence-and-limits).
 
 Saved snapshot: October 19, 2026; this is not live agent activity.
 
@@ -108,10 +46,6 @@ Sources: [release and feature history](releases/README.md),
 [current website verification](releases/v0.2.6-publication.json),
 [qualified installed checks](../evals/installed-skills/2026-10-19-filtering-v026/README.md),
 [detailed sources and limits](#evidence-and-limits), and [next action](#next-actions).
-
-Earlier baseline: experimental v0.1.9 at `5433e47`, with its
-[release record](releases/v0.1.9.md), [website verification](website-deployment-2026-10-11.json)
-and [installed smoke checks](../evals/installed-skills/2026-10-11/README.md) retained.
 
 ## Decisions
 
@@ -181,29 +115,75 @@ selection, cross-machine installed-path portability, JSONL necessity and natural
 recording-cost advantage remain unestablished.
 [Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
 
-Progress source details:
+- **Current release and installation:** experimental v0.2.6 was published October 19,
+  2026, with core **0.2.6**, adoption **0.1.15** and standard **0.1.1**. It strengthens
+  destination filtering, portable references and meaningful event selection.
+  The [release notes](releases/v0.2.6.md) and [publication record](releases/v0.2.6-publication.json)
+  retain identities and limits: the website was deployed from `d74e69d`, and all
+  eight checked live public files matched that build. The [preparation record](releases/v0.2.6-validation.json)
+  keeps its original prepublication scope. The separately authorized
+  [installed upgrade](../.context/events/installed-v026-upgrade-20261019.jsonl)
+  verified all 32 package files against the release, including metadata, packaged
+  links and anchors; no customizations needed merging and verified private backups
+  were retained. Publication does not change logging settings or clean historical records.
+- **Current checks:** the [candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
+  passes visible saved-Markdown checks but leaves Claude's unlinked private-note
+  coverage gap. The separate [installed smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md)
+  names the incoming note; both clients read it and pass focused filtering,
+  portability and context-quality checks. Claude's five failed reads while finding
+  the public report remain recorded. These guided, explicit-path checks do not
+  establish implicit loading or general privacy guarantees, and do not clear the
+  earlier candidate gap.
+- **Earlier progress features:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
+  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) cover Markdown progress,
+  adoption and concise views; [v0.2.4](releases/v0.2.4.md) owns clarity and its qualified checks.
+- **Earlier coordination and installation:** the [shared-file guide](getting-started.md#when-sessions-share-a-context-file),
+  [v0.2.5 publication record](releases/v0.2.5-publication.json),
+  [upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl) and
+  [installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md)
+  retain their original scopes. The publication and October 18 resource checks
+  used `89c91f4`; the installed smoke passed focused ownership, handoff and recovery
+  with one forced mismatch per client. It does not validate v0.2.6, establish
+  simultaneous-write safety or clear the earlier
+  [Claude second-mismatch failure and Codex checking error](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
+- **Retained qualifications:** the [Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md),
+  [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
+  and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain.
+  Installed smokes use explicit paths and a stricter temporary-write boundary;
+  they are guided and author-scored. Fresh adoption, the full suite, broad
+  reliability, implicit loading and user benefit remain unestablished.
+- **Discovery:** the [initial skills.sh check](../evals/installed-skills/2026-10-18-skills-sh/README.md)
+  passes direct discovery and isolated installation. The separate
+  [telemetry-enabled install](../evals/installed-skills/2026-10-18-skills-sh-telemetry/README.md)
+  passes and both public pages show content; owner-filtered search returns zero
+  results in two October 18 snapshots. Telemetry received HTTP 200; indexing
+  completion and counted installs remain unconfirmed. Native behavior was not retested.
+- **Deferred plugin:** the [minimal candidate](plugin-candidate.md) bundles both
+  then-current unchanged skills and passes local packaging checks. The
+  [loading check](../evals/packaging/plugin-loading-2026-10-18/README.md) registers
+  both Claude commands; the [Codex follow-up](../evals/packaging/codex-plugin-loading-2026-10-18/README.md)
+  parses both entries with a narrow shared-runtime identity exception, preserving
+  checked identity contents and metadata. The [runtime smoke](../evals/packaging/plugin-runtime-2026-10-18/README.md)
+  passes explicit Claude adoption/maintenance. The [non-model Codex diagnostic](../evals/packaging/codex-route-diagnostic-2026-10-18/README.md)
+  reproduces sandbox nesting and verifies one command under the unchanged outer
+  boundary. Active Codex plugin registration and execution remain unverified;
+  earlier harness qualifications and directory eligibility questions remain.
+  No persistent installation, submission or publication occurred. The
+  [owner's deferral](project-decisions.md#codex-plugin-runtime-deferral) keeps standalone
+  skills as the everyday-use path; official directory work remains deferred.
+- **Illustrative demo:** the [prepared demo and outreach draft](outreach-v0.2.5.md)
+  invites experimental standalone use and concrete feedback. The retained post is
+  a draft, not posted or submitted; further operational outreach belongs in separate
+  local notes. The [website demo](https://context-docs.com/#demo) reuses its three
+  blocks near “What you get,” with experimental limits. Its separate October 19
+  [deployment record](website-demo-deployment-2026-10-19.json) verifies eight matching
+  live resources and desktop/mobile rendering with JavaScript disabled. It is
+  illustrative, not an agent evaluation.
+- **Earlier baseline:** experimental v0.1.9 at `5433e47`; its [release record](releases/v0.1.9.md),
+  [website verification](website-deployment-2026-10-11.json) and
+  [installed checks](../evals/installed-skills/2026-10-11/README.md) remain retained.
 
-- **Markdown progress, adoption and concise views:** [v0.2.0](releases/v0.2.0.md), [v0.2.1](releases/v0.2.1.md),
-  [v0.2.2](releases/v0.2.2.md) and [v0.2.3](releases/v0.2.3.md) release notes.
-- **Clarity:** [Clarity preference and qualified checks](releases/v0.2.4.md).
-- **Coordination and publication:** [Shared-file coordination](getting-started.md#when-sessions-share-a-context-file)
-  and [publication and website verification](releases/v0.2.5-publication.json).
-- **Installation and focused checks:** [Installed upgrade](../.context/events/installed-v025-upgrade-20261018.jsonl)
-  and [qualified installed smoke](../evals/installed-skills/2026-10-18-concurrency-v025/README.md).
-- **Everyday next action:** [Next actions](#next-actions).
-
-**Qualifications:** the v0.2.5 installed smoke checks one forced conflict per client;
-it does not establish simultaneous-write safety or clear the earlier
-[Claude second-mismatch failure and Codex checking error](../evals/concurrency/smoke-0.2.5-2026-10-17/README.md).
-The [earlier Codex write-scope failure](../evals/progress/smoke-0.2.3-2026-10-17/README.md)
-remains retained. Focused smoke checks pass, with explicit installed paths and a
-stricter temporary-write boundary; they are guided and author-scored. Fresh
-adoption, the full suite, broad reliability, implicit loading and user benefit
-remain unestablished. Earlier [Claude source-grounding qualifications](../evals/installed-skills/2026-10-16-progress-v021/README.md#results)
-and [v0.2.0 evidence limits](../evals/progress/smoke-2026-10-16/README.md) remain retained.
-
-**Deferred:** [Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral)
-is paused by owner decision. The owner also set aside the broad v1.0.0 graduation campaign. Its
+The owner set aside the broad v1.0.0 graduation campaign; its
 [infrastructure proposals](#current-state) remain history. A local web viewer
 and ChatGPT integration are future possibilities; no implementation is selected.
 Markdown remains authoritative, without an independent tracker or completion percentage.
@@ -217,14 +197,9 @@ original outcomes, errors and qualifications without establishing general user-e
 or subscription-allowance benefit.
 [Metadata cleanup](evidence-redaction-2026-10-09.md) records original/public hashes
 and unchanged scores; it did not sanitize older Git history or constitute a
-comprehensive privacy audit.
+comprehensive privacy audit. No historical cleanup has been performed for v0.2.6.
 
 ## Next actions
-
-The installed v0.2.6 upgrade and [focused native smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md)
-are complete. Keep the earlier candidate coverage gap and current discovery errors
-attached to their respective results. No historical cleanup has been performed.
-Operational outreach belongs in separate local notes; directory work remains deferred.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next
