@@ -193,3 +193,23 @@ limit, not proof that such a route cannot exist.
 This decision authorizes recording the deferral only. Preserve installed skills,
 setups, credentials and saved studies. No activation, model reruns, installation,
 submission or publication is selected; reopening the work needs a new owner request.
+
+## Cursor compatibility review
+
+On October 23, 2026, the owner requested independent Astra and Fable reviews at
+High reasoning, then asked to retain both reviews and a proposed testing plan in
+private notes. The owner explicitly instructed not to install or launch Cursor yet.
+
+Keep Cursor **not evaluated** and defer advertised support pending native evidence.
+Both reviewers recommend a bounded synthetic probe using the unchanged standalone
+skills, with separate claims for CLI and desktop. Cursor documents
+[Agent Skills](https://cursor.com/docs/skills) and
+[AGENTS.md](https://cursor.com/docs/rules) compatibility; that does not establish
+Context Docs discovery, instruction loading or runtime behavior. No skill change,
+plugin, release or native Cursor test is selected by this record.
+
+The private review and plan record has evidence ID
+`cursor-compatibility-2026-10-23`. It retains both original reviews, model provenance,
+dated sources, machine requirements and a proposed seven-session journey. Private
+details are not public evaluation evidence. This recording request authorizes no
+installation, launch, authentication, spending or test execution.

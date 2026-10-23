@@ -68,6 +68,10 @@ Sources: [release and feature history](releases/README.md),
   assignments, bounded reviews, one-writer coordination and subscription/spending
   safeguards. AGENTS.md owns the operative policy; local notes retain duplicate
   operator rationale.
+- Keep Cursor **not evaluated** pending native evidence. The
+  [October 23 review decision](project-decisions.md#cursor-compatibility-review)
+  identifies the private Astra/Fable reviews and proposed testing plan; both used
+  High reasoning. The owner instructed not to install or launch Cursor yet.
 
 [Decision history](project-decisions.md) records authority and rationale.
 [AGENTS.md](../AGENTS.md) owns collaboration rules;
