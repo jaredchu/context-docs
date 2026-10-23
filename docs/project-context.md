@@ -72,6 +72,10 @@ Sources: [release and feature history](releases/README.md),
   [October 23 review decision](project-decisions.md#cursor-compatibility-review)
   identifies the private Astra/Fable reviews and proposed testing plan; both used
   High reasoning. The owner instructed not to install or launch Cursor yet.
+- Follow the [deployment checklist](../site/README.md#deployment-checklist):
+  verification-record and context commits do not require another deployment
+  unless they also affect website output or deployment behavior, or the owner
+  requests a rerun. Keep the actual deployed SHA even when `main` advances.
 
 [Decision history](project-decisions.md) records authority and rationale.
 [AGENTS.md](../AGENTS.md) owns collaboration rules;

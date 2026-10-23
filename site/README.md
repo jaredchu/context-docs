@@ -146,10 +146,46 @@ and [Google's AI search guidance](https://developers.google.com/search/docs/fund
 Live site: [Context Docs](https://context-docs.com/).
 
 The [landing-page workflow](../.github/workflows/site.yml) builds and tests on
-relevant pull requests and main-branch pushes. Deployment is manual: after an
-approved merge, select **GitHub Actions** as the Pages source in repository
-Settings → Pages, then run **Landing page** on `main` with **deploy** selected.
-Use the URL returned by the deployment. Branch/PR builds do not publish a site.
+relevant pull requests and main-branch pushes. Deployment is manual. When an
+authorized change needs publication, select **GitHub Actions** as the Pages source
+in repository Settings → Pages, then run **Landing page** on `main` with **deploy**
+selected. Use the URL returned by the deployment. Branch/PR builds do not publish
+a site. The broad `site/**` path filter can trigger a build for this README;
+a successful build or a skipped deploy job does not require manual deployment.
+
+### Deployment checklist
+
+- [ ] Determine whether the change affects public website output or deployment
+  behavior. Verification receipts, journals, project context and this README do
+  not become website content. Some Markdown does: the root README, selected
+  guide/demo sections and examples feed [build.py](build.py). Judge the actual
+  inputs rather than treating every documentation change as deployable content.
+- [ ] If only records or context changed, retain the existing deployed SHA and
+  receipt and stop without deploying again. `main` may advance beyond the
+  deployed commit. If output impact is uncertain, build locally and compare
+  public file paths and per-file SHA-256 hashes with the last deployment's
+  retained manifest, artifact or a build from its exact source SHA. Compare file
+  contents rather than archive digests, and account for the documented omission
+  of the empty `.nojekyll` marker. Identical output needs no routine redeployment;
+  deployment-behavior changes or an explicit owner-requested rerun are separate
+  reasons to deploy.
+- [ ] When deployment is needed and authorized, record the exact selected `main`
+  SHA, run the site tests and build, and check relevant CI. Dispatch the manual
+  deployment and verify its source SHA and successful build/deploy jobs.
+- [ ] Compare the uploaded artifact and canonical live HTTPS responses with that
+  pinned build, including public file paths/hashes and HTML/robots/sitemap
+  metadata. Record failures and verification limits; byte checks do not establish
+  browser rendering or agent behavior.
+- [ ] Save one deployment receipt in the appropriate operator notes and update
+  the concise public summary and context. Keep the SHA actually deployed and
+  workflow identity; do not replace them with a later record-commit SHA. Commit
+  and push those records when authorized, check their applicable CI, then stop.
+  That follow-up commit does not start another deployment/receipt cycle unless
+  it also changes website output or deployment behavior, or the owner requests
+  another run. Preserve historical receipts.
+
+This checklist grants no deployment, commit or push authority. Recording evidence
+does not create a pending deployment merely because `main` now has a newer SHA.
 
 The custom domain is `context-docs.com`. Cloudflare DNS points its four A and four
 AAAA records to GitHub Pages, with `www` pointing to `jaredchu.github.io` by CNAME;

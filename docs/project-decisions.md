@@ -213,3 +213,13 @@ The private review and plan record has evidence ID
 dated sources, machine requirements and a proposed seven-session journey. Private
 details are not public evaluation evidence. This recording request authorizes no
 installation, launch, authentication, spending or test execution.
+
+## Deployment record commits
+
+On October 23, 2026, the owner requested updating the deployment checklist and
+both repositories' context so verification-record commits do not require another
+deployment. Keep the actual deployed SHA and receipt when later commits only
+record evidence or context. The [deployment checklist](../site/README.md#deployment-checklist)
+owns the output/behavior change check, verification steps and explicit-rerun
+exception. CI can still build documentation-only commits without publishing.
+This request authorizes documentation changes, not a deployment or Cursor launch.

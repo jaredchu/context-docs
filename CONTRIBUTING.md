@@ -45,6 +45,10 @@ after the released skill files are available on GitHub's default branch. Keep
 release preparation, website deployment and installed upgrades within their
 separately authorized scope. This checklist grants no publication permission.
 
+For website publication, use the [deployment checklist](site/README.md#deployment-checklist).
+Committing verification records and context updates does not by itself require
+another deployment.
+
 - [ ] Record the published commit and both skill versions. Fetch both public
   [core](https://www.skills.sh/jaredchu/context-docs/context-docs) and
   [adoption](https://www.skills.sh/jaredchu/context-docs/adopt-context-docs) pages
