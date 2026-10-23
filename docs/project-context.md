@@ -43,7 +43,7 @@ and the broad v1.0.0 campaign. Plugin activation and execution remain unverified
 do not establish broad reliability or simultaneous-write safety.
 
 Sources: [release and feature history](releases/README.md),
-[current website verification](releases/v0.2.6-publication.json),
+[current website verification](../site/README.md#latest-deployment),
 [qualified installed checks](../evals/installed-skills/2026-10-19-filtering-v026/README.md),
 [detailed sources and limits](#evidence-and-limits), and [next action](#next-actions).
 
@@ -89,6 +89,9 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
+  The [October 23 deployment](../site/README.md#latest-deployment) from `main` at
+  `f5f5b50` succeeded; all eight served files matched the build and uploaded
+  artifact. Detailed operator verification is retained in local notes.
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
   are retained in local notes.
