@@ -94,7 +94,7 @@ Earlier release approvals do not authorize new publication.
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
   The [October 23 deployment](../site/README.md#latest-deployment) from `main` at
-  `7ff4d53` succeeded; all eight served files matched the build and uploaded
+  `58218b5` succeeded; all eight served files matched the build and uploaded
   artifact. Detailed operator verification is retained in local notes.
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details

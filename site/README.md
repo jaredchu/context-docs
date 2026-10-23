@@ -105,16 +105,15 @@ Repository context, local notes and journals never become build inputs.
 
 ## Latest deployment
 
-On October 23, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/39895959148)
-successfully built and deployed `main` at `7ff4d53`. All 17 site tests passed.
-All eight served public files
-matched both the pinned local build and uploaded artifact by SHA-256 over HTTPS.
+On October 23, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/39896741092)
+successfully built and deployed `main` at `58218b5`. All 17 site tests passed.
+All eight served public files matched both the pinned local build and uploaded
+artifact by SHA-256 over HTTPS.
 Both HTML canonical links, sitemap URLs and the robots sitemap reference matched.
-The upload omits the
-empty `.nojekyll` marker. Verification covered response bytes and metadata;
+The upload omits the empty `.nojekyll` marker. Verification covered response bytes and metadata;
 the detailed receipt is retained in local operator notes under evidence ID
-`website-deployment-2026-10-23-7ff4d53`. The website bytes are unchanged from the
-previous `b490c69` deployment; earlier deployment records remain historical.
+`website-deployment-2026-10-23-58218b5`. The website bytes are unchanged from the
+previous `7ff4d53` deployment; earlier deployment records remain historical.
 
 ## Search discovery
 
