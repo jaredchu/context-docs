@@ -220,9 +220,7 @@ remains experimental.
 
 Created and maintained by [Jared Chu](https://github.com/jaredchu), with
 [OpenAI Codex](https://github.com/codex) and Claude contributing implementation,
-documentation and evaluations. Codex led the initial AI development. The current
-workflow uses Sol 6.1 for coordination, integration and validation, and Opus 5.5
-for substantial implementation and counterpart review.
+documentation and evaluations. Codex led the initial AI development.
 See the [contribution and attribution policy](CONTRIBUTING.md).
 
 Released under the [MIT license](LICENSE).

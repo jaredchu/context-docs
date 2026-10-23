@@ -7,6 +7,9 @@ historical changes; the linked preparation, publication and study records retain
 their original scope, failures and qualifications. Publication does not upgrade
 installed skills or change existing project setups.
 
+For future releases, follow the [release checklist](../../CONTRIBUTING.md#release-checklist),
+including an isolated skills.sh refresh and full page-content verification.
+
 ## v0.2.x
 
 - **[v0.2.6](v0.2.6.md):**

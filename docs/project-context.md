@@ -64,14 +64,10 @@ Sources: [release and feature history](releases/README.md),
 - Credit Claude on every commit it helps implement, validate or review, alongside
   the existing Codex rule. The [attribution policy](../CONTRIBUTING.md#commit-attribution)
   owns trailer formats and preserves human authorship and existing history.
-- Use Sol 6.1 for coordination, integration, validation and context maintenance;
-  use Opus 5.5 for bounded substantial work, with focused counterpart review for
-  consequential changes. Sol inspects returned patches and evidence at important
-  boundaries without repeating Opus's work. The
-  [collaboration rules](../AGENTS.md#model-collaboration) own the responsibility split,
-  assignment and review bounds, and subscription-only access constraints. This
-  policy applies only to this project; better quality and reduced ChatGPT allowance
-  pressure remain goals to verify, not established benefits.
+- Follow the [collaboration rules](../AGENTS.md#model-collaboration) for model
+  assignments, bounded reviews, one-writer coordination and subscription/spending
+  safeguards. AGENTS.md owns the operative policy; local notes retain duplicate
+  operator rationale.
 
 [Decision history](project-decisions.md) records authority and rationale.
 [AGENTS.md](../AGENTS.md) owns collaboration rules;
@@ -93,9 +89,9 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-- The site publishes canonical metadata, a sitemap and crawler policy. The owner
-  reported search registration and sitemap submission complete on October 10;
-  indexing and AI citations are not established by that report.
+- The site publishes canonical metadata, a sitemap and crawler policy. Search
+  indexing and AI citations remain unestablished; operator registration details
+  are retained in local notes.
   [Search discovery guidance](../site/README.md#search-discovery) owns the process.
 - The deferred v1.0.0 [graduation criteria](v1.0.0-readiness.md),
   [support proposal](v1.0.0-support.md), [validation plan](v1.0.0-validation-plan.md),
@@ -124,8 +120,9 @@ recording-cost advantage remain unestablished.
   keeps its original prepublication scope. The separately authorized
   [installed upgrade](../.context/events/installed-v026-upgrade-20261019.jsonl)
   verified all 32 package files against the release, including metadata, packaged
-  links and anchors; no customizations needed merging and verified private backups
-  were retained. Publication does not change logging settings or clean historical records.
+  links and anchors. Detailed local installation bookkeeping is retained in
+  operator notes; the historical upgrade record is unchanged. Publication does
+  not change logging settings or clean historical records.
 - **Current checks:** the [candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md)
   passes visible saved-Markdown checks but leaves Claude's unlinked private-note
   coverage gap. The separate [installed smoke](../evals/installed-skills/2026-10-19-filtering-v026/README.md)
@@ -158,6 +155,11 @@ recording-cost advantage remain unestablished.
   passes and both public pages show content; owner-filtered search returns zero
   results in two October 18 snapshots. Telemetry received HTTP 200; indexing
   completion and counted installs remain unconfirmed. Native behavior was not retested.
+  The October 23 [verified refresh result](releases/v0.2.6.md#discovery-verification)
+  records both pages matching v0.2.6's rendered skill text and its verification
+  limits. Detailed operator evidence is retained in local notes.
+  Future authorized releases include the
+  [isolated refresh and verification checklist](../CONTRIBUTING.md#release-checklist).
 - **Deferred plugin:** the [minimal candidate](plugin-candidate.md) bundles both
   then-current unchanged skills and passes local packaging checks. The
   [loading check](../evals/packaging/plugin-loading-2026-10-18/README.md) registers
@@ -171,10 +173,10 @@ recording-cost advantage remain unestablished.
   No persistent installation, submission or publication occurred. The
   [owner's deferral](project-decisions.md#codex-plugin-runtime-deferral) keeps standalone
   skills as the everyday-use path; official directory work remains deferred.
-- **Illustrative demo:** the [prepared demo and outreach draft](outreach-v0.2.5.md)
-  invites experimental standalone use and concrete feedback. The retained post is
-  a draft, not posted or submitted; further operational outreach belongs in separate
-  local notes. The [website demo](https://context-docs.com/#demo) reuses its three
+- **Illustrative demo:** the [public demo source](outreach-v0.2.5.md) retains the
+  fictional work notes, saved context and fresh-session prompt. The promotional
+  draft and operational outreach are retained in local notes. The
+  [website demo](https://context-docs.com/#demo) reuses the three
   blocks near “What you get,” with experimental limits. Its separate October 19
   [deployment record](website-demo-deployment-2026-10-19.json) verifies eight matching
   live resources and desktop/mobile rendering with JavaScript disabled. It is
