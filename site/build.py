@@ -9,6 +9,13 @@ OUTPUT = ROOT / '.local' / 'site-dist'
 SITE_URL = 'https://context-docs.com/'
 
 
+def render_comparison(root):
+    template = (root / 'site/compare.html').read_text(encoding='utf-8')
+    if set(re.findall(r'{{([A-Z_]+)}}', template)) != {'SITE_URL'}:
+        raise ValueError('Comparison page must contain only the SITE_URL marker')
+    return template.replace('{{SITE_URL}}', escape(SITE_URL))
+
+
 def fenced_section(text, heading, language):
     section = text.split(heading + '\n', 1)
     if len(section) != 2:
@@ -96,6 +103,7 @@ def build(root=ROOT, output=OUTPUT):
             raise ValueError(f'Expected a regular public asset: {source.name}')
     html = render(root)
     guide = render(root, 'getting-started.html')
+    comparison = render_comparison(root)
     if output.is_symlink():
         raise ValueError('Build destination must not be a symlink')
     if output.exists():
@@ -104,6 +112,8 @@ def build(root=ROOT, output=OUTPUT):
     (output / 'index.html').write_text(html, encoding='utf-8')
     (output / 'getting-started').mkdir()
     (output / 'getting-started/index.html').write_text(guide, encoding='utf-8')
+    (output / 'compare').mkdir()
+    (output / 'compare/index.html').write_text(comparison, encoding='utf-8')
     (output / '.nojekyll').write_text('', encoding='utf-8')
     # Only public pages belong here, never repository context or evidence exports.
     (output / 'robots.txt').write_text(
@@ -113,7 +123,8 @@ def build(root=ROOT, output=OUTPUT):
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         '  <url><loc>' + escape(SITE_URL) + '</loc></url>\n'
-        '  <url><loc>' + escape(SITE_URL + 'getting-started/') + '</loc></url>\n</urlset>\n',
+        '  <url><loc>' + escape(SITE_URL + 'getting-started/') + '</loc></url>\n'
+        '  <url><loc>' + escape(SITE_URL + 'compare/') + '</loc></url>\n</urlset>\n',
         encoding='utf-8')
     for name, source in sources.items():
         shutil.copyfile(source, output / name)

@@ -25,7 +25,7 @@ class LandingBuildTests(unittest.TestCase):
             self.assertEqual({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()}, {
                 'index.html', 'styles.css', 'main.js', 'favicon.svg',
                 'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml',
-                'getting-started/index.html'})
+                'getting-started/index.html', 'compare/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -112,7 +112,8 @@ class LandingBuildTests(unittest.TestCase):
                              'https://context-docs.com/context-docs-overview.png')
             sitemap = ET.parse(output / 'sitemap.xml')
             self.assertEqual([item.text for item in sitemap.findall('.//{*}loc')],
-                             ['https://context-docs.com/', 'https://context-docs.com/getting-started/'])
+                             ['https://context-docs.com/', 'https://context-docs.com/getting-started/',
+                              'https://context-docs.com/compare/'])
             guide_metadata = Metadata()
             guide_metadata.feed((output / 'getting-started/index.html').read_text(encoding='utf-8'))
             self.assertEqual(guide_metadata.canonical, ['https://context-docs.com/getting-started/'])
@@ -135,6 +136,68 @@ class LandingBuildTests(unittest.TestCase):
         ]:
             self.assertIn(landing.fenced_section(readme, heading, language), rendered)
         self.assertNotIn('{{', rendered)
+
+    def test_comparison_has_native_baselines_fit_limits_and_resolving_navigation(self):
+        class Links(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.hrefs = []
+                self.canonical = []
+
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if tag == 'a':
+                    self.hrefs.append(attrs.get('href', ''))
+                if tag == 'link' and attrs.get('rel') == 'canonical':
+                    self.canonical.append(attrs['href'])
+
+        original_read = Path.read_text
+
+        def comparison_source_only(path, *args, **kwargs):
+            self.assertEqual(path, landing.ROOT / 'site/compare.html')
+            return original_read(path, *args, **kwargs)
+
+        with patch.object(Path, 'read_text', comparison_source_only):
+            rendered = landing.render_comparison(landing.ROOT)
+        self.assertNotIn('{{', rendered)
+        parser = Links()
+        parser.feed(rendered)
+        self.assertEqual(parser.canonical, ['https://context-docs.com/compare/'])
+        for source in ['https://learn.chatgpt.com/docs/customization/memories',
+                       'https://code.claude.com/docs/en/memory',
+                       'https://docs.cline.bot/best-practices/memory-bank']:
+            self.assertIn(source, parser.hrefs)
+        for text in ['Who it is for', 'What projects fit', 'What workflow fits',
+                     'Skip it when', 'have not been demonstrated', '2026-10-24']:
+            self.assertIn(text, rendered)
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            for name in ['index.html', 'getting-started/index.html']:
+                nav = Links()
+                nav.feed((output / name).read_text())
+                links = [href for href in nav.hrefs if href.endswith('/compare/')]
+                self.assertTrue(links, name)
+                for href in links:
+                    target = (output / name).parent / href / 'index.html'
+                    self.assertTrue(target.is_file(), (name, href))
+
+    def test_invalid_comparison_preserves_previous_artifact(self):
+        original_read = Path.read_text
+
+        def invalid_comparison(path, *args, **kwargs):
+            if path == landing.ROOT / 'site/compare.html':
+                return '{{PRIVATE_NOTES}}'
+            return original_read(path, *args, **kwargs)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'public'
+            output.mkdir()
+            previous = output / 'previous-build.txt'
+            previous.write_text('Keep previous build until all pages render.')
+            with patch.object(Path, 'read_text', invalid_comparison):
+                with self.assertRaisesRegex(ValueError, 'Comparison page'):
+                    landing.build(output=output)
+            self.assertEqual(previous.read_text(), 'Keep previous build until all pages render.')
 
     def test_local_only_guide_uses_only_canonical_public_prompts(self):
         rendered = unescape(landing.render(landing.ROOT, 'getting-started.html'))

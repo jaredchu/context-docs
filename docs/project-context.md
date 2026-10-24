@@ -15,29 +15,35 @@ local notes only when still useful.
 
 ## Current focus
 
+Prepare the [source-based comparison and audience-fit preview](context-management-comparison.md)
+for owner review. Explain why Context Docs might be useful despite native
+features, who it fits, and when existing practices or another tool are enough.
 Continue everyday use and record concrete misses. No skill change, new release,
-infrastructure campaign or smoke rerun is selected. Release and installation
-outcomes are recorded under [evidence and limits](#evidence-and-limits).
+infrastructure campaign, native Cursor test or publication is selected.
 
-Saved snapshot: October 19, 2026; this is not live agent activity.
+Saved snapshot: October 24, 2026; this is not live agent activity.
 
 ```text
-Goal: make progress clear during everyday context work
+Goal: preserve useful project knowledge with little manual organization
 │
 ├─ RELEASED  Markdown progress, adoption and concise views
 ├─ RELEASED  Clarity and shared-file coordination
-└─ RELEASED  v0.2.6 metadata filtering and portable references
-   ├─ DONE     Release and website verification
-   ├─ DONE     Installed in Codex and Claude Code
-   └─ CHECKED  Focused installed smoke; qualifications retained
+├─ RELEASED  v0.2.6 metadata filtering and portable references
+│  ├─ DONE     Release and website verification
+│  ├─ DONE     Installed in Codex and Claude Code
+│  └─ CHECKED  Focused installed smoke; qualifications retained
+└─ PREVIEW   Source-based comparison, intended fit and alternatives
+   └─ NEXT     Owner review; live publication not selected
 
-NEXT: use v0.2.6 in everyday work; record concrete misses.
+NEXT: review the comparison preview; continue everyday use of v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
 
 **Deferred:** [Codex plugin runtime validation](project-decisions.md#codex-plugin-runtime-deferral)
-and the broad v1.0.0 campaign. Plugin activation and execution remain unverified.
+and the broad v1.0.0 campaign, plus
+[Cursor support and native testing](project-decisions.md#cursor-support-postponement).
+Plugin activation and execution remain unverified.
 
 **Qualifications:** focused checks retain earlier failures and limitations; they
 do not establish broad reliability or simultaneous-write safety.
@@ -68,10 +74,17 @@ Sources: [release and feature history](releases/README.md),
   assignments, bounded reviews, one-writer coordination and subscription/spending
   safeguards. AGENTS.md owns the operative policy; local notes retain duplicate
   operator rationale.
-- Keep Cursor **not evaluated** pending native evidence. The
-  [October 23 review decision](project-decisions.md#cursor-compatibility-review)
-  identifies the private Astra/Fable reviews and proposed testing plan; both used
-  High reasoning. The owner instructed not to install or launch Cursor yet.
+- Cursor support and native testing are **postponed** by the owner on October 24.
+  The [earlier review decision](project-decisions.md#cursor-compatibility-review)
+  and private proposal remain retained; Cursor stays not evaluated. No installation,
+  launch or remote-host test is selected.
+- The [comparison preview](context-management-comparison.md) treats native
+  instructions/memory and ordinary Markdown as real baselines. Context Docs
+  packages a maintenance workflow; its capabilities are not unique and comparative
+  effort or quality benefits remain unproven. The owner selected preview first.
+  The owner subsequently authorized committing and pushing the research, preview
+  and context updates to their existing repositories, with Codex and Claude credit;
+  website deployment remains unselected.
 - Follow the [deployment checklist](../site/README.md#deployment-checklist):
   verification-record and context commits do not require another deployment
   unless they also affect website output or deployment behavior, or the owner
@@ -122,6 +135,13 @@ selection, cross-machine installed-path portability, JSONL necessity and natural
 recording-cost advantage remain unestablished.
 [Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
 
+- **Research preview:** the October 24 [comparison and fit summary](context-management-comparison.md)
+  records separate Astra/Fable High-reasoning research, source reconciliation and
+  a later Fable draft review. The unpublished website page links primary sources,
+  intended users/project/workflow fit, tradeoffs and reasons to skip Context Docs.
+  This is representative desk research, not a popularity ranking, installed-tool
+  comparison or independent third-party validation. Detailed originals and
+  provenance remain in private notes; no new agent behavior evaluation ran.
 - **Current release and installation:** experimental v0.2.6 was published October 19,
   2026, with core **0.2.6**, adoption **0.1.15** and standard **0.1.1**. It strengthens
   destination filtering, portable references and meaningful event selection.
@@ -213,6 +233,10 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit. No historical cleanup has been performed for v0.2.6.
 
 ## Next actions
+
+Review the unpublished comparison preview before deciding on publication. Keep
+native features, ordinary documentation and other tools fairly represented;
+intended fit is not evidence of improved outcomes. Cursor work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next

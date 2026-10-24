@@ -21,12 +21,19 @@ JavaScript; JavaScript adds agent selection and copy buttons. Clipboard failure
 selects the text and gives manual-copy instructions. No external fonts, analytics,
 tracking, cookies or application backend are included.
 
-The output contains only nine explicitly named public files: `index.html`,
+The working build contains only ten explicitly named public files: `index.html`,
 `styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
-`robots.txt`, `sitemap.xml` and `getting-started/index.html`.
+`robots.txt`, `sitemap.xml`, `getting-started/index.html` and `compare/index.html`.
 The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
+
+The [comparison page](compare.html) is the canonical copy for the October 24
+[research and fit preview](../docs/context-management-comparison.md). It uses the
+shared stylesheet, requires no JavaScript, and links primary sources. The local
+sitemap includes `/compare/`; the landing page and guide link to it. This preview
+is unpublished pending owner review. The latest live deployment recorded below
+predates this page; do not describe the preview's ten-file build as deployed.
 
 Near “What you get,” the landing page also shows the three fenced blocks from
 the [public demo source](../docs/outreach-v0.2.5.md): fictional work notes,

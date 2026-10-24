@@ -1,0 +1,54 @@
+# Context-management comparison and intended fit
+
+Prepared October 24, 2026. **Unpublished website preview; owner review pending.**
+
+The canonical comparison copy is the [website page source](../site/compare.html),
+built locally at `/compare/`. It addresses why Context Docs might be useful when
+native Codex/Claude Code features and other tools already preserve context. The
+landing page and beginner guide link to that page in the preview build. These
+links do not establish that the page is live.
+
+## Intended value and audience
+
+Context Docs packages reusable guidance for maintaining project knowledge in
+existing documents. Native instructions can encode the same workflow; readable
+Markdown, persistent instructions and cross-session memory are not unique to this
+project. If existing documentation practices and native features already meet a
+user's needs, Context Docs may be unnecessary.
+
+Its intended audience remains people without an established maintenance workflow.
+Ongoing feature work, maintenance, migrations and investigations can involve
+decisions and unfinished work that span sessions. The proposed habit is to work,
+save meaningful changes, review the document diff and resume from a documented
+entry point. Those are fit recommendations, not demonstrated outcome advantages;
+no project-size restriction or new client-support claim is introduced.
+
+## Research scope and evidence
+
+GPT-6 Astra and Claude Fable 5.1 conducted separate primary-source research at
+High reasoning without seeing each other's findings. The coordinator reconciled
+the reports, checked the primary sources used by the public copy, and added the
+closely related Planning with Files method to the selected comparison. Fable then
+reviewed the combined preview; that later review is distinct from its original
+independent research.
+
+The two original reports, provenance and reconciliation are retained privately
+under evidence ID `context-management-landscape-2026-10-24`. The public page links
+the underlying official sources beside the relevant claims. Private reports are
+not public evaluation artifacts or independent third-party validation.
+
+The comparison separates project-document maintenance, native instructions and
+memory, session capture, task tracking, code/library retrieval and application
+memory. It is representative, not exhaustive or a popularity ranking. No compared
+tool was installed or behavior-tested. Vendor performance claims are not findings.
+Context Docs' own [evidence and retained failures](evaluation-results.md) do not
+establish superior accuracy, privacy, automatic maintenance, token savings or
+lower user effort. No skill behavior or version changed for this research.
+
+## Current decision
+
+The owner selected **prepare a preview first**, not publication. Cursor support
+and its saved native testing proposal are postponed; the earlier reviews remain
+historical evidence. No installation, launch, remote-host test or website
+deployment is selected by this preview task. Review the page before deciding on
+publication or any product changes.

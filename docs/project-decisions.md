@@ -223,3 +223,19 @@ record evidence or context. The [deployment checklist](../site/README.md#deploym
 owns the output/behavior change check, verification steps and explicit-rerun
 exception. CI can still build documentation-only commits without publishing.
 This request authorizes documentation changes, not a deployment or Cursor launch.
+
+## Cursor support postponement
+
+On October 24, 2026, the owner postponed Cursor support and redirected work to
+independent Astra/Fable research into context-management skills and tools compared
+with Context Docs. Preserve the earlier reviews and proposed testing plan as
+historical evidence; no local or remote native test, installation or launch is
+selected. Cursor remains not evaluated.
+
+The owner selected **prepare a preview first** when asked about publishing the
+research. The public [comparison summary](context-management-comparison.md)
+records scope, method and limits; detailed original reports remain privately
+retained under evidence ID `context-management-landscape-2026-10-24`. The owner's
+follow-ups make the central questions explicit: why Context Docs when native
+features already exist, its advantages/disadvantages, intended users, project
+types and appropriate workflows. This task grants no website publication.
