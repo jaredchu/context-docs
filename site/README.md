@@ -30,10 +30,10 @@ It never copies the repository, context docs, journals, or evaluation exports.
 
 The [comparison page](compare.html) is the canonical copy for the October 24
 [research and fit preview](../docs/context-management-comparison.md). It uses the
-shared stylesheet, requires no JavaScript, and links primary sources. The local
-sitemap includes `/compare/`; the landing page and guide link to it. This preview
-is unpublished pending owner review. The latest live deployment recorded below
-predates this page; do not describe the preview's ten-file build as deployed.
+shared stylesheet, requires no JavaScript, and links primary sources. The
+sitemap includes `/compare/`; the landing page and guide link to it. The owner
+authorized publication after preview preparation; the page is now
+[live](https://context-docs.com/compare/) from the deployment recorded below.
 
 Near “What you get,” the landing page also shows the three fenced blocks from
 the [public demo source](../docs/outreach-v0.2.5.md): fictional work notes,
@@ -112,15 +112,20 @@ Repository context, local notes and journals never become build inputs.
 
 ## Latest deployment
 
-On October 23, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/39896741092)
-successfully built and deployed `main` at `58218b5`. All 17 site tests passed.
-All eight served public files matched both the pinned local build and uploaded
-artifact by SHA-256 over HTTPS.
-Both HTML canonical links, sitemap URLs and the robots sitemap reference matched.
-The upload omits the empty `.nojekyll` marker. Verification covered response bytes and metadata;
-the detailed receipt is retained in local operator notes under evidence ID
-`website-deployment-2026-10-23-58218b5`. The website bytes are unchanged from the
-previous `7ff4d53` deployment; earlier deployment records remain historical.
+On October 24, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/40111379480)
+successfully built and deployed `main` at `9b6ee38`, including the new
+[comparison page](https://context-docs.com/compare/). All 19 site tests passed.
+All nine served public files matched both the pinned local build and uploaded
+artifact by SHA-256 over canonical HTTPS responses. All three HTML canonical
+links, sitemap URLs and the robots sitemap reference matched.
+The ten-file local build includes an empty `.nojekyll` marker omitted by the upload.
+Verification covered response bytes and metadata; no new live-browser rendering
+or agent evaluation ran. The detailed receipt is retained in private operator
+notes under evidence ID `website-deployment-2026-10-24-9b6ee38`.
+The previous `58218b5` deployment and its eight-file live verification remain
+historical evidence. Later record/context commits do not supersede this deployed
+source or require another deployment when website output and deployment behavior
+are unchanged.
 
 ## Search discovery
 

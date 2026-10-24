@@ -211,7 +211,7 @@ remains experimental.
 
 ## Explore
 
-- [Who Context Docs fits and how it compares](docs/context-management-comparison.md) · Unpublished website preview
+- [Who Context Docs fits and how it compares](docs/context-management-comparison.md) · [Live comparison](https://context-docs.com/compare/)
 - [Installation and usage](docs/getting-started.md) · [Release history](docs/releases/README.md) · [Changelog](CHANGELOG.md)
 - [Context standard](skills/context-docs/references/standard.md) · [Context template](skills/context-docs/assets/project-context.md) · [Decision template](skills/context-docs/assets/decision-record.md)
 - [Contributing](CONTRIBUTING.md) · [Case and review templates](evals/external-validation/README.md)

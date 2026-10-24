@@ -1,12 +1,13 @@
 # Context-management comparison and intended fit
 
-Prepared October 24, 2026. **Unpublished website preview; owner review pending.**
+Prepared and published October 24, 2026. **[Live comparison](https://context-docs.com/compare/).**
 
 The canonical comparison copy is the [website page source](../site/compare.html),
-built locally at `/compare/`. It addresses why Context Docs might be useful when
+published at `/compare/`. It addresses why Context Docs might be useful when
 native Codex/Claude Code features and other tools already preserve context. The
-landing page and beginner guide link to that page in the preview build. These
-links do not establish that the page is live.
+landing page and beginner guide link to it. The
+[deployment verification](../site/README.md#latest-deployment) records the pinned
+source, workflow and matching live response bytes.
 
 ## Intended value and audience
 
@@ -47,8 +48,8 @@ lower user effort. No skill behavior or version changed for this research.
 
 ## Current decision
 
-The owner selected **prepare a preview first**, not publication. Cursor support
-and its saved native testing proposal are postponed; the earlier reviews remain
-historical evidence. No installation, launch, remote-host test or website
-deployment is selected by this preview task. Review the page before deciding on
-publication or any product changes.
+The owner first selected **prepare a preview first**, then authorized deployment
+from `main` at `9b6ee38`. The comparison is now live, with its research limits
+unchanged. Cursor support and its saved native testing proposal remain postponed;
+the earlier reviews remain historical evidence. No installation, launch or
+remote-host test was selected or performed.

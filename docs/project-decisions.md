@@ -239,3 +239,9 @@ retained under evidence ID `context-management-landscape-2026-10-24`. The owner'
 follow-ups make the central questions explicit: why Context Docs when native
 features already exist, its advantages/disadvantages, intended users, project
 types and appropriate workflows. This task grants no website publication.
+
+After the research and preview commits, the owner authorized deploying `main` at
+`9b6ee38`. The October 24 [deployment verification](../site/README.md#latest-deployment)
+confirms publication and nine matching live public files. This later authorization
+supersedes the preview-only publication boundary for this website build; Cursor
+support and native testing remain postponed.

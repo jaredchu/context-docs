@@ -15,11 +15,12 @@ local notes only when still useful.
 
 ## Current focus
 
-Prepare the [source-based comparison and audience-fit preview](context-management-comparison.md)
-for owner review. Explain why Context Docs might be useful despite native
-features, who it fits, and when existing practices or another tool are enough.
-Continue everyday use and record concrete misses. No skill change, new release,
-infrastructure campaign, native Cursor test or publication is selected.
+The [source-based comparison and audience-fit page](context-management-comparison.md)
+is live after owner-authorized deployment from `9b6ee38`. It explains why Context
+Docs might be useful despite native features, who it fits, and when existing
+practices or another tool are enough. Continue everyday use and record concrete
+misses. No skill change, new release, infrastructure campaign or native Cursor
+test is selected.
 
 Saved snapshot: October 24, 2026; this is not live agent activity.
 
@@ -32,10 +33,10 @@ Goal: preserve useful project knowledge with little manual organization
 │  ├─ DONE     Release and website verification
 │  ├─ DONE     Installed in Codex and Claude Code
 │  └─ CHECKED  Focused installed smoke; qualifications retained
-└─ PREVIEW   Source-based comparison, intended fit and alternatives
-   └─ NEXT     Owner review; live publication not selected
+└─ PUBLISHED Source-based comparison, intended fit and alternatives
+   └─ VERIFIED Live files match the pinned build at 9b6ee38
 
-NEXT: review the comparison preview; continue everyday use of v0.2.6.
+NEXT: gather concrete feedback; continue everyday use of v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -84,7 +85,8 @@ Sources: [release and feature history](releases/README.md),
   effort or quality benefits remain unproven. The owner selected preview first.
   The owner subsequently authorized committing and pushing the research, preview
   and context updates to their existing repositories, with Codex and Claude credit;
-  website deployment remains unselected.
+  the owner then authorized website deployment from `9b6ee38`, completed and
+  verified on October 24. This does not authorize Cursor testing.
 - Follow the [deployment checklist](../site/README.md#deployment-checklist):
   verification-record and context commits do not require another deployment
   unless they also affect website output or deployment behavior, or the owner
@@ -110,9 +112,10 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-  The [October 23 deployment](../site/README.md#latest-deployment) from `main` at
-  `58218b5` succeeded; all eight served files matched the build and uploaded
-  artifact. Detailed operator verification is retained in local notes.
+  The [October 24 deployment](../site/README.md#latest-deployment) from `main` at
+  `9b6ee38` succeeded; all nine served files, including `/compare/`, matched the
+  pinned build and uploaded artifact. Detailed operator verification is retained
+  in private notes under evidence ID `website-deployment-2026-10-24-9b6ee38`.
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
   are retained in local notes.
@@ -135,9 +138,9 @@ selection, cross-machine installed-path portability, JSONL necessity and natural
 recording-cost advantage remain unestablished.
 [Repository checks](../.github/workflows/checks.yml) validate mechanics, not agent behavior.
 
-- **Research preview:** the October 24 [comparison and fit summary](context-management-comparison.md)
+- **Published research:** the October 24 [comparison and fit summary](context-management-comparison.md)
   records separate Astra/Fable High-reasoning research, source reconciliation and
-  a later Fable draft review. The unpublished website page links primary sources,
+  a later Fable draft review. The published website page links primary sources,
   intended users/project/workflow fit, tradeoffs and reasons to skip Context Docs.
   This is representative desk research, not a popularity ranking, installed-tool
   comparison or independent third-party validation. Detailed originals and
@@ -234,8 +237,8 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Review the unpublished comparison preview before deciding on publication. Keep
-native features, ordinary documentation and other tools fairly represented;
+Gather concrete feedback on the published comparison. Keep native features,
+ordinary documentation and other tools fairly represented;
 intended fit is not evidence of improved outcomes. Cursor work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
