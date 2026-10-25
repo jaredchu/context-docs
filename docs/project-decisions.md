@@ -245,3 +245,13 @@ After the research and preview commits, the owner authorized deploying `main` at
 confirms publication and nine matching live public files. This later authorization
 supersedes the preview-only publication boundary for this website build; Cursor
 support and native testing remain postponed.
+
+## Website cleanup preview
+
+On October 25, 2026, the owner requested saving both independent live-website
+review rounds in private notes, applying the targeted cleanup and preparing a
+preview, with context updates in both repositories. Preserve the distinction
+between factual corrections, heuristic UX suggestions and deferred redesign.
+The [review follow-up](context-management-comparison.md#review-follow-up-preview)
+records scope and limits. No deployment or Cursor installation/launch is
+authorized; the live source remains `9b6ee38`.

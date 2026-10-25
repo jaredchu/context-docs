@@ -165,10 +165,16 @@ class LandingBuildTests(unittest.TestCase):
         self.assertEqual(parser.canonical, ['https://context-docs.com/compare/'])
         for source in ['https://learn.chatgpt.com/docs/customization/memories',
                        'https://code.claude.com/docs/en/memory',
-                       'https://docs.cline.bot/best-practices/memory-bank']:
+                       'https://docs.cline.bot/best-practices/memory-bank',
+                       'https://oraios.github.io/serena/02-usage/045_memories.html#cli-subcommands',
+                       'https://github.com/jaredchu/context-docs/blob/main/docs/project-decisions.md'
+                       '#cursor-support-postponement']:
             self.assertIn(source, parser.hrefs)
         for text in ['Who it is for', 'What projects fit', 'What workflow fits',
-                     'Skip it when', 'have not been demonstrated', '2026-10-24']:
+                     'Skip it when', 'have not been demonstrated', '2026-10-24',
+                     # Operating expectations must not imply implicit loading or concurrent safety.
+                     'Operating expectations', 'dependable implicit loading',
+                     'one writer per document', 'no safety guarantee for simultaneous writers']:
             self.assertIn(text, rendered)
         with tempfile.TemporaryDirectory() as temporary:
             output = landing.build(output=Path(temporary) / 'public')
@@ -180,6 +186,58 @@ class LandingBuildTests(unittest.TestCase):
                 for href in links:
                     target = (output / name).parent / href / 'index.html'
                     self.assertTrue(target.is_file(), (name, href))
+
+    def test_release_history_is_collapsed_after_actions_and_toc_links_are_list_items(self):
+        class Structure(HTMLParser):
+            void = {'br', 'img', 'meta', 'link', 'input'}
+
+            def __init__(self):
+                super().__init__()
+                self.stack = []
+                self.ids = {}
+                self.toc_links = []
+
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                ancestors = list(self.stack)
+                if 'id' in attrs:
+                    self.ids.setdefault(attrs['id'], []).append(ancestors)
+                if tag == 'a' and any('guide-toc' in (a.get('class') or '').split() for _, a in ancestors):
+                    self.toc_links.append((attrs['href'], ancestors[-1][0]))
+                if tag not in self.void:
+                    self.stack.append((tag, attrs))
+
+            def handle_endtag(self, tag):
+                for index in range(len(self.stack) - 1, -1, -1):
+                    if self.stack[index][0] == tag:
+                        del self.stack[index:]
+                        break
+
+        for name in ['index.html', 'getting-started.html']:
+            with self.subTest(page=name):
+                rendered = landing.render(landing.ROOT, name)
+                page = Structure()
+                page.feed(rendered)
+                # Fragment destinations survive once, inside a default-collapsed disclosure.
+                for fragment in ['clarity', 'concurrency', 'metadata-filtering']:
+                    self.assertEqual(len(page.ids.get(fragment, [])), 1, fragment)
+                    details = [attrs for tag, attrs in page.ids[fragment][0] if tag == 'details']
+                    self.assertEqual(len(details), 1, fragment)
+                    self.assertNotIn('open', details[0])
+                for smoke in ['clarity/smoke-0.2.4-2026-10-17', 'concurrency/smoke-0.2.5-2026-10-17',
+                              'content-filtering/smoke-0.2.6-2026-10-19', 'progress/smoke-0.2.3-2026-10-17']:
+                    self.assertEqual(rendered.count('evals/' + smoke + '/README.md'), 1, smoke)
+                self.assertLess(rendered.index('id="save-prompt"'), rendered.index('id="release-details"'))
+                main_path = re.sub(r'<details\b.*?</details>', '', rendered, flags=re.S)
+                for text in ['do not establish broad reliability, privacy guarantees or effort savings',
+                             'no automatic redaction', 'file locking']:
+                    self.assertIn(text, main_path)
+        guide = Structure()
+        guide.feed(landing.render(landing.ROOT, 'getting-started.html'))
+        self.assertEqual([href for href, _ in guide.toc_links][-3:], ['#progress', '#local-only', '#questions'])
+        for href, parent in guide.toc_links:
+            self.assertEqual(parent, 'li', href)
+            self.assertEqual(len(guide.ids.get(href[1:], [])), 1, href)
 
     def test_invalid_comparison_preserves_previous_artifact(self):
         original_read = Path.read_text

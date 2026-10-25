@@ -273,6 +273,14 @@ p {
   margin-top:10px;
   font-size:15px;
 }
+.workflow {
+  row-gap:48px;
+}
+.workflow-note {
+  grid-column:1/-1;
+  max-width:900px;
+  font-size:15px;
+}
 .example-section {
   background:#eef3f1;
 }
@@ -719,6 +727,46 @@ p {
   }
 }
 
+/* Optional history stays collapsed after the actionable steps. */
+.release-details {
+  border-top:1px solid var(--line);
+  margin-top:26px;
+  padding-top:18px;
+}
+.install-content .release-details {
+  border-top-color:#bacfc4;
+}
+.release-details summary {
+  cursor:pointer;
+  font-weight:600;
+}
+.release-details summary:focus-visible {
+  outline:3px solid #217eae;
+  outline-offset:5px;
+}
+.release-details p {
+  margin-top:14px;
+  font-size:14px;
+}
+.install-note {
+  font-size:13px;
+  margin-bottom:18px;
+}
+/* Narrow screens: nonwrapping examples scroll sideways; say so once per block. */
+.scroll-x::after {
+  content:"Scroll sideways to see full lines";
+  display:none;
+  padding:8px 23px;
+  font:11px/1.5 var(--mono);
+  opacity:.75;
+  border-top:1px solid rgba(127,127,127,.3);
+}
+@media(max-width:800px) {
+  .scroll-x::after {
+    display:block;
+  }
+}
+
 .prompt-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .prompt-copy { background:transparent; color:var(--teal); border:1px solid #87ab9b; border-radius:4px; padding:5px 10px; font:12px/1.5 var(--sans); }
 .prompt-copy:hover { background:#d4e5dd; }
@@ -762,6 +810,19 @@ p {
 }
 .guide-toc li {
   padding-bottom:12px;
+}
+.guide-toc-label {
+  font:600 11px/1.5 var(--mono);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-top:1px solid var(--line);
+  padding-top:16px;
+  margin-bottom:12px;
+}
+.guide-toc-more {
+  list-style:none;
+  padding:0;
+  margin:0;
 }
 .guide-content {
   min-width:0;
@@ -889,7 +950,7 @@ p {
     padding-block:28px;
     border-bottom:1px solid var(--line);
   }
-  .guide-toc ol {
+  .guide-toc ol,.guide-toc-more {
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:0 26px;

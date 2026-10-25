@@ -15,14 +15,14 @@ local notes only when still useful.
 
 ## Current focus
 
-The [source-based comparison and audience-fit page](context-management-comparison.md)
-is live after owner-authorized deployment from `9b6ee38`. It explains why Context
-Docs might be useful despite native features, who it fits, and when existing
-practices or another tool are enough. Continue everyday use and record concrete
-misses. No skill change, new release, infrastructure campaign or native Cursor
-test is selected.
+A verified targeted website cleanup preview is ready for owner review after the
+completed independent comparison and UI/UX/content reviews. The
+[comparison follow-up](context-management-comparison.md#review-follow-up-preview)
+records the narrow scope and evidence limits. Preserve historical qualifications
+while improving the first-use path. The live site remains deployed from `9b6ee38`;
+no new deployment, skill change, release or native Cursor test is selected.
 
-Saved snapshot: October 24, 2026; this is not live agent activity.
+Saved snapshot: October 25, 2026; this is not live agent activity.
 
 ```text
 Goal: preserve useful project knowledge with little manual organization
@@ -33,10 +33,12 @@ Goal: preserve useful project knowledge with little manual organization
 │  ├─ DONE     Release and website verification
 │  ├─ DONE     Installed in Codex and Claude Code
 │  └─ CHECKED  Focused installed smoke; qualifications retained
-└─ PUBLISHED Source-based comparison, intended fit and alternatives
-   └─ VERIFIED Live files match the pinned build at 9b6ee38
+├─ PUBLISHED Source-based comparison, intended fit and alternatives
+│  └─ VERIFIED Live files match the pinned build at 9b6ee38
+└─ PREVIEW   Targeted website cleanup from independent reviews
+   └─ VERIFIED Local checks pass; owner preview review next
 
-NEXT: gather concrete feedback; continue everyday use of v0.2.6.
+NEXT: review the cleanup preview; continue everyday use of v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -87,6 +89,11 @@ Sources: [release and feature history](releases/README.md),
   and context updates to their existing repositories, with Codex and Claude credit;
   the owner then authorized website deployment from `9b6ee38`, completed and
   verified on October 24. This does not authorize Cursor testing.
+- On October 25, the owner requested retaining both independent website review
+  rounds in private notes, applying the targeted cleanup and preparing a preview.
+  The owner subsequently authorized committing and pushing these updates to the
+  existing GitHub and Pi Git remotes with Codex and Claude credit. Deployment
+  and Cursor work remain unselected.
 - Follow the [deployment checklist](../site/README.md#deployment-checklist):
   verification-record and context commits do not require another deployment
   unless they also affect website output or deployment behavior, or the owner
@@ -237,9 +244,10 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Gather concrete feedback on the published comparison. Keep native features,
-ordinary documentation and other tools fairly represented;
-intended fit is not evidence of improved outcomes. Cursor work remains postponed.
+Review the targeted website cleanup preview before selecting publication. Keep
+native features, ordinary documentation and other tools fairly represented;
+intended fit is not evidence of improved outcomes. Preserve evidence and the
+actual deployed source `9b6ee38`. Cursor work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next

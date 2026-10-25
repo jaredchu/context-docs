@@ -110,6 +110,25 @@ the site's local-only setup and auto-logging prompts are extracted from its publ
 sections. The site links to it for client settings, upgrades and logging details.
 Repository context, local notes and journals never become build inputs.
 
+## Targeted cleanup preview
+
+The October 25 working-tree cleanup follows the
+[comparison and UI/UX review follow-up](../docs/context-management-comparison.md#review-follow-up-preview).
+It keeps the existing visual system, fixes guide navigation and mobile heading
+spacing, clarifies comparison overlap/operating limits, and makes detailed
+release qualifications optional during first use. Synthetic inputs, historical
+evidence, installation commands and skill versions stay authoritative in their
+existing sources. This preview is unpublished; the live source remains `9b6ee38`.
+
+All 20 site tests and repository static checks pass. Desktop/mobile Chromium
+checks cover the three pages, keyboard disclosure/fragment access, separate guide
+links, copy feedback and no-JavaScript installation. No page-wide overflow or
+JavaScript errors were observed at 1440×1000 and 390×844. These are local
+mechanical/rendering checks, not an accessibility certification or user study.
+Detailed review originals, disposition and before/after evidence are retained in
+private notes under evidence ID `website-review-2026-10-25`. No deployment or
+Cursor work is part of this cleanup.
+
 ## Latest deployment
 
 On October 24, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/40111379480)

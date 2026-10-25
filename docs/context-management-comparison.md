@@ -53,3 +53,26 @@ from `main` at `9b6ee38`. The comparison is now live, with its research limits
 unchanged. Cursor support and its saved native testing proposal remain postponed;
 the earlier reviews remain historical evidence. No installation, launch or
 remote-host test was selected or performed.
+
+## Review follow-up preview
+
+On October 25, 2026, the owner requested saving two completed independent
+Astra/Fable High-reasoning review rounds in private notes and applying a targeted
+cleanup as a local preview. The rounds cover comparison accuracy/fairness/fit,
+then rendered website UI/UX/content. Both found the intended audience clear and
+no major comparison-positioning blocker; UI findings include merged guide links
+and release-history detail interrupting onboarding.
+
+The preview corrects navigation and mobile heading spacing, clarifies operating
+expectations and tool overlap, and puts detailed release qualifications behind
+optional disclosures. It preserves the visual system, synthetic examples,
+installation commands, evidence and skill versions. Mobile comparison cards and
+broader redesign are deferred. Local verification is recorded in the
+[site preview notes](../site/README.md#targeted-cleanup-preview).
+
+Detailed originals, model/provenance limits, review disposition and before/after
+checks are retained privately under evidence ID `website-review-2026-10-25`. The
+UI reviewers interpreted shared coordinator browser captures independently;
+this is not separate browser reproduction, a user study or accessibility
+certification. The live deployment remains `9b6ee38`; these edits are unpublished.
+No Cursor installation, launch or native test is selected.
