@@ -40,5 +40,10 @@ The [app workflow](https://github.com/jaredchu/context-docs-example-reading-queu
 automatically tested and deployed `0f68893`. All four served static assets match
 the source by SHA-256, the live health endpoint reports that full commit, and
 live browser checks passed for CRUD, isolated queues and export success/failure.
-The companion website walkthrough is validated locally; publication is pending. Detailed operator evidence belongs in private notes under evidence ID
+The [companion walkthrough](https://context-docs.com/reading-queue/) was
+[deployed from b38853d](https://github.com/jaredchu/context-docs/actions/runs/40158912040).
+All ten served website files match the pinned build and uploaded artifact; live
+desktop/mobile checks, including all nine prompt copy buttons, pass. Later
+record commits do not replace either deployed source. Gather concrete learner
+feedback next. Detailed operator evidence belongs in private notes under evidence ID
 `reading-queue-example-2026-10-25`. Skill versions and prior studies are unchanged.

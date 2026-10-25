@@ -125,8 +125,8 @@ The explicit public build adds `/reading-queue/` and its sitemap entry. It reads
 only the authored public template for this page, never the example workspace,
 private operator notes, project context or native-run logs. Both existing entry
 pages link to the walkthrough. The owner authorized publication after
-validation; local tests and desktop/mobile checks pass, and publication
-verification is pending at this preparation snapshot.
+validation; the walkthrough is now [live](https://context-docs.com/reading-queue/)
+from the verified deployment recorded below.
 
 ## Targeted cleanup preview
 
@@ -149,6 +149,27 @@ private notes under evidence ID `website-review-2026-10-25`. The later deploymen
 is recorded below; Cursor support and native testing remain postponed.
 
 ## Latest deployment
+
+On October 25, 2026, the [workflow](https://github.com/jaredchu/context-docs/actions/runs/40158912040)
+built and deployed `main` at `b38853d`, publishing the runnable Reading Queue
+walkthrough. All 22 site tests passed in the pinned source and workflow. All ten
+served files match the pinned build and uploaded artifact by SHA-256; the local
+eleven-file build includes an empty `.nojekyll` omitted from upload. Four HTML
+canonical links, sitemap URLs and the robots sitemap reference match. Existing
+Open Graph URLs, where present, match their canonical links.
+
+Live Chrome checks pass at 1440×1000 and 390×844, including all nine prompt copy
+buttons, step anchors, navigation from both entry pages, no page-wide horizontal
+overflow and no uncaught JavaScript errors. These are application/rendering
+checks, not accessibility certification or a user-benefit study. The
+[separate app](../docs/reading-queue-example.md) and focused ordinary-prompt
+observation have their own evidence and limits. The detailed receipt remains in
+private notes under evidence ID `website-deployment-2026-10-25-b38853d`.
+
+Later record/context commits do not replace this deployed source or require
+another deployment if output and deployment behavior are unchanged.
+
+## Previous cleanup deployment
 
 On October 25, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/40155726392)
 successfully built and deployed `main` at `c2414d4`, publishing the targeted

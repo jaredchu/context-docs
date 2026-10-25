@@ -15,13 +15,13 @@ local notes only when still useful.
 
 ## Current focus
 
-The owner selected a separate [Reading Queue worked example](reading-queue-example.md)
-and authorized its Cloudflare demo and website walkthrough after validation.
-The app is deployed and live-verified at `0f68893`; its automatic test/deploy
-workflow passed. The prompt-based walkthrough is locally validated; publishing
-and verifying that page is the next step. The prior targeted cleanup remains live
-from `c2414d4` until a verified deployment replaces it. No skill release or
-Cursor test is selected.
+The [Reading Queue worked example](reading-queue-example.md) is live, with the
+separate app automatically deployed and verified from `0f68893`. Its
+[prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
+from `b38853d`; all ten served website files match the pinned build and uploaded
+artifact, and live desktop/mobile prompt checks pass. Gather concrete learner
+feedback while retaining the focused native case's wording qualification and
+verification limits. No skill release or Cursor test is selected.
 
 Saved snapshot: October 25, 2026; this is not live agent activity.
 
@@ -39,9 +39,9 @@ Goal: preserve useful project knowledge with little manual organization
 ├─ PUBLISHED Targeted website cleanup from independent reviews
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
 └─ LIVE      Separate runnable Reading Queue with verified automatic deployment
-   └─ NEXT     Publish and verify the prompt-based companion walkthrough
+   └─ VERIFIED Prompt walkthrough at b38853d; ten matching live website files
 
-NEXT: complete authorized example and walkthrough publication; continue v0.2.6.
+NEXT: gather learner feedback on the runnable example and prompts; continue v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -131,10 +131,12 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-  The [October 25 deployment](../site/README.md#latest-deployment) from `main` at
-  `c2414d4` succeeded; all nine served files, including `/compare/`, matched the
-  pinned build and uploaded artifact. Detailed operator verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-25-c2414d4`.
+  The [latest October 25 deployment](../site/README.md#latest-deployment) from
+  `main` at `b38853d` succeeded; all ten served files, including `/reading-queue/`,
+  match the pinned build and uploaded artifact. Detailed verification is retained
+  in private notes under evidence ID `website-deployment-2026-10-25-b38853d`.
+  The earlier `c2414d4` cleanup deployment remains historical evidence.
+
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
   are retained in local notes.
@@ -256,12 +258,12 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Finish the owner-authorized Reading Queue app and website walkthrough
-publication, verify actual CI/deployments and preserve the deployed source SHAs.
-The [example summary](reading-queue-example.md) owns its current state. Keep
-ordinary prompts distinct from evidence of actual maintenance and retain any
-misses. Record/context commits alone do not require another deployment. Cursor
-work remains postponed.
+Gather concrete learner feedback on the published Reading Queue example and
+prompt-based walkthrough. The [summary](reading-queue-example.md) owns current
+state and evidence links. Preserve the actual deployed sources: app `0f68893`,
+website `b38853d`. Keep ordinary prompt examples distinct from observed
+maintenance, with the native case's wording qualification retained. Record-only
+commits do not require another deployment. Cursor work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next
