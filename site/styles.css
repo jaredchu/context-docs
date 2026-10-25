@@ -983,3 +983,6 @@ p {
     display:none;
   }
 }
+
+/* Work prompts are prose; keep terminal command formatting separate. */
+.example-page .prompt-block pre { white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -21,9 +21,10 @@ JavaScript; JavaScript adds agent selection and copy buttons. Clipboard failure
 selects the text and gives manual-copy instructions. No external fonts, analytics,
 tracking, cookies or application backend are included.
 
-The working build contains only ten explicitly named public files: `index.html`,
+The working build contains only eleven explicitly named public files: `index.html`,
 `styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
-`robots.txt`, `sitemap.xml`, `getting-started/index.html` and `compare/index.html`.
+`robots.txt`, `sitemap.xml`, `getting-started/index.html`, `compare/index.html`
+and `reading-queue/index.html`.
 The existing [illustration](../assets/README.md) is copied unchanged. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
@@ -109,6 +110,23 @@ come from the same canonical sources as the landing page. The detailed
 the site's local-only setup and auto-logging prompts are extracted from its public
 sections. The site links to it for client settings, upgrades and logging details.
 Repository context, local notes and journals never become build inputs.
+
+## Runnable Reading Queue example
+
+The [Reading Queue template](reading-queue.html) is the canonical website
+walkthrough for the [separate runnable example](../docs/reading-queue-example.md).
+It includes nine copyable prompts with expected results and checks. Adoption
+names the skill; later prompts are ordinary work requests. The guide links to
+the actual starter/completed Git snapshots, app source and demo, distinguishes
+application checks from agent evidence, and keeps cloud deployment optional for
+learners. Workers and D1 belong to that app, not to Context Docs.
+
+The explicit public build adds `/reading-queue/` and its sitemap entry. It reads
+only the authored public template for this page, never the example workspace,
+private operator notes, project context or native-run logs. Both existing entry
+pages link to the walkthrough. The owner authorized publication after
+validation; local tests and desktop/mobile checks pass, and publication
+verification is pending at this preparation snapshot.
 
 ## Targeted cleanup preview
 

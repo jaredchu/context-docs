@@ -261,3 +261,25 @@ After the preview and review-record commits, the owner authorized deploying
 [deployment verification](../site/README.md#latest-deployment) confirms successful
 publication and nine matching live public files. This authorization applies to
 the selected website build; Cursor support and native testing remain postponed.
+
+## Runnable worked example
+
+On October 25, 2026, the owner requested a separate runnable, auto-deployable
+GitHub example with a Cloudflare demo and detailed website instructions. The
+owner confirmed Reading Queue in `jaredchu/context-docs-example-reading-queue`
+and selected publication of the walkthrough after validation. The owner also
+clarified that steps need prompts and should demonstrate ordinary follow-up
+requests without naming Context Docs each time.
+
+The team selected Workers static assets and D1, a disposable browser sandbox,
+and a baseline-to-JSON-export teaching change. R2 is unnecessary for URL records.
+These implementation choices do not add infrastructure to the skill packages,
+resume the broad readiness campaign or authorize Cursor work.
+
+The [example summary](reading-queue-example.md) owns current publication and
+verification status; the website template owns the detailed public walkthrough.
+Use the normal deployment checklist and preserve the distinction between
+authored instructions, observed application checks and native agent evidence.
+Keep account configuration, credential lifecycle and detailed receipts in
+private operator notes. This historical task authorization is not permission for
+people who clone or fork the example to deploy from their own accounts.

@@ -25,7 +25,7 @@ class LandingBuildTests(unittest.TestCase):
             self.assertEqual({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()}, {
                 'index.html', 'styles.css', 'main.js', 'favicon.svg',
                 'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml',
-                'getting-started/index.html', 'compare/index.html'})
+                'getting-started/index.html', 'compare/index.html', 'reading-queue/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -113,7 +113,7 @@ class LandingBuildTests(unittest.TestCase):
             sitemap = ET.parse(output / 'sitemap.xml')
             self.assertEqual([item.text for item in sitemap.findall('.//{*}loc')],
                              ['https://context-docs.com/', 'https://context-docs.com/getting-started/',
-                              'https://context-docs.com/compare/'])
+                              'https://context-docs.com/compare/', 'https://context-docs.com/reading-queue/'])
             guide_metadata = Metadata()
             guide_metadata.feed((output / 'getting-started/index.html').read_text(encoding='utf-8'))
             self.assertEqual(guide_metadata.canonical, ['https://context-docs.com/getting-started/'])
@@ -238,6 +238,77 @@ class LandingBuildTests(unittest.TestCase):
         for href, parent in guide.toc_links:
             self.assertEqual(parent, 'li', href)
             self.assertEqual(len(guide.ids.get(href[1:], [])), 1, href)
+
+    def test_reading_queue_is_an_explicit_public_source_and_fails_closed(self):
+        original_read = Path.read_text
+
+        def only_public_template(path, *args, **kwargs):
+            self.assertEqual(path, landing.ROOT / 'site/reading-queue.html')
+            return original_read(path, *args, **kwargs)
+
+        with patch.object(Path, 'read_text', only_public_template):
+            rendered = landing.render_reading_queue(landing.ROOT)
+        self.assertNotIn('{{', rendered)
+        for text in ['tutorial-start', 'tutorial-complete', 'Leave files unchanged',
+                     'no controlled fresh-session performance study',
+                     'not account-authenticated private storage',
+                     'Documentation-only record commits']:
+            self.assertIn(text, rendered)
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'public'
+            output.mkdir()
+            previous = output / 'previous-build.txt'
+            previous.write_text('Preserve last valid output')
+
+            def pending_demo(path, *args, **kwargs):
+                if path == landing.ROOT / 'site/reading-queue.html':
+                    return '{{SITE_URL}} DEMO_URL_PENDING'
+                return original_read(path, *args, **kwargs)
+
+            with patch.object(Path, 'read_text', pending_demo):
+                with self.assertRaisesRegex(ValueError, 'demo URL'):
+                    landing.build(output=output)
+            self.assertEqual(previous.read_text(), 'Preserve last valid output')
+
+    def test_worked_example_prompts_name_the_skill_only_at_adoption(self):
+        class Prompts(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.active = None
+                self.prompts = {}
+                self.buttons = []
+                self.ids = set()
+
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if 'id' in attrs:
+                    self.ids.add(attrs['id'])
+                if tag == 'code' and attrs.get('id', '').startswith('prompt-'):
+                    self.active = attrs['id']
+                    self.prompts[self.active] = ''
+                if tag == 'button' and 'data-copy' in attrs:
+                    self.buttons.append(attrs)
+
+            def handle_endtag(self, tag):
+                if tag == 'code':
+                    self.active = None
+
+            def handle_data(self, data):
+                if self.active:
+                    self.prompts[self.active] += data
+
+        page = Prompts()
+        page.feed(landing.render_reading_queue(landing.ROOT))
+        self.assertEqual(len(page.prompts), 9)
+        for name, prompt in page.prompts.items():
+            if name == 'prompt-adopt':
+                self.assertIn('adopt-context-docs', prompt)
+            else:
+                self.assertNotIn('context-docs', prompt.lower())
+        self.assertNotIn('context', page.prompts['prompt-resume'].lower())
+        for button in page.buttons:
+            self.assertIn(button['data-copy'], page.prompts)
+            self.assertIn(button['data-status'], page.ids)
 
     def test_invalid_comparison_preserves_previous_artifact(self):
         original_read = Path.read_text

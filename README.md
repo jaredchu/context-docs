@@ -53,6 +53,9 @@ Test empty input before calling the feature complete.
 from your actual work and evidence. You review the changes; the next session
 reads the saved context. See a fuller [before-and-after example](examples/maintenance.md).
 
+For a runnable project, see the [Reading Queue worked example](docs/reading-queue-example.md):
+a small Cloudflare app, a real feature change and step-by-step prompts.
+
 ## Get started
 
 Install both skills, then adopt them in the project you want to maintain.

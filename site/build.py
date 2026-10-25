@@ -16,6 +16,15 @@ def render_comparison(root):
     return template.replace('{{SITE_URL}}', escape(SITE_URL))
 
 
+def render_reading_queue(root):
+    template = (root / 'site/reading-queue.html').read_text(encoding='utf-8')
+    if set(re.findall(r'{{([A-Z_]+)}}', template)) != {'SITE_URL'}:
+        raise ValueError('Reading Queue page must contain only the SITE_URL marker')
+    if 'DEMO_URL_PENDING' in template:
+        raise ValueError('Reading Queue demo URL is still a placeholder')
+    return template.replace('{{SITE_URL}}', escape(SITE_URL))
+
+
 def fenced_section(text, heading, language):
     section = text.split(heading + '\n', 1)
     if len(section) != 2:
@@ -104,6 +113,7 @@ def build(root=ROOT, output=OUTPUT):
     html = render(root)
     guide = render(root, 'getting-started.html')
     comparison = render_comparison(root)
+    reading_queue = render_reading_queue(root)
     if output.is_symlink():
         raise ValueError('Build destination must not be a symlink')
     if output.exists():
@@ -114,6 +124,8 @@ def build(root=ROOT, output=OUTPUT):
     (output / 'getting-started/index.html').write_text(guide, encoding='utf-8')
     (output / 'compare').mkdir()
     (output / 'compare/index.html').write_text(comparison, encoding='utf-8')
+    (output / 'reading-queue').mkdir()
+    (output / 'reading-queue/index.html').write_text(reading_queue, encoding='utf-8')
     (output / '.nojekyll').write_text('', encoding='utf-8')
     # Only public pages belong here, never repository context or evidence exports.
     (output / 'robots.txt').write_text(
@@ -124,7 +136,8 @@ def build(root=ROOT, output=OUTPUT):
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         '  <url><loc>' + escape(SITE_URL) + '</loc></url>\n'
         '  <url><loc>' + escape(SITE_URL + 'getting-started/') + '</loc></url>\n'
-        '  <url><loc>' + escape(SITE_URL + 'compare/') + '</loc></url>\n</urlset>\n',
+        '  <url><loc>' + escape(SITE_URL + 'compare/') + '</loc></url>\n'
+        '  <url><loc>' + escape(SITE_URL + 'reading-queue/') + '</loc></url>\n</urlset>\n',
         encoding='utf-8')
     for name, source in sources.items():
         shutil.copyfile(source, output / name)

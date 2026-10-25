@@ -15,12 +15,13 @@ local notes only when still useful.
 
 ## Current focus
 
-The targeted website cleanup is live after owner-authorized deployment from
-`c2414d4`. The [comparison follow-up](context-management-comparison.md#review-follow-up-preview)
-records the narrow scope and evidence limits. All nine served files match the
-pinned build and uploaded artifact. Gather concrete feedback while preserving
-historical qualifications. No skill change, release or native Cursor test is
-selected.
+The owner selected a separate [Reading Queue worked example](reading-queue-example.md)
+and authorized its Cloudflare demo and website walkthrough after validation.
+The app is deployed and live-verified at `0f68893`; its automatic test/deploy
+workflow passed. The prompt-based walkthrough is locally validated; publishing
+and verifying that page is the next step. The prior targeted cleanup remains live
+from `c2414d4` until a verified deployment replaces it. No skill release or
+Cursor test is selected.
 
 Saved snapshot: October 25, 2026; this is not live agent activity.
 
@@ -35,10 +36,12 @@ Goal: preserve useful project knowledge with little manual organization
 │  └─ CHECKED  Focused installed smoke; qualifications retained
 ├─ PUBLISHED Source-based comparison, intended fit and alternatives
 │  └─ RECORDED Initial publication at 9b6ee38; evidence retained
-└─ PUBLISHED Targeted website cleanup from independent reviews
-   └─ VERIFIED Nine live files match the pinned build at c2414d4
+├─ PUBLISHED Targeted website cleanup from independent reviews
+│  └─ VERIFIED Nine live files match the pinned build at c2414d4
+└─ LIVE      Separate runnable Reading Queue with verified automatic deployment
+   └─ NEXT     Publish and verify the prompt-based companion walkthrough
 
-NEXT: gather concrete feedback; continue everyday use of v0.2.6.
+NEXT: complete authorized example and walkthrough publication; continue v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -97,6 +100,12 @@ Sources: [release and feature history](releases/README.md),
   The owner subsequently authorized committing and pushing the verification
   records and context updates, without another deployment. Cursor work remains
   postponed.
+- The owner selected the [runnable example](reading-queue-example.md) on October
+  25 and authorized publication after validation. The
+  [decision](project-decisions.md#runnable-worked-example) records the prompt
+  requirement, scope and authority; it introduces no cloud dependency for the
+  standalone skills.
+
 - Follow the [deployment checklist](../site/README.md#deployment-checklist):
   verification-record and context commits do not require another deployment
   unless they also affect website output or deployment behavior, or the owner
@@ -247,10 +256,11 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Gather concrete feedback on the published website cleanup. Keep native features,
-ordinary documentation and other tools fairly represented; intended fit is not
-evidence of improved outcomes. Preserve evidence and the actual deployed source
-`c2414d4`. Record/context commits alone do not require another deployment. Cursor
+Finish the owner-authorized Reading Queue app and website walkthrough
+publication, verify actual CI/deployments and preserve the deployed source SHAs.
+The [example summary](reading-queue-example.md) owns its current state. Keep
+ordinary prompts distinct from evidence of actual maintenance and retain any
+misses. Record/context commits alone do not require another deployment. Cursor
 work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
