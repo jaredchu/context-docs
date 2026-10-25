@@ -118,7 +118,8 @@ It keeps the existing visual system, fixes guide navigation and mobile heading
 spacing, clarifies comparison overlap/operating limits, and makes detailed
 release qualifications optional during first use. Synthetic inputs, historical
 evidence, installation commands and skill versions stay authoritative in their
-existing sources. This preview is unpublished; the live source remains `9b6ee38`.
+existing sources. The owner subsequently authorized deployment from `c2414d4`;
+the cleanup is now live. The preview checks below retain their original scope.
 
 All 20 site tests and repository static checks pass. Desktop/mobile Chromium
 checks cover the three pages, keyboard disclosure/fragment access, separate guide
@@ -126,25 +127,28 @@ links, copy feedback and no-JavaScript installation. No page-wide overflow or
 JavaScript errors were observed at 1440×1000 and 390×844. These are local
 mechanical/rendering checks, not an accessibility certification or user study.
 Detailed review originals, disposition and before/after evidence are retained in
-private notes under evidence ID `website-review-2026-10-25`. No deployment or
-Cursor work is part of this cleanup.
+private notes under evidence ID `website-review-2026-10-25`. The later deployment
+is recorded below; Cursor support and native testing remain postponed.
 
 ## Latest deployment
 
-On October 24, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/40111379480)
-successfully built and deployed `main` at `9b6ee38`, including the new
-[comparison page](https://context-docs.com/compare/). All 19 site tests passed.
-All nine served public files matched both the pinned local build and uploaded
-artifact by SHA-256 over canonical HTTPS responses. All three HTML canonical
-links, sitemap URLs and the robots sitemap reference matched.
-The ten-file local build includes an empty `.nojekyll` marker omitted by the upload.
-Verification covered response bytes and metadata; no new live-browser rendering
+On October 25, 2026, the [deployment workflow](https://github.com/jaredchu/context-docs/actions/runs/40155726392)
+successfully built and deployed `main` at `c2414d4`, publishing the targeted
+website cleanup. All 20 site tests passed in a clean pinned source snapshot and
+the deployment workflow. All nine served public files matched both the pinned
+local build and uploaded artifact by SHA-256 over canonical HTTPS responses.
+All three HTML canonical links, sitemap URLs and the robots sitemap reference
+matched. The ten-file local build includes an empty `.nojekyll` marker omitted
+by the upload.
+
+Every build file also matches the previously verified local cleanup preview.
+This deployment verification covers response bytes and metadata; the earlier
+local browser checks retain their original scope. No new live-browser rendering
 or agent evaluation ran. The detailed receipt is retained in private operator
-notes under evidence ID `website-deployment-2026-10-24-9b6ee38`.
-The previous `58218b5` deployment and its eight-file live verification remain
-historical evidence. Later record/context commits do not supersede this deployed
-source or require another deployment when website output and deployment behavior
-are unchanged.
+notes under evidence ID `website-deployment-2026-10-25-c2414d4`.
+The previous `9b6ee38` deployment and its receipt remain historical evidence.
+Later record/context commits do not supersede this deployed source or require
+another deployment when website output and deployment behavior are unchanged.
 
 ## Search discovery
 

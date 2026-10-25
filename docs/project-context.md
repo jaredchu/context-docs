@@ -15,12 +15,12 @@ local notes only when still useful.
 
 ## Current focus
 
-A verified targeted website cleanup preview is ready for owner review after the
-completed independent comparison and UI/UX/content reviews. The
-[comparison follow-up](context-management-comparison.md#review-follow-up-preview)
-records the narrow scope and evidence limits. Preserve historical qualifications
-while improving the first-use path. The live site remains deployed from `9b6ee38`;
-no new deployment, skill change, release or native Cursor test is selected.
+The targeted website cleanup is live after owner-authorized deployment from
+`c2414d4`. The [comparison follow-up](context-management-comparison.md#review-follow-up-preview)
+records the narrow scope and evidence limits. All nine served files match the
+pinned build and uploaded artifact. Gather concrete feedback while preserving
+historical qualifications. No skill change, release or native Cursor test is
+selected.
 
 Saved snapshot: October 25, 2026; this is not live agent activity.
 
@@ -34,11 +34,11 @@ Goal: preserve useful project knowledge with little manual organization
 │  ├─ DONE     Installed in Codex and Claude Code
 │  └─ CHECKED  Focused installed smoke; qualifications retained
 ├─ PUBLISHED Source-based comparison, intended fit and alternatives
-│  └─ VERIFIED Live files match the pinned build at 9b6ee38
-└─ PREVIEW   Targeted website cleanup from independent reviews
-   └─ VERIFIED Local checks pass; owner preview review next
+│  └─ RECORDED Initial publication at 9b6ee38; evidence retained
+└─ PUBLISHED Targeted website cleanup from independent reviews
+   └─ VERIFIED Nine live files match the pinned build at c2414d4
 
-NEXT: review the cleanup preview; continue everyday use of v0.2.6.
+NEXT: gather concrete feedback; continue everyday use of v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -92,8 +92,11 @@ Sources: [release and feature history](releases/README.md),
 - On October 25, the owner requested retaining both independent website review
   rounds in private notes, applying the targeted cleanup and preparing a preview.
   The owner subsequently authorized committing and pushing these updates to the
-  existing GitHub and Pi Git remotes with Codex and Claude credit. Deployment
-  and Cursor work remain unselected.
+  existing GitHub and Pi Git remotes with Codex and Claude credit. The owner
+  then authorized deployment from `c2414d4`, completed and verified on October 25.
+  The owner subsequently authorized committing and pushing the verification
+  records and context updates, without another deployment. Cursor work remains
+  postponed.
 - Follow the [deployment checklist](../site/README.md#deployment-checklist):
   verification-record and context commits do not require another deployment
   unless they also affect website output or deployment behavior, or the owner
@@ -119,10 +122,10 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-  The [October 24 deployment](../site/README.md#latest-deployment) from `main` at
-  `9b6ee38` succeeded; all nine served files, including `/compare/`, matched the
+  The [October 25 deployment](../site/README.md#latest-deployment) from `main` at
+  `c2414d4` succeeded; all nine served files, including `/compare/`, matched the
   pinned build and uploaded artifact. Detailed operator verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-24-9b6ee38`.
+  in private notes under evidence ID `website-deployment-2026-10-25-c2414d4`.
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
   are retained in local notes.
@@ -244,10 +247,11 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Review the targeted website cleanup preview before selecting publication. Keep
-native features, ordinary documentation and other tools fairly represented;
-intended fit is not evidence of improved outcomes. Preserve evidence and the
-actual deployed source `9b6ee38`. Cursor work remains postponed.
+Gather concrete feedback on the published website cleanup. Keep native features,
+ordinary documentation and other tools fairly represented; intended fit is not
+evidence of improved outcomes. Preserve evidence and the actual deployed source
+`c2414d4`. Record/context commits alone do not require another deployment. Cursor
+work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next

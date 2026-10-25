@@ -255,3 +255,9 @@ between factual corrections, heuristic UX suggestions and deferred redesign.
 The [review follow-up](context-management-comparison.md#review-follow-up-preview)
 records scope and limits. No deployment or Cursor installation/launch is
 authorized; the live source remains `9b6ee38`.
+
+After the preview and review-record commits, the owner authorized deploying
+`main` at `c2414d4`. The October 25
+[deployment verification](../site/README.md#latest-deployment) confirms successful
+publication and nine matching live public files. This authorization applies to
+the selected website build; Cursor support and native testing remain postponed.

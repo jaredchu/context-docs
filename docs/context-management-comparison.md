@@ -50,7 +50,8 @@ lower user effort. No skill behavior or version changed for this research.
 
 The owner first selected **prepare a preview first**, then authorized deployment
 from `main` at `9b6ee38`. The comparison is now live, with its research limits
-unchanged. Cursor support and its saved native testing proposal remain postponed;
+unchanged; its targeted cleanup was later deployed from `c2414d4` on October 25.
+Cursor support and its saved native testing proposal remain postponed;
 the earlier reviews remain historical evidence. No installation, launch or
 remote-host test was selected or performed.
 
@@ -63,7 +64,7 @@ then rendered website UI/UX/content. Both found the intended audience clear and
 no major comparison-positioning blocker; UI findings include merged guide links
 and release-history detail interrupting onboarding.
 
-The preview corrects navigation and mobile heading spacing, clarifies operating
+The cleanup corrects navigation and mobile heading spacing, clarifies operating
 expectations and tool overlap, and puts detailed release qualifications behind
 optional disclosures. It preserves the visual system, synthetic examples,
 installation commands, evidence and skill versions. Mobile comparison cards and
@@ -74,5 +75,8 @@ Detailed originals, model/provenance limits, review disposition and before/after
 checks are retained privately under evidence ID `website-review-2026-10-25`. The
 UI reviewers interpreted shared coordinator browser captures independently;
 this is not separate browser reproduction, a user study or accessibility
-certification. The live deployment remains `9b6ee38`; these edits are unpublished.
-No Cursor installation, launch or native test is selected.
+certification. After the preview and its commits, the owner authorized deployment
+from `c2414d4`. The cleanup is now live; the
+[deployment verification](../site/README.md#latest-deployment) confirms all nine
+served files match the pinned build and uploaded artifact. No Cursor
+installation, launch or native test is selected.
