@@ -1,0 +1,3 @@
+Updated only [docs/current.md](docs/current.md): corrected the timeout to 30 seconds, recorded the limited local check pass, and flagged two configured retries versus four approved.
+
+Preserved the restore blocker and operator note. Diff and link checks passed. No application tests or external actions were run.

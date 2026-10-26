@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-26",
+  "core_version": "0.2.6",
+  "skill_changed": false,
+  "assessment": "Existing skill passes this explicit refresh and repeated no-change case; no added core workflow is justified by this case.",
+  "semantics": [
+    {
+      "criterion": 1,
+      "result": "pass",
+      "evidence": "project/docs/current.md, Current state: configured timeout 30, linked to config."
+    },
+    {
+      "criterion": 2,
+      "result": "pass",
+      "evidence": "Current state retains Mira approval for four and offline-failure rationale, distinguishes current setting two; decisions.md unchanged."
+    },
+    {
+      "criterion": 3,
+      "result": "pass",
+      "evidence": "Current state attributes supplied check to October 22, one example job; retry/restore/full suite not verified; deployed behavior unknown; Goal retains separate deployment decision."
+    },
+    {
+      "criterion": 4,
+      "result": "pass",
+      "evidence": "Blocker and next action retains missing legacy reader fixture, Leena, restore check and compatibility source."
+    },
+    {
+      "criterion": 5,
+      "result": "pass",
+      "evidence": "Entire appended Working note section and YAML fence exactly match before; decisions/rationale/proposal preserved in unchanged decisions.md."
+    },
+    {
+      "criterion": 6,
+      "result": "pass",
+      "evidence": "Progress shows limited check done, retry alignment pending, restore blocked; Earlier status replaced with superseded summary and canonical link."
+    },
+    {
+      "criterion": 7,
+      "result": "pass",
+      "evidence": "All original top-level headings retained; eight local links/anchors independently checked."
+    },
+    {
+      "criterion": 8,
+      "result": "pass",
+      "evidence": "Only docs/current.md differs from baseline; 18 other project/package files, Git HEAD/staging unchanged in both passes."
+    },
+    {
+      "criterion": 9,
+      "result": "pass",
+      "evidence": "All 19 non-Git project file hashes after pass two equal pass one; second trace has no file-change event or observed write command."
+    },
+    {
+      "criterion": 10,
+      "result": "pass",
+      "evidence": "Native final reports retain retry discrepancy and restore blocker; traces read explicit package and relevant evidence, show no application/external command or unrelated draft content read. Traces are not a syscall audit."
+    }
+  ],
+  "mechanical": {
+    "both_completed": true,
+    "candidate_source_unchanged": true,
+    "first_pass_changed_context": true,
+    "second_pass_exactly_unchanged": true
+  },
+  "links_and_anchors_checked": 8,
+  "uncommitted_note_and_fence_exact": true,
+  "review": {
+    "model": "claude-opus-5-5",
+    "requested_effort": "high",
+    "actual_main_model_reported": true,
+    "initial_and_focused_followup_completed": true,
+    "findings": "Reduced coached prompt and strengthened release provenance. Follow-up required complete release file-set comparison; final set/mode check was inspected locally and executed successfully before model calls, without another reviewer run."
+  },
+  "execution": {
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "high",
+    "served_model_telemetry": "not independently exposed",
+    "auth": "existing ChatGPT subscription; API/provider environment overrides removed; no fallback",
+    "passes": [
+      {
+        "changed_files": [
+          "docs/current.md"
+        ],
+        "elapsed_seconds": 54.38,
+        "head_unchanged": true,
+        "index_unchanged": true,
+        "only_allowed_edits": true,
+        "pass": 1,
+        "returncode": 0,
+        "timed_out": false,
+        "turn_completed": true
+      },
+      {
+        "changed_files": [],
+        "elapsed_seconds": 29.1,
+        "head_unchanged": true,
+        "index_unchanged": true,
+        "only_allowed_edits": true,
+        "pass": 2,
+        "returncode": 0,
+        "timed_out": false,
+        "turn_completed": true
+      }
+    ]
+  },
+  "raw_evidence_id": "refresh-v026-baseline-20261026",
+  "raw_sha256": {
+    "pass-1.jsonl": "b4cdaf2f0d41829c66f17896094ae9c552efd093e7723ca1f369253868347463",
+    "pass-2.jsonl": "d45e8d84f23b321d1d968b2f9470bfed9243e3eddac459f7858c74e18b915d79",
+    "pass-1.stderr": "122f46a8830126bdb19c866271a4dc2859bc0233b619a86b1cc304d61e63183d",
+    "pass-2.stderr": "6c6867245b1636bd95dc71173da0bfd68b7ad599e5e41b06b8d6ec3ceaa37037",
+    "reviews/initial-review.md": "16460449b9f1a992624a1df4a56949091e9a60ff411d8bc32e8f362b9bffbc50",
+    "reviews/followup-review.md": "6246b59deccd6485ec7d3bc19cbeb4cda76ab143d08b7c5737bfab15620a0ad5"
+  },
+  "limits": [
+    "One synthetic layout; explicit skill path; no ordinary/no-skill control; no Claude subject run.",
+    "Fresh second session tests stability of a semantically reviewed first result; no general idempotence guarantee.",
+    "Coordinator-authored and coordinator-scored; no automatic loading, broad correctness, privacy, user-effort or token-saving claim.",
+    "Public project output and frozen metadata are exact copies; raw traces/reviews remain local. Hashes do not provide access or independent verification."
+  ]
+}

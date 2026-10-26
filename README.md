@@ -124,7 +124,16 @@ Preserve decisions and their reasons, current work, blockers and next steps.
 ```
 
 Review the resulting diff. You do not need to keep a session diary or log every
-interaction. To inspect documentation without changing it, ask:
+interaction. If work accumulated outside the current session, use the same skill
+to refresh context against current evidence:
+
+```text
+Use context-docs to refresh this project's context against current project evidence.
+```
+
+This uses existing maintenance guidance; no new skill or re-adoption is needed.
+See the [refresh guidance and focused check](docs/getting-started.md#refresh-after-outside-work).
+To inspect documentation without changing it, ask:
 
 ```text
 Use context-docs to audit this project's context documents without editing files.

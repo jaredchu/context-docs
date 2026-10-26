@@ -134,6 +134,28 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
+### Refresh after outside work
+
+When context has drifted after work in another session or tool, ask the existing
+skill to reconcile it with current project evidence:
+
+```text
+Use $context-docs to refresh this project's context against current project evidence.
+```
+
+Name relevant changed files, reports or a known revision range when useful. The
+existing maintenance guidance covers supported updates, safe consolidation,
+preserving decisions and unresolved work, and leaving files unchanged when no
+durable update is needed. Review the resulting diff and verification limits.
+Refresh here means maintaining the project's documents during the active session.
+
+The [focused v0.2.6 baseline](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
+repaired synthetic accumulated drift and made no changes on a second fresh run.
+That case supported documenting the invocation without changing the skill or its
+version. It used an explicit skill path on one client; it does not establish
+automatic selection or general reliability. Existing adoption rules and storage
+choices still apply; no skill upgrade or re-adoption is needed for this prompt.
+
 ### Sharing and portable references
 
 Before saving context or an enabled journal event, the agent reviews its additions

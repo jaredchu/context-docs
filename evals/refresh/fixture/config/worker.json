@@ -1,0 +1,5 @@
+{
+  "timeout_seconds": 30,
+  "max_retries": 2,
+  "recovery_format": "legacy-v1"
+}

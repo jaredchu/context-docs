@@ -250,6 +250,17 @@ failures and the limits of its restricted sessions.
 
 ## More recent studies
 
+The October 26 [refresh baseline](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
+tests unchanged published core 0.2.6 on one synthetic adopted project with
+accumulated drift. Of two fresh Codex sessions, requested Sol 6.1 at High, the
+first repairs stale claims while preserving decision/implementation differences,
+narrow check scope, blockers and an uncommitted note; the second leaves all 19
+project files unchanged. Opus reviewed the evaluation design; Codex authored and scored
+the outcomes. This explicit-path, one-client case has no ordinary/no-skill
+control and establishes no general reliability or user benefit. It supports
+documenting a refresh prompt without changing the skill; static checks remain
+separate from native behavior.
+
 The [audience/destination pilot](../evals/results/2026-10-10-audience/README.md) and
 [public-history comparison](../evals/results/2026-10-10-public-history/README.md)
 retain their individual outcomes, errors and review disagreements. These authored

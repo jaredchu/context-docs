@@ -1,0 +1,3 @@
+`docs/current.md` already matches the local evidence; no edits were needed.
+
+The approved four-retry budget remains unimplemented in configuration, and restore verification remains blocked by the missing legacy fixture. No tests ran, external systems were contacted, or files or Git state changed.

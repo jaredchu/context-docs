@@ -339,6 +339,17 @@ outcomes versus learning/activity, optional linked files, repeat maintenance,
 unknowns, local-only storage and read-only audits. They are authored cases for
 the development feature, not completed native evaluations.
 
+## Refresh after outside work
+
+The [refresh baseline protocol](refresh/protocol.md) tests whether unchanged core
+0.2.6 already handles accumulated drift: stale configured values, an approved but
+unimplemented decision, narrow local check evidence, repeated status, an existing
+progress view and an uncommitted note. A second fresh pass must leave every file
+unchanged. Unlike case 1 above, it supplies accumulated outside work rather than
+one change. Results are reported separately from this pre-run protocol.
+The [October 26 baseline result](refresh/baseline-0.2.6-2026-10-26/README.md) passes
+both semantic repair and exact second-pass equality; core remains unchanged.
+
 ## Optional adoption skill
 
 The [local-only controls and scenarios](local-only/README.md) cover Git-ignored

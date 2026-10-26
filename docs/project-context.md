@@ -15,6 +15,14 @@ local notes only when still useful.
 
 ## Current focus
 
+The [focused refresh baseline](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
+passes on unchanged core v0.2.6: synthetic drift is repaired, and a second fresh
+run leaves all 19 project files unchanged. The owner asked to establish whether
+skill changes were needed first. This case supports a documented refresh prompt;
+no new operation, package version or release is selected. Codex authored/scored
+the case; Opus reviewed its design. Explicit skill loading on one client does
+not establish general reliability or automatic selection.
+
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
 [prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
@@ -44,10 +52,13 @@ Goal: preserve useful project knowledge with little manual organization
 │  └─ RECORDED Initial publication at 9b6ee38; evidence retained
 ├─ PUBLISHED Targeted website cleanup from independent reviews
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
-└─ LIVE      Separate runnable Reading Queue with verified automatic deployment
-   ├─ VERIFIED Prompt walkthrough at ee9211e; ten matching live website files
-   ├─ CHECKED  Fresh Codex local prompts; scope miss retained
-   └─ PUBLISHED Targeted comparison/example cleanup; live verification passed
+├─ LIVE      Separate runnable Reading Queue with verified automatic deployment
+│  ├─ VERIFIED Prompt walkthrough at ee9211e; ten matching live website files
+│  ├─ CHECKED  Fresh Codex local prompts; scope miss retained
+│  └─ PUBLISHED Targeted comparison/example cleanup; live verification passed
+└─ CHECKED   Refresh baseline on unchanged core v0.2.6
+   ├─ PASSED   Evidence-based drift repair in one synthetic project
+   └─ PASSED   Second fresh run: all 19 project files unchanged
 
 NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
@@ -129,6 +140,9 @@ Earlier release approvals do not authorize new publication.
 - Core supports audit, initialize and maintain. Adoption uses its sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.
+  [Refresh after outside work](getting-started.md#refresh-after-outside-work) is a
+  documented invocation of existing maintenance; the focused baseline did not
+  establish a need for skill changes. Core stays 0.2.6 and adoption 0.1.15.
 - This repository enables JSONL in [AGENTS.md](../AGENTS.md); `CLAUDE.md` imports it.
   Consult history only when needed, not as routine context. Other projects keep
   their own settings; the packaged guide owns
