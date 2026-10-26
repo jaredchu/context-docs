@@ -32,8 +32,11 @@ The separate [real-repository refresh observations](refresh-observations-2026-10
 record one context correction and an unchanged repeat here, plus two unchanged
 passes in private notes. These are bounded maintainer observations in the same
 chat, separate from the synthetic evaluation and its results.
+The [later paired check](refresh-observations-2026-10-26.md#later-paired-no-change-check)
+identified no needed update in either bounded set; its scope and limits are
+recorded separately from those earlier observations.
 The [website evidence sections](https://context-docs.com/getting-started/#refresh-evidence)
-now publish that distinction and its limits; live desktop/mobile and no-JavaScript
+publish the earlier observations and their limits; live desktop/mobile and no-JavaScript
 checks pass, without a new skill release or new refresh evaluation.
 
 The [Reading Queue worked example](reading-queue-example.md) is live, with the

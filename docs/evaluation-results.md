@@ -316,5 +316,8 @@ in private maintainer notes. They were bounded interactions in this ongoing
 chat, recorded retrospectively, with no saved per-file hash
 manifests. They add no trials or scores to the synthetic refresh evaluation and
 establish no general reliability, idempotence or comparative benefit.
+The [later paired no-change check](refresh-observations-2026-10-26.md#later-paired-no-change-check)
+has separate 13/18-file scopes and a combined 120-link count, retaining the
+same-chat and missing-manifest limits. It adds no synthetic trials or scores.
 
 Return to the [project overview](../README.md) or browse the [evaluation scenarios](../evals/README.md).

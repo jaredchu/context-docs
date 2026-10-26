@@ -14,6 +14,8 @@ record one correction and an unchanged repeat in Context Docs, plus two unchange
 passes in private maintainer notes. These were bounded interactions in the same
 ongoing chat, documented retrospectively with evidence limits. They are not
 additional synthetic trials, independent evaluations or a general idempotence claim.
+The [later paired no-change check](../../docs/refresh-observations-2026-10-26.md#later-paired-no-change-check)
+is a separate observation with different bounded scopes; the synthetic case is unchanged.
 
 The [synthetic fixture](fixture/README.md) separates configuration, approved
 intent and narrow local verification. The [runner](run_native.py) adds an

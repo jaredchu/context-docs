@@ -92,3 +92,44 @@ manifests. This was a later review of presentation, not a refresh rerun or
 independent scoring of the four observations. Review originals and metadata remain
 private under the same evidence ID. No effective-effort telemetry was independently
 exposed. The added review summary was checked locally.
+
+## Later paired no-change check
+
+Later on October 26, after the evidence-page publication and receipt commits,
+the owner requested one more refresh of both repositories, explicitly asking
+to confirm no unnecessary changes and to avoid website deployment. Codex carried
+out this check in the same ongoing conversation. This is a distinct follow-up
+to the four observations above, not an additional synthetic evaluation or a
+fresh agent session.
+
+| Repository | Latest bounded hash check | Outcome |
+| --- | --- | --- |
+| Context Docs | 13 selected files | Equal before/after SHA-256 values; no needed update identified; unchanged HEAD and clean Git status |
+| Private maintainer notes | 18 selected files | Equal before/after SHA-256 values; no needed update identified; unchanged HEAD and clean Git status |
+
+The read-side command also checked **120 local links and anchors combined**
+across selected entry-point/index text. That is neither a per-repository total
+nor a repository-wide crawl. The public context's current-focus section was
+included; journal paths were skipped. Saved deployment identities and
+artifact/live hash manifests, the recorded 24-site-test result and browser
+receipts agreed with the current context. This did not rerun those publication
+checks or newly verify live service state. The deployed source recorded by both
+repositories remained `a97307e`.
+
+This check wrote no files or journal entries, made no commits or pushes, and
+performed no deployment. This subsequent entry is being added at the owner's
+separate request to record and push the outcome. Detailed private scope stays
+under evidence ID `real-repository-refresh-20261026`.
+
+The results are based on the executed command and its terminal report in that
+conversation. Hash vectors were compared in memory around the verification
+command and were not saved or printed; no standalone raw session trace was
+retained. The counts describe selected sets, not all files or the entire
+interaction, and clean Git status excludes ignored runtime/cache state. No
+ground-truth defect inventory, control or independent scoring established that
+unidentified drift was absent. The explicit no-change cue and familiar shared
+chat remain limitations; no benefit or general idempotence is established.
+Do not pool these 13/18-file counts or the 120-link count with the earlier
+8/17-file, 69-link observations or the synthetic 19-file result. The earlier
+Opus record review does not cover this later entry; no new independent review
+of these outcomes or this entry was performed.
