@@ -76,7 +76,8 @@ class LandingBuildTests(unittest.TestCase):
                 if tag == 'section':
                     identity = attrs.get('id')
                     self.sections.append(identity)
-                    if identity in ('synthetic-refresh-evaluation', 'real-repository-refresh-results'):
+                    if identity in ('synthetic-refresh-evaluation', 'real-repository-refresh-results',
+                                    'paired-no-change-refresh-results'):
                         self.groups[identity] = {'text': [], 'links': [], 'parent': list(self.sections[:-1])}
                 for identity in self.sections:
                     if identity in self.groups and tag == 'a':
@@ -95,18 +96,27 @@ class LandingBuildTests(unittest.TestCase):
         evidence.feed(landing.render(landing.ROOT, 'getting-started.html'))
         synthetic = evidence.groups['synthetic-refresh-evaluation']
         real = evidence.groups['real-repository-refresh-results']
+        paired = evidence.groups['paired-no-change-refresh-results']
         prefix = 'https://github.com/jaredchu/context-docs/blob/main/'
         self.assertEqual(synthetic['links'], [prefix + 'evals/refresh/baseline-0.2.6-2026-10-26/README.md'])
         self.assertEqual(real['links'], [prefix + 'docs/refresh-observations-2026-10-26.md'])
+        self.assertEqual(paired['links'], [prefix + 'docs/refresh-observations-2026-10-26.md#later-paired-no-change-check'])
         self.assertIn('refresh-evidence', synthetic['parent'])
         self.assertEqual(synthetic['parent'], real['parent'])
-        text = ' '.join(real['text'])
+        self.assertEqual(real['parent'], paired['parent'])
+        paired_text = ' '.join(paired['text'])
+        for scope in ['13 selected files', '18 selected files', 'combined 120', 'not a per-repository total']:
+            self.assertIn(scope, paired_text)
+        self.assertIn('were not saved or printed', paired_text)
+        self.assertIn('did not rerun', paired_text)
+        text = ' '.join(real['text']) + ' ' + paired_text
         self.assertIn('per-file before/after manifests', text.lower())
         self.assertIn('cannot rule out missed drift', text)
         self.assertIn('independent outcome scoring', text)
         for private_detail in ('context-docs-notes', 'ab6ddc2', '/Users/', '/Volumes/', 'pi-git:'):
             self.assertNotIn(private_detail, text)
         self.assertIn('getting-started/#refresh-evidence', landing.render(landing.ROOT))
+        self.assertIn('getting-started/#paired-no-change-refresh-results', landing.render(landing.ROOT))
 
     def test_demo_reuses_only_selected_blocks_and_escapes_source_updates(self):
         source = landing.ROOT / 'docs/outreach-v0.2.5.md'
