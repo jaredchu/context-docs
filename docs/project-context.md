@@ -18,15 +18,16 @@ local notes only when still useful.
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
 [prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
-from `b38853d`; all ten served website files match the pinned build and uploaded
+from `ee9211e`; all ten served website files match the pinned build and uploaded
 artifact, and live desktop/mobile prompt checks pass. A fresh Codex local
 walkthrough trial observed maintenance under the adopted rule without another
 skill reminder, with a retained verification-stage no-install miss and separate
-coordinator browser checks. A targeted comparison/example
-[cleanup preview](reading-queue-example.md#october-26-review-follow-up-preview) passes local site/static and desktop/mobile checks after the new independent
-reviews; it remains unpublished. The example summary retains
-the trial qualifications and earlier Claude case. Gather unfamiliar learner
-feedback next; no deployment, skill release or Cursor test is selected.
+coordinator browser checks. The targeted comparison/example
+[review follow-up](reading-queue-example.md#october-26-review-follow-up-preview) is
+now published, with pinned-build/artifact/live bytes and desktop/mobile checks
+verified. The example summary retains the trial qualifications and earlier Claude
+case. Gather unfamiliar learner feedback next; no skill release or Cursor work
+is selected.
 
 Saved snapshot: October 26, 2026; this is not live agent activity.
 
@@ -44,11 +45,11 @@ Goal: preserve useful project knowledge with little manual organization
 ├─ PUBLISHED Targeted website cleanup from independent reviews
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
 └─ LIVE      Separate runnable Reading Queue with verified automatic deployment
-   ├─ VERIFIED Prompt walkthrough at b38853d; ten matching live website files
+   ├─ VERIFIED Prompt walkthrough at ee9211e; ten matching live website files
    ├─ CHECKED  Fresh Codex local prompts; scope miss retained
-   └─ PREVIEW  Targeted comparison/example cleanup verified locally; unpublished
+   └─ PUBLISHED Targeted comparison/example cleanup; live verification passed
 
-NEXT: review the verified local preview, then gather learner feedback; continue v0.2.6.
+NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -138,11 +139,11 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-  The [latest October 25 deployment](../site/README.md#latest-deployment) from
-  `main` at `b38853d` succeeded; all ten served files, including `/reading-queue/`,
+  The [latest October 26 deployment](../site/README.md#latest-deployment) from
+  `main` at `ee9211e` succeeded; all ten served files, including `/reading-queue/`,
   match the pinned build and uploaded artifact. Detailed verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-25-b38853d`.
-  The earlier `c2414d4` cleanup deployment remains historical evidence.
+  in private notes under evidence ID `website-deployment-2026-10-26-ee9211e`.
+  The earlier `b38853d` publication and `c2414d4` cleanup remain historical evidence.
 
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
@@ -265,11 +266,12 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Review the verified [targeted local preview](reading-queue-example.md#october-26-review-follow-up-preview),
-then gather concrete learner feedback on the published Reading Queue example and
-prompt-based walkthrough. Deployment is not selected. The [summary](reading-queue-example.md) owns current
+Gather concrete learner feedback on the published Reading Queue example and
+[review follow-up](reading-queue-example.md#october-26-review-follow-up-preview).
+Website deployment verification is complete; record-only follow-up needs no
+additional deployment. The [summary](reading-queue-example.md) owns current
 state and evidence links. Preserve the actual deployed sources: app `0f68893`,
-website `b38853d`. The fresh Codex local trial and prepared unfamiliar-learner
+website `ee9211e`. The fresh Codex local trial and prepared unfamiliar-learner
 packet are recorded in the summary; its scope miss remains visible. Keep ordinary
 prompt examples distinct from observed maintenance, with the earlier native Claude
 case's wording qualification retained. Record-only commits do not require another

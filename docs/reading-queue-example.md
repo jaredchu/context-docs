@@ -53,7 +53,7 @@ automatically tested and deployed `0f68893`. All four served static assets match
 the source by SHA-256, the live health endpoint reports that full commit, and
 live browser checks passed for CRUD, isolated queues and export success/failure.
 The [companion walkthrough](https://context-docs.com/reading-queue/) was
-[deployed from b38853d](https://github.com/jaredchu/context-docs/actions/runs/40158912040).
+[initially deployed from b38853d](https://github.com/jaredchu/context-docs/actions/runs/40158912040).
 All ten served website files match the pinned build and uploaded artifact; live
 desktop/mobile checks, including all nine prompt copy buttons, pass. Later
 record commits do not replace either deployed source. Gather concrete learner
@@ -70,7 +70,7 @@ this is independent model judgment, not separate browser reproduction or human
 validation. Detailed originals and verified disposition belong in private notes
 under evidence ID `website-review-2026-10-26`.
 
-The working copy improves the comparison-to-example route, audit verification
+The cleanup improves the comparison-to-example route, audit verification
 instructions, dated evidence notes and optional-deployment wording. Main-branch
 example documents align ordinary prompts and clarify the existing export shape
 and implementation-team rationale. Historical case records and published tags
@@ -80,9 +80,17 @@ changes are selected.
 The local preview passes all 22 site tests, repository static checks and
 desktop/mobile rendering and navigation checks, including copy feedback with
 clipboard writes stubbed inside temporary contexts. Only the comparison and
-walkthrough HTML outputs changed relative to the committed build. The live
-website remains at `b38853d`
-and the app at `0f68893`; this request does not authorize deployment. Broader
-mobile-table restructuring and guide-length changes remain proposals for learner
-feedback. The owner plans to share the existing learner packet; no new human
-results or native agent evaluation were collected by this cleanup.
+walkthrough HTML outputs changed relative to the committed build. The owner
+subsequently authorized website-only deployment from `main` at
+`ee9211e`, completed on October 26 by the
+[Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40258260595).
+All ten served files match that pinned build and uploaded artifact; canonical
+metadata, sitemap/robots and live desktop/mobile checks pass. Detailed receipts
+are retained privately under evidence ID `website-deployment-2026-10-26-ee9211e`.
+The original preview and review records retain their earlier scope.
+
+The app remains at `0f68893` and was not redeployed. Broader mobile-table
+restructuring and guide-length changes remain proposals for learner feedback.
+The owner plans to share the existing learner packet; no new human results or
+native agent evaluation were collected by this publication. Record-only follow-up
+commits do not require another deployment.

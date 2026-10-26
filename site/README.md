@@ -164,10 +164,33 @@ errors. The walkthrough and direct example link remain accessible without
 JavaScript. Only the comparison and walkthrough HTML build outputs changed.
 Original reviews, before/after browser evidence and preview receipts belong in
 private notes under evidence ID
-`website-review-2026-10-26`. The deployed website remains `b38853d`; this preview
-is not publication authority and does not change installed skills or the app.
+`website-review-2026-10-26`. The owner subsequently authorized website-only
+deployment from `ee9211e`,
+completed and verified below. The preview record retains its original scope;
+installed skills and the example app are unchanged.
 
 ## Latest deployment
+
+On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40258260595)
+built and deployed `main` at `ee9211e`. The pinned source passed all 22 site tests;
+both workflow build and deploy jobs succeeded. All ten served files match the
+pinned build and uploaded artifact by SHA-256. The local eleven-file build's
+empty `.nojekyll` marker is omitted by artifact upload as before.
+
+Four canonical URLs, existing Open Graph URLs, sitemap URLs and the robots sitemap
+reference match. Live Chrome checks pass at 1440×1000 and 390×844 for the new
+comparison-to-example routes, all nine copy handlers, step anchors, no page-wide
+overflow, no observed JavaScript errors and the no-JavaScript path. Clipboard
+writes were stubbed inside fresh contexts; no host clipboard write. These are
+publication/rendering checks, not a new native evaluation or user study.
+
+The example was not redeployed: its only Actions run remains the October 25
+`0f68893` deployment, and read-only health checks before/after still report that
+full revision. The receipt is retained privately under evidence ID
+`website-deployment-2026-10-26-ee9211e`. Later record/context commits do not replace
+this deployed source or require another deployment when output is unchanged.
+
+## Initial Reading Queue publication
 
 On October 25, 2026, the [workflow](https://github.com/jaredchu/context-docs/actions/runs/40158912040)
 built and deployed `main` at `b38853d`, publishing the runnable Reading Queue

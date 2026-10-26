@@ -96,3 +96,10 @@ Original reports, provenance, captures and verified disposition are retained
 privately under evidence ID `website-review-2026-10-26`. The original research
 and earlier review records remain unchanged. This preview is not a new tool
 comparison, user study or deployment.
+
+
+The owner subsequently authorized website-only deployment from `main` at
+`ee9211e`, completed and verified on October 26. The
+[publication summary](reading-queue-example.md#october-26-review-follow-up-preview)
+and [latest deployment](../site/README.md#latest-deployment) own current status;
+original research, review and preview records retain their earlier scope.
