@@ -1,0 +1,93 @@
+# Real-repository refresh observations
+
+October 26, 2026. These are retrospective records of maintainer-operated use in
+two existing adopted repositories. They are separate from the
+[synthetic v0.2.6 evaluation](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
+and add no trials or scores to it.
+
+## What happened
+
+The owner requested a refresh and a repeat in the Context Docs product repository,
+then requested the same sequence in the maintainer's private notes repository.
+Codex performed all four interactions in a single ongoing chat. The first
+refresh in each repository explicitly read the core skill and project instructions;
+repeats retained the same conversation context. No separate fresh agent
+session or Claude refresh run was launched for these observations.
+
+| Repository and pass | Observed outcome | Checked scope |
+| --- | --- | --- |
+| Context Docs: first refresh | Corrected one publication-chronology error in the context summary and progress label; appended the correction to the enabled journal | Context entry point and relevant release/version, decision, evaluation and deployment records |
+| Context Docs: repeat after committing the correction | No updates; eight directly checked files had equal before/after SHA-256 values, and Git status stayed clean | Same current-state questions, including the corrected chronology, recorded deployment, skill versions and next actions |
+| Private notes: first refresh | No updates; 17 directly checked files had equal before/after SHA-256 values, and Git status stayed clean | Context/index, relevant receipts, local setup and deferred-work/feedback records; 69 local links and anchors resolved |
+| Private notes: repeat | No updates; the same 17 checked files remained equal, HEAD stayed unchanged and Git status stayed clean | Same bounded receipt/context/link checks |
+
+The product correction distinguishes the walkthrough's first publication at
+`b38853d` from its later cleanup at `ee9211e`. The current website deployment
+remains `6b1c9d6`. The correction and its journal entry were subsequently
+[committed as d0206d2](https://github.com/jaredchu/context-docs/commit/d0206d2c35a7f11f6c3ab7959cb1320ba214a3de).
+The repeat checked that committed state. The error had been introduced during
+[earlier Codex-assisted maintenance](https://github.com/jaredchu/context-docs/commit/4b1f202eb4bfed013cc323cfff5b0f0ddcd616a1)
+in the same chat; its repair is not an
+independent test of recovering unfamiliar drift.
+
+The three no-change passes made no documentation edits, journal entries or
+bookkeeping commits. Private logging remained disabled. The present report is
+being added later at the owner's explicit request; it does not change those
+earlier no-change outcomes.
+
+## Evidence and separation from the synthetic case
+
+The correction's exact diff and journal entry are inspectable in the linked
+public commit. The no-change outcomes come from the executed read-side checks,
+their terminal results and the interaction history in that conversation. Those commands
+computed hashes in memory and asserted equality; per-file before/after manifests
+and standalone raw session traces were not saved for these real-repository passes.
+This report does not reconstruct or present later hashes as earlier measurements.
+The private repository's filenames, content, commit identity and operational
+details remain private under evidence ID `real-repository-refresh-20261026`.
+The aggregate summary here does not provide independent access to that evidence.
+
+The synthetic case has a pre-run protocol, frozen inputs, exported outputs and
+two fresh Codex CLI invocations with the same prompt. These real observations
+have none of that experimental isolation: the operator was already familiar with
+both repositories and had maintained their context in the same conversation.
+The product-repeat and private-repeat user requests explicitly asked to avoid
+unnecessary changes; the first refresh requests asked whether updates were
+needed. The first and repeat requests were not identical. Do not pool their file counts,
+passes or outcomes with the synthetic case's 19-file equality result.
+
+## Limits and interpretation
+
+- The two repositories are related maintainer projects, recently maintained in
+  the same chat. They are not independent projects, held-out cases or learner trials.
+- Before/after hash assertions cover bounded eight- and 17-file sets, not every
+  repository file or the whole duration of each interaction. Clean Git status
+  adds a tracked/untracked working-tree check; it does not inventory ignored
+  runtime/cache state. The checks were read-side commands with no file-write step.
+- The refreshes reconciled stored evidence. They did not rerun deployments, app
+  tests, native skill evaluations, platform-policy research or live browser checks.
+- There was no ordinary-maintenance/no-skill control, randomized assignment,
+  independent scoring or measured user effort, token use or cost benefit.
+- Refresh actors are identified as Codex. No independent served-model or effective
+  reasoning telemetry was retained for these existing chat turns; the model
+  configuration of the earlier synthetic CLI runs does not establish it here.
+- No ground-truth defect inventory was defined for either repository. A no-change
+  result, including the private first refresh, cannot rule out missed drift.
+- The observations record one correction and three bounded no-change passes
+  consistent with their requests. They establish no general idempotence, completeness, reliability,
+  privacy guarantee, automatic skill selection or skill-specific causal advantage.
+
+Core remains **0.2.6** and adoption **0.1.15**. These results change documentation
+and evidence records, not either skill package, and require no new skill release.
+
+## Later review of this record
+
+Claude Opus 5.5 (`claude-opus-5-5`), requested High, reviewed the retrospective
+report and one focused follow-up. The review tightened outcome wording, prompt
+cue coverage and evidence qualifications; the follow-up found no remaining
+material issues within that scope. The reviewer read the report, relevant diffs
+and coordinator-labeled excerpts, not the original conversation or saved per-file
+manifests. This was a later review of presentation, not a refresh rerun or
+independent scoring of the four observations. Review originals and metadata remain
+private under the same evidence ID. No effective-effort telemetry was independently
+exposed. The added review summary was checked locally.

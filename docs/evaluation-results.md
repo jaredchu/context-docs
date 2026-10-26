@@ -308,4 +308,13 @@ and outcomes. Claims about downstream reader benefit also need verified context
 reading. These are requirements for stronger evidence, not prerequisites for
 ordinary use. See the [contribution packet](../evals/external-validation/README.md).
 
+## Real-repository use: separate observations
+
+The [October 26 refresh observations](refresh-observations-2026-10-26.md) record
+one correction and an unchanged repeat in Context Docs, plus two unchanged passes
+in private maintainer notes. They were bounded interactions in this ongoing
+chat, recorded retrospectively, with no saved per-file hash
+manifests. They add no trials or scores to the synthetic refresh evaluation and
+establish no general reliability, idempotence or comparative benefit.
+
 Return to the [project overview](../README.md) or browse the [evaluation scenarios](../evals/README.md).

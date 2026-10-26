@@ -9,6 +9,12 @@ repair criteria and the second-run no-change check. This supports a documented
 refresh invocation without changing either installable skill or its version.
 It does not prove that existing instructions cover every drift case.
 
+The later [real-repository observations](../../docs/refresh-observations-2026-10-26.md)
+record one correction and an unchanged repeat in Context Docs, plus two unchanged
+passes in private maintainer notes. These were bounded interactions in the same
+ongoing chat, documented retrospectively with evidence limits. They are not
+additional synthetic trials, independent evaluations or a general idempotence claim.
+
 The [synthetic fixture](fixture/README.md) separates configuration, approved
 intent and narrow local verification. The [runner](run_native.py) adds an
 uncommitted note, verifies the complete copied package against release `v0.2.6`,

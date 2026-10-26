@@ -28,6 +28,11 @@ build and uploaded artifact; desktop/mobile refresh checks pass. The
 [deployment summary](../site/README.md#latest-deployment) owns publication evidence
 and the initial Python-client 403 qualification.
 
+The separate [real-repository refresh observations](refresh-observations-2026-10-26.md)
+record one context correction and an unchanged repeat here, plus two unchanged
+passes in private notes. These are bounded maintainer observations in the same
+chat, separate from the synthetic evaluation and its results.
+
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
 [prompt-based walkthrough](https://context-docs.com/reading-queue/) was
