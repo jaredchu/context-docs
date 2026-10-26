@@ -21,12 +21,17 @@ run leaves all 19 project files unchanged. The owner asked to establish whether
 skill changes were needed first. This case supports a documented refresh prompt;
 no new operation, package version or release is selected. Codex authored/scored
 the case; Opus reviewed its design. Explicit skill loading on one client does
-not establish general reliability or automatic selection.
+not establish general reliability or automatic selection. The
+[refresh guidance](https://context-docs.com/getting-started/#refresh-after-outside-work)
+is now live from website source `6b1c9d6`: all ten public files match the pinned
+build and uploaded artifact; desktop/mobile refresh checks pass. The
+[deployment summary](../site/README.md#latest-deployment) owns publication evidence
+and the initial Python-client 403 qualification.
 
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
 [prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
-from `ee9211e`; all ten served website files match the pinned build and uploaded
+initially from `ee9211e`; all ten served website files matched the pinned build and uploaded
 artifact, and live desktop/mobile prompt checks pass. A fresh Codex local
 walkthrough trial observed maintenance under the adopted rule without another
 skill reminder, with a retained verification-stage no-install miss and separate
@@ -56,9 +61,10 @@ Goal: preserve useful project knowledge with little manual organization
 │  ├─ VERIFIED Prompt walkthrough at ee9211e; ten matching live website files
 │  ├─ CHECKED  Fresh Codex local prompts; scope miss retained
 │  └─ PUBLISHED Targeted comparison/example cleanup; live verification passed
-└─ CHECKED   Refresh baseline on unchanged core v0.2.6
+└─ LIVE      Refresh guidance using unchanged core v0.2.6
    ├─ PASSED   Evidence-based drift repair in one synthetic project
-   └─ PASSED   Second fresh run: all 19 project files unchanged
+   ├─ PASSED   Second fresh run: all 19 project files unchanged
+   └─ VERIFIED Website 6b1c9d6; live desktop/mobile refresh checks
 
 NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
@@ -154,10 +160,11 @@ Earlier release approvals do not authorize new publication.
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
   The [latest October 26 deployment](../site/README.md#latest-deployment) from
-  `main` at `ee9211e` succeeded; all ten served files, including `/reading-queue/`,
+  `main` at `6b1c9d6` succeeded; all ten served files, including `/reading-queue/`,
   match the pinned build and uploaded artifact. Detailed verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-26-ee9211e`.
-  The earlier `b38853d` publication and `c2414d4` cleanup remain historical evidence.
+  in private notes under evidence ID `website-deployment-2026-10-26-6b1c9d6`.
+  The earlier `ee9211e` cleanup, `b38853d` publication and `c2414d4` cleanup remain
+  historical evidence.
 
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
@@ -285,7 +292,7 @@ Gather concrete learner feedback on the published Reading Queue example and
 Website deployment verification is complete; record-only follow-up needs no
 additional deployment. The [summary](reading-queue-example.md) owns current
 state and evidence links. Preserve the actual deployed sources: app `0f68893`,
-website `ee9211e`. The fresh Codex local trial and prepared unfamiliar-learner
+website `6b1c9d6`. The fresh Codex local trial and prepared unfamiliar-learner
 packet are recorded in the summary; its scope miss remains visible. Keep ordinary
 prompt examples distinct from observed maintenance, with the earlier native Claude
 case's wording qualification retained. Record-only commits do not require another

@@ -107,7 +107,7 @@ The [getting-started template](getting-started.html) owns the beginner walkthrou
 Its installation commands, save/resume/progress prompts, synthetic example and versions
 come from the same canonical sources as the landing page. The detailed
 [installation reference](../docs/getting-started.md) remains in the repository;
-the site's local-only setup and auto-logging prompts are extracted from its public
+the site's refresh, local-only setup and auto-logging prompts are extracted from its public
 sections. The site links to it for client settings, upgrades and logging details.
 Repository context, local notes and journals never become build inputs.
 
@@ -170,6 +170,30 @@ completed and verified below. The preview record retains its original scope;
 installed skills and the example app are unchanged.
 
 ## Latest deployment
+
+On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40262515843)
+built and deployed `main` at `6b1c9d6`, publishing the canonical refresh prompt in
+the beginner guide and a homepage link to that section. Existing skill versions
+and the synthetic baseline's qualifications are preserved. The pinned source and
+workflow pass all 23 site tests; both build and deploy jobs succeed. All ten
+served public files match the pinned build and uploaded artifact by SHA-256;
+the empty `.nojekyll` marker is omitted by upload as before. Only the homepage
+and getting-started HTML outputs differ from the previous deployment.
+
+Four canonical URLs, existing Open Graph URLs, sitemap URLs and the robots
+sitemap reference match. Live Chrome checks at 1440×1000 and 390×844 pass for
+the homepage-to-refresh link, fragment, canonical prompt, copy feedback, no
+page-wide overflow and no observed JavaScript errors. The prompt is accessible
+without JavaScript. Clipboard writes were stubbed in fresh contexts; no host
+clipboard write occurred. An initial Python HTTP client received 403; successful
+canonical byte checks used Node fetch, complemented by the Chrome checks.
+
+Detailed evidence is retained privately under ID
+`website-deployment-2026-10-26-6b1c9d6`. These are deployment/rendering checks,
+not a new native evaluation or user study. Later record/context commits do not
+replace this deployed SHA or require another deployment when output is unchanged.
+
+## October 26 comparison and example deployment
 
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40258260595)
 built and deployed `main` at `ee9211e`. The pinned source passed all 22 site tests;
