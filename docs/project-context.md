@@ -30,9 +30,10 @@ and the initial Python-client 403 qualification.
 
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
-[prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
-initially from `ee9211e`; all ten served website files matched the pinned build and uploaded
-artifact, and live desktop/mobile prompt checks pass. A fresh Codex local
+[prompt-based walkthrough](https://context-docs.com/reading-queue/) was
+[first published from `b38853d`](../site/README.md#initial-reading-queue-publication).
+Its initial publication checks verified all ten served files against the pinned
+build and uploaded artifact, plus desktop/mobile prompt behavior. A fresh Codex local
 walkthrough trial observed maintenance under the adopted rule without another
 skill reminder, with a retained verification-stage no-install miss and separate
 coordinator browser checks. The targeted comparison/example
@@ -58,7 +59,7 @@ Goal: preserve useful project knowledge with little manual organization
 ├─ PUBLISHED Targeted website cleanup from independent reviews
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
 ├─ LIVE      Separate runnable Reading Queue with verified automatic deployment
-│  ├─ VERIFIED Prompt walkthrough at ee9211e; ten matching live website files
+│  ├─ PUBLISHED Walkthrough b38853d; later cleanup ee9211e
 │  ├─ CHECKED  Fresh Codex local prompts; scope miss retained
 │  └─ PUBLISHED Targeted comparison/example cleanup; live verification passed
 └─ LIVE      Refresh guidance using unchanged core v0.2.6
