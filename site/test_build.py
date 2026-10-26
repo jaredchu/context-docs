@@ -44,6 +44,26 @@ class LandingBuildTests(unittest.TestCase):
             self.assertIn(block, rendered)
         self.assertNotIn('{{', rendered)
 
+    def test_refresh_prompt_tracks_canonical_updates_without_publishing_other_notes(self):
+        source = landing.ROOT / 'docs/getting-started.md'
+        original_read = Path.read_text
+        prompt = landing.fenced_section(source.read_text(), '### Refresh after outside work', 'text')
+
+        def changed_source(path, *args, **kwargs):
+            text = original_read(path, *args, **kwargs)
+            if path == source:
+                return text.replace(prompt, prompt + '\n<refresh-update>&', 1) + '\nUNSELECTED-REFRESH-NOTE'
+            return text
+
+        with patch.object(Path, 'read_text', changed_source):
+            guide = landing.render(landing.ROOT, 'getting-started.html')
+        self.assertIn(prompt + '\n<refresh-update>&', unescape(guide))
+        self.assertIn('&lt;refresh-update&gt;&amp;', guide)
+        self.assertNotIn('UNSELECTED-REFRESH-NOTE', guide)
+        self.assertIn('id="refresh-after-outside-work"', guide)
+        self.assertIn('data-copy="refresh-prompt"', guide)
+        self.assertIn('getting-started/#refresh-after-outside-work', landing.render(landing.ROOT))
+
     def test_demo_reuses_only_selected_blocks_and_escapes_source_updates(self):
         source = landing.ROOT / 'docs/outreach-v0.2.5.md'
         text = source.read_text()
@@ -383,6 +403,7 @@ class LandingBuildTests(unittest.TestCase):
         cases = [(name, marker) for name in ['index.html', 'getting-started.html']
                  for marker in ['PROGRESS_PROMPT', 'PROGRESS_EXAMPLE']]
         cases += [('index.html', marker) for marker in ['DEMO_NOTES', 'DEMO_CONTEXT', 'DEMO_RESUME']]
+        cases += [('getting-started.html', 'REFRESH_PROMPT')]
         for name, marker in cases:
             with self.subTest(template=name, marker=marker), tempfile.TemporaryDirectory() as temporary:
                 output = Path(temporary) / 'public'
