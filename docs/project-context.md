@@ -23,7 +23,7 @@ no new operation, package version or release is selected. Codex authored/scored
 the case; Opus reviewed its design. Explicit skill loading on one client does
 not establish general reliability or automatic selection. The
 [refresh guidance](https://context-docs.com/getting-started/#refresh-after-outside-work)
-is now live from website source `a97307e`: all ten public files match the pinned
+is now live from website source `a0e636c`: all ten public files match the pinned
 build and uploaded artifact; desktop/mobile refresh checks pass. The
 [deployment summary](../site/README.md#latest-deployment) owns publication evidence
 separately from the recorded refresh outcomes.
@@ -36,7 +36,8 @@ The [later paired check](refresh-observations-2026-10-26.md#later-paired-no-chan
 identified no needed update in either bounded set; its scope and limits are
 recorded separately from those earlier observations.
 The [website evidence sections](https://context-docs.com/getting-started/#refresh-evidence)
-publish the earlier observations and their limits; live desktop/mobile and no-JavaScript
+publish separate synthetic, earlier real-use and latest paired-check sections,
+with their original scopes and limits. Live desktop/mobile and no-JavaScript
 checks pass, without a new skill release or new refresh evaluation.
 
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
@@ -76,7 +77,7 @@ Goal: preserve useful project knowledge with little manual organization
 └─ LIVE      Refresh guidance using unchanged core v0.2.6
    ├─ PASSED   Evidence-based drift repair in one synthetic project
    ├─ PASSED   Second fresh run: all 19 project files unchanged
-   └─ VERIFIED Website a97307e; separate synthetic/real evidence and live checks
+   └─ VERIFIED Website a0e636c; separate synthetic/real evidence and live checks
 
 NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
@@ -172,11 +173,11 @@ Earlier release approvals do not authorize new publication.
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
   The [latest October 26 deployment](../site/README.md#latest-deployment) from
-  `main` at `a97307e` succeeded; all ten served files, including `/reading-queue/`,
+  `main` at `a0e636c` succeeded; all ten served files, including `/reading-queue/`,
   match the pinned build and uploaded artifact. Detailed verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-26-a97307e`.
-  The earlier `6b1c9d6` refresh guide, `ee9211e` cleanup, `b38853d` publication and
-  `c2414d4` cleanup remain historical evidence.
+  in private notes under evidence ID `website-deployment-2026-10-26-a0e636c`.
+  The earlier `a97307e` real-use evidence, `6b1c9d6` refresh guide, `ee9211e` cleanup,
+  `b38853d` publication and `c2414d4` cleanup remain historical evidence.
 
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
   indexing and AI citations remain unestablished; operator registration details
@@ -304,7 +305,7 @@ Gather concrete learner feedback on the published Reading Queue example and
 Website deployment verification is complete; record-only follow-up needs no
 additional deployment. The [summary](reading-queue-example.md) owns current
 state and evidence links. Preserve the actual deployed sources: app `0f68893`,
-website `a97307e`. The fresh Codex local trial and prepared unfamiliar-learner
+website `a0e636c`. The fresh Codex local trial and prepared unfamiliar-learner
 packet are recorded in the summary; its scope miss remains visible. Keep ordinary
 prompt examples distinct from observed maintenance, with the earlier native Claude
 case's wording qualification retained. Record-only commits do not require another

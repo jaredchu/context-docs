@@ -171,6 +171,41 @@ installed skills and the example app are unchanged.
 
 ## Latest deployment
 
+On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40270565743)
+built and deployed `main` at `a0e636c`. The homepage links to the guide's
+[latest paired no-change check](https://context-docs.com/getting-started/#paired-no-change-refresh-results).
+Its 13/18 selected-file checks and 120 combined links remain separate from the
+earlier 8/17-file, 69-link observations and the synthetic 19-file evaluation.
+Visible limits retain the familiar same-chat setup, explicit no-change cue,
+bounded selected sets, missing saved hash vectors/raw traces, ignored-state
+exclusion and lack of ground truth/control/independent scoring. No general
+idempotence or benefit is established. Private filenames/content remain unpublished;
+skill packages and original refresh/study records are unchanged.
+
+Both build and deploy jobs succeed, and all 24 pinned site tests pass.
+All ten uploaded and served public files match the pinned build by SHA-256;
+the upload omits the empty `.nojekyll` marker as before. Only the homepage and
+getting-started HTML outputs change from `a97307e`. Four canonical URLs,
+existing Open Graph URLs, sitemap URLs and the robots sitemap reference match.
+
+Fresh live Chrome checks at 1440×1000 and 390×844 pass for both homepage evidence
+links, all three sibling evidence sections and source links, visible scopes and
+limits, private-scope exclusion, canonical refresh prompt and stubbed copy feedback.
+No page-wide overflow or JavaScript errors were observed. The prompt and all
+three evidence sections remain accessible without JavaScript; no host clipboard
+write occurs. Opus 5.5, requested High, reviewed website presentation against the
+written public records. One overstatement was corrected to say 120 links were
+checked; final wording, tests and rendering were checked locally without another
+reviewer run. This is separate from review of the original refresh outcomes or
+retrospective entry, which was not performed.
+
+Detailed evidence is retained privately under ID
+`website-deployment-2026-10-26-a0e636c`. These are publication/rendering checks,
+not a new refresh run, independent scoring or user study. Later record-only commits
+retain this deployed SHA and need no further deployment when output is unchanged.
+
+## October 26 earlier real-repository evidence deployment
+
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40268041794)
 built and deployed `main` at `a97307e`. The homepage links to the guide's separate
 synthetic and real-repository refresh evidence sections. Visible real-use limits
