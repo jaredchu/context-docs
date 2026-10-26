@@ -24,6 +24,9 @@
   was actually tested. Keep each skill's `VERSION` file in step with it.
 - Use synthetic examples. Do not copy private project context into this repo.
 - Update current project context when behavior, scope or status changes.
+- End a routine no-change refresh with a concise chat result, then stop. Follow
+  the [refresh recording and publication boundary](docs/project-decisions.md#refresh-recording-and-publication-boundary);
+  do not turn an unchanged check into another documentation or publication task.
 - For commits containing Codex-assisted work, follow the
   [commit attribution policy](CONTRIBUTING.md#commit-attribution): add
   `Co-authored-by: Codex <noreply@openai.com>` exactly once, preserving the human

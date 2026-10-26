@@ -283,3 +283,27 @@ authored instructions, observed application checks and native agent evidence.
 Keep account configuration, credential lifecycle and detailed receipts in
 private operator notes. This historical task authorization is not permission for
 people who clone or fork the example to deploy from their own accounts.
+
+## Refresh recording and publication boundary
+
+On October 26, 2026, after independent reviews identified a cycle of refreshing,
+recording and publishing unchanged state, the owner requested consolidating the
+website evidence, removing tests that pin bookkeeping and adding a stop rule.
+This task authorizes local edits and validation, with deployment deferred.
+
+For routine refreshes, report the checked scope, result and material limits in
+chat. If no durable update is needed, stop without creating observation reports,
+journal events, commits or website announcements merely to record that result.
+Existing guidance already supports leaving files unchanged; this project rule
+does not change either installable skill or require a new release.
+
+Keep deployment receipts and repeated no-change observations in their record
+role. Website updates should improve instructions or explain a materially new
+finding or decision; unchanged checks alone create no publication requirement.
+Explicit owner requests to record or publish still apply, but authorization does
+not establish new evidence or user benefit. Explain that distinction when
+proposing work rather than suggesting another recording/publication cycle.
+
+Preserve existing Git history, original studies and private evidence. Keep the
+[deployment checklist](../site/README.md#deployment-checklist) for authorized
+publication; record-only follow-ups do not require another deployment.

@@ -149,6 +149,11 @@ preserving decisions and unresolved work, and leaving files unchanged when no
 durable update is needed. Review the resulting diff and verification limits.
 Refresh here means maintaining the project's documents during the active session.
 
+If no durable update is needed, report what was checked and its material limits,
+then stop. A routine no-change refresh needs no report file, journal entry,
+commit or website publication. Separate explicit recording or publication
+requests retain their own scope; they do not make unchanged state new evidence.
+
 The [focused v0.2.6 baseline](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
 repaired synthetic accumulated drift and made no changes on a second fresh run.
 That case supported documenting the invocation without changing the skill or its

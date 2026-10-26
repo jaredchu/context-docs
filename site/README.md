@@ -169,6 +169,22 @@ deployment from `ee9211e`,
 completed and verified below. The preview record retains its original scope;
 installed skills and the example app are unchanged.
 
+## Local evidence consolidation preview
+
+The owner requested consolidating refresh evidence and adding a no-change stop
+rule after independent commit reviews identified repetitive recording/publication.
+The guide now has a compact summary linking the separate, unchanged synthetic
+study and retrospective maintainer record. Existing evidence fragment URLs still
+resolve. The homepage no longer promotes the latest unchanged check. Navigation
+and public-source checks replace tests that required observation counts, exact
+qualifier text and separate bookkeeping sections.
+
+This is an unpublished local preview. The deployment below remains authoritative;
+no website deployment or skill release is part of this task. Original study
+records, historical receipts and private evidence remain intact. The project
+[refresh boundary](../docs/project-decisions.md#refresh-recording-and-publication-boundary)
+owns the stop rule.
+
 ## Latest deployment
 
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40270565743)
@@ -359,6 +375,10 @@ a site. The broad `site/**` path filter can trigger a build for this README;
 a successful build or a skipped deploy job does not require manual deployment.
 
 ### Deployment checklist
+
+Apply the [refresh recording and publication boundary](../docs/project-decisions.md#refresh-recording-and-publication-boundary)
+before this checklist. A routine unchanged refresh is not a reason to create
+website content; publication still needs useful new information and task authority.
 
 - [ ] Determine whether the change affects public website output or deployment
   behavior. Verification receipts, journals, project context and this README do

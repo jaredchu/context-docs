@@ -64,59 +64,50 @@ class LandingBuildTests(unittest.TestCase):
         self.assertIn('data-copy="refresh-prompt"', guide)
         self.assertIn('getting-started/#refresh-after-outside-work', landing.render(landing.ROOT))
 
-    def test_refresh_evidence_keeps_sources_separate_and_private_scope_unpublished(self):
-        class Evidence(HTMLParser):
+    def test_public_navigation_source_links_and_storage_boundaries(self):
+        class Links(HTMLParser):
             def __init__(self):
                 super().__init__()
-                self.sections = []
-                self.groups = {}
+                self.ids = set()
+                self.hrefs = []
 
             def handle_starttag(self, tag, attrs):
                 attrs = dict(attrs)
-                if tag == 'section':
-                    identity = attrs.get('id')
-                    self.sections.append(identity)
-                    if identity in ('synthetic-refresh-evaluation', 'real-repository-refresh-results',
-                                    'paired-no-change-refresh-results'):
-                        self.groups[identity] = {'text': [], 'links': [], 'parent': list(self.sections[:-1])}
-                for identity in self.sections:
-                    if identity in self.groups and tag == 'a':
-                        self.groups[identity]['links'].append(attrs.get('href', ''))
+                if 'id' in attrs:
+                    self.ids.add(attrs['id'])
+                if tag == 'a' and 'href' in attrs:
+                    self.hrefs.append(attrs['href'])
 
-            def handle_endtag(self, tag):
-                if tag == 'section':
-                    self.sections.pop()
-
-            def handle_data(self, data):
-                for identity in self.sections:
-                    if identity in self.groups:
-                        self.groups[identity]['text'].append(data)
-
-        evidence = Evidence()
-        evidence.feed(landing.render(landing.ROOT, 'getting-started.html'))
-        synthetic = evidence.groups['synthetic-refresh-evaluation']
-        real = evidence.groups['real-repository-refresh-results']
-        paired = evidence.groups['paired-no-change-refresh-results']
-        prefix = 'https://github.com/jaredchu/context-docs/blob/main/'
-        self.assertEqual(synthetic['links'], [prefix + 'evals/refresh/baseline-0.2.6-2026-10-26/README.md'])
-        self.assertEqual(real['links'], [prefix + 'docs/refresh-observations-2026-10-26.md'])
-        self.assertEqual(paired['links'], [prefix + 'docs/refresh-observations-2026-10-26.md#later-paired-no-change-check'])
-        self.assertIn('refresh-evidence', synthetic['parent'])
-        self.assertEqual(synthetic['parent'], real['parent'])
-        self.assertEqual(real['parent'], paired['parent'])
-        paired_text = ' '.join(paired['text'])
-        for scope in ['13 selected files', '18 selected files', 'combined 120', 'not a per-repository total']:
-            self.assertIn(scope, paired_text)
-        self.assertIn('were not saved or printed', paired_text)
-        self.assertIn('did not rerun', paired_text)
-        text = ' '.join(real['text']) + ' ' + paired_text
-        self.assertIn('per-file before/after manifests', text.lower())
-        self.assertIn('cannot rule out missed drift', text)
-        self.assertIn('independent outcome scoring', text)
-        for private_detail in ('context-docs-notes', 'ab6ddc2', '/Users/', '/Volumes/', 'pi-git:'):
-            self.assertNotIn(private_detail, text)
-        self.assertIn('getting-started/#refresh-evidence', landing.render(landing.ROOT))
-        self.assertIn('getting-started/#paired-no-change-refresh-results', landing.render(landing.ROOT))
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            pages = {}
+            for path in output.rglob('*.html'):
+                page = Links()
+                html = path.read_text()
+                page.feed(html)
+                pages[path.resolve()] = page
+                for private_detail in ('context-docs-notes', '/Users/', '/Volumes/', 'pi-git:'):
+                    self.assertNotIn(private_detail, html, path.name)
+            guide = (output / 'getting-started/index.html').resolve()
+            # Preserve incoming URLs from the published evidence sections.
+            for fragment in ('synthetic-refresh-evaluation', 'real-repository-refresh-results',
+                             'paired-no-change-refresh-results'):
+                self.assertIn(fragment, pages[guide].ids)
+            prefix = 'https://github.com/jaredchu/context-docs/blob/main/'
+            for path, page in pages.items():
+                for href in page.hrefs:
+                    with self.subTest(page=path.name, href=href):
+                        if href.startswith(prefix):
+                            source = href[len(prefix):].partition('#')[0]
+                            self.assertTrue((landing.ROOT / source).is_file(), href)
+                        elif not re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:', href):
+                            relative, _, fragment = href.partition('#')
+                            target = (path.parent / relative).resolve() if relative else path
+                            if target.is_dir():
+                                target /= 'index.html'
+                            self.assertIn(target, pages, href)
+                            if fragment:
+                                self.assertIn(fragment, pages[target].ids, href)
 
     def test_demo_reuses_only_selected_blocks_and_escapes_source_updates(self):
         source = landing.ROOT / 'docs/outreach-v0.2.5.md'

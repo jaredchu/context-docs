@@ -29,16 +29,19 @@ build and uploaded artifact; desktop/mobile refresh checks pass. The
 separately from the recorded refresh outcomes.
 
 The separate [real-repository refresh observations](refresh-observations-2026-10-26.md)
-record one context correction and an unchanged repeat here, plus two unchanged
-passes in private notes. These are bounded maintainer observations in the same
-chat, separate from the synthetic evaluation and its results.
-The [later paired check](refresh-observations-2026-10-26.md#later-paired-no-change-check)
-identified no needed update in either bounded set; its scope and limits are
-recorded separately from those earlier observations.
-The [website evidence sections](https://context-docs.com/getting-started/#refresh-evidence)
-publish separate synthetic, earlier real-use and latest paired-check sections,
-with their original scopes and limits. Live desktop/mobile and no-JavaScript
-checks pass, without a new skill release or new refresh evaluation.
+retain one context correction, its unchanged repeat and unchanged private-notes
+checks. The [later paired check](refresh-observations-2026-10-26.md#later-paired-no-change-check)
+also identified no needed update in either selected set. These remain bounded
+same-chat maintainer observations, separate from the synthetic evaluation;
+the record owns their methods, outcomes and limits.
+
+The [published evidence](https://context-docs.com/getting-started/#refresh-evidence)
+and its live checks belong to the deployment summary. The owner selected a
+[local consolidation preview](../site/README.md#local-evidence-consolidation-preview)
+with a compact evidence summary and navigation checks instead of bookkeeping
+assertions. It is not deployed. The [no-change stop rule](project-decisions.md#refresh-recording-and-publication-boundary)
+ends routine unchanged refreshes in chat. Existing studies and private evidence
+are preserved; no new skill release or recording/publication cycle is selected.
 
 The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
@@ -77,7 +80,8 @@ Goal: preserve useful project knowledge with little manual organization
 └─ LIVE      Refresh guidance using unchanged core v0.2.6
    ├─ PASSED   Evidence-based drift repair in one synthetic project
    ├─ PASSED   Second fresh run: all 19 project files unchanged
-   └─ VERIFIED Website a0e636c; separate synthetic/real evidence and live checks
+   ├─ VERIFIED Website a0e636c; separate synthetic/real evidence and live checks
+   └─ PREVIEW  Consolidated evidence and no-change stop rule; not deployed
 
 NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
@@ -299,6 +303,10 @@ and unchanged scores; it did not sanitize older Git history or constitute a
 comprehensive privacy audit. No historical cleanup has been performed for v0.2.6.
 
 ## Next actions
+
+The website evidence consolidation is a local preview; deployment is deferred
+by the current task. Do not create another publication or receipt task merely
+to record a no-change refresh.
 
 Gather concrete learner feedback on the published Reading Queue example and
 [review follow-up](reading-queue-example.md#october-26-review-follow-up-preview).
