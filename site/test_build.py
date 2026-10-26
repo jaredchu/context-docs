@@ -64,6 +64,50 @@ class LandingBuildTests(unittest.TestCase):
         self.assertIn('data-copy="refresh-prompt"', guide)
         self.assertIn('getting-started/#refresh-after-outside-work', landing.render(landing.ROOT))
 
+    def test_refresh_evidence_keeps_sources_separate_and_private_scope_unpublished(self):
+        class Evidence(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.sections = []
+                self.groups = {}
+
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if tag == 'section':
+                    identity = attrs.get('id')
+                    self.sections.append(identity)
+                    if identity in ('synthetic-refresh-evaluation', 'real-repository-refresh-results'):
+                        self.groups[identity] = {'text': [], 'links': [], 'parent': list(self.sections[:-1])}
+                for identity in self.sections:
+                    if identity in self.groups and tag == 'a':
+                        self.groups[identity]['links'].append(attrs.get('href', ''))
+
+            def handle_endtag(self, tag):
+                if tag == 'section':
+                    self.sections.pop()
+
+            def handle_data(self, data):
+                for identity in self.sections:
+                    if identity in self.groups:
+                        self.groups[identity]['text'].append(data)
+
+        evidence = Evidence()
+        evidence.feed(landing.render(landing.ROOT, 'getting-started.html'))
+        synthetic = evidence.groups['synthetic-refresh-evaluation']
+        real = evidence.groups['real-repository-refresh-results']
+        prefix = 'https://github.com/jaredchu/context-docs/blob/main/'
+        self.assertEqual(synthetic['links'], [prefix + 'evals/refresh/baseline-0.2.6-2026-10-26/README.md'])
+        self.assertEqual(real['links'], [prefix + 'docs/refresh-observations-2026-10-26.md'])
+        self.assertIn('refresh-evidence', synthetic['parent'])
+        self.assertEqual(synthetic['parent'], real['parent'])
+        text = ' '.join(real['text'])
+        self.assertIn('per-file before/after manifests', text.lower())
+        self.assertIn('cannot rule out missed drift', text)
+        self.assertIn('independent outcome scoring', text)
+        for private_detail in ('context-docs-notes', 'ab6ddc2', '/Users/', '/Volumes/', 'pi-git:'):
+            self.assertNotIn(private_detail, text)
+        self.assertIn('getting-started/#refresh-evidence', landing.render(landing.ROOT))
+
     def test_demo_reuses_only_selected_blocks_and_escapes_source_updates(self):
         source = landing.ROOT / 'docs/outreach-v0.2.5.md'
         text = source.read_text()
