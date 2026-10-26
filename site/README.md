@@ -171,6 +171,36 @@ installed skills and the example app are unchanged.
 
 ## Latest deployment
 
+On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40268041794)
+built and deployed `main` at `a97307e`. The homepage links to the guide's separate
+synthetic and real-repository refresh evidence sections. Visible real-use limits
+retain the same-chat setup, explicit repeat cues, bounded checks, missing saved
+manifests/traces, lack of ground truth/control and possibility of missed drift.
+Private content and filenames stay unpublished. Skills and original study records
+are unchanged.
+
+Both workflow jobs succeed, and the pinned build passes all 24 site tests.
+All ten uploaded and served public files match the pinned build by SHA-256;
+the empty `.nojekyll` marker is omitted by upload as before. Only the homepage
+and getting-started HTML outputs change from `6b1c9d6`. Four canonical URLs,
+existing Open Graph URLs, sitemap URLs and the robots sitemap reference match.
+
+Fresh live Chrome checks at 1440×1000 and 390×844 pass for the homepage evidence
+link, distinct sections and their source links, visible limits, aggregate-only
+private results, canonical refresh prompt and stubbed copy feedback. No page-wide
+overflow or JavaScript errors were observed. The prompt, both evidence sections
+and limits remain accessible without JavaScript; no host clipboard write occurs.
+Opus 5.5, requested High, reviewed presentation against the public records;
+suggested wording fixes were checked locally with no second reviewer run.
+
+Detailed evidence is retained privately under ID
+`website-deployment-2026-10-26-a97307e`. These are publication/rendering checks,
+not new refresh subjects, independent scoring or a user study. Later record-only
+commits retain this deployed SHA and need no additional deployment when output
+is unchanged.
+
+## October 26 refresh-guidance deployment
+
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40262515843)
 built and deployed `main` at `6b1c9d6`, publishing the canonical refresh prompt in
 the beginner guide and a homepage link to that section. Existing skill versions

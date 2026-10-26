@@ -22,8 +22,9 @@ session or Claude refresh run was launched for these observations.
 | Private notes: repeat | No updates; the same 17 checked files remained equal, HEAD stayed unchanged and Git status stayed clean | Same bounded receipt/context/link checks |
 
 The product correction distinguishes the walkthrough's first publication at
-`b38853d` from its later cleanup at `ee9211e`. The current website deployment
-remains `6b1c9d6`. The correction and its journal entry were subsequently
+`b38853d` from its later cleanup at `ee9211e`. At the time of those refreshes,
+the recorded website deployment was `6b1c9d6`. The correction and its journal
+entry were subsequently
 [committed as d0206d2](https://github.com/jaredchu/context-docs/commit/d0206d2c35a7f11f6c3ab7959cb1320ba214a3de).
 The repeat checked that committed state. The error had been introduced during
 [earlier Codex-assisted maintenance](https://github.com/jaredchu/context-docs/commit/4b1f202eb4bfed013cc323cfff5b0f0ddcd616a1)
