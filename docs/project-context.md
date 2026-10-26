@@ -23,9 +23,8 @@ no new operation, package version or release is selected. Codex authored/scored
 the case; Opus reviewed its design. Explicit skill loading on one client does
 not establish general reliability or automatic selection. The
 [refresh guidance](https://context-docs.com/getting-started/#refresh-after-outside-work)
-is now live from website source `a0e636c`: all ten public files match the pinned
-build and uploaded artifact; desktop/mobile refresh checks pass. The
-[deployment summary](../site/README.md#latest-deployment) owns publication evidence
+and consolidated evidence are live. The [deployment summary](../site/README.md#latest-deployment)
+owns the exact deployed source, matching artifact/live files and browser checks,
 separately from the recorded refresh outcomes.
 
 The separate [real-repository refresh observations](refresh-observations-2026-10-26.md)
@@ -37,9 +36,9 @@ the record owns their methods, outcomes and limits.
 
 The [published evidence](https://context-docs.com/getting-started/#refresh-evidence)
 and its live checks belong to the deployment summary. The owner selected a
-[local consolidation preview](../site/README.md#local-evidence-consolidation-preview)
-with a compact evidence summary and navigation checks instead of bookkeeping
-assertions. It is not deployed. The [no-change stop rule](project-decisions.md#refresh-recording-and-publication-boundary)
+[evidence consolidation](../site/README.md#local-evidence-consolidation-preview)
+with a compact summary and navigation checks instead of bookkeeping assertions;
+it is now deployed and verified. The [no-change stop rule](project-decisions.md#refresh-recording-and-publication-boundary)
 ends routine unchanged refreshes in chat. Existing studies and private evidence
 are preserved; no new skill release or recording/publication cycle is selected.
 
@@ -80,8 +79,7 @@ Goal: preserve useful project knowledge with little manual organization
 └─ LIVE      Refresh guidance using unchanged core v0.2.6
    ├─ PASSED   Evidence-based drift repair in one synthetic project
    ├─ PASSED   Second fresh run: all 19 project files unchanged
-   ├─ VERIFIED Website a0e636c; separate synthetic/real evidence and live checks
-   └─ PREVIEW  Consolidated evidence and no-change stop rule; not deployed
+   └─ VERIFIED Consolidated evidence and no-change stop rule; publication linked above
 
 NEXT: gather learner feedback on the published cleanup; continue v0.2.6.
 ```
@@ -176,11 +174,10 @@ Earlier release approvals do not authorize new publication.
   built from selected public sources. [Deployment](../site/README.md#github-pages)
   is manual. Recorded domain settings are Cloudflare proxying, Full SSL and Always
   Use HTTPS. Earlier deployment receipts are linked in [release history](releases/README.md).
-  The [latest October 26 deployment](../site/README.md#latest-deployment) from
-  `main` at `a0e636c` succeeded; all ten served files, including `/reading-queue/`,
-  match the pinned build and uploaded artifact. Detailed verification is retained
-  in private notes under evidence ID `website-deployment-2026-10-26-a0e636c`.
-  The earlier `a97307e` real-use evidence, `6b1c9d6` refresh guide, `ee9211e` cleanup,
+  The [latest deployment](../site/README.md#latest-deployment) owns the source SHA,
+  workflow and verification; all ten served files match its pinned build/artifact.
+  Detailed evidence is retained under the private receipt ID in that summary.
+  The earlier `a0e636c` paired check, `a97307e` real-use evidence, `6b1c9d6` refresh guide, `ee9211e` cleanup,
   `b38853d` publication and `c2414d4` cleanup remain historical evidence.
 
 - The site publishes canonical metadata, a sitemap and crawler policy. Search
@@ -304,16 +301,17 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-The website evidence consolidation is a local preview; deployment is deferred
-by the current task. Do not create another publication or receipt task merely
-to record a no-change refresh.
+Website consolidation deployment and verification are complete. The requested
+task ends with its receipt and context updates; no additional refresh or
+publication cycle is selected.
 
 Gather concrete learner feedback on the published Reading Queue example and
 [review follow-up](reading-queue-example.md#october-26-review-follow-up-preview).
 Website deployment verification is complete; record-only follow-up needs no
 additional deployment. The [summary](reading-queue-example.md) owns current
-state and evidence links. Preserve the actual deployed sources: app `0f68893`,
-website `a0e636c`. The fresh Codex local trial and prepared unfamiliar-learner
+state and evidence links. Keep the app at `0f68893`; the
+[deployment summary](../site/README.md#latest-deployment) owns the current website source.
+The fresh Codex local trial and prepared unfamiliar-learner
 packet are recorded in the summary; its scope miss remains visible. Keep ordinary
 prompt examples distinct from observed maintenance, with the earlier native Claude
 case's wording qualification retained. Record-only commits do not require another

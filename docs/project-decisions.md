@@ -289,7 +289,10 @@ people who clone or fork the example to deploy from their own accounts.
 On October 26, 2026, after independent reviews identified a cycle of refreshing,
 recording and publishing unchanged state, the owner requested consolidating the
 website evidence, removing tests that pin bookkeeping and adding a stop rule.
-This task authorizes local edits and validation, with deployment deferred.
+That preparation task authorized local edits and validation, with deployment deferred.
+The owner subsequently authorized deploying `e8ace0c`, recording its receipt and
+updating context, then stopping. The [deployment summary](../site/README.md#latest-deployment)
+records the completed publication; no further refresh/publication cycle is selected.
 
 For routine refreshes, report the checked scope, result and material limits in
 chat. If no durable update is needed, stop without creating observation reports,

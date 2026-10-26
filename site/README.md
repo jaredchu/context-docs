@@ -179,13 +179,32 @@ resolve. The homepage no longer promotes the latest unchanged check. Navigation
 and public-source checks replace tests that required observation counts, exact
 qualifier text and separate bookkeeping sections.
 
-This is an unpublished local preview. The deployment below remains authoritative;
-no website deployment or skill release is part of this task. Original study
-records, historical receipts and private evidence remain intact. The project
+This was prepared and validated locally before the owner authorized deployment
+from `e8ace0c`, now verified below. Original study records, historical receipts,
+private evidence and skill packages remain intact. The project
 [refresh boundary](../docs/project-decisions.md#refresh-recording-and-publication-boundary)
 owns the stop rule.
 
 ## Latest deployment
+
+On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40277604859)
+built and deployed `main` at `e8ace0c`, publishing the evidence consolidation
+and routine no-change stop guidance. Both jobs succeed; all 24 pinned site tests
+pass. All ten uploaded and served public files match the pinned build by SHA-256;
+the upload omits the empty `.nojekyll` marker as before. Canonical/Open Graph,
+sitemap and robots metadata match. Only the homepage and getting-started output
+changed from the previous deployment.
+
+Fresh live Chrome checks at 1440×1000 and 390×844 pass for homepage navigation,
+the compact qualified summary and separate source links, stop guidance, three
+legacy fragment URLs, canonical prompt and stubbed copy feedback. No page-wide
+overflow or JavaScript errors were observed; evidence and prompt remain accessible
+without JavaScript. These are publication/rendering checks, not new refresh
+outcome scoring or user-benefit evidence. Detailed receipt: private evidence ID
+`website-deployment-2026-10-26-e8ace0c`. The requested task ends after the receipt and
+context updates; no additional refresh or publication cycle is selected.
+
+## October 26 paired-refresh evidence deployment
 
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40270565743)
 built and deployed `main` at `a0e636c`. The homepage links to the guide's
