@@ -36,6 +36,18 @@ separate from the integrated app, not a Codex run or general implicit-selection
 claim; the preserved decision diff also has an explicitly recorded wording
 qualification. Two configuration-limited attempts are retained in private notes.
 
+A subsequent maintainer-operated Codex CLI / GPT 6.1 Sol High trial used
+preinstalled skills and the starter's adopted AGENTS.md maintenance rule. All
+eight local website prompts ran unchanged, with a separate fresh implementation
+thread; the invocation ignored user configuration and execution-policy rules.
+It read the skill and updated context without another reminder; 23 fixture tests
+passed. Native browser launch failed, while separate coordinator Chrome
+checks passed after recorded helper corrections. Verification also downloaded
+BrowserAct support despite the no-install constraint, then removed it. This is
+qualified evidence of maintenance, **not a clean walkthrough pass** or independent
+learner validation. Detailed records and the prepared learner-feedback packet
+remain in private notes under evidence ID `reading-queue-codex-2026-10-25`.
+
 The [app workflow](https://github.com/jaredchu/context-docs-example-reading-queue/actions/runs/40158636168)
 automatically tested and deployed `0f68893`. All four served static assets match
 the source by SHA-256, the live health endpoint reports that full commit, and

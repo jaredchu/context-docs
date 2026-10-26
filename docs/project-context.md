@@ -19,9 +19,12 @@ The [Reading Queue worked example](reading-queue-example.md) is live, with the
 separate app automatically deployed and verified from `0f68893`. Its
 [prompt-based walkthrough](https://context-docs.com/reading-queue/) is published
 from `b38853d`; all ten served website files match the pinned build and uploaded
-artifact, and live desktop/mobile prompt checks pass. Gather concrete learner
-feedback while retaining the focused native case's wording qualification and
-verification limits. No skill release or Cursor test is selected.
+artifact, and live desktop/mobile prompt checks pass. A fresh Codex local
+walkthrough trial observed maintenance under the adopted rule without another
+skill reminder, with a retained verification-stage no-install miss and separate
+coordinator browser checks. Gather unfamiliar learner feedback; the
+[example summary](reading-queue-example.md) owns the trial's qualifications and
+the earlier Claude case. No skill release or Cursor test is selected.
 
 Saved snapshot: October 25, 2026; this is not live agent activity.
 
@@ -39,7 +42,8 @@ Goal: preserve useful project knowledge with little manual organization
 ├─ PUBLISHED Targeted website cleanup from independent reviews
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
 └─ LIVE      Separate runnable Reading Queue with verified automatic deployment
-   └─ VERIFIED Prompt walkthrough at b38853d; ten matching live website files
+   ├─ VERIFIED Prompt walkthrough at b38853d; ten matching live website files
+   └─ CHECKED  Fresh Codex local prompts; scope miss retained, learner feedback pending
 
 NEXT: gather learner feedback on the runnable example and prompts; continue v0.2.6.
 ```
@@ -261,9 +265,11 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 Gather concrete learner feedback on the published Reading Queue example and
 prompt-based walkthrough. The [summary](reading-queue-example.md) owns current
 state and evidence links. Preserve the actual deployed sources: app `0f68893`,
-website `b38853d`. Keep ordinary prompt examples distinct from observed
-maintenance, with the native case's wording qualification retained. Record-only
-commits do not require another deployment. Cursor work remains postponed.
+website `b38853d`. The fresh Codex local trial and prepared unfamiliar-learner
+packet are recorded in the summary; its scope miss remains visible. Keep ordinary
+prompt examples distinct from observed maintenance, with the earlier native Claude
+case's wording qualification retained. Record-only commits do not require another
+deployment. Cursor work remains postponed.
 
 Continue everyday work with installed standalone v0.2.6. After meaningful outcomes, update
 the existing concise view and check its statuses, source links, blockers and next
