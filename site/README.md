@@ -148,6 +148,25 @@ Detailed review originals, disposition and before/after evidence are retained in
 private notes under evidence ID `website-review-2026-10-25`. The later deployment
 is recorded below; Cursor support and native testing remain postponed.
 
+## October 26 comparison and example preview
+
+The [review follow-up](../docs/reading-queue-example.md#october-26-review-follow-up-preview)
+selects a local preview of targeted content, navigation and tutorial clarifications.
+The comparison links directly to the runnable example, and the guide preserves
+ordinary prompts while clarifying audit checks, native-memory conditions, historical
+case scope and optional deployment. Existing visual design and the mobile table
+remain; broader restructuring awaits learner feedback.
+
+All 22 site tests and repository static checks pass. Local Chromium checks pass
+at 1440×1000 and 390×844 for the new routes, all nine prompt copy handlers
+(clipboard stubbed), step anchors, no page-wide overflow and no observed JavaScript
+errors. The walkthrough and direct example link remain accessible without
+JavaScript. Only the comparison and walkthrough HTML build outputs changed.
+Original reviews, before/after browser evidence and preview receipts belong in
+private notes under evidence ID
+`website-review-2026-10-26`. The deployed website remains `b38853d`; this preview
+is not publication authority and does not change installed skills or the app.
+
 ## Latest deployment
 
 On October 25, 2026, the [workflow](https://github.com/jaredchu/context-docs/actions/runs/40158912040)

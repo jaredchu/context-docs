@@ -22,11 +22,13 @@ from `b38853d`; all ten served website files match the pinned build and uploaded
 artifact, and live desktop/mobile prompt checks pass. A fresh Codex local
 walkthrough trial observed maintenance under the adopted rule without another
 skill reminder, with a retained verification-stage no-install miss and separate
-coordinator browser checks. Gather unfamiliar learner feedback; the
-[example summary](reading-queue-example.md) owns the trial's qualifications and
-the earlier Claude case. No skill release or Cursor test is selected.
+coordinator browser checks. A targeted comparison/example
+[cleanup preview](reading-queue-example.md#october-26-review-follow-up-preview) passes local site/static and desktop/mobile checks after the new independent
+reviews; it remains unpublished. The example summary retains
+the trial qualifications and earlier Claude case. Gather unfamiliar learner
+feedback next; no deployment, skill release or Cursor test is selected.
 
-Saved snapshot: October 25, 2026; this is not live agent activity.
+Saved snapshot: October 26, 2026; this is not live agent activity.
 
 ```text
 Goal: preserve useful project knowledge with little manual organization
@@ -43,9 +45,10 @@ Goal: preserve useful project knowledge with little manual organization
 │  └─ VERIFIED Nine live files match the pinned build at c2414d4
 └─ LIVE      Separate runnable Reading Queue with verified automatic deployment
    ├─ VERIFIED Prompt walkthrough at b38853d; ten matching live website files
-   └─ CHECKED  Fresh Codex local prompts; scope miss retained, learner feedback pending
+   ├─ CHECKED  Fresh Codex local prompts; scope miss retained
+   └─ PREVIEW  Targeted comparison/example cleanup verified locally; unpublished
 
-NEXT: gather learner feedback on the runnable example and prompts; continue v0.2.6.
+NEXT: review the verified local preview, then gather learner feedback; continue v0.2.6.
 ```
 
 **Blockers:** none recorded for the current standalone everyday-use path.
@@ -262,8 +265,9 @@ comprehensive privacy audit. No historical cleanup has been performed for v0.2.6
 
 ## Next actions
 
-Gather concrete learner feedback on the published Reading Queue example and
-prompt-based walkthrough. The [summary](reading-queue-example.md) owns current
+Review the verified [targeted local preview](reading-queue-example.md#october-26-review-follow-up-preview),
+then gather concrete learner feedback on the published Reading Queue example and
+prompt-based walkthrough. Deployment is not selected. The [summary](reading-queue-example.md) owns current
 state and evidence links. Preserve the actual deployed sources: app `0f68893`,
 website `b38853d`. The fresh Codex local trial and prepared unfamiliar-learner
 packet are recorded in the summary; its scope miss remains visible. Keep ordinary

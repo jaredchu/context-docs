@@ -59,3 +59,30 @@ desktop/mobile checks, including all nine prompt copy buttons, pass. Later
 record commits do not replace either deployed source. Gather concrete learner
 feedback next. Detailed operator evidence belongs in private notes under evidence ID
 `reading-queue-example-2026-10-25`. Skill versions and prior studies are unchanged.
+
+
+## October 26 review follow-up preview
+
+The owner requested retaining the independent Astra/Fable reviews in private
+notes, applying targeted cleanup and preparing a local preview. Both reviews
+were configured at High and assessed the same coordinator desktop/mobile captures;
+this is independent model judgment, not separate browser reproduction or human
+validation. Detailed originals and verified disposition belong in private notes
+under evidence ID `website-review-2026-10-26`.
+
+The working copy improves the comparison-to-example route, audit verification
+instructions, dated evidence notes and optional-deployment wording. Main-branch
+example documents align ordinary prompts and clarify the existing export shape
+and implementation-team rationale. Historical case records and published tags
+retain their original scope. No app behavior, skill version or installed package
+changes are selected.
+
+The local preview passes all 22 site tests, repository static checks and
+desktop/mobile rendering and navigation checks, including copy feedback with
+clipboard writes stubbed inside temporary contexts. Only the comparison and
+walkthrough HTML outputs changed relative to the committed build. The live
+website remains at `b38853d`
+and the app at `0f68893`; this request does not authorize deployment. Broader
+mobile-table restructuring and guide-length changes remain proposals for learner
+feedback. The owner plans to share the existing learner packet; no new human
+results or native agent evaluation were collected by this cleanup.

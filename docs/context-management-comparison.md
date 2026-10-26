@@ -80,3 +80,19 @@ from `c2414d4`. The cleanup is now live; the
 [deployment verification](../site/README.md#latest-deployment) confirms all nine
 served files match the pinned build and uploaded artifact. No Cursor
 installation, launch or native test is selected.
+
+
+## October 26 comparison and example preview
+
+The owner requested a local cleanup preview after separate Astra/Fable reviews
+of the comparison and runnable example. The
+[example follow-up](reading-queue-example.md#october-26-review-follow-up-preview)
+owns the shared scope, evidence qualifications and current preview status. The
+comparison adds a direct route to the worked example while retaining native-tool
+overlap, intended fit, reasons to skip and research limits. Existing mobile table
+scrolling remains; cards and other layout changes await learner feedback.
+
+Original reports, provenance, captures and verified disposition are retained
+privately under evidence ID `website-review-2026-10-26`. The original research
+and earlier review records remain unchanged. This preview is not a new tool
+comparison, user study or deployment.
