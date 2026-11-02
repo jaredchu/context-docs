@@ -1,0 +1,114 @@
+name: Refresh skills.sh metadata
+
+on:
+  schedule:
+    - cron: '17 2 * * *' # Daily at 09:17 in Vietnam; GitHub may delay runs.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skills-sh-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'jaredchu/context-docs'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CI: '1'
+      # skills@1.7.4 enables telemetry when these values are falsy.
+      DISABLE_TELEMETRY: ''
+      DO_NOT_TRACK: ''
+      XDG_STATE_HOME: ${{ runner.temp }}/skills-state
+    steps:
+      - name: Check metadata and prepare verification
+        id: before
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/verify-skills-stars.py" <<'PY'
+          import html, json, os, pathlib, re, sys, time, urllib.request
+
+          def get(url, github=False):
+              headers = {'User-Agent': 'context-docs-skills-refresh', 'Cache-Control': 'no-cache'}
+              if github and os.environ.get('GH_TOKEN'):
+                  headers['Authorization'] = 'Bearer ' + os.environ['GH_TOKEN']
+              request = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(request, timeout=10) as response:
+                  return response.read().decode()
+
+          def star_count(page):
+              page = re.sub(r'<script\b[^>]*>.*?</script>', '', page, flags=re.S)
+              text = html.unescape(re.sub(r'<[^>]+>', ' ', page))
+              match = re.search(r'GitHub Stars\s+([\d,.]+)([KMB]?)\b', text, re.I)
+              if not match:
+                  raise ValueError('GitHub Stars field missing from public page')
+              value, suffix = match.groups()
+              scale = {'': 1, 'K': 1000, 'M': 1000000, 'B': 1000000000}[suffix.upper()]
+              number = float(value.replace(',', ''))
+              decimals = len(value.rsplit('.', 1)[1]) if '.' in value else 0
+              # Compact labels establish agreement only at displayed precision.
+              tolerance = scale / 10 ** decimals if suffix else 0
+              return number * scale, tolerance, value + suffix
+
+          state = pathlib.Path(os.environ['RUNNER_TEMP']) / 'skills-stars-target.json'
+          preflight = sys.argv[1] == 'before'
+          if preflight:
+              expected = json.loads(get('https://api.github.com/repos/jaredchu/context-docs', True))['stargazers_count']
+              state.write_text(json.dumps(expected))
+          else:
+              expected = json.loads(state.read_text())
+          pending = {'context-docs', 'adopt-context-docs'}
+          deadline = time.monotonic() + (0 if preflight else 300)
+          while True:
+              for skill in sorted(pending):
+                  try:
+                      page = get('https://www.skills.sh/jaredchu/context-docs/' + skill)
+                      observed, tolerance, label = star_count(page)
+                      print(f'{skill}: skills.sh={label}, GitHub snapshot={expected}', flush=True)
+                      if abs(observed - expected) <= tolerance:
+                          pending.remove(skill)
+                  except Exception as error:
+                      print(f'{skill}: {error}', flush=True)
+              if not pending or preflight or time.monotonic() >= deadline:
+                  break
+              time.sleep(min(20, max(0, deadline - time.monotonic())))
+          if preflight:
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write(f'refresh_required={str(bool(pending)).lower()}\n')
+          if not pending:
+              status = 'Already in sync; no install needed' if preflight else 'Verified after one refresh install'
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+                  summary.write(f'{status}: both pages agree with the GitHub snapshot ({expected}) at displayed precision.\n')
+          elif not preflight:
+              raise SystemExit('Star count verification did not pass for: ' + ', '.join(sorted(pending)))
+          PY
+          python3 "$RUNNER_TEMP/verify-skills-stars.py" before
+
+      - uses: actions/setup-node@v4
+        if: steps.before.outputs.refresh_required == 'true'
+        with:
+          node-version: '24.18.0'
+
+      - name: Install published skills once to trigger metadata refresh
+        if: steps.before.outputs.refresh_required == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 120s npm install --prefix "$RUNNER_TEMP/skills-cli" --ignore-scripts \
+            --no-audit --no-fund skills@1.7.4
+          mkdir -p "$RUNNER_TEMP/skills-refresh"
+          cd "$RUNNER_TEMP/skills-refresh"
+          timeout 120s node "$RUNNER_TEMP/skills-cli/node_modules/skills/bin/cli.mjs" \
+            add jaredchu/context-docs --skill context-docs adopt-context-docs \
+            --agent codex --yes --json
+
+      - name: Verify both public star counts after refresh
+        if: steps.before.outputs.refresh_required == 'true'
+        shell: bash
+        run: python3 "$RUNNER_TEMP/verify-skills-stars.py" after

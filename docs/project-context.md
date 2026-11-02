@@ -158,6 +158,9 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
+- The [skills.sh metadata workflow](skills-sh-refresh.md) defines daily and manual
+  refreshes with public star-count verification. Its preflight skips installation
+  when both pages already agree with GitHub.
 - Core supports audit, initialize and maintain. Adoption uses its sibling core
   and adds or reuses maintenance guidance in loaded project instructions.
   [Installation and usage](getting-started.md) owns setup and runtime details.
