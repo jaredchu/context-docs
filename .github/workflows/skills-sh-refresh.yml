@@ -22,7 +22,6 @@ jobs:
       # skills@1.7.4 enables telemetry when these values are falsy.
       DISABLE_TELEMETRY: ''
       DO_NOT_TRACK: ''
-      XDG_STATE_HOME: ${{ runner.temp }}/skills-state
     steps:
       - name: Check metadata and prepare verification
         id: before
@@ -100,6 +99,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          export XDG_STATE_HOME="$RUNNER_TEMP/skills-state"
           timeout 120s npm install --prefix "$RUNNER_TEMP/skills-cli" --ignore-scripts \
             --no-audit --no-fund skills@1.7.4
           mkdir -p "$RUNNER_TEMP/skills-refresh"
