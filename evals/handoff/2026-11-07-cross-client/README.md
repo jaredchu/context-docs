@@ -98,6 +98,17 @@ private task storage under evidence ID `examples-implementation-2026-11-07`.
 
 ## Retained deviations and limits
 
+The original Codex → Claude Code [receiver note](codex-claude-receiver-context.txt)
+describes malformed-response rejection too broadly. The saved implementation
+checks `schema_version` and whether `items` is an array, without validating every
+item's fields. For example, an HTTP-success response containing
+`{"schema_version":1,"items":[{}]}` passes that envelope check and can produce an
+invalid downloaded item. This is a source-derived counterexample, not a newly
+reproduced runtime failure. The checked API constructs valid items, and
+comprehensive malformed-item validation was not an exercise acceptance criterion.
+The reported acceptance checks remain valid; the original note and case patch
+are preserved unchanged.
+
 The original private protocol used the shorthand “frozen API checks” in one
 limit. The criteria were predeclared, but the actual reference suite was adapted
 after outputs. That label was inaccurate; the public summary uses “post-output

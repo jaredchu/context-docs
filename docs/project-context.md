@@ -26,6 +26,8 @@ there is no new hosted application or skill change. The
 scoped continuation from saved files, followed by passing coordinator API and
 actual-browser checks. The record retains guided/file-only limits, command
 scope deviations and the absence of comparative benefit evidence.
+The case report also qualifies the original receiver note's malformed-response
+claim; the frozen notes and case patches remain unchanged.
 
 The white/graphite/cobalt design, abstract C identity and locally bundled Tabler
 icons remain. The earlier redesign at `92042e9` is retained in the

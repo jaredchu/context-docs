@@ -153,12 +153,15 @@ the actual starter/completed Git snapshots, app source and demo, distinguishes
 application checks from agent evidence, and keeps cloud deployment optional for
 learners. Workers and D1 belong to that app, not to Context Docs.
 
-The explicit public build adds `/reading-queue/` and its sitemap entry. It reads
-only the authored public template for this page, never the example workspace,
-private operator notes, project context or native-run logs. Both existing entry
-pages link to the walkthrough. The owner authorized publication after
-validation; the walkthrough is now [live](https://context-docs.com/reading-queue/)
-from the verified deployment recorded below.
+The public build serves the walkthrough at `/examples/reading-queue/` and lists
+that canonical URL in the sitemap. The old `/reading-queue/` URL returns HTTP 301
+on the public site; its static fallback remains in the artifact and outside the
+sitemap. The build reads only the authored public template for this page, never
+the example workspace, private operator notes, project context or native-run logs.
+Both existing entry pages link to the moved walkthrough. The owner authorized
+its original publication after validation; the walkthrough is now
+[live](https://context-docs.com/examples/reading-queue/) from the
+[latest verified deployment](#latest-deployment).
 
 ## Targeted cleanup preview
 
