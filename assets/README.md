@@ -1,6 +1,6 @@
 # Brand and README artwork
 
-The November 7, 2026 local UI reboot uses original, code-authored SVG artwork:
+The November 7, 2026 UI reboot uses original, code-authored SVG artwork:
 
 - [Abstract C mark](context-docs-mark.svg): a solid angular graphite C with a
   detached cobalt terminal, suggesting context carried forward. Filled geometry

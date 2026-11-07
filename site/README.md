@@ -221,9 +221,9 @@ implementation/review receipts are retained privately under evidence ID
 remain preserved in their original records.
 
 The owner authorized committing, pushing and deploying this UI reboot on
-November 7, 2026. Final source checks and publication are in progress. Skills,
-package versions and canonical examples are unchanged. The deployment record
-below will retain the exact source SHA and completed verification.
+November 7, 2026. The redesign is now deployed from `92042e9`; the
+[latest deployment](#latest-deployment) retains its source and verification.
+Skills, package versions and canonical examples are unchanged.
 
 ## Consistent SVG icons
 
@@ -293,6 +293,38 @@ covers the broader redesign above. Skills, versions, frozen examples and
 historical evidence are unchanged.
 
 ## Latest deployment
+
+
+On November 7, 2026, the owner authorized committing and deploying the full
+website redesign and logo changes. The
+[Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/42356590439)
+built and deployed `main` at **`92042e9`**. Both source CI workflows and the
+manual build/deploy jobs passed. The commit retains normal human authorship
+and credits Codex and Claude for implementation, validation and review.
+
+The technical light theme, simpler introduction/setup, abstract C identity,
+consistent Tabler SVG icons and README artwork are live. All **twelve uploaded
+files** match the pinned thirteen-file build by SHA-256; upload omits the empty
+`.nojekyll` marker. Eight non-HTML live resources match exactly, including
+`logo.svg`, `favicon.svg`, the README PNG and Tabler's MIT license. Each of four
+HTML pages matches exactly after removing only the previously approved
+Cloudflare analytics beacon and its inserted newline. The owner chose to keep
+that edge injection; no Cloudflare setting was changed.
+
+Fresh Chrome checks at 1440×1000 and 390×844 pass on all four routes: light theme,
+loaded branding, canonical URLs, no page-wide overflow or observed JavaScript
+errors. Homepage/guide checks also cover published v0.2.7 install pins, client
+selection, stubbed copy feedback, native disclosures and no-JavaScript setup.
+The repository passes static checks and 27 site tests. These are publication and
+rendering checks, not OS clipboard validation, cross-browser certification or
+new agent evaluations. Detailed receipt: private evidence ID
+`website-redesign-deployment-2026-11-07`.
+
+The deployment source stays `92042e9` when a later record-only commit advances
+`main`. Final public artifact paths and hashes are unchanged by the record update,
+so no second deployment is required.
+
+### Earlier v0.2.7 release deployment
 
 
 On November 7, 2026, the owner separately authorized website deployment for the

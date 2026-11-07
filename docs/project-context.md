@@ -18,22 +18,22 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner broadened the website work to a full UI/UX and identity reboot using
-a technical minimalist light theme, including the logo, favicon and README
-visual. The redesign applies a coherent white/graphite/cobalt system
-across all four routes and retains the earlier approachable content improvements.
-The current logo is an abstract C with a detached blue terminal, as requested
-by the owner. UI controls retain eight locally bundled Tabler outline SVGs. The
+The technical minimalist light website reboot is deployed from `92042e9` on
+November 7, 2026. All four routes share white/graphite/cobalt styling, simpler
+introductory content, accessible setup and optional detailed examples. The
+abstract C logo, favicon and README visual use the same original SVG geometry.
+UI controls use eight locally bundled Tabler outline icons; the
 [icon integration](../site/README.md#consistent-svg-icons) owns the pinned version,
-license, selection rationale and build boundary.
-The [UI reboot scope and checks](../site/README.md#technical-minimalist-ui-reboot)
-own presentation status. New editable SVG artwork and its PNG export are covered
-in [brand provenance](../assets/README.md). Before this local redesign, the live
-site's ten resources agreed with committed source apart from the retained edge
-analytics script. Package versions, skill behavior and frozen evidence are unchanged. The owner
-authorized committing, pushing and deploying this redesign on November 7, 2026;
-final source checks and publication are in progress.
+license and build boundary, and [brand provenance](../assets/README.md) owns the
+editable artwork and PNG export.
 
+The [latest deployment](../site/README.md#latest-deployment) owns the workflow,
+source and verification scope. Both source CI workflows and the Pages build/deploy
+passed. All twelve uploaded files match the thirteen-file build, which includes
+an empty marker omitted by upload. Eight live non-HTML resources match exactly;
+four HTML pages match after removing only the owner-retained Cloudflare analytics
+beacon and its inserted newline. Fresh desktop/mobile checks pass on all four
+routes. Package versions, skill behavior and frozen evidence are unchanged.
 
 The owner accepted a focused review follow-up: simplify this entry point, prepare
 an unfamiliar-user trial and deduplicate skill instructions incrementally. The
@@ -70,14 +70,15 @@ Goal: useful, accurate context with less manual organization
 ├─ PUBLISHED  v0.2.7 at 00c4b51; release CI and website deployment pass
 │  ├─ CHECKED Website build matches committed repo; retained edge analytics difference
 │  └─ UNKNOWN skills.sh public-content refresh remains unverified
-└─ APPROVED   Technical minimalist light reboot: four routes, logo/favicon and README art
-   ├─ UPDATED Abstract C mark and consistent locally bundled Tabler SVG icons
-   ├─ CHECKED Static, 27 site tests, 16 viewport/route cases and icon state checks
-   └─ NEXT    Commit, check CI and deploy the authorized redesign
+└─ DEPLOYED   Technical minimalist light reboot at 92042e9; abstract C and README art
+   ├─ CHECKED CI, 27 site tests, 12 artifact files and eight live browser cases
+   ├─ KEPT    Cloudflare analytics; other live bytes agree with the pinned build
+   └─ DONE    Redesign and logo published; verification recorded
 ~~~
 
-The [publication record](releases/v0.2.7-publication.json) owns exact release/deployment
-source and discovery limits. The [usage guide](getting-started.md) owns installation pinned to published bundle
+The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
+its initial deployment and discovery limits. The latest website deployment above
+owns the subsequent redesign. The [usage guide](getting-started.md) owns installation pinned to published bundle
 v0.2.7 and shared-context transfer guidance. The
 [evidence overview](evaluation-results.md#more-recent-studies) now links the newer
 feedback, candidate and synthetic records with their distinct scopes and limits.
@@ -183,13 +184,14 @@ Repository checks validate mechanics, not agent behavior.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.
-The full technical minimalist UI/UX and identity reboot is prepared locally and
-checked; no redesign push or deployment is selected. Release publication and the previously authorized
-website deployment remain complete at `00c4b51`. The owner chose to keep the Cloudflare-injected analytics beacon;
-record the live-byte difference while retaining the repository/artifact match.
-The isolated skills.sh install passes, but both public page bodies remain on
-v0.2.6 after a bounded wait. Retain that discovery verification gap; do not treat
-HTTP 200 telemetry as an updated page or repeat installs/replay telemetry.
+The technical minimalist UI/UX and identity reboot, abstract C logo and README
+artwork are deployed from `92042e9`; the [website record](../site/README.md#latest-deployment)
+retains successful source CI, Pages jobs and artifact/live checks. The skill
+release remains v0.2.7 at `00c4b51`. The owner-retained Cloudflare analytics beacon
+is the only observed live HTML difference from the repository build.
+The isolated skills.sh install passed at v0.2.7 publication, but public page checks
+then matched v0.2.6 after a bounded wait. Content refresh remains unverified;
+do not treat HTTP 200 telemetry as an updated page or repeat installs/replay telemetry.
 Existing installed upgrades remain separate; retain the actual deployed source. Keep the
 [discrimination protocol](../evals/discrimination-protocol.md)
 as a separate proposed comparative study, not a prerequisite for everyday use.
