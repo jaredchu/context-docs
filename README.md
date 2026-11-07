@@ -17,8 +17,8 @@ as possible.
 
 **Status: experimental (unreleased), core skill v0.2.7 and adoption skill v0.1.16.**
 These source versions contain a narrow instruction simplification candidate.
-Published and installed everyday-use packages remain core **0.2.6** and adoption
-**0.1.15**; no release or installed upgrade is part of this change.
+Published everyday-use packages remain core **0.2.6** and adoption **0.1.15**;
+the source candidate has not been released.
 The [v0.2.6 release notes](docs/releases/v0.2.6.md) cover metadata filtering,
 portable references and qualified synthetic checks. The earlier candidate’s
 unlinked-note coverage gap remains; the separate installed check names the note

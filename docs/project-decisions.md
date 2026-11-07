@@ -89,15 +89,13 @@ credited. The [commit attribution policy](../CONTRIBUTING.md#commit-attribution)
 uses Codex's verified co-author trailer for future assisted commits while preserving
 human authorship and existing history. Contributor-graph placement is not established.
 
-On October 9 the owner designated GPT 6 Astra with High reasoning and Claude
-Opus 5.5 as the project's ongoing collaborators. The
-[project instructions](../AGENTS.md#model-collaboration) record the working rule;
-the owner also delegated reasonable task assignment and peer review. Task-fit
-assignment, one owner per change and focused counterpart review for substantive
-changes implement that preference, with proportionate checks for routine edits.
-This records the requested models, not a change to an active chat's
-model configuration or a claim that both models reviewed every prior change.
-The October 10 responsibility split below supersedes this model assignment.
+The October 9 collaboration arrangement followed an owner request. Its
+project-relevant principles were task-fit assignments,
+one owner per change and focused counterpart review for substantive changes,
+with proportionate checks for routine edits. The October 10 coordination rules
+below retain the project-relevant principles. Tool-specific operator preferences
+are not public contributor requirements; these summaries do not establish that
+any particular tool participated in a past change.
 
 
 On October 9 the owner requested that Context Docs choose what to retain according
@@ -124,27 +122,15 @@ quality diagnostics, not a requirement to outperform an expert workflow. Existin
 frozen criteria, scores and factual failures remain unchanged; no reduction in
 intended users' effort has been demonstrated by this clarification alone.
 
-On October 10, 2026, the owner replaced the Astra/Opus assignment with Sol 6.1
-coordinating scope, task breakdown and integration, handling small changes alone,
-and maintaining context with actual tests and accepted decisions. Opus 5.5 takes
-bounded substantial implementation or sustained investigation; the other model
-reviews consequential changes against specific risks. The owner emphasized that
-Sol should send a compact task, receive a patch plus evidence and inspect important
-boundaries without redoing all of Opus's work, to preserve the ChatGPT allowance.
-In the fuller policy supplied afterward, the owner required clear editable scope
-and a usage/time bound for Opus assignments, one writer per change, findings-only
-reviewers and owner-validated resolutions. Review is limited to one initial pass
-and one focused follow-up for material fixes; unresolved issues must be reported
-rather than triggering a loop. Roles may change when warranted; small changes
-remain Sol-only unless project rules require independent review. Use existing
-subscription-authenticated access; Astra, API fallback and additional spending
-require an explicit owner request. Apply the policy only to this project, preserve
-existing safeguards and leave global settings unchanged. Useful completed work
-from both subscriptions, better quality and reduced ChatGPT allowance pressure
-are objectives to verify, not demonstrated outcomes.
-The [project instructions](../AGENTS.md#model-collaboration) own the working rules.
-This records the owner's requested responsibilities, not a runtime model change
-or evidence that either model participated in a particular task.
+The owner refined coordination on October 10 to include bounded assignments
+with clear editable scope and expected evidence, one writer per change, findings-only
+reviewers and implementation-owner validation. Review is limited to one initial
+pass and one focused follow-up for material fixes; unresolved issues must be
+reported rather than triggering a loop. Small changes need proportionate checks,
+while consequential changes receive focused review against specific risks.
+The [repository working rules](../AGENTS.md#agent-working-rules) own the current
+contributor requirements. These project-level principles do not prescribe a
+maintainer's personal tooling or establish model participation in earlier work.
 
 On October 10, 2026, the owner requested an explicit local-only context option in
 both skills and the user guide, with checks for ignored files, already tracked
@@ -196,9 +182,8 @@ submission or publication is selected; reopening the work needs a new owner requ
 
 ## Cursor compatibility review
 
-On October 23, 2026, the owner requested independent Astra and Fable reviews at
-High reasoning, then asked to retain both reviews and a proposed testing plan in
-private notes. The owner explicitly instructed not to install or launch Cursor yet.
+On October 23, 2026, the owner requested independent Astra and Fable
+reviews at High reasoning. No Cursor installation or launch was authorized.
 
 Keep Cursor **not evaluated** and defer advertised support pending native evidence.
 Both reviewers recommend a bounded synthetic probe using the unchanged standalone
@@ -208,21 +193,21 @@ skills, with separate claims for CLI and desktop. Cursor documents
 Context Docs discovery, instruction loading or runtime behavior. No skill change,
 plugin, release or native Cursor test is selected by this record.
 
-The private review and plan record has evidence ID
-`cursor-compatibility-2026-10-23`. It retains both original reviews, model provenance,
-dated sources, machine requirements and a proposed seven-session journey. Private
-details are not public evaluation evidence. This recording request authorizes no
-installation, launch, authentication, spending or test execution.
+The original review and plan record, kept outside this repository under evidence
+ID `cursor-compatibility-2026-10-23`, retains original reviews, model provenance,
+dated sources, environment requirements and a proposed seven-session journey.
+Those restricted records are not public evaluation evidence; the proposal grants
+no installation, launch, authentication, spending or test-execution authority.
 
 ## Deployment record commits
 
-On October 23, 2026, the owner requested updating the deployment checklist and
-both repositories' context so verification-record commits do not require another
-deployment. Keep the actual deployed SHA and receipt when later commits only
-record evidence or context. The [deployment checklist](../site/README.md#deployment-checklist)
-owns the output/behavior change check, verification steps and explicit-rerun
-exception. CI can still build documentation-only commits without publishing.
-This request authorizes documentation changes, not a deployment or Cursor launch.
+On October 23, 2026, the owner clarified that verification-record commits do
+not require another deployment. Keep the actual deployed SHA and receipt when
+later commits only record evidence or context. The
+[deployment checklist](../site/README.md#deployment-checklist) owns the
+output/behavior change check, verification steps and explicit-rerun exception.
+CI can still build documentation-only commits without publishing.
+This documentation decision authorizes neither deployment nor a Cursor launch.
 
 ## Cursor support postponement
 
@@ -248,13 +233,12 @@ support and native testing remain postponed.
 
 ## Website cleanup preview
 
-On October 25, 2026, the owner requested saving both independent live-website
-review rounds in private notes, applying the targeted cleanup and preparing a
-preview, with context updates in both repositories. Preserve the distinction
-between factual corrections, heuristic UX suggestions and deferred redesign.
+On October 25, 2026, the owner selected targeted website cleanup and a local
+preview after two independent review rounds. Preserve the distinction between
+factual corrections, heuristic UX suggestions and deferred redesign.
 The [review follow-up](context-management-comparison.md#review-follow-up-preview)
-records scope and limits. No deployment or Cursor installation/launch is
-authorized; the live source remains `9b6ee38`.
+records scope and limits. The initial preview authorization included no deployment
+or Cursor installation/launch; the live source then remained `9b6ee38`.
 
 After the preview and review-record commits, the owner authorized deploying
 `main` at `c2414d4`. The October 25
@@ -328,3 +312,18 @@ and deferred Cursor/plugin work. The [trial packet](../evals/user-feedback/READM
 sets out the bounded procedure; participant counts and study design are coordinator
 choices, not owner quotations. This approval authorizes local preparation and
 validation, not participant outreach, publication, deployment or installed upgrades.
+
+## Public project context boundary
+
+On November 7, 2026, the owner directed this public open-source repository
+to retain professional project knowledge and general contributor safeguards,
+while keeping personal operator workflows outside it. The current instructions
+therefore use model-neutral working/review rules; current context describes
+published and candidate versions without depending on an operator's installation.
+
+Original operator-policy and coordination passages were preserved separately
+under record ID `public-context-separation-2026-11-07` before these public
+summaries were prepared. Their useful project-level rationale remains here.
+Frozen evaluations, historical journal events, Git history, contribution credit
+and the installable skills' support for other private projects are unchanged.
+This local documentation cleanup grants no publication, deployment or upgrade.

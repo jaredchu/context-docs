@@ -11,8 +11,9 @@ The core skill audits, initializes and maintains existing project documents;
 the adoption skill establishes or reuses ongoing maintenance instructions.
 Markdown/Git stays authoritative. Progress views and optional local-only storage
 fit existing layouts; ordinary maintenance needs no runtime or cloud service.
-This repository serves skill users and contributors. Keep incidental operator
-state in an appropriate local destination.
+This public repository serves skill users and contributors. Keep maintainer-specific
+operator preferences and incidental state outside it; use suitable public summaries
+and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
@@ -27,8 +28,9 @@ cross-machine use](../evals/user-feedback/README.md#owner-confirmation).
 Local sources contain unreleased core **0.2.7** and adoption **0.1.16**. The
 [candidate check](../evals/simplification/2026-10-26/README.md) passes focused file
 checks in Codex and Claude. Claude startup/import events support its loading
-statement; the earlier Codex statement remains unverified. Installed packages,
-published v0.2.6 and frozen participant r1 materials remain unchanged.
+statement; the earlier Codex statement remains unverified. Published v0.2.6 and
+frozen participant r1 materials remain unchanged. The contributor instructions and
+this context now follow the [public audience boundary](project-decisions.md#public-project-context-boundary).
 
 Progress snapshot updated November 7, 2026; earlier technical checks retain their
 recorded dates. This is not live agent activity.
@@ -41,8 +43,10 @@ Goal: useful, accurate context with less manual organization
 │  └─ LEARNED Continuity is valued; keeping context current needs occasional help
 ├─ CONFIRMED  Human-observed usability and cross-machine use (owner confirmation)
 ├─ CHECKED    One synthetic Git-transfer handoff; fresh reader recovered all 8 items
-└─ CHECKED    Stale dependency note corrected; rationale and blocker retained
-   └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
+├─ CHECKED    Stale dependency note corrected; rationale and blocker retained
+│  └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
+└─ PREPARED   Public context and model-neutral contributor rules
+   └─ HOLD    Publication is not authorized
 ~~~
 
 The [feedback summary](../evals/user-feedback/README.md#anonymous-early-feedback)
@@ -81,7 +85,7 @@ remain deferred.
   changes do not require another deployment.
 
 [Decision history](project-decisions.md) owns authority and rationale;
-[AGENTS.md](../AGENTS.md) owns collaboration and spending rules;
+[AGENTS.md](../AGENTS.md) owns repository working and review rules;
 [CONTRIBUTING.md](../CONTRIBUTING.md) owns contribution checks and Codex/Claude credit.
 Earlier release approvals do not authorize new publication.
 
@@ -144,8 +148,9 @@ Repository checks validate mechanics, not agent behavior.
 
 ## Next actions
 
-The selected stale-note check is complete; no additional maintenance fix is
-selected. Keep the [discrimination protocol](../evals/discrimination-protocol.md)
+The stale-note check and public-context cleanup are complete; no additional skill
+fix is selected. Publication requires a separately authorized task. Keep the
+[discrimination protocol](../evals/discrimination-protocol.md)
 as a separate proposed comparative study, not a prerequisite for everyday use.
 
 The [trial packet](../evals/user-feedback/README.md) and frozen

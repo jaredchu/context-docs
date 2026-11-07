@@ -23,6 +23,9 @@
 - Record each skill change in `CHANGELOG.md` with the version it lands in and what
   was actually tested. Keep each skill's `VERSION` file in step with it.
 - Use synthetic examples. Do not copy private project context into this repo.
+- Keep public context focused on users and contributors. Maintainer-specific
+  operator preferences and bookkeeping belong outside this repository; retain
+  appropriate public summaries and reproducible evidence when needed.
 - Update current project context when behavior, scope or status changes.
 - End a routine no-change refresh with a concise chat result, then stop. Follow
   the [refresh recording and publication boundary](docs/project-decisions.md#refresh-recording-and-publication-boundary);
@@ -38,48 +41,30 @@
   attribution trailers when both models assisted, each exactly once.
 - Publication requires authorization from the task; these instructions grant none.
 
-## Model collaboration
+## Agent working rules
 
-Use GPT 6.1 Sol and Claude Opus 5.5 with these suggested responsibilities:
-This policy applies only to this project. Preserve its existing safeguards;
-do not change global settings.
-
-| Work | Suggested responsibility |
-| --- | --- |
-| Coordination, scope, task breakdown, integration | Sol 6.1 |
-| Small fixes and straightforward changes | Sol, working alone unless project rules require independent review |
-| Substantial implementation or sustained investigation | Opus 5.5, with a bounded assignment |
-| Review of consequential changes | The other model, focused on specific risks |
-| Validation and context-docs maintenance | Sol, using actual tests and accepted decisions |
-
-- Roles may change when the task warrants it.
-- Sol coordinates without redoing all of Opus's work. Hand over a compact task
-  with clear editable scope, relevant context, acceptance criteria, expected evidence
-  and a usage/time bound;
-  receive a patch plus evidence, then inspect the important boundaries and
-  specific risks. Repeat investigation only to resolve a concrete gap or concern,
-  so coordination does not consume the ChatGPT allowance it is meant to preserve.
-- Keep one writer per change. Reviewers return findings; the implementation owner
-  validates and resolves them. Sol handles integration and validation.
-  Parallelize independent assignments without overlapping edits.
-- Have the other model review consequential behavior, skill, evaluation or design
-  changes. Give the reviewer the relevant diff, requirements and check results;
-  focus on specific risks, including correctness, regressions and unsupported
-  claims. Routine wording, formatting and mechanical updates need only
-  proportionate local checks.
-- Verify review findings against evidence before acting. Allow one initial review
-  and one focused follow-up for material fixes. Stop and report unresolved issues
+- Keep one writer per change and hand off ownership explicitly. Reviewers return
+  findings; the implementation owner validates and resolves them. Parallelize
+  independent assignments without overlapping edits. Prefer narrow changes and
+  reread/reconcile current contents after conflicts.
+- Give substantial assignments clear editable scope, relevant context, acceptance
+  criteria, expected evidence and a usage/time bound. Review the resulting patch
+  and its important boundaries; repeat investigation only for a concrete gap.
+- Have another reviewer assess consequential behavior, skill, evaluation or design
+  changes against specific risks: correctness, regressions and unsupported claims.
+  Give them the relevant diff, requirements and check results. Small fixes and
+  routine wording, formatting or mechanical updates need proportionate checks,
+  without a mandatory additional reviewer unless another project rule requires one.
+- Verify findings against evidence before acting. Allow one initial review and
+  one focused follow-up for material fixes. Stop and report unresolved issues
   rather than looping. Resolve technical disagreements through source inspection
-  or focused checks within those bounds; ask the project owner only for
-  consequential scope or product choices.
-- Use existing subscription-authenticated access. Do not use Astra, API fallback
-  or additional spending without the project owner's explicit request.
-- Report the models actually used and any unavailable collaborator; do not
-  silently substitute another model or claim review that did not occur.
-
-The objective is useful completed work from both subscriptions while reducing
-pressure on the owner's ChatGPT allowance. Better quality and allowance savings
-remain goals to verify, not assumed benefits.
+  or focused checks within those bounds; ask the maintainer only for consequential
+  scope or product choices.
+- Do not change global settings, provision services or incur new costs without
+  task authorization. Existing project safeguards and publication boundaries apply.
+- Report checks and assistance actually used, including model identities and
+  verification limits where relevant. Do not claim review that did not occur or
+  silently substitute a specifically requested collaborator.
 
 ## Context documentation
 

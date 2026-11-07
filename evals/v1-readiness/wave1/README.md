@@ -160,8 +160,9 @@ Before execution, resolve:
    Do not invent a version bump merely to obtain a passing upgrade receipt.
 3. Counterpart checker review and any material corrections, exact native evidence
    requirements, prompts/allowed writes and explicit trial authorization. The
-   [project collaboration rule](../../../AGENTS.md#model-collaboration) requires
-   the other model's review of consequential evaluation changes. Sol implemented
+   then-current project policy required counterpart model review of consequential
+   evaluation changes. The [current repository review rules](../../../AGENTS.md#agent-working-rules)
+   retain a general review requirement. Sol implemented
    and validated these preparations; Opus was not launched because an isolated
    authenticated development-review store has not been established. No substitute
    model, credential export or API fallback was used.
