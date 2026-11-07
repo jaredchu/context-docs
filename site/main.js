@@ -16,24 +16,31 @@ if (switcher && clients.length) {
 }
 for (const button of document.querySelectorAll('[data-copy]')) {
   const label = button.getAttribute('aria-label');
+  const copyLabel = button.querySelector('[data-copy-label]');
+  function showCopied(copied) {
+    copyLabel.textContent = copied ? 'Copied' : 'Copy';
+    button.dataset.copied = String(copied);
+  }
   let feedbackTimer;
   button.hidden = false;
+  const block = button.closest('.code-block');
+  if (block) block.classList.add('has-copy');
   button.addEventListener('click', async () => {
     const code = document.getElementById(button.dataset.copy);
     const feedback = document.getElementById(button.dataset.status) || status;
     if (button.dataset.busy) return;
     button.dataset.busy = 'true';
     window.clearTimeout(feedbackTimer);
-    button.textContent = 'Copy';
+    showCopied(false);
     button.setAttribute('aria-label', label);
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(code.textContent);
       feedback.textContent = 'Copied. Paste into ' + button.dataset.destination + '.';
-      button.textContent = 'Copied';
+      showCopied(true);
       button.setAttribute('aria-label', label.replace(/^Copy /, 'Copied '));
       feedbackTimer = window.setTimeout(() => {
-        button.textContent = 'Copy';
+        showCopied(false);
         button.setAttribute('aria-label', label);
       }, 1500);
     } catch {

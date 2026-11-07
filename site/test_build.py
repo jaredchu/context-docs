@@ -23,12 +23,39 @@ class LandingBuildTests(unittest.TestCase):
             (output / 'private-note.txt').write_text('Must not survive a rebuild')
             landing.build(output=output)
             self.assertEqual({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()}, {
-                'index.html', 'styles.css', 'main.js', 'favicon.svg',
+                'index.html', 'styles.css', 'main.js', 'favicon.svg', 'logo.svg',
                 'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml',
+                'tabler-icons-LICENSE.txt',
                 'getting-started/index.html', 'compare/index.html', 'reading-queue/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
+
+    def test_brand_assets_are_consistent_and_resolve_on_every_public_route(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            mark = (landing.ROOT / 'assets/context-docs-mark.svg').read_bytes()
+            self.assertEqual((output / 'logo.svg').read_bytes(), mark)
+            self.assertEqual((output / 'favicon.svg').read_bytes(), mark)
+            self.assertEqual(ET.fromstring(mark).attrib['viewBox'], '0 0 32 32')
+
+            class Images(HTMLParser):
+                def __init__(self):
+                    super().__init__()
+                    self.sources = []
+
+                def handle_starttag(self, tag, attrs):
+                    attrs = dict(attrs)
+                    if tag == 'img':
+                        self.sources.append(attrs.get('src', ''))
+
+            for path in output.rglob('*.html'):
+                images = Images()
+                images.feed(path.read_text())
+                logos = [src for src in images.sources if src.endswith('logo.svg')]
+                self.assertTrue(logos, path.relative_to(output).as_posix())
+                for src in logos:
+                    self.assertEqual((path.parent / src).resolve(), (output / 'logo.svg').resolve())
 
     def test_commands_and_example_are_canonical(self):
         rendered = unescape(landing.render(landing.ROOT))
@@ -43,6 +70,39 @@ class LandingBuildTests(unittest.TestCase):
             block = landing.fenced_section((landing.ROOT / path).read_text(), heading, language)
             self.assertIn(block, rendered)
         self.assertNotIn('{{', rendered)
+
+    def test_inline_icons_are_decorative_local_and_licensed_on_all_routes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            self.assertEqual((output / 'tabler-icons-LICENSE.txt').read_bytes(),
+                             (landing.ROOT / 'site/vendor/tabler/LICENSE').read_bytes())
+            for path in output.rglob('*.html'):
+                html = path.read_text()
+                self.assertNotIn('[[icon:', html)
+                icons = re.findall(r'<svg\b[^>]*class="ui-icon [^"]*"[^>]*>', html)
+                self.assertTrue(icons, path)
+                for icon in icons:
+                    self.assertIn('aria-hidden="true"', icon)
+                    self.assertIn('focusable="false"', icon)
+                    self.assertIn('stroke="currentColor"', icon)
+                self.assertNotRegex(html, r'<(?:script|link)[^>]*(?:tabler|fontawesome|lucide)')
+
+    def test_icon_markers_fail_closed_and_canonical_text_is_not_expanded(self):
+        with self.assertRaisesRegex(ValueError, 'Unknown UI icon'):
+            landing.expand_icons(landing.ROOT, '[[icon:not-bundled]]')
+        with self.assertRaisesRegex(ValueError, 'Malformed UI icon'):
+            landing.expand_icons(landing.ROOT, '[[icon:../file]]')
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaisesRegex(ValueError, 'Expected a regular icon source'):
+                landing.expand_icons(Path(temporary), '[[icon:check]]')
+        original = Path.read_text
+        def canonical_marker(path, *args, **kwargs):
+            text = original(path, *args, **kwargs)
+            if path == landing.ROOT / 'README.md':
+                return text.replace('CSV export is implemented;', '[[icon:check]] is literal;')
+            return text
+        with patch.object(Path, 'read_text', canonical_marker):
+            self.assertIn('[[icon:check]] is literal;', landing.render(landing.ROOT, 'getting-started.html'))
 
     def test_refresh_prompt_tracks_canonical_updates_without_publishing_other_notes(self):
         source = landing.ROOT / 'docs/getting-started.md'
@@ -219,7 +279,8 @@ class LandingBuildTests(unittest.TestCase):
         original_read = Path.read_text
 
         def comparison_source_only(path, *args, **kwargs):
-            self.assertEqual(path, landing.ROOT / 'site/compare.html')
+            self.assertIn(path, {landing.ROOT / 'site/compare.html'} |
+                          {landing.ROOT / 'site/vendor/tabler' / (name + '.svg') for name in landing.ICONS})
             return original_read(path, *args, **kwargs)
 
         with patch.object(Path, 'read_text', comparison_source_only):
@@ -308,7 +369,8 @@ class LandingBuildTests(unittest.TestCase):
         original_read = Path.read_text
 
         def only_public_template(path, *args, **kwargs):
-            self.assertEqual(path, landing.ROOT / 'site/reading-queue.html')
+            self.assertIn(path, {landing.ROOT / 'site/reading-queue.html'} |
+                          {landing.ROOT / 'site/vendor/tabler' / (name + '.svg') for name in landing.ICONS})
             return original_read(path, *args, **kwargs)
 
         with patch.object(Path, 'read_text', only_public_template):
@@ -420,6 +482,7 @@ class LandingBuildTests(unittest.TestCase):
             'skills/context-docs/VERSION', 'skills/adopt-context-docs/VERSION',
             'site/index.html', 'site/getting-started.html',
         }
+        public_inputs |= {'site/vendor/tabler/' + name + '.svg' for name in landing.ICONS}
 
         def public_sources_only(path, *args, **kwargs):
             self.assertIn(path.relative_to(landing.ROOT).as_posix(), public_inputs)

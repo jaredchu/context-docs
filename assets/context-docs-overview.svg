@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="840" viewBox="0 0 1600 840" role="img" aria-labelledby="title description">
+<title id="title">Context Docs: a useful handoff, in a file</title>
+<desc id="description">An illustrative workflow: do the work, save decisions, current work and next steps in project Markdown, then ask a new session to read it. The agent works during active sessions and its changes need review.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 6 3.5 0 7" fill="none" stroke="#2563eb" stroke-width="1.2"/></marker></defs>
+<rect width="1600" height="840" fill="#fafbfc"/>
+<g stroke="#e5e9ef" stroke-width="1"><path d="M72 110H1528M72 712H1528"/><path d="M72 129V692M1528 129V692" stroke-dasharray="3 8"/></g>
+<g transform="translate(72 51)"><path d="M20 5h-9l-7 7v8l7 7h17v-6H14l-4-4v-2l4-4h6Z" fill="#17202b"/>
+<path d="M22 5h6v6h-6Z" fill="#2563eb"/></g>
+<g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif" fill="#17202b">
+<text x="118" y="78" font-size="28" font-weight="650" letter-spacing="-.8">Context Docs</text>
+<text x="1528" y="76" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" letter-spacing="1.2" fill="#5c6673">PROJECT CONTINUITY / PLAIN MARKDOWN</text>
+<text x="72" y="204" font-size="58" font-weight="650" letter-spacing="-1.2">A useful handoff, in a file.</text>
+<text x="72" y="253" font-size="25" fill="#5c6673">Keep decisions, current work and next steps where the project lives.</text>
+<rect x="72" y="324" width="420" height="330" rx="4" fill="#fff" stroke="#dce1e7"/>
+<rect x="590" y="324" width="420" height="330" rx="4" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1108" y="324" width="420" height="330" rx="4" fill="#fff" stroke="#dce1e7"/>
+<g stroke="#dce1e7"><path d="M72 383H492M590 383H1010M1108 383H1528"/></g>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" letter-spacing="1" fill="#5c6673"><text x="100" y="360">01 / WORK</text><text x="618" y="360" fill="#2563eb">02 / SAVE CONTEXT</text><text x="1136" y="360">03 / CONTINUE</text></g>
+<g font-size="28" font-weight="600" letter-spacing="-.5"><text x="100" y="431">What changed?</text><text x="618" y="431" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24">docs/context.md</text><text x="1136" y="431">Start a new session</text></g>
+<g fill="#2563eb"><rect x="100" y="475" width="5" height="5"/><rect x="100" y="525" width="5" height="5"/><rect x="100" y="575" width="5" height="5"/><rect x="618" y="475" width="5" height="5"/><rect x="618" y="525" width="5" height="5"/><rect x="618" y="575" width="5" height="5"/><rect x="1136" y="475" width="5" height="5"/><rect x="1136" y="525" width="5" height="5"/><rect x="1136" y="575" width="5" height="5"/></g>
+<g font-size="26" fill="#3d4856"><text x="120" y="487">Code changes</text><text x="120" y="537">Decisions</text><text x="120" y="587">Open questions</text><text x="638" y="487">Decisions &amp; reasons</text><text x="638" y="537">Current work</text><text x="638" y="587">Next steps</text><text x="1156" y="487">Read the saved note</text><text x="1156" y="537">Check the project</text><text x="1156" y="587">Choose the next task</text></g>
+<g stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"><path d="M511 489H570"/><path d="M1029 489H1088"/></g>
+<text x="72" y="754" font-size="22" fill="#5c6673">Illustrative workflow. The agent works during active sessions; review its changes.</text>
+</g></svg>

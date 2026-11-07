@@ -7,17 +7,39 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '.local' / 'site-dist'
 SITE_URL = 'https://context-docs.com/'
+ICONS = frozenset({'arrow-right', 'arrow-down', 'arrow-up-right', 'file-text',
+                   'plus', 'minus', 'copy', 'check'})
+
+
+def expand_icons(root, template):
+    """Embed selected, locally vendored SVGs before inserting escaped source text."""
+    def substitute(match):
+        name = match[1]
+        if name not in ICONS:
+            raise ValueError(f'Unknown UI icon: {name}')
+        source = root / 'site/vendor/tabler' / (name + '.svg')
+        if source.is_symlink() or not source.is_file():
+            raise ValueError(f'Expected a regular icon source: {name}')
+        svg = source.read_text(encoding='utf-8').strip()
+        svg = svg.replace('<svg', '<svg aria-hidden="true" focusable="false"', 1)
+        svg = svg.replace('class="icon ', 'class="ui-icon icon ', 1)
+        return re.sub(r'>\s+<', '><', svg)
+
+    rendered = re.sub(r'\[\[icon:([a-z-]+)\]\]', substitute, template)
+    if '[[icon:' in rendered:
+        raise ValueError('Malformed UI icon marker')
+    return rendered
 
 
 def render_comparison(root):
-    template = (root / 'site/compare.html').read_text(encoding='utf-8')
+    template = expand_icons(root, (root / 'site/compare.html').read_text(encoding='utf-8'))
     if set(re.findall(r'{{([A-Z_]+)}}', template)) != {'SITE_URL'}:
         raise ValueError('Comparison page must contain only the SITE_URL marker')
     return template.replace('{{SITE_URL}}', escape(SITE_URL))
 
 
 def render_reading_queue(root):
-    template = (root / 'site/reading-queue.html').read_text(encoding='utf-8')
+    template = expand_icons(root, (root / 'site/reading-queue.html').read_text(encoding='utf-8'))
     if set(re.findall(r'{{([A-Z_]+)}}', template)) != {'SITE_URL'}:
         raise ValueError('Reading Queue page must contain only the SITE_URL marker')
     if 'DEMO_URL_PENDING' in template:
@@ -80,7 +102,7 @@ def render(root, template_name='index.html'):
             'LOCAL_ONLY_PROMPT': fenced_section(guide, '## Local-only context (excluded from Git)', 'text'),
             'AUTO_LOGGING_PROMPT': fenced_section(guide, '### Auto logging for local-only context', 'text'),
         })
-    template = (root / 'site' / template_name).read_text(encoding='utf-8')
+    template = expand_icons(root, (root / 'site' / template_name).read_text(encoding='utf-8'))
     required = {
         'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'SAVE_PROMPT',
         'RESUME_PROMPT', 'PROGRESS_PROMPT', 'PROGRESS_EXAMPLE', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
@@ -107,6 +129,8 @@ def build(root=ROOT, output=OUTPUT):
         'main.js': root / 'site/main.js',
         'context-docs-overview.png': root / 'assets/context-docs-overview.png',
         'favicon.svg': root / 'site/favicon.svg',
+        'logo.svg': root / 'assets/context-docs-mark.svg',
+        'tabler-icons-LICENSE.txt': root / 'site/vendor/tabler/LICENSE',
     }
     for source in sources.values():
         if source.is_symlink() or not source.is_file():

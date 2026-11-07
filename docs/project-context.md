@@ -18,6 +18,23 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The owner broadened the website work to a full UI/UX and identity reboot using
+a technical minimalist light theme, including the logo, favicon and README
+visual. The redesign applies a coherent white/graphite/cobalt system
+across all four routes and retains the earlier approachable content improvements.
+The current logo is an abstract C with a detached blue terminal, as requested
+by the owner. UI controls retain eight locally bundled Tabler outline SVGs. The
+[icon integration](../site/README.md#consistent-svg-icons) owns the pinned version,
+license, selection rationale and build boundary.
+The [UI reboot scope and checks](../site/README.md#technical-minimalist-ui-reboot)
+own presentation status. New editable SVG artwork and its PNG export are covered
+in [brand provenance](../assets/README.md). Before this local redesign, the live
+site's ten resources agreed with committed source apart from the retained edge
+analytics script. Package versions, skill behavior and frozen evidence are unchanged. The owner
+authorized committing, pushing and deploying this redesign on November 7, 2026;
+final source checks and publication are in progress.
+
+
 The owner accepted a focused review follow-up: simplify this entry point, prepare
 an unfamiliar-user trial and deduplicate skill instructions incrementally. The
 [decision](project-decisions.md#review-follow-up-and-learner-validation) owns scope;
@@ -50,10 +67,13 @@ Goal: useful, accurate context with less manual organization
 │  └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
 ├─ PREPARED   Public context and model-neutral contributor rules
 ├─ READY      Published-release install pins, current evidence index and transfer guidance
-└─ PUBLISHED  v0.2.7 at 00c4b51; release CI and website deployment pass
-   ├─ CHECKED Website build matches repo; owner retains edge analytics difference
-   ├─ CHECKED Isolated install matches all 16 package files; existing skills unchanged
-   └─ UNKNOWN skills.sh pages still show v0.2.6; public-content refresh unverified
+├─ PUBLISHED  v0.2.7 at 00c4b51; release CI and website deployment pass
+│  ├─ CHECKED Website build matches committed repo; retained edge analytics difference
+│  └─ UNKNOWN skills.sh public-content refresh remains unverified
+└─ APPROVED   Technical minimalist light reboot: four routes, logo/favicon and README art
+   ├─ UPDATED Abstract C mark and consistent locally bundled Tabler SVG icons
+   ├─ CHECKED Static, 27 site tests, 16 viewport/route cases and icon state checks
+   └─ NEXT    Commit, check CI and deploy the authorized redesign
 ~~~
 
 The [publication record](releases/v0.2.7-publication.json) owns exact release/deployment
@@ -163,8 +183,9 @@ Repository checks validate mechanics, not agent behavior.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.
-Release publication and the subsequently authorized website deployment are complete
-at `00c4b51`. The owner chose to keep the Cloudflare-injected analytics beacon;
+The full technical minimalist UI/UX and identity reboot is prepared locally and
+checked; no redesign push or deployment is selected. Release publication and the previously authorized
+website deployment remain complete at `00c4b51`. The owner chose to keep the Cloudflare-injected analytics beacon;
 record the live-byte difference while retaining the repository/artifact match.
 The isolated skills.sh install passes, but both public page bodies remain on
 v0.2.6 after a bounded wait. Retain that discovery verification gap; do not treat

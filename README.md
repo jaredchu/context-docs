@@ -11,7 +11,7 @@ Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
 as possible.
 
-![Work produces code, conversations and notes. Save useful decisions, current state and next steps in a Markdown document, then read it to resume in a new session.](assets/context-docs-overview.png)
+![Illustrative workflow: do the work, save decisions and reasons, current work and next steps in project Markdown, then ask a new session to read the saved note and check the project. The agent works during active sessions; review its changes.](assets/context-docs-overview.png)
 
 [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 

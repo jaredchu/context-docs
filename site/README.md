@@ -23,11 +23,13 @@ tracking, cookies or application backend are included in the repository build.
 Live delivery also has the owner-retained Cloudflare analytics injection described
 in [Latest deployment](#latest-deployment).
 
-The working build contains only eleven explicitly named public files: `index.html`,
-`styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
+The working build contains only thirteen explicitly named public files: `index.html`,
+`styles.css`, `main.js`, `favicon.svg`, `logo.svg`, `tabler-icons-LICENSE.txt`, `context-docs-overview.png`, `.nojekyll`,
 `robots.txt`, `sitemap.xml`, `getting-started/index.html`, `compare/index.html`
 and `reading-queue/index.html`.
-The existing [illustration](../assets/README.md) is copied unchanged. The build
+The [brand artwork](../assets/README.md) provides the canonical logo mark,
+same-byte favicon and the SVG-authored workflow illustration. Selected asset
+bytes are copied without transformation. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
 
@@ -187,7 +189,111 @@ private evidence and skill packages remain intact. The project
 [refresh boundary](../docs/project-decisions.md#refresh-recording-and-publication-boundary)
 owns the stop rule.
 
+## Technical minimalist UI reboot
+
+The owner requested a full website UI/UX and identity reboot, including the logo,
+favicon and README visual, using a technical minimalist light theme. The redesign
+uses a cohesive near-white/white, graphite and cobalt system across
+all four routes: sharp typography, thin rules, light code panels, an abstract C mark and responsive navigation. The earlier approachable story, simpler
+steps, earlier setup and optional detailed examples are retained.
+
+The [brand assets](../assets/README.md) include editable original SVG sources and
+a 1600×840 PNG export for the README/social image. The canonical mark and favicon
+match byte-for-byte. The build serves only thirteen explicit public files. The banner/wordmark SVG
+masters, project context, journals and private review material are not copied.
+Copy-button clearance uses a class applied during enhancement and preserves the
+no-JavaScript baseline. The site workflow includes the new canonical mark in
+both pull-request and push path filters, so later logo changes receive build checks.
+
+The initial reboot passed static checks and 25 site tests. Local Chrome checks cover four routes
+at 1440×1000, 900×1000, 390×844 and 375×812: logo loading, light theme, no page-wide
+overflow or observed JavaScript errors, installation/copy behavior, disclosures,
+reduced motion and no-JavaScript setup. All nine Reading Queue prompt controls
+also pass pointer/copy checks at desktop and mobile sizes, with a stubbed
+clipboard. The SVG banner, wordmark and 16/32px icon renders were inspected.
+These are local functional/visual checks, not full accessibility conformance,
+cross-browser certification or measured comprehension/conversion gains.
+
+A counterpart review of brand/build integration found no blocker. Minor diagram
+path and label refinements were applied and checked locally afterward. Detailed
+implementation/review receipts are retained privately under evidence ID
+`ui-reboot-2026-11-07`. The earlier review originals and artifact provenance
+remain preserved in their original records.
+
+The owner authorized committing, pushing and deploying this UI reboot on
+November 7, 2026. Final source checks and publication are in progress. Skills,
+package versions and canonical examples are unchanged. The deployment record
+below will retain the exact source SHA and completed verification.
+
+## Consistent SVG icons
+
+The current brand uses an abstract C in the header, favicon, wordmark and
+README illustration: a solid angular graphite shape with a detached cobalt terminal.
+UI arrows, document
+icons, disclosure controls and copy/success states use **Tabler outline 3.50.0**.
+Eight original SVGs and their MIT license are [vendored locally](vendor/tabler/README.md).
+The build embeds selected SVGs with `currentColor`, decorative accessibility
+attributes and text labels; it ships `tabler-icons-LICENSE.txt` as the thirteenth
+explicit artifact. Canonical code, prompts and Markdown diagrams retain their symbols.
+There is no icon font, CDN, runtime library or package-install step.
+
+The selection considered [Lucide](https://lucide.dev/),
+[Heroicons](https://heroicons.com/), [Tabler](https://tabler.io/icons),
+[Phosphor](https://github.com/phosphor-icons/core),
+[Material Symbols](https://developers.google.com/fonts/docs/material_symbols) and
+[Font Awesome](https://docs.fontawesome.com/web/). All offer SVG delivery.
+Tabler's consistent 24px grid, outline strokes and broad catalog fit this site's
+technical light theme; Phosphor's multiple weights and Material's variable axes
+are not needed here. This is a project design choice, not a universal ranking.
+The original package archive's SHA-512 integrity was checked before extracting
+only the selected files. Updates require deliberately changing the pinned sources.
+
+The refresh passes static checks and all 27 site tests. Local Chrome checks cover
+all four routes at four viewport sizes, mobile navigation/keyboard interactions,
+all nine walkthrough copy controls, and copy/disclosure icon states without an
+icon runtime. A focused review caught a tablet arrow-direction mismatch; its fix
+was confirmed by a focused source follow-up and browser assertions at
+1440, 981, 980, 900, 800 and 390px. The arrow rules now share the card-stacking
+media block. These checks do not establish cross-browser certification.
+
+The icon refresh is part of the owner-authorized redesign deployment and does
+not change the published skill release. Evidence ID:
+`icon-refresh-2026-11-07`.
+
+## Approachable homepage preview
+
+This narrower preview is now incorporated into the broader
+[technical minimalist UI reboot](#technical-minimalist-ui-reboot).
+
+The owner requested a live/project currency check and fewer technical barriers,
+especially on the homepage, with a lively attractive presentation. Fresh checks
+on November 7 confirm that the existing live site matches committed source
+`ede9d67` (deployed build `00c4b51`), apart from the retained edge analytics script.
+This is presentation work, not a repair of missing release deployment.
+
+The local preview puts a readable fictional handoff before short workflow steps
+and earlier setup. Longer code examples stay available in native disclosures;
+canonical prompts, examples, evidence links, old anchors and no-JavaScript setup
+remain. The guide gets a direct setup action. The comparison adds a current-release
+bridge while preserving its dated reviewed versions and research limits. Existing
+visual identity and assets stay; there are no new dependencies or runtime services.
+
+Static checks and all 24 site tests pass. Fresh local Chrome checks cover all four
+routes at 1440×1000 and 390×844, entry-page controls, stubbed copy feedback,
+no-JavaScript installation and reduced motion. A focused check confirms keyboard
+Space toggling, automatic reveal of a previously closed demo through its source
+fragment, and no page-wide overflow when expanded. New label contrast ratios
+exceed 4.5:1; this is not a full accessibility audit. No measured comprehension
+or conversion improvement is established. Two independent model reviews and one
+focused counterpart review are retained privately under evidence ID
+`website-review-2026-11-07`.
+
+The initial preview was local and uncommitted; subsequent publication authorization
+covers the broader redesign above. Skills, versions, frozen examples and
+historical evidence are unchanged.
+
 ## Latest deployment
+
 
 On November 7, 2026, the owner separately authorized website deployment for the
 v0.2.7 release and required the site to be current with the repository. The
