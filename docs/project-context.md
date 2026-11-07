@@ -18,8 +18,8 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner-approved [examples collection](switching-agents-examples.md) is prepared
-locally: an index, the moved Reading Queue walkthrough and two direction-specific
+The owner-approved [examples collection](switching-agents-examples.md) is published
+from `e38fede`: an index, the moved Reading Queue walkthrough and two direction-specific
 Codex/Claude Code cases. The existing app is reused with a dedicated starter;
 there is no new hosted application or skill change. The
 [two native handoffs](../evals/handoff/2026-11-07-cross-client/README.md) complete
@@ -28,10 +28,12 @@ actual-browser checks. The record retains guided/file-only limits, command
 scope deviations and the absence of comparative benefit evidence.
 
 The white/graphite/cobalt design, abstract C identity and locally bundled Tabler
-icons remain. The earlier redesign is deployed from `92042e9`; the
-[latest deployment](../site/README.md#latest-deployment) owns its source,
-artifact/live comparison and approved Cloudflare analytics difference. The
-examples move and permanent redirect are awaiting publication verification.
+icons remain. The earlier redesign at `92042e9` is retained in the
+[deployment history](../site/README.md#earlier-website-redesign-deployment). The
+[latest deployment](../site/README.md#latest-deployment) owns source CI, all sixteen
+uploaded files matching the pinned build and live desktop/mobile checks. The old
+Reading Queue paths return HTTP 301 through one Cloudflare Single Redirect, preserving
+query strings and the browser fragment. The approved analytics difference remains.
 Published skill versions and installed packages are unchanged.
 
 The owner accepted a focused review follow-up: simplify this entry point, prepare
@@ -74,7 +76,7 @@ Goal: useful, accurate context with less manual organization
    ├─ KEPT    Cloudflare analytics; other live bytes agree with the pinned build
    └─ DONE    Redesign and logo published; verification recorded
 
-Examples collection: PREPARED → local API/browser checks PASS → publish/verify next
+Examples collection: PUBLISHED e38fede → artifact/live checks PASS → 301 verified
   ├─ Reading Queue moved; original steps retained
   └─ Codex → Claude Code and Claude Code → Codex cases recorded with limits
 ~~~
@@ -185,14 +187,14 @@ Repository checks validate mechanics, not agent behavior.
 
 ## Next actions
 
-Complete the authorized examples publication and verify the old Reading Queue
-301, seven canonical routes, preserved anchors and source-equal public artifact.
-Keep the native checks' qualifications linked from the new walkthroughs.
+The examples publication and permanent redirect are complete. Both directed
+walkthroughs link the native checks and their retained qualifications; no new
+skill change, example deployment or broader validation campaign is selected.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.
-The technical minimalist UI/UX and identity reboot, abstract C logo and README
-artwork are deployed from `92042e9`; the [website record](../site/README.md#latest-deployment)
+The earlier technical minimalist UI/UX and identity reboot, abstract C logo and README
+artwork were deployed from `92042e9`; the [website record](../site/README.md#latest-deployment)
 retains successful source CI, Pages jobs and artifact/live checks. The skill
 release remains v0.2.7 at `00c4b51`. The owner-retained Cloudflare analytics beacon
 is the only observed live HTML difference from the repository build.

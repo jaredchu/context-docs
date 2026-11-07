@@ -322,6 +322,42 @@ historical evidence are unchanged.
 
 ## Latest deployment
 
+The examples collection is live from **`e38fede`**, published November 7, 2026 by
+[Pages run 42375161164](https://github.com/jaredchu/context-docs/actions/runs/42375161164).
+Both source CI workflows and the manual build/deploy jobs passed. The seven
+canonical routes include the examples index, moved Reading Queue and two directed
+switching walkthroughs; the old URL is a compatibility route.
+
+All **sixteen uploaded files** match the pinned seventeen-file build by SHA-256
+(the empty `.nojekyll` marker is omitted by upload). Eight non-HTML live resources
+match exactly. Seven canonical HTML pages and the legacy fallback, checked before
+the edge rule, match after removing only the previously approved Cloudflare
+analytics beacon and inserted newline. The analytics configuration is retained.
+
+Using the authenticated **cf CLI**, one Cloudflare Single Redirect was added after
+the new destination was live. `/reading-queue/` and `/reading-queue` now return
+**HTTP 301** to `/examples/reading-queue/`; query preservation passes three HTTP
+checks, and Chrome verifies the original `#resume` fragment remains usable.
+No DNS or unrelated Cloudflare setting was changed. The static compatibility page
+remains in the artifact for direct-origin/fallback access.
+
+Fresh local and live Chrome checks pass at 1440px and 390px across all seven
+canonical routes, plus legacy-query/fragment and no-JavaScript index checks
+(**sixteen checks per site run**). Branding/assets, canonical links, navigation,
+no page-wide overflow and all copy controls are checked; clipboard writes were
+stubbed. Static checks and **34 site tests** pass. The separate
+[native case record](../evals/handoff/2026-11-07-cross-client/README.md) owns the two
+implementation continuations and their qualifications; website checks do not add
+agent outcomes or establish comparative benefit.
+
+Reading Queue's `switching-start` tag is public at `ed3a02a`; its main documentation
+is updated at `50ad018`. Original tutorial tags, live app deployment, skills and
+installed packages are unchanged. Detailed private receipt/evidence ID:
+`examples-implementation-2026-11-07`. A following record-only commit does not replace
+the deployed SHA or require another deployment.
+
+### Earlier website redesign deployment
+
 
 On November 7, 2026, the owner authorized committing and deploying the full
 website redesign and logo changes. The
