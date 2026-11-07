@@ -19,7 +19,9 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory .local/site-dist
 Open `http://localhost:8000`. Both installation sections remain available without
 JavaScript; JavaScript adds agent selection and copy buttons. Clipboard failure
 selects the text and gives manual-copy instructions. No external fonts, analytics,
-tracking, cookies or application backend are included.
+tracking, cookies or application backend are included in the repository build.
+Live delivery also has the owner-retained Cloudflare analytics injection described
+in [Latest deployment](#latest-deployment).
 
 The working build contains only eleven explicitly named public files: `index.html`,
 `styles.css`, `main.js`, `favicon.svg`, `context-docs-overview.png`, `.nojekyll`,
@@ -186,6 +188,33 @@ private evidence and skill packages remain intact. The project
 owns the stop rule.
 
 ## Latest deployment
+
+On November 7, 2026, the owner separately authorized website deployment for the
+v0.2.7 release and required the site to be current with the repository. The
+[Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/42348936504)
+built and deployed `main` at `00c4b51`; both jobs passed. All ten uploaded public
+files match the eleven-file repository build, which includes an empty `.nojekyll`
+marker omitted by artifact upload. The live release labels and install commands
+select core 0.2.7/adoption 0.1.16 at tag v0.2.7.
+
+Six non-HTML resources match live bytes exactly. Each of four live HTML pages
+adds exactly one Cloudflare Web Analytics beacon outside the repository; the
+remaining HTML matches the build exactly. The owner chose to **keep it and record
+the difference**, so no Cloudflare setting was changed. The repository adds no
+analytics code, but live delivery includes this edge-injected script. This
+qualification supersedes any blanket claim that the deployed site has no analytics.
+
+Fresh Chrome checks pass on all four routes at 1440×1000 and 390×844: no page-wide
+overflow or observed JavaScript errors, correct canonical URLs, released versions
+and tag pins. Homepage/guide checks cover client selection, stubbed clipboard
+feedback, evidence disclosure and installation with JavaScript disabled. These
+checks do not validate the OS clipboard or agent behavior. The
+[publication record](../docs/releases/v0.2.7-publication.json) owns hashes, exact
+source and limits. Private evidence ID: `publish-v0.2.7-2026-11-07`.
+Record/context commits do not replace this deployed SHA or require another
+publication when the resulting public output is unchanged.
+
+### Earlier deployment: October 26, 2026
 
 On October 26, 2026, the owner-authorized [Pages workflow](https://github.com/jaredchu/context-docs/actions/runs/40277604859)
 built and deployed `main` at `e8ace0c`, publishing the evidence consolidation

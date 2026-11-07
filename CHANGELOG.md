@@ -24,6 +24,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.7 publication — 2026-11-07
+
+- Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.2.7)
+  from `00c4b51` after both release-commit Actions pass. The separately authorized
+  website deployment uses that source; all ten uploaded files match the build.
+  Live HTML differs only by the Cloudflare analytics beacon the owner chose to
+  retain; the rest matches exactly and desktop/mobile checks pass.
+- The [publication record](docs/releases/v0.2.7-publication.json) retains one
+  isolated skills.sh install with 16 matching package files and 403 unchanged
+  installed entries. Telemetry returns HTTP 200, but both full skills.sh page
+  bodies still match v0.2.6 after the bounded interval; refresh remains unverified.
+  No existing installed upgrade, new model review or native agent trial ran.
+
 ## v0.2.7 release preparation — 2026-11-07 (unpublished)
 
 - Prepare [draft bundle notes](docs/releases/v0.2.7.md) for core 0.2.7,

@@ -3,8 +3,8 @@
 Context Docs packages a Markdown maintenance workflow for people without an
 established way to preserve project knowledge across AI sessions. Keep useful
 decisions, current work and next steps accurate with little manual organization.
-The owner authorized experimental **v0.2.7** publication and skills.sh verification.
-Website deployment and installed upgrades remain separate actions.
+Standalone experimental **v0.2.7** is published. The owner separately authorized
+website deployment; installed upgrades remain separate actions.
 
 ## Purpose and scope
 
@@ -26,7 +26,7 @@ The owner supplied [anonymous early feedback](../evals/user-feedback/README.md#a
 from five responses, including one team response. Reported usefulness is positive;
 the owner subsequently [confirmed human-observed usability and actual
 cross-machine use](../evals/user-feedback/README.md#owner-confirmation).
-The selected release contains core **0.2.7** and adoption **0.1.16**. The
+The published release contains core **0.2.7** and adoption **0.1.16**. The
 [candidate check](../evals/simplification/2026-10-26/README.md) passes focused file
 checks in Codex and Claude. Claude startup/import events support its loading
 statement; the earlier Codex statement remains unverified. Published v0.2.6 and
@@ -50,12 +50,14 @@ Goal: useful, accurate context with less manual organization
 │  └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
 ├─ PREPARED   Public context and model-neutral contributor rules
 ├─ READY      Published-release install pins, current evidence index and transfer guidance
-└─ RELEASING  Authorized v0.2.7 bundle: core 0.2.7 and adoption 0.1.16
-   ├─ NEXT    Release-commit CI, prerelease publication and skills.sh verification
-   └─ HOLD    Website deployment and installed upgrades remain separate
+└─ PUBLISHED  v0.2.7 at 00c4b51; release CI and website deployment pass
+   ├─ CHECKED Website build matches repo; owner retains edge analytics difference
+   ├─ CHECKED Isolated install matches all 16 package files; existing skills unchanged
+   └─ UNKNOWN skills.sh pages still show v0.2.6; public-content refresh unverified
 ~~~
 
-The [usage guide](getting-started.md) owns installation pinned to published bundle
+The [publication record](releases/v0.2.7-publication.json) owns exact release/deployment
+source and discovery limits. The [usage guide](getting-started.md) owns installation pinned to published bundle
 v0.2.7 and shared-context transfer guidance. The
 [evidence overview](evaluation-results.md#more-recent-studies) now links the newer
 feedback, candidate and synthetic records with their distinct scopes and limits.
@@ -161,10 +163,13 @@ Repository checks validate mechanics, not agent behavior.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.
-Local v0.2.7 preparation and exact-commit validation are complete. The owner then
-authorized release labels and pins, push and CI verification, tagging, experimental
-prerelease publication and skills.sh verification. Website deployment and installed
-upgrades remain separate; retain the actual deployed website revision. Keep the
+Release publication and the subsequently authorized website deployment are complete
+at `00c4b51`. The owner chose to keep the Cloudflare-injected analytics beacon;
+record the live-byte difference while retaining the repository/artifact match.
+The isolated skills.sh install passes, but both public page bodies remain on
+v0.2.6 after a bounded wait. Retain that discovery verification gap; do not treat
+HTTP 200 telemetry as an updated page or repeat installs/replay telemetry.
+Existing installed upgrades remain separate; retain the actual deployed source. Keep the
 [discrimination protocol](../evals/discrimination-protocol.md)
 as a separate proposed comparative study, not a prerequisite for everyday use.
 
