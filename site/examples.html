@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- UI icons: Tabler Icons 3.50.0 (MIT). License: ../tabler-icons-LICENSE.txt -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Context Docs examples: learn the full workflow with the runnable Reading Queue app, or hand unfinished work between Codex and Claude Code through saved project files.">
+  <meta name="theme-color" content="#fafbfc">
+  <meta property="og:title" content="Context Docs examples: Reading Queue and switching clients">
+  <meta property="og:description" content="Three authored walkthroughs on one small app: the full workflow, Codex to Claude Code, and Claude Code to Codex.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{SITE_URL}}examples/">
+  <meta property="og:image" content="{{SITE_URL}}context-docs-overview.png">
+  <title>Context Docs examples: Reading Queue and switching clients</title>
+  <link rel="canonical" href="{{SITE_URL}}examples/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="guide-page examples-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../"><img class="brand-mark" src="../logo.svg" width="26" height="26" alt=""><span>Context Docs</span></a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../">Overview</a><a href="../getting-started/">Guide</a><a href="../examples/" aria-current="page">Examples</a><a href="../compare/">Compare</a><a class="nav-github" href="https://github.com/jaredchu/context-docs">GitHub <span aria-hidden="true">[[icon:arrow-up-right]]</span></a></nav>
+  </div>
+</header>
+<main id="main" class="wrap examples-main">
+  <header class="guide-hero">
+    <p class="eyebrow">EXAMPLES</p>
+    <h1>One small app.<br><span>Three walkthroughs.</span></h1>
+    <p class="guide-lead">Start with Reading Queue to learn the full workflow. Then try handing unfinished work from one coding agent to the other through the files saved in your project.</p>
+    <p class="guide-meta">For Codex and Claude Code · Authored teaching examples<br>Shared app: Reading Queue. Context Docs itself needs no server or cloud account.</p>
+  </header>
+  <section class="examples-list" aria-labelledby="examples-list-title">
+    <h2 id="examples-list-title" class="visually-hidden">Choose an example</h2>
+    <ol class="example-cards">
+      <li class="example-card example-card-featured">
+        <p class="deep-dive-label">Learn the full workflow</p>
+        <h3>Reading Queue</h3>
+        <p>Run a small app locally, inspect its context setup, audit it, scope a feature, leave a handoff and resume in a fresh session. Deploying your own copy is optional.</p>
+        <p class="example-card-meta">One client · Local practice · Optional Cloudflare deploy</p>
+        <a class="text-link" href="reading-queue/">Work through Reading Queue <span aria-hidden="true">[[icon:arrow-right]]</span></a>
+      </li>
+      <li class="example-card">
+        <p class="deep-dive-label">Switch clients</p>
+        <h3>Codex to Claude Code</h3>
+        <p>Codex builds and tests the export API, saves what is done and pending, then stops. A fresh Claude Code session reads the files and adds the browser button.</p>
+        <p class="example-card-meta">Two clients · Local only · No deployment</p>
+        <a class="text-link" href="switching-codex-claude/">Start in Codex <span aria-hidden="true">[[icon:arrow-right]]</span></a>
+      </li>
+      <li class="example-card">
+        <p class="deep-dive-label">Switch clients</p>
+        <h3>Claude Code to Codex</h3>
+        <p>The same split in reverse: Claude Code builds and tests the export API, then a fresh Codex session recovers the status from the files and continues.</p>
+        <p class="example-card-meta">Two clients · Local only · No deployment</p>
+        <a class="text-link" href="switching-claude-codex/">Start in Claude Code <span aria-hidden="true">[[icon:arrow-right]]</span></a>
+      </li>
+    </ol>
+  </section>
+  <section id="switching" class="guide-section" aria-labelledby="switching-title">
+    <p class="eyebrow">ABOUT THE SWITCHING WALKTHROUGHS</p>
+    <h2 id="switching-title">Hand off through files, not chat.</h2>
+    <p>Both directions use the existing <a href="https://github.com/jaredchu/context-docs-example-reading-queue">Reading Queue app</a> and the same feature, split at the same point. The first client implements and tests the JSON export API, records what is complete and what is pending, and stops. A fresh session in the other client reads the saved project context, checks it against the current files and continues with the browser button.</p>
+    <p>The receiving prompt does not repeat the feature scope. The point is to see whether the saved files carry it: the requirement, the reason for exporting the whole queue, the API work that is done, the browser work that is not, and what the checks do and do not cover.</p>
+    <p>Only project files carry over. Chat history, native memory such as Claude Code auto memory or Codex memories, and the other client’s runtime state do not. Keep one writer at a time: stop the first client before the second starts. There is no sync, file locking or exclusive ownership.</p>
+    <p>Install the two Context Docs skills in each client first; see the <a href="../getting-started/#install">installation guide</a>. New to the workflow? <a href="reading-queue/">Reading Queue</a> introduces each step more slowly.</p>
+    <p>These are authored walkthroughs. Any observed checks of them are described, with their scope and limits, in the <a href="https://github.com/jaredchu/context-docs/blob/main/docs/switching-agents-examples.md">switching examples record</a>. They do not establish general reliability or time or token savings.</p>
+  </section>
+  <div class="guide-finish"><p class="eyebrow">NOT SURE IT FITS?</p><h2>Start with what you already have.</h2><p>Codex and Claude Code already provide instructions and memory. Context Docs is an optional starting workflow for keeping decisions, current work and next steps in project Markdown.</p><a class="text-link" href="../compare/">Compare approaches <span aria-hidden="true">[[icon:arrow-right]]</span></a></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><a class="brand" href="../"><img class="brand-mark" src="../logo.svg" width="26" height="26" alt=""><span>Context Docs</span></a><p>Created by <a href="https://github.com/jaredchu">Jared Chu</a>.<br>Developed with Codex and Claude.</p><nav class="footer-links" aria-label="Footer"><a href="../">Overview</a><a href="../getting-started/">Guide</a><a href="../compare/">Compare</a><a href="https://github.com/jaredchu/context-docs-example-reading-queue">Example source</a><a href="https://github.com/jaredchu/context-docs">GitHub</a><a href="https://github.com/jaredchu/context-docs/blob/main/LICENSE">MIT license</a></nav></div></footer>
+</body>
+</html>

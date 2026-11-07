@@ -327,3 +327,21 @@ summaries were prepared. Their useful project-level rationale remains here.
 Frozen evaluations, historical journal events, Git history, contribution credit
 and the installable skills' support for other private projects are unchanged.
 This local documentation cleanup grants no publication, deployment or upgrade.
+
+## Examples collection and coding-agent switching
+
+On November 7, 2026, the owner approved an `/examples/` collection, moving the
+Reading Queue walkthrough to `/examples/reading-queue/` with a permanent redirect
+from `/reading-queue/`, and separate `/examples/switching-codex-claude/` and
+`/examples/switching-claude-codex/` cases. The owner then requested implementation
+and permitted new public example projects. The implementation reuses the existing
+Reading Queue project with a dedicated starter snapshot, so no new public
+repository or deployed application is necessary.
+
+Present switching as a concrete use of the existing maintained-Markdown workflow,
+with a supporting homepage mention and direction-specific guides. Shared files,
+loaded instructions, freshness and explicit writer handoff remain conditions;
+this does not transfer native memory or runtime state. The
+[example record](switching-agents-examples.md) links the authored material and
+bounded native checks. Existing skill versions, historical tutorial tags,
+application deployment and unrelated postponed validation work remain separate.

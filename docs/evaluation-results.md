@@ -264,6 +264,14 @@ materials and completion of its scored procedure remain unestablished.
 
 ### Focused agent checks and the source candidate
 
+- The [two directed implementation handoffs](../evals/handoff/2026-11-07-cross-client/README.md)
+  use published **0.2.7 / 0.1.16** in four fresh native sessions: one
+  Codex → Claude Code case and one Claude Code → Codex case. Receiving sessions
+  recover the API/browser split and rationale from saved files and finish the
+  browser work. Separate coordinator API and actual-download checks pass. Subjects
+  do not run tests; both Codex runs retain an initial `pwd` outside the tighter
+  command restriction. These guided same-checkout cases are not unchanged full
+  walkthrough passes, independent grading, Git transfer or comparative savings.
 - The [local Git-transfer handoff](../evals/handoff/2026-11-07-git-transfer/README.md)
   used released core **0.2.6** and adoption **0.1.15** in two fresh Claude sessions.
   The reader recovered all eight frozen content criteria after a hash-equal

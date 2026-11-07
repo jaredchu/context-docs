@@ -1,0 +1,73 @@
+# Reading Queue switching exercise
+
+## Goal
+Add JSON export while preserving browser isolation, expiry and existing CRUD.
+The baseline queue is the starting point. Export API code, API tests and browser
+integration are now written, but none of them has been executed. Verification
+is the remaining work.
+Read the [export requirement](export-requirement.md) and
+[decision](decisions.md#export-exercise) before changing code.
+
+## Exercise scope
+This authored exercise reuses Reading Queue's tutorial starter. Complete the
+API first, save context, stop that writer, then open the other client and finish
+the browser integration. No deployment, publication, database migration, schema
+change, new dependency or URL fetching is part of this exercise. Historical
+publication directions in other tutorial records do not apply to this task.
+
+## Current state and verification
+As of November 7, 2026, [Worker source](../src/worker.js) implements GET /api/export.
+It selects this browser session's unexpired rows, includes both read and unread
+items regardless of filter parameters, and returns
+`{schema_version:1,items:[{title,url,read}]}` with boolean `read`. An empty queue
+returns `{"schema_version":1,"items":[]}`. The handler uses SELECT only, omits IDs,
+cookies and metadata from the payload, and uses existing no-store JSON headers.
+It follows the existing session-cookie policy: missing or malformed cookies get
+a fresh cookie; valid cookies are reused without renewal. See the
+[backup rationale](decisions.md#export-exercise).
+
+Four [API tests](../tests/worker.test.js) were added by Codex for the exact payload
+and versioned empty shape, read/unread inclusion with filter parameters, missing
+and malformed sessions, session isolation, expiry, unchanged stored rows and
+GET-only routing. They use the existing Miniflare/D1 test harness; its `Browser`
+helper is a cookie jar, not an actual browser.
+
+As of November 7, 2026, Claude added browser integration in
+[index.html](../public/index.html), [app.js](../public/app.js) and
+[styles.css](../public/styles.css). A visible Export JSON button sits below the
+filters, with a hint that hidden read links are included. Each click calls
+`/api/export` through the existing `api()` helper. It never reads `state.items`
+or the current filter. The button is disabled while the request is in flight.
+Before any file is created, the response must have `schema_version` 1 and an
+`items` array. The handler then rebuilds `{schema_version:1,items:[{title,url,read}]}`
+and downloads it as compact JSON named `reading-queue.json`, through a temporary
+Blob object URL. A network failure, non-2xx response or malformed response shows
+"Export failed: … No file was downloaded." in a dedicated `role="alert"` element,
+and no file is created. A successful export is announced in the existing status region.
+No browser tests were added: the existing harness has no DOM, and a browser test
+runner would be a new dependency.
+
+Verification across both sessions was limited to file inspection. No API or
+browser tests were run; adding a test is not executing it. No syntax check,
+runtime or D1 execution, CRUD regression check, dry-run build, browser download
+or error-path check was performed. Filter-parameter assertions do not verify the
+actual UI filter or download. One specific browser risk is unverified: the page
+CSP in [public/_headers](../public/_headers) uses `default-src 'none'`. Whether
+it lets the Blob-URL download proceed has not been observed. Schema,
+dependencies, Worker code, static headers and cloud configuration were not
+changed by the browser integration.
+
+## Next action
+All export code is written; the next task is verification, when execution is
+authorized. Run `npm test` and record the observed results, including the four
+export tests. Do not infer success from the added assertions. Then follow
+[walkthrough step 6](walkthrough.md#6-verify-the-implementation-and-context).
+In a real browser, add two links, mark one read, select Unread and export: the
+file must contain both. Also check an empty export, isolation in a second browser
+context, a simulated failed request (visible error, no download) and that the
+file contains no cookie, ID or timestamp. If the CSP blocks the download, record
+that and decide on a fix. Changing `public/_headers` was outside this session's
+allowed files. Deployment and cloud changes remain outside this exercise.
+
+## Maintenance
+Keep this entry point and the linked decisions current. Logging stays off.

@@ -23,10 +23,14 @@ tracking, cookies or application backend are included in the repository build.
 Live delivery also has the owner-retained Cloudflare analytics injection described
 in [Latest deployment](#latest-deployment).
 
-The working build contains only thirteen explicitly named public files: `index.html`,
-`styles.css`, `main.js`, `favicon.svg`, `logo.svg`, `tabler-icons-LICENSE.txt`, `context-docs-overview.png`, `.nojekyll`,
-`robots.txt`, `sitemap.xml`, `getting-started/index.html`, `compare/index.html`
-and `reading-queue/index.html`.
+The working build contains seventeen explicitly allowed public files: eight HTML
+pages (seven canonical routes plus the old Reading Queue redirect fallback), six
+assets, `robots.txt`, `sitemap.xml` and the empty `.nojekyll` marker. The canonical
+routes are `/`, `/getting-started/`, `/compare/`, `/examples/`,
+`/examples/reading-queue/`, `/examples/switching-codex-claude/` and
+`/examples/switching-claude-codex/`. The old `/reading-queue/` is excluded from the
+sitemap. `build.py` renders every page before replacing the output, so a missing
+or invalid new template leaves the previous artifact intact.
 The [brand artwork](../assets/README.md) provides the canonical logo mark,
 same-byte favicon and the SVG-authored workflow illustration. Selected asset
 bytes are copied without transformation. The build
@@ -114,6 +118,30 @@ come from the same canonical sources as the landing page. The detailed
 the site's refresh, local-only setup and auto-logging prompts are extracted from its public
 sections. The site links to it for client settings, upgrades and logging details.
 Repository context, local notes and journals never become build inputs.
+
+## Examples collection and directed switching
+
+The [examples index](examples.html) introduces three walkthroughs. The existing
+[Reading Queue source](reading-queue.html) is served at `/examples/reading-queue/`
+with its original IDs and prompts. New, separate templates serve
+[Codex → Claude Code](switching-codex-claude.html) and
+[Claude Code → Codex](switching-claude-codex.html). They reuse the Reading Queue
+application and its dedicated `switching-start` teaching snapshot; no new hosted
+application or dependency is required.
+
+The [example record](../docs/switching-agents-examples.md) owns teaching scope;
+the [cross-client record](../evals/handoff/2026-11-07-cross-client/README.md) owns
+actual native outcomes and limits. Static/build/browser checks are separate from
+those native sessions. The public build never copies the evidence tree.
+
+The old route builds a canonicalized script/meta-refresh/link fallback. Its
+script preserves query and fragment. A true HTTP 301 requires the separately
+managed Cloudflare Single Redirect, because GitHub Pages does not interpret
+`_redirects`. The requested edge rule matches only `/reading-queue` and
+`/reading-queue/` on the canonical host, targets the new URL with status 301 and
+preserves the query string; the browser retains a fragment when Location supplies
+none. Apply it only after the new destination is live. The latest deployment
+record owns whether that rule is actually applied and verified.
 
 ## Runnable Reading Queue example
 

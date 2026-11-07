@@ -151,6 +151,25 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
+### Switch between Codex and Claude Code
+
+Use the same saved project Markdown in either client. Before switching, update
+context from completed work and review the code and document diff. Stop the
+outgoing writer, then open the same checkout in the other client and explicitly
+ask it to read the entry point, check current evidence and continue the next
+authorized task. Saved uncommitted files are visible in that checkout; unsaved
+editor buffers are not. If you use another checkout, follow the transfer guidance
+below. Native memory, conversation and runtime state are not synchronized.
+
+Install the skills separately for each client when you want ongoing Context Docs
+maintenance, and confirm that the maintenance rule is in instructions it loads.
+The [Claude setup](#install-in-claude-code) explains supported instruction routing.
+Do not create competing copies of the project context or run both writers at once.
+Try [Codex → Claude Code](https://context-docs.com/examples/switching-codex-claude/)
+or [Claude Code → Codex](https://context-docs.com/examples/switching-claude-codex/).
+The [example record](switching-agents-examples.md) separates authored guidance
+from the bounded native checks.
+
 ### Moving shared context to another checkout
 
 Within your already-authorized Git workflow, include relevant shared-context

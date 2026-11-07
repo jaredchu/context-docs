@@ -7,12 +7,93 @@ import unittest
 from unittest.mock import patch
 from html import unescape
 from html.parser import HTMLParser
+import urllib.parse
 import urllib.robotparser
 import xml.etree.ElementTree as ET
 
 SPEC = importlib.util.spec_from_file_location('landing_build', Path(__file__).with_name('build.py'))
 landing = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(landing)
+
+SCHEME = re.compile(r'^[a-zA-Z][a-zA-Z0-9+.-]*:')
+READING_QUEUE_STEPS = ('run', 'adopt', 'read', 'scope', 'save', 'resume', 'verify', 'compare', 'deploy')
+# Fragment targets published at /reading-queue/ before the move; incoming links must keep working.
+READING_QUEUE_IDS = ({'main', 'try', 'takeaways'} | set(READING_QUEUE_STEPS)
+                     | {'prompt-' + step for step in READING_QUEUE_STEPS}
+                     | {'status-' + step for step in READING_QUEUE_STEPS})
+
+
+class PageParser(HTMLParser):
+    """Collect ids, links, assets, metadata, inline scripts and copyable code from one page."""
+
+    def __init__(self):
+        super().__init__()
+        self.id_list = []
+        self.links = []
+        self.assets = []
+        self.canonical = []
+        self.refresh = []
+        self.scripts = []
+        self.code = {}
+        self.buttons = []
+        self._in_nav = False
+        self._link = None
+        self._script = False
+        self._code = None
+
+    @property
+    def ids(self):
+        return set(self.id_list)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if 'id' in attrs:
+            self.id_list.append(attrs['id'])
+        if tag == 'nav':
+            self._in_nav = 'site-nav' in (attrs.get('class') or '').split()
+        if tag == 'a' and 'href' in attrs:
+            self._link = {'attrs': attrs, 'text': '', 'nav': self._in_nav}
+            self.links.append(self._link)
+        if tag == 'link' and attrs.get('rel') == 'canonical':
+            self.canonical.append(attrs['href'])
+        if tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon'):
+            self.assets.append(attrs['href'])
+        if tag in ('script', 'img') and 'src' in attrs:
+            self.assets.append(attrs['src'])
+        if tag == 'meta' and attrs.get('http-equiv', '').lower() == 'refresh':
+            self.refresh.append(attrs['content'])
+        if tag == 'script' and 'src' not in attrs:
+            self._script = True
+            self.scripts.append('')
+        if tag == 'code' and 'id' in attrs:
+            self._code = attrs['id']
+            self.code[self._code] = ''
+        if tag == 'button' and 'data-copy' in attrs:
+            self.buttons.append(attrs)
+
+    def handle_endtag(self, tag):
+        if tag == 'nav':
+            self._in_nav = False
+        if tag == 'a':
+            self._link = None
+        if tag == 'script':
+            self._script = False
+        if tag == 'code':
+            self._code = None
+
+    def handle_data(self, data):
+        if self._link is not None:
+            self._link['text'] += data
+        if self._script:
+            self.scripts[-1] += data
+        if self._code:
+            self.code[self._code] += data
+
+
+def parse(html):
+    page = PageParser()
+    page.feed(html)
+    return page
 
 
 class LandingBuildTests(unittest.TestCase):
@@ -26,7 +107,9 @@ class LandingBuildTests(unittest.TestCase):
                 'index.html', 'styles.css', 'main.js', 'favicon.svg', 'logo.svg',
                 'context-docs-overview.png', '.nojekyll', 'robots.txt', 'sitemap.xml',
                 'tabler-icons-LICENSE.txt',
-                'getting-started/index.html', 'compare/index.html', 'reading-queue/index.html'})
+                'getting-started/index.html', 'compare/index.html', 'examples/index.html',
+                'examples/reading-queue/index.html', 'examples/switching-codex-claude/index.html',
+                'examples/switching-claude-codex/index.html', 'reading-queue/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -236,9 +319,20 @@ class LandingBuildTests(unittest.TestCase):
             self.assertEqual(metadata.open_graph['og:image'],
                              'https://context-docs.com/context-docs-overview.png')
             sitemap = ET.parse(output / 'sitemap.xml')
+            # Every canonical route, in order; the legacy /reading-queue/ redirect is excluded.
             self.assertEqual([item.text for item in sitemap.findall('.//{*}loc')],
                              ['https://context-docs.com/', 'https://context-docs.com/getting-started/',
-                              'https://context-docs.com/compare/', 'https://context-docs.com/reading-queue/'])
+                              'https://context-docs.com/compare/', 'https://context-docs.com/examples/',
+                              'https://context-docs.com/examples/reading-queue/',
+                              'https://context-docs.com/examples/switching-codex-claude/',
+                              'https://context-docs.com/examples/switching-claude-codex/'])
+            # Each listed route is a built page whose canonical and og:url name that route.
+            for route in landing.CANONICAL_ROUTES:
+                page = Metadata()
+                page.feed((output / route / 'index.html').read_text(encoding='utf-8'))
+                self.assertEqual(page.canonical, [landing.SITE_URL + route], route)
+                if 'og:url' in page.open_graph:
+                    self.assertEqual(page.open_graph['og:url'], landing.SITE_URL + route, route)
             guide_metadata = Metadata()
             guide_metadata.feed((output / 'getting-started/index.html').read_text(encoding='utf-8'))
             self.assertEqual(guide_metadata.canonical, ['https://context-docs.com/getting-started/'])
@@ -616,6 +710,205 @@ class LandingBuildTests(unittest.TestCase):
     def test_markdown_headings_inside_example_survive(self):
         text = '## Example\n```markdown\n# Context\n\n## Decision\nApproved.\n```\n## Next'
         self.assertEqual('# Context\n\n## Decision\nApproved.', landing.fenced_section(text, '## Example', 'markdown'))
+
+    def test_examples_navigation_marks_current_section_and_avoids_legacy_route(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            for route in landing.CANONICAL_ROUTES:
+                name = route + 'index.html'
+                with self.subTest(page=name):
+                    html = (output / name).read_text(encoding='utf-8')
+                    page = parse(html)
+                    nav = [link for link in page.links if link['nav']]
+                    examples = [link for link in nav if link['text'].strip() == 'Examples']
+                    self.assertEqual(len(examples), 1)
+                    target = ((output / name).parent / examples[0]['attrs']['href']).resolve()
+                    self.assertEqual(target, (output / 'examples').resolve())
+                    current = examples[0]['attrs'].get('aria-current')
+                    if route == 'examples/':
+                        self.assertEqual(current, 'page')
+                    elif route.startswith('examples/'):
+                        self.assertEqual(current, 'true')
+                    else:
+                        self.assertIsNone(current)
+                    marked = [link for link in nav if 'aria-current' in link['attrs']]
+                    self.assertEqual(len(marked), 0 if route == '' else 1)
+                    # Only the redirect page itself may point at the legacy location.
+                    self.assertNotIn('context-docs.com/reading-queue', html)
+                    for link in page.links:
+                        relative = link['attrs']['href'].partition('#')[0]
+                        if relative and not SCHEME.match(relative):
+                            self.assertNotEqual(((output / name).parent / relative).resolve(),
+                                                (output / 'reading-queue').resolve(), link['attrs']['href'])
+
+    def test_assets_resolve_and_ids_are_unique_at_every_page_depth(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            root = output.resolve()
+            for path in output.rglob('*.html'):
+                with self.subTest(page=path.relative_to(output).as_posix()):
+                    page = parse(path.read_text(encoding='utf-8'))
+                    self.assertTrue(any(ref.endswith('styles.css') for ref in page.assets))
+                    for ref in page.assets:
+                        self.assertFalse(SCHEME.match(ref), ref)
+                        target = (path.parent / ref).resolve()
+                        self.assertTrue(target.is_file(), ref)
+                        self.assertIn(root, target.parents, ref)
+                    self.assertEqual(len(page.id_list), len(page.ids))
+
+    def test_legacy_reading_queue_route_redirects_with_query_and_fragment(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            html = (output / 'reading-queue/index.html').read_text(encoding='utf-8')
+            page = parse(html)
+            moved = parse((output / 'examples/reading-queue/index.html').read_text(encoding='utf-8'))
+            sitemap = (output / 'sitemap.xml').read_text(encoding='utf-8')
+        relative = '../examples/reading-queue/'
+        self.assertEqual(page.canonical, [landing.SITE_URL + 'examples/reading-queue/'])
+        self.assertEqual(page.refresh, ['0; url=' + relative])
+        self.assertIn(relative, [link['attrs']['href'] for link in page.links])
+        script = ''.join(page.scripts)
+        target = re.search(r"new URL\('([^']+)', window\.location\.href\)", script)
+        self.assertIsNotNone(target)
+        # A relative target keeps preview hosts and the live site on their own origin.
+        self.assertEqual(target[1], relative)
+        self.assertIn('target.search = window.location.search;', script)
+        self.assertIn('target.hash = window.location.hash;', script)
+        self.assertIn('window.location.replace(target.href);', script)
+        self.assertLess(html.index('location.replace'), html.index('http-equiv="refresh"'))
+        self.assertNotIn(landing.SITE_URL + 'reading-queue/', sitemap)
+        # Reproduce the script's URL arithmetic; fragments must exist on the moved page.
+        for old, expected in [
+            ('https://context-docs.com/reading-queue/?ref=post&x=1#verify',
+             'https://context-docs.com/examples/reading-queue/?ref=post&x=1#verify'),
+            ('https://context-docs.com/reading-queue/index.html#prompt-resume',
+             'https://context-docs.com/examples/reading-queue/#prompt-resume'),
+            ('https://context-docs.com/reading-queue/',
+             'https://context-docs.com/examples/reading-queue/'),
+        ]:
+            with self.subTest(old=old):
+                parts = urllib.parse.urlsplit(old)
+                joined = urllib.parse.urlsplit(urllib.parse.urljoin(old, target[1]))
+                self.assertEqual(joined._replace(query=parts.query, fragment=parts.fragment).geturl(), expected)
+                if parts.fragment:
+                    self.assertIn(parts.fragment, moved.ids)
+
+    def test_moved_reading_queue_keeps_anchors_prompts_and_external_urls(self):
+        rendered = landing.render_reading_queue(landing.ROOT)
+        page = parse(rendered)
+        self.assertLessEqual(READING_QUEUE_IDS, page.ids)
+        self.assertEqual(set(page.code), {'prompt-' + step for step in READING_QUEUE_STEPS})
+        self.assertEqual(page.canonical, [landing.SITE_URL + 'examples/reading-queue/'])
+        self.assertIn('property="og:url" content="https://context-docs.com/examples/reading-queue/"', rendered)
+        hrefs = [link['attrs']['href'] for link in page.links]
+        for url in ['https://context-docs-example-reading-queue.viweb.workers.dev',
+                    'https://github.com/jaredchu/context-docs-example-reading-queue',
+                    'https://github.com/jaredchu/context-docs-example-reading-queue/tree/tutorial-complete',
+                    'https://developers.cloudflare.com/d1/reference/migrations/']:
+            self.assertIn(url, hrefs)
+        for href in hrefs:
+            if SCHEME.match(href):
+                self.assertNotIn('../', href)
+        self.assertIn('../switching-codex-claude/', hrefs)
+        self.assertIn('../switching-claude-codex/', hrefs)
+
+    def test_switching_walkthroughs_have_direction_specific_prompts_and_copy_controls(self):
+        skills = {'codex': '$adopt-context-docs', 'claude': '/adopt-context-docs'}
+        names = {'codex': 'Codex', 'claude': 'Claude Code'}
+        evidence = 'https://github.com/jaredchu/context-docs/blob/main/docs/switching-agents-examples.md'
+        starts, continues = [], []
+        for outgoing, incoming in [('codex', 'claude'), ('claude', 'codex')]:
+            direction = outgoing + '-' + incoming
+            template = 'switching-' + direction + '.html'
+            with self.subTest(direction=direction):
+                html = landing.render_page(landing.ROOT, template, template)
+                page = parse(html)
+                expected = {'setup-' + direction, f'prompt-{outgoing}-adopt', f'prompt-{incoming}-adopt',
+                            f'prompt-{outgoing}-start', f'prompt-{incoming}-continue'}
+                self.assertEqual(set(page.code), expected)
+                self.assertEqual({button['data-copy'] for button in page.buttons}, expected)
+                for button in page.buttons:
+                    self.assertIn(button['data-status'], page.ids)
+                    copy_id = button['data-copy']
+                    expected_destination = (names[copy_id.split('-')[1]] if copy_id.startswith('prompt-')
+                                            else 'your terminal')
+                    self.assertEqual(button['data-destination'], expected_destination, copy_id)
+                setup = page.code['setup-' + direction]
+                for command in ['https://github.com/jaredchu/context-docs-example-reading-queue.git',
+                                'git switch -c try-' + direction + ' switching-start', 'npm ci', 'npm test']:
+                    self.assertIn(command, setup)
+                for client, skill in skills.items():
+                    self.assertTrue(page.code[f'prompt-{client}-adopt'].startswith(skill + ' '))
+                self.assertLess(html.index(f'id="prompt-{outgoing}-adopt"'), html.index(f'id="prompt-{incoming}-adopt"'))
+                start = page.code[f'prompt-{outgoing}-start']
+                for text in ['GET /api/export', '{"schema_version":1,"items":[]}', 'title, url and read',
+                             'entire active queue', 'regardless of any UI filter', 'isolation and expiry',
+                             'no identifiers, cookie values or database metadata', 'do not change any data',
+                             'exercise clarification', 'do not rewrite the requirement',
+                             'backup of the whole queue', 'no schema or cloud changes',
+                             'Stop before the browser Export JSON button', 'docs/project-context.md',
+                             'docs/decisions.md', 'browser integration is pending', 'Do not deploy']:
+                    self.assertIn(text, start)
+                resume = page.code[f'prompt-{incoming}-continue']
+                # The receiver must recover the feature from saved files, not from the prompt.
+                for leaked in ['export', 'schema', 'button', '/api', 'browser', 'filter', 'backup', 'json']:
+                    self.assertNotIn(leaked, resume.lower())
+                for text in ['context entry point', 'complete', 'pending and why', 'current files',
+                             'next authorized task', 'actually ran', 'blockers', 'existing notes', 'Do not deploy']:
+                    self.assertIn(text, resume)
+                starts.append(start)
+                continues.append(resume)
+                hrefs = [link['attrs']['href'] for link in page.links]
+                self.assertIn('../switching-' + incoming + '-' + outgoing + '/', hrefs)
+                self.assertIn('../', hrefs)
+                self.assertIn(evidence, hrefs)
+                figure = re.search(r'<figure class="guide-example">.*?</figure>', html, re.S)[0]
+                self.assertIn('not recorded agent output', figure)
+                self.assertIn('&lt;your actual result&gt;', figure)
+                for claim in ['API tests do not cover', 'not a study', 'no sync, file locking',
+                              'Ignored or private files do not travel with Git', 'you do not need to commit']:
+                    self.assertIn(claim, html)
+        # Both directions run the same task; only the clients differ.
+        self.assertEqual(starts[0], starts[1])
+        self.assertEqual(continues[0], continues[1])
+
+    def test_examples_hub_offers_three_cards_and_home_links_switching_through_it(self):
+        hub = landing.render_page(landing.ROOT, 'examples.html', 'Examples page')
+        page = parse(hub)
+        self.assertEqual(hub.count('<li class="example-card'), 3)
+        hrefs = [link['attrs']['href'] for link in page.links]
+        for target in ['reading-queue/', 'switching-codex-claude/', 'switching-claude-codex/']:
+            self.assertIn(target, hrefs)
+        self.assertIn('switching', page.ids)
+        home = landing.render(landing.ROOT)
+        resume = home[home.index('id="resume-prompt"'):home.index('id="release-details"')]
+        self.assertIn('href="./examples/#switching"', resume)
+        self.assertIn('Your next session.<br><span>Less starting over.</span>', home)
+
+    def test_invalid_new_pages_preserve_previous_artifact_and_unknown_markers_fail(self):
+        original_read = Path.read_text
+        for template in ['examples.html', 'switching-codex-claude.html', 'switching-claude-codex.html',
+                         'reading-queue.html']:
+            with self.subTest(template=template), tempfile.TemporaryDirectory() as temporary:
+                output = Path(temporary) / 'public'
+                output.mkdir()
+                previous = output / 'previous-build.txt'
+                previous.write_text('Keep previous build until all pages render.')
+
+                def invalid_page(path, *args, **kwargs):
+                    text = original_read(path, *args, **kwargs)
+                    if path == landing.ROOT / 'site' / template:
+                        return text + '{{PRIVATE_NOTES}}'
+                    return text
+
+                with patch.object(Path, 'read_text', invalid_page):
+                    with self.assertRaisesRegex(ValueError, 'only the SITE_URL marker'):
+                        landing.build(output=output)
+                self.assertEqual(previous.read_text(), 'Keep previous build until all pages render.')
+        with self.assertRaisesRegex(ValueError, 'unknown or malformed marker'):
+            landing.render_site_url_only(landing.ROOT, '{{SITE_URL}} {{lower_case}}', 'Test page')
+        with self.assertRaisesRegex(ValueError, 'only the SITE_URL marker'):
+            landing.render_site_url_only(landing.ROOT, 'No canonical marker', 'Test page')
 
     def test_symlink_destination_cannot_overwrite_other_directory(self):
         with tempfile.TemporaryDirectory() as temporary:

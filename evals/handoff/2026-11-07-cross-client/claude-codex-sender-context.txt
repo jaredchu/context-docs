@@ -1,0 +1,53 @@
+# Reading Queue switching exercise
+
+## Goal
+Add JSON export while preserving browser isolation, expiry and existing CRUD.
+The export API is written; browser integration is pending.
+Read the [export requirement](export-requirement.md) and
+[decision](decisions.md#export-exercise) before changing code.
+
+## Exercise scope
+This authored exercise reuses Reading Queue's tutorial starter. Complete the
+API first, save context, stop that writer, then open the other client and finish
+the browser integration. No deployment, publication, database migration, schema
+change, new dependency or URL fetching is part of this exercise. Historical
+publication directions in other tutorial records do not apply to this task.
+
+## Current state and verification
+Progress: export API written, tests added but not run → **browser integration
+(next)** → run API tests and browser checks → record observed results.
+
+- **API (written, unverified):** [`GET /api/export`](../src/worker.js) returns
+  `{"schema_version":1,"items":[{"title","url","read"}]}` for every active item
+  in the caller's queue, read and unread. It selects only `title`, `url` and
+  `read`, scoped to the session cookie and unexpired rows. It does not write to
+  D1 and does not set a cookie. A missing or malformed cookie, or an empty queue,
+  gives `{"schema_version":1,"items":[]}`. Other methods return 405 with `Allow: GET`.
+- **Agent-chosen details (Claude, this session; not owner decisions):** query
+  parameters are ignored, items use the same newest-first order as
+  `GET /api/items`, and the API sends no `Content-Disposition`. The
+  `reading-queue.json` filename is left to the browser download.
+- **API tests (added, not run):** five export tests in
+  [tests/worker.test.js](../tests/worker.test.js) cover whole-queue export despite
+  filter-like query parameters, the exact field set with no IDs or session, the
+  exact empty shape with no new session, isolation between browsers, exclusion of
+  expired rows without deleting them, no D1 writes, and 405 for non-GET methods.
+- **Browser:** `public/` is unchanged; there is no Export JSON button yet.
+- **Verification limit:** the session that wrote the API had file tools only.
+  No API or browser tests were run, and no `npm test`, Wrangler dry run or
+  `git diff --check` either. Adding a test is not executing it. Nothing above
+  is observed behavior until those checks run.
+- The [requirement](export-requirement.md)'s "Status: pending" line still
+  describes the starter. That session was not permitted to edit the file.
+
+## Next action
+Implement only the browser integration (the next authorized task). Add a visible
+Export JSON button that fetches `GET /api/export` fresh on each click and downloads
+`reading-queue.json`. On a failed request, show an error and do not download.
+Then run `npm test` and the browser checks in the
+[requirement](export-requirement.md#evidence-to-collect). Record actual results
+here, including any failures in the new export tests. Preserve the whole-queue
+backup rationale in [decisions](decisions.md#export-exercise).
+
+## Maintenance
+Keep this entry point and the linked decisions current. Logging stays off.

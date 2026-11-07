@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-07",
+  "kind": "two guided native implementation handoffs, one per direction",
+  "starter_commit": "ed3a02a70a328c1b4140d45959f0a29dad3a47d3",
+  "skill_release_commit": "00c4b5175c04fdf173d6802f20a76e688c63fbe0",
+  "core_version": "0.2.7",
+  "adoption_version": "0.1.16",
+  "clients": {
+    "codex": "codex-cli 0.167.0-alpha.3.2",
+    "claude": "2.1.319 (Claude Code)"
+  },
+  "requested_models": {
+    "codex": "gpt-6.1-sol",
+    "claude": "claude-opus-5-5"
+  },
+  "configured_effort": "high",
+  "effective_effort_telemetry": "not independently exposed",
+  "codex_served_model": "not independently exposed in JSON stream",
+  "claude_reported_model": "claude-opus-5-5",
+  "memory": "disabled per child invocation; no user/global configuration edited",
+  "fresh_subject_sessions": 4,
+  "retries": 0,
+  "transfer": "saved files in the same checkout; no transcript or sender answer passed to receiver",
+  "criteria_predeclared": [
+    "whole active queue despite filter",
+    "backup rationale retained",
+    "browser isolation and expiry",
+    "versioned empty shape and no metadata/writes",
+    "sender API implemented, UI pending",
+    "receiver implements pending browser work from saved files",
+    "honest no-tests-run limits retained",
+    "only authorized files changed"
+  ],
+  "checks_authorship": "Coordinator authored and semantically scored the cases. Reference tests adapted after outputs; browser checks authored after outputs. No independent grading, comparator or unfamiliar-user study.",
+  "directions": {
+    "codex-claude": {
+      "sender_completed": true,
+      "receiver_completed": true,
+      "sender_changed_files": [
+        "docs/decisions.md",
+        "docs/project-context.md",
+        "src/worker.js",
+        "tests/worker.test.js"
+      ],
+      "receiver_changed_files": [
+        "docs/decisions.md",
+        "docs/project-context.md",
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css"
+      ],
+      "outside_write_allowlist": [],
+      "sender_seconds": 140.37,
+      "receiver_seconds": 109.15,
+      "api_checks": {
+        "agent-tests": {
+          "exit_code": 0,
+          "summary": [
+            "\u2139 tests 20",
+            "\u2139 pass 20",
+            "\u2139 fail 0",
+            "\u2139 duration_ms 2909.19525"
+          ]
+        },
+        "reference-tests": {
+          "exit_code": 0,
+          "summary": [
+            "\u2139 tests 18",
+            "\u2139 pass 18",
+            "\u2139 fail 0",
+            "\u2139 duration_ms 2765.976083"
+          ]
+        }
+      },
+      "browser_checks": {
+        "direction": "codex-claude",
+        "actual_browser_download": true,
+        "filename": "reading-queue.json",
+        "whole_queue_under_unread_filter": true,
+        "exact_public_fields": true,
+        "fresh_empty_export_without_reload": true,
+        "failed_fetch_visible_error_no_download": true,
+        "javascript_exceptions": []
+      },
+      "semantic_review": "Coordinator accepts all eight predeclared content/continuation criteria, separately from retained command-boundary deviations."
+    },
+    "claude-codex": {
+      "sender_completed": true,
+      "receiver_completed": true,
+      "sender_changed_files": [
+        "docs/decisions.md",
+        "docs/project-context.md",
+        "src/worker.js",
+        "tests/worker.test.js"
+      ],
+      "receiver_changed_files": [
+        "docs/decisions.md",
+        "docs/project-context.md",
+        "public/app.js",
+        "public/index.html",
+        "public/styles.css"
+      ],
+      "outside_write_allowlist": [],
+      "sender_seconds": 97.18,
+      "receiver_seconds": 116.04,
+      "api_checks": {
+        "agent-tests": {
+          "exit_code": 0,
+          "summary": [
+            "\u2139 tests 21",
+            "\u2139 pass 21",
+            "\u2139 fail 0",
+            "\u2139 duration_ms 4960.172875"
+          ]
+        },
+        "reference-tests": {
+          "exit_code": 0,
+          "summary": [
+            "\u2139 tests 18",
+            "\u2139 pass 18",
+            "\u2139 fail 0",
+            "\u2139 duration_ms 2604.829375"
+          ]
+        }
+      },
+      "browser_checks": {
+        "direction": "claude-codex",
+        "actual_browser_download": true,
+        "filename": "reading-queue.json",
+        "whole_queue_under_unread_filter": true,
+        "exact_public_fields": true,
+        "fresh_empty_export_without_reload": true,
+        "failed_fetch_visible_error_no_download": true,
+        "javascript_exceptions": []
+      },
+      "semantic_review": "Coordinator accepts all eight predeclared content/continuation criteria, separately from retained command-boundary deviations."
+    }
+  },
+  "limits": [
+    "one authored guided case per direction; no comparator or independent grading",
+    "same host and same checkout per direction; no Git or physical-machine transfer",
+    "file-only subject runs; coordinator performs post-output API checks separately",
+    "Claude file hooks are not an OS sandbox; Codex shell inspection uses workspace-write sandbox",
+    "already-adopted fixture with task-local release package copies; not a fresh install or general implicit selection test",
+    "runtime state, credentials, native memory and unsaved buffers not transferred"
+  ],
+  "retained_deviations": [
+    "Both Codex subjects ran pwd once despite the tighter inspection/editing-only command instruction. No outside-allowlist project edit occurred; this is not a clean strict command-boundary pass.",
+    "Initial coordinator browser harness assumed repeated downloads would get distinct filenames. Chrome overwrote the existing filename. Corrected verifier confirmed fresh downloads using parsed JSON equality and counted download attempts; no app repair or native session rerun."
+  ],
+  "artifacts_sha256": {
+    "codex-claude.patch": "010e39d23d03cd440662103556a6d01797efe4f16939bd1f77cd20a553845375",
+    "claude-codex.patch": "8dc10d05e2ea40b9a332809d750ffd0ddcbee726f46b2487cb9f3f19773358cb",
+    "codex-claude-sender-context.txt": "112204bf642e7810ceb00dc273a6eccca1e84c484474cc47f245d9fb9c104f3b",
+    "claude-codex-receiver-context.txt": "c81669a46c122cc1762e5de652b892b8a4302833ba442cf46de3b19d4d88aa84",
+    "claude-codex-sender-context.txt": "825f7ba73d47f2ef502917415fae015758d521b92591878424831480dc6fe6d7",
+    "codex-claude-receiver-context.txt": "fc92ffa98351bc61921ade7bffa4f89983a4bbd4bd4ed26bf166e1a15ef048da"
+  },
+  "starter_information_limit": "Starter files already held scope, rationale and API-before-browser split. The receiver retained/applied these; this does not isolate added value of sender notes versus starter/code inspection.",
+  "test_count_context": "16 baseline tests plus 4/5 export tests in the respective agent suites",
+  "reference_qualification": "The original unadapted suite requires header/cookie behavior not implemented by both cases; adapted passes are not a pass of the original suite.",
+  "empty_download_comparison": "Parsed JSON equality; pretty printing/trailing newline in Claude-to-Codex differs from compact Codex-to-Claude bytes."
+}

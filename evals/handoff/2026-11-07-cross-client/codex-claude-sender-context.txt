@@ -1,0 +1,53 @@
+# Reading Queue switching exercise
+
+## Goal
+Add JSON export while preserving browser isolation, expiry and existing CRUD.
+The baseline queue is the starting point; export API code and API tests are added,
+but have not been executed. Browser integration remains pending.
+Read the [export requirement](export-requirement.md) and
+[decision](decisions.md#export-exercise) before changing code.
+
+## Exercise scope
+This authored exercise reuses Reading Queue's tutorial starter. Complete the
+API first, save context, stop that writer, then open the other client and finish
+the browser integration. No deployment, publication, database migration, schema
+change, new dependency or URL fetching is part of this exercise. Historical
+publication directions in other tutorial records do not apply to this task.
+
+## Current state and verification
+As of November 7, 2026, [Worker source](../src/worker.js) implements GET /api/export.
+It selects this browser session's unexpired rows, includes both read and unread
+items regardless of filter parameters, and returns
+`{schema_version:1,items:[{title,url,read}]}` with boolean `read`. An empty queue
+returns `{"schema_version":1,"items":[]}`. The handler uses SELECT only, omits IDs,
+cookies and metadata from the payload, and uses existing no-store JSON headers.
+It follows the existing session-cookie policy: missing or malformed cookies get
+a fresh cookie; valid cookies are reused without renewal. See the
+[backup rationale](decisions.md#export-exercise).
+
+Four [API tests](../tests/worker.test.js) were added for the exact payload and
+versioned empty shape, read/unread inclusion with filter parameters, missing and
+malformed sessions, session isolation, expiry, unchanged stored rows and
+GET-only routing. They use the existing Miniflare/D1 test harness; its `Browser`
+helper is a cookie jar, not an actual browser.
+
+Verification in this session was limited to file inspection of the implementation,
+test assertions, existing schema and documentation. No API or browser tests were
+run in this session; adding a test is not executing it. No syntax check, runtime
+or D1 execution, CRUD regression check, browser download or error-path check was
+performed. Filter-parameter assertions do not verify the actual UI filter or
+download. Runtime correctness remains unverified. Browser code was not changed;
+schema, dependencies and cloud configuration were not changed.
+
+## Next action
+The next authorized task is browser integration: add the visible Export JSON
+button, fetch fresh data from /api/export independently of the current UI filter,
+download reading-queue.json, and surface request failures without downloading.
+Stop this API writer here. In the receiving session, run the API suite and verify
+the actual browser download (including read items hidden by a filter), empty
+export and visible error behavior when execution is authorized; record observed
+results. Do not infer test success from the added assertions. Deployment and
+cloud changes remain outside this exercise.
+
+## Maintenance
+Keep this entry point and the linked decisions current. Logging stays off.

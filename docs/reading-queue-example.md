@@ -98,3 +98,12 @@ with assistance, correction and fresh-session measures; structured trial outcome
 remain pending. Separate [anonymous early feedback](../evals/user-feedback/README.md#anonymous-early-feedback)
 records owner-supplied self-reports. Record-only follow-up commits do not require
 another deployment.
+
+## Examples collection
+
+The current walkthrough lives at [/examples/reading-queue/](https://context-docs.com/examples/reading-queue/),
+with its original section IDs retained. The former `/reading-queue/` is a
+compatibility entry point. The [examples index](https://context-docs.com/examples/)
+also links two [coding-agent switching cases](switching-agents-examples.md) that
+reuse this application. Earlier deployment observations above retain their
+original URLs, source identities and evidence limits.

@@ -1,0 +1,70 @@
+# Reading Queue switching exercise
+
+## Goal
+Add JSON export while preserving browser isolation, expiry and existing CRUD.
+The export API and browser integration are written; runtime verification is pending.
+Read the [export requirement](export-requirement.md) and
+[decision](decisions.md#export-exercise) before changing code.
+
+## Exercise scope
+This authored exercise reuses Reading Queue's tutorial starter. Complete the
+API first, save context, stop that writer, then open the other client and finish
+the browser integration. No deployment, publication, database migration, schema
+change, new dependency or URL fetching is part of this exercise. Historical
+publication directions in other tutorial records do not apply to this task.
+
+## Current state and verification
+Progress: export API written, tests added but not run → browser integration
+written → **API tests and browser checks (pending)** → record observed results.
+
+- **API (written, unverified):** [`GET /api/export`](../src/worker.js) returns
+  `{"schema_version":1,"items":[{"title","url","read"}]}` for every active item
+  in the caller's queue, read and unread. It selects only `title`, `url` and
+  `read`, scoped to the session cookie and unexpired rows. It does not write to
+  D1 and does not set a cookie. A missing or malformed cookie, or an empty queue,
+  gives `{"schema_version":1,"items":[]}`. Other methods return 405 with `Allow: GET`.
+- **Agent-chosen details (Claude, API handoff; not owner decisions):** query
+  parameters are ignored, items use the same newest-first order as
+  `GET /api/items`, and the API sends no `Content-Disposition`. The
+  `reading-queue.json` filename is left to the browser download.
+- **API tests (added, not run):** five export tests in
+  [tests/worker.test.js](../tests/worker.test.js) cover whole-queue export despite
+  filter-like query parameters, the exact field set with no IDs or session, the
+  exact empty shape with no new session, isolation between browsers, exclusion of
+  expired rows without deleting them, no D1 writes, and 405 for non-GET methods.
+- **Browser (written, unverified):** [index.html](../public/index.html) has a
+  visible Export JSON button, available for empty queues too, and a separate
+  export error alert. [app.js](../public/app.js) requests `GET /api/export` on
+  each click through the existing same-origin API helper, independently of local
+  items and the current filter. It checks the version and item types before
+  creating a JSON Blob and requesting a `reading-queue.json` download. Request
+  or payload errors reach the alert before a download is created. The button is
+  disabled while exporting and restored afterward. The temporary link is removed
+  and its object URL is released after a delay. [styles.css](../public/styles.css)
+  lets the queue controls wrap.
+- **Agent-chosen browser details (Codex; not owner decisions):** reuse the API
+  helper and its error handling, validate the export payload, use a temporary
+  Blob URL, and delay its release by 60 seconds to allow the download to start.
+- **Verification limit (reviewed November 7, 2026):** source inspection only.
+  The API-writing session did not run its tests; this continuation was expressly
+  limited to file inspection/editing. No tests were added or run in this
+  continuation. No API or browser checks, `npm test`, Wrangler dry run or
+  `git diff --check` have been performed in these handoff sessions. Source review
+  does not establish runtime behavior, actual downloads, accessibility or layout.
+- The [requirement](export-requirement.md)'s "Status: pending" line still
+  describes the starter. That session was not permitted to edit the file.
+
+## Next action
+Verification remains; the browser implementation task is complete at source
+level. When execution is authorized, run `npm test` and the browser checks in the
+[requirement](export-requirement.md#evidence-to-collect). Check the actual filename
+and JSON, whole-queue export under a filter, empty export, freshness after queue
+changes, and a failed request with a visible error and no download. Check retry
+and existing CRUD as well. Record actual results here, including any failures in
+the five existing export tests. Tests and browser execution are outside the
+current bounded check; do not treat this pending step as permission to run them.
+Preserve the whole-queue backup rationale in
+[decisions](decisions.md#export-exercise).
+
+## Maintenance
+Keep this entry point and the linked decisions current. Logging stays off.

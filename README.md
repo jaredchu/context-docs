@@ -57,8 +57,11 @@ Test empty input before calling the feature complete.
 from your actual work and evidence. You review the changes; the next session
 reads the saved context. See a fuller [before-and-after example](examples/maintenance.md).
 
-For a runnable project, see the [Reading Queue worked example](docs/reading-queue-example.md):
-a small Cloudflare app, a real feature change and step-by-step prompts.
+Explore the [worked examples](https://context-docs.com/examples/): the
+[Reading Queue walkthrough](https://context-docs.com/examples/reading-queue/) teaches
+the full workflow; separate [Codex → Claude Code](https://context-docs.com/examples/switching-codex-claude/)
+and [Claude Code → Codex](https://context-docs.com/examples/switching-claude-codex/)
+cases show how to hand off the same project through saved Markdown.
 
 ## Get started
 
@@ -168,6 +171,12 @@ Find the entry point in your README, documentation index, or the adoption marker
 `Entry point:` field. Explicitly
 ask the agent to read it: a saved file alone does not ensure that a new session
 loads it. [More usage examples and setup details →](docs/getting-started.md#use-it)
+
+This also applies when switching between Codex and Claude Code. Save and review
+context before switching, open the same code and notes in the receiving client,
+and confirm its maintenance instructions load. See the
+[direction-specific walkthroughs](https://context-docs.com/examples/) and their
+[observed checks and limits](docs/switching-agents-examples.md).
 
 ### 4. Visualize progress in Markdown
 

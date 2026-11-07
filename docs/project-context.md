@@ -18,22 +18,21 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The technical minimalist light website reboot is deployed from `92042e9` on
-November 7, 2026. All four routes share white/graphite/cobalt styling, simpler
-introductory content, accessible setup and optional detailed examples. The
-abstract C logo, favicon and README visual use the same original SVG geometry.
-UI controls use eight locally bundled Tabler outline icons; the
-[icon integration](../site/README.md#consistent-svg-icons) owns the pinned version,
-license and build boundary, and [brand provenance](../assets/README.md) owns the
-editable artwork and PNG export.
+The owner-approved [examples collection](switching-agents-examples.md) is prepared
+locally: an index, the moved Reading Queue walkthrough and two direction-specific
+Codex/Claude Code cases. The existing app is reused with a dedicated starter;
+there is no new hosted application or skill change. The
+[two native handoffs](../evals/handoff/2026-11-07-cross-client/README.md) complete
+scoped continuation from saved files, followed by passing coordinator API and
+actual-browser checks. The record retains guided/file-only limits, command
+scope deviations and the absence of comparative benefit evidence.
 
-The [latest deployment](../site/README.md#latest-deployment) owns the workflow,
-source and verification scope. Both source CI workflows and the Pages build/deploy
-passed. All twelve uploaded files match the thirteen-file build, which includes
-an empty marker omitted by upload. Eight live non-HTML resources match exactly;
-four HTML pages match after removing only the owner-retained Cloudflare analytics
-beacon and its inserted newline. Fresh desktop/mobile checks pass on all four
-routes. Package versions, skill behavior and frozen evidence are unchanged.
+The white/graphite/cobalt design, abstract C identity and locally bundled Tabler
+icons remain. The earlier redesign is deployed from `92042e9`; the
+[latest deployment](../site/README.md#latest-deployment) owns its source,
+artifact/live comparison and approved Cloudflare analytics difference. The
+examples move and permanent redirect are awaiting publication verification.
+Published skill versions and installed packages are unchanged.
 
 The owner accepted a focused review follow-up: simplify this entry point, prepare
 an unfamiliar-user trial and deduplicate skill instructions incrementally. The
@@ -74,6 +73,10 @@ Goal: useful, accurate context with less manual organization
    ├─ CHECKED CI, 27 site tests, 12 artifact files and eight live browser cases
    ├─ KEPT    Cloudflare analytics; other live bytes agree with the pinned build
    └─ DONE    Redesign and logo published; verification recorded
+
+Examples collection: PREPARED → local API/browser checks PASS → publish/verify next
+  ├─ Reading Queue moved; original steps retained
+  └─ Codex → Claude Code and Claude Code → Codex cases recorded with limits
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
@@ -181,6 +184,10 @@ Repository checks validate mechanics, not agent behavior.
   provenance and scores; it is not a comprehensive privacy or Git-history audit.
 
 ## Next actions
+
+Complete the authorized examples publication and verify the old Reading Queue
+301, seven canonical routes, preserved anchors and source-equal public artifact.
+Keep the native checks' qualifications linked from the new walkthroughs.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.

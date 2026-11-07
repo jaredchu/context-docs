@@ -1,0 +1,411 @@
+diff --git a/docs/decisions.md b/docs/decisions.md
+index 87e41de..f776281 100644
+--- a/docs/decisions.md
++++ b/docs/decisions.md
+@@ -25,11 +25,34 @@ Sources: [Worker](../src/worker.js), [API tests](../tests/worker.test.js),
+ 
+ ## Export exercise
+ 
+-Status: implementation-team choice; pending at the starter revision.
++Status: implementation-team choice. API code and tests were added by Codex and
++browser integration by Claude on November 7, 2026. All execution is unverified.
+ Add JSON export as a small second change. It creates a clear handoff without a
+ schema migration or extra service. Export always contains the visitor's entire
+-active queue, regardless of the UI filter, and excludes session identifiers.
++active queue, regardless of the UI filter: export is a backup of the queue,
++rather than a copy of its current view. Read items hidden by a filter must remain
++in the backup. This whole-queue behavior is explicitly confirmed by the current
++task instruction.
++
++The API returns `{schema_version:1,items:[{title,url,read}]}` with boolean `read`,
++including `{"schema_version":1,"items":[]}` for an empty queue. It excludes expired
++rows and other sessions, omits IDs, cookies and metadata from the payload, and
++does not mutate stored rows. Codex chose a dedicated SELECT of the export fields
++with the existing session/expiry predicates and newest-first ordering; existing
++CRUD handlers are unchanged. Session cookies follow the existing GET policy.
++The browser must fetch this endpoint freshly instead of serializing filtered or
++stale UI state. For the browser side, Claude chose these methods: a request on
++every click through the existing `api()` helper, and a client-side check of
++`schema_version` and `items` before any file is created. The file is rebuilt with
++only `title`, `url` and `read`, and downloaded as compact JSON through a Blob
++object URL, so the empty file matches the requirement's exact text. Failures go
++to a dedicated alert near the button rather than the shared list error.
++These are agent choices, not owner decisions.
++
+ The [requirement](export-requirement.md) owns acceptance criteria.
++Implementation and assertions: [Worker](../src/worker.js),
++[API tests](../tests/worker.test.js). Actual checks and exact verification limits
++are recorded in [project context](project-context.md#current-state-and-verification).
+ 
+ ## Optional history
+ 
+diff --git a/docs/project-context.md b/docs/project-context.md
+index c07a4bd..ca8cc24 100644
+--- a/docs/project-context.md
++++ b/docs/project-context.md
+@@ -2,7 +2,9 @@
+ 
+ ## Goal
+ Add JSON export while preserving browser isolation, expiry and existing CRUD.
+-The baseline queue works; export API and browser integration are pending.
++The baseline queue is the starting point. Export API code, API tests and browser
++integration are now written, but none of them has been executed. Verification
++is the remaining work.
+ Read the [export requirement](export-requirement.md) and
+ [decision](decisions.md#export-exercise) before changing code.
+ 
+@@ -14,13 +16,58 @@ change, new dependency or URL fetching is part of this exercise. Historical
+ publication directions in other tutorial records do not apply to this task.
+ 
+ ## Current state and verification
+-Export is unimplemented in both src/worker.js and public/.
+-The baseline includes API tests; this starter snapshot records no newly run tests.
+-Run the checks in your environment and record their actual results.
++As of November 7, 2026, [Worker source](../src/worker.js) implements GET /api/export.
++It selects this browser session's unexpired rows, includes both read and unread
++items regardless of filter parameters, and returns
++`{schema_version:1,items:[{title,url,read}]}` with boolean `read`. An empty queue
++returns `{"schema_version":1,"items":[]}`. The handler uses SELECT only, omits IDs,
++cookies and metadata from the payload, and uses existing no-store JSON headers.
++It follows the existing session-cookie policy: missing or malformed cookies get
++a fresh cookie; valid cookies are reused without renewal. See the
++[backup rationale](decisions.md#export-exercise).
++
++Four [API tests](../tests/worker.test.js) were added by Codex for the exact payload
++and versioned empty shape, read/unread inclusion with filter parameters, missing
++and malformed sessions, session isolation, expiry, unchanged stored rows and
++GET-only routing. They use the existing Miniflare/D1 test harness; its `Browser`
++helper is a cookie jar, not an actual browser.
++
++As of November 7, 2026, Claude added browser integration in
++[index.html](../public/index.html), [app.js](../public/app.js) and
++[styles.css](../public/styles.css). A visible Export JSON button sits below the
++filters, with a hint that hidden read links are included. Each click calls
++`/api/export` through the existing `api()` helper. It never reads `state.items`
++or the current filter. The button is disabled while the request is in flight.
++Before any file is created, the response must have `schema_version` 1 and an
++`items` array. The handler then rebuilds `{schema_version:1,items:[{title,url,read}]}`
++and downloads it as compact JSON named `reading-queue.json`, through a temporary
++Blob object URL. A network failure, non-2xx response or malformed response shows
++"Export failed: … No file was downloaded." in a dedicated `role="alert"` element,
++and no file is created. A successful export is announced in the existing status region.
++No browser tests were added: the existing harness has no DOM, and a browser test
++runner would be a new dependency.
++
++Verification across both sessions was limited to file inspection. No API or
++browser tests were run; adding a test is not executing it. No syntax check,
++runtime or D1 execution, CRUD regression check, dry-run build, browser download
++or error-path check was performed. Filter-parameter assertions do not verify the
++actual UI filter or download. One specific browser risk is unverified: the page
++CSP in [public/_headers](../public/_headers) uses `default-src 'none'`. Whether
++it lets the Blob-URL download proceed has not been observed. Schema,
++dependencies, Worker code, static headers and cloud configuration were not
++changed by the browser integration.
+ 
+ ## Next action
+-Implement and test GET /api/export, leaving the browser button for the next
+-agent. Preserve the whole-queue backup rationale and precise verification limits.
++All export code is written; the next task is verification, when execution is
++authorized. Run `npm test` and record the observed results, including the four
++export tests. Do not infer success from the added assertions. Then follow
++[walkthrough step 6](walkthrough.md#6-verify-the-implementation-and-context).
++In a real browser, add two links, mark one read, select Unread and export: the
++file must contain both. Also check an empty export, isolation in a second browser
++context, a simulated failed request (visible error, no download) and that the
++file contains no cookie, ID or timestamp. If the CSP blocks the download, record
++that and decide on a fix. Changing `public/_headers` was outside this session's
++allowed files. Deployment and cloud changes remain outside this exercise.
+ 
+ ## Maintenance
+ Keep this entry point and the linked decisions current. Logging stays off.
+diff --git a/public/app.js b/public/app.js
+index 516a966..c3fb130 100644
+--- a/public/app.js
++++ b/public/app.js
+@@ -20,6 +20,10 @@ const filterEmpty = document.getElementById('filter-empty');
+ const empty = document.getElementById('empty');
+ const statusRegion = document.getElementById('status');
+ const filterButtons = document.querySelectorAll('.filter');
++const exportButton = document.getElementById('export-button');
++const exportError = document.getElementById('export-error');
++
++const EXPORT_FILENAME = 'reading-queue.json';
+ 
+ // ---- API -------------------------------------------------------------------
+ 
+@@ -201,6 +205,31 @@ function setFilter(filter) {
+   render();
+ }
+ 
++// Export is a backup of the whole queue, not the current view: always fetch
++// fresh data from the API instead of serializing state.items or the filter.
++// A file is created only after a successful, well-formed response.
++async function exportQueue() {
++  hideError(exportError);
++  exportButton.disabled = true;
++  try {
++    const data = await api('GET', '/api/export');
++    if (data?.schema_version !== 1 || !Array.isArray(data.items)) {
++      throw new ApiError('The server response was not in the expected format.');
++    }
++    const backup = {
++      schema_version: 1,
++      items: data.items.map(({ title, url, read }) => ({ title, url, read })),
++    };
++    downloadJson(backup, EXPORT_FILENAME);
++    const count = backup.items.length;
++    announce(`Exported ${count} ${count === 1 ? 'link' : 'links'} to ${EXPORT_FILENAME}.`);
++  } catch (error) {
++    showError(exportError, `Export failed: ${error.message} No file was downloaded.`);
++  } finally {
++    exportButton.disabled = false;
++  }
++}
++
+ // Suggested links only fill in the form; nothing is saved until the user submits.
+ function useSample(button) {
+   clearFormError();
+@@ -259,6 +288,22 @@ function byteLength(text) {
+   return new TextEncoder().encode(text).byteLength;
+ }
+ 
++// Saves a value as a JSON file through a temporary object URL. Compact output
++// keeps an empty queue as {"schema_version":1,"items":[]}.
++function downloadJson(value, filename) {
++  const blob = new Blob([JSON.stringify(value)], { type: 'application/json' });
++  const href = URL.createObjectURL(blob);
++  const link = document.createElement('a');
++  link.href = href;
++  link.download = filename;
++  link.hidden = true;
++  document.body.append(link);
++  link.click();
++  link.remove();
++  // Revoke later: revoking immediately can cancel the download in some browsers.
++  setTimeout(() => URL.revokeObjectURL(href), 30_000);
++}
++
+ // The ID of the visible item after (or else before) the given one.
+ function nextFocusTarget(id) {
+   const visible = state.items.filter(isVisible);
+@@ -315,6 +360,7 @@ form.addEventListener('submit', addItem);
+ for (const button of filterButtons) {
+   button.addEventListener('click', () => setFilter(button.dataset.filter));
+ }
++exportButton.addEventListener('click', exportQueue);
+ for (const button of document.querySelectorAll('.sample')) {
+   button.addEventListener('click', () => useSample(button));
+ }
+diff --git a/public/index.html b/public/index.html
+index 3261d24..8a3e67f 100644
+--- a/public/index.html
++++ b/public/index.html
+@@ -61,6 +61,12 @@
+           <button type="button" class="filter" data-filter="read" aria-pressed="false">Read <span class="count" data-count="read">0</span></button>
+         </div>
+ 
++        <div class="export">
++          <button id="export-button" type="button" class="button" aria-describedby="export-hint">Export JSON</button>
++          <p id="export-hint" class="hint">Downloads every active link in this browser’s queue as reading-queue.json, including links hidden by the filter.</p>
++        </div>
++        <p id="export-error" class="error" role="alert" hidden></p>
++
+         <p id="list-error" class="error" role="alert" hidden></p>
+         <p id="loading" class="muted">Loading your queue…</p>
+         <ul id="items" class="items"></ul>
+diff --git a/public/styles.css b/public/styles.css
+index 9a1dd48..d8aee5d 100644
+--- a/public/styles.css
++++ b/public/styles.css
+@@ -234,6 +234,19 @@ button:disabled {
+   font-weight: 600;
+ }
+ 
++.export {
++  display: flex;
++  flex-wrap: wrap;
++  align-items: center;
++  gap: 0.5rem 0.75rem;
++  margin: 0 0 1rem;
++}
++
++.export .hint {
++  flex: 1 1 14rem;
++  margin: 0;
++}
++
+ .count {
+   display: inline-block;
+   min-width: 1.5rem;
+diff --git a/src/worker.js b/src/worker.js
+index 6e6beaf..8a3b7f6 100644
+--- a/src/worker.js
++++ b/src/worker.js
+@@ -7,6 +7,8 @@
+ //   GET    /api/health     -> 200 { ok: true, revision }
+ //   GET    /api/items      -> 200 { items: [Item], limit }
+ //                             Sets the session cookie if absent. Never writes to D1.
++//   GET    /api/export     -> 200 { schema_version: 1, items: [{ title, url, read }] }
++//                             Whole active queue, independent of filters. Never writes to D1.
+ //   POST   /api/items      -> 201 { item }      body: { "title": string, "url": string }
+ //   PATCH  /api/items/:id  -> 200 { item }      body: { "read": boolean }
+ //   DELETE /api/items/:id  -> 204 (no body)
+@@ -99,6 +101,11 @@ async function handleApi(request, env, url) {
+     return json({ ok: true, revision: env.APP_REVISION || 'local' });
+   }
+ 
++  if (pathname === '/api/export') {
++    if (method !== 'GET') return methodNotAllowed('GET');
++    return exportItems(request, env, url);
++  }
++
+   if (pathname === '/api/items') {
+     if (method === 'GET') return listItems(request, env, url);
+     if (method === 'POST') return createItem(request, env, url);
+@@ -117,6 +124,26 @@ async function handleApi(request, env, url) {
+ 
+ // ---- Route handlers --------------------------------------------------------
+ 
++async function exportItems(request, env, url) {
++  const session = getSession(request);
++  let items = [];
++  if (!session.isNew) {
++    // Export is a backup of the whole queue, including read items hidden by UI filters.
++    const { results } = await env.DB.prepare(
++      `SELECT title, url, read FROM items
++       WHERE session_id = ?1 AND expires_at > ?2
++       ORDER BY created_at DESC, rowid DESC`,
++    )
++      .bind(session.id, nowSeconds())
++      .all();
++    items = results.map((row) => ({ title: row.title, url: row.url, read: row.read === 1 }));
++  }
++
++  const response = json({ schema_version: 1, items });
++  if (session.isNew) response.headers.append('Set-Cookie', sessionCookie(session.id, url));
++  return response;
++}
++
+ async function listItems(request, env, url) {
+   const session = getSession(request);
+   let items = [];
+diff --git a/tests/worker.test.js b/tests/worker.test.js
+index 68ef99c..076efb2 100644
+--- a/tests/worker.test.js
++++ b/tests/worker.test.js
+@@ -142,6 +142,115 @@ test('first GET sets a strict session cookie without writing to the database', a
+   });
+ });
+ 
++test('export returns the versioned empty shape for missing, malformed and unknown sessions without writes', async () => {
++  await withApp(async ({ db, newBrowser }) => {
++    await newBrowser().add('Another queue', 'https://example.com/other');
++    const before = (await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results;
++
++    for (const cookie of [null, 'rq_session=invalid', `rq_session=${'f'.repeat(64)}`]) {
++      const browser = newBrowser();
++      browser.cookie = cookie;
++      const response = await browser.request('GET', '/api/export', { origin: null, base: 'https://localhost' });
++      assert.equal(response.status, 200);
++      assert.deepEqual(response.body, { schema_version: 1, items: [] });
++      if (cookie === null || cookie === 'rq_session=invalid') {
++        assert.match(browser.cookie, SESSION_COOKIE_PATTERN);
++        const attributes = response.setCookie.split(';').map((part) => part.trim());
++        for (const attribute of ['HttpOnly', 'SameSite=Strict', 'Path=/', 'Max-Age=86400', 'Secure']) {
++          assert.ok(attributes.includes(attribute), attribute);
++        }
++        assert.ok(!attributes.some((part) => part.toLowerCase().startsWith('domain=')));
++      } else {
++        assert.equal(response.setCookie, null, 'a valid session is reused without extending its cookie');
++      }
++    }
++
++    assert.deepEqual((await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results, before);
++  });
++});
++
++test('export backs up read and unread items regardless of filter, with only portable fields and no writes', async () => {
++  await withApp(async ({ db, newBrowser }) => {
++    const browser = newBrowser();
++    const { item: first } = (await browser.add('Read link', 'https://example.com/read')).body;
++    await browser.setRead(first.id, true);
++    const { item: second } = (await browser.add('Unread link', 'https://example.com/unread')).body;
++    // Fix equal creation times to exercise the same newest-first tie-break as listing.
++    await db.prepare('UPDATE items SET created_at = ?1 WHERE id IN (?2, ?3)')
++      .bind(nowSeconds() - 60, first.id, second.id).run();
++    const before = (await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results;
++    const expected = {
++      schema_version: 1,
++      items: [
++        { title: 'Unread link', url: 'https://example.com/unread', read: false },
++        { title: 'Read link', url: 'https://example.com/read', read: true },
++      ],
++    };
++
++    for (const query of ['', '?filter=unread', '?filter=read']) {
++      const response = await browser.request('GET', `/api/export${query}`, { origin: null });
++      assert.equal(response.status, 200);
++      assert.deepEqual(response.body, expected, 'exact shape excludes IDs, cookies and timestamps');
++      assert.equal(response.headers.get('Content-Type'), 'application/json; charset=utf-8');
++      assert.equal(response.headers.get('Cache-Control'), 'no-store');
++      assert.equal(response.headers.get('X-Content-Type-Options'), 'nosniff');
++      assert.equal(response.setCookie, null);
++    }
++
++    assert.deepEqual((await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results, before,
++      'export must not change read state, expiry, ownership or any stored row');
++  });
++});
++
++test('export isolates browser queues and hides expired rows without deleting them', async () => {
++  await withApp(async ({ db, newBrowser }) => {
++    const alice = newBrowser();
++    const bob = newBrowser();
++    const { item: old } = (await alice.add('Expired', 'https://example.com/old')).body;
++    const { item: live } = (await alice.add('Alice', 'https://example.com/alice')).body;
++    await bob.add('Bob', 'https://example.com/bob');
++    const now = nowSeconds();
++    await db.prepare('UPDATE items SET created_at = ?1, expires_at = ?2 WHERE id = ?3')
++      .bind(now - DAY, now, old.id).run();
++    const before = (await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results;
++
++    const aliceExport = await alice.request('GET', '/api/export', { origin: null });
++    const bobExport = await bob.request('GET', '/api/export', { origin: null });
++    assert.equal(aliceExport.status, 200);
++    assert.equal(bobExport.status, 200);
++    assert.deepEqual(aliceExport.body, {
++      schema_version: 1, items: [{ title: 'Alice', url: 'https://example.com/alice', read: false }],
++    });
++    assert.deepEqual(bobExport.body, {
++      schema_version: 1, items: [{ title: 'Bob', url: 'https://example.com/bob', read: false }],
++    });
++    assert.deepEqual((await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results, before);
++
++    await db.prepare('UPDATE items SET created_at = ?1, expires_at = ?2 WHERE id = ?3')
++      .bind(now - DAY, now, live.id).run();
++    const allExpired = (await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results;
++    assert.deepEqual((await alice.request('GET', '/api/export', { origin: null })).body,
++      { schema_version: 1, items: [] });
++    assert.deepEqual((await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results, allExpired);
++  });
++});
++
++test('export accepts only GET and rejects other methods without changing stored data', async () => {
++  await withApp(async ({ db, newBrowser }) => {
++    const browser = newBrowser();
++    await browser.add('Keep', 'https://example.com/keep');
++    const before = (await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results;
++    for (const method of ['POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS']) {
++      const response = await browser.request(method, '/api/export', { origin: null });
++      assert.equal(response.status, 405, method);
++      assert.equal(response.headers.get('Allow'), 'GET', method);
++      assert.equal(response.headers.get('Cache-Control'), 'no-store', method);
++      assert.equal(response.setCookie, null, method);
++    }
++    assert.deepEqual((await db.prepare('SELECT * FROM items ORDER BY rowid').all()).results, before);
++  });
++});
++
+ test('add, list, mark read/unread and delete within one browser', async () => {
+   await withApp(async ({ newBrowser }) => {
+     const browser = newBrowser();
