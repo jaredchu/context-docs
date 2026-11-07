@@ -280,13 +280,13 @@ materials and completion of its scored procedure remain unestablished.
   general reliability. Its two passing application unit checks verify the small
   fixture, not Context Docs' effectiveness.
 - The [instruction-simplification candidate](../evals/simplification/2026-10-26/README.md)
-  covers unreleased core **0.2.7** and adoption **0.1.16** in three fresh Codex
+  covers then-unreleased core **0.2.7** and adoption **0.1.16** in three fresh Codex
   sessions and a separate three-session Claude extension. Focused refresh and
   file-preservation checks pass on a reused, guided fixture. The Codex adoption
   report's loading confirmation remains unverified; Claude instruction events
   support loading in those sessions only. There was no fresh-adoption test,
   matched baseline, independent grading or user-benefit measurement. The source
-  candidate remains unreleased and separate from the frozen released-package trial.
+  study predates publication and remains separate from the frozen released-package trial.
 
 These records preserve their own version, method and evidence limits. Neither
 the self-reports nor the synthetic checks establish comparative effort savings

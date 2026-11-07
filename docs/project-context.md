@@ -3,7 +3,8 @@
 Context Docs packages a Markdown maintenance workflow for people without an
 established way to preserve project knowledge across AI sessions. Keep useful
 decisions, current work and next steps accurate with little manual organization.
-Standalone experimental **v0.2.6** remains the published everyday-use bundle.
+The owner authorized experimental **v0.2.7** publication and skills.sh verification.
+Website deployment and installed upgrades remain separate actions.
 
 ## Purpose and scope
 
@@ -25,13 +26,13 @@ The owner supplied [anonymous early feedback](../evals/user-feedback/README.md#a
 from five responses, including one team response. Reported usefulness is positive;
 the owner subsequently [confirmed human-observed usability and actual
 cross-machine use](../evals/user-feedback/README.md#owner-confirmation).
-Local sources contain unreleased core **0.2.7** and adoption **0.1.16**. The
+The selected release contains core **0.2.7** and adoption **0.1.16**. The
 [candidate check](../evals/simplification/2026-10-26/README.md) passes focused file
 checks in Codex and Claude. Claude startup/import events support its loading
 statement; the earlier Codex statement remains unverified. Published v0.2.6 and
-frozen participant r1 materials remain unchanged. The [v0.2.7 draft notes](releases/v0.2.7.md)
-and [preparation record](releases/v0.2.7-validation.json) own the unpublished
-bundle scope and local checks. The contributor instructions and
+frozen participant r1 materials remain unchanged. The [v0.2.7 release notes](releases/v0.2.7.md)
+own bundle scope; the [preparation record](releases/v0.2.7-validation.json) retains
+its original unpublished scope and local checks. The contributor instructions and
 this context now follow the [public audience boundary](project-decisions.md#public-project-context-boundary).
 
 Progress snapshot updated November 7, 2026; earlier technical checks retain their
@@ -49,12 +50,13 @@ Goal: useful, accurate context with less manual organization
 │  └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
 ├─ PREPARED   Public context and model-neutral contributor rules
 ├─ READY      Published-release install pins, current evidence index and transfer guidance
-└─ PREPARED   Unpublished v0.2.7 bundle: core 0.2.7 and adoption 0.1.16
-   └─ HOLD    Push, release publication and website deployment are not authorized
+└─ RELEASING  Authorized v0.2.7 bundle: core 0.2.7 and adoption 0.1.16
+   ├─ NEXT    Release-commit CI, prerelease publication and skills.sh verification
+   └─ HOLD    Website deployment and installed upgrades remain separate
 ~~~
 
 The [usage guide](getting-started.md) owns installation pinned to published bundle
-v0.2.6 and shared-context transfer guidance. The
+v0.2.7 and shared-context transfer guidance. The
 [evidence overview](evaluation-results.md#more-recent-studies) now links the newer
 feedback, candidate and synthetic records with their distinct scopes and limits.
 
@@ -159,10 +161,10 @@ Repository checks validate mechanics, not agent behavior.
 
 The stale-note check, public-context cleanup and selected installation/evidence/
 transfer documentation follow-up are complete; no additional skill fix is selected.
-The owner authorized local v0.2.7 preparation and a commit, with final-commit
-validation. Release notes and website links retain draft/unreleased status; everyday
-installs still select published v0.2.6. Push, release publication and website
-deployment require separate authorization. Keep the
+Local v0.2.7 preparation and exact-commit validation are complete. The owner then
+authorized release labels and pins, push and CI verification, tagging, experimental
+prerelease publication and skills.sh verification. Website deployment and installed
+upgrades remain separate; retain the actual deployed website revision. Keep the
 [discrimination protocol](../evals/discrimination-protocol.md)
 as a separate proposed comparative study, not a prerequisite for everyday use.
 

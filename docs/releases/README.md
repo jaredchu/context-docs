@@ -12,11 +12,11 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## v0.2.x
 
-- **[v0.2.7 draft — unpublished](v0.2.7.md):**
+- **[v0.2.7](v0.2.7.md):**
   [local preparation](v0.2.7-validation.json),
   [qualified simplification checks](../../evals/simplification/2026-10-26/README.md)
   and [current evidence overview](../evaluation-results.md#more-recent-studies).
-  Everyday installation remains pinned to published v0.2.6 until publication.
+  Everyday installation is pinned to this bundle; installed upgrades remain separate.
 - **[v0.2.6](v0.2.6.md):**
   [preparation](v0.2.6-validation.json), [publication](v0.2.6-publication.json),
   [installed upgrade](../../.context/events/installed-v026-upgrade-20261019.jsonl),

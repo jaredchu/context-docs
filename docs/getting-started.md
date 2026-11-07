@@ -4,10 +4,9 @@
 
 Install both skills once, adopt them in a project, and let its maintenance rule keep
 context current after meaningful work. No background service is installed.
-Everyday installation below selects published bundle **v0.2.6**, commit
-`d74e69d3268676cf7eab19d241e8b590ddb1c60a`: core **0.2.6** and adoption **0.1.15**.
-These versions differ from the [prepared, unreleased v0.2.7 bundle](releases/v0.2.7.md)
-(core 0.2.7 and adoption 0.1.16).
+Everyday installation below selects published bundle **v0.2.7**:
+core **0.2.7** and adoption **0.1.16**. The [release notes](releases/v0.2.7.md)
+retain the bundle scope and evidence limits.
 
 ## Install in Codex
 
@@ -15,13 +14,13 @@ Ask the built-in installer:
 
 ```text
 Use $skill-installer to install both skills from jaredchu/context-docs
-at the published tag v0.2.6 (commit d74e69d3268676cf7eab19d241e8b590ddb1c60a):
+at the published tag v0.2.7:
 - skills/context-docs
 - skills/adopt-context-docs
 Install them together in ~/.agents/skills/.
 Preserve existing installations and local customizations; report version
 mismatches before upgrading. Report the installed VERSION values:
-context-docs 0.2.6 and adopt-context-docs 0.1.15.
+context-docs 0.2.7 and adopt-context-docs 0.1.16.
 ```
 
 The adoption skill requires `context-docs` as a sibling folder. It is a small
@@ -29,9 +28,9 @@ setup wrapper, not a standalone replacement for the core skill. The core skill
 can be installed and used by itself.
 
 For a manual installation, clone the published bundle with
-`git clone --branch v0.2.6 https://github.com/jaredchu/context-docs.git`, then copy
+`git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git`, then copy
 both complete folders from that checkout's `skills/` into `~/.agents/skills/`.
-Read both copied `VERSION` files: core should be `0.2.6` and adoption `0.1.15`.
+Read both copied `VERSION` files: core should be `0.2.7` and adoption `0.1.16`.
 For a repository-scoped installation, copy both into
 `.agents/skills/` at the project root instead. Use one scope to avoid duplicate
 skill entries. Check existing folders and review changes before upgrading; retain
@@ -47,14 +46,14 @@ If either skill is already installed, [review the upgrade guidance](#upgrading)
 before copying files. For a first installation:
 
 ```sh
-git clone --branch v0.2.6 https://github.com/jaredchu/context-docs.git
+git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git
 cd context-docs
 mkdir -p ~/.claude/skills
 cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
 cat ~/.claude/skills/context-docs/VERSION ~/.claude/skills/adopt-context-docs/VERSION
 ```
 
-The version output should be `0.2.6` followed by `0.1.15`.
+The version output should be `0.2.7` followed by `0.1.16`.
 Keep both folders side by side: the adoption skill reads its sibling core skill.
 Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
 and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
@@ -82,10 +81,9 @@ Behavior on clients other than Codex and Claude Code has not been evaluated.
 ### Development-source installs
 
 For development work, deliberately select a reviewed source branch or commit and
-read its `VERSION` files before copying packages. The current source candidate
-is unreleased; copying from a working checkout selects its contents rather than
-the published bundle. Preserve existing customizations and use one installation
-scope. The everyday instructions above remain pinned to v0.2.6.
+read its `VERSION` files before copying packages. Copying from a working checkout selects its contents rather than the published
+bundle and may include unreleased edits. Preserve existing customizations and use one installation
+scope. The everyday instructions above remain pinned to v0.2.7.
 
 ## Use it
 
