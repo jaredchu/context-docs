@@ -1,0 +1,8 @@
+Coordinator preflight: python3 -m unittest discover -s tests
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+Only these two unit checks ran. No restart or end-to-end checks ran.

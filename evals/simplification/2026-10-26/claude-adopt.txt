@@ -1,0 +1,15 @@
+I made no edits. The project had already adopted context-docs, and both files were current and supported by the project's own sources.
+
+**Adoption and loading**
+- **Marker:** `AGENTS.md` already has the marker (`Method: context-docs`, `Adopted: 2026-09-15`, `Entry point: docs/current.md`, `Event journal: off`). It sits in a `Context maintenance` section, next to an existing rule to update `docs/current.md` and `docs/decisions.md` after meaningful changes and keep the progress view current. That rule covers the same ground as the skill's suggested wording, so I kept it as written rather than adding a second copy. I kept the original adoption date and left logging off.
+- **Loading:** confirmed for this Claude Code session. The session loaded `CLAUDE.md`, and its `@AGENTS.md` import pulled in the `AGENTS.md` content, so the rule is in effect from a single copy.
+
+**Context check (`docs/current.md`)**
+- **Configuration:** the stated timeout (30 s), retry limit (2) and `legacy-v1` format match `config/worker.json`.
+- **Retry limit:** the gap is recorded correctly. The approved limit is four (`docs/decisions.md#retry-budget`), but the configuration still sets two.
+- **Local check:** described within the limits in `evidence/local-check.md`. It covered one example job and the timeout only, with no retry, restore or deployed-behavior checks.
+- **Progress view:** the existing inline view already shows the goal, the completed check, the open retry alignment and the restore check blocked on the missing legacy reader fixture, with next actions. I kept it as is rather than adding another.
+- **Decisions and working note:** the storage-envelope constraint and the uncommitted operator note are intact.
+- **Unrelated draft:** `design/unused-colors.md` has no bearing on current context, so it isn't linked.
+
+**Open items (already recorded in `docs/current.md`):** align the retry limit to four and check retry behavior, and get the restore fixture from Leena. Deployed behavior is still unknown.

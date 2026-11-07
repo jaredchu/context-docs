@@ -52,8 +52,7 @@ An audit can assess progress clarity but does not write a view or enable logging
 
 Within authorized context edits, prefer clear, direct sentences and consistent
 project terminology. Split crowded sentences without losing conditions,
-uncertainty, rationale or evidence. This preference does not require ASD-STE100
-compliance or justify changing existing layouts or rewriting unrelated owner text.
+uncertainty, rationale or evidence. Preserve existing layouts and unrelated owner text.
 
 When agents or sessions work concurrently on the same context file, coordinate
 one writer at a time for that file; others pass their findings to the writer.
@@ -89,9 +88,9 @@ constraints; any authorized public derivative must retain provenance and limits.
 Do not rewrite frozen evidence, relocate records or change storage rules just to
 make references portable.
 
-Record an outcome and material qualification once in its canonical location;
-link from summaries. Include preservation or installation bookkeeping only when
-it establishes a relevant compatibility condition, failure or requested check.
+Record each detail, outcome and material qualification once in its canonical
+location; link from summaries. Include preservation or installation bookkeeping
+only when it establishes a relevant compatibility condition, failure or requested check.
 Do not append a diary of routine checks or repeat unchanged safeguards. Review
 the changed content, without requiring a repository-wide scan or a separate
 filtering report. Filtering must preserve decisions, conditions, rationale,
@@ -111,8 +110,7 @@ does not make an agent-chosen method or layout an explicit owner decision.
 Describe inspected operations directly; do not turn them into guarantees for every
 input without verification.
 
-Replace stale claims in place. Keep each detail and its qualifications in one
-canonical location; link from summaries. Add uncertainty only where it changes a
+Replace stale claims in place. Add uncertainty only where it changes a
 reader's interpretation or next action, rather than repeating generic verification
 disclaimers. Initialization needs supported context and useful navigation, not a
 catalogue of everything the project has not documented.

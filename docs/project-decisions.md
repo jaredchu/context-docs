@@ -310,3 +310,21 @@ proposing work rather than suggesting another recording/publication cycle.
 Preserve existing Git history, original studies and private evidence. Keep the
 [deployment checklist](../site/README.md#deployment-checklist) for authorized
 publication; record-only follow-ups do not require another deployment.
+
+## Review follow-up and learner validation
+
+On October 26, 2026, the owner accepted the combined review plan: simplify current
+project context, prepare a small unfamiliar-user trial and deduplicate skill
+instructions incrementally with preservation checks. The owner can provide
+participants. Measure setup assistance, prompting, corrections and successful
+fresh-session continuation; no human outcomes have been collected yet.
+
+Keep controlled comparisons available for specific incremental-benefit questions,
+without making a broad discrimination campaign the first step or treating a tie
+against expert instructions as proof of no value. A fixed 400-word skill target,
+merging the two skills, relocating evaluations and publishing a plugin are not
+selected by this plan. Preserve original studies, failures, existing installations
+and deferred Cursor/plugin work. The [trial packet](../evals/user-feedback/README.md)
+sets out the bounded procedure; participant counts and study design are coordinator
+choices, not owner quotations. This approval authorizes local preparation and
+validation, not participant outreach, publication, deployment or installed upgrades.

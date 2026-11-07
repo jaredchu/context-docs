@@ -1,0 +1,16 @@
+I refreshed `docs/current.md` against the project evidence and made no edits, because everything in it is still accurate.
+
+I compared it with `README.md`, `AGENTS.md`, `docs/decisions.md`, `config/worker.json`, `evidence/local-check.md` and `design/unused-colors.md`:
+
+- **Configuration:** a 30-second timeout, a retry limit of two and the `legacy-v1` recovery format. These match what `current.md` says.
+- **Retry limit:** the approved retry decision sets four retries, but the configuration still sets two. `current.md` already shows this as open work, with retry behavior not yet verified.
+- **Local check:** the October 22 check covered one example job's timeout only. `current.md` keeps those limits, says nothing was deployed and links to the evidence file.
+- **Blocker:** restore verification is still blocked by the missing legacy reader fixture. `current.md` keeps the storage decision's compatibility constraint and the operator note about keeping the recovery envelope.
+- **Progress view:** the tree, its status labels and its source links still match the sources, and the links point to files and sections that exist.
+- **Label colors draft:** it isn't related to the handoff goal and records no decision, so it doesn't belong in the context.
+
+Event logging is off for this project, so I didn't open or create any journal files. I changed no other files and didn't touch Git state.
+
+Still open:
+1. The retry limit needs to change from two to four, and retry behavior then needs to be checked.
+2. Leena needs to supply the legacy reader fixture before the maintainer can run the restore check.

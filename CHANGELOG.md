@@ -23,6 +23,40 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.7 — unreleased
+
+- Consolidate the repeated canonical-location rule and remove the incidental
+  ASD-STE100 example while retaining clarity, scope and preservation requirements.
+  No change to storage, logging, progress, concurrency or publication authority
+  is intended. Published and installed core 0.2.6 remains unchanged.
+- Repository static checks, 24 site-build tests and standalone copied-package
+  link checks pass. A [three-session Codex candidate check](evals/simplification/2026-10-26/README.md)
+  passes focused refresh/preservation and unchanged-repeat checks; adoption's
+  report-only loading confirmation remains unverified. This guided reused case
+  is not independent evaluation, a clean reporting pass or a user-benefit result.
+  The optional validator could not start without PyYAML; no dependency was installed.
+- A separate [Claude extension](evals/simplification/2026-10-26/README.md#claude-extension)
+  passes three focused refresh/repeat/re-adoption sessions on the same candidate.
+  All 24 project files stay equal on repeat and re-adoption. Hook records support
+  startup/import loading for those Claude sessions; the earlier Codex statement
+  remains unverified. A post-run path-alias parser correction is retained, with
+  no subject rerun. No broad reliability or human-benefit claim is added.
+
+## adopt-context-docs 0.1.16 — unreleased
+
+- Shorten the core coordination restatement, remove the duplicated ASD-STE100
+  example and repeated storage/setup sentence. Mandatory sibling-core reading,
+  reference anchors and the full underlying safeguards remain.
+- The same static/package checks pass. In the linked candidate check, re-adoption
+  reads sibling core and preserves all 23 project files, marker/date, logging off,
+  maintenance rule and progress view. Its automatic-loading confirmation is
+  unverified; fresh setup and the full behavioral suite were not run. Installed
+  adoption 0.1.15 remains unchanged; no publication or installed upgrade occurred.
+- The separate Claude extension reads sibling core and reuses setup unchanged;
+  its loading statement is supported by pre-tool instruction events matching the
+  frozen files. This remains explicit invocation under controlled file tools,
+  with no fresh-adoption or implicit-selection claim.
+
 ## v0.2.6 publication — 2026-10-19
 
 - Publish the [experimental prerelease](https://github.com/jaredchu/context-docs/releases/tag/v0.2.6)

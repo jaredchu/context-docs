@@ -91,6 +91,10 @@ The original preview and review records retain their earlier scope.
 
 The app remains at `0f68893` and was not redeployed. Broader mobile-table
 restructuring and guide-length changes remain proposals for learner feedback.
-The owner plans to share the existing learner packet; no new human results or
-native agent evaluation were collected by this publication. Record-only follow-up
-commits do not require another deployment.
+The owner plans to share the learner packet; no new human results or native agent
+evaluation were collected by this publication. The later
+[unfamiliar-user trial packet](../evals/user-feedback/README.md) extends that plan
+with assistance, correction and fresh-session measures; structured trial outcomes
+remain pending. Separate [anonymous early feedback](../evals/user-feedback/README.md#anonymous-early-feedback)
+records owner-supplied self-reports. Record-only follow-up commits do not require
+another deployment.

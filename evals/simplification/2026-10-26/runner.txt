@@ -1,0 +1,144 @@
+"""One-off candidate smoke; original refresh runner and evidence are untouched."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import subprocess
+import time
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = Path(__file__).resolve().parent / 'evidence'
+OUT.mkdir(exist_ok=False)
+WORK = OUT / 'workspace'
+shutil.copytree(ROOT / 'evals/refresh/fixture', WORK)
+
+
+def hashes(directory):
+    return {p.relative_to(directory).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(directory.rglob('*')) if p.is_file()
+            and '.git' not in p.relative_to(directory).parts}
+
+
+def save(name, value):
+    (OUT / name).write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
+
+
+def installed():
+    result = {}
+    for client, base in [('codex', Path.home() / '.agents/skills'),
+                         ('claude', Path.home() / '.claude/skills')]:
+        for name in ('context-docs', 'adopt-context-docs'):
+            directory = base / name
+            if directory.is_dir():
+                result[f'{client}/{name}'] = hashes(directory)
+    return result
+
+
+env = {k: v for k, v in os.environ.items()
+       if not k.startswith(('OPENAI_', 'ANTHROPIC_', 'AZURE_', 'GIT_'))
+       and k not in ('GH_TOKEN', 'GITHUB_TOKEN', 'CLAUDECODE')}
+source_files = subprocess.check_output(['git', 'ls-files', '-z', 'skills'], cwd=ROOT).decode().split('\0')
+source_files = [p for p in source_files if p]
+source_hashes = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in source_files}
+for relative in source_files:
+    source = ROOT / relative
+    target = WORK / '.agents' / relative
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, target)
+current = WORK / 'docs/current.md'
+current.write_text(current.read_text() + '''
+## Working note
+
+Uncommitted operator note: retain the recovery envelope until the restore fixture
+exists; the legacy reader cannot parse a bare payload.
+
+```yaml
+recovery_envelope:
+  format: legacy-v1
+  retain_until: restore-fixture-verified
+```
+''')
+subprocess.run(['git', 'init', '-q'], cwd=WORK, env=env, check=True)
+git_before = hashes(WORK / '.git')
+installed_before = installed()
+before = hashes(WORK)
+shutil.copytree(WORK, OUT / 'before', ignore=shutil.ignore_patterns('.git'))
+refresh = '''Use $context-docs at .agents/skills/context-docs/SKILL.md to refresh this
+adopted project's context against current project evidence.
+Only docs/current.md may be edited. Do not alter source evidence,
+setup, skills or Git state, run application tests, contact external systems, use
+other agents or create scratch files. Briefly report the result.
+'''
+adopt = '''Use $adopt-context-docs at .agents/skills/adopt-context-docs/SKILL.md
+to inspect and reuse this project's existing adoption and context. Work only in
+AGENTS.md and docs/current.md if needed. Do not change evidence, decisions,
+skills, Git state or logging settings, run application checks, contact external
+systems, use other agents or create scratch files. Briefly report the result.
+'''
+flags = ['codex', 'exec', '--ignore-user-config', '--ignore-rules', '--ephemeral',
+         '--sandbox', 'workspace-write', '--model', 'gpt-6.1-sol',
+         '-c', 'model_reasoning_effort="high"', '-c', 'approval_policy="never"',
+         '-c', 'features.memories=false', '-c', 'features.multi_agent=false', '--json']
+manifest = {'source_revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip(),
+            'source_package_hashes': source_hashes, 'before_hashes': before,
+            'fixture_source': 'evals/refresh/fixture', 'runner_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'prompts': {'refresh': refresh, 'no-change': refresh, 'adopt': adopt},
+            'flags': flags, 'timeout_seconds_per_session': 240, 'retries': 0,
+            'model': 'gpt-6.1-sol', 'configured_reasoning_effort': 'high',
+            'client_version': subprocess.check_output(['codex', '--version'], env=env).decode().strip(),
+            'semantic_criteria': ['configured timeout 30; approved four retries remains distinct from configured two',
+                'local one-job timeout pass; deployed/full-suite/retry/restore checks remain unknown or unrun',
+                'Leena fixture blocker and next action; decision rationale and recovery YAML preserved',
+                'existing progress agrees with evidence; no unauthorized file or Git edits',
+                'second refresh leaves complete project files identical',
+                're-adoption reads sibling core, preserves marker/date/logging/layout and reuses one progress view',
+                'reports retain scope and limitations; no invented tests or guarantees'],
+            'limits': 'Explicit invocation, reused authored fixture, one client, no comparator or user-benefit measure'}
+save('frozen.json', manifest)
+previous = before
+trials = []
+for label, prompt in [('refresh', refresh), ('no-change', refresh), ('adopt', adopt)]:
+    print(f'START {label}: gpt-6.1-sol High', flush=True)
+    start = time.monotonic()
+    with (OUT / f'{label}.jsonl').open('w') as stream, (OUT / f'{label}.stderr').open('w') as err:
+        proc = subprocess.Popen(flags + ['--output-last-message', str(OUT / f'{label}.txt'), '-'],
+                                cwd=WORK, env=env, stdin=subprocess.PIPE, stdout=stream, stderr=err,
+                                start_new_session=True)
+        timed_out = False
+        try:
+            proc.communicate(prompt.encode(), timeout=240)
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            os.killpg(proc.pid, signal.SIGTERM)
+            try:
+                proc.communicate(timeout=10)
+            except subprocess.TimeoutExpired:
+                os.killpg(proc.pid, signal.SIGKILL)
+                proc.communicate()
+    after = hashes(WORK)
+    shutil.copytree(WORK, OUT / f'after-{label}', ignore=shutil.ignore_patterns('.git'))
+    events = []
+    for line in (OUT / f'{label}.jsonl').read_text().splitlines():
+        try:
+            events.append(json.loads(line))
+        except ValueError:
+            pass
+    changed = sorted(k for k in set(previous) | set(after) if previous.get(k) != after.get(k))
+    trial = {'label': label, 'returncode': proc.returncode, 'timed_out': timed_out,
+             'completed': any(e.get('type') == 'turn.completed' for e in events),
+             'elapsed_seconds': round(time.monotonic() - start, 2), 'changed_files': changed,
+             'git_files_unchanged': hashes(WORK / '.git') == git_before,
+             'project_exactly_unchanged': after == previous, 'after_hashes': after}
+    trials.append(trial)
+    save('trials.json', trials)
+    print(json.dumps({k: v for k, v in trial.items() if k != 'after_hashes'}), flush=True)
+    previous = after
+    if proc.returncode or timed_out or not trial['completed']:
+        break
+save('mechanical.json', {'trials': trials, 'installed_package_files_unchanged': installed_before == installed(),
+                        'source_packages_unchanged': source_hashes == {
+                            p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in source_files},
+                        'semantic_review': 'pending; hash equality does not establish correctness'})
+print(f'Evidence: {OUT}', flush=True)

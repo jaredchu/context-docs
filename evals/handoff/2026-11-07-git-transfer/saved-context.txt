@@ -1,0 +1,22 @@
+# Project context
+
+## Goal
+Provide a local CSV export command for a reading queue.
+
+## Owner decisions (2026-11-07)
+- **Scope:** the export includes the whole queue, even when a view filter is active.
+- **Format:** ordinary CSV with a UTF-8 BOM. The receiving spreadsheet requires the BOM.
+- **No SQLite cache:** an output-only command should have no persistent state.
+
+## Current work
+- Done: the --export argument parser is implemented.
+- Not done: the export command implementation and the empty-queue check.
+- Verification: only the parser happy-path check has run. No export tests have run.
+
+## Blocked
+Malformed-row handling is blocked on an owner decision: reject or skip such rows.
+Do not choose a policy until the owner decides.
+
+## Next step
+Implement whole-queue export and its empty-queue check. Do not resolve the
+malformed-row policy in this work.

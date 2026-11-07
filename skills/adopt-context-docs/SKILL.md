@@ -11,12 +11,10 @@ the maintenance method. If unavailable, report the missing dependency rather tha
 silently inventing a substitute.
 
 Apply core's clarity preference within adoption's existing edit scope, preserving
-conditions, uncertainty, rationale and evidence; ASD-STE100 compliance is not required.
-
-For concurrent work on the same context file, follow core's
+conditions, uncertainty, rationale and evidence. For concurrent work on the same
+context file, follow core's
 [shared-file coordination](../context-docs/SKILL.md#make-the-smallest-useful-update):
-assign one writer at a time per file, hand off ownership explicitly, prefer narrow
-edits, and reread/reconcile current contents after conflicts.
+one writer per file, explicit handoff, and reconciliation after conflicts.
 
 Read the project's instructions and entry points. Confirm the target from the
 workspace; ask only when the intended project is ambiguous. Preserve existing
@@ -46,7 +44,7 @@ for concise overviews with linked evidence, sparse context and preserving
 authoritative details and the existing layout. Favor an overview over test/review
 chronology when creating a view; do not reshape an established view merely to shorten it.
 Refresh the view through core after meaningful changes during everyday work;
-the user need not ask for each update. Preserve storage and equivalent setup rules.
+the user need not ask for each update.
 
 Add or update a concise rule in the instruction file this project's agent actually
 loads, merging with existing guidance rather than duplicating it. Establish loading

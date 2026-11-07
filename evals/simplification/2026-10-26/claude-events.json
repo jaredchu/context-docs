@@ -1,0 +1,504 @@
+{
+  "sessions": {
+    "adopt": [
+      {
+        "file_sha256_at_event": "3160978d7dbd352c3938d48368eb266635a546c2b37e175eed50375f0bc4920b",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "include",
+        "memory_type": "Project",
+        "path": "project/AGENTS.md",
+        "sequence": 1
+      },
+      {
+        "file_sha256_at_event": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "session_start",
+        "memory_type": "Project",
+        "path": "project/CLAUDE.md",
+        "sequence": 2
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/adopt-context-docs/SKILL.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 3,
+        "tool_id": "tool-01",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 4,
+        "tool_id": "tool-02",
+        "tool_name": "Glob"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 5,
+        "tool_id": "tool-01",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 6,
+        "tool_id": "tool-02",
+        "tool_name": "Glob"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/context-docs/SKILL.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 7,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 8,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/current.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 9,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 10,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/README.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 11,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 12,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/decisions.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 13,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 14,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/evidence/local-check.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 15,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 16,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/design/unused-colors.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 17,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 18,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/config/worker.json",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 19,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 20,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      }
+    ],
+    "no-change": [
+      {
+        "file_sha256_at_event": "3160978d7dbd352c3938d48368eb266635a546c2b37e175eed50375f0bc4920b",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "include",
+        "memory_type": "Project",
+        "path": "project/AGENTS.md",
+        "sequence": 1
+      },
+      {
+        "file_sha256_at_event": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "session_start",
+        "memory_type": "Project",
+        "path": "project/CLAUDE.md",
+        "sequence": 2
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 3,
+        "tool_id": "tool-01",
+        "tool_name": "Glob"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/context-docs/SKILL.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 4,
+        "tool_id": "tool-02",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 5,
+        "tool_id": "tool-01",
+        "tool_name": "Glob"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 6,
+        "tool_id": "tool-02",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/README.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 7,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 8,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/current.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 9,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 10,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/decisions.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 11,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 12,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/config/worker.json",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 13,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 14,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/evidence/local-check.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 15,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 16,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/design/unused-colors.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 17,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 18,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/context-docs/references/progress.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 19,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 20,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      }
+    ],
+    "refresh": [
+      {
+        "file_sha256_at_event": "3160978d7dbd352c3938d48368eb266635a546c2b37e175eed50375f0bc4920b",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "include",
+        "memory_type": "Project",
+        "path": "project/AGENTS.md",
+        "sequence": 1
+      },
+      {
+        "file_sha256_at_event": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "hook_event_name": "InstructionsLoaded",
+        "load_reason": "session_start",
+        "memory_type": "Project",
+        "path": "project/CLAUDE.md",
+        "sequence": 2
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/context-docs/SKILL.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 3,
+        "tool_id": "tool-01",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 4,
+        "tool_id": "tool-01",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 5,
+        "tool_id": "tool-02",
+        "tool_name": "Glob"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 6,
+        "tool_id": "tool-02",
+        "tool_name": "Glob"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/README.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 7,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 8,
+        "tool_id": "tool-03",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/current.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 9,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 10,
+        "tool_id": "tool-04",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/decisions.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 11,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 12,
+        "tool_id": "tool-05",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/config/worker.json",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 13,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 14,
+        "tool_id": "tool-06",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/evidence/local-check.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 15,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 16,
+        "tool_id": "tool-07",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/design/unused-colors.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 17,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 18,
+        "tool_id": "tool-08",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/.claude/skills/context-docs/references/progress.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 19,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 20,
+        "tool_id": "tool-09",
+        "tool_name": "Read"
+      },
+      {
+        "decision": "allow",
+        "hook_event_name": "PreToolUse",
+        "path": "project/docs/current.md",
+        "reason": "Within the evaluation file-tool policy.",
+        "sequence": 21,
+        "tool_id": "tool-10",
+        "tool_name": "Write"
+      },
+      {
+        "error": null,
+        "hook_event_name": "PostToolUse",
+        "sequence": 22,
+        "tool_id": "tool-10",
+        "tool_name": "Write"
+      }
+    ]
+  },
+  "transformation": "Project paths normalized after resolving aliases; session IDs and absolute times omitted; tool IDs replaced with per-session ordinal IDs; tool payloads reduced to path and verdict; sequence preserves ordering. Raw stream/hook hashes are in claude-summary.json."
+}

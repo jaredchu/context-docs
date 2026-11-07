@@ -1,0 +1,138 @@
+from pathlib import Path
+import hashlib, importlib.util, json, os, shlex, shutil, signal, subprocess, sys, tempfile, time
+ROOT=Path(__file__).resolve().parents[2]
+OUT=Path(__file__).resolve().parent/'evidence'
+OUT.mkdir(exist_ok=False)
+BASE=Path(tempfile.mkdtemp(prefix='context-docs-claude-candidate-'))
+WORK=BASE/'project';CONTROL=BASE/'control';CONTROL.mkdir()
+for parent in BASE.parents:
+ if any((parent/n).exists() for n in ('CLAUDE.md','CLAUDE.local.md','.claude/CLAUDE.md','.claude/rules')):
+  raise RuntimeError('Ancestor instruction file; refusing this evaluation location.')
+def sha(data):return hashlib.sha256(data).hexdigest()
+def hashes(d):
+ return {p.relative_to(d).as_posix():sha(p.read_bytes()) for p in sorted(d.rglob('*')) if p.is_file() and '.git' not in p.relative_to(d).parts}
+def save(name,obj): (OUT/name).write_text(json.dumps(obj,indent=2,sort_keys=True)+'\n')
+source_paths=subprocess.check_output(['git','ls-files','-z','skills'],cwd=ROOT).decode().split('\0')
+source_paths=[p for p in source_paths if p]
+source_before={p:sha((ROOT/p).read_bytes()) for p in source_paths}
+prior=json.loads((ROOT/'evals/simplification/2026-10-26/protocol.json').read_text())
+assert source_before==prior['source_package_hashes'],'Candidate differs from the earlier Codex snapshot.'
+shutil.copytree(ROOT/'evals/refresh/fixture',WORK)
+for relative in source_paths:
+ target=WORK/'.claude'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/relative,target)
+(WORK/'CLAUDE.md').write_text('@AGENTS.md\n')
+current=WORK/'docs/current.md'
+current.write_text(current.read_text()+'''
+## Working note
+
+Uncommitted operator note: retain the recovery envelope until the restore fixture
+exists; the legacy reader cannot parse a bare payload.
+
+```yaml
+recovery_envelope:
+  format: legacy-v1
+  retain_until: restore-fixture-verified
+```
+''')
+env={k:v for k,v in os.environ.items() if not k.startswith(('OPENAI_','ANTHROPIC_','AZURE_','GIT_')) and k not in ('GH_TOKEN','GITHUB_TOKEN','CLAUDECODE','CLAUDE_CODE_USE_BEDROCK','CLAUDE_CODE_USE_VERTEX','CLAUDE_CODE_USE_FOUNDRY')}
+env['PYTHONDONTWRITEBYTECODE']='1'
+auth=json.loads(subprocess.check_output(['claude','auth','status'],env=env,cwd=WORK))
+assert auth.get('loggedIn') and auth.get('authMethod')=='claude.ai' and auth.get('apiProvider')=='firstParty', 'Expected existing Claude subscription login.'
+subprocess.run(['git','init','-q'],cwd=WORK,env=env,check=True)
+git_before=hashes(WORK/'.git')
+installed_before={}
+for client,base in [('codex',Path.home()/'.agents/skills'),('claude',Path.home()/'.claude/skills')]:
+ for name in ('context-docs','adopt-context-docs'):
+  if (base/name).is_dir():installed_before[f'{client}/{name}']=hashes(base/name)
+save('installed-before.json',installed_before)
+for original,target in [('evals/claude-code/guard_hook.py','guard_hook.py'),('evals/audience/hook.py','hook.py')]:
+ shutil.copy2(ROOT/original,CONTROL/target)
+sys.path.insert(0,str(CONTROL))
+import hook
+check_config={'project':str(WORK),'events':str(CONTROL/'preflight.events.jsonl'),'immutable':['docs/decisions.md'],'writable':['docs/current.md'],'read_only':False}
+def decision(tool,path):return hook.decision({'tool_name':tool,'tool_input':{'file_path':path}},check_config)[0]
+assert decision('Read',str(WORK/'.claude/skills/context-docs/SKILL.md'))=='allow'
+assert decision('Edit',str(current))=='allow'
+assert decision('Edit',str(WORK/'docs/decisions.md'))=='deny'
+assert decision('Edit',str(WORK/'.claude/skills/context-docs/SKILL.md'))=='deny'
+assert decision('Write',str(CONTROL/'escape.md'))=='deny'
+assert hook.decision({'tool_name':'Bash','tool_input':{}},check_config)[0]=='deny'
+preflight_events=CONTROL/'preflight.events.jsonl'
+import guard_hook
+for instruction in (WORK/'CLAUDE.md',WORK/'AGENTS.md'):
+ guard_hook.handle({'hook_event_name':'InstructionsLoaded','file_path':str(instruction),'load_reason':'preflight'},check_config)
+assert len(preflight_events.read_text().splitlines())==2
+before=hashes(WORK)
+shutil.copytree(WORK,OUT/'before',ignore=shutil.ignore_patterns('.git'))
+refresh='''Read and apply the context-docs skill at .claude/skills/context-docs/SKILL.md
+to refresh this adopted project's context against current project evidence.
+Only docs/current.md may be edited. Do not alter source evidence, setup, skills
+or Git state, run application tests, contact external systems, use other agents
+or create scratch files. Briefly report the result.
+'''
+adopt='''Read and apply adopt-context-docs at .claude/skills/adopt-context-docs/SKILL.md
+to inspect and reuse this project's existing adoption and context. Work only in
+AGENTS.md and docs/current.md if needed. Do not change evidence, decisions,
+skills, Git state or logging settings, run application checks, contact external
+systems, use other agents or create scratch files. Briefly report the result.
+'''
+flags=['claude','--print','--model','claude-opus-5-5','--effort','high','--output-format','stream-json','--verbose','--no-session-persistence','--no-chrome','--strict-mcp-config','--mcp-config','{"mcpServers":{}}','--setting-sources','project','--disable-slash-commands','--permission-mode','acceptEdits','--tools','Read,Write,Edit,Glob,Grep','--allowedTools','Read','Write','Edit','Glob','Grep']
+settings={}
+for label in ['refresh','no-change','adopt']:
+ allowed=['docs/current.md'] if label!='adopt' else ['AGENTS.md','docs/current.md']
+ config={'project':str(WORK),'events':str(CONTROL/f'{label}.events.jsonl'),'immutable':[p for p in before if p not in allowed],'writable':allowed,'read_only':False}
+ cfg=CONTROL/f'{label}.config.json';cfg.write_text(json.dumps(config))
+ command=shlex.join([sys.executable,'-B',str(CONTROL/'hook.py'),str(cfg)])+' || exit 2'
+ setting={'autoMemoryEnabled':False,'hooks':{e:[{'hooks':[{'type':'command','command':command,'timeout':10}]}] for e in ['InstructionsLoaded','PreToolUse','PostToolUse','PostToolUseFailure']}}
+ setting_path=CONTROL/f'{label}.settings.json';setting_path.write_text(json.dumps(setting));settings[label]=setting_path
+manifest={'kind':'claude-explicit-candidate-extension','source_revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip(),'source_package_hashes':source_before,'before_hashes':before,'prompts':{'refresh':refresh,'no-change':refresh,'adopt':adopt},'model':'claude-opus-5-5','configured_reasoning_effort':'high','effective_effort_independently_exposed':False,'client_version':subprocess.check_output(['claude','--version'],env=env).decode().strip(),'flags':flags,'per_session_settings':'Add --settings with per-session controlled hook configuration outside the project. Paths retained in local evidence.','settings_hashes':{name:sha(path.read_bytes()) for name,path in settings.items()},'helper_hashes':{p.name:sha(p.read_bytes()) for p in CONTROL.glob('*.py')},'runner_sha256':sha(Path(__file__).read_bytes()),'preflight_controls':'Six file/tool scope controls plus InstructionsLoaded hashing passed before model execution.','fixture_adaptations':['Project skill path is .claude/skills; adds CLAUDE.md containing @AGENTS.md.','File-only tools with scoped hooks; explicit package read with slash commands disabled.'],'timeout_seconds_per_session':240,'retries':0,'semantic_criteria':prior['semantic_criteria'],'limits':'Reused coordinator-authored case, no comparator, no user-benefit or implicit-selection measurement.'}
+save('frozen.json',manifest)
+(OUT/'local-paths.json').write_text(json.dumps({'project':str(WORK),'control':str(CONTROL)},indent=2))
+previous=before;trials=[]
+for label,prompt in [('refresh',refresh),('no-change',refresh),('adopt',adopt)]:
+ print('START '+label+': claude-opus-5-5 High',flush=True)
+ start=time.monotonic()
+ with (OUT/f'{label}.jsonl').open('w') as stream,(OUT/f'{label}.stderr').open('w') as err:
+  proc=subprocess.Popen(flags+['--settings',str(settings[label])],cwd=WORK,env=env,stdin=subprocess.PIPE,stdout=stream,stderr=err,start_new_session=True)
+  timeout=False
+  try:proc.communicate(prompt.encode(),timeout=240)
+  except subprocess.TimeoutExpired:
+   timeout=True;os.killpg(proc.pid,signal.SIGTERM)
+   try:proc.communicate(timeout=10)
+   except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.communicate()
+ events=[]
+ for line in (OUT/f'{label}.jsonl').read_text().splitlines():
+  try:events.append(json.loads(line))
+  except ValueError:pass
+ results=[e for e in events if e.get('type')=='result']
+ result=results[-1] if results else {}
+ (OUT/f'{label}.txt').write_text(result.get('result',''))
+ models=sorted(result.get('modelUsage',{}))
+ observed=[]
+ eventfile=CONTROL/f'{label}.events.jsonl'
+ if eventfile.exists():
+  shutil.copy2(eventfile,OUT/f'{label}.events.jsonl')
+  observed=[json.loads(line) for line in eventfile.read_text().splitlines()]
+ after=hashes(WORK)
+ shutil.copytree(WORK,OUT/f'after-{label}',ignore=shutil.ignore_patterns('.git'))
+ changed=sorted(k for k in set(previous)|set(after) if previous.get(k)!=after.get(k))
+ loads=[]
+ for event in observed:
+  if event.get('hook_event_name')=='InstructionsLoaded':
+   p=Path(event.get('file_path',''))
+   if p in [WORK/'AGENTS.md',WORK/'CLAUDE.md']:
+    loads.append({'file':p.relative_to(WORK).as_posix(),'load_reason':event.get('load_reason'),'memory_type':event.get('memory_type'),'sha256':event.get('file_sha256_at_event'),'observed_at_ns':event.get('observed_at_ns')})
+ pre=[e for e in observed if e.get('hook_event_name')=='PreToolUse']
+ denied=[e for e in pre if e.get('decision')!='allow']
+ trial={'label':label,'returncode':proc.returncode,'timed_out':timeout,'completed':bool(results) and not result.get('is_error',False),'reported_models':models,'elapsed_seconds':round(time.monotonic()-start,2),'changed_files':changed,'project_exactly_unchanged':after==previous,'git_files_unchanged':hashes(WORK/'.git')==git_before,'after_hashes':after,'project_instruction_events':loads,'pre_tool_events':len(pre),'denials':len(denied),'hook_event_count':len(observed),'permission_denials':result.get('permission_denials',[]),'semantic_review':'pending'}
+ trials.append(trial);save('trials.json',trials)
+ print(json.dumps({k:v for k,v in trial.items() if k not in ['after_hashes','project_instruction_events','permission_denials']}),flush=True)
+ previous=after
+ if proc.returncode or timeout or not trial['completed']:break
+installed_after={}
+for client,base in [('codex',Path.home()/'.agents/skills'),('claude',Path.home()/'.claude/skills')]:
+ for name in ('context-docs','adopt-context-docs'):
+  if (base/name).is_dir():installed_after[f'{client}/{name}']=hashes(base/name)
+save('installed-after.json',installed_after)
+save('mechanical.json',{'trials':trials,'installed_package_files_unchanged':installed_before==installed_after,'source_package_files_unchanged':source_before=={p:sha((ROOT/p).read_bytes()) for p in source_paths},'semantic_review':'pending'})
+print('Evidence: '+str(OUT),flush=True)

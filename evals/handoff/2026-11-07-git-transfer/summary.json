@@ -1,0 +1,128 @@
+{
+  "kind": "coordinator-reviewed synthetic documentation handoff",
+  "date": "2026-11-07",
+  "model": "claude-opus-5-5",
+  "configured_effort": "high",
+  "effective_effort_independently_exposed": false,
+  "subject_sessions": 2,
+  "fresh_session_ids_distinct": true,
+  "criteria": {
+    "goal": {
+      "result": "pass",
+      "coordinator_review": "Receiver identifies a local CSV export command for a reading queue."
+    },
+    "scope": {
+      "result": "pass",
+      "coordinator_review": "Receiver preserves whole-queue export even under an active filter."
+    },
+    "format_and_reason": {
+      "result": "pass",
+      "coordinator_review": "Receiver preserves UTF-8 BOM and the receiving spreadsheet requirement."
+    },
+    "rejected_option_and_reason": {
+      "result": "pass",
+      "coordinator_review": "Receiver preserves no SQLite cache because output-only work should not keep state."
+    },
+    "state": {
+      "result": "pass",
+      "coordinator_review": "Receiver distinguishes completed parser from pending export command and empty-queue check."
+    },
+    "blocker": {
+      "result": "pass",
+      "coordinator_review": "Receiver keeps reject-versus-skip malformed rows an owner decision."
+    },
+    "verification": {
+      "result": "pass",
+      "coordinator_review": "Receiver reports only the parser happy-path check; no export tests or code verification."
+    },
+    "next": {
+      "result": "pass",
+      "coordinator_review": "Receiver proposes whole-queue export and its empty-queue check without deciding malformed-row policy."
+    }
+  },
+  "checks": {
+    "sender_changed_files": [
+      "docs/current.md"
+    ],
+    "receiver_changed_files": [],
+    "all_20_project_files_equal_after_git_transfer": true,
+    "pre_tool_calls": 7,
+    "denied_calls": 0,
+    "retries": 0,
+    "timeouts": 0,
+    "pre_tool_calls_scope": "total across sender and receiver subject sessions"
+  },
+  "instruction_load_events": {
+    "sender": [
+      {
+        "file": "CLAUDE.md",
+        "load_reason": "session_start",
+        "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "before_first_tool": true
+      },
+      {
+        "file": "AGENTS.md",
+        "load_reason": "include",
+        "sha256": "875630224ca7c9d998896933c54364c1969f179354c6625b35dc2ab5d0df6e9a",
+        "before_first_tool": true
+      }
+    ],
+    "receiver": [
+      {
+        "file": "AGENTS.md",
+        "load_reason": "include",
+        "sha256": "875630224ca7c9d998896933c54364c1969f179354c6625b35dc2ab5d0df6e9a",
+        "before_first_tool": true
+      },
+      {
+        "file": "CLAUDE.md",
+        "load_reason": "session_start",
+        "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+        "before_first_tool": true
+      }
+    ]
+  },
+  "evidence_hashes": {
+    "protocol.json": "c06cb77c8de1fa22a2355bca0ca19d9f967dae34532708cdda436a4f0089d9eb",
+    "sender.txt": "737de32df76a1be5bee9821217221eca263c36c8722a854a70facdea9059e129",
+    "receiver.txt": "f10bfa339177caebea63bb6470356443517497089f67ef60df300660f9c70724",
+    "sender.jsonl": "cbde81240443149dae11607105856cbd9d36919357ab31843d3dfed9a1568efd",
+    "receiver.jsonl": "7197c26627dd970bee859589d8935c1bdcedbd845e3d8f952e13bf1ee6445964",
+    "saved-context.txt": "ae128548cf72cbc9298c3c5f92f48653d78fb71a5e344a1ab7f18c0ef1d79638"
+  },
+  "limits": [
+    "Single coordinator-authored synthetic case; no comparator or independent grading.",
+    "Separate local checkouts on the same host, not different physical machines.",
+    "Already-adopted setup; no human usability, fresh adoption or implicit skill-selection claim.",
+    "Hooks restrict exposed file tools, not an OS sandbox. Auto memory and session persistence disabled; host runtime bookkeeping not inventoried."
+  ],
+  "independent_grading": false,
+  "postprocessing_note": "The first summary export failed on a symlink-path alias. Resolving both roots corrected export; source events and model outputs were unchanged, with no subject rerun or acceptance change.",
+  "coordinator": "Codex; case author and scorer, not an independent grader",
+  "execution_settings_post_run_review": {
+    "sender": {
+      "autoMemoryEnabled": false,
+      "hook_events": [
+        "InstructionsLoaded",
+        "PostToolUse",
+        "PostToolUseFailure",
+        "PreToolUse"
+      ]
+    },
+    "receiver": {
+      "autoMemoryEnabled": false,
+      "hook_events": [
+        "InstructionsLoaded",
+        "PostToolUse",
+        "PostToolUseFailure",
+        "PreToolUse"
+      ]
+    }
+  },
+  "report_review": {
+    "model": "claude-opus-5-5",
+    "configured_effort": "high",
+    "scope": "Fresh read-only session reviewed six report artifacts; did not inspect raw logs or recompute hashes. Same model as subject; not independent case selection or grading.",
+    "result": "No material findings. Minor wording and metadata clarifications applied; no subject rerun."
+  }
+}

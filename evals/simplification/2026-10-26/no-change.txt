@@ -1,0 +1,3 @@
+`docs/current.md` already matches current evidence; no edits were needed. It preserves the approved four-retry/configured two-retry discrepancy, limited timeout-check result, and missing restore fixture blocker.
+
+No files or Git state changed. No tests, external systems, or other agents were used.

@@ -1,0 +1,60 @@
+# Parcel Relay context
+
+## Goal
+
+Prepare the pilot worker for a maintainer handoff while keeping the legacy reader
+compatible. Deployment needs a separate maintainer decision.
+
+## Current state
+
+The [worker configuration](../config/worker.json) sets a 30-second timeout,
+two retries and the `legacy-v1` recovery format. The configured retry limit
+conflicts with Mira's approved [retry decision](decisions.md#retry-budget):
+four retries to tolerate transient offline failures. That approval remains in
+force; configuration alignment is outstanding and retry behavior is unverified.
+
+The supplied [check evidence](../evidence/local-check.md) records an isolated
+timeout configuration check passing for one example job on October 22, 2026,
+using a 30-second timeout and two retries. It did not check retry-limit behavior,
+restore compatibility or the full test suite. No deployment occurred; deployed
+behavior remains unknown, with no staging or production observations.
+
+## Progress
+
+```text
+Goal: prepare a compatible pilot handoff
+├─ DONE     Isolated timeout configuration check: one example job
+├─ PENDING  Align retry configuration with approved four; verify behavior
+└─ BLOCKED  Restore verification: missing legacy reader fixture
+NEXT: align and verify retries; obtain the legacy fixture, then check restore.
+```
+
+Sources: [configuration](../config/worker.json),
+[retry approval](decisions.md#retry-budget),
+[local check](../evidence/local-check.md) and
+[restore dependency](#blocker-and-next-action).
+
+## Blocker and next action
+
+Restore verification is blocked by the missing legacy reader fixture. Leena will
+supply that fixture; then the maintainer can run the restore check. Keep the
+existing YAML field names and recovery envelope because the legacy reader depends
+on them, as required by [the storage decision](decisions.md#storage-envelope).
+A bare payload remains a proposal; no migration was approved. The retry
+configuration discrepancy also remains open, as described in Current state.
+
+## Earlier status
+
+The earlier 10-second timeout, pending local check and completed four-retry
+implementation claims are superseded by the evidence in Current state.
+
+## Working note
+
+Uncommitted operator note: retain the recovery envelope until the restore fixture
+exists; the legacy reader cannot parse a bare payload.
+
+```yaml
+recovery_envelope:
+  format: legacy-v1
+  retain_until: restore-fixture-verified
+```

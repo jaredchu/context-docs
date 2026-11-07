@@ -1,0 +1,10 @@
+I updated `docs/current.md`, which was out of date. It still said Redis was the active backend and a required dependency, and that no checks had run. The project files now say otherwise:
+
+- **Backend:** I replaced the Redis description. The cache is now described as a dictionary held in memory inside the one running process (`src/cache.py`). It needs no external service, and `pyproject.toml` lists no runtime dependencies. Entries are deliberately temporary and are lost on restart. The doc now links to the approved replacement decision in `docs/decisions.md` (2026-11-07), which says not to bring back Redis or promise that data persists.
+- **Checks:** `checks/unit.txt` records the two cache unit tests passing. It also says no restart or end-to-end checks ran, and the doc now states both. I didn't run any tests myself.
+- **Rationale:** The current reason is that the tool runs as one process and must work offline. The old reason for choosing Redis (sharing the cache between several workers) is kept as history and marked as replaced.
+- **Progress:** I removed the stale next step, "Provision Redis before running checks". The progress view now shows the cache as built, the unit checks as passing, and restart/end-to-end verification as blocked.
+
+**Remaining blocker:** the restart acceptance fixture still hasn't been supplied. Restart and end-to-end verification can't happen until it is, and passing unit tests don't change that.
+
+No other files were changed.

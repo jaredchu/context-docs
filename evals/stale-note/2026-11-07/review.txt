@@ -1,0 +1,31 @@
+# No material findings
+
+All six frozen criteria are backed by the before/after evidence. The no-fix conclusion is limited to this case. Synthetic results are kept separate from owner-confirmed human use. I ran no commands, so I couldn't recompute hashes. Every hash comparison below takes the recorded values as given.
+
+## The six criteria
+
+| Criterion | Before (`fixture/docs/current.md`) | After (`after.txt`) | What it's checked against | Verdict |
+|---|---|---|---|---|
+| correct_backend | "Redis is the active backend… required runtime dependency" (l.7) | Describes a process-local in-memory dictionary, no external service and no runtime dependencies (l.7–9) | `src/cache.py:4` stores entries in a plain dictionary; `pyproject.toml:5` lists no dependencies (`dependencies = []`) | Pass |
+| remove_stale_setup | "Start the Redis server…" (l.8) and "NEXT Provision Redis…" (l.17) | Both removed. The next step is now "BLOCKED Restart/end-to-end…" (l.29) | — | Pass |
+| preserve_rationale | Cross-worker reason only (l.11) | Keeps the offline/single-process reason (l.18–19) and labels the cross-worker reason as superseded history (l.21–23) | `decisions.md:3–11` | Pass |
+| preserve_blocker | l.19–21 | l.31–33, plus "unit checks cannot clear it" | `decisions.md:13–15` | Pass |
+| qualified_unit_evidence | "No cache checks have run yet" (stale) | Two tests passed; no restart or end-to-end checks ran (l.13–15) | `checks/unit.txt:4,8`. The subject report says "I didn't run any tests myself", which fits its tools (no Bash) | Pass |
+| preserve_scope | — | Of the 23 inventoried files, only `docs/current.md` changed (c66b… → 9aee…) | `after.txt` hash 9aee… matches the after-hash for `docs/current.md`. Before-hashes in `protocol.json` and `summary.json` match, and the copied skill's hashes match `source_skill_hashes` | Pass |
+
+Nothing in the after-context goes further than its sources. "Do not survive a restart" describes the design (`decisions.md:10`, `cache.py:2`); it doesn't claim the blocked restart check passed. The anchor `#approved-replacement--2026-11-07` is the correct GitHub slug for that heading, and both relative links resolve.
+
+## Is "no skill fix" justified?
+Yes, for this case. The summary says "no skill fix indicated by this case", and the README's limits (l.60–62) say the cause of the reported miss remains unknown and a pass "does not justify a speculative instruction change". `project-context.txt:55–56,147` says the same. Because the miss wasn't reproduced, nothing here shows a fix is needed.
+
+## Synthetic results vs owner-confirmed use
+These stay separate. The stale-note README never mentions the owner confirmation, and its limits rule out participant reproduction and general claims. In `project-context.txt`, "CONFIRMED" (owner) and "CHECKED … synthetic case" are separate progress entries (l.42–45). Lines 50–56 also report owner-confirmed use apart from both agent checks.
+
+## Minor wording points (not material)
+1. **README l.33, "Only `docs/current.md` could change":** this describes the guard's restriction as if it were a hard limit. The README's own limit says hooks are not an OS sandbox. "The guard permitted edits only to…" would be more accurate. The hash inventory still supports the outcome.
+2. **README l.44–45, "the source skill remained byte-identical":** the supplied files contain after-hashes for the copied skill only. There is no after-inventory of the repository's source skill, so `unchanged_source_skill: true` is asserted without evidence here. The frozen criterion only covers the copied skill, which passes.
+3. **README l.21, protocol "froze … before execution":** none of the supplied files show when the protocol was frozen. `summary.json` only records its hash. This depends on the local evidence that wasn't supplied.
+4. **`after.txt` l.14, test names "round trip and missing key":** I couldn't check these because `tests/test_cache.py` wasn't in the review set. Its hash is unchanged.
+5. **README l.3, "no skill change needed":** this is a bit stronger than the summary's "not indicated by this case". It's qualified right away and in the limits, so it isn't misleading.
+
+Scoring was done by the case author (Codex), and the README limits and `summary.json` both disclose this.

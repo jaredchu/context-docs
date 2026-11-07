@@ -1,0 +1,31 @@
+I've picked up the project from its saved files: `README.md`, `docs/current.md` and the context-docs skill. I didn't edit any files, read any source code or run any tests. Everything below comes from those documents, not from checking the code itself.
+
+## Goal
+Build a local CSV export command for a reading queue (`docs/current.md:4`, `README.md:3`).
+
+## Owner decisions (dated 2026-11-07)
+| Decision | Reason |
+|---|---|
+| **Scope:** the export includes the whole queue, even when a view filter is active. | No reason is recorded. |
+| **Format:** ordinary CSV with a UTF-8 BOM (byte-order mark). | The spreadsheet that receives the file requires the BOM. |
+| **No SQLite cache** | A command that only produces output should not keep any saved state. |
+
+(`docs/current.md:6-9`)
+
+## Completed vs pending
+- **Done:** the `--export` argument parser.
+- **Pending:** the export command itself and the check for an empty queue.
+
+(`docs/current.md:11-13`; `README.md:5` agrees.)
+
+## Blocker
+How to handle malformed rows is **blocked until the owner decides** whether to reject or skip them. No policy should be chosen until they do (`docs/current.md:16-18`).
+
+## Verification limits
+Only the parser's happy-path check has run. No export tests have run (`docs/current.md:14`). I also haven't confirmed in the code that the parser exists or that the export is missing.
+
+## Next actionable step
+Implement the whole-queue export and its empty-queue check, using CSV with a UTF-8 BOM and no saved state. Leave malformed-row handling unresolved and don't pick a reject or skip policy (`docs/current.md:21-22`).
+
+## Open question for the owner
+Should malformed rows be **rejected** or **skipped**?

@@ -1,0 +1,14 @@
+I refreshed `docs/current.md` against the project's current evidence. I didn't change any other file or touch Git.
+
+**Corrections:**
+- **Timeout:** `config/worker.json` sets 30 seconds, not the 10 the doc claimed. No decision record sets a timeout value, so the doc now notes where the 10-second figure came from and that nothing approves either value.
+- **Retry limit:** the doc said the limit of four was implemented. The decision does approve four, but the configuration still sets two. I marked this as **OPEN** and gave it a next action: align the limit with four, then verify retry behavior.
+- **Local timeout check:** this was listed as pending, but `evidence/local-check.md` shows it passed on 2026-10-22. I marked it **DONE** with its limits stated: it covered one example job using the 30-second, two-retry configuration. It did not check retry behavior, restore compatibility or the full test suite. Nothing was observed about deployed behavior.
+- **Progress tree:** updated to match, with source links under the diagram so each item can be traced.
+- **"Earlier status" section:** removed. It only repeated the claims above that were wrong, so no unique information was lost.
+
+**Unchanged:** the goal, the restore blocker (waiting on Leena's legacy reader fixture), the storage decision's compatibility constraint, and the uncommitted operator note about the recovery envelope. The recovery format in the configuration (`legacy-v1`) matches the storage decision.
+
+**Not used:** `design/unused-colors.md` has no owner decision or progress information, so I left it out.
+
+**Open question:** whether two retries in the configuration is just leftover work or something deliberate. Nothing in the project explains it. The doc doesn't name anyone as responsible for aligning it, because the sources don't say who is.

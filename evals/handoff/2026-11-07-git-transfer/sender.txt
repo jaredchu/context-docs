@@ -1,0 +1,15 @@
+I updated `docs/current.md` and changed no other files. I didn't write any code or run any tests.
+
+**What's saved:**
+- **Your decisions (dated 2026-11-07):**
+  - The export covers the whole queue, even when a view filter is active.
+  - The output is ordinary CSV with a UTF-8 BOM, because the receiving spreadsheet requires it.
+  - There's no SQLite cache, because an output-only command shouldn't keep persistent state.
+- **Current work:** the `--export` parser is done. The export command and the empty-queue check are not.
+- **Testing:** only the parser happy-path check has run. No export tests have run.
+- **Blocked:** handling of malformed rows waits on your choice between rejecting and skipping them. The doc says not to pick a policy before you decide.
+- **Next step:** build the whole-queue export and its empty-queue check, without settling the malformed-row policy.
+
+**Still open:** whether malformed rows should be rejected or skipped. That's your call.
+
+**Side note:** `README.md` still says the export command isn't implemented, which is still true. It doesn't mention your new decisions, but it links to `docs/current.md`, so I left it as is, since only that file was in scope.

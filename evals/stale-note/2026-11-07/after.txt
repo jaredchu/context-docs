@@ -1,0 +1,33 @@
+# Project context
+
+## Goal
+Provide a local cache for a single-process offline queue tool.
+
+## Current work
+The cache is a process-local in-memory dictionary (`src/cache.py`). It needs no
+external service, and `pyproject.toml` declares no runtime dependencies. Entries
+are intentionally ephemeral: they are not persisted and do not survive a restart.
+Per the [approved replacement (2026-11-07)](decisions.md#approved-replacement--2026-11-07),
+do not reintroduce Redis or promise persistence.
+
+The recorded unit check ([checks/unit.txt](../checks/unit.txt)) ran the two cache
+unit tests (round trip and missing key), and both passed. No restart or end-to-end
+checks have run.
+
+## Rationale
+The tool now runs as one process and must work offline without a background
+service, so the owner approved replacing Redis with an in-memory dictionary.
+
+Superseded history: the earlier multi-worker design chose Redis for cross-worker
+cache sharing. That is no longer the current architecture; see
+[docs/decisions.md](decisions.md).
+
+## Progress
+Goal: offline local cache
+|-- DONE In-memory cache implemented (Redis removed)
+|-- DONE Unit checks recorded passing (2 tests)
+`-- BLOCKED Restart/end-to-end verification: waiting for the restart acceptance fixture
+
+## Blocker
+The restart acceptance fixture is unavailable. Restart/end-to-end verification
+is blocked until it is supplied; unit checks cannot clear it.

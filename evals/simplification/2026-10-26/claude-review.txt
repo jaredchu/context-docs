@@ -1,0 +1,79 @@
+from pathlib import Path
+import json,hashlib,re,collections
+ROOT=Path.cwd();OUT=ROOT/'.local/simplification-claude-2026-10-26/evidence'
+sha=lambda b:hashlib.sha256(b).hexdigest()
+paths=json.loads((OUT/'local-paths.json').read_text());work=Path(paths['project']).resolve()
+frozen=json.loads((OUT/'frozen.json').read_text());mechanical=json.loads((OUT/'mechanical.json').read_text())
+results=[]
+for trial in mechanical['trials']:
+ label=trial['label'];stream=[json.loads(line) for line in (OUT/f'{label}.jsonl').read_text().splitlines()]
+ events=[json.loads(line) for line in (OUT/f'{label}.events.jsonl').read_text().splitlines()]
+ tools={block['id']:block for e in stream if e.get('type')=='assistant' for block in e.get('message',{}).get('content',[]) if isinstance(block,dict) and block.get('type')=='tool_use'}
+ pre={e['tool_use_id']:e for e in events if e['hook_event_name']=='PreToolUse'}
+ post={e['tool_use_id']:e for e in events if e['hook_event_name'] in ['PostToolUse','PostToolUseFailure']}
+ assert tools and set(tools)==set(pre)==set(post),(label,'tool-event coverage gap')
+ assert all(e['decision']=='allow' for e in pre.values()),label
+ first=min(e['observed_at_ns'] for e in pre.values())
+ loads=[]
+ for e in events:
+  if e['hook_event_name']!='InstructionsLoaded':continue
+  path=Path(e['file_path']).resolve()
+  if path not in (work/'AGENTS.md',work/'CLAUDE.md'):continue
+  relative=path.relative_to(work).as_posix()
+  loads.append({'file':relative,'memory_type':e.get('memory_type'),'load_reason':e.get('load_reason'),
+                'file_sha256':e['file_sha256_at_event'],'matches_frozen_file':e['file_sha256_at_event']==frozen['before_hashes'][relative],
+                'before_first_tool':e['observed_at_ns']<first})
+ assert len(loads)==2 and all(e['matches_frozen_file'] and e['before_first_tool'] for e in loads),label
+ read_paths=[]
+ for block in tools.values():
+  if block.get('name')=='Read':
+   path=Path(block.get('input',{}).get('file_path',''))
+   if not path.is_absolute():path=work/path
+   path=path.resolve()
+   if work in path.parents:read_paths.append(path.relative_to(work).as_posix())
+ assert '.claude/skills/context-docs/SKILL.md' in read_paths,label
+ if label=='adopt':assert '.claude/skills/adopt-context-docs/SKILL.md' in read_paths
+ result={k:v for k,v in trial.items() if k not in ['after_hashes','project_instruction_events','semantic_review']}
+ result.update({'project_file_count':len(trial['after_hashes']),'loading_events':loads,'tool_event_coverage':'every observed tool call has matching pre/post events',
+                'read_project_files':sorted(set(read_paths)),
+                'saved_context_sha256':sha((OUT/f'after-{label}/docs/current.md').read_bytes()),
+                'raw_stream_sha256':sha((OUT/f'{label}.jsonl').read_bytes()),'raw_hook_events_sha256':sha((OUT/f'{label}.events.jsonl').read_bytes())})
+ results.append(result)
+assert [x['changed_files'] for x in results]==[['docs/current.md'],[],[]]
+assert all(x['project_file_count']==24 and x['git_files_unchanged'] and x['completed'] and x['reported_models']==['claude-opus-5-5'] for x in results)
+context=(OUT/'after-refresh/docs/current.md').read_text()
+note='''## Working note
+
+Uncommitted operator note: retain the recovery envelope until the restore fixture
+exists; the legacy reader cannot parse a bare payload.
+
+```yaml
+recovery_envelope:
+  format: legacy-v1
+  retain_until: restore-fixture-verified
+```'''
+assert note in context
+for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)',context):
+ path,_,anchor=target.partition('#');dest=(work/'docs'/path).resolve() if path else work/'docs/current.md'
+ assert dest.is_file(),target
+ if anchor:
+  anchors={re.sub(r'[^\w\- ]','',h.lower()).replace(' ','-') for h in re.findall(r'^#+ (.+)$',dest.read_text(),re.M)}
+  assert anchor in anchors,target
+summary={'model':'claude-opus-5-5','model_identity':'confirmed by CLI result modelUsage in all three sessions','configured_effort':'high','effective_effort_independently_exposed':False,
+ 'trials':results,'mechanical':'pass; only permitted context changed on refresh, complete 24-file equality on repeat and re-adoption, unchanged Git metadata',
+ 'semantic_review':{'configured_versus_approved':'pass; timeout30, configured2/approved4 retries, rationale preserved in unchanged decisions',
+ 'verification_scope':'pass; one-job timeout result, retry/restore/full-suite and deployed limits retained',
+ 'blocker_and_unique_information':'pass; Leena, fixture next action, compatibility and exact recovery note/YAML preserved',
+ 'progress_and_links':'pass; consistent reused progress and resolving local links/anchors',
+ 'adoption':'pass; core read, marker/date/rule/logging/view preserved; loading statement supported by observed startup/import events',
+ 'editorial_qualification':'Retains the earlier 10-second value in current prose and adds an absent timeout-decision note; valid but not needed for the current next action. No wording/size quota was scored.'},
+ 'parser_correction':'The original runner filtered instruction event paths lexically, missing events because macOS temporary aliases differed from resolved paths. Post-run inspection resolved paths, matched file hashes and ordered events before first tools. Original runner/manifest/trials retained; no subject rerun or score-rule change.',
+ 'preservation':{'source_packages_unchanged':mechanical['source_package_files_unchanged'],'installed_packages_unchanged':mechanical['installed_package_files_unchanged'],
+ 'installed_before_sha256':sha((OUT/'installed-before.json').read_bytes()),'installed_after_sha256':sha((OUT/'installed-after.json').read_bytes())},
+ 'limits':['Explicit reads with slash commands disabled, controlled file-only tools and reused authored fixture; no implicit-selection or no-skill comparison.',
+ 'Instruction events evidence client loading, not compliance or general runtime reliability; earlier Codex loading qualification unchanged.',
+ 'No fresh setup, concurrency, local-only or logging journey, new application tests, independent grading or human results.',
+ 'Helper controls constrain the exposed tools; no OS sandbox or complete global/runtime-state inventory is claimed.']}
+assert summary['preservation']['source_packages_unchanged'] and summary['preservation']['installed_packages_unchanged']
+(OUT/'reviewed-summary.json').write_text(json.dumps(summary,indent=2,sort_keys=True)+'\n')
+print(json.dumps({'sessions':3,'file_count':24,'tool_calls_with_complete_hook_coverage':sum(x['pre_tool_events'] for x in results),'startup_load_events':sum(len(x['loading_events']) for x in results),'source_and_installed_unchanged':True},indent=2))

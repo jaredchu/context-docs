@@ -1,0 +1,59 @@
+# Parcel Relay context
+
+## Goal
+
+Prepare the pilot worker for a maintainer handoff while keeping the legacy reader
+compatible. Deployment needs a separate maintainer decision.
+
+## Current state
+
+The [worker configuration](../config/worker.json) sets a 30-second timeout, a
+retry limit of two and the `legacy-v1` recovery format. Earlier context recorded a
+10-second timeout; no decision record sets a timeout value.
+
+The approved [retry decision](decisions.md#retry-budget) sets the retry limit to
+four, but the configuration still sets two. The earlier claim that retry-limit
+implementation was complete at four is not supported by current project evidence.
+
+A limited local timeout check passed on October 22, 2026 for one example job using
+the 30-second, two-retry configuration. It did not check retry-limit behavior,
+restore compatibility or the full test suite. Deployed behavior is unknown; no
+live-system evidence is available. [Check evidence](../evidence/local-check.md)
+owns verification scope and results.
+
+## Progress
+
+```text
+Goal: prepare a compatible pilot handoff (incomplete) [G]
+├─ DONE     Local timeout check, limited to one example job at 30 s [C]
+├─ OPEN     Retry limit at four: approved [R]; configuration still sets two [W]
+│  └─ NEXT  Align the retry limit with the approved four, then verify retry behavior
+└─ BLOCKED  Restore verification: missing legacy reader fixture [S]
+   └─ NEXT  Leena supplies the fixture; then the maintainer runs the restore check
+```
+
+Sources: [G] [Goal](#goal), [C] [check evidence](../evidence/local-check.md),
+[R] [retry decision](decisions.md#retry-budget),
+[W] [worker configuration](../config/worker.json),
+[S] [storage decision](decisions.md#storage-envelope) and
+[blocker](#blocker-and-next-action).
+
+## Blocker and next action
+
+Restore verification is blocked by the missing legacy reader fixture. Leena will
+supply that fixture; then the maintainer can run the restore check. Keep the
+compatibility constraint from [the storage decision](decisions.md#storage-envelope).
+
+Separately, the retry limit in configuration does not yet match the approved four
+retries, and retry-limit behavior has not been verified.
+
+## Working note
+
+Uncommitted operator note: retain the recovery envelope until the restore fixture
+exists; the legacy reader cannot parse a bare payload.
+
+```yaml
+recovery_envelope:
+  format: legacy-v1
+  retain_until: restore-fixture-verified
+```

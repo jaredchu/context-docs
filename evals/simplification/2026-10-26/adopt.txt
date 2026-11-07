@@ -1,0 +1,3 @@
+Reused the existing adoption marker, maintenance rule and progress view. Context matches the configuration, decisions and supplied evidence; no edits were needed.
+
+AGENTS.md loading is confirmed by this session. AGENTS.md and docs/current.md are untracked and not ignored. No files, Git state or settings changed; no application checks ran.

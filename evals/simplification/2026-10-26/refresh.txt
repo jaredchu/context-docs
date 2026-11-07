@@ -1,0 +1,3 @@
+Updated only [docs/current.md](docs/current.md) to reflect the 30-second timeout, configured two retries versus approved four, and limited passing timeout check. Refreshed progress while preserving the restore blocker, compatibility constraints and operator note.
+
+Checked links and document content. No application tests or external actions were performed.

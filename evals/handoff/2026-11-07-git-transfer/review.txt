@@ -1,0 +1,43 @@
+**No material findings.** I didn't find any material overclaim, scoring error or unsupported conclusion. I checked only the six files you named. I didn't recompute any hashes, and I didn't check the raw streams, hook logs or runner, because they aren't in this folder.
+
+## The three points you asked about
+
+**1. All eight criteria are supported.** I compared each criterion in `protocol.json:28-37` with `receiver.txt`:
+
+| Criterion | Evidence in receiver.txt |
+|---|---|
+| goal | line 4: "local CSV export command for a reading queue" |
+| scope | line 9: whole queue even with a filter active. It says "No reason is recorded", which is correct: the sender prompt gave no reason, and the criterion doesn't need one. |
+| format_and_reason | line 10: UTF-8 BOM, because the receiving spreadsheet requires it |
+| rejected_option_and_reason | line 11: no SQLite cache, because output-only work should keep no state |
+| state | lines 16-17: parser done; export command and empty-queue check pending |
+| blocker | line 22: reject versus skip waits on the owner; no policy chosen |
+| verification | line 25: only the parser happy-path check ran, no export tests, and the code itself wasn't checked |
+| next | line 28: whole-queue export plus empty-queue check, with malformed-row handling left open |
+
+- The receiver's line citations (`docs/current.md:4`, `6-9`, `11-13`, `14`, `16-18`, `21-22`) match `saved-context.txt` exactly.
+- The sender changed only `docs/current.md`, the receiver changed nothing, and the saved file contains every fact the criteria need.
+
+**2. The local Git transfer isn't presented as a cross-machine test.**
+- `README.md:24-25` describes `git clone --no-local` into a "separate local checkout".
+- `README.md:53-54` says the test doesn't cover "distinct physical machines" and that "the two checkouts ran on the same host".
+- `protocol.json:72` and `summary.json:94` say the same.
+- The title says "local Git transfer". I found no wording suggesting a physical cross-machine handoff.
+
+**3. Self-reports and human usability stay separate.**
+- `README.md:4-5` separates this agent check from the anonymous user feedback and the pending participant trial.
+- `README.md:57-58` says neither these results nor the participant self-reports establish an accuracy advantage or effort savings.
+- `README.md:52-53` excludes "unfamiliar-user effort", and `protocol.json:73` and `summary.json:95` rule out any human-usability claim.
+
+## Other claims that check out
+- **File count:** `before_hashes` has 20 entries, which matches "All 20 project files".
+- **Instruction-file hashes:** the hashes logged when CLAUDE.md and AGENTS.md loaded (`summary.json:59,65,73,79`) match the protocol's starting hashes (`protocol.json:20-21`).
+- **Run checks:** no denied calls, retries or timeouts, and only file tools were enabled (no MCP, browser or delegation), consistent with `README.md:12-13`.
+- **Grading caveats:** "coordinator-authored and scored", "no independent grading" and `independent_grading: false` are stated consistently.
+
+## Minor wording points (not material)
+- `summary.json:86` labels its hash `saved-context.md`, but the published file is `saved-context.txt`. A reader can't tell which file that hash belongs to.
+- `README.md:40` calls the scoring "Codex's semantic review", but `summary.json` calls it `coordinator_review`, and nothing says Codex is the coordinator. Readers could take Codex for an independent grader, though `README.md:50-51` rules that out.
+- "Auto memory disabled" (`README.md:11`) isn't one of the command flags fixed in advance in `protocol.json`. It appears only in the limits text, so the files given here don't show how it was enforced.
+- `pre_tool_calls: 7` doesn't say whether it counts both sessions or one.
+- Some claims depend on evidence that isn't in this folder, so I couldn't confirm them: that the protocol was fixed before either session ran, that the sessions "reported" Opus 5.5, that loading happened before the first tool call, and the artifact hashes.
