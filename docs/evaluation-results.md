@@ -250,6 +250,51 @@ failures and the limits of its restricted sessions.
 
 ## More recent studies
 
+### User feedback and owner confirmation
+
+The November 7 [anonymous feedback](../evals/user-feedback/README.md#anonymous-early-feedback)
+contains four individual responses and one team response. All five describe useful
+continuity and an intention to keep using Context Docs. Reported friction includes
+transferring context with code, prompting a refresh, correcting a stale note and
+trimming a long decisions log. The owner separately
+[confirmed human-observed usability and actual cross-machine use](../evals/user-feedback/README.md#owner-confirmation).
+These are meaningful reported outcomes, without supplied session traces, exact
+package/client versions or measured comparative effort. Use of the frozen r1
+materials and completion of its scored procedure remain unestablished.
+
+### Focused agent checks and the source candidate
+
+- The [local Git-transfer handoff](../evals/handoff/2026-11-07-git-transfer/README.md)
+  used released core **0.2.6** and adoption **0.1.15** in two fresh Claude sessions.
+  The reader recovered all eight frozen content criteria after a hash-equal
+  transfer and changed no files. This was one synthetic documentation case on
+  one host, not a test on different physical machines, application implementation
+  or observed participant behavior. Codex authored and scored it; no comparator
+  or independent grading was used.
+- The [stale dependency note check](../evals/stale-note/2026-11-07/README.md)
+  used unreleased source core **0.2.7**. An ordinary explicit refresh corrected
+  stale dependency/setup claims and retained rationale and a missing-fixture
+  blocker; all six frozen criteria passed. The participant's reported miss was
+  not reproduced and its cause remains unknown. This single synthetic case did
+  not require a skill fix and does not establish spontaneous maintenance or
+  general reliability. Its two passing application unit checks verify the small
+  fixture, not Context Docs' effectiveness.
+- The [instruction-simplification candidate](../evals/simplification/2026-10-26/README.md)
+  covers unreleased core **0.2.7** and adoption **0.1.16** in three fresh Codex
+  sessions and a separate three-session Claude extension. Focused refresh and
+  file-preservation checks pass on a reused, guided fixture. The Codex adoption
+  report's loading confirmation remains unverified; Claude instruction events
+  support loading in those sessions only. There was no fresh-adoption test,
+  matched baseline, independent grading or user-benefit measurement. The source
+  candidate remains unreleased and separate from the frozen released-package trial.
+
+These records preserve their own version, method and evidence limits. Neither
+the self-reports nor the synthetic checks establish comparative effort savings
+or a skill-specific accuracy advantage. This overview adds navigation and a
+qualified summary; it does not rerun or regrade any study.
+
+### Earlier focused studies
+
 The October 26 [refresh baseline](../evals/refresh/baseline-0.2.6-2026-10-26/README.md)
 tests unchanged published core 0.2.6 on one synthetic adopted project with
 accumulated drift. Of two fresh Codex sessions, requested Sol 6.1 at High, the

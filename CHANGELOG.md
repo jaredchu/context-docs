@@ -23,6 +23,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## v0.2.7 release preparation — 2026-11-07 (unpublished)
+
+- Prepare [draft bundle notes](docs/releases/v0.2.7.md) for core 0.2.7,
+  adoption 0.1.16 and unchanged standard 0.1.1. The website retains unreleased
+  labels and distinguishes the candidate from published v0.2.6 installation pins.
+- Include the selected documentation follow-up: pinned published installation,
+  an overview of recent evidence with its limits, and a reminder to transfer
+  shared context alongside code through an already-authorized workflow.
+- The [preparation record](docs/releases/v0.2.7-validation.json) records local
+  checks, copied-package and public-build identities. This preparation changes
+  no skill files and adds no native model evaluation, installed upgrade,
+  skills.sh refresh, push, tag, release or website deployment.
+
 ## context-docs 0.2.7 — unreleased
 
 - Consolidate the repeated canonical-location rule and remove the incidental

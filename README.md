@@ -19,6 +19,8 @@ as possible.
 These source versions contain a narrow instruction simplification candidate.
 Published everyday-use packages remain core **0.2.6** and adoption **0.1.15**;
 the source candidate has not been released.
+[Draft v0.2.7 notes](docs/releases/v0.2.7.md) describe the prepared bundle;
+everyday installation below continues to select published v0.2.6.
 The [v0.2.6 release notes](docs/releases/v0.2.6.md) cover metadata filtering,
 portable references and qualified synthetic checks. The earlier candidate’s
 unlinked-note coverage gap remains; the separate installed check names the note
@@ -63,18 +65,23 @@ a small Cloudflare app, a real feature change and step-by-step prompts.
 
 Install both skills, then adopt them in the project you want to maintain.
 Already installed? Skip to [Use it](#use-it).
+The instructions below select published bundle **v0.2.6**: core **0.2.6** and
+adoption **0.1.15**. See the [guide](docs/getting-started.md#development-source-installs)
+for development-source installations.
 
 ### Install in Codex
 
 Ask Codex:
 
 ```text
-Use $skill-installer to install both skills from jaredchu/context-docs:
+Use $skill-installer to install both skills from jaredchu/context-docs
+at the published tag v0.2.6 (commit d74e69d3268676cf7eab19d241e8b590ddb1c60a):
 - skills/context-docs
 - skills/adopt-context-docs
 Install them together in ~/.agents/skills/.
 Preserve existing installations and local customizations; report version
-mismatches before upgrading.
+mismatches before upgrading. Report the installed VERSION values:
+context-docs 0.2.6 and adopt-context-docs 0.1.15.
 ```
 
 [Manual installation and project-only setup →](docs/getting-started.md#install-in-codex)
@@ -84,14 +91,16 @@ mismatches before upgrading.
 For a first installation, run these commands in a terminal:
 
 ```sh
-git clone https://github.com/jaredchu/context-docs.git
+git clone --branch v0.2.6 https://github.com/jaredchu/context-docs.git
 cd context-docs
 mkdir -p ~/.claude/skills
 cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
+cat ~/.claude/skills/context-docs/VERSION ~/.claude/skills/adopt-context-docs/VERSION
 ```
 
 If either skill is already installed, [review the upgrade guidance](docs/getting-started.md#upgrading)
 before copying files. [Project-only setup and instruction loading →](docs/getting-started.md#install-in-claude-code)
+The version output should be `0.2.6` followed by `0.1.15`.
 
 ## Use it
 
@@ -127,7 +136,12 @@ Preserve decisions and their reasons, current work, blockers and next steps.
 ```
 
 Review the resulting diff. You do not need to keep a session diary or log every
-interaction. If work accumulated outside the current session, use the same skill
+interaction. For shared Git context, include relevant context changes alongside
+code in your already-authorized commit/transfer workflow, and confirm the other
+checkout has those files before resuming. For ignored local-only context, use
+your existing private transfer/backup procedure; it does not travel with a clone.
+
+If work accumulated outside the current session, use the same skill
 to refresh context against current evidence:
 
 ```text

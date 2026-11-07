@@ -29,7 +29,9 @@ Local sources contain unreleased core **0.2.7** and adoption **0.1.16**. The
 [candidate check](../evals/simplification/2026-10-26/README.md) passes focused file
 checks in Codex and Claude. Claude startup/import events support its loading
 statement; the earlier Codex statement remains unverified. Published v0.2.6 and
-frozen participant r1 materials remain unchanged. The contributor instructions and
+frozen participant r1 materials remain unchanged. The [v0.2.7 draft notes](releases/v0.2.7.md)
+and [preparation record](releases/v0.2.7-validation.json) own the unpublished
+bundle scope and local checks. The contributor instructions and
 this context now follow the [public audience boundary](project-decisions.md#public-project-context-boundary).
 
 Progress snapshot updated November 7, 2026; earlier technical checks retain their
@@ -45,9 +47,16 @@ Goal: useful, accurate context with less manual organization
 ├─ CHECKED    One synthetic Git-transfer handoff; fresh reader recovered all 8 items
 ├─ CHECKED    Stale dependency note corrected; rationale and blocker retained
 │  └─ OUTCOME No skill fix needed in this synthetic case; focused check complete
-└─ PREPARED   Public context and model-neutral contributor rules
-   └─ HOLD    Publication is not authorized
+├─ PREPARED   Public context and model-neutral contributor rules
+├─ READY      Published-release install pins, current evidence index and transfer guidance
+└─ PREPARED   Unpublished v0.2.7 bundle: core 0.2.7 and adoption 0.1.16
+   └─ HOLD    Push, release publication and website deployment are not authorized
 ~~~
+
+The [usage guide](getting-started.md) owns installation pinned to published bundle
+v0.2.6 and shared-context transfer guidance. The
+[evidence overview](evaluation-results.md#more-recent-studies) now links the newer
+feedback, candidate and synthetic records with their distinct scopes and limits.
 
 The [feedback summary](../evals/user-feedback/README.md#anonymous-early-feedback)
 owns the reports, friction and evidence limits. No blocker is recorded for
@@ -148,8 +157,12 @@ Repository checks validate mechanics, not agent behavior.
 
 ## Next actions
 
-The stale-note check and public-context cleanup are complete; no additional skill
-fix is selected. Publication requires a separately authorized task. Keep the
+The stale-note check, public-context cleanup and selected installation/evidence/
+transfer documentation follow-up are complete; no additional skill fix is selected.
+The owner authorized local v0.2.7 preparation and a commit, with final-commit
+validation. Release notes and website links retain draft/unreleased status; everyday
+installs still select published v0.2.6. Push, release publication and website
+deployment require separate authorization. Keep the
 [discrimination protocol](../evals/discrimination-protocol.md)
 as a separate proposed comparative study, not a prerequisite for everyday use.
 

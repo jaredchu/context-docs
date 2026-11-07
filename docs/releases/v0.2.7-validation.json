@@ -1,0 +1,155 @@
+{
+  "status": "prepared_unpublished",
+  "prepared_date": "2026-11-07",
+  "source_commit": "7e5ad3436a19a7e263af23860de2803d20ae5a19",
+  "source_qualification": "Plus the local release preparation and preceding authorized documentation follow-up. This record describes precommit checks; final-commit validation is retained separately in private operator notes with the exact commit ID.",
+  "bundle": {
+    "core": "0.2.7",
+    "adoption": "0.1.16",
+    "standard": "0.1.1"
+  },
+  "published_install_target": {
+    "tag": "v0.2.6",
+    "commit": "d74e69d3268676cf7eab19d241e8b590ddb1c60a",
+    "core": "0.2.6",
+    "adoption": "0.1.15"
+  },
+  "package_pins": {
+    "skills/adopt-context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/SKILL.md": {
+      "sha256": "52b96099eb0de7757d0e9d2f413751a5615ce17a03aa871f11e070f28316b101",
+      "bytes": 8062,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/VERSION": {
+      "sha256": "7470694a0b5af87394b523c1a640e2ad099efbe0e6d9e6d2f7a70703e4d04457",
+      "bytes": 7,
+      "mode": "0o644"
+    },
+    "skills/adopt-context-docs/agents/openai.yaml": {
+      "sha256": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+      "bytes": 273,
+      "mode": "0o644"
+    },
+    "skills/context-docs/LICENSE": {
+      "sha256": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+      "bytes": 1066,
+      "mode": "0o644"
+    },
+    "skills/context-docs/SKILL.md": {
+      "sha256": "e65846a0991c32025afbbcc6e480a3b03e831b51b4d00b5885e43d80951bd50e",
+      "bytes": 10382,
+      "mode": "0o644"
+    },
+    "skills/context-docs/VERSION": {
+      "sha256": "5b57e3b8c153d1d33b0c0f1ee29d3de1bf93232ed95aa78b80fe885e99faa915",
+      "bytes": 6,
+      "mode": "0o644"
+    },
+    "skills/context-docs/agents/openai.yaml": {
+      "sha256": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+      "bytes": 224,
+      "mode": "0o644"
+    },
+    "skills/context-docs/assets/decision-record.md": {
+      "sha256": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+      "bytes": 724,
+      "mode": "0o644"
+    },
+    "skills/context-docs/assets/project-context.md": {
+      "sha256": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+      "bytes": 1116,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/event-journal.md": {
+      "sha256": "5ab10b468d59aafe88ba015a2b765662c6444857dffbfb6dd8bfdfbe4f6e8bb8",
+      "bytes": 13570,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/local-only.md": {
+      "sha256": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+      "bytes": 6065,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/progress.md": {
+      "sha256": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+      "bytes": 9297,
+      "mode": "0o644"
+    },
+    "skills/context-docs/references/standard.md": {
+      "sha256": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+      "bytes": 9301,
+      "mode": "0o644"
+    },
+    "skills/context-docs/scripts/event_journal.py": {
+      "sha256": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+      "bytes": 8897,
+      "mode": "0o644"
+    },
+    "skills/context-docs/scripts/journal_policy.py": {
+      "sha256": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445",
+      "bytes": 11193,
+      "mode": "0o644"
+    }
+  },
+  "validation": {
+    "static": {
+      "command": "python3 -B evals/checks/static_checks.py",
+      "result": "pass",
+      "summary": "links: checked 2165 relative links and anchors\ntables: checked 5 published result tables\nskills: checked 2 installable skill packages\nversions: checked 2 declared package versions\nStatic repository checks passed. Model evaluations are separate and unaffected."
+    },
+    "checker-tests": {
+      "command": "python3 -B -m unittest discover -s evals/checks -p test_*.py",
+      "result": "pass",
+      "passed": 28
+    },
+    "site-tests": {
+      "command": "python3 -B -m unittest discover -s site -p test_*.py",
+      "result": "pass",
+      "passed": 24
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  },
+  "standalone_packages": {
+    "complete_siblings_copied": true,
+    "relative_links": "23 relative links and anchors",
+    "matches_frozen_simplification_candidate": true
+  },
+  "public_build": {
+    "file_count": 11,
+    "sha256": {
+      ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compare/index.html": "ba9efb2a722ef9c404c5af5d17335c5e13393fbe41c4c7436297aa6ca4202b09",
+      "context-docs-overview.png": "a3e6198d478f2631801144cc49a44381dde99ed293ae5c9c9824b9b51ada740a",
+      "favicon.svg": "dc97dba6b783b932616978848471cd0bbf8fbb6d0e75455ce33d5fec9cd89677",
+      "getting-started/index.html": "d60b3615f11297c0ec5340860c3c9e5e2e29cbfaa551e891330d7291b9d83e6e",
+      "index.html": "406102e21469250e0423aedc6ab6f1f17956947039299edfdf17a7c5dc99ada2",
+      "main.js": "64d618013843ed926c47b6c8e5bc61e430900458bf4314c4543b85ff4a95f055",
+      "reading-queue/index.html": "2509b00e5420ccdf40779295b5fa9d4f955d01b66ef79dc450f90d8974b5c0ec",
+      "robots.txt": "3bd611504013bb5430b73e8b26f62c7eb900ed812ffdd09da7a947e600002709",
+      "sitemap.xml": "a0022d0c91fff67cc5b201d0c89f238ac7ae625c57f02d3f8af9ee3ecc1b7e1d",
+      "styles.css": "b5433bee1e1c7264f6750a523a51279d87e7f1ad865fc2355d3cdea9301593db"
+    },
+    "unreleased_labels_and_draft_links_on_both_pages": true,
+    "everyday_install_target_remains_published_v026": true,
+    "built_outside_repository": true
+  },
+  "preservation": {
+    "skill_files_unchanged": true,
+    "tracked_evaluation_files_unchanged": true,
+    "existing_journal_bytes_unchanged": true
+  },
+  "assistance": "Codex performed preparation and local checks. The preceding selected documentation follow-up incorporated earlier Astra/Fable review recommendations; earlier Codex/Claude studies retain their own provenance. No new counterpart model review or native agent evaluation ran.",
+  "limits": [
+    "Local mechanical checks do not establish model behavior or user benefit.",
+    "No new browser rendering, GitHub Actions, live-site or skills.sh verification was performed.",
+    "No installed skill upgrade, tag, push, release publication or deployment was performed."
+  ]
+}
