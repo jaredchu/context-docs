@@ -1,15 +1,55 @@
 name: Landing page
 
+# Pull requests validate only. Relevant pushes to main, or an
+# explicit workflow_dispatch on main with deploy=true, deploy the tested artifact
+# to the asset-only Cloudflare Worker in wrangler.jsonc. Path filters list the
+# public build inputs and deployment configuration; deployment records and
+# site/README.md alone do not start a build or deployment.
 on:
   pull_request:
-    paths: ['site/**', 'assets/context-docs-overview.png', 'assets/context-docs-mark.svg', 'README.md', 'docs/getting-started.md', 'docs/outreach-v0.2.5.md', 'examples/maintenance.md', 'examples/progress.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+    paths:
+      - 'site/*.html'
+      - 'site/*.css'
+      - 'site/*.js'
+      - 'site/*.svg'
+      - 'site/*.py'
+      - 'site/vendor/tabler/*.svg'
+      - 'site/vendor/tabler/LICENSE'
+      - 'assets/context-docs-overview.png'
+      - 'assets/context-docs-mark.svg'
+      - 'README.md'
+      - 'docs/getting-started.md'
+      - 'docs/outreach-v0.2.5.md'
+      - 'examples/maintenance.md'
+      - 'examples/progress.md'
+      - 'skills/**/VERSION'
+      - 'wrangler.jsonc'
+      - '.github/workflows/site.yml'
   push:
     branches: [main]
-    paths: ['site/**', 'assets/context-docs-overview.png', 'assets/context-docs-mark.svg', 'README.md', 'docs/getting-started.md', 'docs/outreach-v0.2.5.md', 'examples/maintenance.md', 'examples/progress.md', 'skills/**/VERSION', '.github/workflows/site.yml']
+    # Keep identical to the pull_request list above.
+    paths:
+      - 'site/*.html'
+      - 'site/*.css'
+      - 'site/*.js'
+      - 'site/*.svg'
+      - 'site/*.py'
+      - 'site/vendor/tabler/*.svg'
+      - 'site/vendor/tabler/LICENSE'
+      - 'assets/context-docs-overview.png'
+      - 'assets/context-docs-mark.svg'
+      - 'README.md'
+      - 'docs/getting-started.md'
+      - 'docs/outreach-v0.2.5.md'
+      - 'examples/maintenance.md'
+      - 'examples/progress.md'
+      - 'skills/**/VERSION'
+      - 'wrangler.jsonc'
+      - '.github/workflows/site.yml'
   workflow_dispatch:
     inputs:
       deploy:
-        description: Publish the reviewed main branch to GitHub Pages
+        description: Deploy the checked main branch to the Cloudflare Worker
         type: boolean
         default: false
 
@@ -20,6 +60,10 @@ concurrency:
   group: landing-page-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  WRANGLER_VERSION: '4.113.0'
+  WRANGLER_SEND_METRICS: 'false'
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,22 +72,88 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 -m unittest discover -s site -p 'test_*.py'
-      - run: python3 site/build.py
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/setup-node@v4
         with:
+          node-version: '24'
+
+      - name: Repository static checks
+        run: python3 evals/checks/static_checks.py
+      - name: Site tests
+        run: python3 -m unittest discover -s site -p 'test_*.py'
+      - name: Build public artifact
+        run: python3 site/build.py
+      - name: Artifact manifest
+        working-directory: .local/site-dist
+        run: find . -type f ! -name '.nojekyll' -print0 | sort -z | xargs -0 sha256sum
+      - name: Validate Worker configuration (dry run, no credentials)
+        run: npx --yes "wrangler@${WRANGLER_VERSION}" deploy --dry-run
+
+      # upload-artifact excludes hidden files by default, so the empty
+      # .nojekyll marker is omitted as it was from the former Pages artifact.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
           path: .local/site-dist
+          if-no-files-found: error
+          retention-days: 30
 
   deploy:
-    if: github.event_name == 'workflow_dispatch' && inputs.deploy && github.ref == 'refs/heads/main'
+    if: >-
+      github.repository == 'jaredchu/context-docs' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' ||
+       (github.event_name == 'workflow_dispatch' && inputs.deploy))
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
+      contents: read
+    # One production deployment at a time; a queued run waits rather than cancelling.
+    concurrency:
+      group: context-docs-production
+      cancel-in-progress: false
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: production
+      url: https://context-docs.com/
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: .local/site-dist
+      - name: Downloaded artifact manifest
+        working-directory: .local/site-dist
+        run: find . -type f -print0 | sort -z | xargs -0 sha256sum
+      - name: Check deployment still matches current main output
+        id: current
+        run: |
+          git fetch --no-tags origin main
+          current_main=$(git rev-parse FETCH_HEAD)
+          deploy=false
+          if git merge-base --is-ancestor "$GITHUB_SHA" "$current_main"; then
+            if [ "$current_main" = "$GITHUB_SHA" ]; then
+              deploy=true
+            elif git diff --quiet "$GITHUB_SHA" "$current_main" -- wrangler.jsonc .github/workflows/site.yml; then
+              current_dir=$(mktemp -d "$RUNNER_TEMP/current-site.XXXXXX")
+              git archive "$current_main" | tar -x -C "$current_dir"
+              python3 "$current_dir/site/build.py"
+              if diff -qr --exclude=.nojekyll .local/site-dist "$current_dir/.local/site-dist"; then
+                deploy=true
+              fi
+            fi
+          fi
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+          if [ "$deploy" = false ]; then echo 'Skipping superseded site output or deployment configuration.'; fi
+      - name: Deploy asset-only Worker
+        if: steps.current.outputs.deploy == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes "wrangler@${WRANGLER_VERSION}" deploy --tag "$GITHUB_SHA" --message "GitHub Actions $GITHUB_SHA"

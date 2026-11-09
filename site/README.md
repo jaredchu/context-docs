@@ -29,7 +29,8 @@ assets, `robots.txt`, `sitemap.xml` and the empty `.nojekyll` marker. The canoni
 routes are `/`, `/getting-started/`, `/compare/`, `/examples/`,
 `/examples/reading-queue/`, `/examples/switching-codex-claude/` and
 `/examples/switching-claude-codex/`. The old `/reading-queue/` is excluded from the
-sitemap. `build.py` renders every page before replacing the output, so a missing
+sitemap. The `.nojekyll` marker dates from GitHub Pages hosting; artifact upload
+omits it, so sixteen files are deployed. `build.py` renders every page before replacing the output, so a missing
 or invalid new template leaves the previous artifact intact.
 The [brand artwork](../assets/README.md) provides the canonical logo mark,
 same-byte favicon and the SVG-authored workflow illustration. Selected asset
@@ -51,8 +52,9 @@ the build escapes its text and publishes only the selected demo blocks. Draft
 posting copy is retained in local operator notes.
 The page labels it illustrative rather than an executed session or evaluation,
 retains the experimental limits, and links to installation and evidence.
-The existing workflow includes this public source in its build path filters;
-deployment remains manual and separately authorized.
+The workflow includes this public source in its build path filters. When this
+was published, deployment was manual; see [Deployment](#deployment) for the
+current main-branch auto-deploy.
 
 The demo was deployed from `d8c624c` on October 19, 2026. The
 [deployment record](../docs/website-demo-deployment-2026-10-19.json) verifies all
@@ -136,8 +138,9 @@ those native sessions. The public build never copies the evidence tree.
 
 The old route builds a canonicalized script/meta-refresh/link fallback. Its
 script preserves query and fragment. A true HTTP 301 requires the separately
-managed Cloudflare Single Redirect, because GitHub Pages does not interpret
-`_redirects`. The requested edge rule matches only `/reading-queue` and
+managed Cloudflare Single Redirect: the build emits no `_redirects` file, which
+the former GitHub Pages host did not interpret either. The edge rule stays in
+place with the Workers Static Assets host. The requested edge rule matches only `/reading-queue` and
 `/reading-queue/` on the canonical host, targets the new URL with status 301 and
 preserves the query string; the browser retains a fragment when Location supplies
 none. Apply it only after the new destination is live. The latest deployment
@@ -322,6 +325,21 @@ focused counterpart review are retained privately under evidence ID
 The initial preview was local and uncommitted; subsequent publication authorization
 covers the broader redesign above. Skills, versions, frozen examples and
 historical evidence are unchanged.
+
+## Workers Static Assets migration (prepared)
+
+On November 9, 2026, the owner authorized moving `context-docs.com` from GitHub
+Pages to Cloudflare Workers Static Assets with automatic deployment from `main`.
+The repository now contains the asset-only Worker configuration
+([wrangler.jsonc](../wrangler.jsonc)) and the updated
+[landing-page workflow](../.github/workflows/site.yml); see [Deployment](#deployment).
+
+**Status: prepared, not yet live.** No Worker deployment, DNS change or live check
+has been recorded here. The coordinator owns credentials, the cutover and live
+verification of canonical HTTPS, the `www` redirect, the retained Reading Queue
+301 and analytics. Until a verified receipt replaces this note, the
+[latest deployment](#latest-deployment) below is the last served release, from
+GitHub Pages.
 
 ## Latest deployment
 
@@ -630,17 +648,49 @@ See [OpenAI crawler guidance](https://developers.openai.com/api/docs/bots),
 [Anthropic crawler guidance](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
 and [Google's AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
-## GitHub Pages
+## Deployment
 
 Live site: [Context Docs](https://context-docs.com/).
 
-The [landing-page workflow](../.github/workflows/site.yml) builds and tests on
-relevant pull requests and main-branch pushes. Deployment is manual. When an
-authorized change needs publication, select **GitHub Actions** as the Pages source
-in repository Settings → Pages, then run **Landing page** on `main` with **deploy**
-selected. Use the URL returned by the deployment. Branch/PR builds do not publish
-a site. The broad `site/**` path filter can trigger a build for this README;
-a successful build or a skipped deploy job does not require manual deployment.
+The site is prepared for an **asset-only Cloudflare Worker** using Workers Static
+Assets ([migration status](#workers-static-assets-migration-prepared)). The root
+[wrangler.jsonc](../wrangler.jsonc) names the Worker `context-docs-site` and
+serves `.local/site-dist` with no Worker script. Its settings are:
+`html_handling: auto-trailing-slash`, `not_found_handling: none`, custom-domain
+routes for `context-docs.com` and `www.context-docs.com`, with `workers_dev`
+and preview URLs disabled. Pre-cutover checks use a separate temporary configuration.
+
+The [landing-page workflow](../.github/workflows/site.yml) works as follows:
+
+- **Pull requests validate only.** The build job runs
+  repository static checks (`evals/checks/static_checks.py`) and the site tests,
+  then builds and prints a SHA-256 manifest. It runs `wrangler deploy --dry-run`
+  without credentials and uploads `.local/site-dist` as the `site-dist` artifact.
+- **Pushes to `main` deploy automatically** once the build job passes, if they
+  touch a build input. Build inputs are the site templates, styles, script,
+  favicon, build/test code and vendored icons; the selected root assets; the root
+  README; the getting-started and demo sources; both examples; skill `VERSION`
+  files; `wrangler.jsonc` and the workflow itself. This README and deployment
+  records are excluded, so record-only commits do not start a build or deployment.
+- **Manual reruns** use **Landing page** → *Run workflow* on `main` with
+  **deploy** selected. On other refs, the deploy job is skipped.
+- The deploy job downloads the same `site-dist` artifact, prints its manifest
+  and runs `wrangler deploy`. It does not rebuild. Wrangler is pinned to
+  **4.113.0** (via `npx`) on Node 24. Only this job receives the
+  `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets. It runs in
+  the `production` environment, and the `context-docs-production` concurrency
+  group serializes it. A freshness check skips superseded site output or deployment
+  configuration; record-only commits that leave both unchanged do not prevent a
+  pending deployment. Deployed versions are tagged with their source SHA.
+
+Artifact upload excludes hidden files, so the empty `.nojekyll` marker is not
+deployed, as it was not on GitHub Pages either. The Reading Queue 301, canonical
+`www` redirect and Cloudflare Web Analytics are zone-level rules outside this
+repository. The coordinator manages them, not Wrangler.
+
+Because pushes to `main` now publish, authority to push a site-input change to
+`main` is also authority to deploy it. Keep unreviewed site changes on branches
+or pull requests.
 
 ### Deployment checklist
 
@@ -663,8 +713,10 @@ website content; publication still needs useful new information and task authori
   deployment-behavior changes or an explicit owner-requested rerun are separate
   reasons to deploy.
 - [ ] When deployment is needed and authorized, record the exact selected `main`
-  SHA, run the site tests and build, and check relevant CI. Dispatch the manual
-  deployment and verify its source SHA and successful build/deploy jobs.
+  SHA, run the site tests and build, and check relevant CI. A push of build inputs
+  to `main` deploys automatically. Otherwise, dispatch **Landing page** on `main`
+  with **deploy** selected. Verify the run's source SHA and successful build/deploy
+  jobs, and compare the two printed manifests.
 - [ ] Compare the uploaded artifact and canonical live HTTPS responses with that
   pinned build, including public file paths/hashes and HTML/robots/sitemap
   metadata. Record failures and verification limits; byte checks do not establish
@@ -677,8 +729,22 @@ website content; publication still needs useful new information and task authori
   it also changes website output or deployment behavior, or the owner requests
   another run. Preserve historical receipts.
 
-This checklist grants no deployment, commit or push authority. Recording evidence
+This checklist grants no deployment, commit or push authority. Pushing build
+inputs to `main` deploys them, so treat that push as publication. Recording evidence
 does not create a pending deployment merely because `main` now has a newer SHA.
+Path filters exclude record-only commits.
+
+## Historical GitHub Pages configuration
+
+<a id="github-pages"></a>
+*Historical:* this describes hosting before the
+[Workers Static Assets migration](#workers-static-assets-migration-prepared). The
+DNS and Pages settings below still serve the site until the coordinator completes
+and verifies the cutover. Earlier deployment records above refer to this setup.
+
+Under that setup, deployment was manual: select **GitHub Actions** as the Pages source in
+repository Settings → Pages, then run **Landing page** on `main` with **deploy**
+selected. The GitHub Pages deploy job has been removed from the workflow.
 
 The custom domain is `context-docs.com`. Cloudflare DNS points its four A and four
 AAAA records to GitHub Pages, with `www` pointing to `jaredchu.github.io` by CNAME;
@@ -689,6 +755,16 @@ depend on GitHub issuing a certificate for this domain. GitHub Pages handles
 hosting and the `www` redirect. Domain configuration lives in Pages settings; this Actions-based
 deployment does not require a repository CNAME file. The page uses relative asset
 links. Do not publish the repository root as the site artifact.
+
+Cutover notes for the coordinator (not yet verified in this repository):
+- Worker custom domains create their own DNS records. The existing apex A/AAAA
+  and `www` CNAME records probably need removing or replacing first, otherwise
+  the first `wrangler deploy` may fail on the conflict.
+- GitHub Pages no longer provides the `www` redirect once DNS moves. The planned
+  canonical `www` rule replaces it.
+- Check Full SSL, Always Use HTTPS, the Reading Queue 301 and analytics against
+  the Worker origin after cutover.
+- Unset the Pages custom domain only after the Worker serves both hostnames.
 
 See [GitHub's custom-workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 and [custom-domain guidance](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).

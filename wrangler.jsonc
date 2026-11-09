@@ -1,0 +1,21 @@
+// Asset-only Cloudflare Worker for https://context-docs.com/.
+// There is no Worker script: Workers Static Assets serves the explicit public
+// build from site/build.py. CI builds, tests and uploads that directory, then the
+// main-branch deploy job downloads the same artifact here before `wrangler deploy`.
+// See site/README.md#deployment for the workflow, checks and edge-managed rules.
+{
+  "name": "context-docs-site",
+  "compatibility_date": "2026-11-09",
+  "assets": {
+    "directory": ".local/site-dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "routes": [
+    { "pattern": "context-docs.com", "custom_domain": true },
+    { "pattern": "www.context-docs.com", "custom_domain": true }
+  ],
+  // Pre-cutover checks use a separate temporary configuration with this enabled.
+  "workers_dev": false,
+  "preview_urls": false
+}
