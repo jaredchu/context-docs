@@ -18,8 +18,8 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner-approved [examples collection](switching-agents-examples.md) is published
-from `e38fede`: an index, the moved Reading Queue walkthrough and two direction-specific
+The owner-approved [examples collection](switching-agents-examples.md) remains published
+(introduced at `e38fede`): an index, the moved Reading Queue walkthrough and two direction-specific
 Codex/Claude Code cases. The existing app is reused with a dedicated starter;
 there is no new hosted application or skill change. The
 [two native handoffs](../evals/handoff/2026-11-07-cross-client/README.md) complete
@@ -37,6 +37,11 @@ uploaded files matching the pinned build and live desktop/mobile checks. The old
 Reading Queue paths return HTTP 301 through one Cloudflare Single Redirect, preserving
 query strings and the browser fragment. The approved analytics difference remains.
 Published skill versions and installed packages are unchanged.
+
+The November 9 website correction points all seven creator credits to Jared Chu’s
+canonical CV, matching his other project sites. Source `c8bc929` is published and
+verified; the [latest deployment](../site/README.md#latest-deployment) owns the receipt
+and file checks. Source links and project/contributor attribution are retained.
 
 The owner accepted a focused review follow-up: simplify this entry point, prepare
 an unfamiliar-user trial and deduplicate skill instructions incrementally. The

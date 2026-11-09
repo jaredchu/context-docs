@@ -325,6 +325,21 @@ historical evidence are unchanged.
 
 ## Latest deployment
 
+The creator attribution correction is live from **`c8bc929`**, published
+November 9, 2026 by [Pages run 42559064156](https://github.com/jaredchu/context-docs/actions/runs/42559064156).
+All seven canonical page footers link Jared Chu to his canonical CV at
+<https://cv.jaredchu.com/>, matching his other project websites. Project-source
+links, contribution credits, public copy and installable packages are unchanged.
+
+All 34 site tests and static repository checks pass; both source CI workflows
+and the manual build/deploy jobs succeeded. The sixteen uploaded files match the
+pinned seventeen-file build (empty `.nojekyll` omitted). All fifteen canonical
+live resources match exactly, and the legacy Reading Queue 301 preserves its
+query. This verifies the URL correction and served files, not a new agent study
+or browser-layout audit. Private evidence ID: `context-docs-creator-link-2026-11-09`.
+
+### Earlier examples collection deployment
+
 The examples collection is live from **`e38fede`**, published November 7, 2026 by
 [Pages run 42375161164](https://github.com/jaredchu/context-docs/actions/runs/42375161164).
 Both source CI workflows and the manual build/deploy jobs passed. The seven
