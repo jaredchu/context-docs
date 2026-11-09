@@ -326,22 +326,35 @@ The initial preview was local and uncommitted; subsequent publication authorizat
 covers the broader redesign above. Skills, versions, frozen examples and
 historical evidence are unchanged.
 
-## Workers Static Assets migration (prepared)
-
-On November 9, 2026, the owner authorized moving `context-docs.com` from GitHub
-Pages to Cloudflare Workers Static Assets with automatic deployment from `main`.
-The repository now contains the asset-only Worker configuration
-([wrangler.jsonc](../wrangler.jsonc)) and the updated
-[landing-page workflow](../.github/workflows/site.yml); see [Deployment](#deployment).
-
-**Status: prepared, not yet live.** No Worker deployment, DNS change or live check
-has been recorded here. The coordinator owns credentials, the cutover and live
-verification of canonical HTTPS, the `www` redirect, the retained Reading Queue
-301 and analytics. Until a verified receipt replaces this note, the
-[latest deployment](#latest-deployment) below is the last served release, from
-GitHub Pages.
+<a id="workers-static-assets-migration-prepared"></a>
 
 ## Latest deployment
+
+The site runs on **Cloudflare Workers Static Assets** from **`ef102cd`**, deployed
+November 9, 2026 by [Landing page run 42638202690, attempt 2](https://github.com/jaredchu/context-docs/actions/runs/42638202690/attempts/2).
+The owner requested this migration and automatic deployment from `main`. The
+asset-only Worker `context-docs-site` serves both custom domains; `workers.dev`
+and preview URLs are disabled. The old GitHub Pages custom-domain binding is
+removed. See [Deployment](#deployment) for automatic publishing and manual reruns.
+
+Repository CI and the deployment build/deploy jobs pass. All sixteen uploaded
+files match the pinned build by SHA-256; the empty `.nojekyll` marker is omitted.
+All fifteen canonical live resources match: eight exactly and seven HTML pages
+after removing only the retained Cloudflare analytics beacon. Missing URLs return
+404. The `www` host and both old Reading Queue paths return HTTP 301 with query
+strings preserved; HTTP redirects to HTTPS, and slash-less canonical routes return
+HTTP 307 to their trailing-slash URL. These are HTTP/artifact checks, not a new
+browser-layout audit, search-crawler validation or agent study.
+
+The first automatic attempt uploaded the Worker but could not bind the domains:
+Cloudflare rejected the existing externally managed GitHub Pages DNS records.
+After removing only those eight apex A/AAAA records and the `www` CNAME, both
+Worker custom domains were bound and the failed job was rerun successfully.
+The verification TXT, existing Reading Queue rule, Full SSL, Always Use HTTPS and
+analytics configuration were retained; a separate canonical `www` edge redirect
+was added. Private evidence ID: `context-docs-workers-migration-2026-11-09`.
+
+### Earlier creator attribution deployment
 
 The creator attribution correction is live from **`c8bc929`**, published
 November 9, 2026 by [Pages run 42559064156](https://github.com/jaredchu/context-docs/actions/runs/42559064156).
@@ -652,8 +665,8 @@ and [Google's AI search guidance](https://developers.google.com/search/docs/fund
 
 Live site: [Context Docs](https://context-docs.com/).
 
-The site is prepared for an **asset-only Cloudflare Worker** using Workers Static
-Assets ([migration status](#workers-static-assets-migration-prepared)). The root
+The site uses an **asset-only Cloudflare Worker** with Workers Static Assets
+([latest deployment](#latest-deployment)). The root
 [wrangler.jsonc](../wrangler.jsonc) names the Worker `context-docs-site` and
 serves `.local/site-dist` with no Worker script. Its settings are:
 `html_handling: auto-trailing-slash`, `not_found_handling: none`, custom-domain
@@ -739,8 +752,8 @@ Path filters exclude record-only commits.
 <a id="github-pages"></a>
 *Historical:* this describes hosting before the
 [Workers Static Assets migration](#workers-static-assets-migration-prepared). The
-DNS and Pages settings below still serve the site until the coordinator completes
-and verifies the cutover. Earlier deployment records above refer to this setup.
+DNS and Pages settings below describe the former origin. Earlier deployment
+records above refer to this setup; the custom-domain binding has been removed.
 
 Under that setup, deployment was manual: select **GitHub Actions** as the Pages source in
 repository Settings → Pages, then run **Landing page** on `main` with **deploy**
@@ -756,15 +769,10 @@ hosting and the `www` redirect. Domain configuration lives in Pages settings; th
 deployment does not require a repository CNAME file. The page uses relative asset
 links. Do not publish the repository root as the site artifact.
 
-Cutover notes for the coordinator (not yet verified in this repository):
-- Worker custom domains create their own DNS records. The existing apex A/AAAA
-  and `www` CNAME records probably need removing or replacing first, otherwise
-  the first `wrangler deploy` may fail on the conflict.
-- GitHub Pages no longer provides the `www` redirect once DNS moves. The planned
-  canonical `www` rule replaces it.
-- Check Full SSL, Always Use HTTPS, the Reading Queue 301 and analytics against
-  the Worker origin after cutover.
-- Unset the Pages custom domain only after the Worker serves both hostnames.
+The migration replaced the former hosting records with Worker-managed DNS,
+added the canonical `www` edge redirect, verified the retained settings and
+removed the Pages custom-domain binding only after the Worker served the domain.
+The [latest deployment](#latest-deployment) owns the cutover result and limits.
 
 See [GitHub's custom-workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
 and [custom-domain guidance](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).

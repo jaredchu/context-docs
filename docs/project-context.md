@@ -4,7 +4,8 @@ Context Docs packages a Markdown maintenance workflow for people without an
 established way to preserve project knowledge across AI sessions. Keep useful
 decisions, current work and next steps accurate with little manual organization.
 Standalone experimental **v0.2.7** is published. The owner separately authorized
-website deployment; installed upgrades remain separate actions.
+website deployment and later selected automatic website deployment from `main`;
+installed upgrades remain separate actions.
 
 ## Purpose and scope
 
@@ -33,15 +34,20 @@ The white/graphite/cobalt design, abstract C identity and locally bundled Tabler
 icons remain. The earlier redesign at `92042e9` is retained in the
 [deployment history](../site/README.md#earlier-website-redesign-deployment). The
 [latest deployment](../site/README.md#latest-deployment) owns source CI, all sixteen
-uploaded files matching the pinned build and live desktop/mobile checks. The old
+uploaded files matching the pinned build and live HTTP/hosting checks. Earlier
+desktop/mobile checks remain in the deployment history. The old
 Reading Queue paths return HTTP 301 through one Cloudflare Single Redirect, preserving
 query strings and the browser fragment. The approved analytics difference remains.
 Published skill versions and installed packages are unchanged.
 
-The November 9 website correction points all seven creator credits to Jared Chu’s
-canonical CV, matching his other project sites. Source `c8bc929` is published and
-verified; the [latest deployment](../site/README.md#latest-deployment) owns the receipt
-and file checks. Source links and project/contributor attribution are retained.
+The November 9 creator correction points all seven credits to Jared Chu’s canonical
+CV. The subsequent owner-authorized migration now serves the same public content
+from Workers Static Assets at `ef102cd`, with relevant `main` pushes deploying the
+checked artifact automatically. Both Worker custom domains are bound; the old
+Pages domain binding is removed. The [latest deployment](../site/README.md#latest-deployment)
+owns successful CI, sixteen matching artifact files, fifteen verified canonical
+resources, retained analytics, redirects and HTTP-check limits. Source links and
+project/contributor attribution are retained.
 
 The owner accepted a focused review follow-up: simplify this entry point, prepare
 an unfamiliar-user trial and deduplicate skill instructions incrementally. The
@@ -153,10 +159,12 @@ Earlier release approvals do not authorize new publication.
   owns precedence and auto resolution. There is no background sync.
 - The website, comparison and Reading Queue walkthrough have recorded successful
   publication checks. The [deployment summary](../site/README.md#latest-deployment)
-  owns the actual website revision, artifact/live comparisons and browser checks.
+  owns the actual website revision and current artifact/live hosting checks;
+  earlier browser checks remain in deployment history.
   The [example summary](reading-queue-example.md) owns its separate app revision,
   automatic app deployment and native walkthrough observations. Website deployment
-  remains manual. Search indexing and AI citations remain unestablished; see
+  is automatic for relevant `main` pushes; pull requests validate only. Search
+  indexing and AI citations remain unestablished; see
   [search discovery](../site/README.md#search-discovery).
 - The [plugin candidate](plugin-candidate.md) deliberately freezes older skills.
   Its bounded Claude runtime check passed; Codex activation/execution, duplicate

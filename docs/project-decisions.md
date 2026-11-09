@@ -295,6 +295,22 @@ Preserve existing Git history, original studies and private evidence. Keep the
 [deployment checklist](../site/README.md#deployment-checklist) for authorized
 publication; record-only follow-ups do not require another deployment.
 
+## Workers Static Assets and automatic website deployment
+
+On November 9, 2026, the owner requested migrating `context-docs.com` from GitHub
+Pages to Workers Static Assets and setting up automatic deployment. This
+supersedes manual-only website publication for relevant pushes to `main`.
+Pull requests validate without publishing. The workflow tests and builds the
+public allowlist, then deploys that same artifact with dedicated CI credentials.
+Production jobs are serialized; superseded site output/configuration is skipped,
+while unchanged record-only successors do not prevent a pending deployment.
+Deployment records and `site/README.md` are excluded from the site path filters.
+
+The [deployment instructions](../site/README.md#deployment) own triggers and
+credential requirements; the [latest deployment](../site/README.md#latest-deployment)
+owns the verified cutover. Skill publication, installed upgrades and unrelated
+services remain separate. Existing history and studies are preserved.
+
 ## Review follow-up and learner validation
 
 On October 26, 2026, the owner accepted the combined review plan: simplify current
