@@ -2,10 +2,10 @@
 
 **Keep decisions, current work and next steps across AI sessions.**
 
-Context Docs helps you preserve project knowledge in readable Markdown so a new
-AI session can pick up where you left off. Give your coding agent a reusable
-workflow for recording what was decided and why, what is done or blocked, and
-what to do next.
+Context Docs provides reusable agent skills for context management in Codex and
+Claude Code. Preserve project knowledge in readable Markdown so a new AI session
+can pick up where you left off: what was decided and why, what is done or blocked,
+and what to do next.
 
 Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
@@ -13,7 +13,7 @@ as possible.
 
 ![Illustrative workflow: do the work, save decisions and reasons, current work and next steps in project Markdown, then ask a new session to read the saved note and check the project. The agent works during active sessions; review its changes.](assets/context-docs-overview.png)
 
-[Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
+[Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
 **Status: experimental, core skill v0.2.7 and adoption skill v0.1.16.**
 The [v0.2.7 release notes](docs/releases/v0.2.7.md) cover a narrow instruction

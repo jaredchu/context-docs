@@ -132,6 +132,10 @@ Earlier release approvals do not authorize new publication.
 
 ## Current state
 
+- [GitHub discovery](github-discovery.md) records the November 9 topic selection,
+  About description, homepage and README improvements. Twelve relevant topics
+  cover skill packages, supported clients, context management and Markdown.
+  Metadata is verified separately from search ranking or traffic benefit.
 - The [skills.sh metadata workflow](skills-sh-refresh.md) defines daily and manual
   refreshes with public star-count verification. Its preflight skips installation
   when both pages already agree with GitHub.
