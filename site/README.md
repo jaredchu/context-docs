@@ -330,6 +330,24 @@ historical evidence are unchanged.
 
 ## Latest deployment
 
+The audience introduction is live from **`d1ec2e6`**, published November 11, 2026 by
+[Landing page run 43004281529](https://github.com/jaredchu/context-docs/actions/runs/43004281529).
+The owner approved the local preview and requested commit and deployment. The
+README and homepage invite people building through AI prompts while retaining
+the broader positioning, existing planning files and experimental limits.
+Skill behavior, versions and installed packages are unchanged.
+
+All 34 site tests, repository static checks and source CI pass, including the
+build and actual Worker deployment steps. Both workflow manifests and all sixteen
+uploaded file paths/hashes match the pinned build. Fifteen canonical live
+resources match: eight exactly and seven HTML pages after removing only the
+existing Cloudflare analytics beacon. The five redirect checks and missing-route
+404 check pass. These are HTTP/artifact checks; the prior local desktop preview
+check is retained, with no new live layout audit, learner study or agent evaluation.
+Private evidence ID: `context-docs-vibe-intro-publication-2026-11-11`.
+
+### Earlier Workers migration deployment
+
 The site runs on **Cloudflare Workers Static Assets** from **`ef102cd`**, deployed
 November 9, 2026 by [Landing page run 42638202690, attempt 2](https://github.com/jaredchu/context-docs/actions/runs/42638202690/attempts/2).
 The owner requested this migration and automatic deployment from `main`. The

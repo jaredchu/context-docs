@@ -19,12 +19,13 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The November 11 audience introduction is a local preview in the [README](../README.md)
-and [homepage](../site/index.html). It invites people building through AI prompts
+The November 11 audience introduction is published in the [README](../README.md)
+and [homepage](../site/index.html) from `d1ec2e6`. It invites people building through AI prompts
 to start with one note or keep existing planning files, review updates and read
 the context next session. Broader positioning and experimental limits are retained;
 this adds no skill behavior or claim of measured beginner ease or time savings.
-The owner approved the introduction for publication; deployment is pending.
+The owner approved publication; the [latest deployment](../site/README.md#latest-deployment)
+records passing CI, artifact and live HTTP checks.
 
 The owner-approved [examples collection](switching-agents-examples.md) remains published
 (introduced at `e38fede`): an index, the moved Reading Queue walkthrough and two direction-specific
@@ -48,8 +49,8 @@ query strings and the browser fragment. The approved analytics difference remain
 Published skill versions and installed packages are unchanged.
 
 The November 9 creator correction points all seven credits to Jared Chu’s canonical
-CV. The subsequent owner-authorized migration now serves the same public content
-from Workers Static Assets at `ef102cd`, with relevant `main` pushes deploying the
+CV. The subsequent owner-authorized migration moved hosting to Workers Static Assets
+at `ef102cd`, with relevant `main` pushes deploying the
 checked artifact automatically. Both Worker custom domains are bound; the old
 Pages domain binding is removed. The [latest deployment](../site/README.md#latest-deployment)
 owns successful CI, sixteen matching artifact files, fifteen verified canonical
