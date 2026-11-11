@@ -330,6 +330,28 @@ historical evidence are unchanged.
 
 ## Latest deployment
 
+The reviewed documentation branch is merged into `main`, and the site is deployed
+from **`e1d5de5`** on November 12, 2026 by
+[Landing page run 43070183955](https://github.com/jaredchu/context-docs/actions/runs/43070183955).
+The owner explicitly requested the merge and website deployment while withholding
+a release. [Source static CI](https://github.com/jaredchu/context-docs/actions/runs/43070184257),
+the build and actual Worker deployment pass. The 34 local site tests and repository
+static checks pass; both printed workflow manifests and all sixteen uploaded
+files match the pinned build.
+
+All sixteen public file paths/hashes are identical to the prior audience
+introduction deployment. The first handoff check and troubleshooting prompt are
+available in the repository's Markdown guide; the site builder imports selected
+snippets and does not render those new sections. This deployment adds no template
+or visible website change. Fifteen canonical resources match (eight exactly,
+seven HTML pages after removing only the existing Cloudflare analytics beacon).
+Five redirect checks, resolving a relative Location against its request URL, and
+the missing-route 404 check pass. These are HTTP/artifact checks, not a new browser
+layout audit or native/newcomer trial. Release/tag state and skill versions are
+unchanged. Private evidence ID: `reviewed-docs-deployment-2026-11-12`.
+
+### Earlier audience introduction deployment
+
 The audience introduction is live from **`d1ec2e6`**, published November 11, 2026 by
 [Landing page run 43004281529](https://github.com/jaredchu/context-docs/actions/runs/43004281529).
 The owner approved the local preview and requested commit and deployment. The

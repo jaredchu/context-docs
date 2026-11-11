@@ -384,3 +384,9 @@ and earlier evidence retain their original scope. The
 [usage guide](getting-started.md#first-handoff-check) owns the exercise and
 troubleshooting instructions; [current context](project-context.md#current-focus)
 owns preview status.
+
+On November 12 the owner subsequently authorized merging the reviewed branch
+into `main` and deploying the website, while continuing to withhold a release.
+The [deployment summary](../site/README.md#latest-deployment) owns the resulting
+source, verification and unchanged-rendering qualification. This later authority
+supersedes the local-preview boundary for that merge and website deployment only.

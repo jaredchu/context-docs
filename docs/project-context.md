@@ -19,17 +19,22 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner authorized a local documentation preview on November 11: a
+The reviewed documentation is merged into `main` from `e1d5de5`: a
 [first handoff check](getting-started.md#first-handoff-check) and a
 [read-only troubleshooting prompt](getting-started.md#troubleshoot-setup-and-saved-context),
-linked from the README. The exercise uses synthetic note-only facts, source
+linked from the README. The owner authorized the merge and website deployment
+on November 12. The exercise uses synthetic note-only facts, source
 citations and a human comparison checklist; the diagnostic keeps missing skill
 or loading evidence explicit. These are authored instructions, not new native
 or newcomer trial results. Skills, versions and frozen studies are unchanged.
-The [decision](project-decisions.md#local-handoff-and-troubleshooting-documentation)
-keeps this preview local for owner review; publication is withheld.
-On November 12 the owner authorized committing this documentation and related
-context locally; push and publication remain withheld.
+The site was deployed from `e1d5de5`; its sixteen generated files match the
+previous deployment. The new sections are repository Markdown, not additions to
+the site's selected-snippet rendering. The
+[latest deployment](../site/README.md#latest-deployment) owns passing source CI,
+artifact/live checks and limits. The
+[decision](project-decisions.md#local-handoff-and-troubleshooting-documentation)
+retains the earlier local-preview scope and subsequent deployment authorization.
+Release publication remains withheld.
 
 The November 11 audience introduction is published in the [README](../README.md)
 and [homepage](../site/index.html) from `d1ec2e6`. It invites people building through AI prompts
@@ -113,8 +118,8 @@ Examples collection: PUBLISHED e38fede → artifact/live checks PASS → 301 ver
   ├─ Reading Queue moved; original steps retained
   └─ Codex → Claude Code and Claude Code → Codex cases recorded with limits
 
-Documentation usability (November 11): LOCAL PREVIEW → handoff + troubleshooting
-  └─ PENDING Owner review; new prompts untested in native/newcomer sessions
+Documentation usability (November 12): MERGED → website DEPLOYED e1d5de5
+  └─ KEPT New sections in Markdown; rendered site unchanged; new prompts untested
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
@@ -229,9 +234,9 @@ Repository checks validate mechanics, not agent behavior.
 
 ## Next actions
 
-Keep the handoff/troubleshooting documentation local. The owner authorized a
-local commit on November 12; push and publication remain withheld. Authored
-instructions do not establish a tested user outcome or automatic loading.
+The reviewed documentation is merged and website deployment is complete; no
+release or further feature work is selected. Authored instructions do not
+establish a tested user outcome or automatic loading.
 
 The examples publication and permanent redirect are complete. Both directed
 walkthroughs link the native checks and their retained qualifications; no new
