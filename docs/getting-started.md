@@ -151,6 +151,115 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
+### First handoff check
+
+After installing the skills, create a disposable practice folder outside any
+existing repository or clone, including the Context Docs checkout. Give it a
+README stating "Practice saving and resuming a synthetic service note", then
+[adopt the workflow](#use-it) there. No application code is needed. Continue when
+adoption reports a saved context entry point; if that is missing or unconfirmed,
+use the troubleshooting prompt below before choosing a path. This reuses the
+synthetic service scenario from the [maintenance example](../examples/maintenance.md).
+Keep these exercise facts out of real project context.
+
+1. In your first chat, replace `path/to/context.md` below with the practice
+   project's adopted entry point, then send:
+
+   ```text
+   In this disposable practice project, add a "Handoff practice" section to
+   path/to/context.md. Preserve other sections. Label these facts synthetic:
+   - Exercise decision: keep SQLite for the pilot to avoid migration work.
+   - Blocker: restore testing needs a representative synthetic dataset.
+   - Next action: prepare that dataset and run the restore procedure.
+   Keep these facts only in that section; do not copy them into instructions,
+   native memory, journals or other files. Do not implement anything, change
+   settings, install packages, commit, push or publish.
+   ```
+
+2. Review the saved file (and diff, if Git is available) for all three facts and
+   the decision's reason. Stop using the first chat. Open a fresh chat in the
+   same practice folder and send **only** this prompt, replacing the path again:
+
+   ```text
+   Read the "Handoff practice" section in path/to/context.md.
+   Using only that saved section, report the decision and its reason, the
+   blocker, and the next action. Cite the file and section for each answer.
+   Say what is missing rather than guessing from code or memory.
+   Do not change files or continue implementation.
+   ```
+
+3. Compare the answer with this checklist yourself. Do not paste the first
+   prompt, the exercise facts or this checklist into the receiving chat.
+
+   | Item | Expected answer from the saved note |
+   | --- | --- |
+   | Decision and reason | Keep SQLite for the pilot to avoid migration work. |
+   | Blocker | Restore testing needs a representative synthetic dataset. |
+   | Next action | Prepare that dataset and run the restore procedure. |
+   | Evidence | Each answer cites the saved file's Handoff practice section. |
+
+Keep the exercise facts in that practice note, without copying them into
+instructions, native memory or other project files. Use the same saved folder
+without supplying the previous conversation. For another checkout, follow the
+[transfer guidance](#moving-shared-context-to-another-checkout) first. If a fact or
+citation is missing or wrong, inspect the saved note and use the troubleshooting
+prompt below. A matching answer is evidence of explicitly directed note reading;
+it does not establish automatic instruction or skill loading, or a benefit over
+another workflow. This is an authored exercise, not a recorded newcomer or native
+agent trial; its usability and behavior have not been tested in those sessions.
+
+### Troubleshoot setup and saved context
+
+Paste this ordinary-language prompt without invoking a skill, so missing skill
+availability can itself be reported. Name your context entry point if you know it.
+
+```text
+Troubleshoot Context Docs setup and saved context for this open project.
+This is read-only. Report in chat; do not create or edit files, settings or logs,
+install or upgrade skills, enable logging, commit, push or publish. Do not
+enumerate, search or read event journals, transcripts, native memory or history.
+
+1. Read the project's instructions and README or documentation index. Locate
+   the maintenance rule and declared context entry point. Follow the relevant
+   instruction-file references; distinguish a configured route from evidence
+   that the current client loaded it.
+2. Read the named entry point directly, even if ignored files are absent from
+   search. Check relevant links and claims against the project evidence needed
+   for the reported problem. Check that the saved context exists in this
+   checkout; where Git is available, report tracked, untracked or ignored status
+   using path-scoped queries for the named context files, without changing it.
+   Use known paths rather than broad searches that could enumerate journals.
+   Respect intentional local-only storage. Identify specific contradictions or
+   stale claims; do not infer staleness from age alone.
+3. Distinguish skills advertised by this client from installed files you can
+   inspect. Read only SKILL.md and VERSION for context-docs and adopt-context-docs
+   in the current client's installation locations: .agents/skills or
+   ~/.agents/skills for Codex; .claude/skills or ~/.claude/skills for Claude Code;
+   or an installation path I explicitly supply. Open those named package files
+   directly; do not enumerate unrelated skills or other user directories. If a
+   package or path is unavailable, report that limit and continue the project
+   checks without requiring a skill invocation. Read installed versions from
+   installed VERSION files, not this project's source or README.
+   Keep personal installation locations and versions in this chat report only.
+4. Report loading as "not verified by this check". List evidence I supply or
+   that is directly visible in this session separately with its scope; do not
+   infer automatic loading from a filename, a marker, an advertised skill or a
+   successful file read. Do not start another session or run a behavioral test.
+
+List the files examined, then report each discrepancy or unknown with its
+evidence and a suggested repair. Suggest repairs without executing them.
+If none are found, say "No discrepancies found in the files examined" and list
+remaining unknowns. Do not certify accuracy, freshness or successful loading.
+```
+
+This prompt produces a scoped troubleshooting report, not a health score.
+For installation locations, see
+[Codex installation](#install-in-codex) and
+[Claude Code installation](#install-in-claude-code). The Claude Code section also
+describes `/context` and the Project instructions setting; this guide documents
+no equivalent Codex instruction-loading check. Missing evidence stays unknown;
+this prompt has not been behavior-tested in either client.
+
 ### Switch between Codex and Claude Code
 
 Use the same saved project Markdown in either client. Before switching, update

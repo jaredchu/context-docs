@@ -61,6 +61,9 @@ Test empty input before calling the feature complete.
 from your actual work and evidence. You review the changes; the next session
 reads the saved context. See a fuller [before-and-after example](examples/maintenance.md).
 
+Try the [first handoff check](docs/getting-started.md#first-handoff-check) in a
+disposable practice project to compare a fresh session's answers with a saved note.
+
 Explore the [worked examples](https://context-docs.com/examples/): the
 [Reading Queue walkthrough](https://context-docs.com/examples/reading-queue/) teaches
 the full workflow; separate [Codex → Claude Code](https://context-docs.com/examples/switching-codex-claude/)
@@ -128,6 +131,9 @@ the documented goal and work support one, including during explicit re-adoption.
 The guidance reuses existing views and keeps them current during everyday context
 updates, without a second task list or repeated requests. Installation and upgrade
 alone do not rewrite existing project setups.
+
+If setup or saved context seems wrong, use the
+[read-only troubleshooting prompt](docs/getting-started.md#troubleshoot-setup-and-saved-context).
 
 ### 2. Save decisions, current work and next steps
 

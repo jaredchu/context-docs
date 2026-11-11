@@ -361,3 +361,26 @@ this does not transfer native memory or runtime state. The
 [example record](switching-agents-examples.md) links the authored material and
 bounded native checks. Existing skill versions, historical tutorial tags,
 application deployment and unrelated postponed validation work remain separate.
+
+## Local handoff and troubleshooting documentation
+
+On November 11, 2026, the owner selected two documentation improvements after
+review: a short first-handoff exercise and a read-only troubleshooting prompt.
+The following design details are coordinator implementation choices applying
+that review, retained privately as `context-mode-adapt-review-2026-11-11`;
+this entry is the public-facing summary of scope and limits.
+Keep them in the existing README/usage guide and reuse the synthetic maintenance
+scenario. The exercise asks for source citations and keeps expected answers in
+the human checklist; its interpretation is limited to directed note reading.
+The diagnostic must still work when skill evidence is unavailable, distinguish installed files
+from configured or observed loading, respect local-only context, and stop at a
+chat report with suggested repairs.
+
+The owner explicitly requested a local preview for review and withheld
+publication. This selects no skill/version change, runtime, integration,
+installation, native/newcomer trial or broader evaluation campaign. Draft and
+static checks establish documentation properties only. The frozen r1 materials
+and earlier evidence retain their original scope. The
+[usage guide](getting-started.md#first-handoff-check) owns the exercise and
+troubleshooting instructions; [current context](project-context.md#current-focus)
+owns preview status.
