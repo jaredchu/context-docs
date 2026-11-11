@@ -19,6 +19,13 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The November 11 audience introduction is a local preview in the [README](../README.md)
+and [homepage](../site/index.html). It invites people building through AI prompts
+to start with one note or keep existing planning files, review updates and read
+the context next session. Broader positioning and experimental limits are retained;
+this adds no skill behavior or claim of measured beginner ease or time savings.
+The owner approved the introduction for publication; deployment is pending.
+
 The owner-approved [examples collection](switching-agents-examples.md) remains published
 (introduced at `e38fede`): an index, the moved Reading Queue walkthrough and two direction-specific
 Codex/Claude Code cases. The existing app is reused with a dedicated starter;

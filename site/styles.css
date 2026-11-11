@@ -164,6 +164,7 @@ a:focus-visible,button:focus-visible,pre:focus-visible,summary:focus-visible,[ta
   padding-block:84px 88px;
 }
 .hero-description { max-width:560px; margin:24px 0 32px; font-size:19px; line-height:1.6; color:var(--text); }
+.hero-audience { max-width:560px; margin:0 0 28px; color:var(--muted); }
 .hero-facts {
   list-style:none;
   display:flex;

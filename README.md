@@ -11,6 +11,10 @@ Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
 as possible.
 
+**Vibe coding with AI prompts?** Start with one useful note or keep your existing
+PRD, design and task files. Review the context updates as you build, then ask your
+next session to read them.
+
 ![Illustrative workflow: do the work, save decisions and reasons, current work and next steps in project Markdown, then ask a new session to read the saved note and check the project. The agent works during active sessions; review its changes.](assets/context-docs-overview.png)
 
 [Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
