@@ -339,8 +339,9 @@ The complete troubleshooting prompt is byte-identical to the earlier draft and
 still collapsed by default. Its framing is shorter and suggests the ordinary
 audit first when the skill is available. Both prompts are sourced from the guide
 at build time. No skill or version changes are included. The owner authorized a
-local commit after final review; the revision remains undeployed. Push, website
-deployment and release publication remain withheld.
+local commit after final review and subsequently requested push and website
+deployment. That later publication is recorded below; release publication remains
+withheld. The checks in this preparation section retain their local scope.
 
 All 37 site tests and repository static checks pass. Canonical prompt parity and
 unchanged troubleshooting text are checked independently. Compared with deployed
@@ -364,7 +365,29 @@ That preview was not deployed. Private evidence ID:
 
 ## Latest deployment
 
-The reviewed documentation branch is merged into `main`, and the site is deployed
+The simplified guide is deployed from **`397873b`**, published November 12, 2026 by
+[Landing page run 43144303153](https://github.com/jaredchu/context-docs/actions/runs/43144303153).
+The owner requested pushing both reviewed commits to their existing remotes and
+deploying the website, while withholding a release. Both build/deploy jobs and
+[source static CI](https://github.com/jaredchu/context-docs/actions/runs/43144303105)
+pass, including 37 site tests and the pinned Worker dry run.
+
+The workflow's build and downloaded manifests agree. All sixteen uploaded files
+match the pinned source build. The actual Worker deployment step succeeded with
+version `3c3ba55a-fc49-43bf-8d23-0f4cd4df8013`. Fifteen canonical resources match:
+eight exactly, seven HTML pages after removing only the existing approved
+Cloudflare analytics beacon. The five redirect checks and missing-route 404 check
+pass. These are HTTP/artifact checks, with the prior local desktop/mobile evidence
+retained; they are not a new live browser, human or agent trial. Release records
+and remote tags are unchanged. Private evidence ID:
+`simplified-docs-deploy-2026-11-12`.
+
+The deployed source remains `397873b` when later record-only commits advance
+`main`. These records do not change public output or request another deployment.
+
+### Earlier reviewed-documentation deployment
+
+The reviewed documentation branch was merged into `main`, and the site was deployed
 from **`e1d5de5`** on November 12, 2026 by
 [Landing page run 43070183955](https://github.com/jaredchu/context-docs/actions/runs/43070183955).
 The owner explicitly requested the merge and website deployment while withholding

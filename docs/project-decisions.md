@@ -402,5 +402,8 @@ This supersedes the original exercise design above, without changing the core
 skills, versions or frozen evidence. It is an editorial choice; human usefulness
 or superior recovery is not established. After final review, the owner authorized
 a local commit of the changes and related context. The earlier deployment
-authority does not authorize publishing this revision; push, website deployment
-and release publication remain withheld.
+authority did not authorize publishing this revision. The owner subsequently
+requested pushing both reviewed commits and deploying the website. That request
+authorizes this website publication and related deployment records, while release
+publication remains withheld. The [deployment summary](../site/README.md#latest-deployment)
+owns the resulting source and verification.

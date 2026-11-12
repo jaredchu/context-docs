@@ -19,7 +19,7 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner approved simplifying the November 12 local preview. The
+The owner-approved November 12 revision is published from `397873b`. The
 [short verification prompt](getting-started.md#verify-a-resumed-session) now sits
 under Resume, using the project's saved notes; the existing Reading Queue
 walkthrough provides rehearsal. The standalone synthetic exercise and its early
@@ -27,10 +27,12 @@ README promotion are removed. The complete troubleshooting prompt is unchanged,
 collapsed on the [website](../site/getting-started.html), with shorter framing
 and ordinary audit suggested first when available. The website imports both
 copyable prompts from the canonical guide.
-The [preview record](../site/README.md#local-handoff-and-troubleshooting-preview)
-owns passing build, prompt-parity and desktop/mobile checks and their limits.
-Usefulness to users remains unproven. The owner authorized a local commit of the
-reviewed revision; push, website deployment and release publication remain withheld.
+The [preparation record](../site/README.md#local-handoff-and-troubleshooting-preview)
+owns the local prompt-parity and desktop/mobile checks. The
+[latest deployment](../site/README.md#latest-deployment) owns passing source CI,
+artifact/live checks and the exact deployed source. The owner authorized pushing
+the reviewed commits and deploying the website; no release was authorized.
+Usefulness to users remains unproven.
 
 The earlier reviewed documentation was merged into `main` from `e1d5de5`: an
 [original synthetic exercise](project-decisions.md#local-handoff-and-troubleshooting-documentation) and a
@@ -42,7 +44,7 @@ or loading evidence explicit. These are authored instructions, not new native
 or newcomer trial results. Skills, versions and frozen studies are unchanged.
 The site was deployed from `e1d5de5`; its sixteen generated files match the
 previous deployment. At that deployed source, the new sections are repository
-Markdown only; the local website preview above is a later change. The
+Markdown only; the revision above is its later rendered update. The
 [latest deployment](../site/README.md#latest-deployment) owns passing source CI,
 artifact/live checks and limits. The
 [decision](project-decisions.md#local-handoff-and-troubleshooting-documentation)
@@ -131,9 +133,9 @@ Examples collection: PUBLISHED e38fede → artifact/live checks PASS → 301 ver
   ├─ Reading Queue moved; original steps retained
   └─ Codex → Claude Code and Claude Code → Codex cases recorded with limits
 
-Documentation usability (November 12): MERGED → website DEPLOYED e1d5de5
-  ├─ KEPT Deployed site unchanged; reviewed prompts available in Markdown
-  └─ PREVIEW Short Resume verification; optional diagnostic retained; user benefit unproven
+Documentation usability (November 12): PUBLISHED → website DEPLOYED 397873b
+  ├─ KEPT Earlier e1d5de5 deployment had no rendered change
+  └─ LIVE Short Resume verification; optional diagnostic retained; user benefit unproven
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
