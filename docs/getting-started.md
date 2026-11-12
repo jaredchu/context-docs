@@ -151,67 +151,37 @@ The workflow reads existing context, checks relevant evidence, updates canonical
 sections, consolidates duplication, and reviews the resulting diff and links.
 An audit stays read-only. Maintenance produces ordinary, reviewable file edits.
 
-### First handoff check
+<a id="first-handoff-check"></a>
 
-After installing the skills, create a disposable practice folder outside any
-existing repository or clone, including the Context Docs checkout. Give it a
-README stating "Practice saving and resuming a synthetic service note", then
-[adopt the workflow](#use-it) there. No application code is needed. Continue when
-adoption reports a saved context entry point; if that is missing or unconfirmed,
-use the troubleshooting prompt below before choosing a path. This reuses the
-synthetic service scenario from the [maintenance example](../examples/maintenance.md).
-Keep these exercise facts out of real project context.
+### Verify a resumed session
 
-1. In your first chat, replace `path/to/context.md` below with the practice
-   project's adopted entry point, then send:
+Optional. Before continuing work in a
+[resumed session](../README.md#3-resume-with-the-saved-context), you can check
+what it takes from your saved context. In a new session in the same project, send:
 
-   ```text
-   In this disposable practice project, add a "Handoff practice" section to
-   path/to/context.md. Preserve other sections. Label these facts synthetic:
-   - Exercise decision: keep SQLite for the pilot to avoid migration work.
-   - Blocker: restore testing needs a representative synthetic dataset.
-   - Next action: prepare that dataset and run the restore procedure.
-   Keep these facts only in that section; do not copy them into instructions,
-   native memory, journals or other files. Do not implement anything, change
-   settings, install packages, commit, push or publish.
-   ```
+```text
+Read this project's context entry point and its relevant linked documents.
+Using only those saved files, report the recorded decision most relevant to the
+next task and its reason, any blockers, and the next action. Cite the file and
+section for each answer. Say what is missing rather than guessing from code or
+memory. This is read-only: do not change files or continue implementation.
+```
 
-2. Review the saved file (and diff, if Git is available) for all three facts and
-   the decision's reason. Stop using the first chat. Open a fresh chat in the
-   same practice folder and send **only** this prompt, replacing the path again:
-
-   ```text
-   Read the "Handoff practice" section in path/to/context.md.
-   Using only that saved section, report the decision and its reason, the
-   blocker, and the next action. Cite the file and section for each answer.
-   Say what is missing rather than guessing from code or memory.
-   Do not change files or continue implementation.
-   ```
-
-3. Compare the answer with this checklist yourself. Do not paste the first
-   prompt, the exercise facts or this checklist into the receiving chat.
-
-   | Item | Expected answer from the saved note |
-   | --- | --- |
-   | Decision and reason | Keep SQLite for the pilot to avoid migration work. |
-   | Blocker | Restore testing needs a representative synthetic dataset. |
-   | Next action | Prepare that dataset and run the restore procedure. |
-   | Evidence | Each answer cites the saved file's Handoff practice section. |
-
-Keep the exercise facts in that practice note, without copying them into
-instructions, native memory or other project files. Use the same saved folder
-without supplying the previous conversation. For another checkout, follow the
-[transfer guidance](#moving-shared-context-to-another-checkout) first. If a fact or
-citation is missing or wrong, inspect the saved note and use the troubleshooting
-prompt below. A matching answer is evidence of explicitly directed note reading;
-it does not establish automatic instruction or skill loading, or a benefit over
-another workflow. This is an authored exercise, not a recorded newcomer or native
-agent trial; its usability and behavior have not been tested in those sessions.
+If the session cannot find the entry point, replace "this project's context entry
+point" with its path from your README, documentation index or the adoption
+marker's `Entry point:` field. Compare the answer with the saved note yourself.
+If an answer is missing, wrong or uncited, inspect the note and use the
+troubleshooting prompt below. This checks explicitly directed reading, not
+automatic loading of instructions, skills or context. For another checkout,
+follow the [transfer guidance](#moving-shared-context-to-another-checkout) first.
+For practice, follow the [Reading Queue walkthrough](https://context-docs.com/examples/reading-queue/).
 
 ### Troubleshoot setup and saved context
 
-Paste this ordinary-language prompt without invoking a skill, so missing skill
-availability can itself be reported. Name your context entry point if you know it.
+When a skill is available, start with the ordinary read-only audit in
+[Use it](#use-it). If the skill is unavailable or the audit does not explain the
+problem, paste this ordinary-language prompt without invoking a skill; it can
+report missing skill availability. Name your context entry point if you know it.
 
 ```text
 Troubleshoot Context Docs setup and saved context for this open project.
@@ -257,8 +227,8 @@ For installation locations, see
 [Codex installation](#install-in-codex) and
 [Claude Code installation](#install-in-claude-code). The Claude Code section also
 describes `/context` and the Project instructions setting; this guide documents
-no equivalent Codex instruction-loading check. Missing evidence stays unknown;
-this prompt has not been behavior-tested in either client.
+no equivalent Codex instruction-loading check. Missing evidence stays unknown.
+Behavior in a newly opened client and newcomer usability remain untested.
 
 ### Switch between Codex and Claude Code
 

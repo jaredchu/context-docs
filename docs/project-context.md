@@ -19,17 +19,30 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The reviewed documentation is merged into `main` from `e1d5de5`: a
-[first handoff check](getting-started.md#first-handoff-check) and a
+The owner approved simplifying the November 12 local preview. The
+[short verification prompt](getting-started.md#verify-a-resumed-session) now sits
+under Resume, using the project's saved notes; the existing Reading Queue
+walkthrough provides rehearsal. The standalone synthetic exercise and its early
+README promotion are removed. The complete troubleshooting prompt is unchanged,
+collapsed on the [website](../site/getting-started.html), with shorter framing
+and ordinary audit suggested first when available. The website imports both
+copyable prompts from the canonical guide.
+The [preview record](../site/README.md#local-handoff-and-troubleshooting-preview)
+owns passing build, prompt-parity and desktop/mobile checks and their limits.
+Usefulness to users remains unproven. The owner authorized a local commit of the
+reviewed revision; push, website deployment and release publication remain withheld.
+
+The earlier reviewed documentation was merged into `main` from `e1d5de5`: an
+[original synthetic exercise](project-decisions.md#local-handoff-and-troubleshooting-documentation) and a
 [read-only troubleshooting prompt](getting-started.md#troubleshoot-setup-and-saved-context),
 linked from the README. The owner authorized the merge and website deployment
-on November 12. The exercise uses synthetic note-only facts, source
+on November 12. That exercise used synthetic note-only facts, source
 citations and a human comparison checklist; the diagnostic keeps missing skill
 or loading evidence explicit. These are authored instructions, not new native
 or newcomer trial results. Skills, versions and frozen studies are unchanged.
 The site was deployed from `e1d5de5`; its sixteen generated files match the
-previous deployment. The new sections are repository Markdown, not additions to
-the site's selected-snippet rendering. The
+previous deployment. At that deployed source, the new sections are repository
+Markdown only; the local website preview above is a later change. The
 [latest deployment](../site/README.md#latest-deployment) owns passing source CI,
 artifact/live checks and limits. The
 [decision](project-decisions.md#local-handoff-and-troubleshooting-documentation)
@@ -119,7 +132,8 @@ Examples collection: PUBLISHED e38fede → artifact/live checks PASS → 301 ver
   └─ Codex → Claude Code and Claude Code → Codex cases recorded with limits
 
 Documentation usability (November 12): MERGED → website DEPLOYED e1d5de5
-  └─ KEPT New sections in Markdown; rendered site unchanged; new prompts untested
+  ├─ KEPT Deployed site unchanged; reviewed prompts available in Markdown
+  └─ PREVIEW Short Resume verification; optional diagnostic retained; user benefit unproven
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,

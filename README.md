@@ -61,9 +61,6 @@ Test empty input before calling the feature complete.
 from your actual work and evidence. You review the changes; the next session
 reads the saved context. See a fuller [before-and-after example](examples/maintenance.md).
 
-Try the [first handoff check](docs/getting-started.md#first-handoff-check) in a
-disposable practice project to compare a fresh session's answers with a saved note.
-
 Explore the [worked examples](https://context-docs.com/examples/): the
 [Reading Queue walkthrough](https://context-docs.com/examples/reading-queue/) teaches
 the full workflow; separate [Codex → Claude Code](https://context-docs.com/examples/switching-codex-claude/)
@@ -180,7 +177,9 @@ Use the recorded decisions, current work and next steps to continue with the nex
 Find the entry point in your README, documentation index, or the adoption marker’s
 `Entry point:` field. Explicitly
 ask the agent to read it: a saved file alone does not ensure that a new session
-loads it. [More usage examples and setup details →](docs/getting-started.md#use-it)
+loads it. To check what a new session takes from the saved note, use the optional
+[read-only verification prompt](docs/getting-started.md#verify-a-resumed-session).
+[More usage examples and setup details →](docs/getting-started.md#use-it)
 
 This also applies when switching between Codex and Claude Code. Save and review
 context before switching, open the same code and notes in the receiving client,

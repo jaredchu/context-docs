@@ -381,7 +381,7 @@ publication. This selects no skill/version change, runtime, integration,
 installation, native/newcomer trial or broader evaluation campaign. Draft and
 static checks establish documentation properties only. The frozen r1 materials
 and earlier evidence retain their original scope. The
-[usage guide](getting-started.md#first-handoff-check) owns the exercise and
+[usage guide](getting-started.md#verify-a-resumed-session) owns the current verification and
 troubleshooting instructions; [current context](project-context.md#current-focus)
 owns preview status.
 
@@ -390,3 +390,17 @@ into `main` and deploying the website, while continuing to withhold a release.
 The [deployment summary](../site/README.md#latest-deployment) owns the resulting
 source, verification and unchanged-rendering qualification. This later authority
 supersedes the local-preview boundary for that merge and website deployment only.
+
+Later on November 12, the owner approved simplifying the local documentation
+preview after a bounded agent-only probe and independent review. Replace the
+standalone synthetic handoff exercise with a short optional read-only verification
+prompt under Resume, using the existing Reading Queue walkthrough for rehearsal.
+Retain the complete troubleshooting prompt as an optional fallback, collapsed on
+the website, while reducing repeated framing and suggesting the ordinary audit
+when available. The prompt's access limits and read-only constraints remain intact.
+This supersedes the original exercise design above, without changing the core
+skills, versions or frozen evidence. It is an editorial choice; human usefulness
+or superior recovery is not established. After final review, the owner authorized
+a local commit of the changes and related context. The earlier deployment
+authority does not authorize publishing this revision; push, website deployment
+and release publication remain withheld.

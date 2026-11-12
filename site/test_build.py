@@ -605,7 +605,8 @@ class LandingBuildTests(unittest.TestCase):
         cases = [(name, marker) for name in ['index.html', 'getting-started.html']
                  for marker in ['PROGRESS_PROMPT', 'PROGRESS_EXAMPLE']]
         cases += [('index.html', marker) for marker in ['DEMO_NOTES', 'DEMO_CONTEXT', 'DEMO_RESUME']]
-        cases += [('getting-started.html', 'REFRESH_PROMPT')]
+        cases += [('getting-started.html', marker) for marker in
+                  ['REFRESH_PROMPT', 'VERIFY_RESUME_PROMPT', 'TROUBLESHOOT_PROMPT']]
         for name, marker in cases:
             with self.subTest(template=name, marker=marker), tempfile.TemporaryDirectory() as temporary:
                 output = Path(temporary) / 'public'
@@ -710,6 +711,116 @@ class LandingBuildTests(unittest.TestCase):
     def test_markdown_headings_inside_example_survive(self):
         text = '## Example\n```markdown\n# Context\n\n## Decision\nApproved.\n```\n## Next'
         self.assertEqual('# Context\n\n## Decision\nApproved.', landing.fenced_section(text, '## Example', 'markdown'))
+
+    def test_verify_resume_prompt_is_canonical_read_only_and_available_without_scripts(self):
+        guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
+        heading = '### Verify a resumed session\n'
+        # The former deep link stays a small alias directly at the short check.
+        self.assertIn('<a id="first-handoff-check"></a>\n\n' + heading, guide)
+        section = guide.split(heading, 1)[1].split('\n### ', 1)[0]
+        expected = re.findall(r'^```text\n(.*?)\n```$', section, re.S | re.M)
+        self.assertEqual(len(expected), 1)
+        prompt = expected[0]
+        for text in ['read-only', 'Cite the file and', 'missing rather than guessing',
+                     'do not change files or continue implementation']:
+            self.assertIn(text, prompt)
+
+        html = landing.render(landing.ROOT, 'getting-started.html')
+        page = parse(html)
+        self.assertEqual(page.code['verify-resume-prompt'], prompt)
+        button = next(b for b in page.buttons if b['data-copy'] == 'verify-resume-prompt')
+        self.assertIn(button['data-status'], page.ids)
+        self.assertIn('hidden', button)
+        self.assertNotEqual(button['data-status'], 'resume-status')
+        # Both anchors resolve inside Resume; neither is a separate section or TOC entry.
+        start = html.index('<section id="resume"')
+        resume = html[start:html.index('<section', start + 1)]
+        for anchor in ['verify-a-resumed-session', 'first-handoff-check']:
+            self.assertIn('id="' + anchor + '"', resume)
+            self.assertNotIn('<section id="' + anchor + '"', html)
+        self.assertIn('id="verify-resume-prompt"', resume)
+        self.assertNotIn('<details', resume)
+        toc = re.search(r'<nav class="guide-toc".*?</nav>', html, re.S)[0]
+        self.assertNotIn('handoff', toc)
+        self.assertNotIn('verify', toc)
+        self.assertIn('href="#troubleshoot-setup-and-saved-context"', toc)
+        for text in ['not automatic loading', 'href="../examples/reading-queue/"',
+                     '#moving-shared-context-to-another-checkout']:
+            self.assertIn(text, resume)
+        # The disposable synthetic exercise is gone from the guide, the page and the README.
+        readme = (landing.ROOT / 'README.md').read_text(encoding='utf-8')
+        for removed in ['Handoff practice', 'disposable practice', 'SQLite for the pilot', 'handoff-save',
+                        'handoff-receive', 'handoff-checklist']:
+            self.assertNotIn(removed, html)
+            self.assertNotIn(removed, guide)
+        self.assertNotIn('#first-handoff-check', readme)
+        # The README offers the check only within its Resume step.
+        resume_step = readme.split('### 3. Resume with the saved context\n', 1)[1].split('\n### ', 1)[0]
+        self.assertIn('docs/getting-started.md#verify-a-resumed-session', resume_step)
+        self.assertEqual(readme.count('#verify-a-resumed-session'), 1)
+
+    def test_verify_resume_prompt_updates_are_escaped_and_missing_source_fails_closed(self):
+        source = landing.ROOT / 'docs/getting-started.md'
+        original_read = Path.read_text
+        prompt = landing.fenced_section(source.read_text(encoding='utf-8'), '### Verify a resumed session', 'text')
+
+        def updated(path, *args, **kwargs):
+            text = original_read(path, *args, **kwargs)
+            if path == source:
+                return text.replace(prompt, prompt + '\n<verify-update>&', 1) + '\nUNSELECTED-VERIFY-NOTE\n'
+            return text
+
+        with patch.object(Path, 'read_text', updated):
+            html = landing.render(landing.ROOT, 'getting-started.html')
+        self.assertEqual(parse(html).code['verify-resume-prompt'], prompt + '\n<verify-update>&')
+        self.assertIn('&lt;verify-update&gt;&amp;', html)
+        self.assertNotIn('<verify-update>', html)
+        self.assertNotIn('UNSELECTED-VERIFY-NOTE', html)
+
+        def missing_section(path, *args, **kwargs):
+            text = original_read(path, *args, **kwargs)
+            if path == source:
+                return text.replace('### Verify a resumed session\n', '### Renamed check\n', 1)
+            return text
+
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary) / 'public'
+            output.mkdir()
+            previous = output / 'previous-build.txt'
+            previous.write_text('Preserve until all content renders.')
+            with patch.object(Path, 'read_text', missing_section):
+                with self.assertRaisesRegex(ValueError, 'Missing canonical section'):
+                    landing.build(output=output)
+            self.assertEqual(previous.read_text(), 'Preserve until all content renders.')
+
+    def test_troubleshooting_prompt_is_canonical_collapsed_and_qualified(self):
+        guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
+        heading = '### Troubleshoot setup and saved context'
+        prompt = landing.fenced_section(guide, heading, 'text')
+        self.assertTrue(prompt.startswith('Troubleshoot Context Docs setup and saved context'))
+        self.assertTrue(prompt.endswith('Do not certify accuracy, freshness or successful loading.'))
+        for constraint in ['This is read-only.', 'Do not\nenumerate, search or read event journals',
+                           'Report loading as "not verified by this check".',
+                           'Suggest repairs without executing them.']:
+            self.assertIn(constraint, prompt)
+        # The guide suggests the ordinary audit first and this prompt as the fallback.
+        intro = guide.split(heading + '\n', 1)[1].split('```text', 1)[0]
+        for text in ['audit', 'unavailable', 'without invoking a skill']:
+            self.assertIn(text, intro)
+        html = landing.render(landing.ROOT, 'getting-started.html')
+        page = parse(html)
+        self.assertEqual(page.code['troubleshoot-prompt'], prompt)
+        section = html[html.index('id="troubleshoot-setup-and-saved-context"'):html.index('id="progress"')]
+        disclosure = re.search(r'<details id="troubleshoot-prompt-details"[^>]*>.*?</details>', section, re.S)[0]
+        self.assertNotRegex(disclosure.split('>', 1)[0], r'\bopen\b')
+        self.assertIn('id="troubleshoot-prompt"', disclosure)
+        self.assertIn('data-copy="troubleshoot-prompt"', disclosure)
+        # The long prompt is collapsed; its read-only scope and loading limit stay visible.
+        visible = unescape(section.replace(disclosure, ''))
+        for text in ['audit prompt', 'unavailable', 'without invoking a skill', 'read-only',
+                     'not verified by this check', 'Behavior in a newly opened client and newcomer usability remain untested',
+                     '#install-in-codex', '#install-in-claude-code']:
+            self.assertIn(text, visible)
 
     def test_examples_navigation_marks_current_section_and_avoids_legacy_route(self):
         with tempfile.TemporaryDirectory() as temporary:

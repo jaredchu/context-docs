@@ -328,6 +328,40 @@ historical evidence are unchanged.
 
 <a id="workers-static-assets-migration-prepared"></a>
 
+## Local handoff and troubleshooting preview
+
+The owner approved simplifying the November 12 working tree on `c0ee5ce`.
+A short optional verification prompt now sits under Resume, using the project's
+saved notes. Reading Queue remains the practice walkthrough; the standalone
+synthetic exercise, its TOC entry and early README promotion are removed.
+The former `first-handoff-check` fragment remains an alias at the shorter check.
+The complete troubleshooting prompt is byte-identical to the earlier draft and
+still collapsed by default. Its framing is shorter and suggests the ordinary
+audit first when the skill is available. Both prompts are sourced from the guide
+at build time. No skill or version changes are included. The owner authorized a
+local commit after final review; the revision remains undeployed. Push, website
+deployment and release publication remain withheld.
+
+All 37 site tests and repository static checks pass. Canonical prompt parity and
+unchanged troubleshooting text are checked independently. Compared with deployed
+source `e1d5de5`, only `getting-started/index.html` changes in the generated output;
+the public file allowlist is unchanged. Local Chrome checks pass at 1440×1000
+and 390×844: the short check is inside Resume, the old fragment remains present,
+troubleshooting starts collapsed, copy controls and selection fallback work, and
+prompts remain available without JavaScript. Neither viewport has page overflow.
+Clipboard writes were stubbed; the operating-system clipboard was not checked.
+These are code/interface checks, not a new agent or human trial of the shortened
+wording. User benefit remains unproven. Private evidence ID:
+`simplify-handoff-2026-11-12`.
+
+The earlier full-exercise preview rendered two synthetic handoff prompts plus
+the diagnostic, with separate copy controls and a human checklist. Its canonical
+Markdown was then unchanged. All 38 site tests, static checks and the same two
+viewport/no-JavaScript checks passed; clipboard writes were stubbed. Only guide
+HTML and CSS differed from the deployed build, with the allowlist unchanged.
+That preview was not deployed. Private evidence ID:
+`web-handoff-preview-2026-11-12`.
+
 ## Latest deployment
 
 The reviewed documentation branch is merged into `main`, and the site is deployed
@@ -341,7 +375,7 @@ files match the pinned build.
 
 All sixteen public file paths/hashes are identical to the prior audience
 introduction deployment. The first handoff check and troubleshooting prompt are
-available in the repository's Markdown guide; the site builder imports selected
+available in the repository's Markdown guide; that deployed builder imports selected
 snippets and does not render those new sections. This deployment adds no template
 or visible website change. Fifteen canonical resources match (eight exactly,
 seven HTML pages after removing only the existing Cloudflare analytics beacon).
