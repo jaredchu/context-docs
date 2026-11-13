@@ -109,7 +109,8 @@ class LandingBuildTests(unittest.TestCase):
                 'tabler-icons-LICENSE.txt',
                 'getting-started/index.html', 'compare/index.html', 'examples/index.html',
                 'examples/reading-queue/index.html', 'examples/switching-codex-claude/index.html',
-                'examples/switching-claude-codex/index.html', 'reading-queue/index.html'})
+                'examples/switching-claude-codex/index.html', 'reading-queue/index.html',
+                'experiments/markdown-maintenance/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -325,7 +326,8 @@ class LandingBuildTests(unittest.TestCase):
                               'https://context-docs.com/compare/', 'https://context-docs.com/examples/',
                               'https://context-docs.com/examples/reading-queue/',
                               'https://context-docs.com/examples/switching-codex-claude/',
-                              'https://context-docs.com/examples/switching-claude-codex/'])
+                              'https://context-docs.com/examples/switching-claude-codex/',
+                              'https://context-docs.com/experiments/markdown-maintenance/'])
             # Each listed route is a built page whose canonical and og:url name that route.
             for route in landing.CANONICAL_ROUTES:
                 page = Metadata()

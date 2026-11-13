@@ -1,6 +1,6 @@
 # Context Docs and ordinary Markdown: a small continuation experiment
 
-**November 13, 2026 · Local publication draft; not published.**
+**November 13, 2026 · Exploratory agent-only comparison.**
 
 This agent-only experiment compared Context Docs with competent ordinary
 Markdown maintenance on three synthetic projects. All twelve subject sessions

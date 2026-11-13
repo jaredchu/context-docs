@@ -1,6 +1,6 @@
 # November 13 Markdown-maintenance comparison evidence
 
-**Local publication draft; not published.** See the
+**Experiment date: November 13, 2026.** See the
 [report](../../../docs/evaluation-2026-11-13-markdown-maintenance.md) for results,
 method, attempt history and interpretation limits.
 

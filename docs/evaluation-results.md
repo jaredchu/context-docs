@@ -252,7 +252,7 @@ failures and the limits of its restricted sessions.
 
 ### November 13 Markdown-maintenance comparison
 
-The [local publication draft](evaluation-2026-11-13-markdown-maintenance.md)
+The [November 13 report](evaluation-2026-11-13-markdown-maintenance.md)
 reports three synthetic case pairs using released **0.2.7 / 0.1.16**. All twelve
 subject sessions and two-pass grading completed. Recovery scores (ordinary /
 Context Docs, out of four) are **3/2, 2/2 and 2/1**; all six proposed
@@ -263,7 +263,7 @@ The [portable evidence extract](../evals/results/2026-11-13-markdown-maintenance
 retains all scores, per-fact reasons and limits. This maintainer-run, same-model
 comparison establishes neither a method advantage nor general equivalence or
 disadvantage. It did not measure newcomer setup effort or the value of adopting
-a ready-made standard. Everything remains local pending publication approval.
+a ready-made standard. The owner authorized publishing the report and its website presentation; no new release or experiment is selected.
 
 ### User feedback and owner confirmation
 

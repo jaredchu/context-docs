@@ -23,20 +23,28 @@ tracking, cookies or application backend are included in the repository build.
 Live delivery also has the owner-retained Cloudflare analytics injection described
 in [Latest deployment](#latest-deployment).
 
-The working build contains seventeen explicitly allowed public files: eight HTML
-pages (seven canonical routes plus the old Reading Queue redirect fallback), six
+The working build contains eighteen explicitly allowed public files: nine HTML
+pages (eight canonical routes plus the old Reading Queue redirect fallback), six
 assets, `robots.txt`, `sitemap.xml` and the empty `.nojekyll` marker. The canonical
 routes are `/`, `/getting-started/`, `/compare/`, `/examples/`,
 `/examples/reading-queue/`, `/examples/switching-codex-claude/` and
-`/examples/switching-claude-codex/`. The old `/reading-queue/` is excluded from the
+`/examples/switching-claude-codex/` and `/experiments/markdown-maintenance/`. The old `/reading-queue/` is excluded from the
 sitemap. The `.nojekyll` marker dates from GitHub Pages hosting; artifact upload
-omits it, so sixteen files are deployed. `build.py` renders every page before replacing the output, so a missing
+omits it, so seventeen files are deployed. `build.py` renders every page before replacing the output, so a missing
 or invalid new template leaves the previous artifact intact.
 The [brand artwork](../assets/README.md) provides the canonical logo mark,
 same-byte favicon and the SVG-authored workflow illustration. Selected asset
 bytes are copied without transformation. The build
 replaces its disposable output directory to prevent stale files being published.
 It never copies the repository, context docs, journals, or evaluation exports.
+
+The [November 13 experiment page](experiment.html) presents the reviewed
+[canonical report](../docs/evaluation-2026-11-13-markdown-maintenance.md). Its full
+article text and score rows are checked for parity in `test_experiment.py`;
+links open the portable evidence in GitHub rather than copying evaluation exports
+into the website artifact. The homepage's evidence section links to the page.
+The canonical report is included in both workflow path filters because the
+presentation-parity tests read it. Scores and original studies are unchanged.
 
 The [comparison page](compare.html) is the canonical copy for the October 24
 [research and fit preview](../docs/context-management-comparison.md). It uses the

@@ -20,7 +20,7 @@ and evidence IDs when those records explain a project issue.
 ## Current focus
 
 The owner authorized a public-facing write-up and fresh Astra review of the
-completed November 13 comparison, keeping all changes local. The
+completed November 13 comparison, initially keeping all changes local. The
 [publication draft](evaluation-2026-11-13-markdown-maintenance.md) and
 [portable evidence extract](../evals/results/2026-11-13-markdown-maintenance/README.md)
 retain as-run scores, the required-read exclusion, qualified preservation loss,
@@ -29,9 +29,10 @@ does not measure newcomer adoption effort or establish a general method ranking.
 Source review checked score fidelity and identified a shared pending adoption
 confirmation in the treatment snapshots, now explicit in the report and separate
 from the missing-read exclusion.
-The owner authorized a local commit of the reviewed report, evidence and related
-context. No new experiment, skill/version change, push, deployment or publication
-is selected; the draft awaits publication review.
+The report and evidence were committed locally as `d3422f8`. The owner subsequently
+authorized pushing the public/private commits and publishing the reviewed report
+on the existing website. The static-page presentation is prepared for deployment;
+no new experiment, skill/version change or release publication is selected.
 
 The owner-approved November 12 revision is published from `397873b`. The
 [short verification prompt](getting-started.md#verify-a-resumed-session) now sits
