@@ -250,6 +250,21 @@ failures and the limits of its restricted sessions.
 
 ## More recent studies
 
+### November 13 Markdown-maintenance comparison
+
+The [local publication draft](evaluation-2026-11-13-markdown-maintenance.md)
+reports three synthetic case pairs using released **0.2.7 / 0.1.16**. All twelve
+subject sessions and two-pass grading completed. Recovery scores (ordinary /
+Context Docs, out of four) are **3/2, 2/2 and 2/1**; all six proposed
+continuations score **2/2**. One missing required read capture excludes the
+Context Docs B cell, so there is no clean three-pair mean. Its notes also lose
+one owner-report qualification; that loss is separate from the read exclusion.
+The [portable evidence extract](../evals/results/2026-11-13-markdown-maintenance/README.md)
+retains all scores, per-fact reasons and limits. This maintainer-run, same-model
+comparison establishes neither a method advantage nor general equivalence or
+disadvantage. It did not measure newcomer setup effort or the value of adopting
+a ready-made standard. Everything remains local pending publication approval.
+
 ### User feedback and owner confirmation
 
 The November 7 [anonymous feedback](../evals/user-feedback/README.md#anonymous-early-feedback)

@@ -19,6 +19,20 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The owner authorized a public-facing write-up and fresh Astra review of the
+completed November 13 comparison, keeping all changes local. The
+[publication draft](evaluation-2026-11-13-markdown-maintenance.md) and
+[portable evidence extract](../evals/results/2026-11-13-markdown-maintenance/README.md)
+retain as-run scores, the required-read exclusion, qualified preservation loss,
+earlier attempts and the absence of a clean three-pair mean. This comparison
+does not measure newcomer adoption effort or establish a general method ranking.
+Source review checked score fidelity and identified a shared pending adoption
+confirmation in the treatment snapshots, now explicit in the report and separate
+from the missing-read exclusion.
+The owner authorized a local commit of the reviewed report, evidence and related
+context. No new experiment, skill/version change, push, deployment or publication
+is selected; the draft awaits publication review.
+
 The owner-approved November 12 revision is published from `397873b`. The
 [short verification prompt](getting-started.md#verify-a-resumed-session) now sits
 under Resume, using the project's saved notes; the existing Reading Queue
@@ -136,6 +150,10 @@ Examples collection: PUBLISHED e38fede → artifact/live checks PASS → 301 ver
 Documentation usability (November 12): PUBLISHED → website DEPLOYED 397873b
   ├─ KEPT Earlier e1d5de5 deployment had no rendered change
   └─ LIVE Short Resume verification; optional diagnostic retained; user benefit unproven
+
+Comparison report (November 13): EXPERIMENT COMPLETE → LOCAL DRAFT → owner review
+  ├─ RETAINED All six grades; one read exclusion; no clean three-pair mean
+  └─ UNMEASURED Newcomer setup effort; no further experiment selected
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
