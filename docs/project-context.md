@@ -21,7 +21,7 @@ and evidence IDs when those records explain a project issue.
 
 The owner authorized a public-facing write-up and fresh Astra review of the
 completed November 13 comparison, initially keeping all changes local. The
-[publication draft](evaluation-2026-11-13-markdown-maintenance.md) and
+[published report](evaluation-2026-11-13-markdown-maintenance.md) and
 [portable evidence extract](../evals/results/2026-11-13-markdown-maintenance/README.md)
 retain as-run scores, the required-read exclusion, qualified preservation loss,
 earlier attempts and the absence of a clean three-pair mean. This comparison
@@ -29,10 +29,15 @@ does not measure newcomer adoption effort or establish a general method ranking.
 Source review checked score fidelity and identified a shared pending adoption
 confirmation in the treatment snapshots, now explicit in the report and separate
 from the missing-read exclusion.
-The report and evidence were committed locally as `d3422f8`. The owner subsequently
-authorized pushing the public/private commits and publishing the reviewed report
-on the existing website. The static-page presentation is prepared for deployment;
-no new experiment, skill/version change or release publication is selected.
+The owner subsequently authorized pushing the public/private commits and publishing
+the report on the existing website. Report `d3422f8` is pushed to the existing
+product remote. The [experiment page](https://context-docs.com/experiments/markdown-maintenance/)
+is deployed from `f89e638`; independent Astra review, all 40 site tests, source CI,
+both workflow manifests, seventeen artifact files, sixteen canonical live resources,
+six redirects and the 404 check pass. Local and live desktop/mobile Chrome checks
+pass with the one-browser limit. The [deployment summary](../site/README.md#latest-deployment)
+owns workflow identity and verification limits. Scores and original evidence are
+unchanged; no new experiment, skill/version change or release was published.
 
 The owner-approved November 12 revision is published from `397873b`. The
 [short verification prompt](getting-started.md#verify-a-resumed-session) now sits
@@ -152,7 +157,7 @@ Documentation usability (November 12): PUBLISHED → website DEPLOYED 397873b
   ├─ KEPT Earlier e1d5de5 deployment had no rendered change
   └─ LIVE Short Resume verification; optional diagnostic retained; user benefit unproven
 
-Comparison report (November 13): EXPERIMENT COMPLETE → LOCAL DRAFT → owner review
+Comparison report (November 13): EXPERIMENT COMPLETE → REVIEWED → PUBLISHED f89e638
   ├─ RETAINED All six grades; one read exclusion; no clean three-pair mean
   └─ UNMEASURED Newcomer setup effort; no further experiment selected
 ~~~

@@ -373,6 +373,36 @@ That preview was not deployed. Private evidence ID:
 
 ## Latest deployment
 
+The reviewed [experiment write-up](https://context-docs.com/experiments/markdown-maintenance/)
+is deployed from **`f89e638`** by
+[Landing page run 43469707980](https://github.com/jaredchu/context-docs/actions/runs/43469707980).
+The owner authorized pushing the reviewed product/private commits and publishing
+the report on the website. Report `d3422f8` reached the existing product remote. No new release was published; v0.2.7 remains current.
+
+[Source static CI](https://github.com/jaredchu/context-docs/actions/runs/43469708040),
+the build and actual Worker deployment pass, including all 40 site tests.
+Independent Astra source review passed with no findings. Both printed manifests
+and all seventeen uploaded files match the pinned reviewed build; the empty
+`.nojekyll` marker is omitted. Sixteen canonical live resources match: eight
+exactly and eight HTML pages after removing only the retained Cloudflare analytics
+beacon. Six redirect checks and the missing-route 404 check pass. Canonical
+metadata, sitemap and homepage discovery checks pass; the unchanged comparison
+page has no `og:url` metadata. The Worker version is
+`848593c3-08ff-49ad-b6dc-5c63cba5d8b2`.
+
+Installed Chrome headless checks at 1440×1000 and 390×844 confirm readable live
+content, all six result rows, contained mobile table scrolling and no observed
+JavaScript exceptions. These are one-browser rendering and HTTP/artifact checks,
+not a new agent or human trial, cross-browser certification or measured benefit.
+Scores, exclusions, adoption qualifications and study limits remain explicit;
+original evidence, release records and tags are unchanged. Operator evidence ID:
+`experiment-publish-2026-11-13`.
+
+The deployed source remains `f89e638` when later record-only commits advance
+`main`. These records do not change public output or request another deployment.
+
+### Earlier simplified-guide deployment
+
 The simplified guide is deployed from **`397873b`**, published November 12, 2026 by
 [Landing page run 43144303153](https://github.com/jaredchu/context-docs/actions/runs/43144303153).
 The owner requested pushing both reviewed commits to their existing remotes and
