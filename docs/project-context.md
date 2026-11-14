@@ -19,6 +19,21 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The owner requested a public-facing write-up and Astra review of the completed
+November 14 public-project documentation experiment, keeping everything local.
+The [draft report](evaluation-2026-11-14-public-project-docs.md) and
+[portable evidence](../evals/results/2026-11-14-public-project-docs/README.md)
+retain all 21 sessions, per-project scores, partials, two unresolved key/question
+disputes and pass-2-only document-audit flags. Both writing conditions yielded
+more fully correct, validly cited answers than original docs on the sampled
+questions; Context Docs did not outperform ordinary Markdown on that metric.
+Method-authority audit flags are qualified because the grader lacked the writer
+request and method packages. Same-model dependence, AI keys, sparse coverage and
+creation-only adoption limit interpretation; newcomer effort and the convenience
+of establishing conventions remain unmeasured. Original study evidence, skills
+and versions are unchanged. The new report/evidence remain local and unpublished;
+no commit, push, website deployment or release is authorized by this preparation.
+
 The owner authorized a public-facing write-up and fresh Astra review of the
 completed November 13 comparison, initially keeping all changes local. The
 [published report](evaluation-2026-11-13-markdown-maintenance.md) and
@@ -160,6 +175,10 @@ Documentation usability (November 12): PUBLISHED → website DEPLOYED 397873b
 Comparison report (November 13): EXPERIMENT COMPLETE → REVIEWED → PUBLISHED f89e638
   ├─ RETAINED All six grades; one read exclusion; no clean three-pair mean
   └─ UNMEASURED Newcomer setup effort; no further experiment selected
+
+Public-project study (November 14): EXPERIMENT COMPLETE → PUBLIC DRAFT LOCAL
+  ├─ RETAINED Per-project scores, partials, key disputes and audit evidence limits
+  └─ UNPUBLISHED No human effort measure, skill change or new release
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,

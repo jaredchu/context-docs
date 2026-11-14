@@ -1,0 +1,3030 @@
+{
+  "case": "P01",
+  "repository": "ulyssestenn/omt",
+  "commit": "8a08c6e76824b02b971a43b414518fb1f5a28e3c",
+  "source_url": "https://github.com/ulyssestenn/omt/tree/8a08c6e76824b02b971a43b414518fb1f5a28e3c",
+  "selection_rank": 1,
+  "source_files": {
+    ".gitignore": {
+      "text": "# Saved run output\nollama-runs/\n\n# Python\n__pycache__/\n*.py[cod]\n",
+      "original_content_sha256": "2c89c6c7335de0a1c41e705dc44ca19d3c430451434318c1bccdbba232e297c2",
+      "public_content_sha256": "2c89c6c7335de0a1c41e705dc44ca19d3c430451434318c1bccdbba232e297c2",
+      "original_lines": 6,
+      "public_lines": 6
+    },
+    "LICENSE": {
+      "text": "MIT License\n\nCopyright (c) 2026 Bethany Hunt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+      "original_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+      "public_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+      "original_lines": 21,
+      "public_lines": 21
+    },
+    "README.md": {
+      "text": "# Ollama Model Tester\n\nA small, dependency-free CLI for running the same prompt against your local\n[Ollama](https://ollama.com) models and saving every response to disk — so you\ncan compare models (or compare repeated runs of one model) side by side.\n\nIt uses only the Python standard library: no `pip install` required.\n\n## Requirements\n\n- Python 3.7 or newer\n- [Ollama](https://ollama.com) running locally (the default `http://localhost:11434`)\n- At least one model pulled, e.g. `ollama pull llama3.1:8b`\n\n## Quick start\n\nMake sure Ollama is running, then:\n\n```bash\npython3 ollama_model_test.py\n```\n\nYou'll be asked, in order:\n\n1. **Which model** to use (pick a number from your installed models)\n2. **The prompt** — type as many lines as you like, then put `/done` on its own\n   line to finish\n3. **How many times** to run the prompt\n4. **Temperature** (`0.0`–`2.0`), or press Enter to use Ollama's default\n5. Whether to **stream** the responses live to the terminal\n\nIt then runs the prompt the requested number of times and writes the results\nunder `ollama-runs/`.\n\n## Command-line flags (optional)\n\nEvery prompt above can be supplied up front, which makes the tool scriptable.\nAnything you omit is still asked interactively.\n\n| Flag | Description |\n| --- | --- |\n| `--model NAME` | Local model to use (must already be installed) |\n| `--runs N` | Number of generations to run |\n| `--temperature T` | Temperature, `0.0`–`2.0` |\n| `--prompt-file PATH` | Read the prompt from a UTF-8 text file |\n| `--stream` / `--no-stream` | Stream responses live, or don't |\n\nExample — run a saved prompt three times, fully non-interactive:\n\n```bash\npython3 ollama_model_test.py \\\n  --model llama3.1:8b \\\n  --prompt-file prompt.txt \\\n  --runs 3 \\\n  --temperature 0.7 \\\n  --no-stream\n```\n\n## Output\n\nResults are grouped into one folder per prompt:\n\n```text\nollama-runs/\n  what-are-the-main-tradeoffs-between_835562a4/\n    prompt.md         # the prompt, with its hash and timestamp\n    metadata.json     # every run against this prompt (model, timing, options)\n    llama3.1-8b.md    # responses + Ollama metadata for this model\n    gemma3-1b.md\n```\n\nThe folder name is the first few words of the prompt plus a short hash of the\nfull prompt. Because the folder is keyed on the prompt, **running the same\nprompt against a different model drops its output into the same folder** —\nmaking model-to-model comparison easy. Each model's file records every run's\nresponse alongside Ollama's run metadata (token counts, timings, and so on).\n",
+      "original_content_sha256": "428818732f159ae60442e3a94cd80bb4b2cf7ce226ce3272558487e368ce6ea0",
+      "public_content_sha256": "428818732f159ae60442e3a94cd80bb4b2cf7ce226ce3272558487e368ce6ea0",
+      "original_lines": 76,
+      "public_lines": 76
+    },
+    "ollama_model_test.py": {
+      "text": "#!/usr/bin/env python3\n\"\"\"Run the same prompt against a local Ollama model and save the outputs.\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport datetime as dt\nimport hashlib\nimport io\nimport json\nimport math\nimport re\nimport sys\nimport time\nimport urllib.error\nimport urllib.request\nfrom pathlib import Path\nfrom typing import Any, TextIO\n\n\nOLLAMA_HOST = \"http://localhost:11434\"\nOUTPUT_ROOT = Path(\"ollama-runs\")\nTEMPERATURE_MIN = 0.0\nTEMPERATURE_MAX = 2.0\nTEMPERATURE_DEFAULT = 0.8\nINVALID_TEMPERATURE = object()\n\n# Fields dropped from the saved Ollama metadata: ``context`` is a large array of\n# token IDs only useful for resuming a conversation, and ``response`` duplicates\n# the answer already written above it as the run output.\nSAVED_METADATA_OMIT_KEYS = frozenset({\"context\", \"response\"})\n\n\ndef main(argv: list[str] | None = None) -> int:\n    args = parse_args(argv)\n\n    print(\"Ollama model tester\")\n    print(\"===================\")\n    print()\n\n    try:\n        models = list_ollama_models()\n    except RuntimeError as exc:\n        print(f\"Could not list Ollama models: {exc}\", file=sys.stderr)\n        print(\"Make sure Ollama is running, then try again.\", file=sys.stderr)\n        return 1\n\n    if not models:\n        print(\"No local Ollama models found. Install one with `ollama pull <model>`.\")\n        return 1\n\n    model = resolve_model(args.model, models)\n    if model is None:\n        return 1\n\n    prompt = resolve_prompt(args.prompt_file)\n    if prompt is None:\n        return 1\n    if not prompt.strip():\n        print(\"No prompt entered. Exiting.\")\n        return 1\n\n    runs = resolve_runs(args.runs)\n    if runs is None:\n        return 1\n\n    temperature = resolve_temperature(args.temperature)\n    if temperature is INVALID_TEMPERATURE:\n        return 1\n    options: dict[str, Any] = {}\n    if temperature is not None:\n        options[\"temperature\"] = temperature\n\n    stream = resolve_stream(args.stream)\n\n    run_dir = create_prompt_run_dir(prompt)\n    prompt_path = run_dir / \"prompt.md\"\n    metadata_path = run_dir / \"metadata.json\"\n    output_path = unique_model_output_path(run_dir, model)\n\n    started_at = now_local()\n    if not prompt_path.exists():\n        write_prompt_file(prompt_path, prompt, started_at)\n\n    print()\n    print(f\"Saving results to: {run_dir}\")\n    print()\n\n    results: list[dict[str, Any]] = []\n    for index in range(1, runs + 1):\n        print(f\"Run {index}/{runs} using {model}...\")\n        result = generate_once(model, prompt, options, stream=stream)\n        results.append(result)\n        status = \"ok\" if result[\"ok\"] else \"error\"\n        elapsed = result[\"elapsed_seconds\"]\n        print(f\"  {status} in {elapsed:.2f}s\")\n\n    finished_at = now_local()\n    write_model_output_file(output_path, model, prompt, results, options, stream, started_at)\n    append_metadata_run(\n        metadata_path,\n        {\n            \"model\": model,\n            \"runs_requested\": runs,\n            \"runs_completed\": len(results),\n            \"started_at\": started_at.isoformat(),\n            \"finished_at\": finished_at.isoformat(),\n            \"options\": options,\n            \"stream\": stream,\n            \"files\": {\n                \"model_output\": output_path.name,\n            },\n        },\n        prompt,\n        prompt_path.name,\n    )\n\n    print()\n    print(f\"Done. Wrote {output_path}\")\n    return 0\n\n\ndef parse_args(argv: list[str] | None = None) -> argparse.Namespace:\n    parser = argparse.ArgumentParser(\n        description=\"Run the same prompt against a local Ollama model and save the outputs.\"\n    )\n    parser.add_argument(\n        \"--model\",\n        help=\"Name of the local Ollama model to use. If omitted, choose interactively.\",\n    )\n    parser.add_argument(\n        \"--runs\",\n        type=int,\n        help=\"Number of generations to run. If omitted, enter this interactively.\",\n    )\n    parser.add_argument(\n        \"--temperature\",\n        type=float,\n        help=(\n            f\"Generation temperature ({TEMPERATURE_MIN:.1f} to {TEMPERATURE_MAX:.1f}). \"\n            \"If omitted, choose interactively or press Enter for Ollama's default.\"\n        ),\n    )\n    parser.add_argument(\n        \"--prompt-file\",\n        type=Path,\n        help=(\n            \"Path to a UTF-8 text file containing the prompt. \"\n            \"If omitted, enter the prompt interactively.\"\n        ),\n    )\n    stream_group = parser.add_mutually_exclusive_group()\n    stream_group.add_argument(\n        \"--stream\",\n        dest=\"stream\",\n        action=\"store_true\",\n        help=\"Stream responses from /api/generate.\",\n    )\n    stream_group.add_argument(\n        \"--no-stream\",\n        dest=\"stream\",\n        action=\"store_false\",\n        help=\"Do not stream responses from /api/generate.\",\n    )\n    parser.set_defaults(stream=None)\n    return parser.parse_args(argv)\n\n\ndef resolve_model(requested_model: str | None, models: list[str]) -> str | None:\n    if requested_model is None:\n        return choose_model(models)\n\n    if requested_model in models:\n        return requested_model\n\n    print(f\"Requested model is not installed locally: {requested_model}\", file=sys.stderr)\n    print(\"Available local models:\", file=sys.stderr)\n    for model in models:\n        print(f\"  - {model}\", file=sys.stderr)\n    return None\n\n\ndef resolve_prompt(prompt_file: Path | None) -> str | None:\n    if prompt_file is None:\n        return read_multiline_prompt()\n\n    try:\n        return prompt_file.read_text(encoding=\"utf-8\").strip()\n    except OSError as exc:\n        print(f\"Could not read prompt file {prompt_file}: {exc}\", file=sys.stderr)\n        return None\n\n\ndef resolve_runs(requested_runs: int | None) -> int | None:\n    if requested_runs is None:\n        return ask_positive_int(\"How many times should this prompt be run? \")\n\n    if requested_runs > 0:\n        return requested_runs\n\n    print(\"--runs must be a positive whole number.\", file=sys.stderr)\n    return None\n\n\ndef resolve_temperature(requested_temperature: float | None) -> float | object | None:\n    if requested_temperature is None:\n        return ask_optional_temperature()\n\n    if (\n        math.isfinite(requested_temperature)\n        and TEMPERATURE_MIN <= requested_temperature <= TEMPERATURE_MAX\n    ):\n        return requested_temperature\n\n    print(\n        \"--temperature must be a finite number in the expected range \"\n        f\"({TEMPERATURE_MIN:.1f} to {TEMPERATURE_MAX:.1f}).\",\n        file=sys.stderr,\n    )\n    return INVALID_TEMPERATURE\n\n\ndef resolve_stream(requested_stream: bool | None) -> bool:\n    if requested_stream is None:\n        return ask_yes_no(\"Stream responses from /api/generate?\", default=False)\n    return requested_stream\n\n\ndef read_multiline_prompt() -> str:\n    print(\"Enter the prompt. Put /done on its own line when finished.\")\n    print()\n    lines: list[str] = []\n    try:\n        while True:\n            line = input()\n            if line.strip() == \"/done\":\n                return \"\\n\".join(lines).strip()\n            lines.append(line)\n    except KeyboardInterrupt:\n        print()\n        return \"\"\n    except EOFError:\n        return \"\\n\".join(lines).strip()\n\n\ndef list_ollama_models() -> list[str]:\n    payload = ollama_get_json(\"/api/tags\")\n    models = payload.get(\"models\", [])\n    names = [item.get(\"name\") for item in models if item.get(\"name\")]\n    return sorted(names, key=str.lower)\n\n\ndef choose_model(models: list[str]) -> str:\n    print()\n    print(\"Available local models:\")\n    for index, model in enumerate(models, start=1):\n        print(f\"{index}. {model}\")\n    print()\n\n    while True:\n        answer = input(\"Which model should be used? Enter a number: \").strip()\n        if not answer.isdigit():\n            print(\"Enter a model number from the list.\")\n            continue\n\n        choice = int(answer)\n        if 1 <= choice <= len(models):\n            return models[choice - 1]\n\n        print(\"Enter a model number from the list.\")\n\n\ndef ask_positive_int(question: str) -> int:\n    while True:\n        answer = input(question).strip()\n        if answer.isdigit() and int(answer) > 0:\n            return int(answer)\n        print(\"Enter a positive whole number.\")\n\n\ndef ask_optional_float(question: str) -> float | None:\n    while True:\n        answer = input(question).strip()\n        if not answer:\n            return None\n        try:\n            value = float(answer)\n        except ValueError:\n            print(\"Enter a number, or press Enter for the default.\")\n            continue\n\n        if math.isfinite(value):\n            return value\n\n        print(\"Enter a finite number, or press Enter for the default.\")\n\n\ndef ask_yes_no(question: str, default: bool = False) -> bool:\n    suffix = \"[Y/n]\" if default else \"[y/N]\"\n    while True:\n        answer = input(f\"{question} {suffix} \").strip().lower()\n        if not answer:\n            return default\n        if answer in {\"y\", \"yes\"}:\n            return True\n        if answer in {\"n\", \"no\"}:\n            return False\n\n        print(\"Enter y or n.\")\n\n\ndef ask_optional_temperature() -> float | None:\n    question = (\n        f\"Temperature to use ({TEMPERATURE_MIN:.1f} to {TEMPERATURE_MAX:.1f}), \"\n        f\"or press Enter for Ollama default ({TEMPERATURE_DEFAULT:.1f}): \"\n    )\n\n    while True:\n        temperature = ask_optional_float(question)\n        if temperature is None:\n            return None\n        if TEMPERATURE_MIN <= temperature <= TEMPERATURE_MAX:\n            return temperature\n\n        print(\n            \"Temperature is outside the expected range \"\n            f\"({TEMPERATURE_MIN:.1f} to {TEMPERATURE_MAX:.1f}). Please try again.\"\n        )\n\n\ndef create_prompt_run_dir(prompt: str) -> Path:\n    slug = prompt_slug(prompt)\n    digest = prompt_hash(prompt)[:8]\n    run_dir = OUTPUT_ROOT / f\"{slug}_{digest}\"\n    run_dir.mkdir(parents=True, exist_ok=True)\n    return run_dir\n\n\ndef prompt_slug(prompt: str, max_words: int = 6) -> str:\n    words = re.findall(r\"[A-Za-z0-9]+\", prompt.lower())\n    if not words:\n        return \"prompt\"\n    return \"-\".join(words[:max_words])[:80].strip(\"-\") or \"prompt\"\n\n\ndef prompt_preview(prompt: str, max_chars: int = 160) -> str:\n    compact = re.sub(r\"\\s+\", \" \", prompt).strip()\n    if len(compact) <= max_chars:\n        return compact\n    return compact[: max_chars - 3].rstrip() + \"...\"\n\n\ndef prompt_hash(prompt: str) -> str:\n    return hashlib.sha256(prompt.encode(\"utf-8\")).hexdigest()\n\n\ndef safe_name(value: str) -> str:\n    cleaned = re.sub(r\"[^A-Za-z0-9._-]+\", \"-\", value)\n    return cleaned.strip(\"-\") or \"model\"\n\n\ndef unique_model_output_path(run_dir: Path, model: str) -> Path:\n    base_name = safe_name(model)\n    path = run_dir / f\"{base_name}.md\"\n    if not path.exists():\n        return path\n\n    suffix = 2\n    while True:\n        path = run_dir / f\"{base_name}-{suffix}.md\"\n        if not path.exists():\n            return path\n        suffix += 1\n\n\ndef generate_once(\n    model: str,\n    prompt: str,\n    options: dict[str, Any],\n    stream: bool = False,\n) -> dict[str, Any]:\n    started = time.monotonic()\n    generated_at = now_local()\n\n    request_payload: dict[str, Any] = {\n        \"model\": model,\n        \"prompt\": prompt,\n        \"stream\": stream,\n    }\n    if options:\n        request_payload[\"options\"] = options\n\n    try:\n        if stream:\n            response_payload = ollama_post_stream_json(\"/api/generate\", request_payload)\n            print()\n        else:\n            response_payload = ollama_post_json(\"/api/generate\", request_payload)\n        elapsed = time.monotonic() - started\n        return {\n            \"ok\": True,\n            \"generated_at\": generated_at.isoformat(),\n            \"elapsed_seconds\": elapsed,\n            \"response\": response_payload.get(\"response\", \"\"),\n            \"raw\": response_payload,\n        }\n    except RuntimeError as exc:\n        if stream:\n            print()\n        elapsed = time.monotonic() - started\n        return {\n            \"ok\": False,\n            \"generated_at\": generated_at.isoformat(),\n            \"elapsed_seconds\": elapsed,\n            \"error\": str(exc),\n        }\n\n\ndef ollama_get_json(path: str) -> dict[str, Any]:\n    request = urllib.request.Request(f\"{OLLAMA_HOST}{path}\", method=\"GET\")\n    return open_json_request(request)\n\n\ndef ollama_post_json(path: str, payload: dict[str, Any]) -> dict[str, Any]:\n    data = json.dumps(payload).encode(\"utf-8\")\n    request = urllib.request.Request(\n        f\"{OLLAMA_HOST}{path}\",\n        data=data,\n        method=\"POST\",\n        headers={\"Content-Type\": \"application/json\"},\n    )\n    return open_json_request(request)\n\n\ndef ollama_post_stream_json(\n    path: str,\n    payload: dict[str, Any],\n    response_output: TextIO | None = None,\n) -> dict[str, Any]:\n    data = json.dumps(payload).encode(\"utf-8\")\n    request = urllib.request.Request(\n        f\"{OLLAMA_HOST}{path}\",\n        data=data,\n        method=\"POST\",\n        headers={\"Content-Type\": \"application/json\"},\n    )\n\n    if response_output is None:\n        response_output = sys.stdout\n\n    response_buffer = io.StringIO()\n    final_chunk: dict[str, Any] | None = None\n    saw_chunk = False\n    try:\n        with urllib.request.urlopen(request, timeout=600) as response:\n            for line_number, raw_line in enumerate(response, start=1):\n                line = raw_line.decode(\"utf-8\", errors=\"replace\").strip()\n                if not line:\n                    continue\n                try:\n                    chunk = json.loads(line)\n                except json.JSONDecodeError as exc:\n                    raise RuntimeError(\n                        f\"invalid streaming JSON response on line {line_number}: {line[:200]}\"\n                    ) from exc\n\n                if not isinstance(chunk, dict):\n                    raise RuntimeError(f\"streaming JSON line {line_number} was not an object\")\n\n                saw_chunk = True\n                response_text = chunk.get(\"response\")\n                if isinstance(response_text, str) and response_text:\n                    response_buffer.write(response_text)\n                    response_output.write(response_text)\n                    response_output.flush()\n\n                final_chunk = chunk\n                if chunk.get(\"done\"):\n                    break\n    except urllib.error.HTTPError as exc:\n        detail = exc.read().decode(\"utf-8\", errors=\"replace\")\n        raise RuntimeError(f\"HTTP {exc.code}: {detail}\") from exc\n    except urllib.error.URLError as exc:\n        raise RuntimeError(str(exc.reason)) from exc\n    except TimeoutError as exc:\n        raise RuntimeError(\"request timed out\") from exc\n\n    if not saw_chunk or final_chunk is None:\n        raise RuntimeError(\"empty streaming response\")\n\n    stream_payload = dict(final_chunk)\n    stream_payload[\"response\"] = response_buffer.getvalue()\n    return stream_payload\n\n\ndef open_json_request(request: urllib.request.Request) -> dict[str, Any]:\n    try:\n        with urllib.request.urlopen(request, timeout=600) as response:\n            body = response.read().decode(\"utf-8\")\n    except urllib.error.HTTPError as exc:\n        detail = exc.read().decode(\"utf-8\", errors=\"replace\")\n        raise RuntimeError(f\"HTTP {exc.code}: {detail}\") from exc\n    except urllib.error.URLError as exc:\n        raise RuntimeError(str(exc.reason)) from exc\n    except TimeoutError as exc:\n        raise RuntimeError(\"request timed out\") from exc\n\n    try:\n        return json.loads(body)\n    except json.JSONDecodeError as exc:\n        raise RuntimeError(f\"invalid JSON response: {body[:200]}\") from exc\n\n\ndef write_prompt_file(path: Path, prompt: str, started_at: dt.datetime) -> None:\n    path.write_text(\n        \"\\n\".join(\n            [\n                \"# Prompt\",\n                \"\",\n                f\"Date: {started_at.isoformat()}\",\n                f\"Prompt hash: `{prompt_hash(prompt)}`\",\n                \"\",\n                markdown_fence_block(prompt, \"text\"),\n                \"\",\n            ]\n        ),\n        encoding=\"utf-8\",\n    )\n\n\ndef write_model_output_file(\n    path: Path,\n    model: str,\n    prompt: str,\n    results: list[dict[str, Any]],\n    options: dict[str, Any],\n    stream: bool,\n    started_at: dt.datetime,\n) -> None:\n    lines = [\n        \"# Ollama Model Test\",\n        \"\",\n        f\"Model: `{model}`\",\n        f\"Date: {started_at.isoformat()}\",\n        f\"Prompt hash: `{prompt_hash(prompt)}`\",\n        f\"Runs: {len(results)}\",\n        f\"Options: `{json.dumps(options, sort_keys=True)}`\",\n        f\"Streaming: `{stream}`\",\n        \"\",\n        \"## Prompt\",\n        \"\",\n        markdown_fence_block(prompt, \"text\"),\n        \"\",\n    ]\n\n    for index, result in enumerate(results, start=1):\n        lines.extend(\n            [\n                f\"## Run {index}\",\n                \"\",\n                f\"Generated at: {result['generated_at']}\",\n                f\"Elapsed seconds: {result['elapsed_seconds']:.2f}\",\n                f\"Status: {'ok' if result['ok'] else 'error'}\",\n                \"\",\n            ]\n        )\n        if result[\"ok\"]:\n            metadata_json = json.dumps(saved_metadata(result[\"raw\"]), indent=2, sort_keys=True)\n            lines.extend(\n                [\n                    result[\"response\"].rstrip(),\n                    \"\",\n                    \"### Ollama metadata\",\n                    \"\",\n                    markdown_fence_block(metadata_json, \"json\"),\n                    \"\",\n                ]\n            )\n        else:\n            lines.extend([\"```text\", result[\"error\"], \"```\", \"\"])\n\n    path.write_text(\"\\n\".join(lines), encoding=\"utf-8\")\n\n\ndef markdown_fence_block(value: str, language: str = \"\") -> str:\n    longest_backtick_run = max((len(match.group(0)) for match in re.finditer(r\"`+\", value)), default=0)\n    fence = \"`\" * max(3, longest_backtick_run + 1)\n    suffix = language if language else \"\"\n    return f\"{fence}{suffix}\\n{value}\\n{fence}\"\n\n\ndef saved_metadata(raw: dict[str, Any]) -> dict[str, Any]:\n    return {key: value for key, value in raw.items() if key not in SAVED_METADATA_OMIT_KEYS}\n\n\ndef append_metadata_run(\n    path: Path,\n    run_payload: dict[str, Any],\n    prompt: str,\n    prompt_file_name: str,\n) -> None:\n    if path.exists():\n        try:\n            metadata = json.loads(path.read_text(encoding=\"utf-8\"))\n        except json.JSONDecodeError:\n            metadata = {}\n    else:\n        metadata = {}\n\n    runs = metadata.get(\"runs\")\n    if not isinstance(runs, list):\n        previous_run = legacy_metadata_as_run(metadata)\n        runs = [previous_run] if previous_run else []\n\n    metadata = {\n        \"prompt_hash\": prompt_hash(prompt),\n        \"prompt_preview\": prompt_preview(prompt),\n        \"files\": {\n            \"prompt\": prompt_file_name,\n        },\n        \"runs\": runs,\n    }\n    metadata[\"runs\"].append(run_payload)\n\n    path.write_text(json.dumps(metadata, indent=2, sort_keys=True) + \"\\n\", encoding=\"utf-8\")\n\n\ndef legacy_metadata_as_run(metadata: dict[str, Any]) -> dict[str, Any] | None:\n    required_keys = [\n        \"model\",\n        \"runs_requested\",\n        \"runs_completed\",\n        \"started_at\",\n        \"finished_at\",\n        \"options\",\n    ]\n    if not all(key in metadata for key in required_keys):\n        return None\n\n    files = metadata.get(\"files\")\n    model_output = files.get(\"model_output\") if isinstance(files, dict) else None\n    run_payload = {\n        \"model\": metadata[\"model\"],\n        \"runs_requested\": metadata[\"runs_requested\"],\n        \"runs_completed\": metadata[\"runs_completed\"],\n        \"started_at\": metadata[\"started_at\"],\n        \"finished_at\": metadata[\"finished_at\"],\n        \"options\": metadata[\"options\"],\n        \"files\": {},\n    }\n    if model_output:\n        run_payload[\"files\"][\"model_output\"] = model_output\n    return run_payload\n\n\ndef now_local() -> dt.datetime:\n    return dt.datetime.now().astimezone()\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+      "original_content_sha256": "5d0021f0b9f06e02760df5800824b70ef629c345724fa8574946408900f93a6d",
+      "public_content_sha256": "5d0021f0b9f06e02760df5800824b70ef629c345724fa8574946408900f93a6d",
+      "original_lines": 661,
+      "public_lines": 661
+    }
+  },
+  "reference_key_original_sha256": "7bf06584877d7e84370007ee14819bece96cd04f116f1c2cb7e78bd3790e6349",
+  "reference_items": [
+    {
+      "id": "K1",
+      "kind": "supported",
+      "question": "Can a user point this tool at an Ollama server other than localhost:11434 (for example with a command-line flag or an environment variable), according to the pinned source?",
+      "expected_answer": "No. The base URL is the module constant OLLAMA_HOST = \"http://localhost:11434\", interpolated directly into every request (GET /api/tags, POST /api/generate and the streaming POST). The argument parser defines only --model, --runs, --temperature, --prompt-file and --stream/--no-stream, and the module does not import os or read environment variables, so using another host requires editing the constant in the source. The README's wording \"the default\" is not backed by any override mechanism. (Static reading; not run.)",
+      "required_points": [
+        "The host is hardcoded as OLLAMA_HOST = http://localhost:11434 and used for all API requests",
+        "No command-line flag or environment variable changes it in the pinned source",
+        "Changing the host requires editing the source constant"
+      ],
+      "reject_if": [
+        "Claims a --host flag, an OLLAMA_HOST environment variable or a config file is honored by this tool",
+        "States the host is configurable because the README calls it 'the default'",
+        "Presents the answer as verified by running the tool"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 21,
+          "end_line": 21,
+          "quote": "OLLAMA_HOST = \"http://localhost:11434\"",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L21-L21"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 419,
+          "end_line": 421,
+          "quote": "def ollama_get_json(path: str) -> dict[str, Any]:\n    request = urllib.request.Request(f\"{OLLAMA_HOST}{path}\", method=\"GET\")\n    return open_json_request(request)",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L419-L421"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 4,
+          "end_line": 18,
+          "quote": "from __future__ import annotations\n\nimport argparse\nimport datetime as dt\nimport hashlib\nimport io\nimport json\nimport math\nimport re\nimport sys\nimport time\nimport urllib.error\nimport urllib.request\nfrom pathlib import Path\nfrom typing import Any, TextIO",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L4-L18"
+        }
+      ],
+      "source_types": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "K2",
+      "kind": "supported",
+      "question": "When no temperature is given (the user presses Enter at the temperature prompt), what temperature does the tool send to Ollama, and what is the \"0.8\" shown in that prompt?",
+      "expected_answer": "It sends no temperature at all. An empty answer returns None, the options dict stays empty, and generate_once omits the \"options\" key from the /api/generate payload, so whatever default Ollama or the model applies is used. The 0.8 is the hardcoded constant TEMPERATURE_DEFAULT, used only in the prompt text \"press Enter for Ollama default (0.8)\"; it is never sent, and the code does not check that Ollama's actual default is 0.8. (Explicit values must be finite and within 0.0-2.0: an out-of-range --temperature exits with status 1, while out-of-range interactive input re-prompts.)",
+      "required_points": [
+        "Pressing Enter sends no temperature/options to Ollama, leaving Ollama's own default in effect",
+        "0.8 is a hardcoded display constant (TEMPERATURE_DEFAULT) that is not sent in the request",
+        "The source does not verify that 0.8 matches Ollama's actual default"
+      ],
+      "reject_if": [
+        "Says the tool sends temperature 0.8 when Enter is pressed",
+        "Claims the tool queries Ollama for its default temperature",
+        "States as established fact, based on this code, that Ollama's default temperature is 0.8"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 23,
+          "end_line": 25,
+          "quote": "TEMPERATURE_MIN = 0.0\nTEMPERATURE_MAX = 2.0\nTEMPERATURE_DEFAULT = 0.8",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L23-L25"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 312,
+          "end_line": 321,
+          "quote": "def ask_optional_temperature() -> float | None:\n    question = (\n        f\"Temperature to use ({TEMPERATURE_MIN:.1f} to {TEMPERATURE_MAX:.1f}), \"\n        f\"or press Enter for Ollama default ({TEMPERATURE_DEFAULT:.1f}): \"\n    )\n\n    while True:\n        temperature = ask_optional_float(question)\n        if temperature is None:\n            return None",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L312-L321"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 67,
+          "end_line": 72,
+          "quote": "    temperature = resolve_temperature(args.temperature)\n    if temperature is INVALID_TEMPERATURE:\n        return 1\n    options: dict[str, Any] = {}\n    if temperature is not None:\n        options[\"temperature\"] = temperature",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L67-L72"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 385,
+          "end_line": 391,
+          "quote": "    request_payload: dict[str, Any] = {\n        \"model\": model,\n        \"prompt\": prompt,\n        \"stream\": stream,\n    }\n    if options:\n        request_payload[\"options\"] = options",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L385-L391"
+        }
+      ],
+      "source_types": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "K3",
+      "kind": "supported",
+      "question": "If you run the same prompt again with the same model, does the tool overwrite the earlier model output file, prompt.md or metadata.json?",
+      "expected_answer": "Earlier results are not overwritten in the normal case. The output file name is the model name passed through safe_name: characters other than A-Z, a-z, 0-9, '.', '_' and '-' become '-', so llama3.1:8b becomes llama3.1-8b.md, as in the README example tree. If that file already exists, the tool uses llama3.1-8b-2.md, then -3 and so on. prompt.md is written only when it does not exist yet. metadata.json is read and the new run object is appended to its \"runs\" list (an older single-run file is converted into the first entry). Caveat: if metadata.json is not valid JSON, it is replaced by a fresh structure, which discards the earlier run entries in that file.",
+      "required_points": [
+        "A same-model rerun writes a new suffixed file (<model>-2.md, -3.md, ...) instead of overwriting <model>.md",
+        "prompt.md is written only when absent, so a rerun keeps it",
+        "The new run is appended to the runs list in metadata.json"
+      ],
+      "reject_if": [
+        "Says the earlier model output file is overwritten or appended to",
+        "Says a rerun of the same prompt creates a new prompt folder",
+        "Says metadata.json keeps only the latest run when the existing file is valid JSON"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 357,
+          "end_line": 359,
+          "quote": "def safe_name(value: str) -> str:\n    cleaned = re.sub(r\"[^A-Za-z0-9._-]+\", \"-\", value)\n    return cleaned.strip(\"-\") or \"model\"",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L357-L359"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 362,
+          "end_line": 373,
+          "quote": "def unique_model_output_path(run_dir: Path, model: str) -> Path:\n    base_name = safe_name(model)\n    path = run_dir / f\"{base_name}.md\"\n    if not path.exists():\n        return path\n\n    suffix = 2\n    while True:\n        path = run_dir / f\"{base_name}-{suffix}.md\"\n        if not path.exists():\n            return path\n        suffix += 1",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L362-L373"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 81,
+          "end_line": 83,
+          "quote": "    started_at = now_local()\n    if not prompt_path.exists():\n        write_prompt_file(prompt_path, prompt, started_at)",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L81-L83"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 602,
+          "end_line": 613,
+          "quote": "    if path.exists():\n        try:\n            metadata = json.loads(path.read_text(encoding=\"utf-8\"))\n        except json.JSONDecodeError:\n            metadata = {}\n    else:\n        metadata = {}\n\n    runs = metadata.get(\"runs\")\n    if not isinstance(runs, list):\n        previous_run = legacy_metadata_as_run(metadata)\n        runs = [previous_run] if previous_run else []",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L602-L613"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 623,
+          "end_line": 623,
+          "quote": "    metadata[\"runs\"].append(run_payload)",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L623-L623"
+        },
+        {
+          "path": "README.md",
+          "start_line": 51,
+          "end_line": 52,
+          "quote": "python3 ollama_model_test.py \\\n  --model llama3.1:8b \\",
+          "git_blob_sha1": "6673762d36397093187856ba1cdfc127045a3775",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/README.md#L51-L52"
+        },
+        {
+          "path": "README.md",
+          "start_line": 68,
+          "end_line": 68,
+          "quote": "    llama3.1-8b.md    # responses + Ollama metadata for this model",
+          "git_blob_sha1": "6673762d36397093187856ba1cdfc127045a3775",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/README.md#L68-L68"
+        }
+      ],
+      "source_types": [
+        "implementation",
+        "example"
+      ]
+    },
+    {
+      "id": "K4",
+      "kind": "supported",
+      "question": "What happens when a generation request fails or hangs partway through a multi-run batch: is there a timeout, does the batch stop, and how is the failure recorded?",
+      "expected_answer": "Each HTTP call uses urllib with timeout=600 seconds, both streaming and non-streaming. The request helpers convert HTTP errors, connection (URL) errors, timeouts and invalid JSON into RuntimeError. generate_once catches RuntimeError for each run and returns a result with ok False and the error text. The loop goes on with the remaining runs and prints 'error in N.NNs' for the failed one. The model's Markdown file gets a 'Status: error' section containing the error text, runs_completed counts every attempted run (len(results)), and main still returns 0. There is no retry. (Failing to list models at startup is handled differently: it prints an error and returns 1.)",
+      "required_points": [
+        "Requests use a 600-second timeout",
+        "A failed run is recorded as an error entry (Status: error with the message) and the remaining runs continue; the batch is not aborted",
+        "runs_completed counts attempted runs including failed ones (len(results)), and there is no automatic retry"
+      ],
+      "reject_if": [
+        "Says the tool retries failed requests",
+        "Says the batch aborts on the first failed run",
+        "Gives a different timeout value or says there is no timeout",
+        "Claims runs_completed counts only successful runs"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 455,
+          "end_line": 455,
+          "quote": "        with urllib.request.urlopen(request, timeout=600) as response:",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L455-L455"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 496,
+          "end_line": 506,
+          "quote": "def open_json_request(request: urllib.request.Request) -> dict[str, Any]:\n    try:\n        with urllib.request.urlopen(request, timeout=600) as response:\n            body = response.read().decode(\"utf-8\")\n    except urllib.error.HTTPError as exc:\n        detail = exc.read().decode(\"utf-8\", errors=\"replace\")\n        raise RuntimeError(f\"HTTP {exc.code}: {detail}\") from exc\n    except urllib.error.URLError as exc:\n        raise RuntimeError(str(exc.reason)) from exc\n    except TimeoutError as exc:\n        raise RuntimeError(\"request timed out\") from exc",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L496-L506"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 407,
+          "end_line": 416,
+          "quote": "    except RuntimeError as exc:\n        if stream:\n            print()\n        elapsed = time.monotonic() - started\n        return {\n            \"ok\": False,\n            \"generated_at\": generated_at.isoformat(),\n            \"elapsed_seconds\": elapsed,\n            \"error\": str(exc),\n        }",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L407-L416"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 90,
+          "end_line": 96,
+          "quote": "    for index in range(1, runs + 1):\n        print(f\"Run {index}/{runs} using {model}...\")\n        result = generate_once(model, prompt, options, stream=stream)\n        results.append(result)\n        status = \"ok\" if result[\"ok\"] else \"error\"\n        elapsed = result[\"elapsed_seconds\"]\n        print(f\"  {status} in {elapsed:.2f}s\")",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L90-L96"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 104,
+          "end_line": 105,
+          "quote": "            \"runs_requested\": runs,\n            \"runs_completed\": len(results),",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L104-L105"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 579,
+          "end_line": 580,
+          "quote": "        else:\n            lines.extend([\"```text\", result[\"error\"], \"```\", \"\"])",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L579-L580"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 118,
+          "end_line": 120,
+          "quote": "    print()\n    print(f\"Done. Wrote {output_path}\")\n    return 0",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L118-L120"
+        }
+      ],
+      "source_types": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "K5",
+      "kind": "supported",
+      "question": "Which fields of Ollama's response are left out of the saved \"Ollama metadata\" block in each model's Markdown output file?",
+      "expected_answer": "Only two keys are dropped through SAVED_METADATA_OMIT_KEYS: \"context\" (a large token-ID array, useful only for resuming a conversation) and \"response\" (which duplicates the answer already written above the block). Every other field of the raw response is kept and written as indented JSON with sorted keys. In streaming mode the saved raw payload is the final streamed chunk with its response replaced by the concatenated text, so the metadata block shows the final chunk's fields.",
+      "required_points": [
+        "The keys context and response are omitted",
+        "All other response fields are retained (written as sorted, indented JSON)"
+      ],
+      "reject_if": [
+        "Names other omitted fields (for example, says timings or token counts are dropped)",
+        "Says the full raw response, including context, is saved",
+        "Says nothing is omitted"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 28,
+          "end_line": 31,
+          "quote": "# Fields dropped from the saved Ollama metadata: ``context`` is a large array of\n# token IDs only useful for resuming a conversation, and ``response`` duplicates\n# the answer already written above it as the run output.\nSAVED_METADATA_OMIT_KEYS = frozenset({\"context\", \"response\"})",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L28-L31"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 592,
+          "end_line": 593,
+          "quote": "def saved_metadata(raw: dict[str, Any]) -> dict[str, Any]:\n    return {key: value for key, value in raw.items() if key not in SAVED_METADATA_OMIT_KEYS}",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L592-L593"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 567,
+          "end_line": 568,
+          "quote": "        if result[\"ok\"]:\n            metadata_json = json.dumps(saved_metadata(result[\"raw\"]), indent=2, sort_keys=True)",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L567-L568"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 491,
+          "end_line": 493,
+          "quote": "    stream_payload = dict(final_chunk)\n    stream_payload[\"response\"] = response_buffer.getvalue()\n    return stream_payload",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L491-L493"
+        }
+      ],
+      "source_types": [
+        "implementation"
+      ]
+    },
+    {
+      "id": "K6",
+      "kind": "supported",
+      "question": "Relative to which directory is ollama-runs/ created, how is each prompt folder named, and is that output tracked by Git in this repository?",
+      "expected_answer": "OUTPUT_ROOT is the relative path Path(\"ollama-runs\"), so it resolves against the process's current working directory, not the script's location. Each prompt folder is named <slug>_<hash8>. The slug is the first (up to) 6 lowercase alphanumeric words of the prompt joined by '-' and truncated to 80 characters, falling back to 'prompt'. hash8 is the first 8 hex characters of the prompt's SHA-256; the README example is what-are-the-main-tradeoffs-between_835562a4. The repository's .gitignore lists ollama-runs/ under '# Saved run output', so run output inside the checkout is ignored by Git.",
+      "required_points": [
+        "ollama-runs/ is a relative path, created under the current working directory",
+        "The repository .gitignore ignores ollama-runs/, so saved run output is not tracked",
+        "The folder name is a short slug of prompt words plus the first 8 hex characters of the prompt's SHA-256"
+      ],
+      "reject_if": [
+        "Says output is written next to the script or in a fixed absolute or home directory",
+        "Says run outputs are committed or tracked by the repository",
+        "Says the folder name is keyed by model or timestamp"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 22,
+          "end_line": 22,
+          "quote": "OUTPUT_ROOT = Path(\"ollama-runs\")",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L22-L22"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 331,
+          "end_line": 336,
+          "quote": "def create_prompt_run_dir(prompt: str) -> Path:\n    slug = prompt_slug(prompt)\n    digest = prompt_hash(prompt)[:8]\n    run_dir = OUTPUT_ROOT / f\"{slug}_{digest}\"\n    run_dir.mkdir(parents=True, exist_ok=True)\n    return run_dir",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L331-L336"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 339,
+          "end_line": 343,
+          "quote": "def prompt_slug(prompt: str, max_words: int = 6) -> str:\n    words = re.findall(r\"[A-Za-z0-9]+\", prompt.lower())\n    if not words:\n        return \"prompt\"\n    return \"-\".join(words[:max_words])[:80].strip(\"-\") or \"prompt\"",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L339-L343"
+        },
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 353,
+          "end_line": 354,
+          "quote": "def prompt_hash(prompt: str) -> str:\n    return hashlib.sha256(prompt.encode(\"utf-8\")).hexdigest()",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L353-L354"
+        },
+        {
+          "path": ".gitignore",
+          "start_line": 1,
+          "end_line": 2,
+          "quote": "# Saved run output\nollama-runs/",
+          "git_blob_sha1": "5a12ce202d75b41ea749439cfe63de92c82580bc",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/.gitignore#L1-L2"
+        },
+        {
+          "path": "README.md",
+          "start_line": 64,
+          "end_line": 65,
+          "quote": "ollama-runs/\n  what-are-the-main-tradeoffs-between_835562a4/",
+          "git_blob_sha1": "6673762d36397093187856ba1cdfc127045a3775",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/README.md#L64-L65"
+        }
+      ],
+      "source_types": [
+        "implementation",
+        "config_manifest",
+        "example"
+      ]
+    },
+    {
+      "id": "U1",
+      "kind": "unknown",
+      "question": "Is the hardcoded localhost:11434 Ollama address an intentional, supported scope limit (local-only use), or is support for a configurable or remote Ollama host intended?",
+      "expected_answer": "Not established in the bounded pinned repository corpus. The code hardcodes the address and the README calls it 'the default', but no file in the pinned tree records a rationale, a decision, or any plan for a configurable or remote host.",
+      "required_points": [
+        "States that the intent or plan is not established in the pinned repository",
+        "Any factual context given is limited to what the source shows (hardcoded constant; README's 'default' wording) and is not presented as intent"
+      ],
+      "reject_if": [
+        "Asserts a rationale as recorded fact (for example, 'deliberately local-only for privacy')",
+        "Claims a remote-host feature is planned, rejected or approved",
+        "Infers maintainer intent from code alone or from authorship/copyright"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 21,
+          "end_line": 21,
+          "quote": "OLLAMA_HOST = \"http://localhost:11434\"",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L21-L21"
+        },
+        {
+          "path": "README.md",
+          "start_line": 12,
+          "end_line": 12,
+          "quote": "- [Ollama](https://ollama.com) running locally (the default `http://localhost:11434`)",
+          "git_blob_sha1": "6673762d36397093187856ba1cdfc127045a3775",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/README.md#L12-L12"
+        }
+      ],
+      "source_types": [
+        "implementation",
+        "prose"
+      ]
+    },
+    {
+      "id": "U2",
+      "kind": "unknown",
+      "question": "Is the older single-run metadata.json layout (converted by legacy_metadata_as_run) a format the project commits to keep supporting, and when or why did the layout change?",
+      "expected_answer": "Not established in the bounded pinned repository corpus. The code converts a legacy single-run metadata.json into the first entry of a runs list. No file in the pinned tree (there is no changelog or release notes) says when or why the format changed, or whether legacy support will be kept. Commit history is outside the scoring corpus.",
+      "required_points": [
+        "States that the support policy and the reason/date of the change are not established in the pinned repository",
+        "May describe the static conversion behavior without presenting it as a commitment"
+      ],
+      "reject_if": [
+        "States a version, date or reason for the format change as fact",
+        "Claims legacy support is guaranteed, deprecated or scheduled for removal",
+        "Answers from commit history or external pages"
+      ],
+      "evidence": [
+        {
+          "path": "ollama_model_test.py",
+          "start_line": 610,
+          "end_line": 613,
+          "quote": "    runs = metadata.get(\"runs\")\n    if not isinstance(runs, list):\n        previous_run = legacy_metadata_as_run(metadata)\n        runs = [previous_run] if previous_run else []",
+          "git_blob_sha1": "1db00efb502320bfcbc5ad5d2f81ed7ab74456d4",
+          "permalink": "https://github.com/ulyssestenn/omt/blob/8a08c6e76824b02b971a43b414518fb1f5a28e3c/ollama_model_test.py#L610-L613"
+        }
+      ],
+      "source_types": [
+        "implementation"
+      ]
+    }
+  ],
+  "questions": {
+    "original_content_sha256": "e487cadc2ca53e318dab66f96f9ceee686ba1384285f56f6611f8e033610e263",
+    "value": {
+      "case_id": "P01",
+      "items": [
+        {
+          "id": "K1",
+          "question": "Can a user point this tool at an Ollama server other than localhost:11434 (for example with a command-line flag or an environment variable), according to the pinned source?"
+        },
+        {
+          "id": "K2",
+          "question": "When no temperature is given (the user presses Enter at the temperature prompt), what temperature does the tool send to Ollama, and what is the \"0.8\" shown in that prompt?"
+        },
+        {
+          "id": "K3",
+          "question": "If you run the same prompt again with the same model, does the tool overwrite the earlier model output file, prompt.md or metadata.json?"
+        },
+        {
+          "id": "K4",
+          "question": "What happens when a generation request fails or hangs partway through a multi-run batch: is there a timeout, does the batch stop, and how is the failure recorded?"
+        },
+        {
+          "id": "K5",
+          "question": "Which fields of Ollama's response are left out of the saved \"Ollama metadata\" block in each model's Markdown output file?"
+        },
+        {
+          "id": "K6",
+          "question": "Relative to which directory is ollama-runs/ created, how is each prompt folder named, and is that output tracked by Git in this repository?"
+        },
+        {
+          "id": "U1",
+          "question": "Is the hardcoded localhost:11434 Ollama address an intentional, supported scope limit (local-only use), or is support for a configurable or remote Ollama host intended?"
+        },
+        {
+          "id": "U2",
+          "question": "Is the older single-run metadata.json layout (converted by legacy_metadata_as_run) a format the project commits to keep supporting, and when or why did the layout change?"
+        }
+      ]
+    }
+  },
+  "conditions": {
+    "original-docs": {
+      "documents": {
+        "LICENSE": {
+          "text": "MIT License\n\nCopyright (c) 2026 Bethany Hunt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+          "original_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "public_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "original_lines": 21,
+          "public_lines": 21,
+          "file_origin": "unchanged_snapshot_file"
+        },
+        "README.md": {
+          "text": "# Ollama Model Tester\n\nA small, dependency-free CLI for running the same prompt against your local\n[Ollama](https://ollama.com) models and saving every response to disk — so you\ncan compare models (or compare repeated runs of one model) side by side.\n\nIt uses only the Python standard library: no `pip install` required.\n\n## Requirements\n\n- Python 3.7 or newer\n- [Ollama](https://ollama.com) running locally (the default `http://localhost:11434`)\n- At least one model pulled, e.g. `ollama pull llama3.1:8b`\n\n## Quick start\n\nMake sure Ollama is running, then:\n\n```bash\npython3 ollama_model_test.py\n```\n\nYou'll be asked, in order:\n\n1. **Which model** to use (pick a number from your installed models)\n2. **The prompt** — type as many lines as you like, then put `/done` on its own\n   line to finish\n3. **How many times** to run the prompt\n4. **Temperature** (`0.0`–`2.0`), or press Enter to use Ollama's default\n5. Whether to **stream** the responses live to the terminal\n\nIt then runs the prompt the requested number of times and writes the results\nunder `ollama-runs/`.\n\n## Command-line flags (optional)\n\nEvery prompt above can be supplied up front, which makes the tool scriptable.\nAnything you omit is still asked interactively.\n\n| Flag | Description |\n| --- | --- |\n| `--model NAME` | Local model to use (must already be installed) |\n| `--runs N` | Number of generations to run |\n| `--temperature T` | Temperature, `0.0`–`2.0` |\n| `--prompt-file PATH` | Read the prompt from a UTF-8 text file |\n| `--stream` / `--no-stream` | Stream responses live, or don't |\n\nExample — run a saved prompt three times, fully non-interactive:\n\n```bash\npython3 ollama_model_test.py \\\n  --model llama3.1:8b \\\n  --prompt-file prompt.txt \\\n  --runs 3 \\\n  --temperature 0.7 \\\n  --no-stream\n```\n\n## Output\n\nResults are grouped into one folder per prompt:\n\n```text\nollama-runs/\n  what-are-the-main-tradeoffs-between_835562a4/\n    prompt.md         # the prompt, with its hash and timestamp\n    metadata.json     # every run against this prompt (model, timing, options)\n    llama3.1-8b.md    # responses + Ollama metadata for this model\n    gemma3-1b.md\n```\n\nThe folder name is the first few words of the prompt plus a short hash of the\nfull prompt. Because the folder is keyed on the prompt, **running the same\nprompt against a different model drops its output into the same folder** —\nmaking model-to-model comparison easy. Each model's file records every run's\nresponse alongside Ollama's run metadata (token counts, timings, and so on).\n",
+          "original_content_sha256": "428818732f159ae60442e3a94cd80bb4b2cf7ce226ce3272558487e368ce6ea0",
+          "public_content_sha256": "428818732f159ae60442e3a94cd80bb4b2cf7ce226ce3272558487e368ce6ea0",
+          "original_lines": 76,
+          "public_lines": 76,
+          "file_origin": "unchanged_snapshot_file"
+        }
+      },
+      "reader_answer": {
+        "original_content_sha256": "b4e08ab65376e31cad1fa7ddf874fd2b2d42c9d0396d2a58572e9c2d63786ca5",
+        "value": {
+          "answers": [
+            {
+              "id": "K1",
+              "status": "not_established",
+              "answer": "The README requires Ollama running locally at the default http://localhost:11434. Its flag table contains no host option, but this does not establish that host configuration is impossible. No environment-variable configuration is documented, and the pinned implementation is unavailable in the document set.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 9,
+                  "end_line": 13
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 40,
+                  "end_line": 46
+                }
+              ]
+            },
+            {
+              "id": "K2",
+              "status": "not_established",
+              "answer": "The README says pressing Enter uses Ollama's default. It does not establish the actual value sent, whether the temperature option is omitted, or what the prompt's \"0.8\" represents.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 28,
+                  "end_line": 30
+                }
+              ]
+            },
+            {
+              "id": "K3",
+              "status": "not_established",
+              "answer": "The README describes metadata.json as containing every run against the prompt and each model's file as recording every run's response and metadata. However, it does not explicitly establish overwrite behavior across separate invocations for the same prompt and model, or whether prompt.md and metadata.json are rewritten.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 65,
+                  "end_line": 69
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 72,
+                  "end_line": 76
+                }
+              ]
+            },
+            {
+              "id": "K4",
+              "status": "not_established",
+              "answer": "The documents do not specify a generation timeout, whether failures stop or allow continuation of a batch, or how failed or partially completed generations are recorded.",
+              "citations": []
+            },
+            {
+              "id": "K5",
+              "status": "not_established",
+              "answer": "The README says model files include Ollama run metadata, such as token counts and timings. It does not list excluded response fields or define the saved metadata block's filtering rules.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 75,
+                  "end_line": 76
+                }
+              ]
+            },
+            {
+              "id": "K6",
+              "status": "not_established",
+              "answer": "Results are saved under ollama-runs/, with one folder per prompt. Folder names use the first few words of the prompt plus a short hash of the full prompt. The documents do not specify the directory relative to which ollama-runs/ is created or whether its contents are tracked or ignored by Git.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 32,
+                  "end_line": 33
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 60,
+                  "end_line": 76
+                }
+              ]
+            },
+            {
+              "id": "U1",
+              "status": "not_established",
+              "answer": "The README describes use with local models and requires Ollama running locally at the default localhost address. It does not establish whether a hardcoded address is an intentional supported scope limit or whether configurable or remote-host support is intended.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 3,
+                  "end_line": 5
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 9,
+                  "end_line": 13
+                }
+              ]
+            },
+            {
+              "id": "U2",
+              "status": "not_established",
+              "answer": "The README describes metadata.json as recording every run against a prompt. It does not document legacy_metadata_as_run, promise continued support for an older single-run layout, or explain when or why the layout changed.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 65,
+                  "end_line": 69
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "ordinary": {
+      "documents": {
+        "COLLABORATOR.md": {
+          "text": "# Returning collaborator guide\n\n## Scope and evidence\n\nThis is a small local Ollama comparison tool: a single Python CLI sends repeated\nindependent generations for one model and prompt, then saves Markdown responses\nand a JSON invocation index. It does not score responses or automate a sweep\nacross models. Run the CLI again with the same prompt to compare another model.\n[README.md](README.md) contains usage and output examples.\n\nThis guide records static inspection of the supplied project on 2026-11-14.\nThe initial inventory contained `ollama_model_test.py` (661 lines), `README.md`,\n`.gitignore`, and `LICENSE`; every file was read completely. No tests, dependency\nmanifest, packaging configuration, CI configuration, or saved run examples were\npresent in that inventory. No execution or live API verification was performed.\nThe original README states Python 3.7+; the script uses postponed annotations\n(`from __future__ import annotations`). Actual supported Python and Ollama\nversion ranges are unverified. No roadmap or outstanding issue list was supplied.\n\nA documentation-only handoff may omit source and dotfiles. The contracts below\npreserve the relevant facts without requiring those files. Source references\nare navigation aids for when the full checkout is available, not bundled code.\nThe root `LICENSE` is MIT, copyright (c) 2026 Bethany Hunt.\n\n## Source map\n\nAll implementation is in `ollama_model_test.py`. Line numbers refer to the\nreviewed source snapshot; function names are the more durable reference.\n\n| Source location | Responsibility |\n| --- | --- |\n| Lines 21–31, constants | Fixed host, relative output directory, temperature bounds, metadata exclusions |\n| `main`, line 34 | Resolve input, run sequential generations, persist output and invocation history |\n| `parse_args`, line 123 | Six generation/input flags plus help, with mutually exclusive streaming choices |\n| `resolve_model` through `read_multiline_prompt`, lines 169–243 | CLI validation and prompt input |\n| `list_ollama_models` through `ask_optional_temperature`, lines 246–328 | Model discovery and interactive choices |\n| `create_prompt_run_dir` through `unique_model_output_path`, lines 331–373 | Prompt identity, preview, sanitization, output naming |\n| `generate_once`, line 376 | One request, client timing, success/error result envelope |\n| `ollama_get_json` through `open_json_request`, lines 419–511 | HTTP and JSON/stream parsing |\n| `write_prompt_file` and `write_model_output_file`, lines 514–582 | UTF-8 Markdown serialization |\n| `markdown_fence_block` and `saved_metadata`, lines 585–593 | Safe fences for prompt/JSON, metadata filtering |\n| `append_metadata_run` and `legacy_metadata_as_run`, lines 596–653 | Invocation index rewrite and legacy conversion |\n| `now_local`, line 656; entry point, lines 660–661 | Local timezone timestamps and `SystemExit(main())` |\n\n## Control flow and configuration\n\nAfter argument parsing succeeds, `main` lists installed models before validating\nmodel, prompt, runs, temperature, and streaming in that order. Only after inputs\nare resolved does it create the prompt directory and write `prompt.md` if absent.\nIt chooses the model output path before making generation requests, holds all\nresults in memory, then writes the model file followed by the invocation index.\n\nThe constants are `OLLAMA_HOST = \"http://localhost:11434\"`,\n`OUTPUT_ROOT = Path(\"ollama-runs\")`, `TEMPERATURE_MIN = 0.0`,\n`TEMPERATURE_MAX = 2.0`, and `TEMPERATURE_DEFAULT = 0.8`.\nThe last value is a label in the interactive question; a blank answer produces\nempty options, leaving the default to Ollama. The client does not read a config\nfile or environment variable for these settings and exposes no host/output flags.\nRelative prompt-file and output paths resolve from the working directory.\n\nAn explicit model must match a discovered name exactly. Interactive selection\nuses a numbered list sorted case-insensitively. Prompt files are decoded as\nUTF-8 and stripped; interactive lines are joined with newlines and stripped.\nA line whose stripped value is `/done` terminates interactive input. EOF returns\nthe accumulated prompt, while Ctrl-C during prompt entry returns an empty prompt.\nOther interactive questions do not have equivalent EOF/Ctrl-C handling.\n\nRuns must be positive integers. Temperatures must be finite and within the\ninclusive bounds. Streaming defaults to false only after the interactive\nquestion is answered with Enter, unless a streaming flag is supplied.\n\n## HTTP contract and streaming\n\nThe standard library `urllib.request` handles all HTTP access:\n\n| Request | Body / expected response |\n| --- | --- |\n| `GET /api/tags` | Expects an object with a `models` list; collects nonempty `name` values |\n| `POST /api/generate` | UTF-8 JSON with `model`, `prompt`, and `stream`; includes `options` only when nonempty |\n\nThe only generation option set by this CLI is `temperature`. Requests do not\ncarry previous context, messages, a seed, or other generation settings. Both HTTP\npaths call `urlopen` with `timeout=600`; this is a request/socket timeout setting,\nnot an explicit wall-clock limit for the whole batch. There is no retry loop.\n\nNon-streaming requests read the whole response, decode UTF-8, and parse JSON.\nStreaming requests read newline-delimited JSON, skip blank lines, decode with\nreplacement for invalid UTF-8, and require each parsed line to be an object.\nNonempty string `response` fragments are accumulated and immediately printed\nand flushed. A truthy `done` stops the loop. The returned object copies the last\nchunk and replaces its `response` with all collected text, so metadata from\nprevious chunks is not merged.\n\nHTTP errors include the status and response body; URL errors include the reason;\ncaught `TimeoutError` becomes `request timed out`. Invalid JSON becomes a\n`RuntimeError`; streaming additionally rejects non-object lines and an empty\nstream. `generate_once` catches `RuntimeError`, records an error result, and lets\nthe batch continue.\n\nCompletion validation is limited: a nonempty stream ending without `done` is\naccepted, and neither response path explicitly treats an API JSON `error` field\nas failure. Non-streaming JSON is not checked for object shape before use.\nTherefore `Status: ok` means the client returned through its success path, not\nthat it independently validated a complete server generation. These are observed\ncode paths, not reproduced runtime failures.\n\n## Saved-data contract\n\n### Prompt identity and filenames\n\n`prompt_hash` is SHA-256 of the normalized prompt's UTF-8 bytes, in hexadecimal.\nNormalization here means input trimming (plus normal text-file reading), not\nlowercasing or collapsing internal whitespace. `prompt_slug` lowercases solely\nfor the name, extracts `[A-Za-z0-9]+` words, joins the first six with hyphens,\ntruncates to 80 characters, and falls back to `prompt` if needed. The directory\nis `<slug>_<first-eight-hash-characters>` under the output root.\n\n`safe_name` replaces runs outside `[A-Za-z0-9._-]` with `-`, trims edge hyphens,\nand falls back to `model`. The first output is `<safe-model>.md`; subsequent\nexisting names cause selection of `<safe-model>-2.md`, then `-3`, and so on.\nDifferent model names can sanitize to the same base and then share this suffix\nsequence. Hash-prefix collisions are not checked against the full saved hash.\n\n### Markdown files\n\n`prompt.md` stores its first-write local timestamp, full prompt hash, and fenced\nprompt. It is never refreshed if already present. A model output file represents\none invocation with all requested generation attempts. Its header stores model,\nlocal start timestamp, full prompt hash, result count, JSON options, streaming\nmode, and the full prompt.\n\nEach `## Run N` stores generation timestamp, elapsed client seconds (formatted\nto two decimals), and status. Successful response text is written as Markdown\nwith trailing whitespace removed, followed by fenced JSON metadata. Metadata\nretains every raw response field except `context` and `response`; the code does\nnot compute token metrics. Error results write the error in a fixed text fence.\nPrompt and metadata fences dynamically exceed any contained backtick run;\nresponse bodies are written directly as Markdown.\n\nAll timestamps use `datetime.now().astimezone().isoformat()`. Client elapsed time\nuses `time.monotonic()` around the request; saved Ollama timing fields are passed\nthrough without conversion. The units of those server fields are not specified\nby this repository.\n\n### `metadata.json`\n\nThe current top-level object has these fields:\n\n| Field | Meaning |\n| --- | --- |\n| `prompt_hash` | Full SHA-256 of normalized prompt |\n| `prompt_preview` | Whitespace collapsed to spaces; at most 160 characters, with `...` when truncated |\n| `files.prompt` | `prompt.md` |\n| `runs` | Array of invocation records, one per CLI invocation, not one per generation |\n\nEach new invocation record has:\n\n| Field | Meaning |\n| --- | --- |\n| `model` | Selected model name |\n| `runs_requested` | Requested generation count |\n| `runs_completed` | Number of result envelopes collected, including handled failures |\n| `started_at`, `finished_at` | Local ISO timestamps before and after the generation loop |\n| `options` | `{}` or an object containing `temperature` |\n| `stream` | Boolean for the invocation |\n| `files.model_output` | Model Markdown filename within the prompt directory |\n\nPer-generation responses, errors, and timing are in the model Markdown, not in\nthis index. There is no success count in an invocation record. JSON is written\nwith two-space indentation, sorted keys, and a trailing newline.\n\n`append_metadata_run` reads and rewrites the entire index. If `runs` is already\na list, it preserves those entries and appends the new invocation. Otherwise,\n`legacy_metadata_as_run` recognizes an older top-level record only if it contains\nall of `model`, `runs_requested`, `runs_completed`, `started_at`, `finished_at`,\nand `options`. It copies those fields and optional `files.model_output` into a\nsingle old invocation. This migration does not add a `stream` field. Other old\ntop-level fields are discarded when the new top-level object is constructed.\nInvalid JSON is treated as empty metadata and the history is replaced; a valid\nJSON value of the wrong shape is not generally guarded.\n\n## Operational limits to remember\n\n- Handled setup failures return 1, argparse normally returns 2 for invalid\n  arguments, and a batch that reaches the final writes returns 0 even when some\n  or all generations have recorded errors. Inspect model-file statuses.\n- Model output and metadata are saved only after all attempts. Interruptions or\n  uncaught exceptions can lose collected responses. A stream parsing failure\n  discards buffered partial text from the saved result even if it was displayed.\n- Filesystem writes, invalid UTF-8 prompt decoding, and unexpected response\n  shapes are not comprehensively caught. A write failure can leave a model file\n  without an index update. Writes are not atomic and there is no file locking;\n  concurrent invocations can choose the same output path or lose index updates.\n- The ignore file excludes generated runs and Python caches. It is a Git ignore\n  rule, not encryption or access control; output includes full prompts and\n  responses. No generated artifacts were supplied for inspection.\n\n## Verification status and useful checks\n\nDocumentation was checked by reading the full source and existing materials.\nNo test suite or test command is supplied, and no commands below or in the README\nwere executed for this review. The following are suggested verification cases\nfor future implementation work in an environment authorized to run the code;\nthey are not claims of passing tests:\n\n- Check CLI validation at run-count and temperature boundaries, including\n  nonfinite temperatures, and verify omitted choices prompt as documented.\n- Compare prompt-file and interactive normalization; check stable hashes,\n  punctuation/non-ASCII slug fallbacks, model sanitization, and suffix selection.\n- Verify metadata append and legacy conversion, including preservation of old\n  entries, omitted metadata keys, and behavior with corrupt or wrong-shaped JSON.\n- Use controlled HTTP responses to check ordinary JSON, fragmented streaming,\n  blank lines, invalid JSON, HTTP errors, empty streams, missing `done`, and API\n  error objects. Explicitly decide whether completion validation should change.\n- With a known installed model, compare streaming and non-streaming saved files,\n  then repeat the prompt and use a second model to verify grouping and numbering.\n- Check a batch with handled generation errors: later attempts should continue,\n  statuses should be saved, and the current successful process exit must not be\n  mistaken for generation success.\n\nAny change to prompt normalization, output naming, schema migration, or failure\nsemantics should account for existing run directories described above. Actual\nruntime support, server defaults, and behavior on particular Ollama versions\nremain unknown until separately verified.\n",
+          "original_content_sha256": "dc7fad93aba6ec0958544cc060ca9d7ed64b6599f9264af1c417ce911bc1d8a2",
+          "public_content_sha256": "dc7fad93aba6ec0958544cc060ca9d7ed64b6599f9264af1c417ce911bc1d8a2",
+          "original_lines": 224,
+          "public_lines": 224,
+          "file_origin": "created_file"
+        },
+        "LICENSE": {
+          "text": "MIT License\n\nCopyright (c) 2026 Bethany Hunt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+          "original_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "public_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "original_lines": 21,
+          "public_lines": 21,
+          "file_origin": "unchanged_snapshot_file"
+        },
+        "README.md": {
+          "text": "# Ollama Model Tester\n\nA small, dependency-free CLI for running the same prompt against your local\n[Ollama](https://ollama.com) models and saving responses to disk so you can\ncompare models or repeated runs side by side. Each invocation selects one model.\nIt uses only the Python standard library: no `pip install` required.\n\nReturning to the project? See [COLLABORATOR.md](COLLABORATOR.md) for the source\nmap, saved-data contract, failure behavior, and verification gaps.\n\n## Requirements\n\n- Python 3.7 or newer, as stated in the original README; compatibility has not\n  been tested in this documentation review.\n- [Ollama](https://ollama.com) running at `http://localhost:11434`.\n- At least one model pulled, e.g. `ollama pull llama3.1:8b`.\n\nThe host and output root are constants in `ollama_model_test.py`. There are no\nCLI flags or application environment-variable overrides for them. Output goes\nto `ollama-runs/` relative to the process's current working directory.\n\n## Quick start\n\nWith the source checkout available and Ollama running, run:\n\n```bash\npython3 ollama_model_test.py\n```\n\nYou'll be asked, in order:\n\n1. **Which model** to use: pick a number from your installed models, sorted by name.\n2. **The prompt**: type multiple lines, then put `/done` on its own line to finish.\n3. **How many times** to run the prompt: a positive whole number.\n4. **Temperature**: a finite number from `0.0` through `2.0`, or Enter for the server default.\n5. Whether to **stream** responses live to the terminal: Enter defaults to no.\n\nThe tool runs generations sequentially, using the same prompt and options each\ntime. It does not pass conversation context from one generation to the next.\nNon-streaming responses are saved to disk but are not printed in full.\n\nThe temperature prompt labels Ollama's default as `0.8`. Pressing Enter actually\nomits the temperature option; the client does not enforce or verify that server\ndefault. Interactive prompts and prompt files both have leading and trailing\nwhitespace stripped. An empty prompt is rejected.\n\n## Command-line flags\n\nEvery interactive choice can be supplied up front. Anything omitted is still\nasked interactively, including temperature and streaming.\n\n| Flag | Description |\n| --- | --- |\n| `--model NAME` | Exact installed model name returned by Ollama, including its tag |\n| `--runs N` | Positive number of generations |\n| `--temperature T` | Finite temperature, `0.0`–`2.0` inclusive |\n| `--prompt-file PATH` | Read the prompt from a UTF-8 text file |\n| `--stream` / `--no-stream` | Mutually exclusive streaming choices |\n| `-h` / `--help` | Show usage and exit |\n\nExample: run a saved prompt three times without interactive questions. Create\n`prompt.txt` first and substitute an installed model name if needed.\n\n```bash\npython3 ollama_model_test.py \\\n  --model llama3.1:8b \\\n  --prompt-file prompt.txt \\\n  --runs 3 \\\n  --temperature 0.7 \\\n  --no-stream\n```\n\nThere is no flag for selecting the server's default temperature without an\ninteractive question. Even with all flags supplied, the client first queries\nOllama's installed models.\n\n## Output\n\nResults are grouped into one folder per normalized prompt. Illustrative layout:\n\n```text\nollama-runs/\n  <prompt-slug>_<8-character-hash>/\n    prompt.md          # original prompt, full hash, first creation timestamp\n    metadata.json      # invocation history for this prompt\n    llama3.1-8b.md      # all generations from the first invocation for this model\n    llama3.1-8b-2.md    # a later invocation for the same model\n    gemma3-1b.md        # another model used with the same prompt\n```\n\nThe slug uses the first six ASCII alphanumeric words of the lowercased prompt,\nlimited to 80 characters; the suffix is the first eight hexadecimal characters\nof its SHA-256 hash. The hash covers the entire prompt after input trimming.\nInternal whitespace and case still affect it.\n\nRunning the same prompt against a different model uses the same folder.\nExisting model output files are preserved: later invocations choose `-2`, `-3`,\nand so on. Model names are sanitized, so `llama3.1:8b` becomes `llama3.1-8b.md`.\n`prompt.md` is written only if absent; `metadata.json` is rewritten with an\nadditional invocation entry.\n\nEach model file records the prompt, options, streaming mode, timestamps, and\nper-generation status and elapsed time. Successful responses include Ollama\nmetadata except `context` and the duplicated `response` field. Token counts and\nserver timings are included only when returned by Ollama. Failed generations\nrecord an error instead. See the collaborator guide for the JSON schema.\n\nOutput contains prompt and response text. The supplied `.gitignore` excludes\n`ollama-runs/`, `__pycache__/`, and `*.py[cod]`.\n\n## Interpreting failures\n\n- If models cannot be listed, check that Ollama is serving the fixed local URL.\n  An empty model list requires pulling a model; an unknown `--model` prints the\n  available names. These cases return exit code 1.\n- Invalid run counts or temperatures, unreadable prompt files handled as\n  `OSError`, and empty prompts also return 1. Argument-parser errors normally\n  return 2.\n- Handled generation failures are recorded and subsequent requested generations\n  still run. **Exit code 0 does not mean every generation succeeded.** Inspect\n  each `Status:` in the model output; `runs_completed` counts attempts, including\n  recorded errors.\n- Output for the model and the invocation history is written after all attempts.\n  An interruption can leave `prompt.md` without saved responses. Streaming to the\n  terminal is not an incremental disk checkpoint.\n\n## Documentation evidence and license\n\nThis documentation was checked against all 661 lines of the supplied Python\nscript, the original README, `.gitignore`, and [LICENSE](LICENSE). No project\ncode, tests, builds, installers, or network requests were run. Ollama version\ncompatibility and live behavior remain unverified.\n\nMIT License, copyright (c) 2026 Bethany Hunt.\n",
+          "original_content_sha256": "8ee1289312ba77f9a93d45818bb702ca52869c2827f50dd657b15c787015e6c7",
+          "public_content_sha256": "8ee1289312ba77f9a93d45818bb702ca52869c2827f50dd657b15c787015e6c7",
+          "original_lines": 134,
+          "public_lines": 134,
+          "file_origin": "modified_snapshot_file"
+        }
+      },
+      "reader_answer": {
+        "original_content_sha256": "8fb16d4d364d2c3ceddb0ffe37dca5ec7a25e9020cac4be583f923f91b2cb7af",
+        "value": {
+          "answers": [
+            {
+              "id": "K1",
+              "status": "answered",
+              "answer": "No configuration mechanism is provided in the pinned implementation. OLLAMA_HOST is fixed to http://localhost:11434; the client exposes no host flag and reads no configuration file or environment variable for this setting.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 53,
+                  "end_line": 59
+                }
+              ]
+            },
+            {
+              "id": "K2",
+              "status": "answered",
+              "answer": "Pressing Enter sends no temperature value: options are empty, and the request omits options when empty. Ollama determines the effective default. The displayed 0.8 is only the interactive prompt's default label; the client neither enforces nor verifies that server default.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 53,
+                  "end_line": 58
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 79,
+                  "end_line": 84
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 42,
+                  "end_line": 45
+                }
+              ]
+            },
+            {
+              "id": "K3",
+              "status": "answered",
+              "answer": "For a normal sequential rerun, existing model output is preserved: the new invocation selects a filename ending in -2, -3, etc. Existing prompt.md is left unchanged. metadata.json is rewritten, preserving its existing runs list and appending a new invocation. Invalid JSON instead causes history replacement. Concurrent invocations are not protected by locking and can collide or lose index updates.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 96,
+                  "end_line": 100
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 172,
+                  "end_line": 180
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 190,
+                  "end_line": 193
+                }
+              ]
+            },
+            {
+              "id": "K4",
+              "status": "answered",
+              "answer": "Both HTTP paths use urlopen(timeout=600), a request/socket timeout rather than a whole-batch deadline; there are no retries. Handled generation errors produce an error result and later attempts continue. A caught TimeoutError becomes 'request timed out'; HTTP errors include status/body and URL errors include the reason. Each failed run's Markdown records its timestamp, elapsed time, status and error text. runs_completed counts attempts, including failures, and reaching final writes returns exit code 0. Model output and metadata are written only after all attempts: interruptions or uncaught exceptions can lose collected results. Stream parsing failures discard buffered partial text from the saved result even if already displayed.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 81,
+                  "end_line": 84
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 94,
+                  "end_line": 98
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 132,
+                  "end_line": 136
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 162,
+                  "end_line": 169
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 184,
+                  "end_line": 189
+                }
+              ]
+            },
+            {
+              "id": "K5",
+              "status": "answered",
+              "answer": "The saved Ollama metadata excludes context and response. Other raw response fields are retained. For streaming, the returned metadata comes from the last chunk; metadata from earlier chunks is not merged.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 132,
+                  "end_line": 136
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 86,
+                  "end_line": 92
+                }
+              ]
+            },
+            {
+              "id": "K6",
+              "status": "answered",
+              "answer": "ollama-runs/ is relative to the process's current working directory. Each prompt directory is <slug>_<first-eight-hash-characters>. The slug uses the first six ASCII alphanumeric words of the lowercased prompt, joined with hyphens and truncated to 80 characters, falling back to 'prompt'. The hash is hexadecimal SHA-256 of the input-trimmed prompt's UTF-8 bytes; case and internal whitespace remain significant. Generated output is excluded by the repository's .gitignore rule for ollama-runs/.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 18,
+                  "end_line": 20
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 111,
+                  "end_line": 116
+                },
+                {
+                  "path": "README.md",
+                  "start_line": 108,
+                  "end_line": 109
+                }
+              ]
+            },
+            {
+              "id": "U1",
+              "status": "not_established",
+              "answer": "The documents establish a fixed localhost address with no host configuration mechanism, but do not establish whether this is an intentional long-term local-only support boundary or whether configurable/remote hosts are intended. No roadmap or outstanding issue list was supplied.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 53,
+                  "end_line": 59
+                },
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 16,
+                  "end_line": 18
+                }
+              ]
+            },
+            {
+              "id": "U2",
+              "status": "not_established",
+              "answer": "The documents describe existing legacy conversion, but give no commitment to continued support and no date or reason for the layout change. Currently, legacy_metadata_as_run recognizes an older top-level record containing model, runs_requested, runs_completed, started_at, finished_at and options, and converts it into one invocation entry, optionally retaining files.model_output. That implementation behavior does not establish a compatibility policy.",
+              "citations": [
+                {
+                  "path": "COLLABORATOR.md",
+                  "start_line": 172,
+                  "end_line": 180
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "context-docs": {
+      "documents": {
+        "AGENTS.md": {
+          "text": "# Project guidance\n\nRead [README.md](README.md) for usage and [CONTEXT.md](CONTEXT.md) for implementation facts, evidence boundaries and unresolved contracts. Keep CLI procedures in README and detailed implementation/persistence knowledge in CONTEXT; link between them instead of duplicating a tracker.\n\n## Context maintenance\n\nIntended method: context-docs. Entry point: [CONTEXT.md](CONTEXT.md).\n\nUse the context-docs skill for documentation audits and after meaningful changes to project facts, decisions, procedures, blockers or next actions. Read the skill before maintenance. Preserve project rules, document roles and decision status. Update affected canonical sections and check the diff, links and information preservation, keeping the inline progress view current without duplicate tracking. Keep audit-only requests read-only; make no bookkeeping edits when nothing durable changed. Coordinate one writer per context file and reconcile newer edits before replacing content.\n\nKeep source observations, executed results, approved decisions and proposals distinct. Record the evidence for changed claims; do not infer runtime success from code or a zero batch exit status. Keep essential handoff knowledge in visible Markdown so the documentation remains useful when source and skill packages are absent. Do not copy skill packages into the project; if the required skill is unavailable in a later session, report that dependency gap.\n\n### Setup status\n\nDocumentation and this maintenance rule were prepared on 2026-11-14. Automatic loading of this root AGENTS.md is unconfirmed: the session supplied personal AGENTS.md guidance, but no client version/settings or other evidence establishes loading of this newly created project file. Its presence and manual reading do not prove automatic loading.\n\nShared visible Markdown is the chosen documentation destination for this request. The inspected `.gitignore` has no matching rule for these root Markdown documents; actual Git tracking and effective ignore status were not verified using the permitted file-only tools. The handoff excludes the installed dot-path skills, so their availability to a future client is also unconfirmed. No event journal was enabled.\n\nAdoption setup remains incomplete pending instruction-loading, tracking/ignore and skill-availability verification in the target environment. The adopt-context-docs method says, \"Do not mark incomplete setup as adopted\"; accordingly no `Adopted` completion marker is recorded. Once those checks establish complete setup, add the method's single adoption marker here with the actual completion date and `Entry point: CONTEXT.md`.\n\nThis guidance grants no authority to execute code, access services, install dependencies, commit, publish, deploy or schedule recurring work. Follow the active session's authorized scope.\n",
+          "original_content_sha256": "9f51817ff62005f94cc72a7cc32aa874818781b3441324e4dbd31fcc10966df5",
+          "public_content_sha256": "9f51817ff62005f94cc72a7cc32aa874818781b3441324e4dbd31fcc10966df5",
+          "original_lines": 21,
+          "public_lines": 21,
+          "file_origin": "created_file"
+        },
+        "CONTEXT.md": {
+          "text": "# Ollama Model Tester: collaborator context\n\nStart with [README.md](README.md) for requirements, invocation and output examples. This document owns implementation context, persistence details and unresolved questions. [AGENTS.md](AGENTS.md) holds the maintenance rule; [LICENSE](LICENSE) is the MIT license.\n\n## Evidence and scope\n\nReviewed on 2026-11-14 by reading the complete supplied `ollama_model_test.py` (661 lines), README, `.gitignore` and LICENSE. All behavior below is inferred from source inspection, not an executed test. The supplied project contains one Python application file; no test suite, dependency manifest, CI configuration or saved run evidence was listed. Installed Python/Ollama versions, model availability and successful execution are unknown.\n\nThis handoff must remain useful without source access: the distribution for the returning collaborator includes visible Markdown and LICENSE, but excludes source, configuration, dot-paths and skill packages. Source names and function names below are provenance locators for a full checkout, not files bundled with this handoff. Obtain the source before using the README commands.\n\n## Purpose and current state\n\nThe README describes a dependency-free CLI for comparing local Ollama models or repeated runs of one model using the same prompt. One invocation selects one model and performs a sequential batch; comparison across models requires separate invocations with the same prompt. There is no automatic scoring or ranking in the inspected application.\n\n```text\nPurpose: compare responses for the same prompt [R]\n|-- PRESENT IN SOURCE: model selection and sequential generation [A]\n|-- PRESENT IN SOURCE: streaming and non-streaming response collection [A]\n|-- PRESENT IN SOURCE: prompt-grouped Markdown and JSON persistence [P]\n`-- UNVERIFIED: end-to-end results and supported environment compatibility [V]\n```\n\nEvidence: [R: README purpose](README.md#ollama-model-tester), [A: application flow](#application-flow), [P: persistence contract](#persistence-contract), [V: verification gaps](#verification-gaps-and-proposed-next-checks). These statuses describe the supplied implementation, not completed runtime milestones. No approved development roadmap, assigned work or release history was supplied.\n\n## Application flow\n\nAll application logic lives in `ollama_model_test.py`; imports are Python standard library modules. The README states Python 3.7 or newer; that compatibility claim has not been exercised here.\n\n| Area / source symbols | Inspected behavior |\n| --- | --- |\n| `main`, `parse_args` | Parse flags, list local models, resolve inputs, create the prompt directory, perform the requested generations, then write the model report and invocation metadata. There is no package/build step in the supplied project. |\n| `OLLAMA_HOST`, `OUTPUT_ROOT` | Fixed at `http://localhost:11434` and `Path(\"ollama-runs\")`. Output is relative to the process working directory. There are no CLI flags or environment-variable lookups to override either value. |\n| `list_ollama_models`, `resolve_model`, `choose_model` | GET `/api/tags`, extract nonempty model names and sort case-insensitively. Interactive selection is by number. `--model` must exactly match a returned name; it does not pull a missing model. Model discovery still occurs when all flags are supplied. |\n| `resolve_prompt`, `read_multiline_prompt` | Read UTF-8 from `--prompt-file`, or collect lines until a line whose stripped value is `/done`. Both routes strip leading/trailing whitespace from the entire prompt, retaining internal content. EOF finishes interactive input; Ctrl-C there returns an empty prompt. Empty/whitespace-only input is rejected. |\n| `resolve_runs`, `resolve_temperature` | Runs must be a positive integer. Temperature must be finite and in the inclusive range 0.0–2.0. An omitted temperature triggers an interactive question. Blank input leaves `options` without a temperature override. The displayed default is 0.8, but the code does not send 0.8 in that case; the effective server/model default is unknown. |\n| `resolve_stream` | Omitted streaming mode triggers a yes/no question, defaulting to false. `--stream` and `--no-stream` are mutually exclusive. |\n| `generate_once` | POST `/api/generate` with `model`, `prompt`, `stream`, and `options` only when nonempty. Each iteration uses the same prompt/options without feeding previous responses or context back into the request. |\n| HTTP helpers | Use `urllib.request.urlopen` with `timeout=600`. HTTP errors include the server body; URL and timeout errors become `RuntimeError`. This timeout is not a documented total batch deadline. There is no retry loop. |\n| `now_local`, `generate_once` | Record timezone-aware local ISO timestamps and measure elapsed request time with a monotonic clock. |\n\nFor a fully unattended invocation, supply every input shown in the [README example](README.md#command-line-flags-optional), including temperature and streaming mode. There is no CLI spelling for unattended use of an unspecified temperature; omission prompts.\n\n### Streaming and failure semantics\n\n`ollama_post_stream_json` reads newline-delimited JSON, ignores blank lines, rejects malformed JSON and non-object chunks, prints and accumulates string `response` fragments, and stops at a truthy `done` field. It combines the last chunk's metadata with the accumulated response. An empty stream is an error. A nonempty stream ending without `done: true` is currently accepted; there is no explicit rejection of an API-level `error` field in an otherwise valid response object. The non-streaming path likewise does not explicitly inspect an `error` field. Treat these as source-level limitations, not reproduced failures.\n\n`generate_once` converts `RuntimeError` into an error result, and the batch continues. For these handled failures, `main` still returns 0 after reports are written, even if every generation failed. `runs_completed` counts collected attempts, including errors; it is not a success count. Inspect each report's `Status` and error text before concluding that generation succeeded. Listing failures, no models and rejected resolved inputs return 1; argparse handles its own syntax errors.\n\nThe handler is not comprehensive: malformed response shapes, file decoding failures, filesystem errors and interruptions may escape it. A streaming failure after partial terminal output records an error result without retaining that partial response in the report. Reports are written only after the generation loop; interruption before then can leave `prompt.md` without a completed report or metadata update. No transactional write or concurrent-writer protection is present.\n\n## Persistence contract\n\nSource: `create_prompt_run_dir`, `prompt_slug`, `prompt_hash`, `safe_name`, `unique_model_output_path`, `write_prompt_file`, `write_model_output_file`, `append_metadata_run`, `legacy_metadata_as_run`.\n\n- Directory: `ollama-runs/<slug>_<hash8>/`. The slug uses the first six lowercase ASCII alphanumeric words, joins them with hyphens and limits the result to 80 characters; it falls back to `prompt`. The suffix is the first eight hexadecimal characters of SHA-256 over the resolved prompt's UTF-8 bytes. Full hashes are retained in saved documents. No directory collision check compares full hashes.\n- Grouping uses the resolved, stripped prompt, not the prompt filename. Internal whitespace or case changes affect the hash. Different models, temperatures and stream settings share the directory when the prompt is identical and the working directory is the same.\n- `prompt.md` is written only if absent. It stores the first write's timestamp, full prompt hash and prompt text.\n- Model report names replace runs of characters outside `[A-Za-z0-9._-]` with `-`, trim outer hyphens and fall back to `model`. A model such as `llama3.1:8b` becomes `llama3.1-8b.md`. If occupied, the next available `-2.md`, `-3.md`, etc. is used. A later invocation creates a new report; it does not append to an earlier model report.\n- Each report covers all attempts in that invocation. Its header records model, timestamp, prompt hash, run count, options and streaming mode, followed by the prompt. Each attempt records generation time, elapsed seconds, status, and either response plus Ollama metadata or error text.\n- `saved_metadata` drops `context` and `response` from the raw Ollama metadata. The source comment explains that `context` is a large token-ID array used for conversation continuation, while `response` duplicates the answer already saved. Other returned metadata keys are kept; their presence depends on the server response.\n- `markdown_fence_block` chooses a fence longer than any backtick run in prompt text or serialized metadata. Model responses are written directly as Markdown; error blocks use fixed triple-backtick fences.\n\n### Metadata JSON shape and compatibility\n\n`metadata.json` is an invocation index, not the per-generation token/timing record. Its top-level keys are `prompt_hash`, `prompt_preview`, `files` (with `prompt`), and `runs`. The preview collapses whitespace and limits text to 160 characters including an ellipsis when needed.\n\nEach element of `runs` contains `model`, `runs_requested`, `runs_completed`, `started_at`, `finished_at`, `options`, `stream`, and `files.model_output`. The function reads the existing document, appends an invocation and rewrites the whole JSON file.\n\nIf an older document lacks a list-valued `runs`, `legacy_metadata_as_run` can preserve a single invocation when all six fields `model`, `runs_requested`, `runs_completed`, `started_at`, `finished_at`, and `options` are present. It also carries forward `files.model_output` when available. This conversion does not add a `stream` field to the historical entry. The reader therefore should not assume every entry contains `stream`.\n\nInvalid JSON is silently replaced with a fresh metadata structure on the next write. An older shape without all required legacy fields is not retained as an invocation. Existing top-level fields outside the rebuilt schema are not preserved, and valid JSON of an unexpected type is not comprehensively validated. Concurrent processes can select the same report filename or lose metadata updates. These behaviors matter when interpreting or preserving prior results; they are not guarantees of safe migration.\n\nThe supplied `.gitignore` names `ollama-runs/`, `__pycache__/` and `*.py[cod]`. This records intended exclusion of generated output, not verified Git tracking state. Prompt text, responses and server error bodies can appear in output; review selected results before sharing them.\n\n## Verification gaps and proposed next checks\n\nNo commands, tests, builds, installers or HTTP requests were run for this documentation task. There is no supplied execution evidence to establish operational readiness, compatibility, performance or comparison quality. The following checks are proposals for a later authorized development session, not approved product changes or a claim that work is underway:\n\n1. With the full source and an available local Ollama model, exercise the README invocation in both streaming modes. Check per-attempt status and response persistence rather than relying only on exit code. Record Python/Ollama versions and the exact model for reproducibility.\n2. Repeat an identical prompt with the same model and then another model. Check shared directory selection, numbered reports and accumulated metadata. Include a prompt containing backticks and one without ASCII words to exercise formatting and naming.\n3. Before changing reliability behavior, decide intended semantics for batch exit status and interrupted/API-error streams. Test handled request failures, malformed chunks, end-of-stream without `done`, and API error objects against those decisions.\n4. Before changing persistence, preserve compatibility expectations for legacy metadata, damaged metadata and repeated writes. Decide whether concurrent execution is supported; no owner decision or tests establishing that contract were supplied.\n\nThe implementation choices above are observations. Their original author rationale and approval history are unknown except for the inline metadata-omission rationale. No decisions have been invented to resolve these open contracts.\n",
+          "original_content_sha256": "ae1a1d9cac1b15f180828345282e68dd24f7389c692a6083389e06f76d2f4fcc",
+          "public_content_sha256": "ae1a1d9cac1b15f180828345282e68dd24f7389c692a6083389e06f76d2f4fcc",
+          "original_lines": 84,
+          "public_lines": 84,
+          "file_origin": "created_file"
+        },
+        "LICENSE": {
+          "text": "MIT License\n\nCopyright (c) 2026 Bethany Hunt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+          "original_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "public_content_sha256": "50205793c48698b674146530d69fefc90649da21775ac20af8e85d5f8c86e1cf",
+          "original_lines": 21,
+          "public_lines": 21,
+          "file_origin": "unchanged_snapshot_file"
+        },
+        "README.md": {
+          "text": "# Ollama Model Tester\n\nA small, dependency-free CLI for running the same prompt against your local\n[Ollama](https://ollama.com) models and saving every response to disk — so you\ncan compare models (or compare repeated runs of one model) side by side.\n\nIt uses only the Python standard library: no `pip install` required.\n\nReturning collaborators: read [project context](CONTEXT.md) for the source-backed\napplication flow, persistence contract, failure semantics and verification gaps.\n[AGENTS.md](AGENTS.md) contains the documentation maintenance rule and setup status.\n\n## Requirements\n\n- Python 3.7 or newer\n- [Ollama](https://ollama.com) running locally (the default `http://localhost:11434`)\n- At least one model pulled, e.g. `ollama pull llama3.1:8b`\n\n## Quick start\n\nMake sure Ollama is running, then:\n\n```bash\npython3 ollama_model_test.py\n```\n\nYou'll be asked, in order:\n\n1. **Which model** to use (pick a number from your installed models)\n2. **The prompt** — type as many lines as you like, then put `/done` on its own\n   line to finish\n3. **How many times** to run the prompt\n4. **Temperature** (`0.0`–`2.0`), or press Enter to use Ollama's default\n5. Whether to **stream** the responses live to the terminal\n\nIt then runs the prompt the requested number of times and writes the results\nunder `ollama-runs/` in the current working directory.\n\n## Command-line flags (optional)\n\nEvery prompt above can be supplied up front, which makes the tool scriptable.\nAnything you omit is still asked interactively.\n\n| Flag | Description |\n| --- | --- |\n| `--model NAME` | Local model to use (must already be installed) |\n| `--runs N` | Number of generations to run |\n| `--temperature T` | Temperature, `0.0`–`2.0` |\n| `--prompt-file PATH` | Read the prompt from a UTF-8 text file |\n| `--stream` / `--no-stream` | Stream responses live, or don't |\n\nExample — run a saved prompt three times, fully non-interactive:\n\n```bash\npython3 ollama_model_test.py \\\n  --model llama3.1:8b \\\n  --prompt-file prompt.txt \\\n  --runs 3 \\\n  --temperature 0.7 \\\n  --no-stream\n```\n\n## Output\n\nResults are grouped into one folder per prompt:\n\n```text\nollama-runs/\n  what-are-the-main-tradeoffs-between_835562a4/\n    prompt.md         # the prompt, with its hash and timestamp\n    metadata.json     # invocation index (model, batch timing, options, report file)\n    llama3.1-8b.md    # responses + Ollama metadata for this model invocation\n    gemma3-1b.md\n```\n\nThe folder name is the first few words of the prompt plus a short hash of the\nfull resolved prompt (outer whitespace is stripped). Because the folder is keyed\non the prompt, **running the same prompt against a different model drops its\noutput into the same folder** — making model-to-model comparison easy. Each\nmodel report records every attempt in that invocation, with response and Ollama\nmetadata (token counts, timings, and so on) for successful attempts, or error text\nfor handled failures. Repeating the same model creates a new numbered report,\nsuch as `llama3.1-8b-2.md`, instead of appending to the earlier report.\n\nCheck each report's `Status`: a completed invocation can exit with status 0 even\nwhen generations failed, and `runs_completed` includes failed attempts. See the\n[context](CONTEXT.md#streaming-and-failure-semantics) for interruption and error\nhandling limits. These details were checked against source, not by running Ollama.\n",
+          "original_content_sha256": "ab0a713441ff99b3beb8d78f6abbe582b17d147a494928444687f5b2625e2b75",
+          "public_content_sha256": "ab0a713441ff99b3beb8d78f6abbe582b17d147a494928444687f5b2625e2b75",
+          "original_lines": 88,
+          "public_lines": 88,
+          "file_origin": "modified_snapshot_file"
+        }
+      },
+      "reader_answer": {
+        "original_content_sha256": "df6a64dc3b215fa840251198f594caaacffd4dce742b06699ccb5a4736f3cb22",
+        "value": {
+          "answers": [
+            {
+              "id": "K1",
+              "status": "answered",
+              "answer": "No. The documented source fixes OLLAMA_HOST at http://localhost:11434 and provides no command-line flag or environment-variable lookup to override it.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 32,
+                  "end_line": 32
+                }
+              ]
+            },
+            {
+              "id": "K2",
+              "status": "answered",
+              "answer": "Pressing Enter sends no temperature override. The 0.8 is the displayed default, but the code does not send that value for blank input. Ollama's effective server/model default is unknown from these documents. The request includes options only when nonempty.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 35,
+                  "end_line": 37
+                }
+              ]
+            },
+            {
+              "id": "K3",
+              "status": "answered",
+              "answer": "For sequential invocations using the same resolved prompt and working directory, the folder is reused. The earlier model report is preserved: a new report uses the next available suffix, such as -2.md or -3.md. Existing prompt.md is left untouched. metadata.json is read, a new invocation is appended to runs, and the whole JSON file is rewritten. This preservation has limits: invalid JSON is replaced, unsupported legacy entries and extra top-level fields may be lost, and concurrent writers can collide or lose updates.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 56,
+                  "end_line": 58
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 67,
+                  "end_line": 71
+                }
+              ]
+            },
+            {
+              "id": "K4",
+              "status": "answered",
+              "answer": "HTTP helpers set urlopen(timeout=600); this is not a documented total batch deadline, and there is no retry loop. HTTP errors include the server body; URL/timeout errors become RuntimeError. generate_once converts RuntimeError into an error result and continues the batch. After the loop, reports record each attempt's status, generation time, elapsed seconds and error text; runs_completed includes failed attempts. Handled failures still allow exit status 0, even if all attempts fail. Partial streamed text is not retained in the failure report. Other exceptions or interruptions may escape and stop execution; interruption before report writing can leave prompt.md without a completed report or metadata update. A nonempty stream ending without done:true is accepted, and API-level error fields are not explicitly checked.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 38,
+                  "end_line": 38
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 45,
+                  "end_line": 49
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 59,
+                  "end_line": 59
+                }
+              ]
+            },
+            {
+              "id": "K5",
+              "status": "answered",
+              "answer": "The saved Ollama metadata omits context and response. context is a large token-ID array for conversation continuation; response duplicates the answer already saved separately. Other returned metadata keys are retained.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 60,
+                  "end_line": 60
+                }
+              ]
+            },
+            {
+              "id": "K6",
+              "status": "answered",
+              "answer": "ollama-runs/ is relative to the process's current working directory. Each prompt folder is <slug>_<hash8>: the slug takes the first six lowercase ASCII alphanumeric words, joins them with hyphens, truncates to 80 characters, and falls back to prompt. hash8 is the first eight hexadecimal characters of SHA-256 over the resolved, outer-whitespace-stripped prompt's UTF-8 bytes. The supplied .gitignore lists ollama-runs/, establishing intended exclusion of generated output; actual Git tracking state was not verified.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 32,
+                  "end_line": 32
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 55,
+                  "end_line": 56
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 73,
+                  "end_line": 73
+                }
+              ]
+            },
+            {
+              "id": "U1",
+              "status": "not_established",
+              "answer": "The documents establish current local use and a fixed localhost address, but do not establish whether local-only operation is an intentional support boundary or configurable/remote hosts are intended. The README requires locally running Ollama; the context explicitly says implementation rationale and approval history are unknown.",
+              "citations": [
+                {
+                  "path": "README.md",
+                  "start_line": 13,
+                  "end_line": 17
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 32,
+                  "end_line": 32
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 84,
+                  "end_line": 84
+                }
+              ]
+            },
+            {
+              "id": "U2",
+              "status": "not_established",
+              "answer": "No lasting compatibility commitment or explanation of when or why the layout changed is established. The current converter can preserve an older single invocation when all six required fields are present, carrying forward files.model_output when available but adding no historical stream field. That implementation behavior is not a migration guarantee. The documents state that no release history was supplied and original rationale and approval history are unknown.",
+              "citations": [
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 23,
+                  "end_line": 23
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 69,
+                  "end_line": 71
+                },
+                {
+                  "path": "CONTEXT.md",
+                  "start_line": 84,
+                  "end_line": 84
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "grader_passes": {
+    "1": {
+      "original_content_sha256": "1a1100fdeba4d56e45ed26783fc8b77b93022a0a7aa4b44cfe0983b9c9df5816",
+      "value": {
+        "pass": 1,
+        "project": "P01",
+        "grades": [
+          {
+            "label": "A",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly identifies the fixed constant and absent configuration overrides, but omits the required explanation that changing hosts requires editing the source constant."
+          },
+          {
+            "label": "A",
+            "item": "K2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers omitted options, the display-only 0.8, and the unverified server default. Cited passages support these distinctions."
+          },
+          {
+            "label": "A",
+            "item": "K3",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explains numbered replacement filenames, preservation of prompt.md, and appended invocation history, with supported corruption and concurrency caveats."
+          },
+          {
+            "label": "A",
+            "item": "K4",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Includes the 600-second timeout, continued attempts after handled errors, saved error details, attempt-based runs_completed, and absence of retries."
+          },
+          {
+            "label": "A",
+            "item": "K5",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly names both omitted keys and retention of other fields, but omits sorted, indented JSON, which appears in the required points."
+          },
+          {
+            "label": "A",
+            "item": "K6",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers the working-directory-relative root, prompt slug plus eight SHA-256 hex characters, and the repository ignore rule."
+          },
+          {
+            "label": "A",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly leaves host-support intent and plans unknown while distinguishing the current fixed address from policy."
+          },
+          {
+            "label": "A",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "States that continued support and the change's date and rationale are unestablished; describes conversion without inventing a commitment."
+          },
+          {
+            "label": "B",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Identifies the fixed constant and absent CLI/environment overrides, but does not explain that another host requires editing the source constant."
+          },
+          {
+            "label": "B",
+            "item": "K2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Distinguishes the displayed 0.8 from omitted temperature/options and explicitly leaves the effective server default unknown."
+          },
+          {
+            "label": "B",
+            "item": "K3",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers new suffixed reports, unchanged existing prompt.md, and appended runs in rewritten metadata.json; caveats are supported."
+          },
+          {
+            "label": "B",
+            "item": "K4",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Provides the required timeout, error recording and continuation, attempt count, and no-retry behavior, while preserving exception and persistence limits."
+          },
+          {
+            "label": "B",
+            "item": "K5",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly identifies context and response as the only omitted keys, but omits the required point's sorted, indented JSON detail."
+          },
+          {
+            "label": "B",
+            "item": "K6",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers the root and naming rules, but reports intended Git exclusion while leaving tracking unverified rather than satisfying the frozen key's untracked-output claim."
+          },
+          {
+            "label": "B",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly states that local-only intent and remote-host plans are unestablished; factual context stays within current implementation and README usage."
+          },
+          {
+            "label": "B",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Leaves compatibility commitments and change history unknown, and clearly separates current conversion behavior from guarantees."
+          },
+          {
+            "label": "C",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Provides the localhost URL and absence of a documented host flag, but does not establish the hardcoded implementation, absent environment override, or required source edit."
+          },
+          {
+            "label": "C",
+            "item": "K2",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Retains the server-default behavior described by the README, but leaves request omission and the display-only 0.8 unexplained."
+          },
+          {
+            "label": "C",
+            "item": "K3",
+            "correctness": "incorrect",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Does not answer any required preservation mechanism: suffixed model files, write-if-absent prompt.md, or appended metadata runs. Citations support only the bounded README description."
+          },
+          {
+            "label": "C",
+            "item": "K4",
+            "correctness": "incorrect",
+            "citation": "none",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Offers no timeout, continuation, error-recording, attempt-count, or retry facts. Its explicit documentation limitation is usable but does not satisfy the supported item."
+          },
+          {
+            "label": "C",
+            "item": "K5",
+            "correctness": "incorrect",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Cites the general metadata description but identifies neither omitted key nor retention of all other fields."
+          },
+          {
+            "label": "C",
+            "item": "K6",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Provides prompt-word-plus-short-hash naming, but lacks the working-directory basis, eight-character SHA-256 specification, and Git ignore behavior."
+          },
+          {
+            "label": "C",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly states that local-only intent and configurable-host plans are unestablished, without inferring intent from local usage."
+          },
+          {
+            "label": "C",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Clearly states that the supplied README establishes neither continued legacy support nor when or why the layout changed."
+          }
+        ],
+        "disputes": [
+          {
+            "item": "K6",
+            "kind": "oracle_error",
+            "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement."
+          }
+        ]
+      }
+    },
+    "2": {
+      "original_content_sha256": "7e9ea19bc8362efe35798cda476ac12a8c9de64ddc4a2b8985bef84fc6b85202",
+      "value": {
+        "pass": 2,
+        "project": "P01",
+        "grades": [
+          {
+            "label": "A",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Identifies localhost and the absence of a documented host flag, but does not establish the hardcoded implementation, lack of environment overrides, or required source edit."
+          },
+          {
+            "label": "A",
+            "item": "K2",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Identifies use of Ollama's default, but does not explain omitted options or the display-only 0.8 constant."
+          },
+          {
+            "label": "A",
+            "item": "K3",
+            "correctness": "incorrect",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Accurately describes the limited README evidence but supplies none of the required concrete rerun behaviors: suffixed reports, preservation of prompt.md, and appending an invocation."
+          },
+          {
+            "label": "A",
+            "item": "K4",
+            "correctness": "incorrect",
+            "citation": "none",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly withholds the timeout, continuation, and failure-recording behavior required by the key."
+          },
+          {
+            "label": "A",
+            "item": "K5",
+            "correctness": "incorrect",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Does not identify context and response as excluded fields or explain retention of the other fields."
+          },
+          {
+            "label": "A",
+            "item": "K6",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Gives prompt grouping and the general slug-plus-hash naming scheme, but omits the working-directory base, eight-character SHA-256 suffix, and Git ignore rule."
+          },
+          {
+            "label": "A",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly leaves host-support intent unestablished and confines factual context to documented local usage."
+          },
+          {
+            "label": "A",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly states that continued legacy support and the change's date or rationale are undocumented."
+          },
+          {
+            "label": "B",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly identifies the fixed constant and absent configuration mechanisms, but does not state the required remedy of editing the source constant."
+          },
+          {
+            "label": "B",
+            "item": "K2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explains omitted options, display-only 0.8, and the unverified effective server default."
+          },
+          {
+            "label": "B",
+            "item": "K3",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers suffixed reports, unchanged existing prompt.md, and appended invocation history; corruption and concurrency qualifications agree with source."
+          },
+          {
+            "label": "B",
+            "item": "K4",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers the 600-second timeout, continued attempts, recorded errors, failure-inclusive counts, and absence of retries while preserving exception and persistence limits."
+          },
+          {
+            "label": "B",
+            "item": "K5",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly names both exclusions and retention of other fields, but omits the sorted, indented JSON serialization included in the required points."
+          },
+          {
+            "label": "B",
+            "item": "K6",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers the working-directory base, prompt slug and eight-character SHA-256 suffix, and repository ignore rule."
+          },
+          {
+            "label": "B",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Separates current hardcoding from unknown support intent and roadmap."
+          },
+          {
+            "label": "B",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "States that compatibility commitments and change history are unknown; the additional conversion description matches source."
+          },
+          {
+            "label": "C",
+            "item": "K1",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly identifies the fixed constant and absent flag/environment overrides, but does not state that changing the host requires editing the source constant."
+          },
+          {
+            "label": "C",
+            "item": "K2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Distinguishes omitted temperature/options from displayed 0.8 and preserves uncertainty about the actual server default."
+          },
+          {
+            "label": "C",
+            "item": "K3",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers all three required persistence behaviors and accurately qualifies corrupt metadata, unsupported legacy shapes, and concurrent writes."
+          },
+          {
+            "label": "C",
+            "item": "K4",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers timeout, continuation after handled errors, error reports, attempted-run counts, and no retries, with accurate interruption and streaming qualifications."
+          },
+          {
+            "label": "C",
+            "item": "K5",
+            "correctness": "partial",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Correctly identifies exclusions and retention, including the source-comment rationale, but omits required sorted, indented JSON serialization."
+          },
+          {
+            "label": "C",
+            "item": "K6",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Covers the working-directory base, exact naming scheme, and ignore-rule exclusion. Its qualification about unverified live Git state does not contradict the pinned repository."
+          },
+          {
+            "label": "C",
+            "item": "U1",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Explicitly distinguishes observed local use from unknown rationale, approval, and future host-support intent."
+          },
+          {
+            "label": "C",
+            "item": "U2",
+            "correctness": "correct",
+            "citation": "valid",
+            "invented_fact": false,
+            "critical_fabrication": false,
+            "lost_constraint": false,
+            "rationale": "Leaves compatibility commitments and change history unknown while accurately describing the bounded legacy conversion."
+          }
+        ],
+        "disputes": [],
+        "key_assessment": [
+          {
+            "item": "K1",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 21,
+                "end_line": 21
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 123,
+                "end_line": 166
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 419,
+                "end_line": 446
+              }
+            ],
+            "note": "All request constructors use the fixed constant. The complete module contains no host configuration or environment lookup."
+          },
+          {
+            "item": "K2",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 23,
+                "end_line": 25
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 67,
+                "end_line": 72
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 281,
+                "end_line": 285
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 312,
+                "end_line": 321
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 385,
+                "end_line": 391
+              }
+            ],
+            "note": "Blank input produces None and empty options; the request omits options. The 0.8 constant appears in the prompt without server-default verification."
+          },
+          {
+            "item": "K3",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 81,
+                "end_line": 83
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 362,
+                "end_line": 373
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 602,
+                "end_line": 625
+              }
+            ],
+            "note": "Normal sequential reruns select a free suffixed report, retain existing prompt.md, and rewrite metadata with an appended invocation."
+          },
+          {
+            "item": "K4",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 90,
+                "end_line": 105
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 407,
+                "end_line": 416
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 455,
+                "end_line": 455
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 480,
+                "end_line": 511
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 556,
+                "end_line": 580
+              }
+            ],
+            "note": "Both HTTP paths specify timeout=600. Handled RuntimeError failures become results, later iterations continue without retries, and saved reports include error status and text."
+          },
+          {
+            "item": "K5",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 28,
+                "end_line": 31
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 567,
+                "end_line": 575
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 592,
+                "end_line": 593
+              }
+            ],
+            "note": "Filtering removes exactly context and response; the retained mapping is serialized with indentation and sorted keys."
+          },
+          {
+            "item": "K6",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 22,
+                "end_line": 22
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 331,
+                "end_line": 354
+              },
+              {
+                "path": ".gitignore",
+                "start_line": 1,
+                "end_line": 2
+              }
+            ],
+            "note": "The output root is relative, directory names combine the prompt slug and eight SHA-256 hex characters, and generated output is ignored. No generated output files occur in the complete pinned tree."
+          },
+          {
+            "item": "U1",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 21,
+                "end_line": 21
+              },
+              {
+                "path": "README.md",
+                "start_line": 9,
+                "end_line": 13
+              }
+            ],
+            "note": "The complete four-file snapshot records current local usage and hardcoding, but no scope decision, rationale, or remote-host plan."
+          },
+          {
+            "item": "U2",
+            "status": "supported",
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 610,
+                "end_line": 625
+              },
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 628,
+                "end_line": 653
+              }
+            ],
+            "note": "The converter establishes present behavior only. The complete snapshot contains no compatibility commitment, release history, or explanation of the format change."
+          }
+        ],
+        "doc_claim_audit": [
+          {
+            "label": "A",
+            "path": "README.md",
+            "start_line": 75,
+            "end_line": 76,
+            "claim": "Each model's file records every run's response alongside Ollama's run metadata.",
+            "category": "lost_constraint",
+            "critical": false,
+            "evidence": [
+              {
+                "path": "ollama_model_test.py",
+                "start_line": 556,
+                "end_line": 580
+              }
+            ],
+            "note": "Response and metadata blocks are written only for successful attempts; handled failures contain error text instead. The document does not preserve that qualification, which matters when interpreting saved reports."
+          },
+          {
+            "label": "C",
+            "path": "AGENTS.md",
+            "start_line": 7,
+            "end_line": 11,
+            "claim": "Use the context-docs skill for documentation audits and after meaningful changes; read the skill before maintenance and report its absence as a dependency gap.",
+            "category": "unsupported",
+            "critical": true,
+            "evidence": [],
+            "note": "Introduces a mandatory external skill dependency and recurring maintenance procedure absent from the pinned source. This instruction is not presented merely as a proposed check."
+          },
+          {
+            "label": "C",
+            "path": "AGENTS.md",
+            "start_line": 17,
+            "end_line": 17,
+            "claim": "Shared visible Markdown is the chosen documentation destination for this request.",
+            "category": "unsupported",
+            "critical": false,
+            "evidence": [],
+            "note": "The source contains no request or destination decision supporting this task-specific provenance claim. It could influence where future collaborators place documentation."
+          },
+          {
+            "label": "C",
+            "path": "AGENTS.md",
+            "start_line": 19,
+            "end_line": 19,
+            "claim": "The adopt-context-docs method says, \"Do not mark incomplete setup as adopted\"; after verification, add the method's single adoption marker with a completion date and entry point.",
+            "category": "fabricated_authority",
+            "critical": true,
+            "evidence": [],
+            "note": "Attributes a quoted rule and required completion procedure to an external method that is not supplied or recorded in the pinned source. The packet cannot authenticate that authority."
+          }
+        ]
+      }
+    }
+  },
+  "reconciliation": {
+    "grader_pass_status": {
+      "1": "completed",
+      "2": "completed"
+    },
+    "label_maps": {
+      "1": {
+        "A": "ordinary",
+        "B": "context-docs",
+        "C": "original-docs"
+      },
+      "2": {
+        "A": "original-docs",
+        "B": "ordinary",
+        "C": "context-docs"
+      }
+    },
+    "mechanical_citations": {
+      "context-docs": {
+        "K1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K2": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K3": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K4": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K5": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K6": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U2": {
+          "all_exist": true,
+          "cited": true
+        }
+      },
+      "ordinary": {
+        "K1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K2": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K3": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K4": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K5": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K6": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U2": {
+          "all_exist": true,
+          "cited": true
+        }
+      },
+      "original-docs": {
+        "K1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K2": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K3": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K4": {
+          "all_exist": false,
+          "cited": false
+        },
+        "K5": {
+          "all_exist": true,
+          "cited": true
+        },
+        "K6": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U1": {
+          "all_exist": true,
+          "cited": true
+        },
+        "U2": {
+          "all_exist": true,
+          "cited": true
+        }
+      }
+    },
+    "reader_output_missing": [],
+    "reconcile": {
+      "conditions": {
+        "context-docs": {
+          "denominators": {
+            "supported": 6,
+            "unknown": 2
+          },
+          "doc_claim_audit_pass2_only": {
+            "contradicted": {
+              "count": 0,
+              "critical": 0
+            },
+            "fabricated_authority": {
+              "count": 1,
+              "critical": 1
+            },
+            "lost_constraint": {
+              "count": 0,
+              "critical": 0
+            },
+            "unsupported": {
+              "count": 2,
+              "critical": 1
+            }
+          },
+          "intervals": {
+            "citation_invalid": {
+              "high": 0,
+              "low": 0
+            },
+            "critical_fabrication": {
+              "high": 0,
+              "low": 0
+            },
+            "lost_constraint": {
+              "high": 0,
+              "low": 0
+            },
+            "supported_correct": {
+              "high": 4,
+              "low": 3
+            },
+            "supported_partial": {
+              "high": 3,
+              "low": 2
+            },
+            "unknown_correct": {
+              "high": 2,
+              "low": 2
+            },
+            "unknown_invented_fact": {
+              "high": 0,
+              "low": 0
+            },
+            "useful_cited_correct": {
+              "high": 4,
+              "low": 3
+            }
+          },
+          "items": [
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K3",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K4",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K5",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [
+                {
+                  "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                  "kind": "oracle_error",
+                  "pass": 1
+                }
+              ],
+              "grades_agree": false,
+              "item": "K6",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "unresolved"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            }
+          ],
+          "reader_output_missing": false
+        },
+        "ordinary": {
+          "denominators": {
+            "supported": 6,
+            "unknown": 2
+          },
+          "doc_claim_audit_pass2_only": {
+            "contradicted": {
+              "count": 0,
+              "critical": 0
+            },
+            "fabricated_authority": {
+              "count": 0,
+              "critical": 0
+            },
+            "lost_constraint": {
+              "count": 0,
+              "critical": 0
+            },
+            "unsupported": {
+              "count": 0,
+              "critical": 0
+            }
+          },
+          "intervals": {
+            "citation_invalid": {
+              "high": 0,
+              "low": 0
+            },
+            "critical_fabrication": {
+              "high": 0,
+              "low": 0
+            },
+            "lost_constraint": {
+              "high": 0,
+              "low": 0
+            },
+            "supported_correct": {
+              "high": 4,
+              "low": 4
+            },
+            "supported_partial": {
+              "high": 2,
+              "low": 2
+            },
+            "unknown_correct": {
+              "high": 2,
+              "low": 2
+            },
+            "unknown_invented_fact": {
+              "high": 0,
+              "low": 0
+            },
+            "useful_cited_correct": {
+              "high": 4,
+              "low": 4
+            }
+          },
+          "items": [
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K3",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K4",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K5",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [
+                {
+                  "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                  "kind": "oracle_error",
+                  "pass": 1
+                }
+              ],
+              "grades_agree": true,
+              "item": "K6",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "unresolved"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            }
+          ],
+          "reader_output_missing": false
+        },
+        "original-docs": {
+          "denominators": {
+            "supported": 6,
+            "unknown": 2
+          },
+          "doc_claim_audit_pass2_only": {
+            "contradicted": {
+              "count": 0,
+              "critical": 0
+            },
+            "fabricated_authority": {
+              "count": 0,
+              "critical": 0
+            },
+            "lost_constraint": {
+              "count": 1,
+              "critical": 0
+            },
+            "unsupported": {
+              "count": 0,
+              "critical": 0
+            }
+          },
+          "intervals": {
+            "citation_invalid": {
+              "high": 0,
+              "low": 0
+            },
+            "critical_fabrication": {
+              "high": 0,
+              "low": 0
+            },
+            "lost_constraint": {
+              "high": 0,
+              "low": 0
+            },
+            "supported_correct": {
+              "high": 0,
+              "low": 0
+            },
+            "supported_partial": {
+              "high": 3,
+              "low": 3
+            },
+            "unknown_correct": {
+              "high": 2,
+              "low": 2
+            },
+            "unknown_invented_fact": {
+              "high": 0,
+              "low": 0
+            },
+            "useful_cited_correct": {
+              "high": 0,
+              "low": 0
+            }
+          },
+          "items": [
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K3",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": false,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K4",
+              "pass1": {
+                "citation": "none",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "none",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "K5",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "incorrect",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [
+                {
+                  "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                  "kind": "oracle_error",
+                  "pass": 1
+                }
+              ],
+              "grades_agree": true,
+              "item": "K6",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "partial",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "unresolved"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U1",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            },
+            {
+              "citations_exist_mechanically": true,
+              "disputes": [],
+              "grades_agree": true,
+              "item": "U2",
+              "pass1": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "pass2": {
+                "citation": "valid",
+                "correctness": "correct",
+                "critical_fabrication": false,
+                "invented_fact": false,
+                "lost_constraint": false
+              },
+              "status": "agreed"
+            }
+          ],
+          "reader_output_missing": false
+        }
+      },
+      "item_disputes_unresolved": {
+        "K6": [
+          {
+            "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+            "kind": "oracle_error",
+            "pass": 1
+          }
+        ]
+      },
+      "pass_validation_errors": {
+        "1": [],
+        "2": []
+      },
+      "passes_present": [
+        1,
+        2
+      ],
+      "project": "P01"
+    }
+  },
+  "summary": {
+    "conditions": {
+      "context-docs": {
+        "agreed_items": 7,
+        "critical_fabrication_items_either_pass": [],
+        "denominators": {
+          "supported": 6,
+          "unknown": 2
+        },
+        "doc_claim_audit_pass2_only": {
+          "contradicted": {
+            "count": 0,
+            "critical": 0
+          },
+          "fabricated_authority": {
+            "count": 1,
+            "critical": 1
+          },
+          "lost_constraint": {
+            "count": 0,
+            "critical": 0
+          },
+          "unsupported": {
+            "count": 2,
+            "critical": 1
+          }
+        },
+        "intervals": {
+          "citation_invalid": {
+            "high": 0,
+            "low": 0
+          },
+          "critical_fabrication": {
+            "high": 0,
+            "low": 0
+          },
+          "lost_constraint": {
+            "high": 0,
+            "low": 0
+          },
+          "supported_correct": {
+            "high": 4,
+            "low": 3
+          },
+          "supported_partial": {
+            "high": 3,
+            "low": 2
+          },
+          "unknown_correct": {
+            "high": 2,
+            "low": 2
+          },
+          "unknown_invented_fact": {
+            "high": 0,
+            "low": 0
+          },
+          "useful_cited_correct": {
+            "high": 4,
+            "low": 3
+          }
+        },
+        "lost_constraint_items_either_pass": [],
+        "reader": {
+          "elapsed_seconds": 41.648,
+          "id": "R3-P01-context-docs",
+          "status": "completed",
+          "stop_reason": null,
+          "unique_tool_items": 5,
+          "usable": true,
+          "usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 49536,
+            "input_tokens": 71234,
+            "output_tokens": 1303,
+            "reasoning_output_tokens": 52
+          }
+        },
+        "reader_docs": {
+          "bytes": 19629,
+          "files": 4
+        },
+        "reader_output_missing": false,
+        "unresolved_items": [
+          {
+            "citations_exist_mechanically": true,
+            "disputes": [
+              {
+                "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                "kind": "oracle_error",
+                "pass": 1
+              }
+            ],
+            "grades_agree": false,
+            "item": "K6",
+            "pass1": {
+              "citation": "valid",
+              "correctness": "partial",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "pass2": {
+              "citation": "valid",
+              "correctness": "correct",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "status": "unresolved"
+          }
+        ],
+        "writer": {
+          "elapsed_seconds": 191.291,
+          "id": "W2-P01-context-docs",
+          "status": "completed",
+          "stop_reason": null,
+          "unique_tool_items": 18,
+          "usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 190976,
+            "input_tokens": 225557,
+            "output_tokens": 5475,
+            "reasoning_output_tokens": 657
+          }
+        }
+      },
+      "ordinary": {
+        "agreed_items": 7,
+        "critical_fabrication_items_either_pass": [],
+        "denominators": {
+          "supported": 6,
+          "unknown": 2
+        },
+        "doc_claim_audit_pass2_only": {
+          "contradicted": {
+            "count": 0,
+            "critical": 0
+          },
+          "fabricated_authority": {
+            "count": 0,
+            "critical": 0
+          },
+          "lost_constraint": {
+            "count": 0,
+            "critical": 0
+          },
+          "unsupported": {
+            "count": 0,
+            "critical": 0
+          }
+        },
+        "intervals": {
+          "citation_invalid": {
+            "high": 0,
+            "low": 0
+          },
+          "critical_fabrication": {
+            "high": 0,
+            "low": 0
+          },
+          "lost_constraint": {
+            "high": 0,
+            "low": 0
+          },
+          "supported_correct": {
+            "high": 4,
+            "low": 4
+          },
+          "supported_partial": {
+            "high": 2,
+            "low": 2
+          },
+          "unknown_correct": {
+            "high": 2,
+            "low": 2
+          },
+          "unknown_invented_fact": {
+            "high": 0,
+            "low": 0
+          },
+          "useful_cited_correct": {
+            "high": 4,
+            "low": 4
+          }
+        },
+        "lost_constraint_items_either_pass": [],
+        "reader": {
+          "elapsed_seconds": 48.386,
+          "id": "R2-P01-ordinary",
+          "status": "completed",
+          "stop_reason": null,
+          "unique_tool_items": 6,
+          "usable": true,
+          "usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 50304,
+            "input_tokens": 74013,
+            "output_tokens": 1397,
+            "reasoning_output_tokens": 65
+          }
+        },
+        "reader_docs": {
+          "bytes": 20164,
+          "files": 3
+        },
+        "reader_output_missing": false,
+        "unresolved_items": [
+          {
+            "citations_exist_mechanically": true,
+            "disputes": [
+              {
+                "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                "kind": "oracle_error",
+                "pass": 1
+              }
+            ],
+            "grades_agree": true,
+            "item": "K6",
+            "pass1": {
+              "citation": "valid",
+              "correctness": "correct",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "pass2": {
+              "citation": "valid",
+              "correctness": "correct",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "status": "unresolved"
+          }
+        ],
+        "writer": {
+          "elapsed_seconds": 189.571,
+          "id": "W1-P01-ordinary",
+          "status": "completed",
+          "stop_reason": null,
+          "unique_tool_items": 15,
+          "usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 182144,
+            "input_tokens": 221283,
+            "output_tokens": 5701,
+            "reasoning_output_tokens": 282
+          }
+        }
+      },
+      "original-docs": {
+        "agreed_items": 7,
+        "critical_fabrication_items_either_pass": [],
+        "denominators": {
+          "supported": 6,
+          "unknown": 2
+        },
+        "doc_claim_audit_pass2_only": {
+          "contradicted": {
+            "count": 0,
+            "critical": 0
+          },
+          "fabricated_authority": {
+            "count": 0,
+            "critical": 0
+          },
+          "lost_constraint": {
+            "count": 1,
+            "critical": 0
+          },
+          "unsupported": {
+            "count": 0,
+            "critical": 0
+          }
+        },
+        "intervals": {
+          "citation_invalid": {
+            "high": 0,
+            "low": 0
+          },
+          "critical_fabrication": {
+            "high": 0,
+            "low": 0
+          },
+          "lost_constraint": {
+            "high": 0,
+            "low": 0
+          },
+          "supported_correct": {
+            "high": 0,
+            "low": 0
+          },
+          "supported_partial": {
+            "high": 3,
+            "low": 3
+          },
+          "unknown_correct": {
+            "high": 2,
+            "low": 2
+          },
+          "unknown_invented_fact": {
+            "high": 0,
+            "low": 0
+          },
+          "useful_cited_correct": {
+            "high": 0,
+            "low": 0
+          }
+        },
+        "lost_constraint_items_either_pass": [],
+        "reader": {
+          "elapsed_seconds": 44.139,
+          "id": "R1-P01-original-docs",
+          "status": "completed",
+          "stop_reason": null,
+          "unique_tool_items": 3,
+          "usable": true,
+          "usage": {
+            "cache_write_input_tokens": 0,
+            "cached_input_tokens": 42496,
+            "input_tokens": 55685,
+            "output_tokens": 861,
+            "reasoning_output_tokens": 43
+          }
+        },
+        "reader_docs": {
+          "bytes": 3600,
+          "files": 2
+        },
+        "reader_output_missing": false,
+        "unresolved_items": [
+          {
+            "citations_exist_mechanically": true,
+            "disputes": [
+              {
+                "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+                "kind": "oracle_error",
+                "pass": 1
+              }
+            ],
+            "grades_agree": true,
+            "item": "K6",
+            "pass1": {
+              "citation": "valid",
+              "correctness": "partial",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "pass2": {
+              "citation": "valid",
+              "correctness": "partial",
+              "critical_fabrication": false,
+              "invented_fact": false,
+              "lost_constraint": false
+            },
+            "status": "unresolved"
+          }
+        ],
+        "writer": null
+      }
+    },
+    "grader_pass_status": {
+      "1": "completed",
+      "2": "completed"
+    },
+    "grader_usage": {
+      "1": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 32326,
+        "output_tokens": 3216,
+        "reasoning_output_tokens": 955
+      },
+      "2": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 0,
+        "input_tokens": 41108,
+        "output_tokens": 8060,
+        "reasoning_output_tokens": 4142
+      }
+    },
+    "item_disputes_unresolved": {
+      "K6": [
+        {
+          "detail": "The supplied .gitignore evidence establishes an ignore rule, but does not establish actual tracking state: already tracked files remain tracked despite matching ignore rules. The required point's inference that output is therefore untracked exceeds this evidence. Grades retain the frozen requirement.",
+          "kind": "oracle_error",
+          "pass": 1
+        }
+      ]
+    },
+    "pass_validation_errors": {
+      "1": [],
+      "2": []
+    }
+  }
+}

@@ -250,6 +250,22 @@ failures and the limits of its restricted sessions.
 
 ## More recent studies
 
+### November 14 public-project documentation study — local draft
+
+The [local draft report](evaluation-2026-11-14-public-project-docs.md) compares
+original docs, ordinary Markdown writing and explicit Context Docs adoption on
+three pinned public projects. All 21 sessions and both grading passes completed.
+Useful cited correct answers out of six, per project, are **0/4/3–4**, **0/3/2**
+and **0/3/2** (original / ordinary / Context Docs). Partials are separate; the
+range reflects grading disagreement. All conditions score 2/2 on bounded unknowns.
+Context Docs did not outperform ordinary writing on this metric. Two unresolved
+key/question disputes and all single-pass document-audit flags remain visible,
+including the audit's missing method-authority evidence. The
+[portable evidence](../evals/results/2026-11-14-public-project-docs/README.md)
+retains answers, documents, source, grades and derivation limits. This small,
+same-model AI assessment does not measure human/novice effort or the convenience
+of a ready-to-apply standard. The write-up remains local and unpublished.
+
 ### November 13 Markdown-maintenance comparison
 
 The [November 13 report](evaluation-2026-11-13-markdown-maintenance.md)

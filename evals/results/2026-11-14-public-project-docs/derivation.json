@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "maintainer-prepared public derivative; local draft",
+  "included": [
+    "all 61 pinned source files including original MIT LICENSE per case",
+    "all nine docs-only views and answers",
+    "all six raw final grade JSON objects",
+    "exact grader-visible reference-item fields",
+    "all per-item reconciliations, mechanical citations and summary metrics",
+    "exact prompt templates, schemas, order/label maps, caps, package hashes, per-session usage and status"
+  ],
+  "excluded": [
+    "private filesystem paths and invocation IDs",
+    "client/account/global configuration and operator workflow records",
+    "raw tool/transport logs and writer conversations",
+    "nonselected screening candidates and eligibility prose",
+    "selection-only existing_prose_coverage and other key metadata not supplied to graders",
+    "complete execution/controller harness"
+  ],
+  "substitutions": [],
+  "line_count_policy": "Every text substitution preserves newline count; source and saved-document entries identify original and public UTF-8 byte hashes and line counts. No scores, judgments or dispute states changed.",
+  "file_origin_limit": "file_origin compares whole files, not individual claims. A modified file may retain inaccurate upstream prose."
+}
