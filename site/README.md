@@ -55,14 +55,15 @@ GitHub; the site artifact does not copy evaluation JSON, context or journals.
 The owner authorized publication without a new release. The latest deployment
 section below records verified deployment separately from this preparation.
 
-The local [experiments index](experiments.html) (`/experiments/`) lists both reports
+The [experiments index](experiments.html) (`/experiments/`) lists both reports
 newest first, with short qualified summaries and links to each full report, its
 Markdown source and its GitHub evidence. Every canonical page now shares one main
 menu: Overview, Guide, Examples, Experiments, GitHub. Compare stays reachable from
 page content and footers. Both report pages link back to the index outside their
 unchanged articles. `test_build.py` checks the menu order, targets and current
 markers on all ten canonical routes, plus the index cards, links and artifact boundary.
-This index is local source only and has not been deployed.
+The index and shared navigation are deployed; the [latest deployment](#latest-deployment)
+records the verified source, artifact and live checks.
 
 The [comparison page](compare.html) is the canonical copy for the October 24
 [research and fit preview](../docs/context-management-comparison.md). It uses the
@@ -396,8 +397,11 @@ menu across the website, explicitly retaining Overview. The index and five-link
 menu described above passed independent source review without findings. The owner
 subsequently authorized local commits: `29afabd` contains the exact staged review
 tree, explicitly accepted by the active review record before closure. These
-commit-status records are separate and leave website output unchanged. Nothing
-was pushed, deployed or released; the deployed source remains `2fcc0e9` below.
+commit-status records are separate and leave website output unchanged. At that
+local-commit stage, nothing was pushed, deployed or released. The owner later
+authorized pushing all three commits and deploying the index and navigation; the
+[latest deployment](#latest-deployment) records that verified publication without
+a new release.
 
 All 46 site tests and repository static checks pass. Fresh local Chrome checks
 cover all ten canonical pages at 1440, 768, 390 and 320px: menu labels, order,
@@ -410,10 +414,42 @@ workflow and release records are unchanged.
 
 These are one-browser rendering and source checks, not cross-browser or
 accessibility certification, new experiment results or measured human benefit.
-The preview is served locally under an explicit lease; it is not the production
-website. Operator evidence ID: `experiments-index-preview-2026-11-14`.
+That preview was served locally under an explicit lease; its source was later
+published as recorded below. Operator evidence ID: `experiments-index-preview-2026-11-14`.
 
 ## Latest deployment
+
+The [experiments index](https://context-docs.com/experiments/) and shared five-link
+main navigation are deployed from **`645b5a0`** by
+[Landing page run 43608647622](https://github.com/jaredchu/context-docs/actions/runs/43608647622).
+The owner authorized pushing all three local commits and deploying the reviewed
+website, without a new release. All three reached their existing remotes.
+Reviewed implementation `29afabd` has an exact accepted source-review binding;
+`645b5a0` adds only factual records and produces the same twenty-file build.
+
+[Source CI](https://github.com/jaredchu/context-docs/actions/runs/43608647711),
+the build and actual Worker deployment pass, including all 46 site tests.
+Both workflow manifests and all nineteen uploaded files match the pinned build;
+the empty `.nojekyll` marker is omitted. Eighteen canonical live resources match:
+eight exactly and ten HTML pages after removing only the retained Cloudflare
+analytics beacon. All ten canonical routes and metadata, sitemap, robots,
+eight redirects and the missing-route 404 check pass. The existing comparison
+page still has no `og:url`. Worker version:
+`4465abbb-65f0-49e1-8b7c-ad932ef83849`.
+
+Live Chrome checks pass on every canonical page at 1440, 768, 390 and 320px,
+including consistent menu labels/targets, current markers and contained page
+width. Index dates, report/back links, keyboard order and no-JavaScript content
+pass, with no observed browser exceptions. These are one-browser checks, not
+cross-browser or accessibility certification or new human-benefit evidence.
+Report articles, scientific scores, disputes, evidence, skills, release records
+and tags are unchanged; v0.2.7 remains current. No new experiment or release.
+Operator evidence ID: `experiments-index-deploy-2026-11-14`.
+
+The deployed source remains `645b5a0` when later record-only commits advance
+`main`; those records leave output unchanged and do not request another deployment.
+
+### Earlier public-project experiment deployment
 
 The reviewed [public-project documentation experiment](https://context-docs.com/experiments/public-project-docs/)
 is deployed from **`2fcc0e9`** by

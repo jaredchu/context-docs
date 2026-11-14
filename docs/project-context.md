@@ -20,18 +20,25 @@ and evidence IDs when those records explain a project issue.
 ## Current focus
 
 The owner requested easier experiment discovery, a new `/experiments/` index and
-one simplified main menu on every page, explicitly keeping Overview. The local
-preview now uses Overview, Guide, Examples, Experiments and GitHub on all ten
+one simplified main menu on every page, explicitly keeping Overview. The
+website now uses Overview, Guide, Examples, Experiments and GitHub on all ten
 canonical routes; the index lists both published reports newest first and links
 to their sources and evidence. Report articles and scores remain unchanged.
-All 46 site tests and local desktop/mobile checks pass, including 320px layouts,
+All 46 site tests and local/live desktop/mobile checks pass, including 320px layouts,
 keyboard navigation and no-JavaScript content. The [preview summary](../site/README.md#local-experiments-index-and-navigation-preview)
 owns check details and limits. Independent source review passed without findings.
 The owner subsequently authorized committing the reviewed revision locally: source
 `29afabd` preserves the exact staged review tree and was accepted by the active
 review record before closure. The related status records are separate from that
-reviewed source. No push, deployment or release is authorized; the deployed source
-remains `2fcc0e9`. The publication records below describe that earlier build.
+reviewed source. The owner subsequently authorized pushing all three commits
+and deploying the index and navigation. The [experiments index](https://context-docs.com/experiments/)
+is deployed from `645b5a0` by [Landing page run 43608647622](https://github.com/jaredchu/context-docs/actions/runs/43608647622).
+Source CI, both manifests, nineteen uploaded files, eighteen canonical live
+resources, eight redirects and the 404 check pass. All ten routes pass live
+Chrome checks at four widths, with keyboard and no-JavaScript checks; these
+remain one-browser observations. The [deployment summary](../site/README.md#latest-deployment)
+owns identities and limits. Scores and research qualifications are unchanged;
+no new experiment, skill/version change or release was published.
 
 The owner requested a public-facing write-up and Astra review of the completed
 November 14 public-project documentation experiment, initially keeping everything local.
@@ -203,9 +210,9 @@ Public-project study (November 14): EXPERIMENT COMPLETE → PUBLISHED 2fcc0e9
   ├─ RETAINED Per-project scores, partials, key disputes and audit evidence limits
   └─ UNMEASURED Human effort; no new experiment or skill/release change
 
-Experiment discovery (November 14): REVIEWED → COMMITTED LOCALLY 29afabd
-  ├─ PREPARED /experiments/ index and consistent five-link main menu
-  └─ CHECKED Ten routes at four widths; deployment remains unauthorized
+Experiment discovery (November 14): REVIEWED 29afabd → DEPLOYED 645b5a0
+  ├─ LIVE /experiments/ index and consistent five-link main menu
+  └─ CHECKED Artifact/live parity and ten routes at four widths; no new release
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
