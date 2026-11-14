@@ -32,8 +32,16 @@ request and method packages. Same-model dependence, AI keys, sparse coverage and
 creation-only adoption limit interpretation; newcomer effort and the convenience
 of establishing conventions remain unmeasured. Original study evidence, skills
 and versions are unchanged. The owner subsequently authorized pushing the reviewed public/private commits and
-publishing the write-up on the existing website. The new presentation is prepared
-for source review and deployment checks; this does not authorize a new release.
+publishing the write-up on the existing website. Report `d99f9b6` and the related
+private commit reached their existing remotes. The [experiment page](https://context-docs.com/experiments/public-project-docs/)
+is deployed from `2fcc0e9` by [Landing page run 43583879995](https://github.com/jaredchu/context-docs/actions/runs/43583879995).
+Astra passed the independent source review; its active review record was explicitly
+bound to the exact source commit before deployment. Source CI, all 43 site tests,
+both manifests, eighteen artifact files, seventeen canonical live resources, six
+redirects and the 404 check pass. Local/live desktop and mobile Chrome checks pass
+with the one-browser limit. The [deployment summary](../site/README.md#latest-deployment)
+owns identities and verification limits. Scores, disputes and original evidence
+are unchanged; no new experiment, skill/version change or release was published.
 
 The owner authorized a public-facing write-up and fresh Astra review of the
 completed November 13 comparison, initially keeping all changes local. The

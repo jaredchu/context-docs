@@ -380,6 +380,41 @@ That preview was not deployed. Private evidence ID:
 
 ## Latest deployment
 
+The reviewed [public-project documentation experiment](https://context-docs.com/experiments/public-project-docs/)
+is deployed from **`2fcc0e9`** by
+[Landing page run 43583879995](https://github.com/jaredchu/context-docs/actions/runs/43583879995).
+The owner authorized pushing both reviewed commits to their existing remotes and
+publishing the write-up on the website. Report `d99f9b6` reached the public remote;
+the related private commit reached its existing private remote. No new release
+was published; v0.2.7 remains current.
+
+[Source static CI](https://github.com/jaredchu/context-docs/actions/runs/43583879948),
+the build and actual Worker deployment pass, including all 43 site tests.
+Independent Astra source review passed without findings. Its review record was
+explicitly bound to the exact source commit while active, then closed after the
+deployment checks and before these record-only updates.
+Both printed workflow manifests and all eighteen uploaded files match the pinned
+reviewed build; the empty `.nojekyll` marker is omitted. Seventeen canonical live
+resources match: eight exactly and nine HTML pages after removing only the retained
+Cloudflare analytics beacon. Six redirect checks and the missing-route 404 check
+pass. All nine canonical routes, metadata, sitemap, robots and homepage discovery
+checks pass; the unchanged comparison page has no `og:url`. The Worker version is
+`e2e5fbd6-a777-45f6-8bb9-d2e8d0034e1c`.
+
+Local and live Chrome headless checks at 1440×1000 and 390×844 confirm the full
+report, nine score rows, nine audit rows, visible disputes and qualifications,
+contained mobile table scrolling, no-JavaScript content and no observed exceptions.
+These are one-browser rendering and HTTP/artifact checks, not a new agent or human
+trial, cross-browser certification, accessibility certification or measured benefit.
+Scientific wording, case evidence, scores, disputes, original study, skills,
+release records and tags are unchanged apart from publication-status passages.
+Operator evidence ID: `public-cases-publish-2026-11-14`.
+
+The deployed source remains `2fcc0e9` when later record-only commits advance `main`.
+These records do not change public output or request another deployment.
+
+### Earlier November 13 experiment deployment
+
 The reviewed [experiment write-up](https://context-docs.com/experiments/markdown-maintenance/)
 is deployed from **`f89e638`** by
 [Landing page run 43469707980](https://github.com/jaredchu/context-docs/actions/runs/43469707980).

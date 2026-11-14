@@ -264,7 +264,9 @@ including the audit's missing method-authority evidence. The
 [portable evidence](../evals/results/2026-11-14-public-project-docs/README.md)
 retains answers, documents, source, grades and derivation limits. This small,
 same-model AI assessment does not measure human/novice effort or the convenience
-of a ready-to-apply standard. The owner authorized publishing the report and its website presentation; no new release is selected.
+of a ready-to-apply standard. The owner-authorized [website presentation](https://context-docs.com/experiments/public-project-docs/)
+is published from `2fcc0e9`; the [deployment summary](../site/README.md#latest-deployment)
+owns verification and limits. No new release was published.
 
 ### November 13 Markdown-maintenance comparison
 
