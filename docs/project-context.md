@@ -19,6 +19,17 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The owner requested easier experiment discovery, a new `/experiments/` index and
+one simplified main menu on every page, explicitly keeping Overview. The local
+preview now uses Overview, Guide, Examples, Experiments and GitHub on all ten
+canonical routes; the index lists both published reports newest first and links
+to their sources and evidence. Report articles and scores remain unchanged.
+All 46 site tests and local desktop/mobile checks pass, including 320px layouts,
+keyboard navigation and no-JavaScript content. The [preview summary](../site/README.md#local-experiments-index-and-navigation-preview)
+owns check details and limits. This index/menu revision is prepared for owner
+review only: no commit, push, deployment or release is authorized. The deployed
+source remains `2fcc0e9`; the publication records below describe that earlier build.
+
 The owner requested a public-facing write-up and Astra review of the completed
 November 14 public-project documentation experiment, initially keeping everything local.
 The [report](evaluation-2026-11-14-public-project-docs.md) and
@@ -150,7 +161,7 @@ own bundle scope; the [preparation record](releases/v0.2.7-validation.json) reta
 its original unpublished scope and local checks. The contributor instructions and
 this context now follow the [public audience boundary](project-decisions.md#public-project-context-boundary).
 
-Progress snapshot updated November 7, 2026; earlier technical checks retain their
+November 14 progress entries updated; earlier technical checks retain their
 recorded dates. This is not live agent activity.
 
 ~~~text
@@ -185,9 +196,13 @@ Comparison report (November 13): EXPERIMENT COMPLETE → REVIEWED → PUBLISHED 
   ├─ RETAINED All six grades; one read exclusion; no clean three-pair mean
   └─ UNMEASURED Newcomer setup effort; no further experiment selected
 
-Public-project study (November 14): EXPERIMENT COMPLETE → PUBLICATION AUTHORIZED
+Public-project study (November 14): EXPERIMENT COMPLETE → PUBLISHED 2fcc0e9
   ├─ RETAINED Per-project scores, partials, key disputes and audit evidence limits
-  └─ PREPARED Website presentation; no human effort measure or skill/release change
+  └─ UNMEASURED Human effort; no new experiment or skill/release change
+
+Experiment discovery (November 14): LOCAL PREVIEW → OWNER REVIEW
+  ├─ PREPARED /experiments/ index and consistent five-link main menu
+  └─ CHECKED Ten routes at four widths; deployment remains unauthorized
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,

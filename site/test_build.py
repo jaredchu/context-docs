@@ -110,7 +110,8 @@ class LandingBuildTests(unittest.TestCase):
                 'getting-started/index.html', 'compare/index.html', 'examples/index.html',
                 'examples/reading-queue/index.html', 'examples/switching-codex-claude/index.html',
                 'examples/switching-claude-codex/index.html', 'reading-queue/index.html',
-                'experiments/markdown-maintenance/index.html', 'experiments/public-project-docs/index.html'})
+                'experiments/index.html', 'experiments/markdown-maintenance/index.html',
+                'experiments/public-project-docs/index.html'})
             self.assertFalse(any(p.is_symlink() for p in output.rglob('*')))
             self.assertEqual((output / 'context-docs-overview.png').read_bytes(),
                              (landing.ROOT / 'assets/context-docs-overview.png').read_bytes())
@@ -327,6 +328,7 @@ class LandingBuildTests(unittest.TestCase):
                               'https://context-docs.com/examples/reading-queue/',
                               'https://context-docs.com/examples/switching-codex-claude/',
                               'https://context-docs.com/examples/switching-claude-codex/',
+                              'https://context-docs.com/experiments/',
                               'https://context-docs.com/experiments/markdown-maintenance/',
                               'https://context-docs.com/experiments/public-project-docs/'])
             # Each listed route is a built page whose canonical and og:url name that route.
@@ -825,28 +827,55 @@ class LandingBuildTests(unittest.TestCase):
                      '#install-in-codex', '#install-in-claude-code']:
             self.assertIn(text, visible)
 
-    def test_examples_navigation_marks_current_section_and_avoids_legacy_route(self):
+    def test_every_canonical_page_has_the_same_main_menu_and_correct_current_marker(self):
+        menu = ['Overview', 'Guide', 'Examples', 'Experiments', 'GitHub']
+        local_targets = {'Overview': '', 'Guide': 'getting-started', 'Examples': 'examples',
+                         'Experiments': 'experiments'}
+        github = 'https://github.com/jaredchu/context-docs'
         with tempfile.TemporaryDirectory() as temporary:
             output = landing.build(output=Path(temporary) / 'public')
+            self.assertEqual(len(landing.CANONICAL_ROUTES), 10)
             for route in landing.CANONICAL_ROUTES:
                 name = route + 'index.html'
                 with self.subTest(page=name):
                     html = (output / name).read_text(encoding='utf-8')
                     page = parse(html)
                     nav = [link for link in page.links if link['nav']]
-                    examples = [link for link in nav if link['text'].strip() == 'Examples']
-                    self.assertEqual(len(examples), 1)
-                    target = ((output / name).parent / examples[0]['attrs']['href']).resolve()
-                    self.assertEqual(target, (output / 'examples').resolve())
-                    current = examples[0]['attrs'].get('aria-current')
-                    if route == 'examples/':
-                        self.assertEqual(current, 'page')
-                    elif route.startswith('examples/'):
-                        self.assertEqual(current, 'true')
+                    self.assertEqual([link['text'].strip() for link in nav], menu)
+                    self.assertEqual(html.count('class="site-nav"'), 1)
+                    for link in nav:
+                        label, href = link['text'].strip(), link['attrs']['href']
+                        if label == 'GitHub':
+                            self.assertEqual(href, github)
+                            continue
+                        self.assertFalse(SCHEME.match(href), href)
+                        target = ((output / name).parent / href).resolve()
+                        expected = (output / local_targets[label]).resolve()
+                        self.assertEqual(target, expected, label)
+                        self.assertTrue((target / 'index.html').is_file(), label)
+                    if route == '':
+                        expected_current = ('Overview', 'page')
+                    elif route == 'getting-started/':
+                        expected_current = ('Guide', 'page')
+                    elif route in ('examples/', 'experiments/'):
+                        expected_current = (route[:-1].capitalize(), 'page')
+                    elif route.startswith(('examples/', 'experiments/')):
+                        expected_current = (route.split('/')[0].capitalize(), 'true')
                     else:
-                        self.assertIsNone(current)
-                    marked = [link for link in nav if 'aria-current' in link['attrs']]
-                    self.assertEqual(len(marked), 0 if route == '' else 1)
+                        self.assertEqual(route, 'compare/')
+                        expected_current = None
+                    marked = [(link['text'].strip(), link['attrs']['aria-current'])
+                              for link in nav if 'aria-current' in link['attrs']]
+                    self.assertEqual(marked, [expected_current] if expected_current else [])
+                    # Compare stays reachable from page content or the footer, not the main menu.
+                    if route != 'compare/':
+                        compare = [link for link in page.links if not link['nav']
+                                   and ((output / name).parent / link['attrs']['href'].partition('#')[0]).resolve()
+                                   == (output / 'compare').resolve()]
+                        self.assertTrue(compare, name)
+                    # The logo returns home.
+                    brand = re.search(r'<a class="brand" href="([^"]+)"', html)[1]
+                    self.assertEqual(((output / name).parent / brand).resolve(), output.resolve())
                     # Only the redirect page itself may point at the legacy location.
                     self.assertNotIn('context-docs.com/reading-queue', html)
                     for link in page.links:
@@ -999,10 +1028,95 @@ class LandingBuildTests(unittest.TestCase):
         self.assertIn('href="./examples/#switching"', resume)
         self.assertIn('Your next session.<br><span>Less starting over.</span>', home)
 
+    def test_experiments_index_lists_both_reports_newest_first_with_qualified_summaries(self):
+        repo = 'https://github.com/jaredchu/context-docs/blob/main/'
+        expected = [
+            ('public-project-docs', '2026-11-14', 'docs/evaluation-2026-11-14-public-project-docs.md',
+             'evals/results/2026-11-14-public-project-docs/README.md',
+             ['agent-only', 'did not outperform ordinary Markdown', 'disputes remain unresolved',
+              'unreconciled', 'not measured']),
+            ('markdown-maintenance', '2026-11-13', 'docs/evaluation-2026-11-13-markdown-maintenance.md',
+             'evals/results/2026-11-13-markdown-maintenance/README.md',
+             ['agent-only', 'favored ordinary Markdown', 'no clean three-pair average',
+              'neither a Context Docs advantage nor general equivalence', 'not measured']),
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            index = output / 'experiments/index.html'
+            html = index.read_text(encoding='utf-8')
+            cards = re.findall(r'<li id="([^"]+)" class="[^"]*\bexperiment-card\b[^"]*">(.*?)</li>\s*(?=<li id=|</ol>)',
+                               html, re.S)
+            self.assertEqual([card_id for card_id, _ in cards], [slug for slug, *_ in expected])
+            dates = [re.search(r'<time datetime="([^"]+)">', body)[1] for _, body in cards]
+            self.assertEqual(dates, sorted(dates, reverse=True))
+            for (card_id, body), (slug, date, report, evidence, phrases) in zip(cards, expected):
+                with self.subTest(card=card_id):
+                    markdown = (landing.ROOT / report).read_text(encoding='utf-8').splitlines()
+                    # Titles and dates come from the canonical reports.
+                    self.assertEqual(unescape(re.search(r'<h3>(.*?)</h3>', body, re.S)[1]), markdown[0][2:])
+                    self.assertEqual(dates[[c for c, _ in cards].index(card_id)], date)
+                    shown_date = re.search(r'<time datetime="[^"]+">([^<]+)</time>', body)[1]
+                    self.assertTrue(markdown[2].startswith('**' + shown_date + ' · '), markdown[2])
+                    for heading in ['What was tested', 'Observed result', 'Qualifications']:
+                        self.assertIn('<h4>' + heading + '</h4>', body)
+                    text = unescape(re.sub(r'<[^>]+>', ' ', body))
+                    text = re.sub(r'\s+', ' ', text)
+                    for phrase in phrases:
+                        self.assertIn(phrase, text)
+                    hrefs = re.findall(r'<a\b[^>]*href="([^"]+)"', body)
+                    self.assertEqual(hrefs, [slug + '/', repo + report, repo + evidence])
+                    self.assertTrue((index.parent / slug / 'index.html').is_file())
+                    for source in (report, evidence):
+                        self.assertTrue((landing.ROOT / source).is_file(), source)
+            # Summaries stay qualified: no advantage, speed, effort-saving or benchmark claims.
+            visible = re.sub(r'\s+', ' ', unescape(re.sub(r'<[^>]+>', ' ', html))).lower()
+            self.assertNotRegex(visible, r'\b(?:outperformed|outperforms|superior|better than|faster|'
+                                         r'saves? (?:time|effort)|time savings|effort savings|benchmark|proves?)\b')
+            for text in ['exploratory', 'agent-only', 'does not copy evaluation files',
+                         'not public evidence', 'read the full report before relying on a number']:
+                self.assertIn(text, visible)
+            self.assertIn('href="' + repo + 'docs/evaluation-results.md"', html)
+            self.assertIn('href="../compare/"', html)
+
+    def test_experiment_artifact_copies_no_evidence_or_private_paths(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            experiment_files = {p.relative_to(output).as_posix()
+                                for p in (output / 'experiments').rglob('*') if p.is_file()}
+            self.assertEqual(experiment_files, {'experiments/index.html',
+                                                'experiments/markdown-maintenance/index.html',
+                                                'experiments/public-project-docs/index.html'})
+            self.assertFalse(list(output.rglob('*.json')))
+            self.assertFalse(list(output.rglob('*.md')))
+            for path in (output / 'experiments').rglob('*.html'):
+                html = path.read_text(encoding='utf-8')
+                self.assertNotRegex(html, r'/Users/|/Volumes/|<script|\.context/|operator-notes')
+
+    def test_report_pages_link_back_to_the_index_outside_the_canonical_article(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = landing.build(output=Path(temporary) / 'public')
+            for slug in ['markdown-maintenance', 'public-project-docs']:
+                with self.subTest(report=slug):
+                    path = output / 'experiments' / slug / 'index.html'
+                    html = path.read_text(encoding='utf-8')
+                    start, end = html.index('<article id="experiment-report">'), html.index('</article>')
+                    outside = html[:start] + html[end:]
+                    backs = re.findall(r'<p class="report-back[^"]*"><a class="text-link" href="([^"]+)">', outside)
+                    self.assertEqual(len(backs), 2)
+                    for href in backs:
+                        self.assertEqual((path.parent / href).resolve(), (output / 'experiments').resolve())
+                    self.assertNotIn('report-back', html[start:end])
+            home = (output / 'index.html').read_text(encoding='utf-8')
+            # Homepage discovery adds the index while keeping both direct report links.
+            for href in ['experiments/', 'experiments/public-project-docs/', 'experiments/markdown-maintenance/']:
+                self.assertIn('href="' + href + '"', home)
+            self.assertIn('<a href="./experiments/">Experiments</a>', home.split('class="site-footer"', 1)[1])
+
     def test_invalid_new_pages_preserve_previous_artifact_and_unknown_markers_fail(self):
         original_read = Path.read_text
         for template in ['examples.html', 'switching-codex-claude.html', 'switching-claude-codex.html',
-                         'reading-queue.html']:
+                         'reading-queue.html', 'experiments.html', 'experiment.html',
+                         'public-project-experiment.html']:
             with self.subTest(template=template), tempfile.TemporaryDirectory() as temporary:
                 output = Path(temporary) / 'public'
                 output.mkdir()

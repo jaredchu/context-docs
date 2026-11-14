@@ -23,14 +23,16 @@ tracking, cookies or application backend are included in the repository build.
 Live delivery also has the owner-retained Cloudflare analytics injection described
 in [Latest deployment](#latest-deployment).
 
-The working build contains nineteen explicitly allowed public files: ten HTML
-pages (nine canonical routes plus the old Reading Queue redirect fallback), six
+The working build contains twenty explicitly allowed public files: eleven HTML
+pages (ten canonical routes plus the old Reading Queue redirect fallback), six
 assets, `robots.txt`, `sitemap.xml` and the empty `.nojekyll` marker. The canonical
 routes are `/`, `/getting-started/`, `/compare/`, `/examples/`,
-`/examples/reading-queue/`, `/examples/switching-codex-claude/` and
-`/examples/switching-claude-codex/` and `/experiments/markdown-maintenance/` and `/experiments/public-project-docs/`. The old `/reading-queue/` is excluded from the
-sitemap. The `.nojekyll` marker dates from GitHub Pages hosting; artifact upload
-omits it, so eighteen files are deployed. `build.py` renders every page before replacing the output, so a missing
+`/examples/reading-queue/`, `/examples/switching-codex-claude/`,
+`/examples/switching-claude-codex/`, `/experiments/`,
+`/experiments/markdown-maintenance/` and `/experiments/public-project-docs/`.
+The old `/reading-queue/` is excluded from the sitemap. The `.nojekyll` marker
+dates from GitHub Pages hosting; artifact upload omits it, so nineteen files would
+be uploaded. The [latest deployment](#latest-deployment) records what is actually live. `build.py` renders every page before replacing the output, so a missing
 or invalid new template leaves the previous artifact intact.
 The [brand artwork](../assets/README.md) provides the canonical logo mark,
 same-byte favicon and the SVG-authored workflow illustration. Selected asset
@@ -52,6 +54,15 @@ with complete article/table parity checks. Source, grades and evidence remain in
 GitHub; the site artifact does not copy evaluation JSON, context or journals.
 The owner authorized publication without a new release. The latest deployment
 section below records verified deployment separately from this preparation.
+
+The local [experiments index](experiments.html) (`/experiments/`) lists both reports
+newest first, with short qualified summaries and links to each full report, its
+Markdown source and its GitHub evidence. Every canonical page now shares one main
+menu: Overview, Guide, Examples, Experiments, GitHub. Compare stays reachable from
+page content and footers. Both report pages link back to the index outside their
+unchanged articles. `test_build.py` checks the menu order, targets and current
+markers on all ten canonical routes, plus the index cards, links and artifact boundary.
+This index is local source only and has not been deployed.
 
 The [comparison page](compare.html) is the canonical copy for the October 24
 [research and fit preview](../docs/context-management-comparison.md). It uses the
@@ -377,6 +388,27 @@ viewport/no-JavaScript checks passed; clipboard writes were stubbed. Only guide
 HTML and CSS differed from the deployed build, with the allowlist unchanged.
 That preview was not deployed. Private evidence ID:
 `web-handoff-preview-2026-11-12`.
+
+## Local experiments index and navigation preview
+
+The owner requested a local preview of easier experiment discovery and one simpler
+menu across the website, explicitly retaining Overview. The index and five-link
+menu described above are prepared for owner review, without a commit, push,
+deployment or release. The deployed source remains `2fcc0e9` below.
+
+All 46 site tests and repository static checks pass. Fresh local Chrome checks
+cover all ten canonical pages at 1440, 768, 390 and 320px: menu labels, order,
+relative targets, current-section markers and page width pass. Report/back links,
+keyboard order, index dates and no-JavaScript content also pass, with no observed
+browser exceptions. An initial 320px check found a long inline commit ID widening
+the public-project report; scoped inline-code wrapping fixes it while tables keep
+local scrolling. Both article bodies, canonical reports, evidence, skills,
+workflow and release records are unchanged.
+
+These are one-browser rendering and source checks, not cross-browser or
+accessibility certification, new experiment results or measured human benefit.
+The preview is served locally under an explicit lease; it is not the production
+website. Operator evidence ID: `experiments-index-preview-2026-11-14`.
 
 ## Latest deployment
 
