@@ -34,7 +34,7 @@ def expand_icons(root, template):
 # Public routes listed in the sitemap, in order. The legacy redirect is deliberately absent.
 CANONICAL_ROUTES = ('', 'getting-started/', 'compare/', 'examples/', 'examples/reading-queue/',
                     'examples/switching-codex-claude/', 'examples/switching-claude-codex/',
-                    'experiments/markdown-maintenance/')
+                    'experiments/markdown-maintenance/', 'experiments/public-project-docs/')
 
 # Client-side fallback for the former /reading-queue/ URL. GitHub Pages cannot send an
 # HTTP 301 from this build; this page uses a canonical link, a script that keeps the
@@ -195,6 +195,8 @@ def build(root=ROOT, output=OUTPUT):
             render_page(root, 'switching-claude-codex.html', 'Claude Code to Codex page'),
         'experiments/markdown-maintenance/index.html':
             render_page(root, 'experiment.html', 'Markdown maintenance experiment'),
+        'experiments/public-project-docs/index.html':
+            render_page(root, 'public-project-experiment.html', 'Public-project documentation experiment'),
         'reading-queue/index.html': render_reading_queue_redirect(root),
     }
     if set(pages) - {'reading-queue/index.html'} != {route + 'index.html' for route in CANONICAL_ROUTES}:

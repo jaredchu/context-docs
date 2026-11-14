@@ -1,6 +1,6 @@
 # From project source to usable documentation: three public cases
 
-**November 14, 2026 · Exploratory, agent-only study · Local draft; not published.**
+**November 14, 2026 · Exploratory, agent-only study.**
 
 We compared the original documentation of three pinned public projects with
 documentation written by an AI agent using ordinary Markdown or Context Docs.
@@ -263,7 +263,7 @@ raw tool/transport logs, client/account settings and operator records are exclud
 The extract alone cannot independently verify model reads, every runtime control
 or hidden tool activity. Its README describes the derivation and byte/hash limits.
 
-This draft and evidence remain local. Publication, deployment and release are
-separate actions requiring authorization.
+This report accompanies no new skill release. Publication adds no new experiment
+or grading session.
 
 Return to the [evidence overview](evaluation-results.md).

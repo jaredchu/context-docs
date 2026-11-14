@@ -1,6 +1,6 @@
 # November 14 public-project documentation evidence
 
-**Local draft; not published.** See the [report](../../../docs/evaluation-2026-11-14-public-project-docs.md)
+**Experiment date: November 14, 2026.** See the [report](../../../docs/evaluation-2026-11-14-public-project-docs.md)
 for methods, all scores, disputes, audit flags and interpretation limits.
 
 | File | Contents |
