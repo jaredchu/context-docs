@@ -393,8 +393,11 @@ That preview was not deployed. Private evidence ID:
 
 The owner requested a local preview of easier experiment discovery and one simpler
 menu across the website, explicitly retaining Overview. The index and five-link
-menu described above are prepared for owner review, without a commit, push,
-deployment or release. The deployed source remains `2fcc0e9` below.
+menu described above passed independent source review without findings. The owner
+subsequently authorized local commits: `29afabd` contains the exact staged review
+tree, explicitly accepted by the active review record before closure. These
+commit-status records are separate and leave website output unchanged. Nothing
+was pushed, deployed or released; the deployed source remains `2fcc0e9` below.
 
 All 46 site tests and repository static checks pass. Fresh local Chrome checks
 cover all ten canonical pages at 1440, 768, 390 and 320px: menu labels, order,

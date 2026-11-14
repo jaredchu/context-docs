@@ -26,9 +26,12 @@ canonical routes; the index lists both published reports newest first and links
 to their sources and evidence. Report articles and scores remain unchanged.
 All 46 site tests and local desktop/mobile checks pass, including 320px layouts,
 keyboard navigation and no-JavaScript content. The [preview summary](../site/README.md#local-experiments-index-and-navigation-preview)
-owns check details and limits. This index/menu revision is prepared for owner
-review only: no commit, push, deployment or release is authorized. The deployed
-source remains `2fcc0e9`; the publication records below describe that earlier build.
+owns check details and limits. Independent source review passed without findings.
+The owner subsequently authorized committing the reviewed revision locally: source
+`29afabd` preserves the exact staged review tree and was accepted by the active
+review record before closure. The related status records are separate from that
+reviewed source. No push, deployment or release is authorized; the deployed source
+remains `2fcc0e9`. The publication records below describe that earlier build.
 
 The owner requested a public-facing write-up and Astra review of the completed
 November 14 public-project documentation experiment, initially keeping everything local.
@@ -200,7 +203,7 @@ Public-project study (November 14): EXPERIMENT COMPLETE → PUBLISHED 2fcc0e9
   ├─ RETAINED Per-project scores, partials, key disputes and audit evidence limits
   └─ UNMEASURED Human effort; no new experiment or skill/release change
 
-Experiment discovery (November 14): LOCAL PREVIEW → OWNER REVIEW
+Experiment discovery (November 14): REVIEWED → COMMITTED LOCALLY 29afabd
   ├─ PREPARED /experiments/ index and consistent five-link main menu
   └─ CHECKED Ten routes at four widths; deployment remains unauthorized
 ~~~
