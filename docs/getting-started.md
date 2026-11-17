@@ -77,7 +77,7 @@ than inferring loading solely from filenames. See the
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](../skills/context-docs/references/standard.md) directly.
 The [Cursor guidance](#cursor-experimental) and
-[provisional Antigravity guidance](#antigravity-provisional) retain their separate
+[experimental Antigravity support](#antigravity-experimental) retain their separate
 CLI observations and limits. Behavior on other clients has not been evaluated.
 
 ### Development-source installs
@@ -183,10 +183,11 @@ inferred, not observed.
 See the [trial record](../evals/cursor/2026-11-17-free/README.md) for case results,
 the retained failed attempt and what remains unestablished.
 
-## Antigravity (provisional)
+<a id="antigravity-provisional"></a>
+## Antigravity (experimental)
 
-**Provisional Antigravity setup guidance; bounded CLI results remain mixed.**
-App and IDE were not separately tested. The [original `agy 1.5.7` trial](../evals/antigravity/2026-11-17/README.md)
+**Experimental Antigravity support, validated through CLI; App and IDE not separately tested.**
+Bounded CLI results remain mixed. The [original `agy 1.5.7` trial](../evals/antigravity/2026-11-17/README.md)
 did not complete adoption, refresh or audit. The [scoped follow-up on `agy 1.5.9`](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
 retains those failures and the new outcomes: a denied-shell adoption control
 completed, while scoped adoption reached its 240-second limit without edits.
@@ -277,7 +278,7 @@ case was observed to require review and was soft-denied.
 
 With both skills installed, adopt a new or existing project with:
 
-| Codex | Claude Code | Cursor (experimental) | Antigravity (provisional) |
+| Codex | Claude Code | Cursor (experimental) | Antigravity (experimental) |
 | --- | --- | --- | --- |
 | `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 

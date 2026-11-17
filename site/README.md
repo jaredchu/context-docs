@@ -6,6 +6,20 @@ content from the [maintenance example](../examples/maintenance.md), and package
 versions from their `VERSION` files. Edit those sources for shared content; edit
 [index.html](index.html), [styles.css](styles.css) and [main.js](main.js) for presentation.
 
+## Antigravity support label update
+
+The owner authorized **experimental Antigravity support, validated through CLI;
+App and IDE not separately tested**, with commit, push and website deployment and
+no new release. This patch preserves installation commands, previous anchors and
+the original incomplete attempts, scoped-permission conditions, loading gaps and
+final-answer accuracy limits. It adds no native compatibility trial. The existing
+deployment below retains its source until this wording update is published.
+Static checks, all 51 site tests and the twenty-file build pass. Local Chrome
+checks on the homepage, guide and comparison pass at 1440, 768, 390 and 320px,
+including the experimental label and App/IDE limit, canonical commands,
+keyboard/copy-stub behavior and no-JavaScript instructions. No page-wide overflow
+or browser exception was observed. These are one-browser source-preview checks.
+
 ## Local Antigravity preview
 
 **Published after local preparation.** The homepage and guide add always-visible provisional

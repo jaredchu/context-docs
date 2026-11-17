@@ -3,9 +3,11 @@
 **Keep decisions, current work and next steps across AI sessions.**
 
 Context Docs provides reusable agent skills for context management in Codex and
-Claude Code, with **experimental Cursor support** and provisional Antigravity
-setup guidance. Preserve project knowledge in readable Markdown so a new AI session can pick up where you left off: what was
-decided and why, what is done or blocked, and what to do next.
+Claude Code, with **experimental Cursor and Antigravity support**, validated
+through their CLIs. The Cursor editor and Antigravity App and IDE were not
+separately tested. Preserve project knowledge in readable Markdown so a new AI
+session can pick up where you left off: what was decided and why, what is done
+or blocked, and what to do next.
 
 Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
@@ -30,7 +32,7 @@ unlinked-note coverage gap remains; the separate installed check names the note
 explicitly. See [results and qualifications](docs/evaluation-results.md#more-recent-studies).
 Publication and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
-For Codex and Claude Code · Experimental Cursor support · Provisional Antigravity setup · Plain Markdown · [MIT licensed](LICENSE)
+For Codex and Claude Code · Experimental Cursor support · Experimental Antigravity support · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
 
@@ -136,10 +138,12 @@ The sequence stops at the first failure: a failed clone copies nothing, and the
 guard copies nothing if either folder already exists. Expect `0.2.7` then
 `0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-experimental)
 
-### Install in Antigravity (provisional)
+<a id="install-in-antigravity-provisional"></a>
+### Install in Antigravity (experimental)
 
-**Provisional Antigravity setup guidance; bounded CLI results remain mixed.**
-App and IDE were not separately tested. The unchanged v0.2.7 bundle was checked
+**Experimental Antigravity support, validated through CLI; App and IDE not separately tested.**
+Bounded CLI results retain completion, loading and final-answer limitations.
+The unchanged v0.2.7 bundle was checked
 in project `.agents/skills/`. A denied-shell control and a later scoped attempt
 completed adoption. The [longer-timeout follow-up](evals/antigravity/2026-11-17-long-timeout/README.md)
 retains task and loading limits alongside the [earlier scoped outcomes](evals/antigravity/2026-11-17-scoped-rerun/README.md)
@@ -163,7 +167,7 @@ From the root of your target project, for a first installation:
 The guards preserve existing folders and symlinks; a failed clone copies nothing.
 The source checkout is `context-docs-skills/` in your project. Expect `0.2.7` then
 `0.1.16`. Reuse existing project copies; review the upgrade guidance before
-replacing them. [Antigravity setup, evidence and limits →](docs/getting-started.md#antigravity-provisional)
+replacing them. [Antigravity setup, evidence and limits →](docs/getting-started.md#antigravity-experimental)
 
 ## Use it
 
@@ -171,7 +175,7 @@ replacing them. [Antigravity setup, evidence and limits →](docs/getting-starte
 
 Open your project in your coding agent and invoke:
 
-| Codex | Claude Code | Cursor (experimental) | Antigravity (provisional) |
+| Codex | Claude Code | Cursor (experimental) | Antigravity (experimental) |
 | --- | --- | --- | --- |
 | `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 

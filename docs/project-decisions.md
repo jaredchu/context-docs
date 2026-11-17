@@ -477,7 +477,7 @@ adoption 0.1.16 in project `.agents/skills/`. Native slash expansion and core sk
 reads were observed. Adoption, refresh and audit did not complete in the restricted
 headless conditions, although later cases demonstrate useful file operations.
 These results do not establish general incompatibility or an end-to-end adoption
-workflow. The implementation therefore labels the [setup guidance](getting-started.md#antigravity-provisional)
+workflow. The implementation therefore labels the [setup guidance](getting-started.md#antigravity-experimental)
 **provisional**, preserves the failures and separates current Google documentation
 from tested behavior. App, IDE and global placement remain untested.
 
@@ -512,3 +512,19 @@ artifact/live parity and desktop/mobile verification. This publishes the existin
 qualified guidance and evidence; it adds no native trial, skill/version change or
 App/IDE claim. Further native attempts and installed-package changes remain
 separate decisions.
+
+## Experimental Antigravity support
+
+The owner selected **experimental Antigravity support, validated through CLI;
+App and IDE not separately tested**, aligning the qualification with Cursor.
+This supersedes the earlier provisional support label. The existing behavioral
+passes support that bounded label; they do not establish automatic instruction
+loading, a repeatable adoption-to-refresh chain or general reliability. Earlier
+incomplete attempts and the refresh final's unsupported link-verification claim
+remain in the immutable reports.
+
+The owner authorized committing and pushing the reviewed wording and deploying
+the website, with no new release. Installation commands, skill packages and
+versions remain unchanged. This clarification adds no native trial or App/IDE
+validation. The earlier provisional decision and deployment retain their
+historical scope.

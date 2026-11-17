@@ -120,7 +120,7 @@ def render(root, template_name='index.html'):
         'QUICK_EXAMPLE': fenced_section(readme, '## What you get', 'markdown'),
         'CODEX_INSTALL': fenced_section(readme, '### Install in Codex', 'text'),
         'CLAUDE_INSTALL': fenced_section(readme, '### Install in Claude Code', 'sh'),
-        'ANTIGRAVITY_INSTALL': fenced_section(readme, '### Install in Antigravity (provisional)', 'sh'),
+        'ANTIGRAVITY_INSTALL': fenced_section(readme, '### Install in Antigravity (experimental)', 'sh'),
         'CURSOR_INSTALL': fenced_section(readme, '### Install in Cursor (experimental)', 'sh'),
         'SAVE_PROMPT': fenced_section(readme, '### 2. Save decisions, current work and next steps', 'text'),
         'RESUME_PROMPT': fenced_section(readme, '### 3. Resume with the saved context', 'text'),

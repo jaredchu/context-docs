@@ -407,8 +407,9 @@ and guarded preservation are not substitutes for the recorded semantic review.
 
 The [November 17 bounded trial](antigravity/2026-11-17/README.md) records native
 slash expansion, direct skill reads, incomplete adoption/refresh, control-based
-maintenance, resume/audit behavior and preservation. Setup guidance is provisional;
-App, IDE and global placement are untested. Static/site checks are separate from
+maintenance, resume/audit behavior and preservation. Current Antigravity support is experimental, validated through CLI;
+App and IDE were not separately tested, and global placement is untested.
+Historical reports retain their as-run labels and limitations. Static/site checks are separate from
 these native subject observations.
 
 The [scoped follow-up](antigravity/2026-11-17-scoped-rerun/README.md) retains

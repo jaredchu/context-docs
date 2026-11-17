@@ -122,6 +122,7 @@ adoption and timed-out scoped adoption. A later [600-second follow-up](../evals/
 completed fresh adoption and search-enabled refresh, with retained loading and
 final-answer accuracy limits. These observations isolate neither a permission
 nor timeout effect. The resulting
-[setup guidance](getting-started.md#antigravity-provisional) is provisional, with
-App and IDE not separately tested. These observations do not change the earlier
+[support guidance](getting-started.md#antigravity-experimental) is experimental,
+validated through the CLI, with App and IDE not separately tested.
+These observations do not change the earlier
 source-based comparison or establish general incompatibility or comparative benefit.

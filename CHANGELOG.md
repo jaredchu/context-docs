@@ -24,6 +24,16 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Experimental Antigravity support label — 2026-11-17 (no package release)
+
+- Clarify current docs and website wording: experimental Antigravity support,
+  validated through CLI; App and IDE not separately tested.
+- Preserve installation commands, earlier anchors, frozen trial reports and
+  completion, loading, permission and final-answer limitations. This changes
+  the support label; it adds no native trial, skill/version change or release.
+- Static checks, all 51 site tests, the build and local desktop/mobile checks
+  pass; these checks verify the documentation and rendering, not agent behavior.
+
 ## Provisional Antigravity guidance — 2026-11-17 (no package release)
 
 - Add project installation and usage guidance plus portable evidence from a bounded

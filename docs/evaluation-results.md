@@ -262,8 +262,8 @@ separates skill discovery and reads from task completion. Native adoption slash
 expansion was visible, but adoption, changed-note refresh and audit did not complete
 under shell-denied print-mode conditions. Ordinary implementation on a frozen
 pre-adopted control added the station option, tests and context update; three
-external harness tests passed. This is provisional setup guidance, not a
-validated end-to-end workflow or a comparative benefit result. See the record for
+external harness tests passed. These observations do not establish a repeatable
+end-to-end workflow or comparative benefit. See the record for
 all seven case outcomes, startup failures, child-model routing, preservation and
 loading limits. The separate [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
 uses a newer build, a denied-shell adoption control and three independent
@@ -275,8 +275,9 @@ Both meet their original behavioral criteria; adoption's direct skill-file loadi
 criterion remains unmet, automatic instruction loading unverified, and the refresh
 final overstates link verification. The separate report preserves those limits
 and explains why the two runs do not establish timeout causality or reliability.
-The mixed evidence retains provisional guidance. App, IDE and global placement
-were not tested.
+Current guidance labels Antigravity support experimental, validated through CLI;
+App and IDE were not separately tested, and global placement remains untested.
+The original reports preserve their earlier support label and all as-run limitations.
 
 ### November 17 Cursor CLI observation
 

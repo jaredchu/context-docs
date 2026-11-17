@@ -816,7 +816,7 @@ class LandingBuildTests(unittest.TestCase):
 
     def test_antigravity_install_is_canonical_escaped_copyable_and_outside_the_client_switch(self):
         readme = landing.ROOT / 'README.md'
-        heading = '### Install in Antigravity (provisional)'
+        heading = '### Install in Antigravity (experimental)'
         block = landing.fenced_section(readme.read_text(), heading, 'sh')
         original_read = Path.read_text
 
@@ -833,6 +833,8 @@ class LandingBuildTests(unittest.TestCase):
                 self.assertIn('antigravity-command', {b['data-copy'] for b in page.buttons})
                 # The switch hides only the panels it controls; Antigravity must stay visible.
                 self.assertIn('install-antigravity', page.ids)
+                self.assertIn('Experimental Antigravity support, validated through CLI', landing.render(landing.ROOT, name))
+                self.assertIn('App and IDE not separately tested', landing.render(landing.ROOT, name))
                 self.assertNotIn('aria-controls="install-antigravity"', landing.render(landing.ROOT, name))
                 with patch.object(Path, 'read_text', changed_readme):
                     rendered = landing.render(landing.ROOT, name)
@@ -850,7 +852,7 @@ class LandingBuildTests(unittest.TestCase):
     def test_antigravity_install_stops_on_failure_and_preserves_existing_destinations(self):
         readme_block = landing.fenced_section(
             (landing.ROOT / 'README.md').read_text(encoding='utf-8'),
-            '### Install in Antigravity (provisional)', 'sh')
+            '### Install in Antigravity (experimental)', 'sh')
         guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
         self.assertIn('```sh\n' + readme_block + '\n```', guide)
         self.assertIn('.agents/skills', readme_block)
@@ -918,7 +920,7 @@ class LandingBuildTests(unittest.TestCase):
 
     def test_antigravity_install_preserves_dangling_skill_symlink(self):
         block = landing.fenced_section((landing.ROOT / 'README.md').read_text(),
-                                       '### Install in Antigravity (provisional)', 'sh')
+                                       '### Install in Antigravity (experimental)', 'sh')
         for skill in ['context-docs', 'adopt-context-docs']:
             with self.subTest(skill=skill), tempfile.TemporaryDirectory() as temp:
                 work = Path(temp)

@@ -19,7 +19,14 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-**Provisional Antigravity setup guidance is published** from **`712c31f`** after
+**Experimental Antigravity support, validated through CLI; App and IDE not
+separately tested** is the owner-selected label update prepared for publication.
+The [decision](project-decisions.md#experimental-antigravity-support) supersedes
+the earlier provisional label while retaining all native trial limitations.
+This wording change adds no compatibility trial, skill/version change or release.
+The deployment record below still identifies the earlier published source.
+
+**Earlier provisional Antigravity setup guidance was published** from **`712c31f`** after
 the owner's commit, push and deployment authorization. The completed independent
 source review matches the committed source; [source CI](https://github.com/jaredchu/context-docs/actions/runs/44028002930)
 and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44028002869)
@@ -36,7 +43,7 @@ completed fresh adoption and search-enabled refresh in 160.531 and 306.391 secon
 Its report owns behavioral scores, preservation, the unmet direct adoption-file
 read and unsupported native loading/link-verification claims. These independent
 cases establish neither timeout causality nor a repeatable end-to-end workflow.
-App and IDE remain untested. The [guide](getting-started.md#antigravity-provisional)
+App and IDE remain untested. The [guide](getting-started.md#antigravity-experimental)
 and [website panels](../site/README.md#local-antigravity-preview) retain those
 qualifications. Trial records preserve their original local execution scope;
 this publication adds no native trial, release, skill or installed-package change.
@@ -391,8 +398,9 @@ Antigravity: original constrained trial → mixed scoped follow-up →
 two fresh behavioral passes with a longer cap → **reviewed guidance published;
 website deployment verified**.
 The latest report retains loading, final-answer accuracy and repeatability limits;
-further native attempts require a separate owner decision. Provisional status is
-unchanged; no new release or further feature work is selected.
+further native attempts require a separate owner decision. The owner selected the
+qualified experimental support label; its wording update is prepared for
+publication. No new release or further native trial is selected.
 
 The reviewed documentation is merged and website deployment is complete; no
 release or further feature work is selected. Authored instructions do not
