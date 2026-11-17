@@ -528,3 +528,8 @@ the website, with no new release. Installation commands, skill packages and
 versions remain unchanged. This clarification adds no native trial or App/IDE
 validation. The earlier provisional decision and deployment retain their
 historical scope.
+
+The label update is pushed and deployed from `4093383`. Independent source review,
+CI, artifact/live comparisons and desktop/mobile checks pass; the
+[deployment summary](../site/README.md#latest-deployment) records identities and
+verification limits. No release or tag changed.

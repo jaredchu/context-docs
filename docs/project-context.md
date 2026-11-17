@@ -20,11 +20,16 @@ and evidence IDs when those records explain a project issue.
 ## Current focus
 
 **Experimental Antigravity support, validated through CLI; App and IDE not
-separately tested** is the owner-selected label update prepared for publication.
+separately tested** is published from **`4093383`** after the owner's commit,
+push and deployment authorization. Fresh independent source review,
+[source CI](https://github.com/jaredchu/context-docs/actions/runs/44032723157)
+and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44032723332)
+pass. The [deployment summary](../site/README.md#latest-deployment) owns artifact/live
+parity and desktop/mobile checks.
 The [decision](project-decisions.md#experimental-antigravity-support) supersedes
 the earlier provisional label while retaining all native trial limitations.
 This wording change adds no compatibility trial, skill/version change or release.
-The deployment record below still identifies the earlier published source.
+The earlier provisional deployment below retains its historical scope.
 
 **Earlier provisional Antigravity setup guidance was published** from **`712c31f`** after
 the owner's commit, push and deployment authorization. The completed independent
@@ -399,8 +404,8 @@ two fresh behavioral passes with a longer cap → **reviewed guidance published;
 website deployment verified**.
 The latest report retains loading, final-answer accuracy and repeatability limits;
 further native attempts require a separate owner decision. The owner selected the
-qualified experimental support label; its wording update is prepared for
-publication. No new release or further native trial is selected.
+qualified experimental support label; its wording update is published and
+deployment verified. No new release or further native trial is selected.
 
 The reviewed documentation is merged and website deployment is complete; no
 release or further feature work is selected. Authored instructions do not

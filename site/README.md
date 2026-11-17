@@ -8,12 +8,12 @@ versions from their `VERSION` files. Edit those sources for shared content; edit
 
 ## Antigravity support label update
 
-The owner authorized **experimental Antigravity support, validated through CLI;
-App and IDE not separately tested**, with commit, push and website deployment and
-no new release. This patch preserves installation commands, previous anchors and
+**Experimental Antigravity support, validated through CLI; App and IDE not
+separately tested** is published from `4093383` after the owner's commit, push and
+deployment authorization, with no new release. The patch preserves installation commands, previous anchors and
 the original incomplete attempts, scoped-permission conditions, loading gaps and
 final-answer accuracy limits. It adds no native compatibility trial. The existing
-deployment below retains its source until this wording update is published.
+deployment below records the verified wording update.
 Static checks, all 51 site tests and the twenty-file build pass. Local Chrome
 checks on the homepage, guide and comparison pass at 1440, 768, 390 and 320px,
 including the experimental label and App/IDE limit, canonical commands,
@@ -491,6 +491,39 @@ all native-trial qualifications. The reviewed patch is now deployed; the latest
 deployment below records its source and checks.
 
 ## Latest deployment
+
+**Experimental Antigravity support, validated through CLI; App and IDE not
+separately tested** is live from **`4093383`**, by
+[Landing page run 44032723332](https://github.com/jaredchu/context-docs/actions/runs/44032723332).
+Fresh independent source review passed without findings; all sixteen selected
+file hashes and the committed tree match the frozen review. Installation commands,
+old anchors, immutable trial reports and all completion/loading/permission and
+final-answer limits are retained. This is a support-label clarification with no
+new compatibility trial, package change or release.
+
+[Source CI](https://github.com/jaredchu/context-docs/actions/runs/44032723157),
+all 51 site tests, build and actual Worker deployment pass. Both printed manifests
+and all nineteen uploaded files match the pinned twenty-file build; upload omits
+the empty `.nojekyll` marker. Eighteen canonical live resources match: eight
+exactly and ten HTML pages after removing only the retained Cloudflare analytics
+beacon. Ten canonical routes, sitemap, robots, eight redirects and the missing-route
+404 pass. The comparison page retains its existing absence of `og:url`; its
+canonical link is correct. Worker version: `fbe696e2-c81c-41e3-b9a2-fbb2ae9c9eca`.
+
+Live headless Chrome checks pass on the homepage, guide and comparison at 1440,
+768, 390 and 320px. The experimental label and App/IDE test limit are visible;
+there is no page-wide overflow or observed browser exception. Canonical commands,
+keyboard access, page-local stubbed copy feedback and no-JavaScript instructions
+pass. The verification browser is stopped and the operating-system clipboard was
+untouched. These are one-browser observations, not cross-browser/accessibility
+certification, native trials or human-benefit evidence. No tag or release changed;
+v0.2.7 remains the latest bundle. Operator evidence ID:
+`antigravity-label-publish-2026-11-17`.
+
+Later record-only commits do not supersede deployed source `4093383` or request
+another deployment when their public build is identical.
+
+### Earlier provisional Antigravity deployment
 
 **Provisional Antigravity setup guidance** is live from **`712c31f`**, by
 [Landing page run 44028002869](https://github.com/jaredchu/context-docs/actions/runs/44028002869).
