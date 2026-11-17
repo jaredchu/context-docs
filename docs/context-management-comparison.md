@@ -55,10 +55,11 @@ That research kept Cursor support and its native testing proposal postponed;
 the earlier reviews remain historical evidence. The later November 17
 [bounded CLI trial](../evals/cursor/2026-11-17-free/README.md) informed
 [experimental Cursor CLI guidance](getting-started.md#cursor-cli-experimental),
-now prepared locally for review. Its mixed builds and unverified adoption-skill
-and native instruction loading remain explicit. Desktop, cloud and fresh
-installation were not tested. This local update is not deployed; the October
-comparison research and its findings are unchanged.
+now published from `b9504c1` after the owner's separate commit, push and
+deployment authorization. Its mixed builds and unverified adoption-skill and
+native instruction loading remain explicit. Desktop, cloud and fresh
+installation were not tested. The [deployment summary](../site/README.md#latest-deployment)
+owns verification; the October comparison research and its findings are unchanged.
 
 ## Review follow-up preview
 

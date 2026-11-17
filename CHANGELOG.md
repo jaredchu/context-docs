@@ -24,13 +24,13 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## Unreleased: experimental Cursor CLI guidance — 2026-11-17
+## Experimental Cursor CLI guidance — 2026-11-17 (no package release)
 
 - Documentation and integration guidance only; **no package release**. Published
   bundle v0.2.7 (core 0.2.7, adoption 0.1.16) and every `VERSION` file are
   unchanged, with no adapter or plugin.
 - Add experimental Cursor CLI installation and usage to the README,
-  [usage guide](docs/getting-started.md#cursor-cli-experimental) and local
+  [usage guide](docs/getting-started.md#cursor-cli-experimental) and
   website source. Prefer reusing an existing installation; documented
   `~/.cursor/skills` placement is marked untested. The troubleshooting prompt
   now names Cursor's documented skill directories.
@@ -41,7 +41,10 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   loading criterion. A failed model attempt is retained. Fresh installation,
   instruction loading, interactive and desktop use are untested. Repository
   static checks and site tests are separate from that agent evidence.
-  No release, deployment or new model trial accompanies this change.
+  Initially prepared locally for review; the owner subsequently authorized
+  committing, pushing and deploying reviewed source `b9504c1`. The
+  [deployment summary](site/README.md#latest-deployment) retains verification.
+  No package release or new model trial accompanies publication.
 
 ## v0.2.7 publication — 2026-11-07
 

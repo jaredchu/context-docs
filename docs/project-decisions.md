@@ -440,6 +440,11 @@ The Cursor desktop editor and cloud agents remain not evaluated. The Codex
 plugin runtime deferral and broad v1.0.0 campaign stay deferred, and the
 Codex/Claude studies and switching walkthroughs are not extended to Cursor.
 
-This authorizes local documentation, evidence and website-source edits for
-review only. It grants no commit, push, release, deployment, installed upgrade or
-further model trial; the live website is unchanged.
+The initial request authorized local documentation, evidence and website-source
+edits for review only. The owner subsequently authorized committing and pushing
+the reviewed changes and deploying the website, explicitly withholding a new
+release. Reviewed source `b9504c1` is pushed and deployed; the
+[deployment summary](../site/README.md#latest-deployment) owns verification.
+The support-patch review passed after repairing the clone-failure installation
+path. Installed upgrades and further model trials remain separate actions;
+published skill versions and release tags are unchanged.

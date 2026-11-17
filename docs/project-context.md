@@ -19,9 +19,12 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-**Local review:** experimental Cursor CLI support is prepared locally, as the
-owner requested, and is not committed, published or deployed. The live website
-source is unchanged. The [README](../README.md#install-in-cursor-cli-experimental),
+Experimental Cursor CLI support is published from **`b9504c1`** after the owner
+explicitly authorized committing, pushing and deploying the reviewed changes,
+with no new release. [Source CI](https://github.com/jaredchu/context-docs/actions/runs/44008007421)
+and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44008008982)
+pass. The final independent source review passed after the installation
+failure-path repair; the committed tree matches its frozen source. The [README](../README.md#install-in-cursor-cli-experimental),
 [usage guide](getting-started.md#cursor-cli-experimental) and website source add
 reuse-first installation, slash and plain-prompt use, and the test limits. No
 skill, version, plugin or release change is needed. The
@@ -30,9 +33,10 @@ print-mode sessions on Free: adoption loading falls short of the direct-read
 criterion, builds are mixed, and a failed model attempt is retained. Fresh
 installation, instruction loading, interactive and desktop use remain untested.
 The [decision](project-decisions.md#experimental-cursor-cli-support) supersedes the
-October CLI postponement. Next: maintainer review of the local diff; committing
-or publishing requires further authorization. Independent source-review results
-are retained separately from the native trial evidence.
+October CLI postponement. The [deployment summary](../site/README.md#latest-deployment)
+owns artifact/live parity, browser checks and their limits. Independent source
+review and website verification remain separate from native trial evidence.
+No skill, version or release changed; publication is complete.
 
 The owner requested easier experiment discovery, a new `/experiments/` index and
 one simplified main menu on every page, explicitly keeping Overview. The
@@ -229,10 +233,10 @@ Experiment discovery (November 14): REVIEWED 29afabd → DEPLOYED 645b5a0
   ├─ LIVE /experiments/ index and consistent five-link main menu
   └─ CHECKED Artifact/live parity and ten routes at four widths; no new release
 
-Cursor CLI (November 17): TRIAL COMPLETE (qualified) → DOCS PREPARED → LOCAL REVIEW
+Cursor CLI (November 17): TRIAL COMPLETE (qualified) → REVIEWED → DEPLOYED b9504c1
   ├─ RETAINED Adoption direct-read criterion not met; mixed builds; failed model attempt
   ├─ UNTESTED Fresh install, instruction loading, interactive and desktop use
-  └─ NEXT    Maintainer review; no commit, release or deployment authorized
+  └─ CHECKED CI, artifact/live parity and desktop/mobile; no new release
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
@@ -255,7 +259,7 @@ The broad v1.0.0 campaign and
 [Codex plugin runtime work](project-decisions.md#codex-plugin-runtime-deferral)
 remain deferred. Cursor desktop and cloud use remain not evaluated; the
 [experimental CLI support](project-decisions.md#experimental-cursor-cli-support)
-is in local review.
+is published with its trial limits.
 
 ## Decisions
 

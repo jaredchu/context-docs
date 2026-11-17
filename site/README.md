@@ -419,10 +419,11 @@ published as recorded below. Operator evidence ID: `experiments-index-preview-20
 
 ## Local experimental Cursor CLI preview
 
-**Local review only; not committed or deployed.** The live website and its
-deployed source are unchanged; the [latest deployment](#latest-deployment) remains
-the published record. The owner requested experimental Cursor CLI support with
-clear test limitations, kept local for review.
+**Prepared locally, then published after separate owner authorization.** The
+owner first requested experimental Cursor CLI support with clear test limitations,
+kept local for review. Reviewed source `b9504c1` is now pushed and deployed;
+the [latest deployment](#latest-deployment) owns verification. The original
+preparation checks below retain their scope; no new release was selected.
 
 The homepage and guide add an "Install in Cursor CLI (experimental)" panel. Its
 copyable command comes from the README through the `CURSOR_INSTALL` marker. The
@@ -444,6 +445,39 @@ selected. These one-browser checks are not cross-browser or accessibility
 certification.
 
 ## Latest deployment
+
+Experimental [Cursor CLI support](https://context-docs.com/getting-started/#install-cursor)
+is deployed from **`b9504c1`** by
+[Landing page run 44008008982](https://github.com/jaredchu/context-docs/actions/runs/44008008982).
+The owner explicitly authorized committing and pushing the reviewed changes,
+then deploying the website, with no new release. The committed source matches
+the final frozen review; independent source review passed after the fail-fast
+installation repair. The original native trial and its limitations are unchanged.
+
+[Source CI](https://github.com/jaredchu/context-docs/actions/runs/44008007421),
+build and actual Worker deployment pass, including all 48 site tests. Both
+workflow manifests and all nineteen uploaded files match the pinned twenty-file
+build; upload omits the empty `.nojekyll` marker. Eighteen canonical live
+resources match: eight exactly and ten HTML pages after removing only the
+retained Cloudflare analytics beacon. All ten canonical routes and metadata,
+sitemap, robots, eight redirects and a missing-route 404 check pass. The comparison
+page retains its existing lack of `og:url`; its canonical link is correct.
+Worker version: `e627ff91-669b-4e69-9dfe-42965fe0c77f`.
+
+Live headless Chrome checks pass on the three changed routes (homepage, guide
+and comparison) at 1440, 768, 390 and 320px, with no page-wide overflow or observed
+browser exceptions. Cursor commands match the reviewed canonical block; keyboard
+access, page-local stubbed copy feedback and no-JavaScript instructions pass.
+The operating-system clipboard was untouched. These one-browser checks are not
+cross-browser or accessibility certification, a new agent trial or human-benefit
+evidence. Skills, versions, release records, tags and original studies are
+unchanged; v0.2.7 remains the latest bundle. Operator evidence ID:
+`cursor-cli-publish-2026-11-17`.
+
+Later record-only commits do not supersede deployed source `b9504c1` or request
+another deployment when their public build is identical.
+
+### Earlier experiments-index deployment
 
 The [experiments index](https://context-docs.com/experiments/) and shared five-link
 main navigation are deployed from **`645b5a0`** by
