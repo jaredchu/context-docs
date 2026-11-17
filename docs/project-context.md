@@ -19,7 +19,13 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-**LOCAL: provisional Antigravity setup guidance** retains mixed bounded results.
+**Provisional Antigravity setup guidance is published** from **`712c31f`** after
+the owner's commit, push and deployment authorization. The completed independent
+source review matches the committed source; [source CI](https://github.com/jaredchu/context-docs/actions/runs/44028002930)
+and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44028002869)
+pass. The [deployment summary](../site/README.md#latest-deployment) owns matching
+manifests, artifact/live resources and desktop/mobile checks. Native evidence
+retains mixed bounded results.
 The owner-authorized [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
 diagnoses the original shell denials and wait-only parent completions. On the
 newer CLI build, denied-shell adoption completed while scoped adoption reached
@@ -29,9 +35,11 @@ A later [600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/READ
 completed fresh adoption and search-enabled refresh in 160.531 and 306.391 seconds.
 Its report owns behavioral scores, preservation, the unmet direct adoption-file
 read and unsupported native loading/link-verification claims. These independent
-cases establish neither timeout causality nor a repeatable end-to-end workflow. App and IDE remain untested. The [guide](getting-started.md#antigravity-provisional)
-and [website preview](../site/README.md#local-antigravity-preview) remain local;
-no commit, push, deployment, release, skill or installed-package change is included.
+cases establish neither timeout causality nor a repeatable end-to-end workflow.
+App and IDE remain untested. The [guide](getting-started.md#antigravity-provisional)
+and [website panels](../site/README.md#local-antigravity-preview) retain those
+qualifications. Trial records preserve their original local execution scope;
+this publication adds no native trial, release, skill or installed-package change.
 
 **Experimental Cursor support, validated through the CLI; editor not separately
 tested** is published from **`2efde55`**, following the owner's commit, push and
@@ -380,10 +388,11 @@ Repository checks validate mechanics, not agent behavior.
 ## Next actions
 
 Antigravity: original constrained trial → mixed scoped follow-up →
-**two fresh behavioral passes with a longer cap; provisional local guidance**.
+two fresh behavioral passes with a longer cap → **reviewed guidance published;
+website deployment verified**.
 The latest report retains loading, final-answer accuracy and repeatability limits;
-further native attempts and publication require a separate owner decision.
-The completed Cursor publication below remains the deployed baseline.
+further native attempts require a separate owner decision. Provisional status is
+unchanged; no new release or further feature work is selected.
 
 The reviewed documentation is merged and website deployment is complete; no
 release or further feature work is selected. Authored instructions do not

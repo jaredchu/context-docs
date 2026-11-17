@@ -8,7 +8,7 @@ versions from their `VERSION` files. Edit those sources for shared content; edit
 
 ## Local Antigravity preview
 
-**LOCAL, not deployed.** The homepage and guide add always-visible provisional
+**Published after local preparation.** The homepage and guide add always-visible provisional
 Antigravity installation panels. The README owns their escaped, copyable command;
 the existing Codex/Claude switch and Cursor panel are preserved. The comparison
 page links the qualified guidance. The [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
@@ -477,6 +477,39 @@ all native-trial qualifications. The reviewed patch is now deployed; the latest
 deployment below records its source and checks.
 
 ## Latest deployment
+
+**Provisional Antigravity setup guidance** is live from **`712c31f`**, by
+[Landing page run 44028002869](https://github.com/jaredchu/context-docs/actions/runs/44028002869).
+The owner authorized committing and pushing the reviewed support changes and
+deploying the website, with no new release. All 93 selected source hashes and the
+committed tree match the completed independent source review. The original,
+scoped and longer-timeout CLI records retain their as-run findings and limits;
+their publication adds no new agent evaluation. App and IDE remain untested.
+
+[Source CI](https://github.com/jaredchu/context-docs/actions/runs/44028002930),
+all 51 site tests, build and actual Worker deployment pass. Both printed workflow
+manifests and all nineteen uploaded files match the pinned twenty-file build;
+upload omits the empty `.nojekyll` marker. Eighteen canonical live resources
+match: eight exactly and ten HTML pages after removing only the retained
+Cloudflare analytics beacon. Ten canonical routes, sitemap, robots, eight
+redirects and the missing-route 404 pass. The comparison page retains its existing
+absence of `og:url`; its canonical link is correct. Worker version:
+`3f851a38-13bd-4d4d-aa1b-434e9d138c51`.
+
+Live headless Chrome checks pass on the homepage, guide and comparison at 1440,
+768, 390 and 320px. Provisional wording and the App/IDE test limit are visible;
+there is no page-wide overflow or observed browser exception. Canonical commands,
+keyboard access, page-local stubbed copy feedback and no-JavaScript instructions
+pass. The verification browser is stopped and the operating-system clipboard was
+untouched. These are one-browser observations, not cross-browser or accessibility
+certification, native agent trials or human-benefit evidence. Skill packages and
+versions are unchanged; no release or tag was created. The latest bundle remains
+v0.2.7. Operator evidence ID: `antigravity-publish-2026-11-17`.
+
+Later record-only commits do not supersede deployed source `712c31f` or request
+another deployment when their public build is identical.
+
+### Earlier Cursor support label deployment
 
 **Experimental Cursor support, validated through the CLI; editor not separately
 tested** is live from **`2efde55`**, by

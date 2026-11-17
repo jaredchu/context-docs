@@ -468,9 +468,9 @@ release, and preserves the original trial evidence and installation commands.
 ## Provisional Antigravity guidance
 
 On November 17, 2026, the owner requested an Antigravity CLI compatibility check
-and support preparation. This authorizes a bounded trial and local source changes;
-it does not authorize commits, pushes, deployment, releases, installed-skill changes
-or global settings changes.
+and support preparation. That initial request authorized a bounded trial and local
+source changes; commits, pushes, deployment, releases, installed-skill changes and
+global settings changes were outside its scope.
 
 The [trial](../evals/antigravity/2026-11-17/README.md) used unchanged core 0.2.7 and
 adoption 0.1.16 in project `.agents/skills/`. Native slash expansion and core skill
@@ -503,3 +503,12 @@ Both cases met their behavioral criteria, but automatic loading, direct adoption
 file reading in the adoption case and repeatability remain unestablished. The
 report also retains the refresh final's unsupported link-verification claim.
 This evidence keeps setup provisional and adds no publication or further-run authority.
+
+The owner subsequently authorized committing and pushing the reviewed Antigravity
+support changes and deploying the website, keeping the test limitations clear and
+creating no new release. Reviewed source `712c31f` is pushed and deployed;
+the [deployment summary](../site/README.md#latest-deployment) records CI,
+artifact/live parity and desktop/mobile verification. This publishes the existing
+qualified guidance and evidence; it adds no native trial, skill/version change or
+App/IDE claim. Further native attempts and installed-package changes remain
+separate decisions.
