@@ -272,7 +272,10 @@ models and repeatability are untested. The CLI updated itself during the first
 case, so results span two builds. An earlier attempt with a model listed but not
 available on Free is retained as a failure. Shell was denied, so Cursor did not
 run its own tests; a separate harness run passed 2/2. Audit accuracy was only
-partly checked. This supports experimental CLI guidance, not general Cursor support.
+partly checked. Experimental Cursor support is validated through this CLI trial; the editor was
+not separately tested. Expected editor compatibility relies on Cursor
+documenting the [same rules system and modes](https://cursor.com/docs/cli/using)
+and [Agent Skills](https://cursor.com/docs/skills), rather than an editor trial.
 
 ### November 14 public-project documentation study
 

@@ -76,7 +76,7 @@ than inferring loading solely from filenames. See the
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](../skills/context-docs/references/standard.md) directly.
-Apart from the [experimental Cursor CLI observation](#cursor-cli-experimental),
+Apart from the [experimental Cursor support](#cursor-experimental),
 behavior on clients other than Codex and Claude Code has not been evaluated.
 
 ### Development-source installs
@@ -86,9 +86,13 @@ read its `VERSION` files before copying packages. Copying from a working checkou
 bundle and may include unreleased edits. Preserve existing customizations and use one installation
 scope. The everyday instructions above remain pinned to v0.2.7.
 
-## Cursor CLI (experimental)
+## Cursor (experimental)
 
-**Experimental CLI support.** The unchanged standard skills worked in one
+**Experimental Cursor support, validated through the CLI; editor not separately tested.**
+Cursor documents the [same rules system and modes](https://cursor.com/docs/cli/using)
+for the CLI and editor, along with [Agent Skills](https://cursor.com/docs/skills).
+These shared mechanisms support expected editor compatibility; our validation
+is limited to the CLI. The unchanged standard skills worked in one
 [bounded Cursor CLI trial](../evals/cursor/2026-11-17-free/README.md), with the
 qualifications below. No Cursor plugin, adapter or separate release is needed.
 The trial covers print mode only, using the Free plan with one model and two CLI
@@ -135,7 +139,8 @@ Keep the adopted maintenance rule in one of those files. In the trial, adoption
 wrote the rule to the root `AGENTS.md`, and the model reported that the rule
 loaded. That loading was not independently verified.
 
-**Use it.** Start the CLI (`agent`) in your project, then invoke
+**Use it.** Open your project in Cursor Agent chat, or start the CLI (`agent`)
+in your project, then invoke
 `/adopt-context-docs` once. Later, use `/context-docs` or the plain prompts in
 [Use it](#use-it), written as for Claude Code. The trial sent each prompt in print
 mode instead, invoking the CLI as `cursor-agent` with additional output, model and
@@ -151,7 +156,10 @@ own `SKILL.md` was never read through a tool call. The setup it produced matches
 that skill, which suggests the slash command supplied its content; this is
 inferred, not observed.
 
-### Cursor CLI limits and troubleshooting
+<a id="cursor-cli-limits-and-troubleshooting"></a>
+### Cursor CLI (experimental)
+
+#### Limits and troubleshooting
 
 - **Print mode can edit files.** Cursor documents that `-p`
   [edits workspace files and runs allowed commands](https://cursor.com/docs/cli/using#non-interactive-mode)
@@ -178,7 +186,7 @@ the retained failed attempt and what remains unestablished.
 
 With both skills installed, adopt a new or existing project with:
 
-| Codex | Claude Code | Cursor CLI (experimental) |
+| Codex | Claude Code | Cursor (experimental) |
 | --- | --- | --- |
 | `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
@@ -215,7 +223,7 @@ Preserve the existing layout, approved decisions, and unresolved blockers.
 
 Explicit skill prompts are optional ways to request a focused audit, update or
 initialization. The following examples use Codex syntax; replace `$context-docs`
-with `/context-docs` for Claude Code or the experimental Cursor CLI:
+with `/context-docs` for Claude Code or experimental Cursor:
 
 ```text
 Use $context-docs to audit this project's context documents. Report the gaps
@@ -294,7 +302,7 @@ enumerate, search or read event journals, transcripts, native memory or history.
    inspect. Read only SKILL.md and VERSION for context-docs and adopt-context-docs
    in the current client's installation locations: .agents/skills or
    ~/.agents/skills for Codex; .claude/skills or ~/.claude/skills for Claude Code;
-   for the experimental Cursor CLI, .cursor/skills, .agents/skills, .claude/skills
+   for experimental Cursor, .cursor/skills, .agents/skills, .claude/skills
    or .codex/skills in the project or home directory; or an installation path I
    explicitly supply. Open those named package files
    directly; do not enumerate unrelated skills or other user directories. If a
@@ -317,7 +325,7 @@ This prompt produces a scoped troubleshooting report, not a health score.
 For installation locations, see
 [Codex installation](#install-in-codex),
 [Claude Code installation](#install-in-claude-code) and the
-[experimental Cursor CLI setup](#cursor-cli-experimental). The Claude Code section also
+[experimental Cursor setup](#cursor-experimental). The Claude Code section also
 describes `/context` and the Project instructions setting; this guide documents
 no equivalent Codex instruction-loading check. Missing evidence stays unknown.
 Behavior in a newly opened client and newcomer usability remain untested.

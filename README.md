@@ -3,7 +3,7 @@
 **Keep decisions, current work and next steps across AI sessions.**
 
 Context Docs provides reusable agent skills for context management in Codex and
-Claude Code, with **experimental Cursor CLI support**. Preserve project knowledge
+Claude Code, with **experimental Cursor support**. Preserve project knowledge
 in readable Markdown so a new AI session can pick up where you left off: what was
 decided and why, what is done or blocked, and what to do next.
 
@@ -30,7 +30,7 @@ unlinked-note coverage gap remains; the separate installed check names the note
 explicitly. See [results and qualifications](docs/evaluation-results.md#more-recent-studies).
 Publication and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
-For Codex and Claude Code · Experimental Cursor CLI support · Plain Markdown · [MIT licensed](LICENSE)
+For Codex and Claude Code · Experimental Cursor support · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
 
@@ -108,9 +108,11 @@ If either skill is already installed, [review the upgrade guidance](docs/getting
 before copying files. [Project-only setup and instruction loading →](docs/getting-started.md#install-in-claude-code)
 The version output should be `0.2.7` followed by `0.1.16`.
 
-### Install in Cursor CLI (experimental)
+<a id="install-in-cursor-cli-experimental"></a>
+### Install in Cursor (experimental)
 
-**Experimental CLI support:** one bounded Cursor CLI trial used the unchanged
+**Experimental Cursor support, validated through the CLI; editor not separately tested.**
+One bounded Cursor CLI trial used the unchanged
 v0.2.7 skills from an existing `~/.claude/skills` installation, in print mode on
 Free. Interactive sessions, the desktop editor and fresh installation are untested.
 If you already installed both skills for Claude Code or Codex, Cursor
@@ -132,7 +134,7 @@ in Cursor's own user directory (**fresh placement not tested**):
 
 The sequence stops at the first failure: a failed clone copies nothing, and the
 guard copies nothing if either folder already exists. Expect `0.2.7` then
-`0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-cli-experimental)
+`0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-experimental)
 
 ## Use it
 
@@ -140,7 +142,7 @@ guard copies nothing if either folder already exists. Expect `0.2.7` then
 
 Open your project in your coding agent and invoke:
 
-| Codex | Claude Code | Cursor CLI (experimental) |
+| Codex | Claude Code | Cursor (experimental) |
 | --- | --- | --- |
 | `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
@@ -278,9 +280,11 @@ The skill guides an agent; it cannot guarantee factual correctness or complete
 preservation, and it cannot prevent concurrent editing conflicts. Review
 consequential claims and edits. It provides no automatic scheduler and grants no
 permission to publish documents or change other systems. Native integration
-remains experimental. Cursor CLI support rests on one
+remains experimental. Experimental Cursor support is validated through one
 [bounded print-mode trial](evals/cursor/2026-11-17-free/README.md) with retained
-loading and build qualifications.
+loading and build qualifications. The editor was not separately tested;
+[Cursor documents the same rules system and modes](https://cursor.com/docs/cli/using)
+for the CLI and editor, which supports expected editor compatibility.
 
 [Results, methods and limitations →](docs/evaluation-results.md)
 

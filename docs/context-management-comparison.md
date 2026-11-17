@@ -54,8 +54,9 @@ unchanged; its targeted cleanup was later deployed from `c2414d4` on October 25.
 That research kept Cursor support and its native testing proposal postponed;
 the earlier reviews remain historical evidence. The later November 17
 [bounded CLI trial](../evals/cursor/2026-11-17-free/README.md) informed
-[experimental Cursor CLI guidance](getting-started.md#cursor-cli-experimental),
-now published from `b9504c1` after the owner's separate commit, push and
+[experimental Cursor support](getting-started.md#cursor-experimental),
+validated through the CLI, with the editor not separately tested. The initial
+CLI guidance was published from `b9504c1` after the owner's separate commit, push and
 deployment authorization. Its mixed builds and unverified adoption-skill and
 native instruction loading remain explicit. Desktop, cloud and fresh
 installation were not tested. The [deployment summary](../site/README.md#latest-deployment)

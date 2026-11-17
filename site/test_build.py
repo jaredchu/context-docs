@@ -151,7 +151,7 @@ class LandingBuildTests(unittest.TestCase):
         for path, heading, language in [
             ('README.md', '### Install in Codex', 'text'),
             ('README.md', '### Install in Claude Code', 'sh'),
-            ('README.md', '### Install in Cursor CLI (experimental)', 'sh'),
+            ('README.md', '### Install in Cursor (experimental)', 'sh'),
             ('README.md', '### 2. Save decisions, current work and next steps', 'text'),
             ('README.md', '### 3. Resume with the saved context', 'text'),
             ('examples/maintenance.md', '## Before: existing context.md', 'markdown'),
@@ -359,7 +359,7 @@ class LandingBuildTests(unittest.TestCase):
         for heading, language in [
             ('### Install in Codex', 'text'),
             ('### Install in Claude Code', 'sh'),
-            ('### Install in Cursor CLI (experimental)', 'sh'),
+            ('### Install in Cursor (experimental)', 'sh'),
             ('### 2. Save decisions, current work and next steps', 'text'),
             ('### 3. Resume with the saved context', 'text'),
             ('## What you get', 'markdown'),
@@ -715,7 +715,7 @@ class LandingBuildTests(unittest.TestCase):
 
     def test_cursor_install_is_canonical_escaped_copyable_and_outside_the_client_switch(self):
         readme = landing.ROOT / 'README.md'
-        heading = '### Install in Cursor CLI (experimental)'
+        heading = '### Install in Cursor (experimental)'
         block = landing.fenced_section(readme.read_text(), heading, 'sh')
         original_read = Path.read_text
 
@@ -749,7 +749,7 @@ class LandingBuildTests(unittest.TestCase):
     def test_cursor_install_stops_on_failure_and_preserves_existing_destinations(self):
         readme_block = landing.fenced_section(
             (landing.ROOT / 'README.md').read_text(encoding='utf-8'),
-            '### Install in Cursor CLI (experimental)', 'sh')
+            '### Install in Cursor (experimental)', 'sh')
         guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
         self.assertIn('```sh\n' + readme_block + '\n```', guide)
         self.assertIn('~/.cursor/skills', readme_block)

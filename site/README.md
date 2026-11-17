@@ -444,6 +444,14 @@ page-wide overflow. The Cursor panel stayed visible when either client was
 selected. These one-browser checks are not cross-browser or accessibility
 certification.
 
+## Cursor support label update
+
+The owner authorized wording that says **experimental Cursor support, validated
+through the CLI; editor not separately tested**, with commit, push and deployment,
+and no new release. The patch preserves installation commands, prior anchors and
+all native-trial qualifications. Publication verification is pending; the latest
+completed deployment below remains the earlier CLI guidance.
+
 ## Latest deployment
 
 Experimental [Cursor CLI support](https://context-docs.com/getting-started/#install-cursor)

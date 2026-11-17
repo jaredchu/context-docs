@@ -337,7 +337,9 @@ synthetic cases once each in Cursor CLI print mode on Free, with unchanged
 published skills. It retains a failed model attempt, mixed CLI builds and two
 adoption cases that miss the direct-read loading criterion. Its portable extract
 is derived from private raw traces. It does not evaluate the Cursor desktop
-editor, interactive sessions, fresh installation or repeatability.
+editor, interactive sessions, fresh installation or repeatability. The
+[experimental Cursor support guidance](../docs/getting-started.md#cursor-experimental)
+is validated through this CLI trial; the editor was not separately tested.
 
 ## Markdown progress views
 

@@ -414,7 +414,8 @@ authorizes this website publication and related deployment records, while releas
 publication remains withheld. The [deployment summary](../site/README.md#latest-deployment)
 owns the resulting source and verification.
 
-## Experimental Cursor CLI support
+<a id="experimental-cursor-cli-support"></a>
+## Experimental Cursor support
 
 The owner authorized Cursor Free compatibility testing, to stop if quota ran out
 and to incur no paid usage. A bounded trial ran on November 17, 2026. The owner
@@ -429,14 +430,23 @@ evidence passed with no material findings; it did not review the current support
 patch. Raw evidence remains private; the public record is a derived
 extract.
 
-Decision: document the Cursor **CLI** as experimental, using the unchanged
+The owner subsequently clarified the label: **experimental Cursor support,
+validated through the CLI; editor not separately tested**, and authorized
+updating the docs and website, committing, pushing and deploying, with no new
+release. Cursor documents the [same rules system and modes](https://cursor.com/docs/cli/using)
+for CLI and editor, along with [Agent Skills](https://cursor.com/docs/skills).
+Expected editor compatibility rests on those documented mechanisms; it is not
+a separate editor test or a guarantee of identical behavior.
+
+Decision: document **Cursor** as experimental, using the unchanged
 standard skills with no adapter, plugin, skill change or new release. Prefer
 reusing an existing installation in a directory Cursor documents. Describe a
 first installation in Cursor's own directory as documented but untested. Do not
 advertise loading, fresh installation, interactive use or desktop behavior as
 verified. This supersedes the October 23 "not evaluated" status and the
-October 24 postponement for the CLI only. Those entries remain as dated history.
-The Cursor desktop editor and cloud agents remain not evaluated. The Codex
+October 24 support postponement. Those entries remain as dated history.
+Validation remains limited to the CLI; the editor was not separately tested,
+and cloud agents remain not evaluated. The Codex
 plugin runtime deferral and broad v1.0.0 campaign stay deferred, and the
 Codex/Claude studies and switching walkthroughs are not extended to Cursor.
 

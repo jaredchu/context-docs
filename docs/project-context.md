@@ -19,20 +19,25 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+The owner authorized the clarified label **experimental Cursor support, validated
+through the CLI; editor not separately tested**, plus commit, push and website
+deployment with no new release. The wording update is being checked for publication;
+no new client trial, skill change or installation change is included.
+
 Experimental Cursor CLI support is published from **`b9504c1`** after the owner
 explicitly authorized committing, pushing and deploying the reviewed changes,
 with no new release. [Source CI](https://github.com/jaredchu/context-docs/actions/runs/44008007421)
 and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44008008982)
 pass. The final independent source review passed after the installation
-failure-path repair; the committed tree matches its frozen source. The [README](../README.md#install-in-cursor-cli-experimental),
-[usage guide](getting-started.md#cursor-cli-experimental) and website source add
+failure-path repair; the committed tree matches its frozen source. The [README](../README.md#install-in-cursor-experimental),
+[usage guide](getting-started.md#cursor-experimental) and website source add
 reuse-first installation, slash and plain-prompt use, and the test limits. No
 skill, version, plugin or release change is needed. The
 [trial record](../evals/cursor/2026-11-17-free/README.md) retains seven qualified
 print-mode sessions on Free: adoption loading falls short of the direct-read
 criterion, builds are mixed, and a failed model attempt is retained. Fresh
 installation, instruction loading, interactive and desktop use remain untested.
-The [decision](project-decisions.md#experimental-cursor-cli-support) supersedes the
+The [decision](project-decisions.md#experimental-cursor-support) supersedes the
 October CLI postponement. The [deployment summary](../site/README.md#latest-deployment)
 owns artifact/live parity, browser checks and their limits. Independent source
 review and website verification remain separate from native trial evidence.
@@ -258,7 +263,7 @@ not require a skill change; the private case's cause remains unknown.
 The broad v1.0.0 campaign and
 [Codex plugin runtime work](project-decisions.md#codex-plugin-runtime-deferral)
 remain deferred. Cursor desktop and cloud use remain not evaluated; the
-[experimental CLI support](project-decisions.md#experimental-cursor-cli-support)
+[experimental Cursor support](project-decisions.md#experimental-cursor-support)
 is published with its trial limits.
 
 ## Decisions
@@ -328,8 +333,8 @@ JSONL necessity and a natural recording-cost advantage remain unestablished.
 Repository checks validate mechanics, not agent behavior.
 
 - The [Cursor CLI trial](../evals/cursor/2026-11-17-free/README.md) is one bounded
-  print-mode observation per case on one account. It establishes no general
-  Cursor support, root precedence or repeatability.
+  print-mode observation per case on one account. It establishes no separately tested
+  editor behavior, root precedence or repeatability.
 - [v0.2.6 release notes](releases/v0.2.6.md) own published core **0.2.6**, adoption
   **0.1.15**, separately versioned standard **0.1.1**, installation and discovery
   verification. The [installed filtering check](../evals/installed-skills/2026-10-19-filtering-v026/README.md)

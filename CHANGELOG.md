@@ -24,13 +24,21 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Experimental Cursor support label — 2026-11-17 (no package release)
+
+- Clarify current docs and website wording: experimental Cursor support, validated
+  through the CLI; editor not separately tested. Expected editor compatibility
+  follows Cursor's documented shared rules, modes and skills; no new trial is claimed.
+- Preserve earlier installation links, commands, frozen trial evidence and all
+  loading/build/installation limits. Published package versions are unchanged.
+
 ## Experimental Cursor CLI guidance — 2026-11-17 (no package release)
 
 - Documentation and integration guidance only; **no package release**. Published
   bundle v0.2.7 (core 0.2.7, adoption 0.1.16) and every `VERSION` file are
   unchanged, with no adapter or plugin.
 - Add experimental Cursor CLI installation and usage to the README,
-  [usage guide](docs/getting-started.md#cursor-cli-experimental) and
+  [usage guide](docs/getting-started.md#cursor-experimental) and
   website source. Prefer reusing an existing installation; documented
   `~/.cursor/skills` placement is marked untested. The troubleshooting prompt
   now names Cursor's documented skill directories.
