@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-17T04:55:28Z",
+  "phase": "separate search-capability follow-up; all phase1 outcomes immutable",
+  "authorization": "Coordinator expanded internal assignment after observed R grep barrier, within owner request for appropriately scoped reruns; no owner numerical budget existed; no paid usage unchanged",
+  "build": {
+    "path": "<private-path>",
+    "sha256": "fad3628ad91fe8613a72f074a1c5fde7cd816517788a5b9be96703f7d256741a",
+    "version": "1.5.9"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "cases": [
+    {
+      "id": "R2",
+      "original_case": "S2",
+      "prompt": "Refresh the project context so it reflects the new standup note in notes/.",
+      "base": "fresh original C0 + same original standup + declared search permission note",
+      "rubric": {
+        "byte": "config/src/tests/data unchanged",
+        "selection": "core SKILL.md read observed (yes/no)",
+        "semantic": [
+          "blocker updated to access granted 2026-11-12 with source",
+          "Parquet stays proposed/not approved",
+          "decision+rationale preserved",
+          "config conflict preserved unresolved"
+        ]
+      },
+      "settings_sha256": "e3c5affa65571a136de709ce463a7e1ff213a8c03539366d708eace2a2a3ca8c",
+      "before_sha256": "573afac90a8414269f04243fd4c9acd4f2a8367ddf5784b9531bd2493b424b4f"
+    }
+  ],
+  "budgets": {
+    "attempts_per_case": 1,
+    "per_case_seconds": 240,
+    "aggregate_seconds": 240,
+    "stop": "First quota/rate/payment/unavailable-model barrier; no retries/switch/widening"
+  },
+  "reason": "R reached sources but then plain grep was soft-denied and ended blank; add safe literal search capability only. No timeout-driven A repeat or successful U repeat.",
+  "differences": "Fresh attempt with same task prompt and facts; expanded guarded search and permission note; stochastic differences remain. No permission-only causal attribution.",
+  "limits": "No OS isolation or independent proof of CLI shell-parser defense. Plain grep/interpreters remain ungranted. Search is bounded literal substring, not full grep. Init does not expose agentMode; explicit empty-string Default setting accepted by prior built-in usage, and R unknown command was observed soft-denied.",
+  "guards": {
+    "R2": "e3ed3f8146fa256fa9e42d20b693a087d277996005f9f64d3fba25196fd2badb"
+  },
+  "guard_tests_sha256": "3c4b3f669e6e0d92f423c65a02d077345863580cd319e4a1df858a39fc0417cd",
+  "phase1_manifest_sha256": "6f82f512e4a2161c9f7a739bc06ea68f88817265493b46c2529012265b315d6f",
+  "task_limits": {
+    "aggregate_parent_seconds": 960,
+    "phase1_actual_seconds": 667.219,
+    "phase2_cap_seconds": 240,
+    "maximum_total_parent_invocations": 5,
+    "amendment": "Only count expanded4to5; original960s aggregate retained."
+  }
+}

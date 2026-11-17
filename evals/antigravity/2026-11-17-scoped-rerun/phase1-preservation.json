@@ -1,0 +1,34 @@
+{
+  "original_public_identical": true,
+  "original_private_host_identical": true,
+  "protected_packages_settings_identical": true,
+  "protected_changes": [],
+  "cases": {
+    "B": {
+      "retained_before_matches": true,
+      "snapshot_matches_after": true,
+      "protected_bytes_identical": true,
+      "all_bytes_identical": false
+    },
+    "A": {
+      "retained_before_matches": true,
+      "snapshot_matches_after": true,
+      "protected_bytes_identical": true,
+      "all_bytes_identical": true
+    },
+    "R": {
+      "retained_before_matches": true,
+      "snapshot_matches_after": true,
+      "protected_bytes_identical": true,
+      "all_bytes_identical": true
+    },
+    "U": {
+      "retained_before_matches": true,
+      "snapshot_matches_after": true,
+      "protected_bytes_identical": true,
+      "all_bytes_identical": true
+    }
+  },
+  "binary_identical": true,
+  "guard_files_identical": true
+}

@@ -1,0 +1,31 @@
+{
+  "old_private_host_byte_identical": true,
+  "old_private_host_file_count": 1077,
+  "old_public_evidence_byte_identical": true,
+  "old_public_evidence_file_count": 52,
+  "selected_skills_and_settings_unchanged": true,
+  "protected_detail": [
+    {
+      "category": "repository_skills",
+      "unchanged": true
+    },
+    {
+      "category": "selected_codex_skills",
+      "unchanged": true
+    },
+    {
+      "category": "selected_claude_skills",
+      "unchanged": true
+    },
+    {
+      "category": "cli_settings",
+      "unchanged": true
+    },
+    {
+      "category": "shared_settings",
+      "unchanged": true
+    }
+  ],
+  "original_host_manifest_sha256": "477b2f41324190277010a9bacc933e99fd17c58c179c3c59aebc579c74ff9d3a",
+  "protected_manifest_sha256": "5d152a12fdad752d9e9dd1f695372d9c755a8fc7f8426a2306cf1e968e10edb1"
+}

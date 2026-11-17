@@ -1,0 +1,31 @@
+--- before/docs/project-context.md
++++ after/docs/project-context.md
+@@ -12,7 +12,7 @@
+ - Station filtering is not implemented; all stations in a file are combined.
+ 
+ Progress: CSV parsing (done) → daily summary (done) → **station filter (next)**
+-→ live ingestion (blocked by CDX-4471)
++→ live ingestion
+ 
+ ## Decisions and constraints
+ 
+@@ -24,8 +24,7 @@
+ 
+ ## Blockers
+ 
+-- Live gauge ingestion is blocked until the Coastline Data Exchange grants read
+-  access (request CDX-4471, filed 2026-10-20, no response yet).
++None.
+ 
+ ## Configuration conflict (unresolved)
+ 
+@@ -37,7 +36,8 @@
+ 
+ 1. Add a `--station` filter to `summarize` so operators can select one gauge
+    station.
+-2. After CDX-4471 access is granted, design live ingestion.
++2. Design live ingestion (Coastline Data Exchange approved read access for
++   request CDX-4471 on 2026-11-12; confirmation email to Mara Quill).
+ 
+ ## References
+ 

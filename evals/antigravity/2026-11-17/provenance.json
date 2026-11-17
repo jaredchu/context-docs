@@ -1,0 +1,41 @@
+{
+  "evidence_id": "antigravity-compat-2026-11-17",
+  "raw_protocol_sha256": "85588b01d62ca4f71ce617ce9e7ae72958303109fe1b65a2fccd5387bafcccc7",
+  "raw_amended_protocol_sha256": "41ae6ba66af9eca9b91b5641438917fdb48d91518f2859b715e003e80aef4298",
+  "raw_base_manifest_sha256": "ca9fed1c8226aa02ee0dc25e9afb8044f3b9d5afd509e13b6dae675b13a58415",
+  "raw_answer_key_sha256": "deb99d938c9978627e39a0744792b1870a6b3a5a0a0ad60aedf39d3ed8e9a042",
+  "raw_failed_startups": [
+    {
+      "case": "S1",
+      "stderr_sha256": "b39d259d5be90dba8e3a99c0896dfdb5a755a46c12ecd0a93dd9792e916ba9dc",
+      "error": "Error: --settings: invalid value for setting \"agentMode\": agentMode: unrecognized value \"default\"",
+      "seconds": 0.298
+    },
+    {
+      "case": "S2",
+      "stderr_sha256": "b39d259d5be90dba8e3a99c0896dfdb5a755a46c12ecd0a93dd9792e916ba9dc",
+      "error": "Error: --settings: invalid value for setting \"agentMode\": agentMode: unrecognized value \"default\"",
+      "seconds": 0.075
+    },
+    {
+      "case": "S3",
+      "stderr_sha256": "b39d259d5be90dba8e3a99c0896dfdb5a755a46c12ecd0a93dd9792e916ba9dc",
+      "error": "Error: --settings: invalid value for setting \"agentMode\": agentMode: unrecognized value \"default\"",
+      "seconds": 0.081
+    }
+  ],
+  "public_derivative": "Paths/session identifiers removed or replaced; selected completed/error tool steps, native child summaries and final responses retained. Raw traces remain private; hashes identify them but do not make them publicly inspectable.",
+  "evaluator": "Codex (GPT-6 Astra), author-scored; independent source review is separate",
+  "subject_seconds_including_setup": 630.372,
+  "preservation": {
+    "selected_packages_and_settings_unchanged": true,
+    "before_sha256": "3fb94d2054247c8f81ca48748c6e7c7917605e9296c57c46fcc07b271c13b4a9",
+    "after_sha256": "3fb94d2054247c8f81ca48748c6e7c7917605e9296c57c46fcc07b271c13b4a9"
+  },
+  "quota_reports": {
+    "before_gemini_percent": 100,
+    "after_gemini_percent": 72,
+    "before_sha256": "1191d9ef21218eb3b936b0c38df2d327c412e0f1846d7080a9e24a37b49e6d64",
+    "after_sha256": "f08fe3c41f91c9aec303d2d14ce094553c61c47bd4ad76a7727014aa273ff83c"
+  }
+}

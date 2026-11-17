@@ -1,0 +1,42 @@
+from pathlib import Path
+import json,hashlib,subprocess,os,time,signal,re,sys
+H=Path(__file__).parent;PN='protocol-amended' if (H/'protocol-amended.json').exists() else 'protocol';P=json.loads((H/(PN+'.json')).read_text())
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def snap(p):return {str(f.relative_to(p)):sha(f) for f in sorted(p.rglob('*')) if f.is_file()}
+assert sha(H/(PN+'.json'))==(H/(PN+'.sha256')).read_text().split()[0]
+assert sha(Path(__file__))==P['runner_sha256']
+assert sha(Path('<private-path>
+for n,digest in P['guards'].items():assert sha(H/'guards'/n/'inspect')==digest
+ledger=json.loads((H/'ledger.json').read_text()) if (H/'ledger.json').exists() else []
+assert not any(x['stop_barrier'] for x in ledger)
+env=os.environ.copy()
+for k in list(env):
+ if k.endswith('_API_KEY') or k in ['OPENAI_BASE_URL','ANTHROPIC_BASE_URL','GOOGLE_APPLICATION_CREDENTIALS','AGY_ADC_AUTH']:env.pop(k)
+env.update(GIT_CONFIG_GLOBAL='/dev/null',GIT_CONFIG_NOSYSTEM='1',GIT_OPTIONAL_LOCKS='0',PYTHONDONTWRITEBYTECODE='1')
+for c in P['cases']:
+ if c['id'] not in sys.argv[1:]:continue
+ ident=c['id'];assert ident not in [x['id'] for x in ledger]
+ d=H/'runs'/ident;ws=H/'ws'/ident
+ assert sha(d/'settings.json')==c['settings_sha256'];assert sha(d/'before.json')==c['before_sha256'];assert snap(ws)==json.loads((d/'before.json').read_text())
+ settings=json.loads((d/'settings.json').read_text());assert settings['useG1Credits']==False and settings['modelProvider']==''
+ argv=['<private-path>
+ (d/'command.json').write_text(json.dumps(argv,indent=2));(H/'writer-progress.txt').write_text(f'Running frozen case {ident}; completed {len(ledger)}; no paid fallback.\n')
+ (d/'started.json').open('x').write(json.dumps({'started_utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}))
+ start=time.monotonic();timeout=False;stop=False
+ with (d/'trace.jsonl').open('w') as out,(d/'stderr.txt').open('w') as err:
+  proc=subprocess.Popen(argv,cwd=ws,env=env,stdin=subprocess.DEVNULL,stdout=out,stderr=err,start_new_session=True)
+  while proc.poll() is None:
+   raw=(d/'trace.jsonl').read_text()+(d/'stderr.txt').read_text()
+   stop=bool(re.search(r'quota.{0,70}(exceed|exhaust|limit|reach)|rate.limit|payment.required|upgrade.{0,40}(plan|required)|model.{0,30}(unavailable|not available)|RESOURCE_EXHAUSTED',raw,re.I))
+   timeout=time.monotonic()-start>=min(600,1200-sum(x['seconds'] for x in ledger))
+   if stop or timeout:
+    os.killpg(proc.pid,signal.SIGTERM)
+    try:proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+    break
+   time.sleep(.25)
+ after=snap(ws);before=json.loads((d/'before.json').read_text());(d/'after.json').write_text(json.dumps(after,indent=2))
+ result={'id':ident,'exit_code':proc.returncode,'seconds':round(time.monotonic()-start,3),'timeout':timeout,'stop_barrier':stop,'changed':[k for k in sorted(set(before)|set(after)) if before.get(k)!=after.get(k)],'trace_sha256':sha(d/'trace.jsonl')}
+ ledger.append(result);(d/'result.json').write_text(json.dumps(result,indent=2));(H/'ledger.json').write_text(json.dumps(ledger,indent=2));print(json.dumps(result),flush=True)
+ if stop:break
+(H/'writer-progress.txt').write_text(f'Completed {len(ledger)} frozen cases; {sum(x["seconds"] for x in ledger):.1f}s; evaluating native evidence.\n')

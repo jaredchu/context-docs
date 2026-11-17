@@ -1,0 +1,21 @@
+{
+  ".DS_Store": "55a514dbe8e9f3f86bf6b9bf9b12c6f247edb3b2d0ac18deeda165c0f3d7d284",
+  "adopt-context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+  "adopt-context-docs/SKILL.md": "52b96099eb0de7757d0e9d2f413751a5615ce17a03aa871f11e070f28316b101",
+  "adopt-context-docs/VERSION": "7470694a0b5af87394b523c1a640e2ad099efbe0e6d9e6d2f7a70703e4d04457",
+  "adopt-context-docs/agents/openai.yaml": "c4a53089c06a3c8b62b24267749b03c51d80186fd9be2c4d8d4bc57d38016306",
+  "context-docs/LICENSE": "bf0b3a6c39b32ff957d53ac611948ec2eaa2792d42387b9f275f58b2b093338c",
+  "context-docs/SKILL.md": "e65846a0991c32025afbbcc6e480a3b03e831b51b4d00b5885e43d80951bd50e",
+  "context-docs/VERSION": "5b57e3b8c153d1d33b0c0f1ee29d3de1bf93232ed95aa78b80fe885e99faa915",
+  "context-docs/agents/openai.yaml": "30b15fcb90358ae862fa43f8263f239cced250087cbb56afa6556a13350b171d",
+  "context-docs/assets/decision-record.md": "26f94263236b0c5bdb6fa14ec63551c23b0561c19e6d0034a2250b1d1d488d40",
+  "context-docs/assets/project-context.md": "f30c2828a1e0086c102f17183e078e992f8c35d12f950dee073ad81a3e9103d0",
+  "context-docs/references/event-journal.md": "5ab10b468d59aafe88ba015a2b765662c6444857dffbfb6dd8bfdfbe4f6e8bb8",
+  "context-docs/references/local-only.md": "5ce5e7064e4f24ec084dd80298b3a2b20b28f5005fc8ede0774ad0dd5c504b43",
+  "context-docs/references/progress.md": "e5ed48169da22dc490567b5dbd28ec907b0d088e088f727f1936490a6ee9c2fd",
+  "context-docs/references/standard.md": "85d03fd43efa5ef96ae604d50bb0cbd6ce7a371a2d5fd98fe7ae36de7f39feda",
+  "context-docs/scripts/__pycache__/event_journal.cpython-312.pyc": "8469c885295edd09017b1422b25ddb884c945aa763f013eb471a8c058d41e3ea",
+  "context-docs/scripts/__pycache__/journal_policy.cpython-312.pyc": "8cfef00e42ae377eb50399257e68e9a91c9da66f01d0bb79083d542023346bdf",
+  "context-docs/scripts/event_journal.py": "1cf6521556fe7b4effd8ac128600095f679234be8d9bd2763cf6951d01834807",
+  "context-docs/scripts/journal_policy.py": "b6b390ec4ae6958252e1899fb42fe1f20bac947325675754a7707ac8f9cde445"
+}

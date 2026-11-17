@@ -1,0 +1,44 @@
+{
+  "author": "Codex (GPT-6 Astra)",
+  "basis": "Original frozen rubrics; author-scored native observations, not independent source review.",
+  "A": {
+    "behavior": "PASS",
+    "criteria": {
+      "one_maintenance_rule_and_marker": "PASS: one Context maintenance section references context-docs; correct date and entry point",
+      "facts_preserved": "PASS: all context/decision/config/source/test/data/copied-skill/Git bytes identical",
+      "native_slash_expansion": "OBSERVED",
+      "direct_core_skill_read": "PASS",
+      "direct_adoption_skill_read": "UNMET: no completed direct file read in adoption case; slash expansion is separate",
+      "automatic_instruction_loading": "UNVERIFIED: native final claims injection but trace does not substantiate it"
+    },
+    "evidence": [
+      "A-changes.diff",
+      "A-fixture.json",
+      "A-trace-extract.json",
+      "fixture-manifests.json"
+    ]
+  },
+  "R2": {
+    "behavior": "PASS",
+    "criteria": {
+      "dated_access_approval_with_source": "PASS: saved context records CDX-4471 approval on 2026-11-12 with confirmation-email attribution from the standup; final links the standup",
+      "proposal_status": "PASS: Parquet remains proposed, unapproved",
+      "decision_and_rationale": "PASS: SQLite decision and offline-laptop rationale unchanged",
+      "configuration_conflict": "PASS: UTC/local conflict remains explicitly unresolved",
+      "direct_core_skill_read": "PASS",
+      "direct_adoption_skill_read": "OBSERVED during refresh only; does not satisfy A loading criterion",
+      "protected_bytes": "PASS"
+    },
+    "limits": [
+      "Saved context names the confirmation email but does not directly link the standup note.",
+      "Seeded runbook link remains broken; native final claim that Markdown links were verified is unsupported. This was not a full link-repair/audit task."
+    ],
+    "evidence": [
+      "R2-changes.diff",
+      "R2-fixture.json",
+      "R2-trace-extract.json",
+      "fixture-manifests.json"
+    ]
+  },
+  "interpretation": "Both fresh cases meet narrow behavioral criteria. A finished within former 240-second cap; R2 exceeded it. This does not establish that changing the timeout caused the difference from earlier attempts, reliable selection or a repeatable end-to-end workflow."
+}

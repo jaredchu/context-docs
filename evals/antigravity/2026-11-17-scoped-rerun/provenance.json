@@ -1,0 +1,61 @@
+{
+  "evidence_id": "antigravity-scoped-rerun-2026-11-17",
+  "evaluator": "Codex (GPT-6 Astra), author-scored; independent source review separate",
+  "parent_model": "gemini-3.8-flash-medium",
+  "native_children_observed": 0,
+  "build_version": "1.5.9",
+  "binary_sha256": "fad3628ad91fe8613a72f074a1c5fde7cd816517788a5b9be96703f7d256741a",
+  "original_trial_build": "1.5.7; preexisting build change cause unknown",
+  "raw_hashes": {
+    "phase1_protocol": "20bfce74661656a852c3b0c5cd3360869dfbc8d5da92de408c1032bed6112270",
+    "phase1_mode_amendment": "82face89821a97866bfb11e4749ff2e3e49484da3ce66326d40dbd78e7fac633",
+    "phase1_frozen_manifest": "6f82f512e4a2161c9f7a739bc06ea68f88817265493b46c2529012265b315d6f",
+    "R2_protocol": "b98d9b46816c001abf5649d6d317fb5fad1de3dfc13bbebbe1efa157ecb9ceee",
+    "original_inputs_manifest": "a57befcb866c6094c4767c7f4354da35e2569bb08e84397714e67c4bb3783cc6"
+  },
+  "parent_sessions": 5,
+  "total_parent_seconds": 907.532,
+  "aggregate_cap_seconds": 960,
+  "per_case_cap_seconds": 240,
+  "termination_overhead": "A: 240.423 s and R2: 240.313 s wall time include signal/exit handling after each 240 s cap.",
+  "preservation": {
+    "original_public_identical": true,
+    "original_private_host_identical": true,
+    "protected_packages_settings_identical": true,
+    "protected_changes": [],
+    "cases": {
+      "B": {
+        "retained_before_matches": true,
+        "snapshot_matches_after": true,
+        "protected_bytes_identical": true,
+        "all_bytes_identical": false
+      },
+      "A": {
+        "retained_before_matches": true,
+        "snapshot_matches_after": true,
+        "protected_bytes_identical": true,
+        "all_bytes_identical": true
+      },
+      "R": {
+        "retained_before_matches": true,
+        "snapshot_matches_after": true,
+        "protected_bytes_identical": true,
+        "all_bytes_identical": true
+      },
+      "U": {
+        "retained_before_matches": true,
+        "snapshot_matches_after": true,
+        "protected_bytes_identical": true,
+        "all_bytes_identical": true
+      }
+    },
+    "binary_identical": true,
+    "guard_files_identical": true,
+    "phase1_frozen_identical": true,
+    "R2_all_fixture_and_git_bytes_identical": true,
+    "R2_guard_identical": true
+  },
+  "no_paid_controls": "Existing included access; useG1Credits false and empty modelProvider every invocation; API credentials removed from process environment; no paid fallback or quota/payment barrier observed; billing and account tier not independently verified.",
+  "runtime_state": "Native CLI conversation and log state was created; not included in protected package/settings invariance.",
+  "derivative": "Private host paths and runtime identifiers removed/replaced. Selected completed/error tool calls, all final results, commands, fixture bodies, manifests and hashes retained. Private raw traces identified by hashes are not publicly inspectable."
+}

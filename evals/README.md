@@ -402,3 +402,21 @@ adds actual package upgrades and direct capture/lifecycle checks. Its original
 18 sessions, separate nine-session Claude invocation follow-up and four-session
 capture-gap repair retain failures and candidate hashes separately. Static checks
 and guarded preservation are not substitutes for the recorded semantic review.
+
+## Antigravity CLI compatibility observation
+
+The [November 17 bounded trial](antigravity/2026-11-17/README.md) records native
+slash expansion, direct skill reads, incomplete adoption/refresh, control-based
+maintenance, resume/audit behavior and preservation. Setup guidance is provisional;
+App, IDE and global placement are untested. Static/site checks are separate from
+these native subject observations.
+
+The [scoped follow-up](antigravity/2026-11-17-scoped-rerun/README.md) retains
+the original failures, a same-build denied-shell adoption control, and independent
+adoption/refresh/audit reruns with scoped read-only commands. Mixed completion
+results, build/mode/instruction conditions and preservation are reported separately.
+
+The [longer-timeout follow-up](antigravity/2026-11-17-long-timeout/README.md)
+repeats only adoption and search-enabled refresh on fresh fixtures with a
+600-second cap each. Both behavioral criteria pass; the report retains prior
+failures, loading gaps, final-answer qualifications and limits on causal claims.

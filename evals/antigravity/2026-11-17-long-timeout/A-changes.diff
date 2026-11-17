@@ -1,0 +1,23 @@
+--- before/AGENTS.md
++++ after/AGENTS.md
+@@ -4,6 +4,20 @@
+ - Run tests with `python -m unittest` (no network access).
+ - Do not change `config/defaults.toml` without owner approval.
+ 
++## Context maintenance
++
++Method: context-docs
++Adopted: 2026-11-17
++Entry point: docs/project-context.md
++
++Use the context-docs skill for documentation audits and after meaningful changes
++to project facts, decisions, procedures, blockers or next actions. Read the skill
++before maintenance. Preserve project rules, document roles and decision status.
++Update affected canonical sections and check the diff, links and information
++preservation, keeping any existing progress view current without duplicate
++tracking. Keep audit-only requests read-only; make no bookkeeping edits
++when nothing durable changed.
++
+ ## Evaluation permission scope
+ 
+ Native file tools may read this fixture; only the requested documentation edits are allowed (audit is read-only). For read-only enumeration/status, run `<guard> ls [paths]`, `<guard> find [path] [-maxdepth N]`, `<guard> pwd`, `<guard> git status --short`, or `<guard> git ls-files` from this project root. This guarded helper rejects outside paths, symlinks and unsupported operations. Other shell commands require approval and are unavailable in this headless session. Preserve this permission note.

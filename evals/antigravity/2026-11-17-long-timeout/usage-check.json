@@ -1,0 +1,14 @@
+{
+  "before_gemini_weekly_remaining_percent": 45,
+  "after_gemini_weekly_remaining_percent": null,
+  "after_status": "unavailable: built-in /usage subprocess timed out after45seconds; subprocess.run terminated the process, no result retained; no retry",
+  "after_command": [
+    "agy",
+    "--settings",
+    "<R2 frozen settings>",
+    "-p",
+    "/usage"
+  ],
+  "no_subject_barrier_observed": true,
+  "billing_independently_verified": false
+}

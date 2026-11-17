@@ -1,0 +1,347 @@
+[
+  {
+    "args": [
+      "search",
+      "Blockers",
+      ".agents/skills"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "CDX-4471",
+      "notes"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": "notes/2026-11-12-standup.md:3:- Coastline Data Exchange approved read access for request CDX-4471 on\n"
+  },
+  {
+    "args": [
+      "search",
+      "local",
+      "config/defaults.toml"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "nonexistent literal xyz",
+      "docs"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "pwd"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      "/etc"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      ".."
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      ".git"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "-exec",
+      "docs"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      "docs",
+      "extra"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x\ny",
+      "docs"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true,
+    "output": null
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      "escape-link"
+    ],
+    "symlink_present": true,
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      "."
+    ],
+    "symlink_present": true,
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "symlink_present": true,
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "args": [
+      "find",
+      "."
+    ],
+    "symlink_present": true,
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "x",
+      "."
+    ],
+    "outside_cwd": true,
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/large.txt"
+    ],
+    "expected": "empty",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/binary.bin"
+    ],
+    "expected": "empty",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/many.txt"
+    ],
+    "expected": "cap",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "args": [
+      "search",
+      "$(touch should-not-exist)",
+      ".permission-tests"
+    ],
+    "expected": "literal",
+    "exit": 0,
+    "pass": true
+  }
+]

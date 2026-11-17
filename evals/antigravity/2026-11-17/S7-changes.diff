@@ -1,0 +1,11 @@
+--- before/src/tidewatch/cli.py
++++ after/src/tidewatch/cli.py
+@@ -10,7 +10,7 @@
+     rows = []
+     with open(path, newline="") as handle:
+         for record in csv.DictReader(handle):
+-            # Rows we recieve without a timestamp are skipped.
++            # Rows we receive without a timestamp are skipped.
+             if not record.get("timestamp"):
+                 continue
+             day = record["timestamp"][:10]

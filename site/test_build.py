@@ -814,6 +814,131 @@ class LandingBuildTests(unittest.TestCase):
             self.assertEqual(['SKILL.md'], [p.name for p in (dest / 'adopt-context-docs').iterdir()])
             self.assertEqual('local customization\n', (dest / 'adopt-context-docs/SKILL.md').read_text())
 
+    def test_antigravity_install_is_canonical_escaped_copyable_and_outside_the_client_switch(self):
+        readme = landing.ROOT / 'README.md'
+        heading = '### Install in Antigravity (provisional)'
+        block = landing.fenced_section(readme.read_text(), heading, 'sh')
+        original_read = Path.read_text
+
+        def changed_readme(path, *args, **kwargs):
+            content = original_read(path, *args, **kwargs)
+            if path == readme:
+                return content.replace(block, block + '\necho <antigravity-update>&', 1)
+            return content
+
+        for name in ['index.html', 'getting-started.html']:
+            with self.subTest(template=name):
+                page = parse(landing.render(landing.ROOT, name))
+                self.assertEqual(page.code['antigravity-command'], block)
+                self.assertIn('antigravity-command', {b['data-copy'] for b in page.buttons})
+                # The switch hides only the panels it controls; Antigravity must stay visible.
+                self.assertIn('install-antigravity', page.ids)
+                self.assertNotIn('aria-controls="install-antigravity"', landing.render(landing.ROOT, name))
+                with patch.object(Path, 'read_text', changed_readme):
+                    rendered = landing.render(landing.ROOT, name)
+                self.assertIn('echo &lt;antigravity-update&gt;&amp;', rendered)
+                self.assertNotIn('<antigravity-update>', rendered)
+
+        def missing_antigravity(path, *args, **kwargs):
+            content = original_read(path, *args, **kwargs)
+            return content.replace(heading, '### Removed section') if path == readme else content
+
+        with patch.object(Path, 'read_text', missing_antigravity):
+            with self.assertRaisesRegex(ValueError, 'Missing canonical section'):
+                landing.render(landing.ROOT)
+
+    def test_antigravity_install_stops_on_failure_and_preserves_existing_destinations(self):
+        readme_block = landing.fenced_section(
+            (landing.ROOT / 'README.md').read_text(encoding='utf-8'),
+            '### Install in Antigravity (provisional)', 'sh')
+        guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
+        self.assertIn('```sh\n' + readme_block + '\n```', guide)
+        self.assertIn('.agents/skills', readme_block)
+        fake_git = (
+            '#!/bin/sh\n'
+            'echo "$@" >> "$FAKE_GIT_LOG"\n'
+            '[ "$FAKE_GIT_MODE" = ok ] || { echo "fatal: clone failed" >&2; exit 128; }\n'
+            'for skill in context-docs:0.2.7 adopt-context-docs:0.1.16; do\n'
+            '  mkdir -p "context-docs-skills/skills/${skill%%:*}"\n'
+            '  echo "${skill#*:}" > "context-docs-skills/skills/${skill%%:*}/VERSION"\n'
+            'done\n')
+
+        def run(mode, prepare):
+            # Never runs real git or touches HOME: git is faked and .agents/skills is replaced.
+            tmp = Path(tempfile.mkdtemp())
+            self.addCleanup(shutil.rmtree, tmp)
+            work, bindir, dest = tmp / 'work', tmp / 'bin', tmp / 'dest dir'
+            work.mkdir()
+            bindir.mkdir()
+            (bindir / 'git').write_text(fake_git, encoding='utf-8')
+            (bindir / 'git').chmod(0o755)
+            prepare(work, dest)
+            command = readme_block.replace('.agents/skills', shlex.quote(str(dest)))
+            self.assertNotIn('~', command)
+            env = {k: v for k, v in os.environ.items() if k != 'CDPATH'}
+            env.update(PATH=f'{bindir}{os.pathsep}{env.get("PATH", "")}',
+                       FAKE_GIT_MODE=mode, FAKE_GIT_LOG=str(tmp / 'git.log'))
+            result = subprocess.run(['sh', '-c', command], cwd=work, env=env,
+                                    capture_output=True, text=True, timeout=30)
+            if (tmp / 'git.log').exists():
+                self.assertIn('clone --branch v0.2.7', (tmp / 'git.log').read_text())
+            return result, work, dest
+
+        def stale_checkout(work, dest):
+            stale = work / 'context-docs-skills' / 'skills'
+            for skill in ['context-docs', 'adopt-context-docs']:
+                (stale / skill).mkdir(parents=True)
+                (stale / skill / 'VERSION').write_text('0.0.1-modified\n')
+
+        with self.subTest('failed clone with an existing context-docs folder'):
+            result, work, dest = run('fail', stale_checkout)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertFalse(dest.exists())
+            self.assertEqual('', result.stdout)
+            self.assertEqual('0.0.1-modified\n',
+                             (work / 'context-docs-skills/skills/context-docs/VERSION').read_text())
+
+        with self.subTest('successful first installation'):
+            result, _, dest = run('ok', lambda work, dest: None)
+            self.assertEqual(0, result.returncode, result.stderr)
+            self.assertEqual('0.2.7\n0.1.16\n', result.stdout)
+            self.assertEqual('0.1.16\n', (dest / 'adopt-context-docs/VERSION').read_text())
+
+        def customized(work, dest):
+            (dest / 'adopt-context-docs').mkdir(parents=True)
+            (dest / 'adopt-context-docs' / 'SKILL.md').write_text('local customization\n')
+
+        with self.subTest('existing destination is preserved'):
+            result, _, dest = run('ok', customized)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual('', result.stdout)
+            self.assertFalse((dest / 'context-docs').exists())
+            self.assertEqual(['SKILL.md'], [p.name for p in (dest / 'adopt-context-docs').iterdir()])
+            self.assertEqual('local customization\n', (dest / 'adopt-context-docs/SKILL.md').read_text())
+
+    def test_antigravity_install_preserves_dangling_skill_symlink(self):
+        block = landing.fenced_section((landing.ROOT / 'README.md').read_text(),
+                                       '### Install in Antigravity (provisional)', 'sh')
+        for skill in ['context-docs', 'adopt-context-docs']:
+            with self.subTest(skill=skill), tempfile.TemporaryDirectory() as temp:
+                work = Path(temp)
+                dest, bindir = work / '.agents/skills', work / 'bin'
+                dest.mkdir(parents=True)
+                bindir.mkdir()
+                (dest / skill).symlink_to(work / 'absent')
+                # A regression must never reach the network, and must be detected.
+                fake_git = bindir / 'git'
+                fake_git.write_text('#!/bin/sh\n: > "$GIT_CALL_MARKER"\nexit 99\n')
+                fake_git.chmod(0o755)
+                env = dict(os.environ, PATH=f'{bindir}{os.pathsep}{os.environ.get("PATH", "")}',
+                           GIT_CALL_MARKER=str(work / 'git-called'))
+                result = subprocess.run(['sh', '-c', block], cwd=work, env=env,
+                                        capture_output=True, text=True, timeout=10)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertTrue((dest / skill).is_symlink())
+                self.assertFalse((work / 'git-called').exists())
+                self.assertFalse((work / 'context-docs-skills').exists())
+
     def test_missing_block_does_not_steal_next_sections_command(self):
         with self.assertRaises(ValueError):
             landing.fenced_section('## First\nNo command\n## Second\n```sh\necho wrong\n```', '## First', 'sh')

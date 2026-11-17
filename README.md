@@ -3,8 +3,8 @@
 **Keep decisions, current work and next steps across AI sessions.**
 
 Context Docs provides reusable agent skills for context management in Codex and
-Claude Code, with **experimental Cursor support**. Preserve project knowledge
-in readable Markdown so a new AI session can pick up where you left off: what was
+Claude Code, with **experimental Cursor support** and provisional Antigravity
+setup guidance. Preserve project knowledge in readable Markdown so a new AI session can pick up where you left off: what was
 decided and why, what is done or blocked, and what to do next.
 
 Designed for people without an established context-management workflow, it uses
@@ -30,7 +30,7 @@ unlinked-note coverage gap remains; the separate installed check names the note
 explicitly. See [results and qualifications](docs/evaluation-results.md#more-recent-studies).
 Publication and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
-For Codex and Claude Code · Experimental Cursor support · Plain Markdown · [MIT licensed](LICENSE)
+For Codex and Claude Code · Experimental Cursor support · Provisional Antigravity setup · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
 
@@ -136,15 +136,44 @@ The sequence stops at the first failure: a failed clone copies nothing, and the
 guard copies nothing if either folder already exists. Expect `0.2.7` then
 `0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-experimental)
 
+### Install in Antigravity (provisional)
+
+**Provisional Antigravity setup guidance; bounded CLI results remain mixed.**
+App and IDE were not separately tested. The unchanged v0.2.7 bundle was checked
+in project `.agents/skills/`. A denied-shell control and a later scoped attempt
+completed adoption. The [longer-timeout follow-up](evals/antigravity/2026-11-17-long-timeout/README.md)
+retains task and loading limits alongside the [earlier scoped outcomes](evals/antigravity/2026-11-17-scoped-rerun/README.md)
+and preserved [original trial](evals/antigravity/2026-11-17/README.md).
+
+From the root of your target project, for a first installation:
+
+```sh
+(
+  test ! -e .agents/skills/context-docs &&
+  test ! -L .agents/skills/context-docs &&
+  test ! -e .agents/skills/adopt-context-docs &&
+  test ! -L .agents/skills/adopt-context-docs &&
+  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git context-docs-skills &&
+  mkdir -p .agents/skills &&
+  cp -r context-docs-skills/skills/context-docs context-docs-skills/skills/adopt-context-docs .agents/skills/ &&
+  cat .agents/skills/context-docs/VERSION .agents/skills/adopt-context-docs/VERSION
+)
+```
+
+The guards preserve existing folders and symlinks; a failed clone copies nothing.
+The source checkout is `context-docs-skills/` in your project. Expect `0.2.7` then
+`0.1.16`. Reuse existing project copies; review the upgrade guidance before
+replacing them. [Antigravity setup, evidence and limits →](docs/getting-started.md#antigravity-provisional)
+
 ## Use it
 
 ### 1. Set up your project
 
 Open your project in your coding agent and invoke:
 
-| Codex | Claude Code | Cursor (experimental) |
-| --- | --- | --- |
-| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
+| Codex | Claude Code | Cursor (experimental) | Antigravity (provisional) |
+| --- | --- | --- | --- |
+| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
 The adoption skill applies the context workflow and adds or reuses a maintenance
 rule in the project instructions your agent loads. It preserves equivalent

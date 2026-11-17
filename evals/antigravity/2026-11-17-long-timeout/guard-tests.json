@@ -1,0 +1,653 @@
+[
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "-la"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      ".."
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      "/tmp"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      ".git"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "outside_cwd": false,
+    "symlink_present": true,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": true,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "Blockers",
+      ".agents/skills"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "CDX-4471",
+      "notes"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "local",
+      "config/defaults.toml"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "nonexistent literal xyz",
+      "docs"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      "/etc"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      ".."
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      ".git"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "-exec",
+      "docs"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      "docs",
+      "extra"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x\ny",
+      "docs"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      "escape-link"
+    ],
+    "outside_cwd": false,
+    "symlink_present": true,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      "."
+    ],
+    "outside_cwd": false,
+    "symlink_present": true,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "outside_cwd": false,
+    "symlink_present": true,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "find",
+      "."
+    ],
+    "outside_cwd": false,
+    "symlink_present": true,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "x",
+      "."
+    ],
+    "outside_cwd": true,
+    "symlink_present": false,
+    "expected": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/large.txt"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": "empty",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/binary.bin"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": "empty",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "MATCH",
+      ".permission-tests/many.txt"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": "cap",
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R2",
+    "args": [
+      "search",
+      "$(touch should-not-exist)",
+      ".permission-tests"
+    ],
+    "outside_cwd": false,
+    "symlink_present": false,
+    "expected": "literal",
+    "exit": 0,
+    "pass": true
+  }
+]

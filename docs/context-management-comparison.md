@@ -110,3 +110,18 @@ The owner subsequently authorized website-only deployment from `main` at
 [publication summary](reading-queue-example.md#october-26-review-follow-up-preview)
 and [latest deployment](../site/README.md#latest-deployment) own current status;
 original research, review and preview records retain their earlier scope.
+
+## Antigravity follow-up (November 17, 2026)
+
+The separate [Antigravity CLI trial](../evals/antigravity/2026-11-17/README.md)
+checks project skill discovery, reads and behavior under constrained permissions.
+The original adoption, refresh and audit cases did not complete; some control-based
+tasks did. A [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+records mixed outcomes on a newer build, including successful denied-shell
+adoption and timed-out scoped adoption. A later [600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/README.md)
+completed fresh adoption and search-enabled refresh, with retained loading and
+final-answer accuracy limits. These observations isolate neither a permission
+nor timeout effect. The resulting
+[setup guidance](getting-started.md#antigravity-provisional) is provisional, with
+App and IDE not separately tested. These observations do not change the earlier
+source-based comparison or establish general incompatibility or comparative benefit.

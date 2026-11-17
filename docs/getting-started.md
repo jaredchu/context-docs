@@ -76,8 +76,9 @@ than inferring loading solely from filenames. See the
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](../skills/context-docs/references/standard.md) directly.
-Apart from the [experimental Cursor support](#cursor-experimental),
-behavior on clients other than Codex and Claude Code has not been evaluated.
+The [Cursor guidance](#cursor-experimental) and
+[provisional Antigravity guidance](#antigravity-provisional) retain their separate
+CLI observations and limits. Behavior on other clients has not been evaluated.
 
 ### Development-source installs
 
@@ -182,13 +183,103 @@ inferred, not observed.
 See the [trial record](../evals/cursor/2026-11-17-free/README.md) for case results,
 the retained failed attempt and what remains unestablished.
 
+## Antigravity (provisional)
+
+**Provisional Antigravity setup guidance; bounded CLI results remain mixed.**
+App and IDE were not separately tested. The [original `agy 1.5.7` trial](../evals/antigravity/2026-11-17/README.md)
+did not complete adoption, refresh or audit. The [scoped follow-up on `agy 1.5.9`](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+retains those failures and the new outcomes: a denied-shell adoption control
+completed, while scoped adoption reached its 240-second limit without edits.
+Read-only audit passed; refresh ended blank after an ungranted search, and a
+separately frozen search-capability attempt timed out after searches succeeded.
+A later [600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/README.md)
+completed both fresh behavioral cases: adoption in 160.531 seconds and refresh in
+306.391 seconds. Adoption still lacks a direct adoption-skill file read; automatic
+instruction loading remains unverified. The report retains the refresh final
+answer's unsupported link-verification claim and the limits of timeout comparisons.
+The parent model remained `gemini-3.8-flash-medium`; the account tier was unknown.
+Core **0.2.7** and adoption **0.1.16** remain unchanged. The follow-up used a
+task-specific read-only command helper and permission note, not a skill-package
+adapter or an installation requirement. These independent cases do not establish
+a repeatable end-to-end workflow or automatic instruction loading.
+
+**Project installation (tested placement).** Keep both complete skill folders
+side by side in `.agents/skills/` at the root of your project. Reuse existing
+copies instead of creating duplicates. For a first installation, run from that
+project root:
+
+```sh
+(
+  test ! -e .agents/skills/context-docs &&
+  test ! -L .agents/skills/context-docs &&
+  test ! -e .agents/skills/adopt-context-docs &&
+  test ! -L .agents/skills/adopt-context-docs &&
+  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git context-docs-skills &&
+  mkdir -p .agents/skills &&
+  cp -r context-docs-skills/skills/context-docs context-docs-skills/skills/adopt-context-docs .agents/skills/ &&
+  cat .agents/skills/context-docs/VERSION .agents/skills/adopt-context-docs/VERSION
+)
+```
+
+The sequence stops on the first failure and refuses existing skill folders or
+symlinks. A failed clone copies nothing. The new `context-docs-skills/` folder is
+the source checkout; it is not the active skill directory. Expect `0.2.7` then
+`0.1.16`. For existing installations, [review upgrades](#upgrading) first.
+The trial copied these same complete packages locally; the network clone sequence
+is checked with a simulated clone, not a new authenticated installation.
+
+**Other locations (documented, untested).** Google's [skills reference](https://antigravity.google/docs/skills)
+lists `~/.gemini/config/skills/` as the shared global location. It also lists
+legacy CLI locations `~/.gemini/antigravity-cli/skills/` and `~/.gemini/skills/`,
+which the App does not read. Use one scope. Global placement, duplicate precedence,
+interactive sessions, App and IDE behavior were not tested here.
+
+**Instructions and use.** Keep the maintenance rule in the project's `AGENTS.md`
+or `GEMINI.md`; preserve equivalent existing rules. Google's [rules reference](https://antigravity.google/docs/rules)
+describes loading from the working directory and parents up to the repository
+root, with global-file differences between surfaces. Start `agy` in the project
+and invoke `/adopt-context-docs`; later use `/context-docs` or the ordinary prompts
+below. The scoped follow-up used this print-mode form, with additional scoped permissions:
+
+```sh
+agy --settings '{"useG1Credits":false,"modelProvider":"","agentMode":""}' \
+  --model gemini-3.8-flash-medium \
+  -p "/adopt-context-docs Adopt Context Docs in this project."
+```
+
+Choose a model included in your own plan. Listed models do not establish
+entitlement. The session-only settings above disable credit fallback and keep
+the account backend; see Google's [settings](https://antigravity.google/docs/settings?tab=cli)
+and [credits reference](https://antigravity.google/docs/cli/credits/).
+
+**Limits and troubleshooting.** Print mode can edit files, subject to permissions;
+it is not a read-only mode. State audit-only intent and review the diff. Do not
+bypass permissions to reproduce these checks. The original trial denied all shell
+commands; the follow-up allowed only a guarded helper for fixture enumeration,
+Git status and bounded literal text search. Unknown commands stayed subject to review, web/MCP were denied,
+and audit writes were explicitly denied. In headless mode, a denied tool can still
+lead to exit zero: check the actual result and preserved files. A `command(*)`
+deny or ask rule shadows specific allows. Ordinary command-prefix grants can
+accept additional arguments; file permissions do not sandbox shell commands.
+Use appropriately scoped access for your project, not a blanket bypass. See the
+[follow-up protocol and enforcement limits](../evals/antigravity/2026-11-17-scoped-rerun/README.md#permissions-and-controls).
+Native slash expansion is reported separately from a direct `SKILL.md` read,
+and a successful task does not prove automatic instruction loading. If skills
+are missing, check the project path and start a new conversation; the CLI also
+documents `/skills reload`. The initial attempt to set `agentMode: "default"`
+was rejected before inference in the original trial, whose amended protocol
+omitted the key. Scoped follow-up sessions explicitly set `agentMode: ""`
+(the documented Default mode). Startup events confirm `request-review` but do
+not separately expose the execution mode; the ungranted search in the refresh
+case was observed to require review and was soft-denied.
+
 ## Use it
 
 With both skills installed, adopt a new or existing project with:
 
-| Codex | Claude Code | Cursor (experimental) |
-| --- | --- | --- |
-| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
+| Codex | Claude Code | Cursor (experimental) | Antigravity (provisional) |
+| --- | --- | --- | --- |
+| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
 This applies the core method and adds or merges a maintenance rule in the
 instruction file the project's agent actually loads, such as `AGENTS.md` or

@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-17T04:40:41Z",
+  "title": "Antigravity scoped follow-up",
+  "build": {
+    "path": "<private-path>",
+    "sha256": "fad3628ad91fe8613a72f074a1c5fde7cd816517788a5b9be96703f7d256741a",
+    "version": "1.5.9"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "cases": [
+    {
+      "id": "B",
+      "original_case": "S1",
+      "prompt": "/adopt-context-docs Adopt Context Docs in this project.",
+      "base": "original B0",
+      "settings_sha256": "f7424a16eeba7ff3e56b21f0bddace9947138447a80cedf399a45476f2eec072",
+      "before_sha256": "0174e3ee4a544c41bd83c43ad38d602669d7ca5c9308610f39dc27dfe4c0a0c8",
+      "rubric": {
+        "byte": "only AGENTS.md/docs/README changes expected; config/src/tests/data and skills unchanged",
+        "instruction_loading": "report whether the agent claims AGENTS.md is loaded with evidence; loading is not separately verified by this harness except via S3/S7 behavior",
+        "semantic": [
+          "AGENTS.md gains one Context maintenance rule referencing context-docs",
+          "one marker Method/Adopted: 2026-11-17/Entry point: docs/project-context.md",
+          "decision+rationale, Parquet proposal status, blocker CDX-4471, next action, config conflict all preserved"
+        ]
+      }
+    },
+    {
+      "id": "A",
+      "original_case": "S1",
+      "prompt": "/adopt-context-docs Adopt Context Docs in this project.",
+      "base": "original B0",
+      "settings_sha256": "ad43f2ee78c451d90f839b49c5d43d80d26c08f5284503beb2752af6e3e2b1e9",
+      "before_sha256": "f93db2f61f96e2a59f2a3b87e4b7acc32d56eae8ccc8c0a7f630b19e1fd63fa5",
+      "rubric": {
+        "byte": "only AGENTS.md/docs/README changes expected; config/src/tests/data and skills unchanged",
+        "instruction_loading": "report whether the agent claims AGENTS.md is loaded with evidence; loading is not separately verified by this harness except via S3/S7 behavior",
+        "semantic": [
+          "AGENTS.md gains one Context maintenance rule referencing context-docs",
+          "one marker Method/Adopted: 2026-11-17/Entry point: docs/project-context.md",
+          "decision+rationale, Parquet proposal status, blocker CDX-4471, next action, config conflict all preserved"
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "original_case": "S2",
+      "prompt": "Refresh the project context so it reflects the new standup note in notes/.",
+      "base": "original C0 + original standup",
+      "settings_sha256": "f48c898c7ee09f283e65d38bd81f4a85d7b7c7cb37e252a653099f69848bf620",
+      "before_sha256": "776987865dd88f1e0ea9be92cb765c93ab80b1d41d79d01da58ecd55e32f1a7b",
+      "rubric": {
+        "byte": "config/src/tests/data unchanged",
+        "selection": "core SKILL.md read observed (yes/no)",
+        "semantic": [
+          "blocker updated to access granted 2026-11-12 with source",
+          "Parquet stays proposed/not approved",
+          "decision+rationale preserved",
+          "config conflict preserved unresolved"
+        ]
+      }
+    },
+    {
+      "id": "U",
+      "original_case": "S5",
+      "prompt": "Audit this project's context documentation against its source files and report concrete gaps with file locations. Audit only.",
+      "base": "original completed S3",
+      "settings_sha256": "302e2891f3db798597690bf62d7743a385458f35ca005f9233cdd2f2446db362",
+      "before_sha256": "99ad560a9b4ab56afbbe25f19625928e25e12f469aa8c28765592dd0efd9ae9c",
+      "rubric": {
+        "byte_index": "PASS only if fixture bytes, index and HEAD identical",
+        "semantic": "reports >=1 concrete gap present in base with location (key: broken runbook.md link if still present; unresolved timezone conflict)"
+      }
+    }
+  ],
+  "budgets": {
+    "attempts_per_case": 1,
+    "per_case_seconds": 240,
+    "aggregate_seconds": 960,
+    "stop": "First quota/rate/payment/unavailable-model barrier; no retry, model switch or permission widening"
+  },
+  "dependency": "independent reconstructed bases; no result dependency",
+  "control": "B same-build denied-shell adoption, no added note. A/R/U added AGENTS permission note and absolute read-only guarded adapter. Therefore not permission-only causal comparison.",
+  "loading": "completed successful tool read of exact SKILL.md required; slash injection separately qualified; catalog and self-report insufficient; AGENTS injection unverified unless trace exposes it",
+  "facts": {
+    "approved_decision": "SQLite local cache, approved 2026-09-02 by owner Mara Quill",
+    "blocker": "live ingestion blocked on Coastline Data Exchange access request CDX-4471",
+    "config_conflict": "docs said UTC; config/defaults.toml timezone = \"local\"; unresolved",
+    "next_action": "add --station filter to summarize; then design live ingestion after CDX-4471",
+    "pending_proposal": "Parquet export, proposed by Devi Runge 2026-10-14, not approved",
+    "project": "Tidewatch (fictional tide-gauge summary CLI)",
+    "rationale": "single file, no server keeps offline harbor laptops simple",
+    "seeded_audit_defect": "docs/project-context.md links runbook.md which does not exist",
+    "typo": "src/tidewatch/cli.py comment 'recieve'"
+  },
+  "no_paid": "useG1Credits=false and modelProvider empty every invocation; existing account tier unknown; no API credentials",
+  "limits": "Application permission rules and tested adapter argv/cwd/realpaths, not OS isolation. Shell composition/redirection defense rules are not independently proved by native permission engine. Native subagent routing may differ; record observed models. One attempt each, no repeatability claim.",
+  "guard_tests_sha256": "2f9077299c815c460b10c02b1e53eb3ebd09b225554f498d605de4a250879cc6",
+  "guards": {
+    "A": "aeb486690df5e77167fc97403a6e28dfcc6e98c298905cdca38c443ec217b12e",
+    "R": "7b48ae4224f13e499d7255457a2d6e519090ebc541c0131dc932735d291d60a4",
+    "U": "7bf1180c63141886803305609450ee69dd33e1266616f6bfd7ce3e78f91adbd8"
+  },
+  "answer_key_sha256": "deb99d938c9978627e39a0744792b1870a6b3a5a0a0ad60aedf39d3ed8e9a042",
+  "original_inputs_sha256": "a57befcb866c6094c4767c7f4354da35e2569bb08e84397714e67c4bb3783cc6"
+}

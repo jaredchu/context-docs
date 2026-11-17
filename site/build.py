@@ -120,6 +120,7 @@ def render(root, template_name='index.html'):
         'QUICK_EXAMPLE': fenced_section(readme, '## What you get', 'markdown'),
         'CODEX_INSTALL': fenced_section(readme, '### Install in Codex', 'text'),
         'CLAUDE_INSTALL': fenced_section(readme, '### Install in Claude Code', 'sh'),
+        'ANTIGRAVITY_INSTALL': fenced_section(readme, '### Install in Antigravity (provisional)', 'sh'),
         'CURSOR_INSTALL': fenced_section(readme, '### Install in Cursor (experimental)', 'sh'),
         'SAVE_PROMPT': fenced_section(readme, '### 2. Save decisions, current work and next steps', 'text'),
         'RESUME_PROMPT': fenced_section(readme, '### 3. Resume with the saved context', 'text'),
@@ -150,7 +151,7 @@ def render(root, template_name='index.html'):
         })
     template = expand_icons(root, (root / 'site' / template_name).read_text(encoding='utf-8'))
     required = {
-        'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'CURSOR_INSTALL', 'SAVE_PROMPT',
+        'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'CURSOR_INSTALL', 'ANTIGRAVITY_INSTALL', 'SAVE_PROMPT',
         'RESUME_PROMPT', 'PROGRESS_PROMPT', 'PROGRESS_EXAMPLE', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
     }
     required |= ({'QUICK_EXAMPLE', 'REFRESH_PROMPT', 'LOCAL_ONLY_PROMPT', 'AUTO_LOGGING_PROMPT',

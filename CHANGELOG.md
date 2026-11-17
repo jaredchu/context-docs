@@ -24,6 +24,25 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## Provisional Antigravity guidance — 2026-11-17 (no package release)
+
+- Add project installation and usage guidance plus portable evidence from a bounded
+  Antigravity CLI trial. Adoption, refresh and audit did not complete under its constrained
+  permissions, so the guidance is provisional, not a validated end-to-end workflow.
+- Distinguish native slash expansion, direct skill reads and behavior; retain
+  startup failures, denied tools and native child-model routing. App, IDE and
+  global placement remain untested. Skills and versions are unchanged.
+- Add always-visible website installation panels, canonical command extraction,
+  and failure-path tests. These source changes remain local.
+- Retain a separate [scoped follow-up](evals/antigravity/2026-11-17-scoped-rerun/README.md):
+  denied-shell adoption completed on the newer build; scoped adoption timed out.
+  Preserve all rerun results and the build/mode/permission-note qualifications;
+  guidance remains provisional, with no package changes.
+- Record a [600-second follow-up](evals/antigravity/2026-11-17-long-timeout/README.md):
+  fresh adoption and search-enabled refresh meet the original behavioral criteria.
+  Retain direct adoption-file loading, automatic-loading and final-answer accuracy
+  limits; update local summaries without changing skills or provisional status.
+
 ## Experimental Cursor support label — 2026-11-17 (no package release)
 
 - Clarify current docs and website wording: experimental Cursor support, validated

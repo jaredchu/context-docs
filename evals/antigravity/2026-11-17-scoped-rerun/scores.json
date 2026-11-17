@@ -1,0 +1,26 @@
+{
+  "B": {
+    "completion": "PASS",
+    "semantics": "One new maintenance rule and dated marker; decision/rationale, pending Parquet, CDX-4471 blocker, station next step and unresolved timezone preserved.",
+    "preservation": "PASS; only AGENTS and context changed",
+    "instruction_loading": "UNVERIFIED; final self-report overclaims automatic loading; init does not confirm it"
+  },
+  "A": {
+    "completion": "INCOMPLETE_TIMEOUT",
+    "semantics": "No edits; no adoption marker. Last successful activity was guarded root enumeration; no child delegation or editing attempts.",
+    "preservation": "PASS; all bytes unchanged",
+    "instruction_loading": "UNVERIFIED"
+  },
+  "R": {
+    "completion": "INCOMPLETE_EMPTY_RESULT",
+    "semantics": "New standup and current context read, but no edits; blocker remains stale. Final blank SUCCESS followed soft-denied ungranted shell grep.",
+    "preservation": "PASS; all bytes unchanged",
+    "instruction_loading": "UNVERIFIED"
+  },
+  "U": {
+    "completion": "PASS",
+    "semantics": "Reports seeded missing docs/runbook.md link at docs/project-context.md line42; also identifies source/config/documentation gaps.",
+    "preservation": "PASS; every fixture byte, Git metadata/index/HEAD unchanged",
+    "instruction_loading": "UNVERIFIED"
+  }
+}

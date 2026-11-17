@@ -1,0 +1,55 @@
+#!PYTHON
+import os,sys,json,subprocess
+from pathlib import Path
+ROOT=Path('FIXTURE').resolve()
+def check(path):
+ p=Path(path)
+ if not p.is_absolute():p=Path.cwd()/p
+ p=p.resolve(strict=True)
+ if not p.is_relative_to(ROOT):raise ValueError('outside fixture')
+ if '.git' in p.relative_to(ROOT).parts:raise ValueError('Git internals unavailable')
+ return p
+def main(args):
+ if Path.cwd().resolve()!=ROOT:raise ValueError('cwd must be exact fixture root')
+ if not args:raise ValueError('operation required')
+ op,*args=args
+ if op=='pwd':
+  if args:raise ValueError('unexpected arguments')
+  print(ROOT);return
+ if op=='git':
+  if args not in [['status'],['status','--short'],['ls-files']]:raise ValueError('unsupported git operation')
+  env={'PATH':'/usr/bin:/bin','HOME':'/nonexistent','GIT_CONFIG_GLOBAL':'/dev/null','GIT_CONFIG_NOSYSTEM':'1','GIT_OPTIONAL_LOCKS':'0'}
+  subprocess.run(['/usr/bin/git','--no-optional-locks','-c','core.fsmonitor=false','-c','core.hooksPath=/dev/null',*args],cwd=ROOT,env=env,check=True);return
+ if op=='ls':
+  paths=[]
+  for a in args:
+   if a in ['-l','-a','-la','-al']:continue
+   if a.startswith('-'):raise ValueError('unsupported ls flag')
+   paths.append(check(a))
+  for p in paths or [ROOT]:
+   print(str(p.relative_to(ROOT))+'/')
+   for f in sorted(p.iterdir()) if p.is_dir() else [p]:
+    if f.is_symlink():raise ValueError('symlinks refused')
+    print(('d ' if f.is_dir() else 'f ')+str(f.relative_to(ROOT)))
+  return
+ if op=='find':
+  path='.';depth=4
+  if args and not args[0].startswith('-'):path=args.pop(0)
+  if args[:1]==['-maxdepth']:
+   if len(args)<2 or not args[1].isdigit() or not 0<=int(args[1])<=8:raise ValueError('bad depth')
+   depth=int(args[1]);args=args[2:]
+  if args not in [[],['-type','f'],['-not','-path','*/.*']]:raise ValueError('unsupported find expression')
+  p=check(path)
+  for current,dirs,files in os.walk(p,followlinks=False):
+   d=Path(current)
+   for n in dirs+files:
+    if (d/n).is_symlink():raise ValueError('symlinks refused')
+   dirs[:]=sorted(x for x in dirs if x!='.git' and (args!=['-not','-path','*/.*'] or not x.startswith('.')))
+   if len(d.relative_to(p).parts)>=depth:dirs[:]=[]
+   if args!=['-type','f']:print(str(d.relative_to(ROOT)))
+   for n in sorted(files):
+    if len(d.relative_to(p).parts)<depth:print(str((d/n).relative_to(ROOT)))
+  return
+ raise ValueError('unsupported operation')
+try:main(sys.argv[1:])
+except Exception as e:print('SCOPED GUARD DENIED: '+str(e),file=sys.stderr);sys.exit(64)

@@ -1,0 +1,94 @@
+--- before/docs/project-context.md
++++ after/docs/project-context.md
+@@ -9,9 +9,9 @@
+ 
+ - The `summarize` command reads a CSV and prints the daily high and low water
+   level ([cli.py](../src/tidewatch/cli.py)).
+-- Station filtering is not implemented; all stations in a file are combined.
++- Station filtering is supported via the `summarize --station` option ([cli.py](../src/tidewatch/cli.py)).
+ 
+-Progress: CSV parsing (done) → daily summary (done) → **station filter (next)**
++Progress: CSV parsing (done) → daily summary (done) → station filter (done)
+ → live ingestion (blocked by CDX-4471)
+ 
+ ## Decisions and constraints
+@@ -35,9 +35,7 @@
+ 
+ ## Next actions
+ 
+-1. Add a `--station` filter to `summarize` so operators can select one gauge
+-   station.
+-2. After CDX-4471 access is granted, design live ingestion.
++1. After CDX-4471 access is granted, design live ingestion.
+ 
+ ## References
+ 
+--- before/src/tidewatch/cli.py
++++ after/src/tidewatch/cli.py
+@@ -5,13 +5,15 @@
+ from typing import Dict, List, Optional, Tuple
+ 
+ 
+-def read_levels(path: str) -> List[Tuple[str, str, float]]:
++def read_levels(path: str, station: Optional[str] = None) -> List[Tuple[str, str, float]]:
+     """Return (station, day, level_m) rows from a gauge CSV."""
+     rows = []
+     with open(path, newline="") as handle:
+         for record in csv.DictReader(handle):
+             # Rows we recieve without a timestamp are skipped.
+             if not record.get("timestamp"):
++                continue
++            if station is not None and record.get("station") != station:
+                 continue
+             day = record["timestamp"][:10]
+             rows.append((record["station"], day, float(record["level_m"])))
+@@ -31,8 +33,9 @@
+     sub = parser.add_subparsers(dest="command", required=True)
+     summarize = sub.add_parser("summarize", help="print daily high/low levels")
+     summarize.add_argument("csv_path")
++    summarize.add_argument("--station", help="filter readings by station")
+     args = parser.parse_args(argv)
+     if args.command == "summarize":
+-        for day, (low, high) in daily_extremes(read_levels(args.csv_path)).items():
++        for day, (low, high) in daily_extremes(read_levels(args.csv_path, station=args.station)).items():
+             print(f"{day} low={low:.2f} high={high:.2f}")
+     return 0
+--- before/tests/test_cli.py
++++ after/tests/test_cli.py
+@@ -1,7 +1,9 @@
++import io
+ import os
+ import unittest
++from contextlib import redirect_stdout
+ 
+-from tidewatch.cli import daily_extremes, read_levels
++from tidewatch.cli import daily_extremes, main, read_levels
+ 
+ SAMPLE = os.path.join(os.path.dirname(__file__), "..", "data", "sample.csv")
+ 
+@@ -11,6 +13,25 @@
+         result = daily_extremes(read_levels(SAMPLE))
+         self.assertEqual(result["2026-09-01"], (0.4, 2.1))
+ 
++    def test_read_levels_station_filter(self) -> None:
++        result = daily_extremes(read_levels(SAMPLE, station="south-quay"))
++        self.assertEqual(result["2026-09-01"], (0.9, 0.9))
++        self.assertEqual(result["2026-09-02"], (1.8, 1.8))
++
++    def test_summarize_station_option(self) -> None:
++        buf = io.StringIO()
++        with redirect_stdout(buf):
++            code = main(["summarize", SAMPLE, "--station", "south-quay"])
++        self.assertEqual(code, 0)
++        output = buf.getvalue().strip().splitlines()
++        self.assertEqual(
++            output,
++            [
++                "2026-09-01 low=0.90 high=0.90",
++                "2026-09-02 low=1.80 high=1.80",
++            ],
++        )
++
+ 
+ if __name__ == "__main__":
+     unittest.main()

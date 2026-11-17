@@ -255,6 +255,29 @@ failures and the limits of its restricted sessions.
 
 ## More recent studies
 
+### November 17 Antigravity CLI observation
+
+The [portable Antigravity trial record](../evals/antigravity/2026-11-17/README.md)
+separates skill discovery and reads from task completion. Native adoption slash
+expansion was visible, but adoption, changed-note refresh and audit did not complete
+under shell-denied print-mode conditions. Ordinary implementation on a frozen
+pre-adopted control added the station option, tests and context update; three
+external harness tests passed. This is provisional setup guidance, not a
+validated end-to-end workflow or a comparative benefit result. See the record for
+all seven case outcomes, startup failures, child-model routing, preservation and
+loading limits. The separate [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+uses a newer build, a denied-shell adoption control and three independent
+scoped cases. The control completed adoption; scoped adoption timed out. Its
+report owns those results and mode, permission-note and build confounds.
+The subsequent [600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/README.md)
+completed fresh adoption and search-enabled refresh in 160.531 and 306.391 seconds.
+Both meet their original behavioral criteria; adoption's direct skill-file loading
+criterion remains unmet, automatic instruction loading unverified, and the refresh
+final overstates link verification. The separate report preserves those limits
+and explains why the two runs do not establish timeout causality or reliability.
+The mixed evidence retains provisional guidance. App, IDE and global placement
+were not tested.
+
 ### November 17 Cursor CLI observation
 
 The [Cursor CLI trial record](../evals/cursor/2026-11-17-free/README.md)

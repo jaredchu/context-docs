@@ -1,0 +1,8 @@
+{
+  "R2": {
+    "completion": "INCOMPLETE_TIMEOUT",
+    "semantic": "No context edit; stale blocker remains after successful literal search. No denied plain grep or child delegation. Last successful tool: guarded search for blocker in copied skills, step42.",
+    "preservation": "PASS: every fixture byte and Git metadata unchanged",
+    "loading": "Direct completed core and adoption SKILL.md reads; no slash expansion; automatic instruction injection unverified"
+  }
+}

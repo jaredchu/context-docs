@@ -19,6 +19,20 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+**LOCAL: provisional Antigravity setup guidance** retains mixed bounded results.
+The owner-authorized [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+diagnoses the original shell denials and wait-only parent completions. On the
+newer CLI build, denied-shell adoption completed while scoped adoption reached
+its time limit. Audit passed with every byte unchanged; refresh ended blank
+after a search denial, then timed out in a separate attempt with permitted search.
+A later [600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/README.md)
+completed fresh adoption and search-enabled refresh in 160.531 and 306.391 seconds.
+Its report owns behavioral scores, preservation, the unmet direct adoption-file
+read and unsupported native loading/link-verification claims. These independent
+cases establish neither timeout causality nor a repeatable end-to-end workflow. App and IDE remain untested. The [guide](getting-started.md#antigravity-provisional)
+and [website preview](../site/README.md#local-antigravity-preview) remain local;
+no commit, push, deployment, release, skill or installed-package change is included.
+
 **Experimental Cursor support, validated through the CLI; editor not separately
 tested** is published from **`2efde55`**, following the owner's commit, push and
 deployment authorization. Independent source review, [source CI](https://github.com/jaredchu/context-docs/actions/runs/44011269506)
@@ -364,6 +378,12 @@ Repository checks validate mechanics, not agent behavior.
   provenance and scores; it is not a comprehensive privacy or Git-history audit.
 
 ## Next actions
+
+Antigravity: original constrained trial → mixed scoped follow-up →
+**two fresh behavioral passes with a longer cap; provisional local guidance**.
+The latest report retains loading, final-answer accuracy and repeatability limits;
+further native attempts and publication require a separate owner decision.
+The completed Cursor publication below remains the deployed baseline.
 
 The reviewed documentation is merged and website deployment is complete; no
 release or further feature work is selected. Authored instructions do not

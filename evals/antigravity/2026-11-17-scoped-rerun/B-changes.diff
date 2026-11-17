@@ -1,0 +1,37 @@
+--- before/AGENTS.md
++++ after/AGENTS.md
+@@ -3,3 +3,17 @@
+ - Python 3.9+, standard library only. Keep functions small and typed.
+ - Run tests with `python -m unittest` (no network access).
+ - Do not change `config/defaults.toml` without owner approval.
++
++## Context maintenance
++
++Method: context-docs
++Adopted: 2026-11-17
++Entry point: docs/project-context.md
++
++Use the context-docs skill for documentation audits and after meaningful changes
++to project facts, decisions, procedures, blockers or next actions. Read the skill
++before maintenance. Preserve project rules, document roles and decision status.
++Update affected canonical sections and check the diff, links and information
++preservation, keeping any existing progress view current without duplicate
++tracking. Keep audit-only requests read-only; make no bookkeeping edits when
++nothing durable changed.
+--- before/docs/project-context.md
++++ after/docs/project-context.md
+@@ -7,9 +7,11 @@
+ 
+ ## Current state
+ 
+-- The `summarize` command reads a CSV and prints the daily high and low water
+-  level ([cli.py](../src/tidewatch/cli.py)).
+-- Station filtering is not implemented; all stations in a file are combined.
++- Goal: Offline daily high/low summaries from tide-gauge CSV readings ([Purpose and scope](#purpose-and-scope))
++  - [x] DONE: The `summarize` command reads a CSV and prints daily high and low water levels ([cli.py](../src/tidewatch/cli.py)).
++  - [ ] NEXT: Add `--station` filter to `summarize` so operators can select one gauge station (station filtering is not implemented; all stations in a file are currently combined; [Next actions](#next-actions)).
++  - [ ] BLOCKED: Live gauge ingestion (blocked until Coastline Data Exchange grants read access on request CDX-4471; [Blockers](#blockers)).
++    - [ ] Design live ingestion once CDX-4471 access is granted ([Next actions](#next-actions)).
+ 
+ ## Decisions and constraints
+ 

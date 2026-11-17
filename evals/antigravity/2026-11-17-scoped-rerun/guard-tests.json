@@ -1,0 +1,602 @@
+[
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "-la"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      ".."
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      "/tmp"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      ".git"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "A",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": true,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      "-la"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "pwd"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      ".."
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "find",
+      "/tmp"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      ".git"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "R",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": true,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      "-la"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      "docs"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "find",
+      ".",
+      "-maxdepth",
+      "3"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "pwd"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "git",
+      "ls-files"
+    ],
+    "expected_allow": true,
+    "exit": 0,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      "/etc"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      ".."
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "find",
+      "/tmp"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "find",
+      ".",
+      "-exec",
+      "echo",
+      "x",
+      ";"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "find",
+      ".",
+      "-delete"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "git",
+      "reset",
+      "--hard"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "git",
+      "status",
+      "--short",
+      "--ignored"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "sh",
+      "-c",
+      "echo bad"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      "--help"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      ".git"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "pwd",
+      "extra"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "ls",
+      "escape-link"
+    ],
+    "expected_allow": false,
+    "exit": 64,
+    "pass": true
+  },
+  {
+    "case": "U",
+    "args": [
+      "pwd"
+    ],
+    "outside_cwd": true,
+    "exit": 64,
+    "pass": true
+  }
+]

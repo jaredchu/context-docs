@@ -464,3 +464,42 @@ Independent source review, static/site checks, artifact/live parity and changed-
 desktop/mobile checks pass; the [deployment summary](../site/README.md#latest-deployment)
 owns identities and limits. This wording clarification adds no editor trial or
 release, and preserves the original trial evidence and installation commands.
+
+## Provisional Antigravity guidance
+
+On November 17, 2026, the owner requested an Antigravity CLI compatibility check
+and support preparation. This authorizes a bounded trial and local source changes;
+it does not authorize commits, pushes, deployment, releases, installed-skill changes
+or global settings changes.
+
+The [trial](../evals/antigravity/2026-11-17/README.md) used unchanged core 0.2.7 and
+adoption 0.1.16 in project `.agents/skills/`. Native slash expansion and core skill
+reads were observed. Adoption, refresh and audit did not complete in the restricted
+headless conditions, although later cases demonstrate useful file operations.
+These results do not establish general incompatibility or an end-to-end adoption
+workflow. The implementation therefore labels the [setup guidance](getting-started.md#antigravity-provisional)
+**provisional**, preserves the failures and separates current Google documentation
+from tested behavior. App, IDE and global placement remain untested.
+
+The current patch adds documentation, evidence and website source only. No
+adapter, plugin, skill or version change is selected. Source review is separate
+from native compatibility evidence; prior Cursor support and publication remain intact.
+
+The owner subsequently authorized blocker diagnosis and three scoped reruns,
+using existing included quota with paid fallback disabled and keeping changes
+local. The [follow-up record](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+retains an additional denied-shell adoption control and the explicit Default-mode
+permission amendment made before the scoped cases. Original evidence is immutable.
+The successful control and timed-out scoped adoption keep the guidance provisional;
+no skill/version change or general compatibility conclusion follows. The
+read-only helper and fixture permission note are evaluation controls, not product
+requirements. Further native attempts and publication require separate authorization.
+
+The owner then requested a longer timeout for one fresh adoption and one fresh
+search-enabled refresh, with no paid usage and all changes local. The
+[600-second follow-up](../evals/antigravity/2026-11-17-long-timeout/README.md)
+retains the previous tasks, facts, model, skills and effective scoped permissions.
+Both cases met their behavioral criteria, but automatic loading, direct adoption
+file reading in the adoption case and repeatability remain unestablished. The
+report also retains the refresh final's unsupported link-verification claim.
+This evidence keeps setup provisional and adds no publication or further-run authority.

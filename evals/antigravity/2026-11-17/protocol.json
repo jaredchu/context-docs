@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "title": "Antigravity CLI native compatibility trial",
+  "frozen_at": "2026-11-17T04:00:21Z",
+  "client": "agy 1.5.7",
+  "model": "gemini-3.8-flash-medium",
+  "skills": {
+    "core": "0.2.7",
+    "adoption": "0.1.16",
+    "location": ".agents/skills"
+  },
+  "account": "existing authenticated account; tier unknown; preflight Gemini weekly quota100%; credit fallback disabled",
+  "settings": {
+    "useG1Credits": false,
+    "modelProvider": "",
+    "toolPermission": "request-review",
+    "statusLine": {
+      "enabled": false
+    },
+    "title": {
+      "enabled": false
+    }
+  },
+  "cases": [
+    {
+      "base": "B0",
+      "base_usable_requires": [
+        "Method: context-docs",
+        "Entry point:"
+      ],
+      "id": "S1",
+      "prompt": "/adopt-context-docs Adopt Context Docs in this project.",
+      "title": "Explicit native adoption"
+    },
+    {
+      "base": "S1",
+      "fallback": "C0",
+      "harness_additions": {
+        "notes/2026-11-12-standup.md": "# Standup 2026-11-12\n\n- Coastline Data Exchange approved read access for request CDX-4471 on\n  2026-11-12 (confirmation email to Mara Quill). Live ingestion is unblocked.\n- Devi Runge still wants Parquet export; the owner has not reviewed it.\n"
+      },
+      "id": "S2",
+      "prompt": "Refresh the project context so it reflects the new standup note in notes/.",
+      "title": "Unnamed context refresh (implicit selection)"
+    },
+    {
+      "base": "S1",
+      "fallback": "C0",
+      "id": "S3",
+      "prompt": "Add a --station option to the summarize command so it only includes readings from that station, and add a unit test for it.",
+      "title": "Ordinary implementation following adopted rule"
+    },
+    {
+      "base": "S3",
+      "fallback": "BLOCK",
+      "id": "S4",
+      "prompt": "I'm resuming this project in a new session. Using only the project's files, tell me the approved decision and its rationale, any proposal still awaiting approval, the current blocker, the next action, and any unresolved configuration conflict. Do not change anything.",
+      "title": "Fresh-session resume"
+    },
+    {
+      "base": "S3",
+      "fallback": "BLOCK",
+      "id": "S5",
+      "prompt": "Audit this project's context documentation against its source files and report concrete gaps with file locations. Audit only.",
+      "title": "Read-only audit (agent mode)"
+    },
+    {
+      "base": "C0",
+      "id": "S6",
+      "prompt": "/adopt-context-docs Adopt Context Docs in this project.",
+      "title": "Repeat adoption on pre-adopted control"
+    },
+    {
+      "base": "S1",
+      "fallback": "C0",
+      "id": "S7",
+      "prompt": "Fix the typo \"recieve\" in src/tidewatch/cli.py.",
+      "title": "Typo-only negative control"
+    }
+  ],
+  "fictional_facts": {
+    "approved_decision": "SQLite local cache, approved 2026-09-02 by owner Mara Quill",
+    "blocker": "live ingestion blocked on Coastline Data Exchange access request CDX-4471",
+    "config_conflict": "docs said UTC; config/defaults.toml timezone = \"local\"; unresolved",
+    "next_action": "add --station filter to summarize; then design live ingestion after CDX-4471",
+    "pending_proposal": "Parquet export, proposed by Devi Runge 2026-10-14, not approved",
+    "project": "Tidewatch (fictional tide-gauge summary CLI)",
+    "rationale": "single file, no server keeps offline harbor laptops simple",
+    "seeded_audit_defect": "docs/project-context.md links runbook.md which does not exist",
+    "typo": "src/tidewatch/cli.py comment 'recieve'"
+  },
+  "rubric": {
+    "S1": {
+      "byte": "only AGENTS.md/docs/README changes expected; config/src/tests/data and skills unchanged",
+      "instruction_loading": "report whether the agent claims AGENTS.md is loaded with evidence; loading is not separately verified by this harness except via S3/S7 behavior",
+      "semantic": [
+        "AGENTS.md gains one Context maintenance rule referencing context-docs",
+        "one marker Method/Adopted: 2026-11-17/Entry point: docs/project-context.md",
+        "decision+rationale, Parquet proposal status, blocker CDX-4471, next action, config conflict all preserved"
+      ]
+    },
+    "S2": {
+      "byte": "config/src/tests/data unchanged",
+      "selection": "core SKILL.md read observed (yes/no)",
+      "semantic": [
+        "blocker updated to access granted 2026-11-12 with source",
+        "Parquet stays proposed/not approved",
+        "decision+rationale preserved",
+        "config conflict preserved unresolved"
+      ]
+    },
+    "S3": {
+      "byte": "config/defaults.toml unchanged",
+      "implementation": "--station option and test added in src/tests",
+      "maintenance": [
+        "context-docs SKILL.md read observed (yes/no)",
+        "docs/project-context.md updated: station filter implemented / next action advanced",
+        "decision, Parquet proposal status, blocker, config conflict preserved"
+      ]
+    },
+    "S4": {
+      "byte_index": "fixture bytes and index identical",
+      "semantic": "answer matches answer-key.json S4 items against the S4 base; no invented completion"
+    },
+    "S5": {
+      "byte_index": "PASS only if fixture bytes, index and HEAD identical",
+      "semantic": "reports >=1 concrete gap present in base with location (key: broken runbook.md link if still present; unresolved timezone conflict)"
+    },
+    "S6": {
+      "byte": "ideal: no fixture changes",
+      "semantic": [
+        "Adopted: 2026-10-01 preserved",
+        "no duplicate rule/marker/progress view"
+      ]
+    },
+    "S7": {
+      "byte": "only src/tidewatch/cli.py changes, typo line only",
+      "selection": "record whether context-docs skill read occurs; docs unchanged"
+    },
+    "global": "repository skill packages and selected installed skill trees/settings hashes unchanged; runtime state separately reported",
+    "loading": "PASS only if the trace shows a completed read tool call on the relevant SKILL.md path (record which root). Catalog/system mentions alone are insufficient. S1/S6 also require core SKILL.md read (sibling traversal)."
+  },
+  "budgets": {
+    "attempts_per_case": 1,
+    "per_case_seconds": 180,
+    "total_subject_seconds": 1260,
+    "stop": "first quota/rate/payment/upgrade or unavailable-model barrier; no retry or switch"
+  },
+  "dependency_rules": "S2/S3/S7 use S1 if marker and entrypoint exist, otherwise frozen C0 control (no adoption credit). S4/S5 use S3 if completed; otherwise blocked. S6 always C0. Derived copies not committed; no refs changed.",
+  "invocation": [
+    "agy",
+    "--settings",
+    "<session-settings-json>",
+    "--model",
+    "gemini-3.8-flash-medium",
+    "--output-format",
+    "stream-json",
+    "--print-timeout",
+    "180s",
+    "-p",
+    "<prompt>"
+  ],
+  "permission_method": "Session-only workspace read_file/write_file allow; command/mcp/read_url/execute_url deny; .git and .agents writes denied; external private host inputs denied; request-review for other operations. No OS isolation claim.",
+  "loading": "completed successful tool read of exact SKILL.md required; slash injection separately qualified; catalog and self-report insufficient; AGENTS injection unverified unless trace exposes it",
+  "limitations": "shell denied, so subject tests may be unavailable; external tests scored separately; same existing account/home, not clean-home; runtime state may change",
+  "amendment": {
+    "reason": "Three original startup invocations rejected agentMode default before inference; amended protocol omits it.",
+    "original_protocol_sha256": "85588b01d62ca4f71ce617ce9e7ae72958303109fe1b65a2fccd5387bafcccc7",
+    "prior_failed_setup_seconds": 0.454,
+    "inference_attempts_per_case": 1,
+    "frozen_at": "2026-11-17T04:01:52Z"
+  }
+}

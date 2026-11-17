@@ -6,6 +6,30 @@ content from the [maintenance example](../examples/maintenance.md), and package
 versions from their `VERSION` files. Edit those sources for shared content; edit
 [index.html](index.html), [styles.css](styles.css) and [main.js](main.js) for presentation.
 
+## Local Antigravity preview
+
+**LOCAL, not deployed.** The homepage and guide add always-visible provisional
+Antigravity installation panels. The README owns their escaped, copyable command;
+the existing Codex/Claude switch and Cursor panel are preserved. The comparison
+page links the qualified guidance. The [scoped follow-up](../evals/antigravity/2026-11-17-scoped-rerun/README.md)
+records mixed outcomes and preserves the [original evidence](../evals/antigravity/2026-11-17/README.md).
+The denied-shell adoption control completed; the earlier scoped adoption timed
+out. A [later attempt with a 600-second cap](../evals/antigravity/2026-11-17-long-timeout/README.md)
+completed adoption in 160.531 seconds, within the former cap; timeout causality
+and a repeatable end-to-end workflow remain unestablished.
+
+Static repository checks, all 51 site tests and a twenty-file host build pass.
+Local headless Chrome checks on the latest adoption-result wording passed
+on the homepage, guide and comparison at
+1440, 768, 390 and 320px, with the provisional qualifier visible, no page-wide
+overflow or observed browser exceptions. The new command matches the canonical
+README block; keyboard access, page-local stubbed copy feedback and no-JavaScript
+instructions pass. The operating-system clipboard was untouched. These checks
+cover one installed browser, not cross-browser or accessibility certification.
+Source review and local browser checks are separate from native compatibility
+evidence and live-site verification; [Latest deployment](#latest-deployment)
+retains the deployed revision.
+
 ## Build and preview
 
 From the repository root:

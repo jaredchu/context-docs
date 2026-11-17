@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-17T05:30:50Z",
+  "title": "Antigravity timeout-only follow-up",
+  "build": {
+    "version": "1.5.9",
+    "sha256": "fad3628ad91fe8613a72f074a1c5fde7cd816517788a5b9be96703f7d256741a"
+  },
+  "model": "gemini-3.8-flash-medium",
+  "cases": [
+    {
+      "id": "A",
+      "original_case": "S1",
+      "prompt": "/adopt-context-docs Adopt Context Docs in this project.",
+      "base": "original B0",
+      "settings_sha256": "7179f0011d1baeeff843cf99a2a149a3bd60410570ac76277410fd5f2b698b25",
+      "before_sha256": "eb1e4dae3d30a07da79688e76c76699f4d9680e2c5bbfbfa4c1b29da8296eae7",
+      "rubric": {
+        "byte": "only AGENTS.md/docs/README changes expected; config/src/tests/data and skills unchanged",
+        "instruction_loading": "report whether the agent claims AGENTS.md is loaded with evidence; loading is not separately verified by this harness except via S3/S7 behavior",
+        "semantic": [
+          "AGENTS.md gains one Context maintenance rule referencing context-docs",
+          "one marker Method/Adopted: 2026-11-17/Entry point: docs/project-context.md",
+          "decision+rationale, Parquet proposal status, blocker CDX-4471, next action, config conflict all preserved"
+        ]
+      },
+      "source_protocol_sha256": "82face89821a97866bfb11e4749ff2e3e49484da3ce66326d40dbd78e7fac633",
+      "source_fixture_manifest_sha256": "f93db2f61f96e2a59f2a3b87e4b7acc32d56eae8ccc8c0a7f630b19e1fd63fa5"
+    },
+    {
+      "id": "R2",
+      "original_case": "S2",
+      "prompt": "Refresh the project context so it reflects the new standup note in notes/.",
+      "base": "fresh original C0 + same original standup + declared search permission note",
+      "rubric": {
+        "byte": "config/src/tests/data unchanged",
+        "selection": "core SKILL.md read observed (yes/no)",
+        "semantic": [
+          "blocker updated to access granted 2026-11-12 with source",
+          "Parquet stays proposed/not approved",
+          "decision+rationale preserved",
+          "config conflict preserved unresolved"
+        ]
+      },
+      "settings_sha256": "79fe84feb2da74190161b4e2628bd9884c7322b580cd331fa06eb2587a6d7d51",
+      "before_sha256": "27a32035594f3654bfda41edeafa6c821c2127a931654e2b2e9ce3c751805ed5",
+      "source_protocol_sha256": "b98d9b46816c001abf5649d6d317fb5fad1de3dfc13bbebbe1efa157ecb9ceee",
+      "source_fixture_manifest_sha256": "573afac90a8414269f04243fd4c9acd4f2a8367ddf5784b9531bd2493b424b4f"
+    }
+  ],
+  "budgets": {
+    "attempts_per_case": 1,
+    "per_case_seconds": 600,
+    "aggregate_seconds": 1200,
+    "termination_overhead_seconds_per_case_max": 5,
+    "stop": "First quota/rate/payment/unavailable-model barrier; no retry, switch or widening"
+  },
+  "loading": "completed successful tool read of exact SKILL.md required; slash injection separately qualified; catalog and self-report insufficient; AGENTS injection unverified unless trace exposes it",
+  "facts": {
+    "approved_decision": "SQLite local cache, approved 2026-09-02 by owner Mara Quill",
+    "blocker": "live ingestion blocked on Coastline Data Exchange access request CDX-4471",
+    "config_conflict": "docs said UTC; config/defaults.toml timezone = \"local\"; unresolved",
+    "next_action": "add --station filter to summarize; then design live ingestion after CDX-4471",
+    "pending_proposal": "Parquet export, proposed by Devi Runge 2026-10-14, not approved",
+    "project": "Tidewatch (fictional tide-gauge summary CLI)",
+    "rationale": "single file, no server keeps offline harbor laptops simple",
+    "seeded_audit_defect": "docs/project-context.md links runbook.md which does not exist",
+    "typo": "src/tidewatch/cli.py comment 'recieve'"
+  },
+  "no_paid": "useG1Credits=false and modelProvider empty every invocation; existing account tier unknown; no API credentials",
+  "limits": "Application permission rules and tested adapter argv/cwd/realpaths, not OS isolation. Shell composition/redirection defense rules are not independently proved by native permission engine. Native subagent routing may differ; record observed models. One attempt each, no repeatability claim.",
+  "comparison": "Fresh independent original A and R2 before-fixtures. Only intended experimental variable is timeout 240 to 600 seconds. Absolute helper paths and equivalent host evidence deny paths change for this host. AGENTS evaluation permission note declares helper paths; all other fixture bytes identical. No causality or reliability claim from one new attempt per case.",
+  "guards": {
+    "A": "9722f59d4a337adfc611478c8348d0193ad9aa615371da24a0e2152da37b5029",
+    "R2": "90f55bc0d7d14ea16db8ff93320958c4159891f38450c09d5c86d8b1d1192bcc"
+  },
+  "guard_tests_sha256": "a6b4cabc077c797863a62b11bc88b54e4c1f77f8c3998ad9c585f707bd5c8785",
+  "answer_key_sha256": "deb99d938c9978627e39a0744792b1870a6b3a5a0a0ad60aedf39d3ed8e9a042",
+  "runner_sha256": "e272a751eb26d7d626a17d29e801416359073208e10e796a085a67390efe643e",
+  "preparation_sha256": "8e29fd1bb6847bad4aeeae7dd52cd0df12f81bea896fef015fe3ea7fda4065bb",
+  "prelaunch_correction": "R2 layout is flattened: removed former parent ws deny that would cover the new own fixture; sibling fixture explicit deny retained. Before inference."
+}

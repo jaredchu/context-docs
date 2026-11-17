@@ -1,0 +1,369 @@
+[
+  {
+    "id": "S1",
+    "base": "B0",
+    "exit_code": 0,
+    "seconds": 105.377,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [],
+    "trace_sha256": "c1400a89fb0f592230295fbdd18f73c162822ddcf1b529f86ffce01414cbc3ed",
+    "skill_reads": [
+      ".agents/skills/context-docs/SKILL.md"
+    ],
+    "native_children": [
+      {
+        "role": "Codebase Researcher",
+        "models_recorded": [
+          "gemini-3.8-flash-tiered"
+        ],
+        "source_sha256": "f24433a5eff81805638ab17affd2c295b5f22937e38b395d9933e2f37e2a80a0",
+        "denied_or_failed_steps": [
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"find . -maxdepth 3 -not -path '*/.*'\": Permission denied for command(find . -maxdepth 3 -not -path '*/.*'). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"ls -la\": Permission denied for command(ls -la). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"python -c \\\"import os; print(os.listdir('.'))\\\"\": Permission denied for command(python -c \"import os; print(os.listdir('.'))\"). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "path is a directory, not a file"
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"python -m unittest\": Permission denied for command(python -m unittest). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"echo \\\"hello\\\"\": Permission denied for command(echo \"hello\"). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for read_file \"<private-path>\": user denied permission for read_file(<private-path>\nDo not attempt to circumvent this denial by rephrasing the command, using alternative tools/scripts (e.g. python, sh, curl), or accessing the same target resource. Proceed without performing this action."
+          }
+        ]
+      }
+    ],
+    "preservation": {
+      "all_fixture_bytes_identical": true,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 4,
+    "extract_sha256": "5c6242bd89250ee687bd1aad199811dd1c0b37e949e324f13d5e9bff7ba9b693"
+  },
+  {
+    "id": "S2",
+    "base": "C0 fallback (no adoption credit)",
+    "exit_code": 0,
+    "seconds": 89.301,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [],
+    "trace_sha256": "a95da291e5d1400b47c9c363d370d2e85ebf3b00546c32d2ed7ce1f03a97f9c0",
+    "skill_reads": [
+      ".agents/skills/context-docs/SKILL.md"
+    ],
+    "native_children": [
+      {
+        "role": "Codebase Researcher",
+        "models_recorded": [
+          "gemini-3.8-flash-medium"
+        ],
+        "source_sha256": "666b3bd850a81b79cefcabaf720318d98380042cd8d72814dd46c982e8568aa1",
+        "denied_or_failed_steps": [
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"ls -la\": Permission denied for command(ls -la). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"git status\": Permission denied for command(git status). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"python3 -c \\\"import os; print(os.listdir('.'))\\\"\": Permission denied for command(python3 -c \"import os; print(os.listdir('.'))\"). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"echo \\\"hello\\\"\": Permission denied for command(echo \"hello\"). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "path is a directory, not a file"
+          },
+          {
+            "type": "GENERIC",
+            "error": "path is a directory, not a file"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "path is a directory, not a file"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for read_file \"<private-path>\": user denied permission for read_file(<private-path>\nDo not attempt to circumvent this denial by rephrasing the command, using alternative tools/scripts (e.g. python, sh, curl), or accessing the same target resource. Proceed without performing this action."
+          }
+        ]
+      }
+    ],
+    "preservation": {
+      "all_fixture_bytes_identical": true,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 3,
+    "extract_sha256": "f73c9b8988edbc6a775cf0dff3cf58d45eb6d8c8d8444b75dfa0bf0a3a6e6eb9"
+  },
+  {
+    "id": "S3",
+    "base": "C0 fallback (no adoption credit)",
+    "exit_code": 0,
+    "seconds": 160.074,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [
+      "docs/project-context.md",
+      "src/tidewatch/cli.py",
+      "tests/test_cli.py"
+    ],
+    "trace_sha256": "f0ea7e5bfa649847e43b98c566ba04d99eb79f3ae6ffff8ede1e69115c39f528",
+    "skill_reads": [
+      ".agents/skills/context-docs/SKILL.md"
+    ],
+    "native_children": [],
+    "preservation": {
+      "all_fixture_bytes_identical": false,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 7,
+    "extract_sha256": "0fc3fc2effd979f33bbc74cdda01c8c13ec5957494670b77495faa61482f0864"
+  },
+  {
+    "id": "S4",
+    "base": "S3",
+    "exit_code": 0,
+    "seconds": 24.904,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [],
+    "trace_sha256": "cc83750a2733055fd98fa71f5633ff22eb4fa5a7be231365a91c8b081ceede67",
+    "skill_reads": [],
+    "native_children": [],
+    "preservation": {
+      "all_fixture_bytes_identical": true,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 1,
+    "extract_sha256": "4bbe9f7404b3c8f456bea4a52f34ab112d93c5db406b1c303c36ac7e5f00190e"
+  },
+  {
+    "id": "S5",
+    "base": "S3",
+    "exit_code": 0,
+    "seconds": 161.172,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [],
+    "trace_sha256": "f632b3a7da580c5c7aca3d551ffb3698ed315dd9ae517a939ed7ffd0f4f337d3",
+    "skill_reads": [
+      ".agents/skills/context-docs/SKILL.md"
+    ],
+    "native_children": [
+      {
+        "role": "Codebase Researcher",
+        "models_recorded": [
+          "gemini-3.8-flash-medium"
+        ],
+        "source_sha256": "27b6d861f1d628ac001955645df81f331e10b8e37b62d76baa72197106ce7472",
+        "denied_or_failed_steps": [
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"find . -maxdepth 4 -not -path '*/.*'\": Permission denied for command(find . -maxdepth 4 -not -path '*/.*'). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"git status --short; git ls-files\": Permission denied for command(git status --short; git ls-files). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"ls -la\": Permission denied for command(ls -la). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"python3 -c \\\"import os; print(os.listdir('.'))\\\"\": Permission denied for command(python3 -c \"import os; print(os.listdir('.'))\"). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "permission check failed for command \"python -m unittest\": Permission denied for command(python -m unittest). Matches user-configured deny rule."
+          },
+          {
+            "type": "GENERIC",
+            "error": "path is a directory, not a file"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          },
+          {
+            "type": "GENERIC",
+            "error": "file does not exist"
+          }
+        ]
+      }
+    ],
+    "preservation": {
+      "all_fixture_bytes_identical": true,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 5,
+    "extract_sha256": "bf6afe75e5b714bcab0d5e35b803abc8822b2039bb551dbe1a4d04a66d779404"
+  },
+  {
+    "id": "S6",
+    "base": "C0",
+    "exit_code": 0,
+    "seconds": 59.429,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [],
+    "trace_sha256": "c2983c5483d65a7b17315b4effe3b75a0e8eac7ed8c21f748ff12601237bde2b",
+    "skill_reads": [
+      ".agents/skills/context-docs/SKILL.md"
+    ],
+    "native_children": [],
+    "preservation": {
+      "all_fixture_bytes_identical": true,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 3,
+    "extract_sha256": "cdfdc36fbc2f74e9d241b11a5a4d5a1f907b5362f21f2f4a45cfe6dedb34eca3"
+  },
+  {
+    "id": "S7",
+    "base": "C0 fallback (no adoption credit)",
+    "exit_code": 0,
+    "seconds": 29.661,
+    "timeout": false,
+    "stop_barrier": false,
+    "changed": [
+      "src/tidewatch/cli.py"
+    ],
+    "trace_sha256": "6b702e435bcd7da6de67e90b63a3b48e8abf7ff4778973b67e094cbd922412b4",
+    "skill_reads": [],
+    "native_children": [],
+    "preservation": {
+      "all_fixture_bytes_identical": false,
+      "git_metadata_bytes_identical": true,
+      "protected_skill_config_data_identical": true
+    },
+    "errors": 3,
+    "extract_sha256": "ac89d4c0d560bd384890e1379c8ed8337c0adcc429699c27ad5932af49ef1ee4"
+  }
+]

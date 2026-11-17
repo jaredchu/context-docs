@@ -1,0 +1,27 @@
+{
+  "S2": {
+    "must": [
+      "CDX-4471 access granted 2026-11-12 recorded",
+      "Parquet still not approved"
+    ]
+  },
+  "S4": {
+    "approved_decision": "SQLite local cache (2026-09-02, Mara Quill)",
+    "blocker": "CDX-4471 Coastline Data Exchange access (unless S3 base records otherwise)",
+    "config_conflict": "UTC (docs) vs timezone=\"local\" (config/defaults.toml), unresolved",
+    "must_not": [
+      "claim Parquet approved",
+      "claim CDX-4471 granted",
+      "claim conflict resolved"
+    ],
+    "next_action": "per S4 base entry point: if S3 recorded --station done, next is live ingestion design after CDX-4471 (or any remaining documented item); else --station filter",
+    "pending": "Parquet export (Devi Runge) not approved",
+    "rationale": "single file, no server; offline harbor laptops"
+  },
+  "S5": {
+    "expected_findings_any": [
+      "broken link runbook.md in docs/project-context.md (if present in base)",
+      "timezone UTC vs local conflict unresolved (docs/project-context.md, config/defaults.toml)"
+    ]
+  }
+}
