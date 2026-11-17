@@ -199,6 +199,9 @@ dated sources, environment requirements and a proposed seven-session journey.
 Those restricted records are not public evaluation evidence; the proposal grants
 no installation, launch, authentication, spending or test-execution authority.
 
+*Later status: the November 17 [experimental Cursor CLI support](#experimental-cursor-cli-support)
+decision supersedes "not evaluated" for the CLI only.*
+
 ## Deployment record commits
 
 On October 23, 2026, the owner clarified that verification-record commits do
@@ -230,6 +233,9 @@ After the research and preview commits, the owner authorized deploying `main` at
 confirms publication and nine matching live public files. This later authorization
 supersedes the preview-only publication boundary for this website build; Cursor
 support and native testing remain postponed.
+
+*Later status: the November 17 [experimental Cursor CLI support](#experimental-cursor-cli-support)
+decision supersedes this postponement for the CLI only.*
 
 ## Website cleanup preview
 
@@ -407,3 +413,33 @@ requested pushing both reviewed commits and deploying the website. That request
 authorizes this website publication and related deployment records, while release
 publication remains withheld. The [deployment summary](../site/README.md#latest-deployment)
 owns the resulting source and verification.
+
+## Experimental Cursor CLI support
+
+The owner authorized Cursor Free compatibility testing, to stop if quota ran out
+and to incur no paid usage. A bounded trial ran on November 17, 2026. The owner
+then asked to add experimental Cursor CLI support, keep its test limitations
+clear and keep the changes local for review.
+
+The [trial record](../evals/cursor/2026-11-17-free/README.md) (evidence ID
+`cursor-free-compat-2026-11-17`) retains seven print-mode sessions, one failed
+model attempt, the unmet direct-read loading criterion for adoption, mixed CLI
+builds and client side effects. An earlier independent review of the saved test
+evidence passed with no material findings; it did not review the current support
+patch. Raw evidence remains private; the public record is a derived
+extract.
+
+Decision: document the Cursor **CLI** as experimental, using the unchanged
+standard skills with no adapter, plugin, skill change or new release. Prefer
+reusing an existing installation in a directory Cursor documents. Describe a
+first installation in Cursor's own directory as documented but untested. Do not
+advertise loading, fresh installation, interactive use or desktop behavior as
+verified. This supersedes the October 23 "not evaluated" status and the
+October 24 postponement for the CLI only. Those entries remain as dated history.
+The Cursor desktop editor and cloud agents remain not evaluated. The Codex
+plugin runtime deferral and broad v1.0.0 campaign stay deferred, and the
+Codex/Claude studies and switching walkthroughs are not extended to Cursor.
+
+This authorizes local documentation, evidence and website-source edits for
+review only. It grants no commit, push, release, deployment, installed upgrade or
+further model trial; the live website is unchanged.

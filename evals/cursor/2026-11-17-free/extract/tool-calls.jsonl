@@ -1,0 +1,116 @@
+{"case": "S1", "seq": 1, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S1", "seq": 2, "tool": "read", "status": "success", "path": "<WORKSPACE>/AGENTS.md"}
+{"case": "S1", "seq": 3, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*"}
+{"case": "S1", "seq": 4, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S1", "seq": 5, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S1", "seq": 6, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/standard.md"}
+{"case": "S1", "seq": 7, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/progress.md"}
+{"case": "S1", "seq": 8, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/assets/project-context.md"}
+{"case": "S1", "seq": 9, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/decisions/0001-sqlite-cache.md"}
+{"case": "S1", "seq": 10, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S1", "seq": 11, "tool": "read", "status": "success", "path": "<WORKSPACE>/config/defaults.toml"}
+{"case": "S1", "seq": 12, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__init__.py"}
+{"case": "S1", "seq": 13, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__main__.py"}
+{"case": "S1", "seq": 14, "tool": "read", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S1", "seq": 15, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*.{md,toml}"}
+{"case": "S1", "seq": 16, "tool": "grep", "status": "success", "pattern": "timezone|station|sqlite|UTC|context-docs|Context maintenance", "path": "<WORKSPACE>"}
+{"case": "S1", "seq": 17, "tool": "read", "status": "success", "path": "<WORKSPACE>/data/sample.csv"}
+{"case": "S1", "seq": 18, "tool": "shell", "status": "permissionDenied", "command": "python -m unittest"}
+{"case": "S1", "seq": 19, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S1", "seq": 20, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S1", "seq": 21, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S1", "seq": 22, "tool": "edit", "status": "success", "path": "<WORKSPACE>/AGENTS.md"}
+{"case": "S1", "seq": 23, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S1", "seq": 24, "tool": "read", "status": "success", "path": "<WORKSPACE>/AGENTS.md"}
+{"case": "S1", "seq": 25, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 1, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S2", "seq": 2, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/standard.md"}
+{"case": "S2", "seq": 3, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/progress.md"}
+{"case": "S2", "seq": 4, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 5, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "notes/**/*"}
+{"case": "S2", "seq": 6, "tool": "read", "status": "success", "path": "<WORKSPACE>/notes/2026-11-12-standup.md"}
+{"case": "S2", "seq": 7, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*.{py,toml,md}"}
+{"case": "S2", "seq": 8, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S2", "seq": 9, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S2", "seq": 10, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/decisions/0001-sqlite-cache.md"}
+{"case": "S2", "seq": 11, "tool": "read", "status": "success", "path": "<WORKSPACE>/config/defaults.toml"}
+{"case": "S2", "seq": 12, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 13, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 14, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 15, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 16, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S2", "seq": 17, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 1, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*.{py,md,toml}"}
+{"case": "S3", "seq": 2, "tool": "grep", "status": "success", "pattern": "summarize", "path": "<WORKSPACE>", "glob": "*.py"}
+{"case": "S3", "seq": 3, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S3", "seq": 4, "tool": "read", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S3", "seq": 5, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S3", "seq": 6, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 7, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S3", "seq": 8, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/progress.md"}
+{"case": "S3", "seq": 9, "tool": "read", "status": "success", "path": "<WORKSPACE>/data/sample.csv"}
+{"case": "S3", "seq": 10, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*"}
+{"case": "S3", "seq": 11, "tool": "edit", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S3", "seq": 12, "tool": "edit", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S3", "seq": 13, "tool": "edit", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S3", "seq": 14, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 15, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 16, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 17, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 18, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 19, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S3", "seq": 20, "tool": "read", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S3", "seq": 21, "tool": "edit", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S3", "seq": 22, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/pyproject.toml"}
+{"case": "S3", "seq": 23, "tool": "grep", "status": "success", "pattern": "PYTHONPATH|pythonpath|unittest", "path": "<WORKSPACE>"}
+{"case": "S3", "seq": 24, "tool": "shell", "status": "permissionDenied", "command": "PYTHONPATH=src python -m unittest"}
+{"case": "S3", "seq": 25, "tool": "shell", "status": "permissionDenied", "command": "PYTHONPATH=src python3 -m unittest discover -s tests -v"}
+{"case": "S3", "seq": 26, "tool": "shell", "status": "permissionDenied", "command": "pwd"}
+{"case": "S3", "seq": 27, "tool": "shell", "status": "permissionDenied", "command": "PYTHONPATH=src python3 -m unittest discover -s tests -v"}
+{"case": "S4", "seq": 1, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S4", "seq": 2, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "README*"}
+{"case": "S4", "seq": 3, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S4", "seq": 4, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/decisions/0001-sqlite-cache.md"}
+{"case": "S4", "seq": 5, "tool": "read", "status": "success", "path": "<WORKSPACE>/config/defaults.toml"}
+{"case": "S4", "seq": 6, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S4", "seq": 7, "tool": "grep", "status": "success", "pattern": "Parquet|CDX-4471|timezone|SQLite|UTC|proposed|approved", "path": "<WORKSPACE>", "glob": "*.{md,toml,py,txt}"}
+{"case": "S4", "seq": 8, "tool": "grep", "status": "success", "pattern": "defaults\\.toml|timezone|UTC|parquet|Parquet|sqlite|station", "path": "<WORKSPACE>", "glob": "*.py"}
+{"case": "S4", "seq": 9, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*"}
+{"case": "S5", "seq": 1, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S5", "seq": 2, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/standard.md"}
+{"case": "S5", "seq": 3, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*.{md,py,toml}"}
+{"case": "S5", "seq": 4, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S5", "seq": 5, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S5", "seq": 6, "tool": "read", "status": "success", "path": "<WORKSPACE>/AGENTS.md"}
+{"case": "S5", "seq": 7, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/decisions/0001-sqlite-cache.md"}
+{"case": "S5", "seq": 8, "tool": "read", "status": "success", "path": "<WORKSPACE>/config/defaults.toml"}
+{"case": "S5", "seq": 9, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S5", "seq": 10, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__main__.py"}
+{"case": "S5", "seq": 11, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__init__.py"}
+{"case": "S5", "seq": 12, "tool": "read", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S5", "seq": 13, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*"}
+{"case": "S5", "seq": 14, "tool": "grep", "status": "success", "pattern": "UTC|timezone|parquet|sqlite|station|runbook|CDX|table", "path": "<WORKSPACE>", "glob": "*.{md,py,toml,csv}"}
+{"case": "S5", "seq": 15, "tool": "read", "status": "success", "path": "<WORKSPACE>/data/sample.csv"}
+{"case": "S5", "seq": 16, "tool": "read", "status": "success", "path": "<WORKSPACE>/.cursor/cli.json"}
+{"case": "S5", "seq": 17, "tool": "grep", "status": "success", "pattern": "tomllib|config|cache_path|parquet|sqlite|timezone|PYTHONPATH|runbook", "path": "<WORKSPACE>"}
+{"case": "S6", "seq": 1, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/SKILL.md"}
+{"case": "S6", "seq": 2, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/*"}
+{"case": "S6", "seq": 3, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/standard.md"}
+{"case": "S6", "seq": 4, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/references/progress.md"}
+{"case": "S6", "seq": 5, "tool": "read", "status": "success", "path": "<USER>/.claude/skills/context-docs/assets/project-context.md"}
+{"case": "S6", "seq": 6, "tool": "read", "status": "success", "path": "<WORKSPACE>/AGENTS.md"}
+{"case": "S6", "seq": 7, "tool": "read", "status": "success", "path": "<WORKSPACE>/README.md"}
+{"case": "S6", "seq": 8, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/project-context.md"}
+{"case": "S6", "seq": 9, "tool": "read", "status": "success", "path": "<WORKSPACE>/docs/decisions/0001-sqlite-cache.md"}
+{"case": "S6", "seq": 10, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/{CLAUDE.md,.cursorrules,AGENTS.md,*.md}"}
+{"case": "S6", "seq": 11, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}
+{"case": "S6", "seq": 12, "tool": "read", "status": "success", "path": "<WORKSPACE>/config/defaults.toml"}
+{"case": "S6", "seq": 13, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__init__.py"}
+{"case": "S6", "seq": 14, "tool": "read", "status": "success", "path": "<WORKSPACE>/src/tidewatch/__main__.py"}
+{"case": "S6", "seq": 15, "tool": "read", "status": "success", "path": "<WORKSPACE>/tests/test_cli.py"}
+{"case": "S6", "seq": 16, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/runbook.md"}
+{"case": "S6", "seq": 17, "tool": "grep", "status": "success", "pattern": "sqlite|timezone|station|parquet|UTC|cache", "path": "<WORKSPACE>", "glob": "*.{py,toml,md,csv}"}
+{"case": "S6", "seq": 18, "tool": "read", "status": "success", "path": "<WORKSPACE>/.cursor/cli.json"}
+{"case": "S6", "seq": 19, "tool": "glob", "status": "success", "directory": "<WORKSPACE>", "pattern": "**/{.cursor/**,CLAUDE.md,.claude/**}"}
+{"case": "S7", "seq": 1, "tool": "grep", "status": "success", "pattern": "recieve", "path": "<WORKSPACE>"}
+{"case": "S7", "seq": 2, "tool": "edit", "status": "success", "path": "<WORKSPACE>/src/tidewatch/cli.py"}

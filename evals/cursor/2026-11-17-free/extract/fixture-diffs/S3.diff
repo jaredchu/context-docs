@@ -1,0 +1,110 @@
+diff --git a/docs/project-context.md b/docs/project-context.md
+index bee776c..7de4fec 100644
+--- a/docs/project-context.md
++++ b/docs/project-context.md
+@@ -7,14 +7,14 @@ operators. Offline batch use only; there is no live service.
+ 
+ ## Progress
+ 
+-`summarize` prints daily high and low for every station in a file. Selecting
+-one station is the next step. Live ingestion stays outside that offline scope
++`summarize` prints daily high and low for every station in a file, or for one
++station when `--station` is set. Live ingestion stays outside that offline scope
+ until access is granted. Whether this build is deployed is not recorded here.
+ 
+ ```text
+-Goal: offline daily high/low summaries (incomplete) [P]
++Goal: offline daily high/low summaries [P]
+ |-- DONE  summarize prints daily high and low for every station in the file [C]
+-`-- NEXT  --station filter on summarize [N]
++`-- DONE  --station filter on summarize [C]
+ 
+ BLOCKED   live gauge ingestion — depends on CDX-4471; not part of offline scope [B]
+ APPROVED  SQLite cache of parsed readings — not implemented [D]
+@@ -24,8 +24,7 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ 
+ - [P] Purpose, the Parquet proposal, and the timezone conflict in this file
+ - [C] [Current state](#current-state); command in [cli.py](../src/tidewatch/cli.py)
+-- [N] [Next actions](#next-actions)
+-- [B] [Blockers](#blockers)
++- [B] [Blockers](#blockers); remaining step in [Next actions](#next-actions)
+ - [D] [Decision 0001](decisions/0001-sqlite-cache.md)
+ - [T] [Configuration conflict](#configuration-conflict-unresolved)
+ 
+@@ -33,7 +32,8 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ 
+ - The `summarize` command reads a CSV and prints the daily high and low water
+   level ([cli.py](../src/tidewatch/cli.py)).
+-- Station filtering is not implemented; all stations in a file are combined.
++- `--station` limits that summary to readings from one gauge. Omitting it still
++  combines every station in the file.
+ 
+ ## Decisions and constraints
+ 
+@@ -58,9 +58,7 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ 
+ ## Next actions
+ 
+-1. Add a `--station` filter to `summarize` so operators can select one gauge
+-   station.
+-2. After CDX-4471 access is granted, design live ingestion.
++1. After CDX-4471 access is granted, design live ingestion.
+ 
+ ## References
+ 
+diff --git a/src/tidewatch/cli.py b/src/tidewatch/cli.py
+index d7a739b..ae37e3b 100644
+--- a/src/tidewatch/cli.py
++++ b/src/tidewatch/cli.py
+@@ -31,8 +31,15 @@ def main(argv: Optional[List[str]] = None) -> int:
+     sub = parser.add_subparsers(dest="command", required=True)
+     summarize = sub.add_parser("summarize", help="print daily high/low levels")
+     summarize.add_argument("csv_path")
++    summarize.add_argument(
++        "--station",
++        help="include readings from this station only",
++    )
+     args = parser.parse_args(argv)
+     if args.command == "summarize":
+-        for day, (low, high) in daily_extremes(read_levels(args.csv_path)).items():
++        rows = read_levels(args.csv_path)
++        if args.station is not None:
++            rows = [row for row in rows if row[0] == args.station]
++        for day, (low, high) in daily_extremes(rows).items():
+             print(f"{day} low={low:.2f} high={high:.2f}")
+     return 0
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+index fc3fdc0..58eb56b 100644
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -1,7 +1,9 @@
++import io
+ import os
+ import unittest
++from contextlib import redirect_stdout
+ 
+-from tidewatch.cli import daily_extremes, read_levels
++from tidewatch.cli import daily_extremes, main, read_levels
+ 
+ SAMPLE = os.path.join(os.path.dirname(__file__), "..", "data", "sample.csv")
+ 
+@@ -11,6 +13,19 @@ class SummaryTest(unittest.TestCase):
+         result = daily_extremes(read_levels(SAMPLE))
+         self.assertEqual(result["2026-09-01"], (0.4, 2.1))
+ 
++    def test_summarize_station_limits_readings(self) -> None:
++        buffer = io.StringIO()
++        with redirect_stdout(buffer):
++            code = main(["summarize", SAMPLE, "--station", "south-quay"])
++        self.assertEqual(code, 0)
++        self.assertEqual(
++            buffer.getvalue().splitlines(),
++            [
++                "2026-09-01 low=0.90 high=0.90",
++                "2026-09-02 low=1.80 high=1.80",
++            ],
++        )
++
+ 
+ if __name__ == "__main__":
+     unittest.main()

@@ -51,9 +51,14 @@ lower user effort. No skill behavior or version changed for this research.
 The owner first selected **prepare a preview first**, then authorized deployment
 from `main` at `9b6ee38`. The comparison is now live, with its research limits
 unchanged; its targeted cleanup was later deployed from `c2414d4` on October 25.
-Cursor support and its saved native testing proposal remain postponed;
-the earlier reviews remain historical evidence. No installation, launch or
-remote-host test was selected or performed.
+That research kept Cursor support and its native testing proposal postponed;
+the earlier reviews remain historical evidence. The later November 17
+[bounded CLI trial](../evals/cursor/2026-11-17-free/README.md) informed
+[experimental Cursor CLI guidance](getting-started.md#cursor-cli-experimental),
+now prepared locally for review. Its mixed builds and unverified adoption-skill
+and native instruction loading remain explicit. Desktop, cloud and fresh
+installation were not tested. This local update is not deployed; the October
+comparison research and its findings are unchanged.
 
 ## Review follow-up preview
 

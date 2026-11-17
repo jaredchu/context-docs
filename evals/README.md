@@ -332,6 +332,13 @@ merge recommendation with factual limitations. Its restricted tools do not estab
 unrestricted-client reliability. Prior attempts retain their original criteria and
 scores; no skill-specific cause of the original errors is established.
 
+The [Cursor CLI observation](cursor/2026-11-17-free/README.md) runs seven
+synthetic cases once each in Cursor CLI print mode on Free, with unchanged
+published skills. It retains a failed model attempt, mixed CLI builds and two
+adoption cases that miss the direct-read loading criterion. Its portable extract
+is derived from private raw traces. It does not evaluate the Cursor desktop
+editor, interactive sessions, fresh installation or repeatability.
+
 ## Markdown progress views
 
 The [Markdown progress scenarios](progress/README.md) cover source-backed views,

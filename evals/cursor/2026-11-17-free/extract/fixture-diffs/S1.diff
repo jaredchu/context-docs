@@ -1,0 +1,74 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index 6b3c647..284a8ea 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -3,3 +3,17 @@
+ - Python 3.9+, standard library only. Keep functions small and typed.
+ - Run tests with `python -m unittest` (no network access).
+ - Do not change `config/defaults.toml` without owner approval.
++
++## Context maintenance
++
++Method: context-docs
++Adopted: 2026-11-17
++Entry point: docs/project-context.md
++
++Use the context-docs skill for documentation audits and after meaningful changes
++to project facts, decisions, procedures, blockers or next actions. Read the skill
++before maintenance. Preserve project rules, document roles and decision status.
++Update affected canonical sections and check the diff, links and information
++preservation, keeping any existing progress view current without duplicate
++tracking. Keep audit-only requests read-only; make no bookkeeping edits
++when nothing durable changed.
+diff --git a/docs/project-context.md b/docs/project-context.md
+index 10e80b1..bee776c 100644
+--- a/docs/project-context.md
++++ b/docs/project-context.md
+@@ -5,6 +5,30 @@
+ Tidewatch turns tide-gauge CSV readings into daily high/low summaries for harbor
+ operators. Offline batch use only; there is no live service.
+ 
++## Progress
++
++`summarize` prints daily high and low for every station in a file. Selecting
++one station is the next step. Live ingestion stays outside that offline scope
++until access is granted. Whether this build is deployed is not recorded here.
++
++```text
++Goal: offline daily high/low summaries (incomplete) [P]
++|-- DONE  summarize prints daily high and low for every station in the file [C]
++`-- NEXT  --station filter on summarize [N]
++
++BLOCKED   live gauge ingestion — depends on CDX-4471; not part of offline scope [B]
++APPROVED  SQLite cache of parsed readings — not implemented [D]
++PROPOSED  Parquet export — not approved [P]
++UNKNOWN   timezone: config says local; an earlier note said UTC [T]
++```
++
++- [P] Purpose, the Parquet proposal, and the timezone conflict in this file
++- [C] [Current state](#current-state); command in [cli.py](../src/tidewatch/cli.py)
++- [N] [Next actions](#next-actions)
++- [B] [Blockers](#blockers)
++- [D] [Decision 0001](decisions/0001-sqlite-cache.md)
++- [T] [Configuration conflict](#configuration-conflict-unresolved)
++
+ ## Current state
+ 
+ - The `summarize` command reads a CSV and prints the daily high and low water
+@@ -29,6 +53,8 @@ operators. Offline batch use only; there is no live service.
+ - This document previously stated that summaries use UTC, but
+   `config/defaults.toml` sets `timezone = "local"`. The owner has not decided
+   which is correct.
++- Observed 2026-11-17 in `src/tidewatch/cli.py`: `summarize` does not read
++  `config/defaults.toml`, so neither timezone value is applied by the command.
+ 
+ ## Next actions
+ 
+@@ -38,5 +64,6 @@ operators. Offline batch use only; there is no live service.
+ 
+ ## References
+ 
+-- [Runbook](runbook.md)
+ - [Decision 0001](decisions/0001-sqlite-cache.md)
++- `docs/runbook.md` was linked from here, but that file is not in the repository
++  (checked 2026-11-17).

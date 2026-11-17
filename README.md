@@ -3,9 +3,9 @@
 **Keep decisions, current work and next steps across AI sessions.**
 
 Context Docs provides reusable agent skills for context management in Codex and
-Claude Code. Preserve project knowledge in readable Markdown so a new AI session
-can pick up where you left off: what was decided and why, what is done or blocked,
-and what to do next.
+Claude Code, with **experimental Cursor CLI support**. Preserve project knowledge
+in readable Markdown so a new AI session can pick up where you left off: what was
+decided and why, what is done or blocked, and what to do next.
 
 Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
@@ -30,7 +30,7 @@ unlinked-note coverage gap remains; the separate installed check names the note
 explicitly. See [results and qualifications](docs/evaluation-results.md#more-recent-studies).
 Publication and installation are separate actions. See [release history](docs/releases/README.md) for earlier
 versions, feature boundaries and retained evidence.
-For Codex and Claude Code · Plain Markdown · [MIT licensed](LICENSE)
+For Codex and Claude Code · Experimental Cursor CLI support · Plain Markdown · [MIT licensed](LICENSE)
 
 ## What you get
 
@@ -108,15 +108,41 @@ If either skill is already installed, [review the upgrade guidance](docs/getting
 before copying files. [Project-only setup and instruction loading →](docs/getting-started.md#install-in-claude-code)
 The version output should be `0.2.7` followed by `0.1.16`.
 
+### Install in Cursor CLI (experimental)
+
+**Experimental CLI support:** one bounded Cursor CLI trial used the unchanged
+v0.2.7 skills from an existing `~/.claude/skills` installation, in print mode on
+Free. Interactive sessions, the desktop editor and fresh installation are untested.
+If you already installed both skills for Claude Code or Codex, Cursor
+[documents reading those directories](https://cursor.com/docs/skills#skill-directories);
+reuse them instead of copying another set. Otherwise, for a first installation
+in Cursor's own user directory (**fresh placement not tested**):
+
+```sh
+(
+  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git &&
+  cd context-docs &&
+  mkdir -p ~/.cursor/skills &&
+  test ! -e ~/.cursor/skills/context-docs &&
+  test ! -e ~/.cursor/skills/adopt-context-docs &&
+  cp -r skills/context-docs skills/adopt-context-docs ~/.cursor/skills/ &&
+  cat ~/.cursor/skills/context-docs/VERSION ~/.cursor/skills/adopt-context-docs/VERSION
+)
+```
+
+The sequence stops at the first failure: a failed clone copies nothing, and the
+guard copies nothing if either folder already exists. Expect `0.2.7` then
+`0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-cli-experimental)
+
 ## Use it
 
 ### 1. Set up your project
 
 Open your project in your coding agent and invoke:
 
-| Codex | Claude Code |
-| --- | --- |
-| `$adopt-context-docs` | `/adopt-context-docs` |
+| Codex | Claude Code | Cursor CLI (experimental) |
+| --- | --- | --- |
+| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
 The adoption skill applies the context workflow and adds or reuses a maintenance
 rule in the project instructions your agent loads. It preserves equivalent
@@ -183,7 +209,8 @@ loads it. To check what a new session takes from the saved note, use the optiona
 
 This also applies when switching between Codex and Claude Code. Save and review
 context before switching, open the same code and notes in the receiving client,
-and confirm its maintenance instructions load. See the
+and confirm its maintenance instructions load. Switching to or from Cursor has
+not been tested. See the
 [direction-specific walkthroughs](https://context-docs.com/examples/) and their
 [observed checks and limits](docs/switching-agents-examples.md).
 
@@ -251,7 +278,9 @@ The skill guides an agent; it cannot guarantee factual correctness or complete
 preservation, and it cannot prevent concurrent editing conflicts. Review
 consequential claims and edits. It provides no automatic scheduler and grants no
 permission to publish documents or change other systems. Native integration
-remains experimental.
+remains experimental. Cursor CLI support rests on one
+[bounded print-mode trial](evals/cursor/2026-11-17-free/README.md) with retained
+loading and build qualifications.
 
 [Results, methods and limitations →](docs/evaluation-results.md)
 

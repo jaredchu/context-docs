@@ -1,0 +1,7 @@
+test_daily_extremes (test_cli.SummaryTest) ... ok
+test_summarize_station_limits_readings (test_cli.SummaryTest) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

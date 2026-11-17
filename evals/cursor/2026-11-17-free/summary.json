@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "evidence_id": "cursor-free-compat-2026-11-17",
+  "date": "2026-11-17",
+  "status": "experimental observation; one attempt per case; not general Cursor support",
+  "subject": {
+    "client": "Cursor CLI (cursor-agent), non-interactive print mode, stream-json output",
+    "not_tested": ["Cursor desktop editor", "interactive CLI sessions", "cloud agents", "clean or fresh installation", "other models", "repeat attempts"],
+    "platform": "macOS arm64, existing authenticated Cursor Free account",
+    "requested_model": "grok-4.7-medium",
+    "observed_model": "Grok 4.7 256K Medium",
+    "builds": {
+      "S1": "2026.11.11-b912975",
+      "S2-S7": "2026.11.13-eacade1",
+      "note": "The CLI updated itself during S1; mixed-build set, not a single-build result"
+    }
+  },
+  "skills": {
+    "packages": {"context-docs": "0.2.7", "adopt-context-docs": "0.1.16"},
+    "installed_roots_present": ["~/.claude/skills", "~/.agents/skills"],
+    "roots_identical": true,
+    "observed_read_root": "~/.claude/skills",
+    "untested": ["documented .cursor/skills or .agents/skills placement on its own", "fresh installation", "root precedence", "duplicate handling"]
+  },
+  "budget": {
+    "continuation_subject_seconds": 582.66,
+    "including_failed_attempt_seconds": 588.41,
+    "cap_seconds": 1260,
+    "per_case_cap_seconds": 180,
+    "quota_or_payment_signals": 0,
+    "remaining_allowance": "unknown"
+  },
+  "failed_attempt": {
+    "model": "composer-2.5",
+    "case": "S1",
+    "exit": 1,
+    "seconds": 5.75,
+    "tool_calls": 0,
+    "error": "ActionRequiredError: Model unavailable on Free Free includes Grok 4.7, Grok 4.6, and Auto with fixed settings. Switch to an included model to continue.",
+    "note": "Model appeared in the CLI model list; listing did not establish Free entitlement. Retained, not counted as a case result."
+  },
+  "loading_criterion": "Frozen rule: loading passes only with a completed read tool call on the relevant SKILL.md",
+  "cases": [
+    {"id": "S1", "title": "Explicit adoption", "prompt": "/adopt-context-docs Adopt Context Docs in this project.", "build": "2026.11.11-b912975", "exit": 0, "seconds": 132.72, "tool_calls": 25, "denied_shell_calls": 1,
+     "core_skill_read": true, "adoption_skill_read": false, "loading_criterion": "not met (adoption SKILL.md read absent; slash injection inferred only)",
+     "observed": "One maintenance rule and dated marker in AGENTS.md; context facts and decision status preserved; only AGENTS.md and docs/project-context.md changed"},
+    {"id": "S2", "title": "Unnamed refresh", "prompt": "Refresh the project context so it reflects the new standup note in notes/.", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 80.81, "tool_calls": 17, "denied_shell_calls": 0,
+     "core_skill_read": true, "observed": "Core read first without naming the skill; blocker updated from the note; pending proposal and unresolved conflict preserved"},
+    {"id": "S3", "title": "Ordinary implementation", "prompt": "Add a --station option to the summarize command so it only includes readings from that station, and add a unit test for it.", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 114.37, "tool_calls": 27, "denied_shell_calls": 4,
+     "core_skill_read": true, "observed": "Option and test added; context updated unprompted; protected config unchanged. Model test runs were shell-denied; separate harness run passed 2/2"},
+    {"id": "S4", "title": "Fresh resume (ask mode)", "prompt": "I'm resuming this project in a new session. Using only the project's files, tell me the approved decision and its rationale, any proposal still awaiting approval, the current blocker, the next action, and any unresolved configuration conflict. Do not change anything.", "mode": "ask", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 34.73, "tool_calls": 9, "denied_shell_calls": 0,
+     "core_skill_read": true, "observed": "All answer-key items correct; no file, index or HEAD change"},
+    {"id": "S5", "title": "Read-only audit", "prompt": "Audit this project's context documentation against its source files and report concrete gaps with file locations. Audit only.", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 132.64, "tool_calls": 17, "denied_shell_calls": 0,
+     "core_skill_read": true, "observed": "Located gaps including the seeded missing runbook; no file, index or HEAD change", "limit": "Audit accuracy only partly checked: seeded defect and selected findings spot-checked"},
+    {"id": "S6", "title": "Repeat adoption on pre-adopted control", "prompt": "/adopt-context-docs Adopt Context Docs in this project.", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 73.2, "tool_calls": 19, "denied_shell_calls": 0,
+     "core_skill_read": true, "adoption_skill_read": false, "loading_criterion": "not met (adoption SKILL.md read absent; slash injection inferred only)",
+     "observed": "No edits; original adoption date preserved; no duplicate rule"},
+    {"id": "S7", "title": "Typo-only control", "prompt": "Fix the typo \"recieve\" in src/tidewatch/cli.py.", "build": "2026.11.13-eacade1", "exit": 0, "seconds": 14.19, "tool_calls": 2, "denied_shell_calls": 0,
+     "core_skill_read": false, "observed": "One comment line fixed; no skill read; documentation unchanged"}
+  ],
+  "not_established": [
+    "tool-observed loading of adopt-context-docs (S1/S6 do not meet the frozen direct-read criterion)",
+    "which root supplied the adoption skill content",
+    "native AGENTS.md/CLAUDE.md instruction loading (model claims only; stream omits the system prompt)",
+    "runtime enforcement of configured outside-path denies (not exercised); no OS sandbox claim",
+    "reliability beyond one attempt per case",
+    "behavior with other models, builds, desktop, interactive sessions or clean installs",
+    "Free allowance beyond this run"
+  ],
+  "client_side_effects": [
+    "First --model invocation persisted the selection as the global default; exact model keys later restored",
+    "Continuation used a task-local CURSOR_CONFIG_DIR; main CLI config byte-identical across S1-S7",
+    "Config-dir separation did not redirect runtime project entries, vendor skill sync, trust markers or transcripts",
+    "A runtime privacy cache value changed and remains",
+    "CLI automatic update remains installed"
+  ],
+  "roles": {
+    "subject": "Cursor CLI with Grok 4.7 256K Medium",
+    "implementation_and_report": "Claude Opus 5.5 (one writer)",
+    "coordination_and_evidence_check": "Codex",
+    "independent_source_review": "Astra: pass, no material findings; reviewed saved evidence without reruns"
+  },
+  "extraction": {
+    "method": "Derived by a private script from the raw traces and fixture diffs; absolute paths normalized to <WORKSPACE> and <USER>; thinking text, session and call IDs, timestamps, account, configuration and permission-policy details omitted",
+    "raw_originals": "private; not published",
+    "files": ["extract/tool-calls.jsonl", "extract/final-responses.jsonl", "extract/fixture-diffs/", "extract/S3-unittest.txt"]
+  },
+  "source_sha256": {
+    "RESULTS.md (final synthesis)": "d8b15716d0e2b0f590a05e77f90a1dafbe6097fc0209653e8a335f9802a0dbe1",
+    "probe/RESULTS.md (failed Composer attempt)": "1c302d2c1817e782ac53c2f5e2068ef24d0f237d4d8e30bb70c162dc6456390c",
+    "probe/POST-RUN-RECEIPT.sha256": "26a99a92b292ed7315e92bd0871afe26987c508d6b966091a10b0be28f68b4f7",
+    "probe/runs/S1/stderr.txt": "5d02129b6920ef75898a9f7efba32d9839ce652e677e0e395ffe221be8590056",
+    "probe/runs/S1/trace.stream.jsonl": "14da18ecefef7c704bbf4ad0c5600150e7c807f79949a5bea2498be00a7e7f98",
+    "grok-continuation/POST-RUN-RECEIPT.sha256": "5c981ac5bd1e3f912ab27abe8195fcf33f49ab79cb205119319e6d58bb4a0118",
+    "grok-continuation/protocol/protocol.json": "7eb6f44df61abafda8cd082d76aea96aca93ed59a851e45975d68037b92ac020",
+    "grok-continuation/protocol/answer-key.json": "deb99d938c9978627e39a0744792b1870a6b3a5a0a0ad60aedf39d3ed8e9a042",
+    "grok-continuation/runs/ledger.json": "20dc9887120347049654941520ee1e9b5bc7db18b2012c1e401394e7a97cdfed",
+    "grok-continuation/verify/S3-unittest.txt": "08ea4dd678fb4dcafd52b42083bcc136bf01a101d5a9611410b71ffe7ad5db8b",
+    "grok-continuation/runs/S1/trace.stream.jsonl": "da4a9dfb8ce287878999aa69457430ec6c7f7e6ae15f95fa34ae2aa1c3058ebe",
+    "grok-continuation/runs/S2/trace.stream.jsonl": "b7c54c7ae72631ad4ac1ffe6abbbd2497bbcf8232046a883bca662829532e491",
+    "grok-continuation/runs/S3/trace.stream.jsonl": "234a181fddd37f81b80964c279dcd7b8fb10a5075f8e5c6cbe3a729bcf359e59",
+    "grok-continuation/runs/S4/trace.stream.jsonl": "ba7049ab149a3bf97433176dbefa23f476a179f32765e04dad64033d1cc23ba1",
+    "grok-continuation/runs/S5/trace.stream.jsonl": "c833d912d9b33bea1b926d011fa2be8ee9a5be1a359f71e8b30e13e5917c6d60",
+    "grok-continuation/runs/S6/trace.stream.jsonl": "201cbba847be3d917529c77e358ca17d48ae4d92d77768ebf3c5622d4f993b14",
+    "grok-continuation/runs/S7/trace.stream.jsonl": "4ce8a3cb3c204f6275970a731c561848cb46c8c4ea5da7a64cd91935516eb1d7",
+    "grok-continuation/runs/S1/fixture.diff": "5efad1c7e60a2ab42b74abf5ac1d75b478739bc316a532501b8a772986fc881a",
+    "grok-continuation/runs/S2/fixture.diff": "4b9b456c295888a7575cfb40397d459a514f8ad2ea488e5cb8a7f35f02bdff77",
+    "grok-continuation/runs/S3/fixture.diff": "0af59d31a1b9e4f98f0e2a1aded9fe26275b6742e3274339cecf6681a64542af",
+    "grok-continuation/runs/S7/fixture.diff": "6647568af70195f7356445936876b098c5dcf2ca5098cc9fb17cdbad7c6d68dd"
+  }
+}

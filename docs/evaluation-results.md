@@ -219,6 +219,11 @@ Opus 5 establish neither a skill-specific accuracy advantage nor general reliabi
 Earlier failures and scores remain recorded; file checks, execution and semantic
 review are reported separately.
 
+Cursor CLI evidence is separate: one
+[bounded print-mode observation](#november-17-cursor-cli-observation) with retained
+loading and build qualifications. The Codex and Claude Code studies above do not
+apply to Cursor.
+
 ## Optional journal evidence
 
 The [initial evaluation](../evals/results/2026-09-28-event-journal/README.md) covers
@@ -249,6 +254,25 @@ records setting precedence and no-Git enablement outcomes, including retained
 failures and the limits of its restricted sessions.
 
 ## More recent studies
+
+### November 17 Cursor CLI observation
+
+The [Cursor CLI trial record](../evals/cursor/2026-11-17-free/README.md)
+(evidence ID `cursor-free-compat-2026-11-17`) ran seven fresh print-mode sessions
+once each. It used Grok 4.7 256K Medium on one existing Cursor Free account, with
+unchanged core **0.2.7** and adoption **0.1.16**. All seven exited successfully
+with no quota or payment error. Adoption content, unnamed refresh, ordinary
+implementation with an unprompted context update, fresh resume, a read-only audit
+and an unchanged repeat adoption all met the frozen rubric; a typo-only control
+read no skill. **S1 and S6 do not meet the frozen direct-read loading criterion**:
+no tool call read the adoption `SKILL.md`, and slash injection is inferred only.
+Cursor read the core skill from an existing `~/.claude/skills` installation. Fresh
+installation, native instruction loading, interactive and desktop use, other
+models and repeatability are untested. The CLI updated itself during the first
+case, so results span two builds. An earlier attempt with a model listed but not
+available on Free is retained as a failure. Shell was denied, so Cursor did not
+run its own tests; a separate harness run passed 2/2. Audit accuracy was only
+partly checked. This supports experimental CLI guidance, not general Cursor support.
 
 ### November 14 public-project documentation study
 

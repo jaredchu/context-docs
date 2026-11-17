@@ -417,6 +417,32 @@ accessibility certification, new experiment results or measured human benefit.
 That preview was served locally under an explicit lease; its source was later
 published as recorded below. Operator evidence ID: `experiments-index-preview-2026-11-14`.
 
+## Local experimental Cursor CLI preview
+
+**Local review only; not committed or deployed.** The live website and its
+deployed source are unchanged; the [latest deployment](#latest-deployment) remains
+the published record. The owner requested experimental Cursor CLI support with
+clear test limitations, kept local for review.
+
+The homepage and guide add an "Install in Cursor CLI (experimental)" panel. Its
+copyable command comes from the README through the `CURSOR_INSTALL` marker. The
+panel sits outside the Codex/Claude switch, so it stays visible with or without
+JavaScript. A third switch button would overflow 320px layouts without style
+changes, which are out of scope; `main.js` and `styles.css` are unchanged. The
+guide also adds a Cursor adoption command and documented instruction-loading
+note. The [trial record](../evals/cursor/2026-11-17-free/README.md) owns evidence
+and limits.
+
+All 48 site tests and repository static checks pass, including new tests for
+canonical command parity, escaping, copy linkage and fail-closed behavior. A
+shell control-flow test runs the install sequence with a fake `git` and a
+synthetic destination: a failed clone copies nothing, even beside an existing
+`context-docs` folder, and existing skill folders are preserved. Earlier local
+headless Chrome checks of both pages at 1440, 768, 390 and 320px show no
+page-wide overflow. The Cursor panel stayed visible when either client was
+selected. These one-browser checks are not cross-browser or accessibility
+certification.
+
 ## Latest deployment
 
 The [experiments index](https://context-docs.com/experiments/) and shared five-link

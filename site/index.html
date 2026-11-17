@@ -35,7 +35,7 @@
 <main id="main">
   <section class="hero wrap" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow">Open source · For Codex &amp; Claude Code</p>
+      <p class="eyebrow">Open source · For Codex &amp; Claude Code · Cursor CLI (experimental)</p>
       <h1 id="hero-title">Your next session.<br><span>Less starting over.</span></h1>
       <p class="hero-description">Context Docs helps your AI coding agent keep a short Markdown note in your project: what changed, why it was decided and what to do next. Start your next session by asking it to read that note.</p>
       <p class="hero-audience"><strong>Vibe coding with AI prompts?</strong> Start with one useful note or keep your existing PRD, design and task files. Review the context updates as you build, then ask your next session to read them.</p>
@@ -80,7 +80,7 @@
   </section>
 
   <section id="how-it-works" class="workflow section wrap" aria-labelledby="workflow-title">
-    <div class="section-intro"><p class="eyebrow"><span class="eyebrow-index">02</span> How it works</p><h2 id="workflow-title">Three small habits.<br>No new system.</h2><p>Context Docs is two installable skills: reusable instructions for Codex or Claude Code. Your notes stay as ordinary Markdown that you can read and edit.</p></div>
+    <div class="section-intro"><p class="eyebrow"><span class="eyebrow-index">02</span> How it works</p><h2 id="workflow-title">Three small habits.<br>No new system.</h2><p>Context Docs is two installable skills: reusable instructions for Codex or Claude Code, with experimental Cursor CLI support. Your notes stay as ordinary Markdown that you can read and edit.</p></div>
     <ol class="steps">
       <li><span class="step-number" aria-hidden="true">01</span><div><h3>Set it up once</h3><p>Install the skills, then run the setup skill in your project. It reuses your existing docs and adds a short maintenance rule to the instructions your agent loads. Check that the rule is actually loaded.</p></div></li>
       <li><span class="step-number" aria-hidden="true">02</span><div><h3>Review useful updates</h3><p>The loaded rule guides the agent to update the note after meaningful work during active sessions. Review the diff like any other change. If an update is missed, ask for one.</p></div></li>
@@ -109,6 +109,7 @@
           <div class="code-block"><button class="copy-button" type="button" data-copy="claude-command" data-destination="your terminal" hidden aria-label="Copy Claude Code installation commands"><span class="copy-idle">[[icon:copy]]</span><span class="copy-done">[[icon:check]]</span><span data-copy-label>Copy</span></button><pre tabindex="0" aria-label="Claude Code installation commands"><code id="claude-command">{{CLAUDE_INSTALL}}</code></pre></div>
           <div class="adopt"><span>Then, open your project in Claude Code</span><code>/adopt-context-docs</code></div>
         </section>
+        <section id="install-cursor" class="client-panel" aria-labelledby="cursor-label"><h3 id="cursor-label">Install in Cursor CLI (experimental)</h3><p><strong>Experimental CLI support.</strong> Already installed both skills for Claude Code or Codex? Cursor <a href="https://cursor.com/docs/skills#skill-directories">documents reading those directories</a>, so reuse them. Otherwise, for a first installation in Cursor's own directory, run in a terminal (fresh placement not tested):</p><div class="code-block"><button class="copy-button" type="button" data-copy="cursor-command" data-destination="your terminal" hidden aria-label="Copy Cursor CLI installation commands"><span class="copy-idle">[[icon:copy]]</span><span class="copy-done">[[icon:check]]</span><span data-copy-label>Copy</span></button><pre tabindex="0" aria-label="Cursor CLI installation commands"><code id="cursor-command">{{CURSOR_INSTALL}}</code></pre></div><p>Checked in one print-mode trial on Free, with the skills read from an existing <code>~/.claude/skills</code> installation. The trial did not observe the adoption skill being read directly. Interactive sessions, the desktop editor and fresh installation are untested. <a href="https://github.com/jaredchu/context-docs/blob/main/docs/getting-started.md#cursor-cli-experimental">Setup, evidence and limits</a>.</p><div class="adopt"><span>Then, start the Cursor CLI in your project</span><code>/adopt-context-docs</code></div></section>
         <p id="copy-status" class="copy-status" aria-live="polite"></p>
         <div class="next-prompt">
           <p>After setup, the loaded project rule guides note updates during normal work. You do not need to name the skill in every prompt.</p>

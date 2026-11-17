@@ -19,6 +19,21 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
+**Local review:** experimental Cursor CLI support is prepared locally, as the
+owner requested, and is not committed, published or deployed. The live website
+source is unchanged. The [README](../README.md#install-in-cursor-cli-experimental),
+[usage guide](getting-started.md#cursor-cli-experimental) and website source add
+reuse-first installation, slash and plain-prompt use, and the test limits. No
+skill, version, plugin or release change is needed. The
+[trial record](../evals/cursor/2026-11-17-free/README.md) retains seven qualified
+print-mode sessions on Free: adoption loading falls short of the direct-read
+criterion, builds are mixed, and a failed model attempt is retained. Fresh
+installation, instruction loading, interactive and desktop use remain untested.
+The [decision](project-decisions.md#experimental-cursor-cli-support) supersedes the
+October CLI postponement. Next: maintainer review of the local diff; committing
+or publishing requires further authorization. Independent source-review results
+are retained separately from the native trial evidence.
+
 The owner requested easier experiment discovery, a new `/experiments/` index and
 one simplified main menu on every page, explicitly keeping Overview. The
 website now uses Overview, Guide, Examples, Experiments and GitHub on all ten
@@ -171,7 +186,7 @@ own bundle scope; the [preparation record](releases/v0.2.7-validation.json) reta
 its original unpublished scope and local checks. The contributor instructions and
 this context now follow the [public audience boundary](project-decisions.md#public-project-context-boundary).
 
-November 14 progress entries updated; earlier technical checks retain their
+November 17 progress entries updated; earlier technical checks retain their
 recorded dates. This is not live agent activity.
 
 ~~~text
@@ -213,6 +228,11 @@ Public-project study (November 14): EXPERIMENT COMPLETE → PUBLISHED 2fcc0e9
 Experiment discovery (November 14): REVIEWED 29afabd → DEPLOYED 645b5a0
   ├─ LIVE /experiments/ index and consistent five-link main menu
   └─ CHECKED Artifact/live parity and ten routes at four widths; no new release
+
+Cursor CLI (November 17): TRIAL COMPLETE (qualified) → DOCS PREPARED → LOCAL REVIEW
+  ├─ RETAINED Adoption direct-read criterion not met; mixed builds; failed model attempt
+  ├─ UNTESTED Fresh install, instruction loading, interactive and desktop use
+  └─ NEXT    Maintainer review; no commit, release or deployment authorized
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
@@ -231,10 +251,11 @@ adds inspected agent evidence on one host, separate from participant outcomes.
 The [stale-note check](../evals/stale-note/2026-11-07/README.md) passes one ordinary
 refresh using source core 0.2.7. It did not reproduce the reported miss and did
 not require a skill change; the private case's cause remains unknown.
-The broad v1.0.0 campaign,
+The broad v1.0.0 campaign and
 [Codex plugin runtime work](project-decisions.md#codex-plugin-runtime-deferral)
-and [Cursor support/testing](project-decisions.md#cursor-support-postponement)
-remain deferred.
+remain deferred. Cursor desktop and cloud use remain not evaluated; the
+[experimental CLI support](project-decisions.md#experimental-cursor-cli-support)
+is in local review.
 
 ## Decisions
 
@@ -302,6 +323,9 @@ simultaneous-write safety, reliable implicit selection, installed-path portabili
 JSONL necessity and a natural recording-cost advantage remain unestablished.
 Repository checks validate mechanics, not agent behavior.
 
+- The [Cursor CLI trial](../evals/cursor/2026-11-17-free/README.md) is one bounded
+  print-mode observation per case on one account. It establishes no general
+  Cursor support, root precedence or repeatability.
 - [v0.2.6 release notes](releases/v0.2.6.md) own published core **0.2.6**, adoption
   **0.1.15**, separately versioned standard **0.1.1**, installation and discovery
   verification. The [installed filtering check](../evals/installed-skills/2026-10-19-filtering-v026/README.md)

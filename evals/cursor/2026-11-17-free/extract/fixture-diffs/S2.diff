@@ -1,0 +1,77 @@
+diff --git a/docs/project-context.md b/docs/project-context.md
+index bee776c..ee0a2da 100644
+--- a/docs/project-context.md
++++ b/docs/project-context.md
+@@ -8,24 +8,26 @@ operators. Offline batch use only; there is no live service.
+ ## Progress
+ 
+ `summarize` prints daily high and low for every station in a file. Selecting
+-one station is the next step. Live ingestion stays outside that offline scope
+-until access is granted. Whether this build is deployed is not recorded here.
++one station is the next step toward that offline goal. Live ingestion is no
++longer blocked: Coastline Data Exchange granted CDX-4471 read access on
++2026-11-12, and a design is still needed. It stays outside the offline summary
++goal. Whether this build is deployed is not recorded here.
+ 
+ ```text
+ Goal: offline daily high/low summaries (incomplete) [P]
+ |-- DONE  summarize prints daily high and low for every station in the file [C]
+ `-- NEXT  --station filter on summarize [N]
+ 
+-BLOCKED   live gauge ingestion — depends on CDX-4471; not part of offline scope [B]
++NEXT      design live ingestion — CDX-4471 read access granted 2026-11-12 [S]
+ APPROVED  SQLite cache of parsed readings — not implemented [D]
+-PROPOSED  Parquet export — not approved [P]
++PROPOSED  Parquet export — owner has not reviewed it [P]
+ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ ```
+ 
+ - [P] Purpose, the Parquet proposal, and the timezone conflict in this file
+ - [C] [Current state](#current-state); command in [cli.py](../src/tidewatch/cli.py)
+ - [N] [Next actions](#next-actions)
+-- [B] [Blockers](#blockers)
++- [S] [Standup 2026-11-12](../notes/2026-11-12-standup.md); [Next actions](#next-actions)
+ - [D] [Decision 0001](decisions/0001-sqlite-cache.md)
+ - [T] [Configuration conflict](#configuration-conflict-unresolved)
+ 
+@@ -34,6 +36,9 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ - The `summarize` command reads a CSV and prints the daily high and low water
+   level ([cli.py](../src/tidewatch/cli.py)).
+ - Station filtering is not implemented; all stations in a file are combined.
++- Live ingestion is not implemented. Read access for CDX-4471 was granted on
++  2026-11-12 ([standup](../notes/2026-11-12-standup.md)); the previous access
++  block is resolved.
+ 
+ ## Decisions and constraints
+ 
+@@ -41,12 +46,13 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+   SQLite file. Rationale: a single file with no server keeps offline harbor
+   laptops simple. Record: [decision 0001](decisions/0001-sqlite-cache.md).
+ - **Proposed, not approved:** export summaries as Parquet (suggested by Devi
+-  Runge, 2026-10-14). Awaiting owner review; do not implement.
++  Runge, 2026-10-14). The 2026-11-12 standup says the owner still has not
++  reviewed it; do not implement.
+ 
+ ## Blockers
+ 
+-- Live gauge ingestion is blocked until the Coastline Data Exchange grants read
+-  access (request CDX-4471, filed 2026-10-20, no response yet).
++- None. The CDX-4471 read-access block (filed 2026-10-20) was cleared on
++  2026-11-12.
+ 
+ ## Configuration conflict (unresolved)
+ 
+@@ -60,10 +66,12 @@ UNKNOWN   timezone: config says local; an earlier note said UTC [T]
+ 
+ 1. Add a `--station` filter to `summarize` so operators can select one gauge
+    station.
+-2. After CDX-4471 access is granted, design live ingestion.
++2. Design live ingestion. CDX-4471 read access is granted; the design is not
++   started.
+ 
+ ## References
+ 
+ - [Decision 0001](decisions/0001-sqlite-cache.md)
++- [Standup 2026-11-12](../notes/2026-11-12-standup.md)
+ - `docs/runbook.md` was linked from here, but that file is not in the repository
+   (checked 2026-11-17).

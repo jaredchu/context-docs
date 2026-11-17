@@ -76,7 +76,8 @@ than inferring loading solely from filenames. See the
 
 Other agents can use the same instructions when they support `SKILL.md` folders,
 or read the [standard](../skills/context-docs/references/standard.md) directly.
-Behavior on clients other than Codex and Claude Code has not been evaluated.
+Apart from the [experimental Cursor CLI observation](#cursor-cli-experimental),
+behavior on clients other than Codex and Claude Code has not been evaluated.
 
 ### Development-source installs
 
@@ -85,13 +86,101 @@ read its `VERSION` files before copying packages. Copying from a working checkou
 bundle and may include unreleased edits. Preserve existing customizations and use one installation
 scope. The everyday instructions above remain pinned to v0.2.7.
 
+## Cursor CLI (experimental)
+
+**Experimental CLI support.** The unchanged standard skills worked in one
+[bounded Cursor CLI trial](../evals/cursor/2026-11-17-free/README.md), with the
+qualifications below. No Cursor plugin, adapter or separate release is needed.
+The trial covers print mode only, using the Free plan with one model and two CLI
+builds. The Cursor desktop editor, interactive CLI sessions and fresh installation
+have not been tested.
+
+**Reuse an existing installation.** Cursor
+[documents skill directories](https://cursor.com/docs/skills#skill-directories)
+at `.agents/skills/` and `.cursor/skills/` in a project, and at `~/.agents/skills/`
+and `~/.cursor/skills/` for every project. For compatibility, it also reads the
+Claude Code and Codex directories (`.claude/skills/`, `.codex/skills/` and their
+home-directory equivalents). If both skills are already installed in one of
+these locations, use them as they are and do not add another copy; duplicate
+handling was not tested. In the trial, Cursor read existing copies from
+`~/.claude/skills/` and did not read identical copies in `~/.agents/skills/`.
+
+**First installation (not tested).** If neither skill is installed anywhere
+Cursor reads, copy both complete folders from the published tag into one scope:
+
+```sh
+(
+  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git &&
+  cd context-docs &&
+  mkdir -p ~/.cursor/skills &&
+  test ! -e ~/.cursor/skills/context-docs &&
+  test ! -e ~/.cursor/skills/adopt-context-docs &&
+  cp -r skills/context-docs skills/adopt-context-docs ~/.cursor/skills/ &&
+  cat ~/.cursor/skills/context-docs/VERSION ~/.cursor/skills/adopt-context-docs/VERSION
+)
+```
+
+The sequence stops at the first failure. A failed clone, for example into an
+existing `context-docs` folder, copies nothing. The guard copies nothing if either
+skill folder already exists; follow the [upgrade guidance](#upgrading) instead.
+Expect `0.2.7` followed by `0.1.16`; no version output means installation did
+not complete.
+For one repository only, use `.cursor/skills/` at its root instead. These
+documented locations were not exercised in the trial.
+
+**Instruction loading.** According to
+[Cursor's CLI documentation](https://cursor.com/docs/cli/using#rules), the CLI
+reads `AGENTS.md` and `CLAUDE.md` at the project root and applies them as rules.
+Keep the adopted maintenance rule in one of those files. In the trial, adoption
+wrote the rule to the root `AGENTS.md`, and the model reported that the rule
+loaded. That loading was not independently verified.
+
+**Use it.** Start the CLI (`agent`) in your project, then invoke
+`/adopt-context-docs` once. Later, use `/context-docs` or the plain prompts in
+[Use it](#use-it), written as for Claude Code. The trial sent each prompt in print
+mode instead, invoking the CLI as `cursor-agent` with additional output, model and
+workspace options. The adoption prompt had this form:
+
+```text
+agent -p "/adopt-context-docs Adopt Context Docs in this project."
+```
+
+In the trial, plain prompts asking to refresh, implement, resume or audit led the
+model to read the core skill without naming it. A typo-only fix did not. The adoption skill's
+own `SKILL.md` was never read through a tool call. The setup it produced matches
+that skill, which suggests the slash command supplied its content; this is
+inferred, not observed.
+
+### Cursor CLI limits and troubleshooting
+
+- **Print mode can edit files.** Cursor documents that `-p`
+  [edits workspace files and runs allowed commands](https://cursor.com/docs/cli/using#non-interactive-mode)
+  without asking. For a read-only resume or audit, add `--mode ask` (used in the
+  trial's resume case) and say "do not change files". Do not add `--force` or
+  `--yolo`.
+- **Model availability.** Choose a model your plan includes. A model appearing in
+  the CLI's model list can still be rejected: Free rejected `composer-2.5` but
+  accepted `grok-4.7-medium` in this trial. That run used under ten minutes of
+  subject time with no quota error, but the remaining allowance is unknown.
+- **`--model` can persist.** In the trial, passing `--model` saved the choice as
+  the CLI's default model. Check your default before relying on it. A separate
+  `CURSOR_CONFIG_DIR` kept that change out of the main configuration. It did not
+  isolate trust markers, transcripts, skill sync or automatic CLI updates.
+- **Builds change.** The CLI updated itself during the trial; results span two builds.
+- **Skill missing?** Confirm both complete folders sit side by side in one of the
+  documented directories, or use the
+  [read-only troubleshooting prompt](#troubleshoot-setup-and-saved-context).
+
+See the [trial record](../evals/cursor/2026-11-17-free/README.md) for case results,
+the retained failed attempt and what remains unestablished.
+
 ## Use it
 
 With both skills installed, adopt a new or existing project with:
 
-| Codex | Claude Code |
-| --- | --- |
-| `$adopt-context-docs` | `/adopt-context-docs` |
+| Codex | Claude Code | Cursor CLI (experimental) |
+| --- | --- | --- |
+| `$adopt-context-docs` | `/adopt-context-docs` | `/adopt-context-docs` |
 
 This applies the core method and adds or merges a maintenance rule in the
 instruction file the project's agent actually loads, such as `AGENTS.md` or
@@ -126,7 +215,7 @@ Preserve the existing layout, approved decisions, and unresolved blockers.
 
 Explicit skill prompts are optional ways to request a focused audit, update or
 initialization. The following examples use Codex syntax; replace `$context-docs`
-with `/context-docs` for Claude Code:
+with `/context-docs` for Claude Code or the experimental Cursor CLI:
 
 ```text
 Use $context-docs to audit this project's context documents. Report the gaps
@@ -205,7 +294,9 @@ enumerate, search or read event journals, transcripts, native memory or history.
    inspect. Read only SKILL.md and VERSION for context-docs and adopt-context-docs
    in the current client's installation locations: .agents/skills or
    ~/.agents/skills for Codex; .claude/skills or ~/.claude/skills for Claude Code;
-   or an installation path I explicitly supply. Open those named package files
+   for the experimental Cursor CLI, .cursor/skills, .agents/skills, .claude/skills
+   or .codex/skills in the project or home directory; or an installation path I
+   explicitly supply. Open those named package files
    directly; do not enumerate unrelated skills or other user directories. If a
    package or path is unavailable, report that limit and continue the project
    checks without requiring a skill invocation. Read installed versions from
@@ -224,8 +315,9 @@ remaining unknowns. Do not certify accuracy, freshness or successful loading.
 
 This prompt produces a scoped troubleshooting report, not a health score.
 For installation locations, see
-[Codex installation](#install-in-codex) and
-[Claude Code installation](#install-in-claude-code). The Claude Code section also
+[Codex installation](#install-in-codex),
+[Claude Code installation](#install-in-claude-code) and the
+[experimental Cursor CLI setup](#cursor-cli-experimental). The Claude Code section also
 describes `/context` and the Project instructions setting; this guide documents
 no equivalent Codex instruction-loading check. Missing evidence stays unknown.
 Behavior in a newly opened client and newcomer usability remain untested.
