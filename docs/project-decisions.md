@@ -458,3 +458,9 @@ release. Reviewed source `b9504c1` is pushed and deployed; the
 The support-patch review passed after repairing the clone-failure installation
 path. Installed upgrades and further model trials remain separate actions;
 published skill versions and release tags are unchanged.
+
+The owner-approved broader support label is pushed and deployed from `2efde55`.
+Independent source review, static/site checks, artifact/live parity and changed-page
+desktop/mobile checks pass; the [deployment summary](../site/README.md#latest-deployment)
+owns identities and limits. This wording clarification adds no editor trial or
+release, and preserves the original trial evidence and installation commands.

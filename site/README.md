@@ -449,10 +449,42 @@ certification.
 The owner authorized wording that says **experimental Cursor support, validated
 through the CLI; editor not separately tested**, with commit, push and deployment,
 and no new release. The patch preserves installation commands, prior anchors and
-all native-trial qualifications. Publication verification is pending; the latest
-completed deployment below remains the earlier CLI guidance.
+all native-trial qualifications. The reviewed patch is now deployed; the latest
+deployment below records its source and checks.
 
 ## Latest deployment
+
+**Experimental Cursor support, validated through the CLI; editor not separately
+tested** is live from **`2efde55`**, by
+[Landing page run 44011269553](https://github.com/jaredchu/context-docs/actions/runs/44011269553).
+The owner authorized commit, push and deployment, with no new release. Fresh
+independent source review passed without findings; the committed tree and all
+sixteen selected file hashes match the frozen review. Original CLI trial evidence,
+installation commands/guards, skills and versions are unchanged.
+
+[Source CI](https://github.com/jaredchu/context-docs/actions/runs/44011269506),
+all 48 site tests, build and actual Worker deployment pass. Both workflow manifests
+and all nineteen uploaded files match the pinned twenty-file build; upload omits
+the empty `.nojekyll` marker. Eighteen canonical live resources match: eight exactly,
+ten HTML pages after removing only the retained Cloudflare analytics beacon.
+Ten canonical routes, sitemap, robots, eight redirects and a missing-route 404 pass.
+The comparison page retains its existing absence of `og:url`; its canonical link
+is correct. Worker version: `5b939bb0-c04a-4b72-ba3d-a879307775c2`.
+
+Live headless Chrome checks pass on the homepage, guide and comparison at 1440,
+768, 390 and 320px. All show the broader Cursor label and the editor test limit,
+with no page-wide overflow or observed browser exceptions. Installation commands,
+keyboard access, page-local stubbed copy feedback and no-JavaScript instructions
+pass. The temporary verification browser is stopped; the operating-system clipboard
+was untouched. These one-browser observations are not cross-browser or accessibility
+certification, an editor/agent trial or human-benefit evidence. No release or tag
+changed; v0.2.7 remains the latest bundle. Operator evidence ID:
+`cursor-label-publish-2026-11-17`.
+
+Later record-only commits do not supersede deployed source `2efde55` or request
+another deployment when their public build is identical.
+
+### Earlier Cursor CLI deployment
 
 Experimental [Cursor CLI support](https://context-docs.com/getting-started/#install-cursor)
 is deployed from **`b9504c1`** by

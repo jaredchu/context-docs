@@ -19,12 +19,17 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The owner authorized the clarified label **experimental Cursor support, validated
-through the CLI; editor not separately tested**, plus commit, push and website
-deployment with no new release. The wording update is being checked for publication;
-no new client trial, skill change or installation change is included.
+**Experimental Cursor support, validated through the CLI; editor not separately
+tested** is published from **`2efde55`**, following the owner's commit, push and
+deployment authorization. Independent source review, [source CI](https://github.com/jaredchu/context-docs/actions/runs/44011269506)
+and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44011269553)
+pass. Both manifests, uploaded artifact and eighteen live resources match the
+pinned build; the three changed pages pass browser checks at four widths. The
+[deployment summary](../site/README.md#latest-deployment) owns verification and
+limits. No new client trial, skill/version or installation change, or release
+is included.
 
-Experimental Cursor CLI support is published from **`b9504c1`** after the owner
+The earlier Cursor CLI guidance was published from **`b9504c1`** after the owner
 explicitly authorized committing, pushing and deploying the reviewed changes,
 with no new release. [Source CI](https://github.com/jaredchu/context-docs/actions/runs/44008007421)
 and [Landing page build/deploy](https://github.com/jaredchu/context-docs/actions/runs/44008008982)
@@ -238,10 +243,10 @@ Experiment discovery (November 14): REVIEWED 29afabd → DEPLOYED 645b5a0
   ├─ LIVE /experiments/ index and consistent five-link main menu
   └─ CHECKED Artifact/live parity and ten routes at four widths; no new release
 
-Cursor CLI (November 17): TRIAL COMPLETE (qualified) → REVIEWED → DEPLOYED b9504c1
+Cursor (November 17): CLI TRIAL COMPLETE (qualified) → LABEL REVIEWED → DEPLOYED 2efde55
   ├─ RETAINED Adoption direct-read criterion not met; mixed builds; failed model attempt
   ├─ UNTESTED Fresh install, instruction loading, interactive and desktop use
-  └─ CHECKED CI, artifact/live parity and desktop/mobile; no new release
+  └─ CHECKED CI, artifact/live parity and desktop/mobile; editor not separately tested; no new release
 ~~~
 
 The [v0.2.7 publication record](releases/v0.2.7-publication.json) owns that release,
