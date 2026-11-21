@@ -686,6 +686,17 @@ class LandingBuildTests(unittest.TestCase):
                     self.assertIn('Experimental · ' + ('Released' if released else 'Unreleased'),
                                   landing.render(landing.ROOT, page))
 
+    def test_core_source_version_different_from_installed_version_is_unreleased(self):
+        readme = (landing.ROOT / 'README.md').read_text(encoding='utf-8')
+        install = landing.fenced_section(readme, '### Install in Codex', 'text')
+        published = re.search(r'^context-docs (\d+\.\d+\.\d+)\b', install, re.M)
+        self.assertIsNotNone(published, 'Missing published core version in the install instructions')
+        source = (landing.ROOT / 'skills/context-docs/VERSION').read_text(encoding='utf-8').strip()
+        if source != published[1]:
+            for template in ('index.html', 'getting-started.html'):
+                with self.subTest(template=template):
+                    self.assertIn('Experimental · Unreleased', landing.render(landing.ROOT, template))
+
     def test_missing_package_status_does_not_claim_a_release(self):
         original_read = Path.read_text
 
