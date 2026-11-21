@@ -31,8 +31,10 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   payloads out of the handoff.
 - Show standard input first for optional event capture. Use an authorized
   private scratch path for a file-backed payload.
-- Checked with the repository static checks and packaged journal tests on
-  Python 3.9 and 3.14. These are source and helper checks.
+- Checked with repository static, journal and site tests on Python 3.9 and
+  3.14. An isolated install verified both packages in Codex and Claude Code
+  project layouts. See the [candidate notes](docs/releases/v0.2.8.md#candidate-checks)
+  for the scope and remaining publication steps.
 
 ## Experimental Antigravity support label — 2026-11-17 (no package release)
 
