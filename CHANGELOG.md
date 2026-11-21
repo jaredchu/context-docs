@@ -24,6 +24,16 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.8 — 2026-11-21 (unreleased)
+
+- Specify how Codex and Claude Code hand off edits to a shared context file
+  through the task channel or the user. Keep private context and journal
+  payloads out of the handoff.
+- Show standard input first for optional event capture. Use an authorized
+  private scratch path for a file-backed payload.
+- Checked with the repository static checks and packaged journal tests on
+  Python 3.9 and 3.14. These are source and helper checks.
+
 ## Experimental Antigravity support label — 2026-11-17 (no package release)
 
 - Clarify current docs and website wording: experimental Antigravity support,

@@ -57,7 +57,13 @@ uncertainty, rationale or evidence. Preserve existing layouts and unrelated owne
 When agents or sessions work concurrently on the same context file, coordinate
 one writer at a time for that file; others pass their findings to the writer.
 Agree on the writer before concurrent edits begin, including across Codex and
-Claude sessions in a shared checkout. Change writers through an explicit handoff.
+Claude Code sessions in a shared checkout. Use the existing authorized task
+channel or ask the user to relay the handoff. Identify the shared checkout,
+relative paths, current writer and whether edits are active, held for review or
+released. The outgoing session finishes its edits and releases the paths. The
+incoming writer acknowledges the handoff and rereads the files before editing.
+If ownership or release is unclear, pause overlapping edits and continue
+read-only work. Keep private context and journal payloads out of the handoff.
 Prefer narrow edits. After an edit conflict or stale-text failure, reread the
 current file and reconcile contributors' changes before retrying. Do not overwrite
 newer work from a stale snapshot. This is a coordination rule; file access remains
