@@ -142,15 +142,17 @@ Use the [packaged helper](../scripts/event_journal.py) from this installed skill
 not a path to the development repository. Python 3.9+ and its standard library
 are needed only for this optional command. Resolve the skill directory from the
 loaded skill's location. From the project root, use its script with the configured
-journal directory, a unique session ID, and one JSON payload:
+journal directory, a unique session ID, and one JSON payload on standard input:
 
 ```sh
 python3 /path/to/installed/context-docs/scripts/event_journal.py \
-  --directory .context/events append --session session-unique-id --input event-input.json
+  --directory .context/events append --session session-unique-id
 ```
 
-Omit `--input` to supply JSON on stdin. Keep temporary payloads outside the journal;
-reuse/remove them only when safe. Only JSONL history belongs in the journal directory.
+Supply the payload through the host command tool's stdin or a private pipe. If a
+file is needed, use `--input` with its absolute path in an authorized private
+scratch directory outside the checkout and journal. Only JSONL history belongs
+in the journal directory.
 Use a unique session ID per working session (1–80 ASCII letters, digits, `_` or `-`,
 starting with a letter/digit). Reuse it for that session's distinct events. The
 helper generates event IDs and recording timestamps; include an earlier event's

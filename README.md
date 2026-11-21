@@ -21,7 +21,8 @@ next session to read them.
 
 [Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.7 and adoption skill v0.1.16.**
+**Status: experimental, core skill v0.2.8 (unreleased) and adoption skill v0.1.16.**
+The published bundle remains v0.2.7.
 The [v0.2.7 release notes](docs/releases/v0.2.7.md) cover a narrow instruction
 simplification and qualified checks. Everyday installation selects this bundle.
 The Codex candidate report's automatic-loading confirmation remains unverified;
