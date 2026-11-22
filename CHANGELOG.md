@@ -11,7 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.7 release notes](docs/releases/v0.2.7.md).
+The latest bundle is described in the [v0.2.8 release notes](docs/releases/v0.2.8.md).
+Previous [v0.2.7 release notes](docs/releases/v0.2.7.md) are retained.
 Previous [v0.2.6 release notes](docs/releases/v0.2.6.md) are retained.
 Previous [v0.2.5 release notes](docs/releases/v0.2.5.md) are retained.
 Previous [v0.2.4 release notes](docs/releases/v0.2.4.md) are retained.
@@ -24,7 +25,7 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## context-docs 0.2.8 — 2026-11-21 (unreleased)
+## context-docs 0.2.8 — 2026-11-22
 
 - Specify how Codex and Claude Code hand off edits to a shared context file
   through the task channel or the user. Keep private context and journal
@@ -33,8 +34,8 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
   private scratch path for a file-backed payload.
 - Checked with repository static, journal and site tests on Python 3.9 and
   3.14. An isolated install verified both packages in Codex and Claude Code
-  project layouts. See the [candidate notes](docs/releases/v0.2.8.md#candidate-checks)
-  for the scope and remaining publication steps.
+  project layouts. See the [release notes](docs/releases/v0.2.8.md#candidate-checks)
+  for the scope of those checks.
 
 ## Experimental Antigravity support label — 2026-11-17 (no package release)
 
