@@ -19,7 +19,7 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The unreleased core 0.2.8 source clarifies
+The [unreleased v0.2.8 candidate](releases/v0.2.8.md) clarifies
 [shared-context writer handoff](../skills/context-docs/SKILL.md#make-the-smallest-useful-update)
 and [private journal payload delivery](../skills/context-docs/references/event-journal.md#capture-during-maintenance).
 The event helper and adoption skill keep their existing behavior. Published

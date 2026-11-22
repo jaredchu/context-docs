@@ -12,6 +12,8 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## v0.2.x
 
+- **[v0.2.8 candidate](v0.2.8.md):** core 0.2.8 and adoption 0.1.16,
+  with isolated package checks and the publication steps still pending.
 - **[v0.2.7](v0.2.7.md):**
   [local preparation](v0.2.7-validation.json), [publication](v0.2.7-publication.json),
   [qualified simplification checks](../../evals/simplification/2026-10-26/README.md)
