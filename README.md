@@ -21,10 +21,11 @@ next session to read them.
 
 [Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.8 (unreleased) and adoption skill v0.1.16.**
-The published bundle remains v0.2.7.
+**Status: experimental, core skill v0.2.8 and adoption skill v0.1.16.**
+The [v0.2.8 experimental prerelease](docs/releases/v0.2.8.md) covers shared
+writer handoff and private journal input. Everyday installation selects this bundle.
 The [v0.2.7 release notes](docs/releases/v0.2.7.md) cover a narrow instruction
-simplification and qualified checks. Everyday installation selects this bundle.
+simplification and qualified checks.
 The Codex candidate report's automatic-loading confirmation remains unverified;
 Claude instruction events support loading in its checked sessions only.
 The [v0.2.6 release notes](docs/releases/v0.2.6.md) cover metadata filtering,
@@ -74,7 +75,7 @@ cases show how to hand off the same project through saved Markdown.
 
 Install both skills, then adopt them in the project you want to maintain.
 Already installed? Skip to [Use it](#use-it).
-The instructions below select published bundle **v0.2.7**: core **0.2.7** and
+The instructions below select published bundle **v0.2.8**: core **0.2.8** and
 adoption **0.1.16**. See the [guide](docs/getting-started.md#development-source-installs)
 for development-source installations.
 
@@ -84,13 +85,13 @@ Ask Codex:
 
 ```text
 Use $skill-installer to install both skills from jaredchu/context-docs
-at the published tag v0.2.7:
+at the published tag v0.2.8:
 - skills/context-docs
 - skills/adopt-context-docs
 Install them together in ~/.agents/skills/.
 Preserve existing installations and local customizations; report version
 mismatches before upgrading. Report the installed VERSION values:
-context-docs 0.2.7 and adopt-context-docs 0.1.16.
+context-docs 0.2.8 and adopt-context-docs 0.1.16.
 ```
 
 [Manual installation and project-only setup →](docs/getting-started.md#install-in-codex)
@@ -100,7 +101,7 @@ context-docs 0.2.7 and adopt-context-docs 0.1.16.
 For a first installation, run these commands in a terminal:
 
 ```sh
-git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git
+git clone --branch v0.2.8 https://github.com/jaredchu/context-docs.git
 cd context-docs
 mkdir -p ~/.claude/skills
 cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
@@ -109,7 +110,7 @@ cat ~/.claude/skills/context-docs/VERSION ~/.claude/skills/adopt-context-docs/VE
 
 If either skill is already installed, [review the upgrade guidance](docs/getting-started.md#upgrading)
 before copying files. [Project-only setup and instruction loading →](docs/getting-started.md#install-in-claude-code)
-The version output should be `0.2.7` followed by `0.1.16`.
+The version output should be `0.2.8` followed by `0.1.16`.
 
 <a id="install-in-cursor-cli-experimental"></a>
 ### Install in Cursor (experimental)
@@ -125,7 +126,7 @@ in Cursor's own user directory (**fresh placement not tested**):
 
 ```sh
 (
-  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git &&
+  git clone --branch v0.2.8 https://github.com/jaredchu/context-docs.git &&
   cd context-docs &&
   mkdir -p ~/.cursor/skills &&
   test ! -e ~/.cursor/skills/context-docs &&
@@ -136,7 +137,7 @@ in Cursor's own user directory (**fresh placement not tested**):
 ```
 
 The sequence stops at the first failure: a failed clone copies nothing, and the
-guard copies nothing if either folder already exists. Expect `0.2.7` then
+guard copies nothing if either folder already exists. Expect `0.2.8` then
 `0.1.16`; no version output means installation did not complete. [Cursor setup, evidence and limits →](docs/getting-started.md#cursor-experimental)
 
 <a id="install-in-antigravity-provisional"></a>
@@ -158,7 +159,7 @@ From the root of your target project, for a first installation:
   test ! -L .agents/skills/context-docs &&
   test ! -e .agents/skills/adopt-context-docs &&
   test ! -L .agents/skills/adopt-context-docs &&
-  git clone --branch v0.2.7 https://github.com/jaredchu/context-docs.git context-docs-skills &&
+  git clone --branch v0.2.8 https://github.com/jaredchu/context-docs.git context-docs-skills &&
   mkdir -p .agents/skills &&
   cp -r context-docs-skills/skills/context-docs context-docs-skills/skills/adopt-context-docs .agents/skills/ &&
   cat .agents/skills/context-docs/VERSION .agents/skills/adopt-context-docs/VERSION
@@ -166,7 +167,7 @@ From the root of your target project, for a first installation:
 ```
 
 The guards preserve existing folders and symlinks; a failed clone copies nothing.
-The source checkout is `context-docs-skills/` in your project. Expect `0.2.7` then
+The source checkout is `context-docs-skills/` in your project. Expect `0.2.8` then
 `0.1.16`. Reuse existing project copies; review the upgrade guidance before
 replacing them. [Antigravity setup, evidence and limits →](docs/getting-started.md#antigravity-experimental)
 

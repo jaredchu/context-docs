@@ -3,7 +3,7 @@
 Context Docs packages a Markdown maintenance workflow for people without an
 established way to preserve project knowledge across AI sessions. Keep useful
 decisions, current work and next steps accurate with little manual organization.
-Standalone experimental **v0.2.7** is published. The owner separately authorized
+Standalone experimental **v0.2.8** is published. The owner separately authorized
 website deployment and later selected automatic website deployment from `main`;
 installed upgrades remain separate actions.
 
@@ -19,11 +19,12 @@ and evidence IDs when those records explain a project issue.
 
 ## Current focus
 
-The [unreleased v0.2.8 candidate](releases/v0.2.8.md) clarifies
+The [v0.2.8 experimental prerelease](releases/v0.2.8.md) clarifies
 [shared-context writer handoff](../skills/context-docs/SKILL.md#make-the-smallest-useful-update)
 and [private journal payload delivery](../skills/context-docs/references/event-journal.md#capture-during-maintenance).
-The event helper and adoption skill keep their existing behavior. Published
-installation commands still select v0.2.7.
+The published bundle uses core 0.2.8 and adoption 0.1.16. Installation
+commands select v0.2.8. The isolated package check passed, and the public
+skills.sh core listing still matched v0.2.7 on the read-only recheck.
 
 **Experimental Antigravity support, validated through CLI; App and IDE not
 separately tested** is published from **`4093383`** after the owner's commit,
@@ -426,8 +427,8 @@ transfer documentation follow-up are complete; no additional skill fix is select
 The earlier technical minimalist UI/UX and identity reboot, abstract C logo and README
 artwork were deployed from `92042e9`; the [website record](../site/README.md#latest-deployment)
 retains successful source CI, Pages jobs and artifact/live checks. The skill
-release remains v0.2.7 at `00c4b51`. The owner-retained Cloudflare analytics beacon
-is the only observed live HTML difference from the repository build.
+release at that point was v0.2.7 at `00c4b51`. The owner-retained Cloudflare
+analytics beacon was the only observed live HTML difference for that build.
 The isolated skills.sh install passed at v0.2.7 publication, but public page checks
 then matched v0.2.6 after a bounded wait. Content refresh remains unverified;
 do not treat HTTP 200 telemetry as an updated page or repeat installs/replay telemetry.
