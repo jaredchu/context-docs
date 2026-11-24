@@ -70,3 +70,31 @@ empty-input handling. [Open work](#source-checks-and-open-work).
 A real project can keep this in its current context section or use a linked file.
 Adapt the visual shape to the documented work; retain source links and status
 distinctions. A nested checklist with explicit dependencies is another option.
+
+## Opt-in Markdown ticket
+
+Use a ticket when one work item needs to be resumed on its own across sessions.
+An inline next action is enough for smaller work. If an issue or task file already
+owns the work, link to it. Use the project's existing naming and storage conventions.
+
+In this variation, the [empty-input ticket](tickets/check-empty-csv-input.md)
+owns the check's scope, completion criteria, status, blocker and next action.
+To apply the variation to the existing snapshot above:
+
+1. Move the empty-input work details from **Source: checks and open work** to the
+   ticket. Keep the columns check and deployment qualification in the source notes.
+2. Replace the entire `E` branch in **Example Markdown view** with this line:
+
+   ```text
+   `-- Empty-input check [E]
+   ```
+
+   In the same view's source map, use **E:** [Empty-input ticket](tickets/check-empty-csv-input.md).
+   Remove the separate **Current focus and next action** sentence and the prose
+   explaining the former branch's blocker and next-action labels. The goal,
+   columns check, retry proposal and dated attempt notes stay in their existing places.
+
+When resuming this work, open the ticket from the existing view. Update task
+status in the ticket. On completion, record the result and link its evidence,
+then remove the active link. Update the view's project-level outcome if the result
+changes it. Keep closed tickets available for targeted lookup.

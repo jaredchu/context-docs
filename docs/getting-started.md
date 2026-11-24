@@ -607,6 +607,8 @@ or live activity; the [validation boundary](../evals/progress/README.md#validati
 distinguishes the documented workflow from actual behavioral evidence.
 See the [synthetic example](../examples/progress.md) and the packaged
 [progress guidance](../skills/context-docs/references/progress.md).
+For a work item that needs its own handoff, see the
+[opt-in Markdown ticket variation](../examples/progress.md#opt-in-markdown-ticket).
 
 ### Starting from earlier notes
 

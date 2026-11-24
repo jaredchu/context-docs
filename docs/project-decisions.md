@@ -388,8 +388,8 @@ installation, native/newcomer trial or broader evaluation campaign. Draft and
 static checks establish documentation properties only. The frozen r1 materials
 and earlier evidence retain their original scope. The
 [usage guide](getting-started.md#verify-a-resumed-session) owns the current verification and
-troubleshooting instructions; [current context](project-context.md#current-focus)
-owns preview status.
+troubleshooting instructions. The [preview record](../site/README.md#local-handoff-and-troubleshooting-preview)
+retains the local preview and its checks.
 
 On November 12 the owner subsequently authorized merging the reviewed branch
 into `main` and deploying the website, while continuing to withhold a release.
