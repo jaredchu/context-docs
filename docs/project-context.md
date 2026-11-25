@@ -25,6 +25,7 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   - **Optional workflow:** [Markdown ticket example](../examples/progress.md#opt-in-markdown-ticket).
     The [docs-only decision](project-decisions.md#markdown-tickets-remain-docs-only)
     records when to reconsider skill guidance.
+  - [Publish v0.2.9 and switch the install pins](tickets/publish-v029-prerelease.md)
 
 ## Decisions
 
@@ -49,7 +50,8 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   support validated through bounded CLI trials. Cursor's editor and Antigravity's
   App and IDE were not separately tested.
 - **Website:** The [deployment record](../site/README.md#latest-deployment) gives
-  the deployed source (`a441129`), verification and history. Relevant pushes to
+  verification and history. The [latest successful run](https://github.com/jaredchu/context-docs/actions/runs/45553915014)
+  deployed source `45557cf`. Relevant pushes to
   `main` deploy through Workers Static Assets. The
   [Reading Queue app record](reading-queue-example.md) covers its separate deployment
   and walkthrough checks. [Search indexing and AI citations](../site/README.md#search-discovery)

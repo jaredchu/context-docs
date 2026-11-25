@@ -12,7 +12,7 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## v0.2.x
 
-- **Unreleased source:** core 0.2.9 and adoption 0.1.17 retire optional JSONL
+- **[v0.2.9 preparation](v0.2.9.md):** core 0.2.9 and adoption 0.1.17 retire optional JSONL
   capture and the auto preference. See the
   [upgrade note](../getting-started.md#older-jsonl-journal-setups).
 - **[v0.2.8](v0.2.8.md):** core 0.2.8 and adoption 0.1.16. The current install
