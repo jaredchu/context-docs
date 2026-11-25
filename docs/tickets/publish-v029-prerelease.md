@@ -19,8 +19,8 @@ before acting on this ticket.
 
 ## Status
 
-Ready after [candidate verification](prepare-v029-prerelease.md).
+Published from `3337eb9`. Deployment and listing verification are in progress.
 
 ## Next action
 
-Publish the v0.2.9 experimental prerelease from the verified source.
+Verify the install pins, automatic deployment and both skills.sh listings.

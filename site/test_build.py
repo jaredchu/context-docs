@@ -768,7 +768,7 @@ class LandingBuildTests(unittest.TestCase):
             '#!/bin/sh\n'
             'echo "$@" >> "$FAKE_GIT_LOG"\n'
             '[ "$FAKE_GIT_MODE" = ok ] || { echo "fatal: clone failed" >&2; exit 128; }\n'
-            'for skill in context-docs:0.2.8 adopt-context-docs:0.1.16; do\n'
+            'for skill in context-docs:0.2.9 adopt-context-docs:0.1.17; do\n'
             '  mkdir -p "context-docs/skills/${skill%%:*}"\n'
             '  echo "${skill#*:}" > "context-docs/skills/${skill%%:*}/VERSION"\n'
             'done\n')
@@ -790,7 +790,7 @@ class LandingBuildTests(unittest.TestCase):
                        FAKE_GIT_MODE=mode, FAKE_GIT_LOG=str(tmp / 'git.log'))
             result = subprocess.run(['sh', '-c', command], cwd=work, env=env,
                                     capture_output=True, text=True, timeout=30)
-            self.assertIn('clone --branch v0.2.8', (tmp / 'git.log').read_text())
+            self.assertIn('clone --branch v0.2.9', (tmp / 'git.log').read_text())
             return result, work, dest
 
         def stale_checkout(work, dest):
@@ -810,8 +810,8 @@ class LandingBuildTests(unittest.TestCase):
         with self.subTest('successful first installation'):
             result, _, dest = run('ok', lambda work, dest: None)
             self.assertEqual(0, result.returncode, result.stderr)
-            self.assertEqual('0.2.8\n0.1.16\n', result.stdout)
-            self.assertEqual('0.1.16\n', (dest / 'adopt-context-docs/VERSION').read_text())
+            self.assertEqual('0.2.9\n0.1.17\n', result.stdout)
+            self.assertEqual('0.1.17\n', (dest / 'adopt-context-docs/VERSION').read_text())
 
         def customized(work, dest):
             (dest / 'adopt-context-docs').mkdir(parents=True)
@@ -871,7 +871,7 @@ class LandingBuildTests(unittest.TestCase):
             '#!/bin/sh\n'
             'echo "$@" >> "$FAKE_GIT_LOG"\n'
             '[ "$FAKE_GIT_MODE" = ok ] || { echo "fatal: clone failed" >&2; exit 128; }\n'
-            'for skill in context-docs:0.2.8 adopt-context-docs:0.1.16; do\n'
+            'for skill in context-docs:0.2.9 adopt-context-docs:0.1.17; do\n'
             '  mkdir -p "context-docs-skills/skills/${skill%%:*}"\n'
             '  echo "${skill#*:}" > "context-docs-skills/skills/${skill%%:*}/VERSION"\n'
             'done\n')
@@ -894,7 +894,7 @@ class LandingBuildTests(unittest.TestCase):
             result = subprocess.run(['sh', '-c', command], cwd=work, env=env,
                                     capture_output=True, text=True, timeout=30)
             if (tmp / 'git.log').exists():
-                self.assertIn('clone --branch v0.2.8', (tmp / 'git.log').read_text())
+                self.assertIn('clone --branch v0.2.9', (tmp / 'git.log').read_text())
             return result, work, dest
 
         def stale_checkout(work, dest):
@@ -914,8 +914,8 @@ class LandingBuildTests(unittest.TestCase):
         with self.subTest('successful first installation'):
             result, _, dest = run('ok', lambda work, dest: None)
             self.assertEqual(0, result.returncode, result.stderr)
-            self.assertEqual('0.2.8\n0.1.16\n', result.stdout)
-            self.assertEqual('0.1.16\n', (dest / 'adopt-context-docs/VERSION').read_text())
+            self.assertEqual('0.2.9\n0.1.17\n', result.stdout)
+            self.assertEqual('0.1.17\n', (dest / 'adopt-context-docs/VERSION').read_text())
 
         def customized(work, dest):
             (dest / 'adopt-context-docs').mkdir(parents=True)

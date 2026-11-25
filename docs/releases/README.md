@@ -12,11 +12,11 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## v0.2.x
 
-- **[v0.2.9 preparation](v0.2.9.md):** core 0.2.9 and adoption 0.1.17 retire optional JSONL
-  capture and the auto preference. See the
+- **[v0.2.9](v0.2.9.md):** published experimental bundle with core 0.2.9 and
+  adoption 0.1.17. The install instructions select this bundle. See the
   [upgrade note](../getting-started.md#older-jsonl-journal-setups).
 - **[v0.2.8](v0.2.8.md):** core 0.2.8 and adoption 0.1.16. The current install
-  instructions select this experimental prerelease.
+  instructions previously selected this experimental prerelease.
 - **[v0.2.7](v0.2.7.md):**
   [local preparation](v0.2.7-validation.json), [publication](v0.2.7-publication.json),
   [qualified simplification checks](../../evals/simplification/2026-10-26/README.md)

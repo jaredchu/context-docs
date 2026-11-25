@@ -11,7 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.8 release notes](docs/releases/v0.2.8.md).
+The latest bundle is described in the [v0.2.9 release notes](docs/releases/v0.2.9.md).
+Previous [v0.2.8 release notes](docs/releases/v0.2.8.md) are retained.
 Previous [v0.2.7 release notes](docs/releases/v0.2.7.md) are retained.
 Previous [v0.2.6 release notes](docs/releases/v0.2.6.md) are retained.
 Previous [v0.2.5 release notes](docs/releases/v0.2.5.md) are retained.
@@ -25,7 +26,7 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
-## context-docs 0.2.9 — unreleased
+## context-docs 0.2.9 — 2026-11-25
 
 - Retire optional JSONL event capture and the auto preference from the skills,
   project setup and website. Existing journal files remain available as history.
@@ -33,7 +34,7 @@ with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3
 - Checked with repository static checks, offline evaluation controls and site
   tests. These checks cover packaging and documentation.
 
-## adopt-context-docs 0.1.17 — unreleased
+## adopt-context-docs 0.1.17 — 2026-11-25
 
 - Remove journal setup from adoption. Preserve existing Markdown layouts and
   use the sibling core for maintenance.

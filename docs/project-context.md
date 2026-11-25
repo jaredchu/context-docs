@@ -2,9 +2,9 @@
 
 Context Docs helps people preserve decisions, current work and next steps across
 AI sessions using their project's Markdown. The published standalone bundle is
-the [v0.2.8 experimental prerelease](releases/v0.2.8.md), with core **0.2.8**
-and adoption **0.1.16**. It clarifies shared-context writer handoff and private
-journal input. An isolated install matched the published package files.
+the [v0.2.9 experimental prerelease](releases/v0.2.9.md), with core **0.2.9**
+and adoption **0.1.17**. It retires optional JSONL capture and preserves
+historical records.
 
 ## Purpose and scope
 
@@ -62,8 +62,7 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   the skills.sh core listing still matched v0.2.7. The listing refresh remains
   unverified.
 - **Project setup:** [AGENTS.md](../AGENTS.md), imported by [CLAUDE.md](../CLAUDE.md),
-  records the maintenance rule. Unreleased source is core 0.2.9 and adoption
-  0.1.17. For existing JSONL records, see the
+  records the maintenance rule. For existing JSONL records, see the
   [upgrade note](getting-started.md#older-jsonl-journal-setups).
 
 ## Evidence and limits
