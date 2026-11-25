@@ -52,7 +52,7 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   support validated through bounded CLI trials. Cursor's editor and Antigravity's
   App and IDE were not separately tested.
 - **Website:** The [deployment record](../site/README.md#latest-deployment) gives
-  the deployed source (`4093383`), verification and history. Relevant pushes to
+  the deployed source (`a441129`), verification and history. Relevant pushes to
   `main` deploy through Workers Static Assets. The
   [Reading Queue app record](reading-queue-example.md) covers its separate deployment
   and walkthrough checks. [Search indexing and AI citations](../site/README.md#search-discovery)

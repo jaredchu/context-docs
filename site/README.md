@@ -12,8 +12,9 @@ versions from their `VERSION` files. Edit those sources for shared content; edit
 separately tested** is published from `4093383` after the owner's commit, push and
 deployment authorization, with no new release. The patch preserves installation commands, previous anchors and
 the original incomplete attempts, scoped-permission conditions, loading gaps and
-final-answer accuracy limits. It adds no native compatibility trial. The existing
-deployment below records the verified wording update.
+final-answer accuracy limits. It adds no native compatibility trial. The
+[Antigravity label deployment receipt](#earlier-antigravity-label-deployment)
+records the verified wording update.
 Static checks, all 51 site tests and the twenty-file build pass. Local Chrome
 checks on the homepage, guide and comparison pass at 1440, 768, 390 and 320px,
 including the experimental label and App/IDE limit, canonical commands,
@@ -491,6 +492,21 @@ all native-trial qualifications. The reviewed patch is now deployed; the latest
 deployment below records its source and checks.
 
 ## Latest deployment
+
+Source **`a441129`** was deployed automatically by the
+[Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/45480049082).
+[Static checks](https://github.com/jaredchu/context-docs/actions/runs/45480049119),
+site tests, the build and the [Cloudflare deploy job](https://github.com/jaredchu/context-docs/actions/runs/45480049082/job/138750627640)
+passed. The deploy log records Worker version `50c5df17-a4c3-4a11-a92e-ff9c74d7e794`.
+
+On November 25, 2026, both CI manifests and all 19 uploaded `site-dist` files
+matched a rebuild from `a441129`. The empty `.nojekyll` marker is local to the
+build. All 18 canonical HTTPS resources returned HTTP 200 and matched the
+artifact byte for byte, including ten pages, sitemap, robots and six assets.
+This check covers the canonical HTTPS responses at that time. The previous
+deployment receipts retain their own redirect, browser and analytics results.
+
+### Earlier Antigravity label deployment
 
 **Experimental Antigravity support, validated through CLI; App and IDE not
 separately tested** is live from **`4093383`**, by
