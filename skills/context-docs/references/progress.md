@@ -133,11 +133,9 @@ that snapshot, not proof an agent is currently running.
 
 A current snapshot can show a blocker, but cannot by itself establish a loop.
 When a progress question calls for comparing attempts, inspect relevant Git
-history, retained dated attempt records in existing docs, or an existing optional
-journal under its [history rules](event-journal.md). Retained history can be read
-for that question even when capture is now off; keep the logging setting unchanged.
-Do not enable logging, scan all history during routine maintenance, or create a
-history store just to populate the view. No history means repetition is unknown.
+history or retained dated attempt records relevant to the question. Keep
+history reads scoped to the comparison. A current view needs no history scan
+or separate history store. Without relevant records, repetition is unknown.
 
 Distinguish activity (another attempt), useful learning (new evidence that changes
 the next step), and a completed outcome (the documented condition is met).
@@ -153,7 +151,5 @@ alone or call useful learning completed delivery.
 After meaningful work, update affected statuses, blockers, source links and next
 actions alongside the canonical context. Keep historical detail in its existing
 evidence location rather than appending a session diary. If the view is current
-and nothing durable changed, leave it and the journal untouched. An audit explicitly
-asking about repetition may read the relevant history under the same rules, but
-writes no view, journal event or setting. Other audits do not scan history merely
-because it exists.
+and nothing durable changed, leave it untouched. An audit explicitly asking
+about repetition may read relevant history and leaves files and settings unchanged.

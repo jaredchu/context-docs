@@ -555,3 +555,13 @@ or next action stale. A focused handoff check should show that a short on-demand
 reference fixes the observed failure while keeping routine reads and status
 updates focused. Any such guidance would apply only where the project already
 uses tickets or its owner asks to use them.
+
+## Retire optional JSONL event capture
+
+On November 25, 2026, the owner asked to remove the optional JSONL journal and
+clean up the project. The unreleased source retires the journal helper and
+auto preference from the installable skills. Current context stays in Markdown.
+The prior JSONL files, published bundles and evaluation evidence retain their
+historical scope. For projects that used the feature, the
+[upgrade note](getting-started.md#older-jsonl-journal-setups) explains how to
+keep their records and retire obsolete settings.

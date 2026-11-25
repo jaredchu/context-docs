@@ -21,9 +21,11 @@ next session to read them.
 
 [Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 
-**Status: experimental, core skill v0.2.8 and adoption skill v0.1.16.**
+**Status: experimental, core skill v0.2.9 and adoption skill v0.1.17 (unreleased).**
 The [v0.2.8 experimental prerelease](docs/releases/v0.2.8.md) covers shared
 writer handoff and private journal input. Everyday installation selects this bundle.
+The unreleased source removes optional JSONL event capture. See the
+[upgrade note](docs/getting-started.md#older-jsonl-journal-setups) for existing records.
 The [v0.2.7 release notes](docs/releases/v0.2.7.md) cover a narrow instruction
 simplification and qualified checks.
 The Codex candidate report's automatic-loading confirmation remains unverified;
@@ -285,18 +287,6 @@ See the [guide](docs/getting-started.md#progress-in-markdown),
 Ordinary maintenance requires no background service, cloud account or runtime
 dependency. The agent works during active sessions; this is not automatic
 conversation capture or unlimited memory. Your project keeps ordinary, reviewable files.
-
-## Optional logging
-
-Most users can start with Markdown context alone. An optional event journal can
-record significant history for later investigation, including when local-only
-context changes without Git history. It is off by default unless you explicitly
-enable it or select the auto preference. With no project logging setting, auto
-applies outside Git or to explicitly selected local-only context with verified
-ignored, untracked context and journal paths. Installing the skills does not enable
-it. The journal helper requires Python 3.9+.
-
-[Logging setup, upgrades and auto preference →](docs/getting-started.md#optional-logging)
 
 Prefer context that stays out of Git? Select the opt-in
 [local-only setup](docs/getting-started.md#local-only-context-excluded-from-git).

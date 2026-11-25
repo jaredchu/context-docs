@@ -184,7 +184,7 @@ class Controls(unittest.TestCase):
             launch.assert_not_called()
 
     def test_journal_fixture_valid_schema(self):
-        path = run.ROOT / 'skills/context-docs/scripts/event_journal.py'
+        path = run.ROOT / 'evals/results/2026-09-28-native-journal/source/tools/event_journal.py'
         spec = importlib.util.spec_from_file_location('journal_validator', path)
         module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
         module.validate(json.loads(run.CASES[-1]['files']['history/events/old.jsonl']), stored=True)

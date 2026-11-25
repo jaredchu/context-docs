@@ -1,5 +1,8 @@
 # Event journal mechanical evaluation
 
+Historical evaluation. Use the published v0.2.8 checkout to run the journal
+commands below. The current skills use Markdown for context maintenance.
+
 This evaluation follows the [frozen protocol](protocol.md): expanded failure
 controls, a synthetic three-stage history replay and bounded local latency probes.
 It makes no model calls and does not complete the real-session usability trial.

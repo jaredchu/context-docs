@@ -1,5 +1,7 @@
 # Live journal trial
 
+Historical record. Run the journal commands using the corresponding historical checkout.
+
 Status: **Closed after three maintenance tasks in the same authoring chat.**
 Authorized by the owner on September 28, 2026 after the initial synthetic
 evaluation. This tracker applies only to this repository. No recurring task,

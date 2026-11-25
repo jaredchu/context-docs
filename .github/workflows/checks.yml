@@ -43,10 +43,7 @@ jobs:
       - name: Public-history boundary controls
         run: python3 -m unittest discover -s evals/public-history -p 'test_*.py'
 
-      - name: Optional event journal tests
-        run: python3 -m unittest discover -s tests -p 'test_*.py'
-
-      - name: Native journal boundary tests
+      - name: Historical journal evaluation controls
         run: |
           python3 -m unittest discover -s evals/event-journal/native -p 'test_*.py'
           python3 -m unittest discover -s evals/event-journal/integration -p 'test_*.py'

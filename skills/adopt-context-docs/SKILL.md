@@ -29,11 +29,11 @@ approved decisions, rationale, source evidence, unresolved work and concurrent e
 Do not manufacture missing intent or populate empty templates merely for completeness.
 
 Apply core's [destination and reference filtering](../context-docs/SKILL.md#make-the-smallest-useful-update)
-to new context, progress summaries and any enabled journal payloads. Prefer
+to new context and progress summaries. Prefer
 portable project references; keep incidental machine/account details and repeated
 setup bookkeeping out of shared additions. Preserve useful local knowledge,
 diagnostic meaning and evidence boundaries. Adoption does not authorize rewriting
-frozen records, moving private material or changing existing storage/logging rules.
+frozen records, moving private material or changing existing storage rules.
 
 Use the core skill's [Markdown progress guide](../context-docs/references/progress.md)
 during adoption. By default, create a simple inline visual path in a suitable
@@ -74,6 +74,9 @@ without editing instruction files or documents. Existing equivalent setup
 may require no changes. This workflow adds no authority to publish, deploy or
 schedule work; follow the project's existing authorization.
 
+Treat older Context Docs journal settings as inactive. Repeat adoption preserves
+existing settings and files and omits journal setup from the maintenance rule.
+
 Review the resulting diff, affected links and information preservation before
 recording adoption. Once the setup is complete, add or reuse one small marker beside
 the maintenance rule in that instruction file:
@@ -112,16 +115,3 @@ not document accuracy or freshness.
 Review the marker and its target along with the final diff. Report changes,
 verification and unresolved questions, including whether ongoing guidance and
 the marker were added, reused or remain incomplete.
-
-## Optional logging
-
-Adoption and skill upgrades leave logging off unless explicitly enabled by the
-project or the user has selected `Context Docs logging preference: auto`. Preserve
-explicit project settings, including `off`, ahead of that preference. For auto
-resolution, Git projects qualify only with explicitly selected local-only context
-and verified ignored, untracked context and journal paths; shared Git context
-keeps its existing behavior. For this or a request to enable or disable JSONL, follow the core skill's
-[journal guide](../context-docs/references/event-journal.md), merging only the
-requested settings into the existing loaded maintenance section. Do not change
-adoption dates, context paths or equivalent maintenance wording. Repeated setup
-with the same settings makes no edits or events; audit-only requests change nothing.

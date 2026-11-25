@@ -106,11 +106,6 @@ class StaticChecksTests(unittest.TestCase):
         self.assertTrue(any('declared sibling dependency' in failure
                             for failure in self.failures(checks.check_skills)))
 
-    def test_missing_packaged_helper_fails_even_with_fault_fixture_exceptions(self):
-        (self.root / 'skills/context-docs/scripts/event_journal.py').unlink()
-        self.assertTrue(any('scripts/event_journal.py' in failure
-                            for failure in self.failures(checks.check_skills)))
-
     def test_progress_reference_must_ship_without_repository_docs(self):
         # No README/progress example is needed by the installed skill. Even if
         # its routing link were accidentally removed, the resource must ship.

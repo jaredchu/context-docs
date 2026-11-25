@@ -22,12 +22,12 @@ class SmokeTests(unittest.TestCase):
             root = Path(tmp) / 'source'
             shutil.copytree(smoke.ROOT / 'skills', root / 'skills',
                             ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.pyo'))
-            scripts = root / 'skills/context-docs/scripts'
-            cache = scripts / '__pycache__'
+            assets = root / 'skills/context-docs/assets'
+            cache = assets / '__pycache__'
             cache.mkdir()
-            (cache / 'event_journal.cpython-312.pyc').write_bytes(b'\xcb\x00')
-            (scripts / 'legacy.pyc').write_bytes(b'\xcb\x00')
-            (scripts / 'legacy.pyo').write_bytes(b'\xcb\x00')
+            (cache / 'fixture.cpython-312.pyc').write_bytes(b'\xcb\x00')
+            (assets / 'legacy.pyc').write_bytes(b'\xcb\x00')
+            (assets / 'legacy.pyo').write_bytes(b'\xcb\x00')
             destination = Path(tmp) / 'project'
             with patch.object(smoke, 'ROOT', root):
                 smoke.materialize(destination, self.audit['case'])
@@ -35,7 +35,7 @@ class SmokeTests(unittest.TestCase):
                 files = smoke.snapshot(destination)
             installed = {name for name in files if name.startswith(smoke.INSTALL + '/')}
             self.assertEqual(installed, set(manifest))
-            self.assertIn(smoke.INSTALL + '/context-docs/scripts/event_journal.py', installed)
+            self.assertIn(smoke.INSTALL + '/context-docs/assets/project-context.md', installed)
             self.assertFalse(any('__pycache__' in name or name.endswith(('.pyc', '.pyo'))
                                  for name in installed))
 

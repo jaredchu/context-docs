@@ -34,10 +34,8 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
 - Judge effectiveness by accuracy, useful handoff and the effort of setting up,
   prompting, organizing and correcting context. File size and model cost are
   diagnostics. See the [learner validation decision](project-decisions.md#review-follow-up-and-learner-validation).
-- Keep event capture optional and focused on later investigation. Local-only
-  context without Git history can benefit. Preserve existing settings and apply
-  the [requirements before broader journal integration](event-journal-pilot.md#requirements-before-broader-integration).
-  Use snapshots or backups for complete recovery.
+- The [journal removal decision](project-decisions.md#retire-optional-jsonl-event-capture)
+  keeps current maintenance in Markdown and preserves historical records.
 - Preserve existing layouts, approved decisions and frozen evidence. Follow the
   [no-change stop rule](project-decisions.md#refresh-recording-and-publication-boundary)
   and the [deployment checklist](../site/README.md#deployment-checklist). Publication,
@@ -62,9 +60,9 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   the skills.sh core listing still matched v0.2.7. The listing refresh remains
   unverified.
 - **Project setup:** [AGENTS.md](../AGENTS.md), imported by [CLAUDE.md](../CLAUDE.md),
-  enables JSONL for this repository. Read history when a concrete question calls
-  for it. [Journal policy](../skills/context-docs/references/event-journal.md)
-  owns enablement and precedence for other projects.
+  records the maintenance rule. Unreleased source is core 0.2.9 and adoption
+  0.1.17. For existing JSONL records, see the
+  [upgrade note](getting-started.md#older-jsonl-journal-setups).
 
 ## Evidence and limits
 

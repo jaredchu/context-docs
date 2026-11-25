@@ -1,5 +1,9 @@
 # Local-only auto logging checks — 2026-10-10
 
+For historical cases that require the optional JSONL journal, use the
+source version pinned by the original protocol. The unreleased skills
+have retired JSONL capture.
+
 Candidate: core 0.1.8/adoption 0.1.9, unreleased. The owner requested extending an
 already selected auto preference to explicitly local-only context inside Git,
 preserving settings and verifying ignored, untracked context and journal paths.

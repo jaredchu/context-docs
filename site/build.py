@@ -145,7 +145,6 @@ def render(root, template_name='index.html'):
         values.update({
             'REFRESH_PROMPT': fenced_section(guide, '### Refresh after outside work', 'text'),
             'LOCAL_ONLY_PROMPT': fenced_section(guide, '## Local-only context (excluded from Git)', 'text'),
-            'AUTO_LOGGING_PROMPT': fenced_section(guide, '### Auto logging for local-only context', 'text'),
             'VERIFY_RESUME_PROMPT': fenced_section(guide, '### Verify a resumed session', 'text'),
             'TROUBLESHOOT_PROMPT': fenced_section(guide, '### Troubleshoot setup and saved context', 'text'),
         })
@@ -154,7 +153,7 @@ def render(root, template_name='index.html'):
         'SITE_URL', 'CODEX_INSTALL', 'CLAUDE_INSTALL', 'CURSOR_INSTALL', 'ANTIGRAVITY_INSTALL', 'SAVE_PROMPT',
         'RESUME_PROMPT', 'PROGRESS_PROMPT', 'PROGRESS_EXAMPLE', 'CORE_VERSION', 'ADOPTION_VERSION', 'PACKAGE_STATUS',
     }
-    required |= ({'QUICK_EXAMPLE', 'REFRESH_PROMPT', 'LOCAL_ONLY_PROMPT', 'AUTO_LOGGING_PROMPT',
+    required |= ({'QUICK_EXAMPLE', 'REFRESH_PROMPT', 'LOCAL_ONLY_PROMPT',
                   'VERIFY_RESUME_PROMPT', 'TROUBLESHOOT_PROMPT'}
                  if template_name == 'getting-started.html'
                  else {'EXAMPLE_BEFORE', 'EXAMPLE_AFTER', 'DEMO_NOTES', 'DEMO_CONTEXT', 'DEMO_RESUME'})

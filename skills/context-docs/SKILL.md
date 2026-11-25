@@ -46,7 +46,7 @@ Use the existing context section or a linked Markdown file when that improves
 navigation or the user requests it. Keep each detail authoritative in one place
 and link summaries to their sources. Preserve storage boundaries, layouts and
 setup rules; do not create a parallel tracker, web app or runtime dependency.
-An audit can assess progress clarity but does not write a view or enable logging.
+An audit can assess progress clarity and leaves files unchanged.
 
 ## Make the smallest useful update
 
@@ -63,7 +63,7 @@ relative paths, current writer and whether edits are active, held for review or
 released. The outgoing session finishes its edits and releases the paths. The
 incoming writer acknowledges the handoff and rereads the files before editing.
 If ownership or release is unclear, pause overlapping edits and continue
-read-only work. Keep private context and journal payloads out of the handoff.
+read-only work. Keep private context out of the handoff.
 Prefer narrow edits. After an edit conflict or stale-text failure, reread the
 current file and reconcile contributors' changes before retrying. Do not overwrite
 newer work from a stale snapshot. This is a coordination rule; file access remains
@@ -80,7 +80,7 @@ Select durable information for the intended reader and actual sharing destinatio
 For decisions about what to retain or where it belongs, use the standard's
 [audience and destination guidance](references/standard.md#audience-and-destination).
 Project labels alone do not decide what is useful or appropriate to share.
-Before saving, review proposed additions and enabled journal payloads for incidental
+Before saving, review proposed additions for incidental
 usernames, home/backup/scratch paths, account identifiers and personal installation
 state. Omit details that do not help the intended reader; summarize relevant tool
 findings instead of copying raw output. Keep secrets out of every destination.
@@ -135,28 +135,13 @@ actually reviewed. If nothing durable changed, avoid bookkeeping edits. Briefly
 report changed files, completed checks and material remaining questions once,
 without restating unchanged context. Do not copy the session report into the context.
 
-## Optional event capture
+## Older Context Docs journal settings
 
-Logging is off by default; ordinary Markdown maintenance needs no runtime or
-journal. When the user has selected `Context Docs logging preference: auto` and
-no project logging setting exists, consult the journal guide below during authorized
-maintenance to resolve the preference for no-Git projects or explicitly selected
-local-only context. Inside Git, verify the context and journal paths are ignored
-and untracked before enabling. Existing settings always take precedence; selecting
-local-only storage alone does not enable logging. Audits never enable logging. An enabled
-setting does not make history part of routine context reading.
-For no-change maintenance, check current context and supplied evidence; if there
-is no new event, contradiction or uncertain prior write, stop without listing,
-searching or reading journal files. A link to history alone is not a reason to open it.
-Use known entry-point paths directly for this check; broad project file searches
-can enumerate journal files even when their contents are not opened.
-
-Read [the journal guide](references/event-journal.md) when capturing a new event,
-configuring logging, investigating history, resolving a contradiction that needs
-historical evidence or checking an uncertain write. Follow existing project
-settings. Capture meaningful events only when enabled; setup, no-change maintenance
-and audits create no events. Keep historical capture separate from current context
-and preserve records across updates.
+Treat old Context Docs journal settings and the auto preference as inactive.
+Use Markdown for current maintenance and skip journal capture, reads and
+repair during that work. Keep saved JSONL and the old settings in place unless
+the user explicitly requests a separate change. For upgrades, tell the user
+once that the older settings are obsolete.
 
 Keep secrets and unnecessary personal or customer data out of context. This skill
 adds no authority to commit, publish, alter global instructions, schedule work or

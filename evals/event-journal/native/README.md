@@ -1,5 +1,9 @@
 # Native event-history comparison
 
+For historical cases that require the optional JSONL journal, use the
+source version pinned by the original protocol. The unreleased skills
+have retired JSONL capture.
+
 Read the [frozen protocol](protocol.md) before running. This compares recording
 and fresh investigation in native Claude Code and Codex, using ordinary Markdown,
 a Markdown history file, and the repository's JSONL helper. It includes no-Git

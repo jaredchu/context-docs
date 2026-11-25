@@ -226,28 +226,31 @@ apply to Cursor.
 
 ## Optional journal evidence
 
+This section covers historical journal evidence through v0.2.8. The
+[unreleased source retires JSONL capture and the auto preference](project-decisions.md#retire-optional-jsonl-event-capture).
+
 The [initial evaluation](../evals/results/2026-09-28-event-journal/README.md) covers
 mechanical controls and a synthetic history replay; real-work benefit remains
 unestablished.
 
-The journal's goal is [efficient event capture for later investigation](event-journal-pilot.md#efficient-logging-goals).
-Capture significant history when it happens and consult it when needed. Current
-context improvement or savings are not its success criteria. The earlier
+The journal's goal was [efficient event capture for later investigation](event-journal-pilot.md#efficient-logging-goals).
+The study treated capturing significant events for later retrieval as distinct
+from improving routine current context. The earlier
 [same-chat handoff trial](event-journal-live-trial.md) tested a narrower question;
 its findings do not establish whether historical logging earns its cost.
-Before broader integration, the [journal requirements](event-journal-pilot.md#requirements-before-broader-integration)
-call for comparison against Markdown/Git, native Claude and Codex evaluation, and
+The [earlier requirements](event-journal-pilot.md#requirements-before-broader-integration)
+called for comparison against Markdown/Git, native Claude and Codex evaluation, and
 compatible updates for existing adopters. A [12-session native comparison](../evals/results/2026-09-28-native-journal/README.md)
 now covers no-Git and sparse-commit histories: all three formats retained the
 requested facts, with Claude factual overstatements and capture errors preserved.
-JSONL remains optional. The [installed-skill lifecycle evaluation](../evals/results/2026-09-28-journal-integration/README.md)
+JSONL was optional. The [installed-skill lifecycle evaluation](../evals/results/2026-09-28-journal-integration/README.md)
 now covers upgrades, direct capture, repeat setup, audits, helper absence and
 logging disablement. Codex passed its functional stages; Claude required a
 separately frozen explicit-invocation follow-up, with earlier failures retained.
 A [targeted capture-gap fix](../evals/results/2026-09-28-journal-gap/README.md) preserves
 failed-capture reasons for later readers. Natural recording-cost advantages and
-general reliability remain unestablished. Installing or updating skills installs
-the helper but does not enable logging.
+general reliability remain unestablished. The v0.2.8 package included the helper
+and left capture off by default.
 
 The [auto-preference evaluation](../evals/results/2026-09-29-auto-preference/README.md)
 records setting precedence and no-Git enablement outcomes, including retained

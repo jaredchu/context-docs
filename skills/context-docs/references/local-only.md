@@ -54,14 +54,12 @@ git ls-files -- .context/local/
 git check-ignore -v -- .context/local/project-context.md
 ```
 
-Check all selected context paths, including directory descendants and any enabled
-journal destination. `git ls-files` must return no tracked files in that scope;
+Check all selected context paths, including directory descendants. `git ls-files` must return no tracked files in that scope;
 an ignore pattern never makes an already tracked file local-only. Verify effective
 ignore rules for the actual target files and prospective new files, accounting
 for negated patterns: in verbose `check-ignore` output, a pattern beginning with
 `!` means the target is NOT ignored. Nonempty verbose output alone is not success.
-A rule for one Markdown file does not protect its siblings
-or journal. Recheck new targets before writing and review Git status afterward.
+A rule for one Markdown file does not protect its siblings. Recheck new targets before writing and review Git status afterward.
 Git errors, missing Git, or an unconfirmed ignore rule are unresolved verification,
 not success. No-Git projects retain their chosen local layout.
 
@@ -75,24 +73,12 @@ after tracking stops; do not claim it has become private retroactively.
 ## Keep local content within its boundary
 
 Maintain decisions, current work and next steps in the chosen local files. Do not
-copy their content into shared docs, tracked agent instructions, shared journals,
+copy their content into shared docs, tracked agent instructions, shared records,
 commit/PR text or exported artifacts as a fallback for ignored-file discovery.
 A request to maintain or summarize context does not change its sharing destination.
 Use the standard's [audience guidance](standard.md#audience-and-destination) when
 the user explicitly requests a suitable shared derivative; preserve the local
 original and omit details outside that derivative's agreed audience.
-
-Logging remains separately opt-in, including the user's `auto` preference. With
-`auto` and no existing logging setting, local-only context inside Git can qualify
-after verifying all chosen context paths and the journal directory. Explicit
-settings, including `off`, always win. If enabled for local-only work, verify that
-the configured journal destination is also untracked and ignored before capture.
-For a new journal, an `events/` directory under the chosen local root is one option.
-Preserve an existing journal, its setting and records; if it is shared or tracked,
-resolve the requested storage scope before capturing local-only content there.
-Selecting local-only storage alone does not enable logging. Do not relocate old
-events or change global settings as a side effect. Follow the
-[journal guide](event-journal.md) for any authorized logging change.
 
 Audits never edit ignore rules, markers, files, the index or history. Repeat setup
 reuses matching paths, rules and adoption dates, preserving user customizations.

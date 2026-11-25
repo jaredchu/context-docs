@@ -1,5 +1,9 @@
 # Local-only context regression controls
 
+For historical cases that require the optional JSONL journal, use the
+source version pinned by the original protocol. The unreleased skills
+have retired JSONL capture.
+
 Small repository-only checks for the local-only context option. They are
 regression controls for storage and copying mistakes. They are not an agent
 evaluation, not a general confidentiality check and not a runtime helper.

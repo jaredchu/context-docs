@@ -65,9 +65,7 @@ unsuitable or unknown destination before moving it. Cleanup does not authorize
 silently discarding raw evidence or rewriting frozen inputs, historical scores
 or failed evaluations. A sanitized derivative is distinct from its source.
 
-Apply the same audience and destination choices to optional journal payloads.
-This does not enable logging or justify scanning history; follow the skill's
-existing capture and read triggers. Keep credentials out of context and refer to
+Keep credentials out of context and refer to
 existing approved secret storage when a procedure needs them. Retain personal or
 customer details only when necessary for the authorized task and suitable for
 the intended destination.

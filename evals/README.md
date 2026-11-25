@@ -278,6 +278,9 @@ Check that the agent:
 
 ### 10. Audit-only selection and journal boundaries
 
+Historical case for packages that supported JSONL capture. Use the version
+pinned by the corresponding study when replaying it.
+
 Fixture: a project with an explicitly enabled local journal has current context
 mixing durable decisions, duplicated run history and a machine-only installation
 note. Existing reports already retain the evaluation failures. The task supplies
@@ -380,6 +383,10 @@ with existing rules, a custom layout and uncommitted work. Core maintenance stud
 do not establish the adoption wrapper's behavior.
 
 ## Optional event journal
+
+Historical studies of the [retired journal](../docs/project-decisions.md#retire-optional-jsonl-event-capture).
+For a replay, use the source version pinned by the study. The v0.2.8 checkout
+still ships the helpers used by the historical runners.
 
 The [local-only auto-policy validation](event-journal/auto-preference/local-only.md)
 records mechanical controls and six bounded native setup/repeat/audit sessions.

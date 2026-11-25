@@ -10,9 +10,10 @@ from pathlib import Path
 
 
 CASES = json.loads((Path(__file__).parents[1] / 'content-filtering' / 'cases.json').read_text())
+# Validate historical fixtures with the frozen schema implementation.
 JOURNAL_SPEC = importlib.util.spec_from_file_location(
     'content_filtering_journal',
-    Path(__file__).parents[2] / 'skills/context-docs/scripts/event_journal.py')
+    Path(__file__).parents[2] / 'evals/results/2026-09-28-native-journal/source/tools/event_journal.py')
 JOURNAL = importlib.util.module_from_spec(JOURNAL_SPEC)
 JOURNAL_SPEC.loader.exec_module(JOURNAL)
 
@@ -156,7 +157,7 @@ class ContentFilteringExamples(unittest.TestCase):
         self.assertEqual(check(case, {}), [])
         self.assertTrue(check(case, {'history/events/new.jsonl': '{"summary":"Everything unchanged"}\n'}))
 
-    def test_journal_example_uses_packaged_schema_and_helper(self):
+    def test_historical_journal_example_uses_frozen_schema(self):
         case = next(case for case in CASES if case['operation'] == 'capture')
         path = 'history/events/new.jsonl'
         row = json.loads(case['after'][path])

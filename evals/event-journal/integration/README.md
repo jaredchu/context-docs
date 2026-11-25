@@ -1,5 +1,9 @@
 # Native opt-in integration evaluation
 
+For historical cases that require the optional JSONL journal, use the
+source version pinned by the original protocol. The unreleased skills
+have retired JSONL capture.
+
 The [protocol](protocol.md) tests actual upgraded project-local skill packages,
 ordinary file tools and direct helper invocations. It uses real execution of a
 small synthetic probe, followed by fresh sessions for capture, repeat setup,

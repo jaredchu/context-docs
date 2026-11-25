@@ -563,9 +563,9 @@ class LandingBuildTests(unittest.TestCase):
     def test_local_only_guide_uses_only_canonical_public_prompts(self):
         rendered = unescape(landing.render(landing.ROOT, 'getting-started.html'))
         guide = (landing.ROOT / 'docs/getting-started.md').read_text(encoding='utf-8')
-        for heading in ['## Local-only context (excluded from Git)',
-                        '### Auto logging for local-only context']:
-            self.assertIn(landing.fenced_section(guide, heading, 'text'), rendered)
+        heading = '## Local-only context (excluded from Git)'
+        self.assertIn(landing.fenced_section(guide, heading, 'text'), rendered)
+        self.assertNotIn('auto-logging-prompt', rendered)
         original_read = Path.read_text
 
         def forbid_private_sources(path, *args, **kwargs):
@@ -1049,7 +1049,7 @@ class LandingBuildTests(unittest.TestCase):
         prompt = landing.fenced_section(guide, heading, 'text')
         self.assertTrue(prompt.startswith('Troubleshoot Context Docs setup and saved context'))
         self.assertTrue(prompt.endswith('Do not certify accuracy, freshness or successful loading.'))
-        for constraint in ['This is read-only.', 'Do not\nenumerate, search or read event journals',
+        for constraint in ['This is read-only.', 'Do not\nenumerate, search or read transcripts',
                            'Report loading as "not verified by this check".',
                            'Suggest repairs without executing them.']:
             self.assertIn(constraint, prompt)

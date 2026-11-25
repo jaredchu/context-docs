@@ -25,6 +25,19 @@ Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
 
+## context-docs 0.2.9 — unreleased
+
+- Retire optional JSONL event capture and the auto preference from the skills,
+  project setup and website. Existing journal files remain available as history.
+  The upgrade guide covers obsolete project settings and retained files.
+- Checked with repository static checks, offline evaluation controls and site
+  tests. These checks cover packaging and documentation.
+
+## adopt-context-docs 0.1.17 — unreleased
+
+- Remove journal setup from adoption. Preserve existing Markdown layouts and
+  use the sibling core for maintenance.
+
 ## context-docs 0.2.8 — 2026-11-22
 
 - Specify how Codex and Claude Code hand off edits to a shared context file

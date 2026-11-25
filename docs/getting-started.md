@@ -374,8 +374,8 @@ report missing skill availability. Name your context entry point if you know it.
 ```text
 Troubleshoot Context Docs setup and saved context for this open project.
 This is read-only. Report in chat; do not create or edit files, settings or logs,
-install or upgrade skills, enable logging, commit, push or publish. Do not
-enumerate, search or read event journals, transcripts, native memory or history.
+install or upgrade skills, commit, push or publish. Do not
+enumerate, search or read transcripts, native memory or historical records.
 
 1. Read the project's instructions and README or documentation index. Locate
    the maintenance rule and declared context entry point. Follow the relevant
@@ -386,7 +386,7 @@ enumerate, search or read event journals, transcripts, native memory or history.
    for the reported problem. Check that the saved context exists in this
    checkout; where Git is available, report tracked, untracked or ignored status
    using path-scoped queries for the named context files, without changing it.
-   Use known paths rather than broad searches that could enumerate journals.
+   Use known paths rather than broad searches that could enumerate unrelated files.
    Respect intentional local-only storage. Identify specific contradictions or
    stale claims; do not infer staleness from age alone.
 3. Distinguish skills advertised by this client from installed files you can
@@ -464,7 +464,7 @@ durable update is needed. Review the resulting diff and verification limits.
 Refresh here means maintaining the project's documents during the active session.
 
 If no durable update is needed, report what was checked and its material limits,
-then stop. A routine no-change refresh needs no report file, journal entry,
+then stop. A routine no-change refresh needs no report file,
 commit or website publication. Separate explicit recording or publication
 requests retain their own scope; they do not make unchanged state new evidence.
 
@@ -477,12 +477,11 @@ choices still apply; no skill upgrade or re-adoption is needed for this prompt.
 
 ### Sharing and portable references
 
-Before saving context or an enabled journal event, the agent reviews its additions
+Before saving context, the agent reviews its additions
 for the intended readers. Shared project context should omit incidental usernames,
 private evidence locations, account identifiers and personal installation state.
 Summarize the relevant tool finding instead of copying raw output. Keep secrets
-out of both shared and local context. An enabled journal can be tracked and shared;
-logging does not make its contents private.
+out of both shared and local context. Git tracking and sharing determine who can access saved files.
 
 Use repository-relative links to project files. For privately retained evidence,
 cite a suitable public summary, stable evidence ID or hash and state access limits;
@@ -496,7 +495,7 @@ installation/preservation assurances unless they establish a relevant condition
 or requested check. Keep decisions, rationale, uncertainty, blockers and the next
 action clear. This is guidance for selecting new content, not automatic redaction,
 a guarantee against disclosure, or permission to rewrite history or move records.
-Existing layouts, storage choices and logging settings remain in effect.
+Existing layouts and storage choices remain in effect.
 
 In the [v0.2.6 candidate smoke](../evals/content-filtering/smoke-0.2.6-2026-10-19/README.md),
 both clients pass visible saved-Markdown checks. Claude could not locate an
@@ -596,15 +595,12 @@ It directs the agent to refresh an existing view during authorized context
 maintenance, without a special invocation for each update. Audits are instructed
 to remain read-only. Review the edits and source links.
 
-For a historical question, ask which attempts produced new results or useful
-findings. Relevant Git history, retained dated attempt notes or an existing
-journal can support that comparison. Reading retained journal records for a
-historical question does not enable capture or change an explicit off setting.
-Repeated activity may suggest a stall, but does not prove a loop.
-Without suitable history, repetition remains unknown; this does not enable
-logging. The guidance forbids inventing completion percentages, missing goals
-or live activity; the [validation boundary](../evals/progress/README.md#validation-boundary)
-distinguishes the documented workflow from actual behavioral evidence.
+For a historical question, compare relevant Git history or dated attempts.
+Repeated activity may suggest a stall. Without suitable history, repetition
+remains unknown. Keep these investigations separate from routine maintenance.
+Avoid invented completion percentages, goals and claims of live agent activity.
+See the [validation boundary](../evals/progress/README.md#validation-boundary)
+for the limits of the progress workflow evidence.
 See the [synthetic example](../examples/progress.md) and the packaged
 [progress guidance](../skills/context-docs/references/progress.md).
 For a work item that needs its own handoff, see the
@@ -632,10 +628,10 @@ Use $adopt-context-docs to set up local-only context, excluded from Git.
 Reuse my existing local context and instruction locations if present;
 otherwise use .context/local/ for context files. Use repository-local excludes
 for my personal setup. Keep private content out of shared docs and instructions.
-Verify both tracking and ignore status, including the journal if already enabled.
+Verify both tracking and ignore status for the context files.
 Preserve existing tracked context and resolve migration scope before changing it.
 Record how a fresh session should find the local entry point, and report whether
-the guidance actually loads. Leave logging settings unchanged.
+the guidance actually loads.
 ```
 
 In Claude Code, replace `$adopt-context-docs` with `/adopt-context-docs`.
@@ -656,90 +652,17 @@ Keep this context local-only and use it to continue the next task.
 Use local agent guidance that actually loads, or an agreed nonsensitive path
 pointer in shared instructions. Avoid public README links to files missing from
 other clones. A pointer does not authorize copying the local content into shared
-docs, tracked instructions, shared journals or exports.
+docs, tracked instructions or exports.
 
 An ignore rule does not stop tracking existing files or erase old commits. The
 agent should report tracked context and preserve it until migration scope is
-clear, rather than silently moving or untracking it. Enabled journals need the
-same storage checks; existing records and logging settings remain intact.
-
-For local-only context, [optional logging](#optional-logging) can retain significant
-decisions, checks and corrections as current context changes without Git history.
-Enable it explicitly with an untracked, ignored journal destination; selecting
-local-only storage alone does not enable it. A selected `auto` preference can also
-enable it after the same checks, unless an existing setting takes precedence. The
-[journal guide](../skills/context-docs/references/event-journal.md) explains capture
-and preservation; complete document versions still need snapshots or backups.
+clear, keeping existing records in place.
 
 Git exclusion is not encryption or a promise that an agent cannot read the files.
 Local files do not travel with clones, other worktrees or other machines; arrange
 your own backup or transfer if needed. A missing local entry point requires
 restoration or fresh initialization, not invented history. Audits remain read-only,
 and repeat adoption preserves matching rules, paths and the original adoption date.
-
-## Optional logging
-
-Preserve existing logging settings. With no setting, logging stays off unless
-explicitly enabled or a user-selected auto preference applies. Before enabling,
-check that the installed packages include the journal guide and helper; see
-[older-package boundaries](releases/README.md#feature-boundaries-for-older-installations).
-Preserve locally customized package files when reviewing an upgrade.
-To enable it explicitly, ask the adoption skill to enable JSONL in the project's
-existing maintenance section, optionally naming a directory. For example:
-
-```text
-Codex: $adopt-context-docs Enable optional JSONL logging in history/events.
-Claude Code: /adopt-context-docs Enable optional JSONL logging in history/events.
-Preserve the existing adoption date, context path and maintenance instructions.
-```
-
-The [packaged journal guide](../skills/context-docs/references/event-journal.md)
-defines settings, capture, investigation and failure handling. It works without
-Git; uncommitted state must not be attributed solely to an old commit. Ask the
-same skill to disable logging to stop capture while retaining the directory
-setting and all history. No project migration or background service is required.
-Setup, no-change maintenance and audits create no events. The
-[journal pilot and requirements](event-journal-pilot.md) explain when logging may
-be useful and what remains unestablished.
-
-### Auto logging
-
-To opt into automatic enablement, include this preference in your request
-or the personal instructions your agent loads:
-
-```text
-Context Docs logging preference: auto
-```
-
-During adoption or authorized maintenance, an existing project logging setting
-wins, including `off`, `jsonl` or another logging method. With no setting, auto
-enables JSONL outside Git, or for explicitly selected local-only context inside Git.
-For the latter, every chosen context path and the journal directory must be
-verified untracked and ignored, including existing descendants and prospective
-new paths. A tracked file still fails even if an ignore rule matches it.
-
-### Auto logging for local-only context
-
-For example, after choosing local-only storage, ask:
-
-```text
-Use adopt-context-docs to apply my auto logging preference to this local-only setup.
-Context Docs logging preference: auto
-Use the existing context at .context/local/ and journal directory
-.context/local/events. Verify that both are ignored and untracked before enabling.
-Preserve explicit logging settings, adoption dates, paths and existing records.
-Do not move files, change ignore rules or create a log for setup.
-```
-
-These paths are examples; reuse yours. Shared context inside Git does not qualify.
-Parent repositories and worktrees count as Git; missing Git, failed detection or
-unverified exclusion leaves logging unchanged and the gap is reported. The setting
-is saved only in the agreed instruction location that the client loads. Existing
-paths and records stay intact; auto does not grant permission to change ignore
-rules or relocate a journal to make it qualify. Adding Git later preserves a saved
-setting and history. Audits never enable logging. See the
-[auto preference rules](../skills/context-docs/references/event-journal.md#optional-auto-preference).
-This preference does not automatically commit logs or install a background service.
 
 ## What is standardized?
 
@@ -758,8 +681,26 @@ same method. No forced directory migration or universal document-size limit.
 
 Review installed files before copying an update. Preserve local customizations
 and install both complete sibling packages together. Existing projects keep their
-maintenance rules, adoption dates, context paths and logging settings; no document
-migration is required. Installing an update does not enable logging. See the
+maintenance rules, adoption dates and context paths. See the
 [v0.2.6 upgrade notes](releases/v0.2.6.md#existing-projects-and-upgrades) and
 [release history](releases/README.md) for feature boundaries and retained evidence.
 The v0.2.6 experimental prerelease does not upgrade existing installations.
+
+<a id="optional-logging"></a>
+<a id="auto-logging"></a>
+<a id="auto-logging-for-local-only-context"></a>
+
+### Older JSONL journal setups
+
+The unreleased source (core 0.2.9 and adoption 0.1.17) retires optional JSONL
+capture and the auto preference. The published v0.2.8 bundle retains its
+[historical journal guide](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/references/event-journal.md).
+
+When adopting the newer source in a project that used this feature, keep the
+existing Markdown entry point, maintenance rule and JSONL files. The old
+`Event journal:`, `Event journal directory:` and Context Docs auto preference
+lines can be removed from the instructions you control. This includes settings
+whose value is `off`. If your installation method copies over the old package,
+review customizations and use a clean replacement so the retired guide and two
+helper scripts leave the installed core folder. Keep existing JSONL files and
+their directories. Use snapshots or backups for full document recovery.

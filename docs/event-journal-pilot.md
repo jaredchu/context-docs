@@ -1,8 +1,11 @@
 # Optional event journal pilot
 
+Historical study of optional JSONL capture. Use the published v0.2.8 checkout
+for the commands below. Current source retires this feature and retains the study.
+
 Status: optional integration candidate, schema version 1. Core v0.1.3 packages
-[the helper](../skills/context-docs/scripts/event_journal.py) and
-[its portable guide](../skills/context-docs/references/event-journal.md).
+[the helper](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/scripts/event_journal.py) and
+[its portable guide](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/references/event-journal.md).
 Adoption v0.1.5 merges opt-in settings on request. Logging is off by default;
 installing or updating a skill does not enable it. Python 3.9+ is required only
 for the optional CLI. There is no background capture or scheduler.
@@ -27,7 +30,7 @@ waiting until a question arises can lose the evidence. Read the relevant logs
 when investigating a failure, checking past work or reconstructing a decision.
 Do not routinely load the journal into current context.
 
-The [packaged command](../skills/context-docs/scripts/event_journal.py) records statements supplied by the caller.
+The [packaged command](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/scripts/event_journal.py) records statements supplied by the caller.
 Validation checks structure, not whether evidence exists, a check ran, an approval
 is genuine or a claim is correct. Never turn a proposal into approval just because
 it was implemented. `actor` names the recorder; `authority` identifies who approved
@@ -60,7 +63,7 @@ is an implementation concern, independent of current-context quality.
 
 The owner approved an optional no-Git auto preference on September 29. It changes
 setup convenience, not these logging goals or the necessity findings below. The
-[packaged rules](../skills/context-docs/references/event-journal.md#optional-auto-preference)
+[packaged rules](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/references/event-journal.md#optional-auto-preference)
 preserve explicit settings and require confirmed Git absence before enablement.
 
 On October 10, the owner authorized extending that opt-in preference to explicitly
@@ -208,7 +211,7 @@ and source reference when they matter.
 
 ## Schema version 1
 
-The canonical [payload fields and recorder/authority definitions](../skills/context-docs/references/event-journal.md#payload-schema-version-1)
+The canonical [payload fields and recorder/authority definitions](https://github.com/jaredchu/context-docs/blob/v0.2.8/skills/context-docs/references/event-journal.md#payload-schema-version-1)
 ship with the core skill. The packaged guide also owns enable/disable settings,
 installed-path resolution and capture-failure behavior.
 
@@ -330,7 +333,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 python3 evals/checks/static_checks.py
 ```
 
-The [synthetic tests](../tests/test_event_journal.py) exercise CLI input/output,
+The [synthetic tests](https://github.com/jaredchu/context-docs/blob/v0.2.8/tests/test_event_journal.py) exercise CLI input/output,
 validation, read-only behavior, preservation on malformed input, correction history,
 competing writers and selected I/O failures. CI runs them separately from packaging
 and link checks. The [September 28 evaluation](../evals/results/2026-09-28-event-journal/README.md)

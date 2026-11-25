@@ -1,5 +1,9 @@
 # Markdown progress regression scenarios
 
+For historical cases that require the optional JSONL journal, use the
+source version pinned by the original protocol. The unreleased skills
+have retired JSONL capture.
+
 Scenarios for the progress feature; this full suite has not run. The revised
 visual criteria below target unreleased core 0.2.1. A
 [focused candidate smoke](smoke-0.2.1-2026-10-16/README.md) now passes these gates

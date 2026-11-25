@@ -12,6 +12,9 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## v0.2.x
 
+- **Unreleased source:** core 0.2.9 and adoption 0.1.17 retire optional JSONL
+  capture and the auto preference. See the
+  [upgrade note](../getting-started.md#older-jsonl-journal-setups).
 - **[v0.2.8](v0.2.8.md):** core 0.2.8 and adoption 0.1.16. The current install
   instructions select this experimental prerelease.
 - **[v0.2.7](v0.2.7.md):**
@@ -73,10 +76,10 @@ including an isolated skills.sh refresh and full page-content verification.
 
 ## Feature boundaries for older installations
 
-Current source includes these features; the linked notes distinguish unpublished
-candidates from releases. Older installed packages keep their own guidance until
-separately upgraded; use the linked notes for exact scope.
-Core and adoption have separate versions, so retain both complete sibling packages.
+The linked notes describe when features were introduced. The JSONL and auto
+logging rows describe older packages through v0.2.8. Local-only Markdown remains
+available in current source. Core and adoption have separate versions, so retain
+both complete sibling packages.
 
 | Feature | Introduced core / adoption | Bundle notes |
 | --- | --- | --- |
