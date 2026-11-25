@@ -533,3 +533,25 @@ The label update is pushed and deployed from `4093383`. Independent source revie
 CI, artifact/live comparisons and desktop/mobile checks pass; the
 [deployment receipt](../site/README.md#earlier-antigravity-label-deployment) records identities and
 verification limits. No release or tag changed.
+
+## Markdown tickets remain docs-only
+
+On November 25, 2026, the owner decided to keep Markdown tickets as an
+[opt-in documentation example](../examples/progress.md#opt-in-markdown-ticket).
+Use the existing progress view as the entry point, and keep each work item's
+status, blocker and next action in its ticket or existing issue.
+
+The [plugin documentation pilot](tickets/clarify-plugin-candidate-installation.md#handoff-check)
+recovered the next edit, completion checks and scope. The
+[deployment pilot](tickets/verify-a441129-website-deployment.md#handoff-check)
+recovered an updated blocker and next action after the ticket alone changed.
+Its first reader repeated a wrong artifact name from the ticket. All three
+sessions were directed and read-only. Discovery during ordinary work, ongoing
+maintenance effort and savings over an inline next action remain unmeasured.
+
+Reconsider skill guidance if projects that already opt in repeatedly see agents
+miss a linked ticket, copy its status into the progress view, or leave its blocker
+or next action stale. A focused handoff check should show that a short on-demand
+reference fixes the observed failure while keeping routine reads and status
+updates focused. Any such guidance would apply only where the project already
+uses tickets or its owner asks to use them.

@@ -22,10 +22,9 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
 - **Goal:** Preserve accurate project context with little manual organization.
   - **Available:** Use the [standalone workflow](getting-started.md#use-it) and
     the [Reading Queue walkthrough and cross-client handoffs](switching-agents-examples.md).
-  - **Local documentation:** The owner requested an
-    [opt-in Markdown ticket example](../examples/progress.md#opt-in-markdown-ticket).
-    It reuses a progress view and keeps work-item status in the ticket.
-    This work is scoped to repository documentation.
+  - **Optional workflow:** [Markdown ticket example](../examples/progress.md#opt-in-markdown-ticket).
+    The [docs-only decision](project-decisions.md#markdown-tickets-remain-docs-only)
+    records when to reconsider skill guidance.
 
 ## Decisions
 
