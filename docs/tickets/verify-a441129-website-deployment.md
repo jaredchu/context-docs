@@ -3,7 +3,7 @@
 ## Scope
 
 Verify the existing automatic deploy from `a441129` and bring the
-[deployment record](../../site/README.md#latest-deployment) up to date. The
+[deployment record](../../site/README.md#earlier-markdown-ticket-deployment) up to date. The
 [Landing page run](https://github.com/jaredchu/context-docs/actions/runs/45480049082)
 reported a successful deploy, and two live pages returned HTTP 200. This ticket
 covers read-side verification and local documentation.
@@ -23,7 +23,7 @@ Closed on November 25, 2026.
 
 ## Outcome
 
-The [deployment receipt](../../site/README.md#latest-deployment) records the
+The [deployment receipt](../../site/README.md#earlier-markdown-ticket-deployment) records the
 artifact, CI manifest and live HTTPS comparisons. The [earlier receipt](../../site/README.md#earlier-antigravity-label-deployment)
 is preserved. The project context now points to the verified source, and the
 progress view's active ticket link was removed on closure.

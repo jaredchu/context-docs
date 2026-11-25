@@ -19,8 +19,9 @@ before acting on this ticket.
 
 ## Status
 
-Published from `3337eb9`. Deployment and listing verification are in progress.
-
-## Next action
-
-Verify the install pins, automatic deployment and both skills.sh listings.
+Completed 2026-11-25. [v0.2.9](https://github.com/jaredchu/context-docs/releases/tag/v0.2.9)
+is published from `3337eb9`. The [website deployment](../../site/README.md#latest-deployment)
+verified the install pins from `9008ac6`. Both archives and the isolated install
+matched the 13 verified package files. Both skills.sh listings still showed
+earlier text at the final check.
+See the [verification record](../releases/v0.2.9.md#publication-and-upgrade-verification).

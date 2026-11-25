@@ -493,6 +493,29 @@ deployment below records its source and checks.
 
 ## Latest deployment
 
+The v0.2.9 install pins went live from **`9008ac6`**
+([exact source](https://github.com/jaredchu/context-docs/commit/9008ac6a9def7e02bcc51c5f13254ead5aa2c6ef)).
+[Static checks](https://github.com/jaredchu/context-docs/actions/runs/45556787801) and the automatic
+[Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/45556787785) passed.
+The [Cloudflare deploy job](https://github.com/jaredchu/context-docs/actions/runs/45556787785/job/139010838746)
+recorded Worker version `0bee64a4-c724-47a9-838e-ace98d3f79c1`.
+
+On November 25, 2026, both CI manifests and all 19 uploaded
+`site-dist` files matched a rebuild from that commit. The empty `.nojekyll`
+marker is local to the build. All 18 canonical HTTPS resources
+returned HTTP 200 and matched the artifact byte for byte. The homepage
+and guide showed the released bundle and all four v0.2.9 install commands. The
+old Reading Queue route redirected to the example with HTTP 301. These checks
+cover the canonical responses at verification time.
+
+### Earlier JSONL retirement deployment
+
+The [Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/45553915014)
+deployed `45557cf` after the JSONL retirement. GitHub reported a successful
+production deployment. The website retained the v0.2.8 install pins at that point.
+
+### Earlier Markdown ticket deployment
+
 Source **`a441129`** was deployed automatically by the
 [Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/45480049082).
 [Static checks](https://github.com/jaredchu/context-docs/actions/runs/45480049119),
