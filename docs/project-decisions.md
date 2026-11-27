@@ -536,6 +536,9 @@ verification limits. No release or tag changed.
 
 ## Markdown tickets remain docs-only
 
+Superseded by the [opt-in ticket lifecycle](#opt-in-markdown-ticket-lifecycle).
+The decision and pilot evidence below describe the earlier docs-only approach.
+
 On November 25, 2026, the owner decided to keep Markdown tickets as an
 [opt-in documentation example](../examples/progress.md#opt-in-markdown-ticket).
 Use the existing progress view as the entry point, and keep each work item's
@@ -555,6 +558,16 @@ or next action stale. A focused handoff check should show that a short on-demand
 reference fixes the observed failure while keeping routine reads and status
 updates focused. Any such guidance would apply only where the project already
 uses tickets or its owner asks to use them.
+
+## Opt-in Markdown ticket lifecycle
+
+On November 26, 2026, the owner agreed to put the
+[shared ticket lifecycle](../skills/context-docs/references/tickets.md) in the
+core skill so projects can reuse it through their existing Context Docs
+instructions. It applies to projects that already use Markdown tickets or
+explicitly request them. The progress view still links to the ticket that owns
+the work. Filing completed tickets in `done/` is available on request or when
+the project already uses that convention. The prior pilot limits still apply.
 
 ## Retire optional JSONL event capture
 

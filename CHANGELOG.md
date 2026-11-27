@@ -11,7 +11,8 @@ Every entry states what was actually tested. A static check or an authored examp
 is not a behavioral evaluation, and adopting a version is an implementation choice,
 not a demonstrated accuracy gain.
 
-The latest bundle is described in the [v0.2.9 release notes](docs/releases/v0.2.9.md).
+The latest bundle is described in the [v0.2.10 release notes](docs/releases/v0.2.10.md).
+Previous [v0.2.9 release notes](docs/releases/v0.2.9.md) are retained.
 Previous [v0.2.8 release notes](docs/releases/v0.2.8.md) are retained.
 Previous [v0.2.7 release notes](docs/releases/v0.2.7.md) are retained.
 Previous [v0.2.6 release notes](docs/releases/v0.2.6.md) are retained.
@@ -25,6 +26,16 @@ Previous [v0.1.9 release notes](docs/releases/v0.1.9.md) are retained.
 Earlier [v0.1.6 release notes](docs/releases/v0.1.6.md) are retained.
 Earlier contents and validation are summarized in the [v0.1.5 release notes](docs/releases/v0.1.5.md),
 with earlier [v0.1.4](docs/releases/v0.1.4.md) and [v0.1.3](docs/releases/v0.1.3.md) notes retained.
+
+## context-docs 0.2.10 — 2026-11-27 (experimental prerelease)
+
+- Add a shared, opt-in Markdown ticket lifecycle for projects that use tickets
+  or request them. Support prompt-driven filing in `done/` and reopening.
+- Verified filing and reopening in two fresh Codex CLI sessions in one
+  disposable project. The completed ticket moved and reopened with its links
+  and prior outcome intact. The blocked ticket stayed byte-identical.
+- Static checks, offline tests and the site build passed. See the [release
+  notes](docs/releases/v0.2.10.md#verification) for the scope of verification.
 
 ## context-docs 0.2.9 — 2026-11-25
 

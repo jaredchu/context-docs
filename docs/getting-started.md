@@ -4,8 +4,8 @@
 
 Install both skills once, adopt them in a project, and let its maintenance rule keep
 context current after meaningful work. No background service is installed.
-Everyday installation below selects published bundle **v0.2.9**:
-core **0.2.9** and adoption **0.1.17**. The [release notes](releases/v0.2.9.md)
+Everyday installation below selects published bundle **v0.2.10**:
+core **0.2.10** and adoption **0.1.17**. The [release notes](releases/v0.2.10.md)
 retain the bundle scope and evidence limits.
 
 ## Install in Codex
@@ -14,13 +14,13 @@ Ask the built-in installer:
 
 ```text
 Use $skill-installer to install both skills from jaredchu/context-docs
-at the published tag v0.2.9:
+at the published tag v0.2.10:
 - skills/context-docs
 - skills/adopt-context-docs
 Install them together in ~/.agents/skills/.
 Preserve existing installations and local customizations; report version
 mismatches before upgrading. Report the installed VERSION values:
-context-docs 0.2.9 and adopt-context-docs 0.1.17.
+context-docs 0.2.10 and adopt-context-docs 0.1.17.
 ```
 
 The adoption skill requires `context-docs` as a sibling folder. It is a small
@@ -28,9 +28,9 @@ setup wrapper, not a standalone replacement for the core skill. The core skill
 can be installed and used by itself.
 
 For a manual installation, clone the published bundle with
-`git clone --branch v0.2.9 https://github.com/jaredchu/context-docs.git`, then copy
+`git clone --branch v0.2.10 https://github.com/jaredchu/context-docs.git`, then copy
 both complete folders from that checkout's `skills/` into `~/.agents/skills/`.
-Read both copied `VERSION` files: core should be `0.2.9` and adoption `0.1.17`.
+Read both copied `VERSION` files: core should be `0.2.10` and adoption `0.1.17`.
 For a repository-scoped installation, copy both into
 `.agents/skills/` at the project root instead. Use one scope to avoid duplicate
 skill entries. Check existing folders and review changes before upgrading; retain
@@ -46,14 +46,14 @@ If either skill is already installed, [review the upgrade guidance](#upgrading)
 before copying files. For a first installation:
 
 ```sh
-git clone --branch v0.2.9 https://github.com/jaredchu/context-docs.git
+git clone --branch v0.2.10 https://github.com/jaredchu/context-docs.git
 cd context-docs
 mkdir -p ~/.claude/skills
 cp -r skills/context-docs skills/adopt-context-docs ~/.claude/skills/
 cat ~/.claude/skills/context-docs/VERSION ~/.claude/skills/adopt-context-docs/VERSION
 ```
 
-The version output should be `0.2.9` followed by `0.1.17`.
+The version output should be `0.2.10` followed by `0.1.17`.
 Keep both folders side by side: the adoption skill reads its sibling core skill.
 Invoke a skill as `/context-docs` or `/adopt-context-docs`, or describe the task
 and let Claude select it. The packaged `agents/openai.yaml` is Codex metadata and
@@ -85,7 +85,7 @@ CLI observations and limits. Behavior on other clients has not been evaluated.
 For development work, deliberately select a reviewed source branch or commit and
 read its `VERSION` files before copying packages. Copying from a working checkout selects its contents rather than the published
 bundle and may include unreleased edits. Preserve existing customizations and use one installation
-scope. The everyday instructions above remain pinned to v0.2.9.
+scope. The everyday instructions above remain pinned to v0.2.10.
 
 ## Cursor (experimental)
 
@@ -115,7 +115,7 @@ Cursor reads, copy both complete folders from the published tag into one scope:
 
 ```sh
 (
-  git clone --branch v0.2.9 https://github.com/jaredchu/context-docs.git &&
+  git clone --branch v0.2.10 https://github.com/jaredchu/context-docs.git &&
   cd context-docs &&
   mkdir -p ~/.cursor/skills &&
   test ! -e ~/.cursor/skills/context-docs &&
@@ -128,7 +128,7 @@ Cursor reads, copy both complete folders from the published tag into one scope:
 The sequence stops at the first failure. A failed clone, for example into an
 existing `context-docs` folder, copies nothing. The guard copies nothing if either
 skill folder already exists; follow the [upgrade guidance](#upgrading) instead.
-Expect `0.2.9` followed by `0.1.17`; no version output means installation did
+Expect `0.2.10` followed by `0.1.17`; no version output means installation did
 not complete.
 For one repository only, use `.cursor/skills/` at its root instead. These
 documented locations were not exercised in the trial.
@@ -215,7 +215,7 @@ project root:
   test ! -L .agents/skills/context-docs &&
   test ! -e .agents/skills/adopt-context-docs &&
   test ! -L .agents/skills/adopt-context-docs &&
-  git clone --branch v0.2.9 https://github.com/jaredchu/context-docs.git context-docs-skills &&
+  git clone --branch v0.2.10 https://github.com/jaredchu/context-docs.git context-docs-skills &&
   mkdir -p .agents/skills &&
   cp -r context-docs-skills/skills/context-docs context-docs-skills/skills/adopt-context-docs .agents/skills/ &&
   cat .agents/skills/context-docs/VERSION .agents/skills/adopt-context-docs/VERSION
@@ -224,9 +224,9 @@ project root:
 
 The sequence stops on the first failure and refuses existing skill folders or
 symlinks. A failed clone copies nothing. The new `context-docs-skills/` folder is
-the source checkout; it is not the active skill directory. Expect `0.2.9` then
+the source checkout; it is not the active skill directory. Expect `0.2.10` then
 `0.1.17`. For existing installations, [review upgrades](#upgrading) first.
-The earlier CLI trial used v0.2.7. Tests for the v0.2.9 commands use a simulated clone.
+The earlier CLI trial used v0.2.7. Tests for the v0.2.10 commands use a simulated clone.
 
 **Other locations (documented, untested).** Google's [skills reference](https://antigravity.google/docs/skills)
 lists `~/.gemini/config/skills/` as the shared global location. It also lists
@@ -605,6 +605,9 @@ See the [synthetic example](../examples/progress.md) and the packaged
 [progress guidance](../skills/context-docs/references/progress.md).
 For a work item that needs its own handoff, see the
 [opt-in Markdown ticket variation](../examples/progress.md#opt-in-markdown-ticket).
+Core 0.2.10 adds a [shared ticket lifecycle](../skills/context-docs/references/tickets.md)
+for existing ticket projects and explicit ticket requests, including filing
+completed tickets and reopening them. See the [v0.2.10 release notes](releases/v0.2.10.md).
 
 ### Starting from earlier notes
 

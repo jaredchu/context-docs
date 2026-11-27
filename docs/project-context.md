@@ -1,10 +1,11 @@
 # Project context
 
 Context Docs helps people preserve decisions, current work and next steps across
-AI sessions using their project's Markdown. The published standalone bundle is
-the [v0.2.9 experimental prerelease](releases/v0.2.9.md), with core **0.2.9**
-and adoption **0.1.17**. It retires optional JSONL capture and preserves
-historical records.
+AI sessions using their project's Markdown. The
+[v0.2.10 experimental prerelease](releases/v0.2.10.md) bundles core **0.2.10**
+and adoption **0.1.17**. The installation guide selects this bundle. The earlier
+[v0.2.9 release](releases/v0.2.9.md) retired optional JSONL capture and
+preserved historical records.
 
 ## Purpose and scope
 
@@ -22,9 +23,10 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
 - **Goal:** Preserve accurate project context with little manual organization.
   - **Available:** Use the [standalone workflow](getting-started.md#use-it) and
     the [Reading Queue walkthrough and cross-client handoffs](switching-agents-examples.md).
-  - **Optional workflow:** [Markdown ticket example](../examples/progress.md#opt-in-markdown-ticket).
-    The [docs-only decision](project-decisions.md#markdown-tickets-remain-docs-only)
-    records when to reconsider skill guidance.
+  - **Optional workflow:** The [Markdown ticket example](../examples/progress.md#opt-in-markdown-ticket)
+    shows work-item handoffs. Core 0.2.10 adds a shared
+    [ticket lifecycle](../skills/context-docs/references/tickets.md) for filing
+    completed tickets and reopening them in projects that opt in.
 
 ## Decisions
 

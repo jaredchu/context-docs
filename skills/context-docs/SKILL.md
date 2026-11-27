@@ -1,6 +1,6 @@
 ---
 name: context-docs
-description: Create, audit, and maintain project context documents and Markdown progress views for continuity across AI sessions. Use when establishing context conventions, refreshing project state, visualizing progress toward a documented goal, or consolidating stale context. Adapt to existing layouts and preserve decisions and evidence. Not for general copyediting or storing conversation transcripts.
+description: Create, audit, and maintain project context documents and Markdown progress views for continuity across AI sessions. Use when establishing context conventions, refreshing project state, visualizing progress toward a documented goal, consolidating stale context, or managing existing or requested Markdown tickets. Adapt to existing layouts and preserve decisions and evidence. Not for general copyediting or storing conversation transcripts.
 ---
 
 # Context Docs
@@ -26,6 +26,10 @@ unclear. Preserve existing layouts and concurrent edits.
   Consult the standard when roles, conflicting statuses or restructuring need it.
   Ordinary document repairs are included; proposed product decisions are not approved
   by a maintenance request. A review without permission to edit remains an audit.
+- **Markdown tickets:** For ticket work in a project that already uses Markdown
+  tickets, or when the user asks to use them, read the [ticket lifecycle](references/tickets.md).
+  Keep ticket details in the ticket and link relevant work from the existing
+  progress view. Routine context maintenance needs only the tickets it touches.
 
 ## Visualize progress in Markdown
 
