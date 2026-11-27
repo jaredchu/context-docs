@@ -493,6 +493,15 @@ deployment below records its source and checks.
 
 ## Latest deployment
 
+### Four-skill chatbot guide link
+
+On November 28, 2026, [source `08d07f0`](https://github.com/jaredchu/context-docs/commit/08d07f03c32727181579de2edbd39592691db479)
+added the [four-skill chatbot guide link](https://context-docs.com/examples/#chatbot-workflow-title)
+to Examples. The [Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/46057146396)
+deployed Worker version `eda73114-ef02-41fc-89fc-21c274786195`. The live
+Examples page matched the locally built HTML and carried the verified guide
+link. This was a website update.
+
 ### v0.2.10 install pin deployment
 
 The v0.2.10 install pins went live from **`b949397`**
