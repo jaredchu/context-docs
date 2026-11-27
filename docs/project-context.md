@@ -51,16 +51,15 @@ evidence IDs when needed. See the [public context decision](project-decisions.md
   support validated through bounded CLI trials. Cursor's editor and Antigravity's
   App and IDE were not separately tested.
 - **Website:** The [deployment record](../site/README.md#latest-deployment) gives
-  the verified source (`9008ac6`) and deployment history. Relevant pushes to
+  the verified source (`b949397`) and deployment history. Relevant pushes to
   `main` deploy through Workers Static Assets. The
   [Reading Queue app record](reading-queue-example.md) covers its separate deployment
   and walkthrough checks. [Search indexing and AI citations](../site/README.md#search-discovery)
   remain unestablished.
 - **Discovery:** [GitHub metadata](github-discovery.md) and the
   [skills.sh refresh workflow](skills-sh-refresh.md) have their own procedures.
-  The [v0.2.9 publication check](releases/v0.2.9.md#publication-and-upgrade-verification)
-  verified both installed packages. Both skills.sh listings still showed earlier
-  text at the final check.
+  The [v0.2.10 discovery check](releases/v0.2.10.md#discovery-verification)
+  verified both packages in an isolated install and records the listing checks.
 - **Project setup:** [AGENTS.md](../AGENTS.md), imported by [CLAUDE.md](../CLAUDE.md),
   records the maintenance rule. For existing JSONL records, see the
   [upgrade note](getting-started.md#older-jsonl-journal-setups).

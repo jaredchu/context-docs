@@ -493,6 +493,24 @@ deployment below records its source and checks.
 
 ## Latest deployment
 
+### v0.2.10 install pin deployment
+
+The v0.2.10 install pins went live from **`b949397`**
+([exact source](https://github.com/jaredchu/context-docs/commit/b949397205d8b6435c5fc4e69078d49ebc2c854c)).
+[Static checks](https://github.com/jaredchu/context-docs/actions/runs/46004255343) and the automatic
+[Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/46004255345) passed.
+The [Cloudflare deploy job](https://github.com/jaredchu/context-docs/actions/runs/46004255345/job/140523489103)
+recorded Worker version `8912a6e5-023a-4385-bf17-510d092c048e`.
+
+On November 27, 2026, both CI manifests and all 19 uploaded files matched a
+rebuild from that commit. The empty `.nojekyll` marker is local to the build.
+All 18 canonical HTTPS resources returned HTTP 200 and matched the artifact
+byte for byte. The homepage and guide showed the released bundle and all four
+v0.2.10 install examples. The old Reading Queue route returned HTTP 301 to
+the example.
+
+### v0.2.9 install pin deployment
+
 The v0.2.9 install pins went live from **`9008ac6`**
 ([exact source](https://github.com/jaredchu/context-docs/commit/9008ac6a9def7e02bcc51c5f13254ead5aa2c6ef)).
 [Static checks](https://github.com/jaredchu/context-docs/actions/runs/45556787801) and the automatic

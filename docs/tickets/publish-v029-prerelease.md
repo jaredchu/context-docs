@@ -20,7 +20,7 @@ before acting on this ticket.
 ## Status
 
 Completed 2026-11-25. [v0.2.9](https://github.com/jaredchu/context-docs/releases/tag/v0.2.9)
-is published from `3337eb9`. The [website deployment](../../site/README.md#latest-deployment)
+is published from `3337eb9`. The [website deployment](../../site/README.md#v029-install-pin-deployment)
 verified the install pins from `9008ac6`. Both archives and the isolated install
 matched the 13 verified package files. Both skills.sh listings still showed
 earlier text at the final check.
