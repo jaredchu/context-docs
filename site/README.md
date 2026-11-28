@@ -493,6 +493,18 @@ deployment below records its source and checks.
 
 ## Latest deployment
 
+### Project notebook comic
+
+On November 28, 2026, source `b16a372` replaced the workflow illustration with
+a notebook comic and updated the homepage to lead with keeping context in
+project Markdown. The deployment used Worker version
+`0ea55eea-6fd1-438c-813d-388fb82f600e`. [Source](https://github.com/jaredchu/context-docs/commit/b16a37274c1a82412ce0fce1e29c2872b89e9b84) · [Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/46123994310)
+
+Both CI manifests and all 19 uploaded files matched the pinned build. All 18
+canonical HTTPS resources, including the homepage and comic, returned HTTP 200
+with matching bytes. The old Reading Queue path returned HTTP 301 to the
+canonical example. [Static checks](https://github.com/jaredchu/context-docs/actions/runs/46123994396)
+
 ### Four-skill chatbot guide link
 
 On November 28, 2026, [source `08d07f0`](https://github.com/jaredchu/context-docs/commit/08d07f03c32727181579de2edbd39592691db479)
