@@ -1,13 +1,13 @@
 # Context Docs
 
-**Keep decisions, current work and next steps across AI sessions.**
+**Keep decisions, current work and next steps in your project.**
 
 Context Docs provides reusable agent skills for context management in Codex and
 Claude Code, with **experimental Cursor and Antigravity support**, validated
 through their CLIs. The Cursor editor and Antigravity App and IDE were not
-separately tested. Preserve project knowledge in readable Markdown so a new AI
-session can pick up where you left off: what was decided and why, what is done
-or blocked, and what to do next.
+separately tested. Your agent helps maintain readable project Markdown that
+records what was decided and why, what is done or blocked, and what to do next.
+Later sessions can use those same files to continue the work.
 
 Designed for people without an established context-management workflow, it uses
 your project's existing documents with as little setup and manual organization
@@ -17,7 +17,7 @@ as possible.
 PRD, design and task files. Review the context updates as you build, then ask your
 next session to read them.
 
-![Illustrative workflow: do the work, save decisions and reasons, current work and next steps in project Markdown, then ask a new session to read the saved note and check the project. The agent works during active sessions; review its changes.](assets/context-docs-overview.png)
+![A robot agent writes in a giant notebook labeled Project Context and says, “Dear diary, we chose SQLite. See below for why.”](assets/context-docs-overview.png)
 
 [Website](https://context-docs.com/) · [Get started](#get-started) · [See an example](#what-you-get) · [User guide](docs/getting-started.md) · [Evidence](docs/evaluation-results.md) · [Contribute](CONTRIBUTING.md)
 

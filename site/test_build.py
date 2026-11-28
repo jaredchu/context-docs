@@ -1271,7 +1271,7 @@ class LandingBuildTests(unittest.TestCase):
         home = landing.render(landing.ROOT)
         resume = home[home.index('id="resume-prompt"'):home.index('id="release-details"')]
         self.assertIn('href="./examples/#switching"', resume)
-        self.assertIn('Your next session.<br><span>Less starting over.</span>', home)
+        self.assertIn('Keep context<br><span>in your project.</span>', home)
 
     def test_experiments_index_lists_both_reports_newest_first_with_qualified_summaries(self):
         repo = 'https://github.com/jaredchu/context-docs/blob/main/'

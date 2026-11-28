@@ -1,6 +1,19 @@
 # Brand and README artwork
 
-The November 7, 2026 UI reboot uses original, code-authored SVG artwork:
+The [notebook comic](context-docs-overview.png) appears in the README, on the
+homepage and in social previews. A coding agent writes down why it chose SQLite
+in a notebook labeled Project Context. The illustration was generated with the
+built-in ImageGen tool on November 28, 2026 and exported as a 1440×758 PNG.
+
+### Notebook comic prompt
+
+```text
+Use case: illustration-story. A funny, single-panel wide editorial cartoon to replace the main README and website illustration for Context Docs, an open-source skill that keeps decisions, current work and next steps in the project’s Markdown. One endearing cobalt-blue and graphite robot coding agent is carefully writing in a comically oversized open spiral notebook on its workbench, large enough to dwarf the robot and its nearby laptop. On the notebook, a big clear heading reads exactly “PROJECT CONTEXT”. The agent holds a pencil and looks comically earnest, as if writing the world’s driest diary. One large, highly readable speech bubble from the robot carries the exact joke “Dear diary, we chose SQLite. See below for why.” Under the notebook heading hint at tidy Markdown notes with simple ink lines and checkboxes, no extra legible text. Make the notebook and robot the distinct focus and leave open breathing space around the speech balloon. Hand-inked newspaper comic, bold rounded lines, very light paper grain, warm ivory base with cobalt and graphite, restrained soft blue accents, clean thin frame with at least 5% safe margins for a 1.9:1 crop. Keep lettering legible at README and mobile widths. One agent, one scene, no handoff imagery, no logos, no extra balloons, no typography besides the heading and dialogue.
+```
+
+## November 7, 2026 artwork
+
+The UI reboot introduced original, code-authored SVG artwork.
 
 - [Abstract C mark](context-docs-mark.svg): a solid angular graphite C with a
   detached cobalt terminal, suggesting context carried forward. Filled geometry
@@ -11,19 +24,19 @@ The November 7, 2026 UI reboot uses original, code-authored SVG artwork:
   uses system fonts and is intended for light surfaces.
 - [Workflow illustration source](context-docs-overview.svg): a technical minimalist
   light diagram showing work, saved project context and a new session reading it.
-- [PNG export](context-docs-overview.png): the 1600×840 browser-rendered SVG export
-  used by the README and social preview. It is not edited from the prior raster.
+- The 1600×840 browser-rendered SVG export appeared in the README and social
+  previews. [November 7 PNG export](https://github.com/jaredchu/context-docs/blob/92042e970957b8d9ec44990583efef395e8137d7/assets/context-docs-overview.png)
 
 The build exposes the canonical mark as `logo.svg`. The tracked site favicon
 uses the same exact SVG bytes. No third-party logo, remote font or stock asset
-is used. SVG sources remain editable; the PNG preserves compatibility with
+is used. SVG sources remain editable. The PNG format preserves compatibility with
 GitHub Markdown and social preview consumers.
 
 The workflow is illustrative, not a screenshot or an observed agent recording.
 It adds no claim of automatic synchronization, unlimited memory or guaranteed
 updates. The agent acts during active sessions and changes need review.
 
-The previous illustration remains available in the
+The October illustration remains available in the
 [v0.2.7 release snapshot](https://github.com/jaredchu/context-docs/blob/v0.2.7/assets/context-docs-overview.png).
 Its original generation provenance is retained below; it does not describe the
 current artwork.
