@@ -493,6 +493,15 @@ deployment below records its source and checks.
 
 ## Latest deployment
 
+### Direct four-skill workflow guide link
+
+On November 28, 2026, [source `c32af94`](https://github.com/jaredchu/context-docs/commit/c32af94f0228a629165beb9738dc22bb3af20ae6)
+changed the Examples link to open the [four-skill workflow guide](https://github.com/jaredchu/ai-workflow-chatbot/blob/main/docs/workflow-guide.md)
+directly. The [Landing page workflow](https://github.com/jaredchu/context-docs/actions/runs/46134823541)
+deployed Worker version `caecc86d-5a96-438c-962c-adc6c57fa833`. Static checks
+and 52 site tests passed. The live Examples link and the guide’s two-index
+buying example were verified. [Open the Examples entry](https://context-docs.com/examples/#chatbot-workflow-title)
+
 ### Project notebook comic
 
 On November 28, 2026, source `b16a372` replaced the workflow illustration with
